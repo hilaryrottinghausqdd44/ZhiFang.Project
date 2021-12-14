@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+	<object id="HRDeptDao" type="ZhiFang.Digitlab.DAO.NHB.HRDeptDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACUserDao" type="ZhiFang.Digitlab.DAO.NHB.RBACUserDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="HRDeptEmpDao" type="ZhiFang.Digitlab.DAO.NHB.HRDeptEmpDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="HRDeptIdentityDao" type="ZhiFang.Digitlab.DAO.NHB.HRDeptIdentityDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="HREmpIdentityDao" type="ZhiFang.Digitlab.DAO.NHB.HREmpIdentityDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="HREmployeeDao" type="ZhiFang.Digitlab.DAO.NHB.HREmployeeDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="HRPositionDao" type="ZhiFang.Digitlab.DAO.NHB.HRPositionDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACEmpRolesDao" type="ZhiFang.Digitlab.DAO.NHB.RBACEmpRolesDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACModuleDao" type="ZhiFang.Digitlab.DAO.NHB.RBACModuleDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACModuleOperDao" type="ZhiFang.Digitlab.DAO.NHB.RBACModuleOperDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACRoleDao" type="ZhiFang.Digitlab.DAO.NHB.RBACRoleDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACRoleModuleDao" type="ZhiFang.Digitlab.DAO.NHB.RBACRoleModuleDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACRoleRightDao" type="ZhiFang.Digitlab.DAO.NHB.RBACRoleRightDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACRowFilterDao" type="ZhiFang.Digitlab.DAO.NHB.RBACRowFilterDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="RBACEmpOptionsDao" type="ZhiFang.Digitlab.DAO.NHB.RBACEmpOptionsDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BLaboratoryDao" type="ZhiFang.Digitlab.DAO.NHB.BLaboratoryDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="SLogDao" type="ZhiFang.Digitlab.DAO.NHB.SLogDao,ZhiFang.Digitlab.DAO.NHB" >
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="DataRowRoleHQL" type="ZhiFang.Digitlab.Entity.DataRowRoleHQL,ZhiFang.Digitlab.Entity" >
+	</object>
+	<!--质控系统相关-->
+
+	<object id="EPBEquipDao" type="ZhiFang.Digitlab.DAO.NHB.EPBEquipDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<!--<object id="QCDValueDao" type="ZhiFang.Digitlab.DAO.NHB.QCDValueDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>-->
+
+	<!--<object id="QCItemDao" type="ZhiFang.Digitlab.DAO.NHB.QCItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>-->
+
+	<!--<object id="QCItemTimeDao" type="ZhiFang.Digitlab.DAO.NHB.QCItemTimeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>-->
+
+	<!--<object id="QCMatDao" type="ZhiFang.Digitlab.DAO.NHB.QCMatDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="QCMatTimeDao" type="ZhiFang.Digitlab.DAO.NHB.QCMatTimeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>-->
+
+	<object id="ItemAllItemDao" type="ZhiFang.Digitlab.DAO.NHB.ItemAllItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="ItemItemConDao" type="ZhiFang.Digitlab.DAO.NHB.ItemItemConDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<!--<object id="QCDLoseValueDao" type="ZhiFang.Digitlab.DAO.NHB.QCDLoseValueDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="QCRuleBaseDao" type="ZhiFang.Digitlab.DAO.NHB.QCRuleBaseDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="QCRuleUseDao" type="ZhiFang.Digitlab.DAO.NHB.QCRuleUseDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>-->
+
+	<object id="EPModuleDao" type="ZhiFang.Digitlab.DAO.NHB.EPModuleDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="EPEquipItemDao" type="ZhiFang.Digitlab.DAO.NHB.EPEquipItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<!--<object id="QCRulesConDao" type="ZhiFang.Digitlab.DAO.NHB.QCRulesConDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>-->
+
+	<!--构建工具相关-->
+	<object id="BTDAppComponentsDao" type="ZhiFang.Digitlab.DAO.NHB.BTDAppComponentsDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BTDModuleTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BTDModuleTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BTDAppComponentsRefDao" type="ZhiFang.Digitlab.DAO.NHB.BTDAppComponentsRefDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BTDAppComponentsOperateDao" type="ZhiFang.Digitlab.DAO.NHB.BTDAppComponentsOperateDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BTDAppPictureDao" type="ZhiFang.Digitlab.DAO.NHB.BTDAppPictureDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BTDPictureTypeConDao" type="ZhiFang.Digitlab.DAO.NHB.BTDPictureTypeConDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BTDPictureTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BTDPictureTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BTDMacroCommandDao" type="ZhiFang.Digitlab.DAO.NHB.BTDMacroCommandDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<!--单表相关-->
+
+	<object id="BConstellationDao" type="ZhiFang.Digitlab.DAO.NHB.BConstellationDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BProvinceDao" type="ZhiFang.Digitlab.DAO.NHB.BProvinceDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSexDao" type="ZhiFang.Digitlab.DAO.NHB.BSexDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BMaritalStatusDao" type="ZhiFang.Digitlab.DAO.NHB.BMaritalStatusDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BNationalityDao" type="ZhiFang.Digitlab.DAO.NHB.BNationalityDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BEducationLevelDao" type="ZhiFang.Digitlab.DAO.NHB.BEducationLevelDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BHealthStatusDao" type="ZhiFang.Digitlab.DAO.NHB.BHealthStatusDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BPaymentTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BPaymentTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BBusinessTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BBusinessTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BProjectTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BProjectTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BExecutionStateDao" type="ZhiFang.Digitlab.DAO.NHB.BExecutionStateDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BBackSectionStateDao" type="ZhiFang.Digitlab.DAO.NHB.BBackSectionStateDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BLevelDao" type="ZhiFang.Digitlab.DAO.NHB.BLevelDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BReimbursementStateDao" type="ZhiFang.Digitlab.DAO.NHB.BReimbursementStateDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSubjectDao" type="ZhiFang.Digitlab.DAO.NHB.BSubjectDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BFinancialDao" type="ZhiFang.Digitlab.DAO.NHB.BFinancialDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BReimbursementTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BReimbursementTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BReportCycleDao" type="ZhiFang.Digitlab.DAO.NHB.BReportCycleDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BReportStatusDao" type="ZhiFang.Digitlab.DAO.NHB.BReportStatusDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BReportTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BReportTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BURLGroupDao" type="ZhiFang.Digitlab.DAO.NHB.BURLGroupDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BURLTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BURLTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BFileGroupDao" type="ZhiFang.Digitlab.DAO.NHB.BFileGroupDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BFileTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BFileTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BCityDao" type="ZhiFang.Digitlab.DAO.NHB.BCityDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BCountryDao" type="ZhiFang.Digitlab.DAO.NHB.BCountryDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BDegreeDao" type="ZhiFang.Digitlab.DAO.NHB.BDegreeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BPoliticsStatusDao" type="ZhiFang.Digitlab.DAO.NHB.BPoliticsStatusDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BProfessionalAbilityDao" type="ZhiFang.Digitlab.DAO.NHB.BProfessionalAbilityDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BDicDao" type="ZhiFang.Digitlab.DAO.NHB.BDicDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BDicClassDao" type="ZhiFang.Digitlab.DAO.NHB.BDicClassDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+
+
+	<object id="BCheckStatusDao" type="ZhiFang.Digitlab.DAO.NHB.BCheckStatusDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BLeaveTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BLeaveTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BAttendanceTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BAttendanceTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BProduceDao" type="ZhiFang.Digitlab.DAO.NHB.BProduceDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BStorehouseDao" type="ZhiFang.Digitlab.DAO.NHB.BStorehouseDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BStorageTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BStorageTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSupplierDao" type="ZhiFang.Digitlab.DAO.NHB.BSupplierDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BAgeUnitDao" type="ZhiFang.Digitlab.DAO.NHB.BAgeUnitDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BDiagDao" type="ZhiFang.Digitlab.DAO.NHB.BDiagDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSickTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BSickTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BStatusDao" type="ZhiFang.Digitlab.DAO.NHB.BStatusDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BTestTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BTestTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTBSampleSourceDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTBSampleSourceDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTBSpecialTimeTypeDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTBSpecialTimeTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BPatientInfoDao" type="ZhiFang.Digitlab.DAO.NHB.BPatientInfoDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSampleOperateDao" type="ZhiFang.Digitlab.DAO.NHB.BSampleOperateDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSampleOperateTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BSampleOperateTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSampleStatusDao" type="ZhiFang.Digitlab.DAO.NHB.BSampleStatusDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSampleStatusTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BSampleStatusTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BOperateObjectTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BOperateObjectTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSampleTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BSampleTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BTimeUnitDao" type="ZhiFang.Digitlab.DAO.NHB.BTimeUnitDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BNodeTableDao" type="ZhiFang.Digitlab.DAO.NHB.BNodeTableDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BSpecialtyDao" type="ZhiFang.Digitlab.DAO.NHB.BSpecialtyDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BPhraseTypeDao" type="ZhiFang.Digitlab.DAO.NHB.BPhraseTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BPhraseDao" type="ZhiFang.Digitlab.DAO.NHB.BPhraseDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="GMGroupTypeDao" type="ZhiFang.Digitlab.DAO.NHB.GMGroupTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="GMGroupDao" type="ZhiFang.Digitlab.DAO.NHB.GMGroupDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="GMGroupEquipDao" type="ZhiFang.Digitlab.DAO.NHB.GMGroupEquipDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="GMGroupItemDao" type="ZhiFang.Digitlab.DAO.NHB.GMGroupItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="STypeDao" type="ZhiFang.Digitlab.DAO.NHB.STypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="STypeDetailDao" type="ZhiFang.Digitlab.DAO.NHB.STypeDetailDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="BNumberBuildRuleDao" type="ZhiFang.Digitlab.DAO.NHB.BNumberBuildRuleDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BNumberBuildRuleConditionDao" type="ZhiFang.Digitlab.DAO.NHB.BNumberBuildRuleConditionDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BMaxNumberToRuleDao" type="ZhiFang.Digitlab.DAO.NHB.BMaxNumberToRuleDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+
+	<!--检验分析前业务-->
+	<object id="MEPTBChargeDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTBChargeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTBChargeTypeDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTBChargeTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTSamplingTubeDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSamplingTubeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTSamplingGroupDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSamplingGroupDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTSamplingItemDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSamplingItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="MEPTSamplingGroupPrintDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSamplingGroupPrintDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTBarCodePrintTypeDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTBarCodePrintTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTGetReportTimeDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTGetReportTimeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="MEPTGetReportTimeOfItemDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTGetReportTimeOfItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTSpecialSplitDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSpecialSplitDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTItemSplitDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTItemSplitDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BParameterDao" type="ZhiFang.Digitlab.DAO.NHB.BParameterDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="MEPTGetReportTimeOfSickTypeDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTGetReportTimeOfSickTypeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTSampleTypeItemDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSampleTypeItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTDefaultItemModeDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTDefaultItemModeDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTDefaultItemModeRelationDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTDefaultItemModeRelationDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTNodeSampleSourceDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTNodeSampleSourceDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="MEPTOrderFormDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTOrderFormDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTOrderItemDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTOrderItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTSampleFormDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSampleFormDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTSampleItemDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSampleItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="MEPTDistributeGroupDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTDistributeGroupDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTDistributeGroupItemDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTDistributeGroupItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTDistributeRuleDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTDistributeRuleDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTDistributeRuleDetailDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTDistributeRuleDetailDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEPTSpecialDistributeRuleDao" type="ZhiFang.Digitlab.DAO.NHB.MEPTSpecialDistributeRuleDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
+	<object id="MEEquipSampleFormDao" type="ZhiFang.Digitlab.DAO.NHB.MEEquipSampleFormDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEEquipSampleItemDao" type="ZhiFang.Digitlab.DAO.NHB.MEEquipSampleItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEGroupSampleFormDao" type="ZhiFang.Digitlab.DAO.NHB.MEGroupSampleFormDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="MEGroupSampleItemDao" type="ZhiFang.Digitlab.DAO.NHB.MEGroupSampleItemDao,ZhiFang.Digitlab.DAO.NHB">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<!--<object id="BSpecialtyItemDao" type="ZhiFang.Digitlab.DAO.NHB.BSpecialtyItemDao,ZhiFang.Digitlab.DAO.NHB">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>-->
+	<!--试剂平台系统-->
+	<object id="BmsCenOrderDtlDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenOrderDtlDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BmsCenOrderDocDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenOrderDocDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="GoodsDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.GoodsDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="CenOrgTypeDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.CenOrgTypeDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="CenOrgConditionDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.CenOrgConditionDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="CenOrgDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.CenOrgDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BmsCenSaleDtlDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenSaleDtlDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BmsCenSaleDtlBarCodeDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenSaleDtlBarCodeDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BmsCenSaleDocDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenSaleDocDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="CenMsgDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.CenMsgDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="CenQtyDtlDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.CenQtyDtlDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BmsCenOrderDocHistoryDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenOrderDocHistoryDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BmsCenOrderDtlHistoryDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenOrderDtlHistoryDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BmsCenSaleDocHistoryDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenSaleDocHistoryDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="BmsCenSaleDtlHistoryDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.BmsCenSaleDtlHistoryDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="CenQtyDtlTempDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.CenQtyDtlTempDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="CenQtyDtlTempHistoryDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.CenQtyDtlTempHistoryDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="DBStoredProcedureDao" type="ZhiFang.Digitlab.DAO.NHB.ReagentSys.DBStoredProcedureDao,ZhiFang.Digitlab.DAO.NHB.ReagentSys">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+</objects>

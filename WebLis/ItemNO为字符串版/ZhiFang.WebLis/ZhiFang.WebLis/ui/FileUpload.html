@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>文件上传Demo</title>
+    <link href="../ui/easyui/demo/demo.css" rel="stylesheet" type="text/css" />
+    <link href="../ui/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../ui/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../EasyUI/jquery-easyui-1.4/jquery-1.11.0-vsdoc.js" type="text/javascript"></script>
+    <script src="../ui/easyui/jquery.min.js" type="text/javascript"></script>
+    <script src="../ui/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../ui/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../ui/util/util.js" type="text/javascript"></script>
+    <script language="javascript">
+        $(function () {
+            $('#fileuploadform').form({
+                url: "../ServiceWCF/PrintService.svc/AddReportModelFile",
+                onSubmit: function (para) {
+                    para.aaa = "123123123";
+                    return true;
+                },
+                success: function (data) {
+                    alert(data);
+                }
+            });
+            $('#send').bind('click', function () { $('#fileuploadform').submit(); });
+            //$('#ff').submit();
+        });
+    </script>
+</head>
+<body>
+<form id="fileuploadform" method="post" enctype="multipart/form-data"  >
+<input id="FileUpload1" name="FileUpload1" class="easyui-filebox" style="width:300px">
+<input id="FileUpload2" name="FileUpload2" type="file" value="123" />
+<input id="send" type="button" value="上传" />
+</form>
+</body>
+</html>

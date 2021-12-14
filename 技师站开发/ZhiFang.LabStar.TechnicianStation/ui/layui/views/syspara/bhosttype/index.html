@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>站点类型维护</title>
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<link rel="stylesheet" href="../../../../src/layui/dist/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../admin/layuiadmin/style/admin.css" media="all" />
+		<!-- <link rel="stylesheet" href="../css.css" media="all" /> -->
+		<style type="text/css">
+			.fixedBtm {
+				position: fixed;
+				bottom: 20px;
+				right: 15px;
+				left: 5px;
+				margin-left: 66%;
+				width: auto;
+				z-index: 1000;
+				text-align: center;
+			}
+			.tableHeight {
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layui-fluid">
+			<div class="layui-row layui-col-space5">
+				<div class="layui-col-md8">
+					<div class="layui-card ">
+						<div class="layui-card-body">
+							<div class="layui-row">
+								<div class="layui-col-sm12 layui-col-md12">
+									<!--上半部区域 查询条件区域 style="border-style: solid;border-color: #e6e6e6;border-width:1px;"-->
+									<div class="layui-form">
+										<div class="layui-form-item" style="margin-left:5px;margin-top:5px;margin-bottom:2px;">
+											<div class="layui-inline">
+												<div class="layui-input-inline">
+													<input type="text" id="table_bhosttype_like_search" placeholder="名称/简称" autocomplete="off" class="layui-input">
+												</div>
+												<div class="layui-inline">
+													<button class="layui-btn" data-type="search">查询</button>
+												</div>
+												<div class="layui-inline">
+													<button class="layui-btn" data-type="add">新增</button>
+												</div>
+												<div class="layui-inline">
+													<button class="layui-btn layui-btn-danger" data-type="delete">删除</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lay-row">
+								<div class="layui-table" id="table_bhosttype" lay-filter="table_bhosttype">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md4">
+					<div class="layui-card">
+						<div class="layui-card-body">
+							<div class="layui-form " id="form_bhosttype" lay-filter="form_bhosttype">
+								<div class="lay-row">
+									<div class="layui-form-item">
+										<label class="layui-form-label">名称</label>
+										<div class="layui-input-block">
+											<input type="text" name="BHostType_CName" lay-verify="required" lay-reqText="名称不能为空!" autocomplete="off"
+											 placeholder="" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">简称</label>
+										<div class="layui-input-block">
+											<input type="text" name="BHostType_SName" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">快捷码</label>
+										<div class="layui-input-block">
+											<input type="text" name="BHostType_Shortcode" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">拼音字头</label>
+										<div class="layui-input-block">
+											<input type="text" name="BHostType_PinYinZiTou" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">次序</label>
+										<div class="layui-input-block">
+											<input type="text" name="BHostType_DispOrder" autocomplete="off" lay-verify="number" lay-reqText="次序为数字值!"
+											 placeholder="" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">是否启用</label>
+										<div class="layui-input-inline">
+											<input type="checkbox" name="BHostType_IsUse" lay-skin="switch" lay-text="是|否" value="true">
+										</div>
+									</div>
+									<div class="layui-form-item" style="margin-bottom: 5px">
+										<label class="layui-form-label">备注</label>
+										<div class="layui-input-block">
+											<textarea placeholder="" class="layui-textarea" name="BHostType_HostTypeDesc" rows="6" autocomplete="off"></textarea>
+										</div>
+									</div>
+									<div class="layui-form-item layui-hide">
+										<input type="text" name="BHostType_Id" hidden="hidden" readonly="readonly" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-row fixedBtm" style="padding: 0px;background-color:#fff;">
+									<div class="layui-col-sm12 layui-col-xs12">
+										<div class="layui-form-item">
+											<div class="layui-input-block">
+												<button type="button" class="layui-btn" lay-submit lay-filter="form_submit_bhosttype" data-type="submit">保存</button>
+												<button type="button" class="layui-btn layui-btn-primary" lay-submit lay-filter="form_reset" data-type="form_reset">重置</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../../src/layui/src/layui.js"></script>
+		<script type="text/javascript" src="../../../config/system.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+
+</html>

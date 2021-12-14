@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BarCodeForm" table="[dbo].[BarCodeForm]">
+		<id name="Id" column="[BarCodeFormNo]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="BarCode" column="[BarCode]" type="String" not-null="true" length="30" />
+		<property name="SamplingGroupNo" column="[SamplingGroupNo]" type="Int32" not-null="false" length="4" />
+		<property name="IsPrep" column="[IsPrep]" type="Int32" not-null="false" length="4" />
+		<property name="IsSpiltItem" column="[isSpiltItem]" type="Int32" not-null="false" length="4" />
+		<property name="IsAffirm" column="[IsAffirm]" type="Int32" not-null="false" length="4" />
+		<property name="ReceiveFlag" column="[ReceiveFlag]" type="Int32" not-null="false" length="4" />
+		<property name="SampleCap" column="[SampleCap]" type="Double" not-null="false" length="8" />
+		<property name="ClientHost" column="[ClientHost]" type="String" not-null="false" length="60" />
+		<property name="Collecter" column="[Collecter]" type="String" not-null="false" length="300" />
+		<property name="CollecterID" column="[CollecterID]" type="Int64" not-null="false" length="300" />
+		<property name="CollectDate" column="[CollectDate]" type="DateTime" not-null="false" length="8" />
+		<property name="CollectTime" column="[CollectTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefuseUser" column="[refuseUser]" type="String" not-null="false" length="20" />
+		<property name="Refuseopinion" column="[refuseopinion]" type="String" not-null="false" length="100" />
+		<property name="Refusereason" column="[refusereason]" type="String" not-null="false" length="100" />
+		<property name="RefuseTime" column="[refuseTime]" type="DateTime" not-null="false" length="8" />
+		<property name="Signflag" column="[signflag]" type="Int32" not-null="false" length="4" />
+		<property name="Incepter" column="[incepter]" type="String" not-null="false" length="20" />
+		<property name="InceptTime" column="[inceptTime]" type="DateTime" not-null="false" length="8" />
+		<property name="InceptDate" column="[inceptDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ReceiveMan" column="[ReceiveMan]" type="String" not-null="false" length="20" />
+		<property name="ReceiveDate" column="[ReceiveDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ReceiveTime" column="[ReceiveTime]" type="DateTime" not-null="false" length="8" />
+		<property name="PrintInfo" column="[PrintInfo]" type="String" not-null="false" length="600" />
+		<property name="PrintCount" column="[PrintCount]" type="Int32" not-null="false" length="4" />
+		<property name="Dr2Flag" column="[Dr2Flag]" type="Int32" not-null="false" length="4" />
+		<property name="FlagDateDelete" column="[FlagDateDelete]" type="DateTime" not-null="false" length="8" />
+		<property name="DispenseFlag" column="[DispenseFlag]" type="Int32" not-null="false" length="4" />
+		<property name="SerialScanTime" column="[SerialScanTime]" type="String" not-null="false" length="30" />
+		<property name="BarCodeSource" column="[BarCodeSource]" type="Int32" not-null="false" length="4" />
+		<property name="DeleteFlag" column="[DeleteFlag]" type="Int32" not-null="false" length="4" />
+		<property name="SendOffFlag" column="[SendOffFlag]" type="Int32" not-null="false" length="4" />
+		<property name="SendOffMan" column="[SendOffMan]" type="String" not-null="false" length="20" />
+		<property name="EMSMan" column="[EMSMan]" type="String" not-null="false" length="20" />
+		<property name="SendOffDate" column="[SendOffDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ReportSignMan" column="[ReportSignMan]" type="String" not-null="false" length="20" />
+		<property name="ReportSignDate" column="[ReportSignDate]" type="DateTime" not-null="false" length="8" />
+		<property name="RefuseIncepter" column="[RefuseIncepter]" type="String" not-null="false" length="20" />
+		<property name="RefuseIncepterMemo" column="[RefuseIncepterMemo]" type="String" not-null="false" length="200" />
+		<property name="ReportFlag" column="[ReportFlag]" type="Int32" not-null="false" length="4" />
+		<property name="SendOffMemo" column="[SendOffMemo]" type="String" not-null="false" length="200" />
+		<property name="SampleTypeNo" column="[SampleTypeNo]" type="Int32" not-null="false" length="4" />
+		<property name="SampleSendNo" column="[SampleSendNo]" type="String" not-null="false" length="30" />
+		<property name="WebLisFlag" column="[WebLisFlag]" type="Int32" not-null="false" length="4" />
+		<property name="WebLisOpTime" column="[WebLisOpTime]" type="DateTime" not-null="false" length="8" />
+		<property name="WebLiser" column="[WebLiser]" type="String" not-null="false" length="50" />
+		<property name="WebLisDescript" column="[WebLisDescript]" type="String" not-null="false" length="500" />
+		<property name="WebLisOrgID" column="[WebLisOrgID]" type="String" not-null="false" length="50" />
+		<property name="WebLisIsReply" column="[WebLisIsReply]" type="Int32" not-null="false" length="4" />
+		<property name="WebLisReplyDate" column="[WebLisReplyDate]" type="String" not-null="false" length="50" />
+		<property name="WebLisSourceOrgId" column="[WebLisSourceOrgId]" type="String" not-null="true" length="50" />
+		<property name="WebLisUploadTime" column="[WebLisUploadTime]" type="DateTime" not-null="false" length="8" />
+		<property name="WebLisUploadStatus" column="[WebLisUploadStatus]" type="Int32" not-null="false" length="4" />
+		<property name="WebLisUploadTestStatus" column="[WebLisUploadTestStatus]" type="Int32" not-null="false" length="4" />
+		<property name="WebLisUploader" column="[WebLisUploader]" type="String" not-null="false" length="50" />
+		<property name="WebLisUploadDes" column="[WebLisUploadDes]" type="String" not-null="false" length="500" />
+		<property name="WebLisSourceOrgName" column="[WebLisSourceOrgName]" type="String" not-null="false" length="300" />
+		<property name="ClientNo" column="[ClientNo]" type="String" not-null="false" length="50" />
+		<property name="ClientName" column="[ClientName]" type="String" not-null="false" length="300" />
+		<property name="BarCodeOpTime" column="[BarCodeOpTime]" type="DateTime" not-null="false" length="8" />
+		<property name="WebLisOrgName" column="[WebLisOrgName]" type="String" not-null="false" length="50" />
+		<property name="Color" column="[color]" type="String" not-null="false" length="20" />
+		<property name="ItemName" column="[ItemName]" type="String" not-null="false" length="500" />
+		<property name="ItemNo" column="[ItemNo]" type="String" not-null="false" length="500" />
+		<property name="SampleTypeName" column="[SampleTypeName]" type="String" not-null="false" length="200" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>字典对照</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../../../css/admin.css");
+    </script>
+    <style>
+		.formItem{margin-top: 10px;}
+    </style>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-col-sm12 layui-col-xs12" id="main">
+            <!--主体部分-->
+            <div class="layui-row layui-col-space5">
+                <div class="layui-col-sm12 layui-col-xs12">                      
+					<div class="layui-row">
+						<form class="layui-form" id="">
+							<div class="layui-row" style="">
+								<div class="layui-block formItem">
+									 <label class="layui-form-label" style="width: 73px;">对照项目:</label>
+									 <div class="layui-input-inline">
+										 <select name="ItemID" lay-search="" id="ItemID" lay-filter="ItemID">
+											 <option value="">请选择</option>
+										 </select>
+									 </div>
+								</div>
+								<div class="layui-block formItem" >
+									<label class="layui-form-label" style="width: 73px;">对照编码:</label>
+									<div class="layui-input-inline">
+										 <input type="text" name="LinkDicDataCode" id="LinkDicDataCode" autocomplete="off" placeholder="" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-block formItem" >
+									<label class="layui-form-label" style="width: 73px;">对照名称:</label>
+									<div class="layui-input-inline">
+										 <input type="text" name="LinkDicDataName" id="LinkDicDataName" autocomplete="off" placeholder="" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-block formItem">
+									 <label class="layui-form-label" style="width: 73px;">对接类型:</label>
+									 <div class="layui-input-inline">
+										 <select name="TransTypeID" lay-search="" id="TransTypeID" lay-filter="TransTypeID">
+											 <option value="0">进出</option>
+											 <option value="1">进</option>
+											 <option value="2">出</option>
+										 </select>
+									 </div>
+								</div>
+								<!-- <div class="layui-block formItem" >
+									<label class="layui-form-label" style="width: 73px;"></label>
+									<div class="layui-input-inline">
+										<button class="layui-btn layui-btn-sm" id="add" type="button"  lay-submit lay-filter="add">保存</button>
+									</div>
+								</div> -->
+							</div>
+						</form>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('addcontrast.js');
+    </script>
+</body>
+</html>

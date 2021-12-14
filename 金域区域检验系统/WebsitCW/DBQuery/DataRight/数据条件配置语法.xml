@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Grammar>
+	<COMP>
+		 <comp name="equal"  cname="等于" datatype="数字+字符+日期" />
+		 <comp name="ne"  cname="不等于" datatype="数字+字符+日期" />
+		 <comp name="gt"  cname="大于" datatype="数字+日期" />
+		 <comp name="ge"  cname="大于等于" datatype="数字+日期" />
+		 <comp name="lt"  cname="小于" datatype="数字+日期" />
+		 <comp name="le"  cname="小于等于" datatype="数字+字符" />
+		 <comp name="include"  cname="包含" datatype="字符" />
+    <comp name="noinclude"  cname="不包含" datatype="字符" />
+    <comp name="includein"  cname="包含于" datatype="字符" />
+    <comp name="noincludein"  cname="不包含于" datatype="字符" />
+    <comp name="begin"  cname="开始于" datatype="字符" />
+		 <comp name="end"  cname="结束于" datatype="字符" />
+	</COMP>
+
+	<MACRO>
+		 <macro name="EmployeeID" cname="登录者编号" argc="0" /> 
+			<!--配置结果：EmployeeID()-->
+		 <macro name="EmployeeName" cname="登录者姓名" argc="0" />
+		 <macro name="DepartmentID" cname="登录者部门编号" argc="0" /> 
+			<!--配置结果：DepartmentID(1)-->
+			<!-- 无参数时，表示登录者的部门编号与当前部门字段相同-->
+			<!-- 有1个参数表示登录者的部门编号为当前部门字段的上级部门，参数为上几级-->
+		 <macro name="DepartmentName" cname="登录者部门名称()" argc="0" /> 
+		 <macro name="DepartmentName" cname="登录者部门名称(1)" argc="1" /> 
+		<macro name="DepartmentName" cname="登录者部门名称(2)" argc="2" /> 
+			<!--配置结果：DepartmentName(1)-->
+			<!-- 无参数时，表示登录者的部门与当前部门字段相同-->
+			<!-- 有1个参数表示登录者的部门为当前部门字段的上级部门，参数为上几级-->
+		 <macro name="PostID" cname="登录者岗位编号" argc="0" />
+		 <macro name="PostName" cname="登录者岗位名称" argc="0" />
+		 <macro name="DutyID" cname="登录者职位编号" argc="0" />
+		 <macro name="DutyName" cname="登录者职位名称" argc="0" />
+		 <macro name="CurrentDate" cname="当前日期" argc="0" />
+		 <macro name="CurrentTime" cname="当前日期时间" argc="0" />
+	</MACRO>
+</Grammar>

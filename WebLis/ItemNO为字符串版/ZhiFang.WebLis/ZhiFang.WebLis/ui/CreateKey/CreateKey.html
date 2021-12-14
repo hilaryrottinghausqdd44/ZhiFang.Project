@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--不缓存缓存页面-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<title>客户端密钥生成</title>
+		<script src="../util/common.js"></script>
+		<script src="CreateKey.js?v1.2"></script>
+		<style type="text/css">
+			#fm {
+				margin: 0;
+				padding: 10px 30px;
+			}
+			
+			.fTitle {
+				font-size: 14px;
+				font-weight: bold;
+				padding: 5px 0;
+				margin-bottom: 10px;
+				border-bottom: 1px solid #cccccc;
+			}
+			
+			.fItem {
+				margin-bottom: 15px;
+			}
+			
+			.fItem label {
+				margin-left: 10px;
+				display: inline-block;
+				width: 80px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="frm" class="easyui-form" method="post" buttons="#dlgButtons">
+			<div class="fItem" style="margin-top:20px">
+				<label>当前用户:</label>
+				<input id="UserCName" type="text" name="UserCName" class="easyui-textbox" style="width: 200px;" disabled="disabled" data-options="required:true" />
+			</div>
+			<div class="fItem" style="margin-top:20px">
+				<label>单位编码:</label>
+				<input id="LabCode" type="text" name="LabCode" class="easyui-textbox" style="width: 200px;" disabled="disabled" data-options="required:true" />
+			</div>
+			<div class="fItem">
+				<label>单位名称:</label>
+				<input id="LabCName" type="text" name="LabCName" class="easyui-textbox" style="width: 200px;" disabled="disabled" data-options="required:true" />
+			</div>
+			<div class="fItem">
+				<label>有效期至:</label>
+				<input id="Validity" name="Validity" style="width:100px;" class="easyui-datebox" data-options="required:true" />
+			</div>
+		</div>
+		<div id="dlgButtons" style="background: #eeeeee;margin-top:10px;">
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="onCreateAes()" iconCls="icon-save">生成密钥</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="onDownloadAes()" iconCls="icon-search" id="downloadAes" hidden="hidden">下载密钥</a>
+		</div>
+
+		<div id="dlg" class="easyui-dialog" style="padding:5px;width:200px;height:130px;font-size: 14px;" closed="true" title="密钥文件" toolbar="#dlg-toolbar" buttons="#dlg-buttons">
+			<label>生成密钥文件成功！</label><br />
+			<label>是否下载密钥文件?</label>
+		</div>
+		<div id="dlg-buttons">
+			<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="onDownloadAes2()">下载</a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
+		</div>
+
+	</body>
+
+</html>

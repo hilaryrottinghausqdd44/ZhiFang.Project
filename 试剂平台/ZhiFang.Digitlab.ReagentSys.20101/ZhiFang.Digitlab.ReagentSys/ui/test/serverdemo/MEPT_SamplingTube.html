@@ -1,0 +1,108 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTSamplingTubeByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTSamplingTubeById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelMEPTSamplingTube',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddMEPTSamplingTube',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTSamplingTubeByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTSamplingTube',
+
+    		//采样管设置对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'MEPTSamplingTube_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'MEPTSamplingTube_Id',value:'采样管ID'},						 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_ChargeID',value:'费用ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_CName',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_EName',value:'英文名称'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_ColorName',value:'颜色名称'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_ColorValue',value:'颜色值'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_Capacity',value:'容量'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_Unit',value:'单位'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_MinCapacity',value:'最少标本量'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_DispOrder',value:'显示次序'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_PinYinZiTou',value:'汉字拼音字头   主要用于录入方便'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_Comment',value:'说明'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'MEPTSamplingTube_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'MEPTSamplingTube_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'采样管设置',
+    		//主键字段
+    		key:'MEPTSamplingTube_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

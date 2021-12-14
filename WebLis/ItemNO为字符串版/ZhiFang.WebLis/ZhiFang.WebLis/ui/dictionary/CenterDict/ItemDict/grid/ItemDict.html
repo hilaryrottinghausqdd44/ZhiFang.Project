@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../../../easyui/jquery.min.js"></script>
+    <!--<script src="../../../../easyui/jquery.easyui.min.js"></script>-->
+    <script src="../../../../easyui/myEasyui/jquery.easyui.min.js"></script>
+    <link href="../../../../easyui/themes/icon.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/buttons.css">
+    <link href="../../../../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../../../../util/util.js"></script>
+    <script src="../../../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../../../util/util_easyui.js"></script>
+    <script src="ItemDict.js?v=2017072703"></script>
+    <style type="text/css">
+        #fm {margin: 0;padding: 10px 30px; }
+        .fTitle {font-size: 14px; font-weight: bold;padding: 5px 0; margin-bottom: 10px; border-bottom: 1px solid #cccccc; }
+        .fItem { margin-bottom: 5px; }
+        .fItem label {display: inline-block; }
+    </style>
+</head>
+<body>
+        <table title="中心项目字典表" id="dg"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; width:auto; display:inline;">
+
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="copy()" plain="true" data-options="iconCls:'button-copy'">复制</a>
+            </div>
+            <div style="margin-left: 10px; float: left; display: inline;" id="copy">
+                <input style="width:200px;" id="txtlabNo" />
+
+                <a href="javascript:void(0)" class="easyui-linkbutton" id="labsave" onclick="selectsave()" plain="true" data-options="iconCls:'icon-save'">保存</a>
+            </div>
+            
+            <div style="float: right; margin-right: 10px; margin-top: 3px; display: inline;">
+                 <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入编码/名称/简称',searcher:doSearch" style="width:200px;"/>
+
+            </div>
+        </div>
+        <div id="dlg" class="easyui-dialog" style="width:590px;height:510px;margin: auto;" closed="true" buttons="#dlgButtons">
+            <form id="fm">
+                <table>
+                    <tr>
+                        <td class="fItem" style="float:left;">
+                            <label style="width:100px">项目编号:</label>
+                            <input id='txtItemNo' name="ItemNo" class="easyui-textbox"  data-options="required:true,validType:['length[0,50]']" style="width: 130px;">
+                        </td>
+                        <td class="fItem" style="float: right;margin-left:20px;">
+                            <label style="width:110px">保密等级:</label>
+                            <select id="ddlSecretgrade" name="Secretgrade" class="easyui-combobox" panelheight=auto editable="false" style="width: 130px;">
+                                <option value="0">不保密</option>
+                                <option value="1">保密</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">项目中文名称:</label>
+                            <input id="txtCName" name="CName" class="easyui-textbox" required="required" style="width: 130px;">
+                        </td>
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">单位:</label>
+                            <input id="txtUnit" name="Unit" class="easyui-textbox"  style="width: 130px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">项目英文名称:</label>
+                            <input id="txtEName" name="EName" class="easyui-textbox" required="required" style="width: 130px;">
+                        </td>
+
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">是否计算项目:</label>
+                            <select id="ddlIsCalc" name="IsCalc" class="easyui-combobox" editable="false" panelheight=auto  style="width: 130px;">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">项目简称:</label>
+                            <input id="txtShortName" name="ShortName" class="easyui-textbox" required="required" style="width: 130px;">
+                        </td>
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">精度:</label>
+                            <select id="ddlPrec" name="Prec" class="easyui-combobox" editable="false" panelheight=auto style="width: 130px;">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">项目简码:</label>
+                            <input id="txtShortCode" name="ShortCode" class="easyui-textbox" required="required" style="width: 130px;">
+                        </td>
+
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">对应医嘱系统编码:</label>
+                            <input id="txtOrderNo" name="OrderNo" class="easyui-textbox" style="width: 130px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">项目价格:</label>
+                            <input id="txtPrice" name="Price" class="easyui-numberbox" style="width: 130px;">
+                        </td>
+
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">是否显示:</label>
+                            <select id="ddlVisible" name="Visible" editable="false" class="easyui-combobox" panelheight=auto style="width: 130px;">
+                                <option value="0">否</option>
+                                <option selected="selected" value="1">是</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">提示等级:</label>
+                            <select id="ddlCuegrade" name="Cuegrade" class="easyui-combobox" panelheight=auto style="width: 130px;" editable="false">
+                                <option value="0">普通</option>
+                                <option value="1">特殊</option>
+                            </select>
+                        </td>
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">是否是医嘱项目:</label>
+                            <select id="ddlIsDoctorItem" name="IsDoctorItem" editable="false" panelheight=auto class="easyui-combobox" style="width: 130px;">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">是否是收费项目:</label>
+                            <select id="ddlIschargeItem" name="IschargeItem" editable="false" panelheight=auto class="easyui-combobox" style="width: 130px;">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </td>
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">检验方法:</label>
+                            <input id="txtDiagMethod" name="DiagMethod" class="easyui-textbox" style="width: 130px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">显示次序:</label>
+                            <input id="txtDisOrder" name="DispOrder" class="easyui-textbox" style="width: 130px;">
+                        </td>
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">颜色:</label>
+                            <input id="txtColor" name="Color" class="easyui-combobox" style="width: 130px;">
+                        </td>
+                    </tr>
+                    <tr style="width:99%">
+                        <td class="fItem" style="width:100%">
+                            <label style="width: 100px">项目说明:</label>
+                            <input id="txtItemDesc" name="ItemDesc" class="easyui-textbox" style="height:60px;width: 400px;" data-options="multiline:true">
+                            <!--<textarea id="txtItemDesc" name="ItemDesc" rows="2" cols="40" ></textarea>-->
+                        </td>
+                    </tr>
+                    <tr>                     
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">工作量参数:</label>
+                            <input id="txtFWorkLoad" name="FWorkLoad" class="easyui-textbox" style="width: 130px;">
+                        </td>
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">是否是组套项目:</label>
+                            
+                            <select name="IsCombiItem" id="ddlIsCombiItem" editable="false" class="easyui-combobox" style="width: 130px;" panelheight=auto data-options="onChange:IsShowCombiItem">
+                                <option selected="selected" value="0">否</option>
+                                <option value="1">是</option>
+                            </select>                       
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label style="width: 100px">检验大组:</label>
+                            <select id="ddlSuperGroupNo" name="SuperGroupNo" class="easyui-combobox" editable="false" style="width: 130px;" panelheight=auto></select>
+                        </td>
+                        <td class="fItem" style="float: right; margin-left: 20px;">
+                            <label style="width: 110px">是否是组合项目:</label>
+
+                            <select name="IsProfile" id="IsProfile" editable="false" class="easyui-combobox" style="width: 130px;" panelheight=auto>
+                                <option selected="selected" value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div id="dlgButtons">
+            <div align="right">
+                <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()"  data-options="iconCls:'icon-save'">保存</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')"  data-options="iconCls:'icon-cancel'">关闭</a>
+            </div>
+        </div>
+        <div id="dlg1" class="easyui-dialog"  style="width: auto;height: auto" closed="true" data-options="buttons:'#dlg-buttons'">       
+           <div class="easyui-layout" style="width: 750px;height: 400px">
+               <div id="dlg-toolbar" data-options="region:'north'" style="height: 30px;background-color:#eeeeee">
+                  
+                  <div style="float: left; margin-left: 10px; margin-top: 3px;">
+                          <input id="txtDlg" class="easyui-searchbox" data-options="prompt:'项目编码/项目名称',searcher:dlgSearch" style="width: 160px;">
+                  </div>
+              </div>
+               <div data-options="region:'west'" style="width: 350px">
+                   <table id="dgwest"></table>
+              </div>
+               <div id="tool" data-options="region:'center'">
+                  <div style="padding-top: 140px;padding-left: 5px">
+                      <a id="leftAll" href="javascript:void (0)" class="easyui-linkbutton" onclick="leftAllMove()" plain="false" style="width: 40px;margin-bottom: 5px"><<</a>
+                      <a id="left" href="javascript:void (0)" class="easyui-linkbutton" onclick="leftMove()" plain="false" style="width: 40px;margin-bottom: 5px"><</a>
+                      <a id="right" href="javascript:void (0)" class="easyui-linkbutton" onclick="rightMove()" plain="false" style="width: 40px;margin-bottom: 5px">></a>
+                      <a id="rightAll" href="javascript:void (0)" class="easyui-linkbutton" onclick="rightAllMove()" plain="false" style="width: 40px;">>></a>
+                  </div>
+              </div>
+               <div data-options="region:'east'" style="width: 350px;">
+                <table id="dgeast"></table>
+            </div>
+          </div>
+        </div>
+        <div id="dlg-buttons">
+        <a href="javascript:void(0)" id="save1" class="easyui-linkbutton" onclick="GIsave()" iconcls="icon-save">保存</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg1').dialog('close')" iconcls="icon-cancel">取消</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Businesses>
+  <!-- 和应用系统配置文件保存在同一个地方,如:D:\WebSite\QMSData\shared\Configuration\ConfigurationXml\1 -->
+  <Business name="werwer" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title />
+        <XAxisTitle />
+        <YAxisTitle />
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>0</Width>
+        <Height>0</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="周工作计划" ChartSort="">
+    <Table TableEName="WeekPlan" DatabaseName="WorkPlans">
+      <STAT>
+        <Title>周工作计划</Title>
+        <XAxisTitle>员工</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>800</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Name" CName="姓名" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="项目类别" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>项目类别</Title>
+        <XAxisTitle>项目类别</XAxisTitle>
+        <YAxisTitle>项目类别</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>500</Width>
+        <Height>500</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="werw按项目类别和关注程度统计222" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>sdfsd222222222</Title>
+        <XAxisTitle>fsdfsd222</XAxisTitle>
+        <YAxisTitle>fsdfsd222</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>False</ShowValue>
+        <Width>700</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="PayedMoney" CName="已付金额" type="Sum" />
+        <Field EName="Profit" CName="项目毛利" type="Sum" />
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+        <Field EName="LeftMoney" CName="剩余款项" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName2" CName="实施方" type="Varchar" />
+        <Field EName="LeftMoney" CName="剩余款项" type="Float" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按关注程度统计(数量)-饼图" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>2008年关注程度情况</Title>
+        <XAxisTitle>关注程度</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Pies</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName11" CName="实施进度表" type="Varchar" />
+        <Field EName="EName13" CName="计划进场时间" type="Date" />
+        <Field EName="EName12" CName="前期准备情况" type="Varchar" />
+        <Field EName="EName16" CName="计划验收时间" type="Date" />
+        <Field EName="EName34" CName="变更说明" type="Varchar" />
+        <Field EName="hasHIS" CName="是否有HIS接口" type="Varchar" />
+        <Field EName="EName40" CName="公司评价" type="Varchar" />
+        <Field EName="EName22" CName="定制需求说明" type="Varchar" />
+        <Field EName="RcvdRecord" CName="收款记录" type="Varchar" />
+        <Field EName="EName33" CName="合同有无变更" type="Varchar" />
+        <Field EName="AcceptDate" CName="验收时间" type="Date" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按关注程度统计-并土" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>2008年关注程度情况</Title>
+        <XAxisTitle>数量</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Pies</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="PayedMoney" CName="已付金额" type="Sum" />
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName11" CName="实施进度表" type="Varchar" />
+        <Field EName="EName13" CName="计划进场时间" type="Date" />
+        <Field EName="EName12" CName="前期准备情况" type="Varchar" />
+        <Field EName="EName16" CName="计划验收时间" type="Date" />
+        <Field EName="EName34" CName="变更说明" type="Varchar" />
+        <Field EName="hasHIS" CName="是否有HIS接口" type="Varchar" />
+        <Field EName="EName40" CName="公司评价" type="Varchar" />
+        <Field EName="EName22" CName="定制需求说明" type="Varchar" />
+        <Field EName="RcvdRecord" CName="收款记录" type="Varchar" />
+        <Field EName="EName33" CName="合同有无变更" type="Varchar" />
+        <Field EName="AcceptDate" CName="验收时间" type="Date" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按项目类别统计金额" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>按项目类别统计</Title>
+        <XAxisTitle>项目类别</XAxisTitle>
+        <YAxisTitle>金额</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>700</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Profit" CName="项目毛利" type="Sum" />
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+        <Field EName="LeftMoney" CName="剩余款项" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按项目类别统计数量" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>按项目类别统计</Title>
+        <XAxisTitle>项目类别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>700</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="付款类别" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>付款类别</Title>
+        <XAxisTitle>付款类别</XAxisTitle>
+        <YAxisTitle>金额</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>500</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="PayedMoney" CName="已付金额" type="Sum" />
+        <Field EName="LeftMoney" CName="剩余款项" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="PayType" CName="付款类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="销售员销售情况统计" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>2008年销售员销售情况统计</Title>
+        <XAxisTitle>销售员</XAxisTitle>
+        <YAxisTitle>合同总额</YAxisTitle>
+        <ChartType>ComboHorizontal</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+        <Field EName="Profit" CName="项目毛利" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Principal" CName="销售负责人" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按关注程度、项目类别统计" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>按关注程度、项目类别统计</Title>
+        <XAxisTitle>项目类别</XAxisTitle>
+        <YAxisTitle>合同总额</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>1000</Width>
+        <Height>700</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Attention" CName="关注程度" />
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按关注程度统计" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>2008年关注程度情况</Title>
+        <XAxisTitle>关注程度</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="FeeBefore" CName="售前费用" type="Sum" />
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+        <Field EName="PayedMoney" CName="已付金额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName11" CName="实施进度表" type="Varchar" />
+        <Field EName="EName13" CName="计划进场时间" type="Date" />
+        <Field EName="EName12" CName="前期准备情况" type="Varchar" />
+        <Field EName="EName16" CName="计划验收时间" type="Date" />
+        <Field EName="EName34" CName="变更说明" type="Varchar" />
+        <Field EName="hasHIS" CName="是否有HIS接口" type="Varchar" />
+        <Field EName="EName40" CName="公司评价" type="Varchar" />
+        <Field EName="EName22" CName="定制需求说明" type="Varchar" />
+        <Field EName="RcvdRecord" CName="收款记录" type="Varchar" />
+        <Field EName="EName33" CName="合同有无变更" type="Varchar" />
+        <Field EName="AcceptDate" CName="验收时间" type="Date" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按项目类别和关注程度统计" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>按项目类别和关注程度统计</Title>
+        <XAxisTitle>关注程度</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>700</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按级别统计" ChartSort="文件系统">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>按级别统计</Title>
+        <XAxisTitle>级别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName4" CName="级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按级别统计总页数" ChartSort="文件系统">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>按级别统计</Title>
+        <XAxisTitle>级别</XAxisTitle>
+        <YAxisTitle>总页数</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="EName14" CName="总页数" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName4" CName="级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按文件状态统计" ChartSort="文件系统">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>按文件状态统计</Title>
+        <XAxisTitle>文件状态</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName17" CName="文件状态" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="起草员销售情况统计" ChartSort="未分类">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>2008年销售员销售情况统计</Title>
+        <XAxisTitle>起草员</XAxisTitle>
+        <YAxisTitle>金额</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName8" CName="起草人" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName8" CName="起草人" type="Varchar" />
+        <Field EName="EName9" CName="审核人" type="Varchar" />
+        <Field EName="EName10" CName="批准人" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="4" ChartSort="住房公积金">
+    <Table TableEName="" DatabaseName="CRM4COS">
+      <STAT>
+        <Title />
+        <XAxisTitle />
+        <YAxisTitle />
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>0</Width>
+        <Height>0</Height>
+      </STAT>
+      <DataSeries />
+      <GroupBy />
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="sasas" ChartSort="asasa">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>asas</Title>
+        <XAxisTitle>as</XAxisTitle>
+        <YAxisTitle>asa</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>555</Width>
+        <Height>555</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName4" CName="级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="审核员" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM_Project">
+      <STAT>
+        <Title>审核员统计</Title>
+        <XAxisTitle>审核员</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>900</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="PayType" CName="付款类别" />
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="11" ChartSort="">
+    <Table TableEName="LabIR" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>11</Title>
+        <XAxisTitle>11</XAxisTitle>
+        <YAxisTitle>11</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>800</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="LIR_BiduireagentConsumption" CName="年进行实验室比对_万元" type="Sum" />
+        <Field EName="LIR_IQCreagentConsumption" CName="年IQC消耗额_万元" type="Sum" />
+        <Field EName="LIR_RatioEQA_IQC_BdToYearreagentConsumption" CName="EQA/IQC/比对占年试剂消耗额百分比" type="Sum" />
+        <Field EName="LIR_EQAreagentConsumption" CName="年参加EQA_万元" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName3" CName="医院级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+</Businesses>

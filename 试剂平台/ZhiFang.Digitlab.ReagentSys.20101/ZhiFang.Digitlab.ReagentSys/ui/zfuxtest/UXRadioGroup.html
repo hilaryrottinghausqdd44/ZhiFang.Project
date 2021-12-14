@@ -1,0 +1,717 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>单选按钮组件</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	 <link rel="stylesheet" type="text/css" href="../css/icon.css"/> 
+    <script type="text/javascript" src="../util/util.js"></script>
+    <script src="../zhifangux/UXRadioGroup.js" type="text/javascript"></script>
+
+</head>
+<body>
+<script>
+    Ext.onReady(function () {
+        var uXRadioGroup=Ext.create('Ext.zhifangux.UXRadioGroup', {
+          title: '',
+			id:'test_UXRadioGroup',
+			border : true,//边框线显示 true,或隐藏false
+			serverUrl: 'server/PanelCheckboxGroup.json',
+          radiogroupName:'rb',//单选组里组名称
+			margin :  '11 10 10 10',
+            Height: 310,
+            Width: 655,
+			  ColRowCount:4,
+            bodyPadding: 10,
+			
+			bodyCls:'bg-white',   //控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',       //控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			
+			//测试监听事件
+		 listeners:{
+		         onChanged:function(o){
+				     alert("监听选择项选择事件");
+				   },
+				   OnClick:function(o){
+				      alert("监听选择项选择事件");
+				   },
+			      butOk_OnClick:function(o){
+				      alert("监听确定事件");
+				   },
+				   butCancle_OnClick:function(o){
+				       alert("监听取消事件");
+				   }
+		    }
+			
+
+        });
+//---属性设置
+
+            var btntitle=Ext.create('Ext.Button',
+            {text:'设置标题属性',
+			   handler:function(){
+			      var myUXRadioGroup=Ext.getCmp("test_UXRadioGroup");
+				   var gettxttile=Ext.getCmp("txtfield-11").getValue();
+				   myUXRadioGroup.title=gettxttile;
+				   alert(gettxttile);
+				   //Ext.Msg.alert("设置标题属性未实现");
+			   }
+			  });
+			  
+			  var btnaline=Ext.create('Ext.Button',
+            {text:'设置文本对齐方式',
+			   handler:function(){
+			      var myUXRadioGroup=Ext.getCmp("test_UXRadioGroup");
+				   var getaline=Ext.getCmp("txtfield-22").getValue();
+				   myUXRadioGroup.labFieldAlign=getaline;
+				   alert(getaline);
+				   //Ext.Msg.alert("设置标题属性未实现");
+			   }
+			  });
+			  
+			  //属性设置:设置单选组件宽度
+	         var tblWidthS =Ext.create('Ext.toolbar.Toolbar', {
+                width   : 260,
+	             height:25,
+	             bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	             cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	             border : 0,//边框线显示 true,或隐藏false
+                 items: [
+                     {
+                         xtype : 'textfield',
+			               id:"txtsetWidthS",
+                         emptyText: '设置组件宽度'
+                     },
+		              {
+                    xtype: 'button',
+	                 text: '设置组件宽度',
+
+		             border : true,//边框线显示 true,或隐藏false
+		             handler: function() {
+		             var mytest=Ext.getCmp("test_UXRadioGroup");
+		             var setWidth=Ext.getCmp("txtsetWidthS").getValue();
+		              mytest.width=parseInt(setWidth);
+		              mytest.insert();
+			             }
+                     }
+                 ]
+	             });	
+				 
+				 //属性设置:设置单选组件高度
+	         var tblsetHeight =Ext.create('Ext.toolbar.Toolbar', {
+                 width   : 260,
+	             height:25,
+	             bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	             cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	             border : 0,//边框线显示 true,或隐藏false
+                 items: [
+                     {
+                         xtype : 'textfield',
+			               id:"txtsetHeitht",
+                         emptyText: '设置组件高度'
+                     },
+		              {
+                    xtype: 'button',
+	                 text: '设置组件高度',
+
+		             border : true,//边框线显示 true,或隐藏false
+		             handler: function() {
+		             var mytest=Ext.getCmp("test_UXRadioGroup");
+		             var setHeight=Ext.getCmp("txtsetHeitht").getValue();
+		              mytest.height=parseInt(setHeight);
+		              mytest.insert();
+			             }
+                     }
+                 ]
+	             });	
+				 
+				 //属性设置:设置列数
+	var tblColRow=Ext.create('Ext.toolbar.Toolbar', {
+    width   : 260,
+	height:25,
+	bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	border : 0,//边框线显示 true,或隐藏false
+    items: [
+        {
+            xtype    : 'textfield',
+			id:"txtcolrow",
+            emptyText: '设置列数'
+        },
+		 {
+       xtype: 'button',
+	   text: '设置列数',
+
+		border : true,//边框线显示 true,或隐藏false
+		handler: function() {
+		var mytest=Ext.getCmp("test_UXRadioGroup");
+		var columns=Ext.getCmp("txtcolrow").getValue();
+		//mytest.mycheckboxgroup.columns=parseInt(columns);
+		 mytest.ColRowCount=parseInt(columns);
+		 //mytest.mycheckboxgroup.insert();
+		 mytest.insert();
+		 alert(mytest.ColRowCount);
+    }
+        }
+    ]
+	});	
+		
+		
+//-----方法设置
+	  //获取选中值按钮
+		var btnGetValue =Ext.create('Ext.Button', {
+		text: '获取选中值',
+       //renderTo: Ext.getBody(),
+		handler: function() {
+		var myUXRadioGroup=Ext.getCmp("test_UXRadioGroup");
+		alert(Ext.encode(myUXRadioGroup.GetLastValue()));
+       //alert(myUXRadioGroup.GetLastValue());
+    }
+});
+
+     //获取页面数据集合值按钮
+		var btnAllValue =Ext.create('Ext.Button', {
+		text: '获取页面数据集合',
+       //renderTo: Ext.getBody(),
+		handler: function() {
+		var myUXRadioGroup=Ext.getCmp("test_UXRadioGroup");
+		//alert(Ext.encode(myUXRadioGroup.GetValue()));
+		alert(Ext.encode(myUXRadioGroup.GetItemList()));   //GetItemList
+       //alert(myUXRadioGroup.GetLastValue());
+    }
+});
+  
+      //设置默认选中项
+     var btnSelect =Ext.create('Ext.Button', {
+		text: '设置默认选中项',
+       //renderTo: Ext.getBody(),
+		handler: function() {
+		var myUXRadioGroup=Ext.getCmp("test_UXRadioGroup");
+		//获取文本框值
+		var txtradiovalue=Ext.getCmp("txtsetvalue1").getValue();
+			myUXRadioGroup.setValue(txtradiovalue);		
+       
+          }
+      });	
+	
+		//设置单选组标题
+		var buttonmytitle=Ext.create('Ext.Button', {
+		text: '设置单选组标题',
+		//anchor: '100%',
+		width:100,
+		border : true,//边框线显示 true,或隐藏false
+		handler: function() {
+		var mytest=Ext.getCmp("test_UXRadioGroup");
+		var mytitle=Ext.getCmp("my_title").getValue();
+		mytest.border=true; 
+		//mytest.newradiogroup.setFieldLabel(mytitle);
+		mytest.setTitle(mytitle); 
+    }
+});
+
+
+//设置数据项label
+		var mylabField=Ext.create('Ext.Button', {
+		text: '设置数据项label',
+		border : true,//边框线显示 true,或隐藏false
+		handler: function() {
+		var mytest=Ext.getCmp("test_UXRadioGroup");
+		var mylabField2=Ext.getCmp("txtlabField").getValue();
+	
+		 //mytest.newradiogroup.setLabField(mylabField2);
+		 mytest.SetLabField(mylabField2);
+    }
+});
+
+//设置单选组边框线是否可见
+var btnLine=Ext.create('Ext.Button',{
+     
+	 text:'是否显示线框',
+	 border:true,
+	 handler:function(){
+	     var myrbg=Ext.getCmp("test_UXRadioGroup");
+		 
+		 var mylabField2=Ext.getCmp("txtLine").getValue();
+	     alert('是否显示线框'+mylabField2);
+		 myrbg.SetBorder(mylabField2);
+	 
+	 
+	 }
+
+
+});
+
+      //设置单选组获取行（列）数量
+       var btnColRowCount=Ext.create('Ext.Button',{
+     
+	       text:'获取行（列）数量',
+	       border:true,
+		    
+	       handler:function(){
+	       var radcolRow=Ext.getCmp("test_UXRadioGroup");
+		 
+		    alert(radcolRow.GetColRowCount());  
+			//alert(Ext.encode(radcolRow.GetItemList())); 
+	 
+	          }
+             });
+			 
+			 
+			 //获取单选组Labfield
+       var btnLabfield=Ext.create('Ext.Button',{
+     
+	       text:'获取LabField',
+	       border:true,
+		    
+	       handler:function(){
+	       var radLabField=Ext.getCmp("test_UXRadioGroup");
+		 
+		    alert(radLabField.GetLabField());  
+			//alert(Ext.encode(radcolRow.GetItemList())); 
+	 
+	          }
+             });
+
+
+    //表单
+    var myform=Ext.create('Ext.form.Panel',{
+	        title:'表单',//表单标题
+            height:120,//表单高度
+            width:200,//表单宽度
+            border:1, //边框
+            frame:true, //是否渲染表单  如果为true的话，border属性设置无效  
+			  //renderTo :Ext.getBody(),
+			  items:[{
+                xtype : 'button', //输入框标签
+                text : '当前选中值'//标签内容
+            },{
+                xtype : 'button',
+                text : '设置默认值'
+            }]
+	});
+	
+	//属性设置标题 工具栏
+	var tlbtile=Ext.create('Ext.toolbar.Toolbar',{	    
+	   width:250,
+	   height:25,
+	   bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	   cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	   border : 0,//边框线显示 true,或隐藏false
+	   items:[
+	       {xtype:'textfield',
+		    name :'txtfield-1',
+		    id   :"txtfield-11",
+		    emptyText:'请输入设置标题....'
+		   },
+		   {
+		     xtype:btntitle
+		   }
+	     ]
+	
+	});
+
+	//属性设置文本对齐
+	var tblaline=Ext.create('Ext.toolbar.Toolbar',{
+	     width:250,
+		 height:25,
+		 bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	     cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+		 border:0,
+		 items:[
+		      {xtype:'combobox',   //textfield
+			    name:'txtfield-2',
+				id:'txtfield-22',
+				store:['left','top','right'],
+				emptyText:'请输入文本对齐的名称'},
+			  {xtype:btnaline}
+		 ]
+	});
+
+	
+	//*************方法设置*********************888
+  //属性设置:获取结果值
+	var mytoolbarbtn=Ext.create('Ext.toolbar.Toolbar', {
+    width   : 260,
+	height:25,
+	bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	border : 0,//边框线显示 true,或隐藏false
+    items: [
+        {
+            xtype : btnGetValue
+        },
+		 {
+            xtype: btnAllValue,
+        },
+		 //获取行/列数量
+		 {xtype:btnColRowCount}
+		 
+    ]
+	});	
+	
+	//返回单选择组宽度、高度
+	var tblgetValue=Ext.create('Ext.toolbar.Toolbar',{
+	       width:220,
+		    height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	       cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	       border : 0,//边框线显示 true,或隐藏false
+		   items:[
+		         {
+                   xtype: 'button',
+			         text:'返回单选择组宽度',
+			         handler:function()
+			             {
+			               var radWidth=Ext.getCmp("test_UXRadioGroup").getWidth();
+				            alert('单选择组宽度是：'+radWidth);
+			     
+			              }
+                 },
+				    {
+                   xtype: 'button',
+			         text:'返回单选择组高度',
+			         handler:function()
+			             {
+			               var radHeight=Ext.getCmp("test_UXRadioGroup").getHeight();
+				            alert('单选择组高度是：'+radHeight);
+			     
+			              }
+                 }
+		   ]
+			
+	    });
+	
+	//默认选中项工具栏
+	var tblSetValue=Ext.create('Ext.toolbar.Toolbar',{
+	width:250,
+	height:25,
+	bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	border : 0,//边框线显示 true,或隐藏false
+	items:[
+	       {xtype:'textfield',
+		    name :'txtfield1',
+		    id   :"txtsetvalue1",
+		    emptyText:'请输入设置标题....'
+		   },
+		   {
+		     xtype:btnSelect
+		   }
+	     ]
+	
+	});
+	
+	
+  //方法设置:标题
+	var mytoolbartitle=Ext.create('Ext.toolbar.Toolbar', {
+    width   : 260,
+	height:25,
+	bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	border : 0,//边框线显示 true,或隐藏false
+    items: [
+        {
+            xtype    : 'textfield',
+            name     : 'field1',
+			id:"my_title",
+            emptyText: '请输入标题'
+        },
+		 {
+              xtype: buttonmytitle,
+        }
+    ]
+	});	
+	
+	//方法设置:数据项的label
+	var mytoolbarlabel=Ext.create('Ext.toolbar.Toolbar', {
+    width   : 260,
+	height:25,
+	bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	border : 0,//边框线显示 true,或隐藏false
+    items: [
+		 {
+            xtype    : 'textfield',
+            name     : 'field1',
+			id:"txtlabField",
+            emptyText: '数据项的label'
+        },
+		 {
+              xtype: mylabField,
+        },
+    ]
+	});	
+	
+	//
+	
+	//方法设置:边框线去掉设置
+	var tlbLine=Ext.create('Ext.toolbar.Toolbar',{
+	    width:300,
+		height:25,
+		bodyCls:'bg-white',
+		cls:'bg-white',
+		border:0,
+		items:[
+		      {
+		        xtype:'textfield',
+			     name:'field1',
+			     id:"txtLine",
+			     emptyText:'是否显示线框'
+			   },
+			   {
+			     xtype:btnLine,
+			   }
+			   
+		     ]
+	
+	});  
+	
+	
+	//方法获取单选组Labfield
+	var tblLabField=Ext.create('Ext.toolbar.Toolbar',{
+	      width:200,
+		  height:25,
+		  bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	      cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	      border : 0,//边框线显示 true,或隐藏false
+		  items:[
+		         {xtype:btnLabfield}
+		       ]
+		  
+	     });
+		 
+		 //方法设置:设置列数
+	var tlbColRowS=Ext.create('Ext.toolbar.Toolbar', {
+    width   : 260,
+	height:25,
+	bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	border : 0,//边框线显示 true,或隐藏false
+    items: [
+        {
+            xtype    : 'textfield',
+			id:"txtColRowS",
+		    //minWidth : 250,
+            emptyText: '设置列数'
+        },
+		 {
+       xtype: 'button',
+	   text: '设置列数',
+
+		border : true,//边框线显示 true,或隐藏false
+		handler: function() {
+		var mytest=Ext.getCmp("test_UXRadioGroup");
+		var columns=Ext.getCmp("txtColRowS").getValue();
+		mytest.newradiogroup.columns=parseInt(columns);
+		 //mytest.mycheckboxgroup.=parseInt(columns);
+		 
+		 //mytest.SetColRowCount(parseInt(columns));
+    }
+        }
+    ]
+	});	
+		 
+		 
+		 //是否隐藏单选组边框
+		 var tblBorder=Ext.create('Ext.toolbar.Toolbar',{
+		       width:200,
+			    height:25,
+			    bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+	           cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	           border : 0,//边框线显示 true,或隐藏false
+			    items: [
+        {
+                xtype: 'radiogroup',
+                fieldLabel: '是否隐藏边框',
+                id:"radiogroup_id",
+                columns: 2,
+                vertical: true,
+                items: [
+                    { boxLabel: '显示', name: 'rb',itemid:'rbxs', inputValue: 'false' },
+                    { boxLabel: '隐藏', name: 'rb',itemid:'rbyc', inputValue: 'true', checked: true}
+                ],
+		        listeners:{
+				        //公开的事件
+				        change:function(rbo,newValue,  oldValue,  eOpts){
+				        //获取设置当前控件的文字属性结果值
+				        var dd=Ext.encode(rbo.getValue());
+						 //var id1=Ext.encode(rbo.getId());
+				        var newValue2=oldValue;
+				        var mytest=Ext.getCmp("test_UXRadioGroup");
+						//alert(dd);
+											
+						mytest.border=true;
+				        //mytest.btnHidden=false;   //"TextField12345": true,"2": false,
+
+			           // alert("按钮显示/隐藏--未实现,只在配置项实现");
+				}
+			}
+    }
+    ]
+		 
+		      });
+			  
+			  
+			  
+        	
+			//视图展现
+		//var viewport = Ext.create('Ext.Viewport',{
+		//items:[button,button1,uXRadioGroup]
+		//});
+				
+		
+		var viewport=Ext.create("Ext.container.Viewport",{
+				layout:  'border',//Border布局
+				bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+				cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+				border : false,//边框线显示 true,或隐藏false
+		        items: [
+				
+
+				//center
+				{
+		        	region: 'center',
+					border : false,//边框线显示 true,或隐藏false
+					   items:[
+					   {
+					 xtype:uXRadioGroup    //panelCheckboxGroup
+					}]
+		        },
+				
+				//east
+					{
+					region: 'east',
+					layout: 'accordion',
+			         frame: true,
+					collapsible: true,
+					split: true,
+					width: 280,
+					border : true,//边框线显示 true,或隐藏false
+					
+		            items:[
+					//eastitems
+					{
+		xtype: 'form',
+		id: 'formtest_Property',
+		autoScroll: true,
+        bodyPadding: 10,
+        collapsed: true,
+		layout: 'column',
+        title: '属性设置',
+        items: [
+		         
+				   {xtype:tlbtile,
+				    anchor:'100%'},
+					{xtype:tblaline,
+					 anchor:'100%'},
+					 //设置单选宽度
+					 {xtype:tblWidthS,
+					  anchor:'100%'},
+					  
+					  //设置单选组高度
+					  {
+					     xtype:tblsetHeight,
+						  anchor:'100%'
+					  
+					  },
+					  //属性设置单选列数
+					  {
+					     xtype:tblColRow,
+						 anchor:'100%'
+					  }
+				]
+				//eastitems-end
+				},
+				//方法设置
+				{
+		xtype: 'form',
+		id: 'formtest_Method',
+		autoScroll: true,
+        bodyPadding: 10,
+        collapsed: true,
+        title: '方法设置',
+        items: [  			  
+		        					
+				  //l默认工具栏
+				   {
+				   xtype:tblSetValue,
+				   anchor:'100%'
+				   },
+                 {
+				    xtype:mytoolbartitle,
+				    anchor: '100%'
+				    },
+				  {
+				    xtype:mytoolbarlabel,
+				    anchor: '100%'
+				  },
+				  {
+				    xtype:tlbLine,
+				   anchor:'100%'
+				  },
+				  {
+				     xtype:tlbColRowS,
+					  anchor:'100%'
+				  },
+				  {
+				   xtype: mytoolbarbtn,
+				   anchor: '100%'
+				   },
+				   //获取单选组的宽度、高度
+				   {
+				      xtype:tblgetValue,
+					  anchor:'100%'
+				   },
+				   
+				   //单选组LabField
+				   {
+				      xtype:tblLabField,
+					   anchor:'100%'
+				   },
+				   {xtype:tblBorder,
+				   anchor:'100%'}
+              
+				]
+				//eastitems-end
+				},//方法设置-end
+				
+				//事件设置
+				{
+		xtype: 'form',
+		id: 'formtest_Event',
+		autoScroll: true,
+        bodyPadding: 10,
+        collapsed: true,
+        title: '事件设置',
+        items: [
+              {
+                //xtype: 'textfield',fieldLabel: '标题ID',name: 'Form_Id',
+                //labelWidth: 55,anchor: '100%',value:"333"+Ext.id()
+				},
+                {
+                 //xtype: 'textfield',fieldLabel: '标题名称',name: 'Title2',
+                 //labelWidth: 55,anchor: '100%',value: '表单'
+				}
+				]
+				//eastitems-end
+				}
+				//事件设置-end
+				]
+				//east-end
+				}
+			
+				
+				]});
+		
+		
+		
+		
+    });
+	
+	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2993FBE5-AA1F-433C-A07F-34CC25C59852}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Entity.RBAC</RootNamespace>
+    <AssemblyName>ZhiFang.Entity.RBAC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.SA\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\Lib\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataRowRoleHQL.cs" />
+    <Compile Include="DicHash.cs" />
+    <Compile Include="EntityObject\S_ServiceClient.cs" />
+    <Compile Include="EntityObject\S_ServiceClientlevel.cs" />
+    <Compile Include="ViewObject\Response\EntityBaseAttribute.cs" />
+    <Compile Include="EntityObject\BT_D_AppComponents.cs" />
+    <Compile Include="EntityObject\BT_D_AppComponentsOperate.cs" />
+    <Compile Include="EntityObject\BT_D_AppComponentsRef.cs" />
+    <Compile Include="EntityObject\BT_D_AppPicture.cs" />
+    <Compile Include="EntityObject\BT_D_MacroCommand.cs" />
+    <Compile Include="EntityObject\BT_D_ModuleType.cs" />
+    <Compile Include="EntityObject\BT_D_PictureType.cs" />
+    <Compile Include="EntityObject\BT_D_PictureTypeCon.cs" />
+    <Compile Include="EntityObject\B_City.cs" />
+    <Compile Include="EntityObject\B_Country.cs" />
+    <Compile Include="EntityObject\B_Degree.cs" />
+    <Compile Include="EntityObject\B_EducationLevel.cs" />
+    <Compile Include="EntityObject\B_HealthStatus.cs" />
+    <Compile Include="EntityObject\B_MaritalStatus.cs" />
+    <Compile Include="EntityObject\B_Nationality.cs" />
+    <Compile Include="EntityObject\B_PoliticsStatus.cs" />
+    <Compile Include="EntityObject\B_ProfessionalAbility.cs" />
+    <Compile Include="EntityObject\B_Province.cs" />
+    <Compile Include="EntityObject\B_Sex.cs" />
+    <Compile Include="EntityObject\HR_Dept.cs" />
+    <Compile Include="EntityObject\HR_DeptEmp.cs" />
+    <Compile Include="EntityObject\HR_DeptIdentity.cs" />
+    <Compile Include="EntityObject\HR_EmpIdentity.cs" />
+    <Compile Include="EntityObject\HR_Employee.cs" />
+    <Compile Include="EntityObject\HR_Position.cs" />
+    <Compile Include="EntityObject\RBAC_EmpOptions.cs" />
+    <Compile Include="EntityObject\RBAC_EmpRoles.cs" />
+    <Compile Include="EntityObject\RBAC_Module.cs" />
+    <Compile Include="EntityObject\RBAC_ModuleOper.cs" />
+    <Compile Include="EntityObject\RBAC_Preconditions.cs" />
+    <Compile Include="EntityObject\RBAC_Role.cs" />
+    <Compile Include="EntityObject\RBAC_RoleModule.cs" />
+    <Compile Include="EntityObject\RBAC_RoleRight.cs" />
+    <Compile Include="EntityObject\RBAC_RowFilter.cs" />
+    <Compile Include="EntityObject\RBAC_User.cs" />
+    <Compile Include="EntityObject\S_Log.cs" />
+    <Compile Include="EntityObject\S_Type.cs" />
+    <Compile Include="EntityObject\S_TypeDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewObject\Response\EmpInfo.cs" />
+    <Compile Include="ViewObject\Response\RBACRoleVO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BCity.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BCountry.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BDegree.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BEducationLevel.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BHealthStatus.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BMaritalStatus.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BNationality.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BPoliticsStatus.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BProfessionalAbility.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BProvince.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BSex.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BTDAppComponent.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BTDAppComponentsOperate.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BTDAppComponentsRef.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BTDAppPicture.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BTDMacroCommand.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BTDModuleType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BTDPictureType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BTDPictureTypeCon.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\HRDept.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\HRDeptEmp.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\HRDeptIdentity.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\HREmpIdentity.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\HREmployee.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\HRPosition.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\RBACEmpOptions.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\RBACEmpRoles.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\RBACModule.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\RBACModuleOper.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\RBACRole.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\RBACRoleModule.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\RBACRoleRight.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\RBACRowFilter.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\RBACUser.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\STypeDetail.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\S_Log.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\RBAC_Preconditions.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SYSCache\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\SServiceClientlevel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\SServiceClient.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

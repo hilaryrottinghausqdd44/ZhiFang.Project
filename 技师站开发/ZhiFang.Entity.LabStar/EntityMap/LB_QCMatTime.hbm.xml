@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+	<class name="LBQCMatTime" table="[dbo].[LB_QCMatTime]">
+		<id name="Id" column="[QCMatTimeID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="LotNo" column="[LotNo]" type="String" not-null="false" length="50" />
+		<property name="Manu" column="[Manu]" type="String" not-null="false" length="50" />
+		<property name="Begindate" column="[Begindate]" type="DateTime" not-null="false" length="8" />
+		<property name="EndDate" column="[EndDate]" type="DateTime" not-null="false" length="8" />
+		<property name="NotUseDate" column="[NotUseDate]" type="DateTime" not-null="false" length="8" />
+		<property name="CanUseDateInfo" column="[CanUseDateInfo]" type="String" not-null="false" length="50" />
+		<property name="ManuQCInfo" column="[ManuQCInfo]" type="String" not-null="false" length="200" />
+		<property name="ManuQCStoreInfo" column="[ManuQCStoreInfo]" type="String" not-null="false" length="500" />
+		<property name="QCDesc" column="[QCDesc]" type="String" not-null="false" length="500" />
+		<property name="Comment" column="[Comment]" type="String" not-null="false" length="1073741823" />
+		<property name="UserID" column="[UserID]" type="Int64" not-null="false" length="8" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="LBQCMaterial" class="LBQCMaterial" lazy="proxy">
+			<column name="[QCMatID]" not-null="false"/>
+		</many-to-one>
+		<!--<bag name="LBQCItemTimeList" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key>
+                <column name="[QCMatTimeID]" />
+            </key>
+			<one-to-many class="LBQCItemTime"/>
+		</bag>-->
+	</class>
+</hibernate-mapping>

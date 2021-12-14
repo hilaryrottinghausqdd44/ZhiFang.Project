@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0B34E1E-63D0-456A-8385-B51E3B519101}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.WeiXin.IDAO</RootNamespace>
+    <AssemblyName>ZhiFang.WeiXin.IDAO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.WeiXin\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDBDoctorControlDao.cs" />
+    <Compile Include="IDBLabDoctorDao.cs" />
+    <Compile Include="IDBLabDistrictDao.cs" />
+    <Compile Include="IDBusinessLogicClientControlDao.cs" />
+    <Compile Include="IDGenderTypeDao.cs" />
+    <Compile Include="IDPatDiagInfoDao.cs" />
+    <Compile Include="IDNRequestItemDao.cs" />
+    <Compile Include="IDNRequestFormDao.cs" />
+    <Compile Include="IDBarCodeFormDao.cs" />
+    <Compile Include="IDDoctorDao.cs" />
+    <Compile Include="IDBLabSampleTypeDao.cs" />
+    <Compile Include="IDBSampleTypeControlDao.cs" />
+    <Compile Include="IDBSickTypeControlDao.cs" />
+    <Compile Include="IDB_Lab_SickTypeDao.cs" />
+    <Compile Include="IDCLIENTELEDao.cs" />
+    <Compile Include="IDBLabGroupItemDao.cs" />
+    <Compile Include="IDBWeiXinEmpLinkDao.cs" />
+    <Compile Include="IDBWeiXinPushMessageTemplateDao.cs" />
+    <Compile Include="IDBTestItemControlDao.cs" />
+    <Compile Include="IDItemColorAndSampleTypeDetailDao.cs" />
+    <Compile Include="IDItemColorDictDao.cs" />
+    <Compile Include="IDUserConsumerItemDetailsDao.cs" />
+    <Compile Include="IDFinanceIncomeDao.cs" />
+    <Compile Include="IDBDictDao.cs" />
+    <Compile Include="IDBDictTypeDao.cs" />
+    <Compile Include="IDBLabTestItemDao.cs" />
+    <Compile Include="IDBParameterDao.cs" />
+    <Compile Include="IDClientEleArea.cs" />
+    <Compile Include="IDOSDoctorBonus.cs" />
+    <Compile Include="IDBHospitalDeptDao.cs" />
+    <Compile Include="IDBSampleType.cs" />
+    <Compile Include="IDBTestItemClinicalSignificance.cs" />
+    <Compile Include="IDBAccountHospitalSearchContextDao.cs" />
+    <Compile Include="IDBAccountTypeDao.cs" />
+    <Compile Include="IDBAntiBioticDao.cs" />
+    <Compile Include="IDBAntiTypeDao.cs" />
+    <Compile Include="IDBDoctorAccountDao.cs" />
+    <Compile Include="IDBHospitalDao.cs" />
+    <Compile Include="IDBHospitalLevelDao.cs" />
+    <Compile Include="IDBHospitalSearchDao.cs" />
+    <Compile Include="IDBHospitalTypeDao.cs" />
+    <Compile Include="IDBIconsDao.cs" />
+    <Compile Include="IDBIconsTypeDao.cs" />
+    <Compile Include="IDBItemConDao.cs" />
+    <Compile Include="IDBMicroItemDao.cs" />
+    <Compile Include="IDBScanningBarCodeReportFormDao.cs" />
+    <Compile Include="IDBSearchAccountDao.cs" />
+    <Compile Include="IDBSearchAccountReportFormDao.cs" />
+    <Compile Include="IDBSpecialtyDao.cs" />
+    <Compile Include="IDBWeiXinAccountDao.cs" />
+    <Compile Include="IDBWeiXinUserGroupDao.cs" />
+    <Compile Include="IDItemAllItemDao.cs" />
+    <Compile Include="IDRFReportFormIndexInfoDao.cs" />
+    <Compile Include="IDRFReportItemFullDao.cs" />
+    <Compile Include="IDRFReportMarrowFullDao.cs" />
+    <Compile Include="IDRFReportMicroFullDao.cs" />
+    <Compile Include="IDSWeiXinAccountLogDao.cs" />
+    <Compile Include="IDOSDoctorBonusForm.cs" />
+    <Compile Include="IDOSDoctorBonus_Attachment.cs" />
+    <Compile Include="IDOSDoctorBonus_Operation.cs" />
+    <Compile Include="IDOSDoctorOrderForm.cs" />
+    <Compile Include="IDOSDoctorOrderItem.cs" />
+    <Compile Include="IDOSItemProductClassTree.cs" />
+    <Compile Include="IDOSItemProductClassTreeLink.cs" />
+    <Compile Include="IDOSManagerRefundForm.cs" />
+    <Compile Include="IDOSManagerRefundForm_Attachment.cs" />
+    <Compile Include="IDOSManagerRefundForm_Operation.cs" />
+    <Compile Include="IDOSRecommendationItemProduct.cs" />
+    <Compile Include="IDOSShoppingCart.cs" />
+    <Compile Include="IDOSUserConsumerForm.cs" />
+    <Compile Include="IDOSUserConsumerItem.cs" />
+    <Compile Include="IDOSUserOrderForm.cs" />
+    <Compile Include="IDOSUserOrderItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IDSickTypeDao.cs" />
+    <Compile Include="IDSampleTypeDao.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{3088c72d-5fbd-46f5-b9ba-fd8adc05b2a5}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{327986fe-0805-42d5-8cc4-0a92e88ad4f1}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.Entity\ZhiFang.WeiXin.Entity.csproj">
+      <Project>{CC03E805-5743-4343-840A-92FAA7457315}</Project>
+      <Name>ZhiFang.WeiXin.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

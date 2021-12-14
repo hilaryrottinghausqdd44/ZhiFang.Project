@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值消息-实施文档</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../../../src/layui/src/css/layui.css" media="all">
+	<link rel="stylesheet" href="../../../../src/layui/src/css/modules/code.css" media="all">
+	<link rel="stylesheet" href="../../style.css" media="all">
+	<link rel="shortcut icon" href="../../../../../logo-16.png">
+	<style>
+		.layui-text h3 {font-size: 14px;}
+		.editor-content {padding:10px 0;};
+		.title-block{};
+		.content-block{};
+	</style>
+</head>
+<body>
+	<div class="layui-fluid layui-fluid-help">
+		<div class="title-block">
+			<h1 class="site-h1">危急值消息-实施文档</h1>
+		</div>
+		
+		<div class="content-block">
+			<blockquote class="site-text layui-elem-quote">
+				该文档详细说明危急值消息功能实施的场景，实施的注意事项，第三方使用的说明。
+			</blockquote>
+		</div>
+		
+		<!--服务器环境-->
+		<div class="content-block">
+			<div class="site-title">
+				<fieldset><legend>
+					<a name="use">服务器环境准备</a>
+					<a class="editor-anchor" name="0" anchor-name="服务器环境准备">&nbsp;</a>
+				</legend></fieldset>
+			</div>
+			<blockquote class="site-text layui-elem-quote">
+				应用服务器环境准备
+			</blockquote>
+			<div class="site-text editor-content">
+				<p>1、服务器操作系统要求windows server 2008及以上版本；</p>
+				<p>2、服务器需要.net framework4.7.1以上，如果没有安装请手动安装</p>
+				<p>windows server 2008 sp1请安装.net framework4.7.1；</p>
+				<p>windows server 2012 sp1请安装.net framework4.7.2；</p>
+				<p>3、安装文件请解压net472.rar，具体如何安装请百度；</p>
+			</div>
+			<blockquote class="site-text layui-elem-quote">
+				数据库服务器环境准备
+			</blockquote>
+			<div class="site-text editor-content">
+				1、数据库版本要求sqlserver2008及以上版本；
+			</div>
+		</div>
+		
+		<!--软件概要介绍-->
+		<div class="content-block">
+			<div class="site-title">
+				<fieldset><legend>
+					<a name="use">软件概要介绍</a>
+					<a class="editor-anchor" name="1" anchor-name="软件概要介绍">&nbsp;</a>
+				</legend></fieldset>
+			</div>
+			<blockquote class="site-text layui-elem-quote">
+				功能概要说明
+			</blockquote>
+			<div class="site-text editor-content">
+				<div style="padding-left:10px;">
+					<p>危急值功能包含"危急值上报"、"危急值查询"、"危急值超时处理"、"科室医生确认处理"四个功能;</p>
+					<p>危急值上报：检验科产生危急值，手工打电话给科室，通报该条消息的内容给科室的人员（医生或者护士）；</p>
+					<p>危急值查询：根据过滤条件进行查询；</p>
+					<p>危急值超时处理：检验科对超时未确认的消息进行处理，相当于消息再次发送，但需要电话通知并进行记录；</p>
+					<p>科室医生确认处理：科室医生根据推送过来的危急值进行相应确认处理；</p>
+				</div>
+			</div>
+			<blockquote class="site-text layui-elem-quote">
+				流程概要说明
+			</blockquote>
+			<div class="site-text editor-content">
+				<ul class="layui-timeline">
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe617;</i>
+						<div class="layui-timeline-content layui-text">
+							<div class="layui-timeline-title">开始</div>
+						</div>
+					</li>
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class="layui-timeline-title">一、检验之星产生危急值</h3>
+							<p>
+							</p>
+						</div>
+					</li>
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class="layui-timeline-title">二、检验之星调用接口</h3>
+							<p>
+							</p>
+						</div>
+					</li>
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class="layui-timeline-title">三、接口调用消息集成平台服务</h3>
+							<p>
+							</p>
+						</div>
+					</li>
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class="layui-timeline-title">四、消息集成平台通知该科室的临床医生</h3>
+							<p>
+							</p>
+						</div>
+					</li>
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class="layui-timeline-title">五、临床医生处理本科室危急值</h3>
+							<p>
+							</p>
+						</div>
+					</li>
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe617;</i>
+						<div class="layui-timeline-content layui-text">
+							<div class="layui-timeline-title">结束</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+			
+		<!--部署配置-->
+		<div class="content-block">
+			<div class="site-title">
+				<fieldset><legend>
+					<a name="use">部署配置</a>
+					<a class="editor-anchor" name="2" anchor-name="部署配置">&nbsp;</a>
+				</legend></fieldset>
+			</div>
+			<blockquote class="site-text layui-elem-quote">
+				部署及配置说明
+			</blockquote>
+			<div class="site-text editor-content">
+				
+			</div>
+			<ul class="layui-timeline">
+				<li class="layui-timeline-item">
+					<i class="layui-icon layui-timeline-axis">&#xe617;</i>
+					<div class="layui-timeline-content layui-text">
+						<div class="layui-timeline-title">开始</div>
+					</div>
+				</li>
+				<li class="layui-timeline-item">
+					<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+					<div class="layui-timeline-content layui-text">
+						<h3 class="layui-timeline-title">部署集成平台项目</h3>
+						<p>
+							存放ZhiFang.LabInformationIntegratePlatform项目文件夹；
+							<br>根据ZhiFang.LIIP.bak数据备份文件创建数据库；
+							<br>在IIS中部署ZhiFang.LabInformationIntegratePlatform项目；
+							<br>更改webconfig文件的数据库配置内容，将地址指向创建好的数据库ZhiFang.LIIP；
+							<div class="layui-row">
+								<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+									<div class="layer-photos">
+										<img layer-pid="1" layer-src="images/1.png" src="images/1.png" alt="图片名">
+										<img layer-pid="2" layer-src="images/2.png" src="images/2.png" alt="图片名">
+									</div>
+								</div>
+							</div>
+							<!--<div class="layui-row">
+								<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+									<div class="layer-photos">
+										<div class="wrapper">
+											<div image-id="1" class="viewer"></div>
+										</div>
+									</div>
+								</div>
+							</div>-->
+						</p>
+					</div>
+				</li>
+				<li class="layui-timeline-item">
+					<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+					<div class="layui-timeline-content layui-text">
+						<h3 class="layui-timeline-title">部署危急值项目</h3>
+						<p>
+							存放ZhiFang.LabStar.TechnicianStation项目文件夹；
+							<br>在IIS中部署ZhiFang.LabStar.TechnicianStation项；
+							<br>更改webconfig文件的数据库配置内容，将地址指向已存在的LIS数据库；
+							<div class="layui-row">
+								<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+									<div class="layer-photos">
+										<img layer-pid="图片id，可以不写" layer-src="images/2.png" src="images/2.png" alt="图片名">
+									</div>
+								</div>
+							</div>
+						</p>
+					</div>
+				</li>
+				<li class="layui-timeline-item">
+					<i class="layui-icon layui-timeline-axis">&#xe617;</i>
+					<div class="layui-timeline-content layui-text">
+						<div class="layui-timeline-title">结束</div>
+					</div>
+				</li>
+			</ul>
+			<blockquote class="site-text layui-elem-quote layui-elem-quote-danger">
+				部署注意事项
+			</blockquote>
+			<div class="site-text editor-content">
+				LIS库的科室表需要维护HIS科室编码，不然上报的危急值信息无法推到HIS登录的用户；
+			</div>
+		</div>
+		<!--HIS调用说明-->
+		<div>
+			<div class="site-title">
+				<fieldset><legend>
+					<a name="use">HIS调用说明</a>
+					<a class="editor-anchor" name="3" anchor-name="HIS调用说明">&nbsp;</a>
+				</legend></fieldset>
+			</div>
+			<blockquote class="site-text layui-elem-quote">
+				
+			</blockquote>
+			<div class="site-text editor-content">
+				<pre class="layui-code" lay-title="代码结构">
+					&lt;!--引用危急值JS文件--&gt;
+					&lt;script src="http://192.168.0.104/ZhiFang.LabInformationIntegratePlatform/ui/layui/interface/msg_cv.js"&gt;&lt;/script&gt;
+					&lt;script type="text/javascript"&gt;
+					    //显示危急值卡片
+					    function showCard(loginInfo){
+					        if(window.msgcard_cv){
+					            window.msgcard_cv.render({loginInfo:loginInfo});
+					        }else{
+					            setTimeout(function(){showCard(loginInfo);},1000);
+					        }
+					    }
+					    //第三方登录自己的账号后，将登录人员信息传入卡片，如果信息平台没有该账号则自动创建相应信息
+					    //Account=账户名&PWD=密码&Name=姓名&Sex=性别&DeptName=科室名称&DeptHISCode=科室HIS编码&Phone=电话
+					    showCard({
+					        "Account":"测试",
+					        "PWD":"123456",
+					        "Name":"测试",
+					        "Sex":"男",
+					        "DeptName":"测试科室",
+					        "DeptHISCode":"测试科室HIS编码",
+					        "Phone":"1234"
+					    });
+					&lt;/script&gt;
+				</pre>
+			</div>
+		</div>
+	</div>
+	<script src="../../../../src/layui/src/layui.js"></script>
+	<script src="../../../config/system.js"></script>
+	<script src="../../util.js"></script>
+	<script>
+		layui.use(['jquery','code'],function(){
+			var $ = layui.$;
+			layui.code();
+		});
+	</script>
+</body>
+</html>

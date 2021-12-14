@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodUnit" table="[dbo].[Blood_Unit]">
+    <id name="Id" column="[BloodUnitNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <!--<property name="BloodUnitNo" column="[BloodUnitNo]" type="Int32" not-null="false" length="4" />-->   
+    <property name="CName" column="[BloodUnitName]" type="String" not-null="false" length="10" />
+    <property name="HisDispCode" column="[HisDispCode]" type="String" not-null="false" length="10" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="10" />
+    <property name="DispOrder" column="[DispOrder]" type="String" not-null="false" length="10" />
+    <!--<property name="Visible" column="[Visible]" type="String" not-null="false" length="10" />-->
+    <property name="EName" column="[EName]" type="String" not-null="false" length="50" />
+    <property name="BloodScale" column="[BloodScale]" type="Double" not-null="false" length="8" />
+    <property name="BloodScaleUnit" column="[BloodScaleUnit]" type="String" not-null="false" length="10" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="50" />
+  </class>
+</hibernate-mapping>

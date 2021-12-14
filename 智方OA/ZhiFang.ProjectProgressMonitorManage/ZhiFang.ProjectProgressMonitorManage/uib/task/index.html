@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<!--不缓存缓存页面-->
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<meta http-equiv="Cache" content="no-cache">
+	
+	<title>管理系统- 任务列表</title>
+
+	<link rel="shortcut icon" href="../img/logo-16.png">
+	<link href="../src/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../src/css/font-awesome.min.css" rel="stylesheet">
+	<link href="../src/css/animate.min.css" rel="stylesheet">
+	<link href="../src/css/style.min.css" rel="stylesheet">
+	<link href="../css/css.css?v=1" rel="stylesheet">
+	<!--[if lt IE 9]>
+<meta http-equiv="refresh" content="0;ie.html" />
+<![endif]-->
+	<script>
+		//      if(window.top!==window.self){window.top.location=window.location};
+	</script>
+</head>
+
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInUp">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>指派任务/执行任务/抄送任务</h5>
+                        <div class="ibox-tools">
+                            <a class="btn btn-primary btn-xs AddButton">创建新任务</a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row m-b-sm m-t-sm">
+                            <div class="col-md-11">
+                                <div class="input-group">
+                                    <input type="text" placeholder="请输入任务名称" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-list" id="GridView">
+                        	<table class="table table-hover"><tbody>
+                        		<tr>
+                        			<!--任务状态+重要性+紧急程度-->
+					                <td class="project-status">
+					                	<div style="padding:2px;">
+					                		<span class="label label-primary">进行中</span>
+					                	</div>
+					                	<div style="padding:2px;">
+					                		<span class="label label-warning">重要</span>
+					                	</div>
+					                	<div style="padding:2px;">
+					                		<span class="label label-danger">紧急</span>
+					                	</div>
+					                </td>
+					                <!--任务标题+创建时间-->
+					                <td class="project-title">
+					                    <a href="project_detail.html">管理系统-任务管理的开发</a>
+					                    <div style="margin:2px 0;">
+					                    	<small>创建于 2016-05-13</small>
+					                    </div>
+					                    <div style="margin-top:2px;">
+											指派人：<span class="label label-success">管理员</span>		
+				                        </div>
+					                </td>
+					                <!--当前进度-->
+					                <td class="project-completion">
+					                	<div style="margin-bottom:4px;">
+											<small>执行人：<span class="label label-inverse">胡杰</span></small>		
+				                        </div>
+				                        <small>当前进度： 48%</small>
+				                        <div class="progress progress-mini">
+				                            <div style="width: 48%;" class="progress-bar"></div>
+				                        </div>
+					                </td>
+					                <!--要求时间+计划时间-->
+					                <td class="project-completion">
+					                	<div class="project-title" style="margin-bottom: 2px;">
+					                		<a>完成时间</a>
+					                	</div>
+					                    <small>要求：2015-05-20</small>
+					                    <br/>
+					                    <small>计划：<span style="color:#1ab394;">2015-05-19</span></small>
+					                </td>
+					                <!--预计工作量+试剂工作量-->
+					                <td class="project-completion">
+					                	<div class="project-title" style="margin-bottom: 2px;">
+					                		<a>工作量</a>
+					                	</div>
+					                    <small>预计：5天</small>
+					                    <br/>
+					                    <small>实际：<span style="color:#ed5565;">6</span>天</small>
+					                </td>
+					               	<!--功能按钮-->
+					                <td class="project-actions">
+					                	<div style="margin-bottom:2px;">
+					                		<a class="btn btn-white btn-sm ShowButton"><i class="fa fa-folder"></i> 查看 </a>
+					                	</div>
+					                    <div>
+					                		<a class="btn btn-white btn-sm EditButton"><i class="fa fa-pencil"></i> 编辑 </a>
+					                	</div>
+					                </td>
+					            </tr>
+					            <tr>
+                        			<!--任务状态+重要性+紧急程度-->
+					                <td class="project-status">
+					                	<div style="padding:2px;">
+					                		<span class="label label-default">已完成</span>
+					                	</div>
+					                	<div style="padding:2px;">
+					                		<span class="label label-inverse">不重要</span>
+					                	</div>
+					                	<div style="padding:2px;">
+					                		<span class="label label-danger">紧急</span>
+					                	</div>
+					                </td>
+					                <!--任务标题+创建时间-->
+					                <td class="project-title">
+					                    <a href="project_detail.html">管理系统-任务管理的开发</a>
+					                    <div style="margin:2px 0;">
+					                    	<small>创建于 2016-05-13</small>
+					                    </div>
+					                    <div style="margin-top:2px;">
+											指派人：<span class="label label-success">管理员</span>		
+				                        </div>
+					                </td>
+					                <!--当前进度-->
+					                <td class="project-completion">
+					                	<div style="margin-bottom:4px;">
+											<small>执行人：<span class="label label-inverse">胡杰</span></small>		
+				                        </div>
+				                        <small>当前进度： 100%</small>
+				                        <div class="progress progress-mini">
+				                            <div style="width: 100%;" class="progress-bar"></div>
+				                        </div>
+					                </td>
+					                <!--要求时间+计划时间-->
+					                <td class="project-completion">
+					                	<div class="project-title" style="margin-bottom: 2px;">
+					                		<a>完成时间</a>
+					                	</div>
+					                    <small>要求：2015-05-20</small>
+					                    <br/>
+					                    <small>实际：<span style="color:#ed5565;">2015-05-22</span></small>
+					                </td>
+					                <!--预计工作量+试剂工作量-->
+					                <td class="project-completion">
+					                	<div class="project-title" style="margin-bottom: 2px;">
+					                		<a>工作量</a>
+					                	</div>
+					                    <small>预计：5天</small>
+					                    <br/>
+					                    <small>实际：<span style="color:#1ab394;">4</span>天</small>
+					                </td>
+					               	<!--功能按钮-->
+					                <td class="project-actions">
+					                	<div style="margin-bottom:2px;">
+					                		<a class="btn btn-white btn-sm ShowButton"><i class="fa fa-folder"></i> 查看 </a>
+					                	</div>
+					                    <div>
+					                		<a class="btn btn-white btn-sm EditButton"><i class="fa fa-pencil"></i> 编辑 </a>
+					                	</div>
+					                </td>
+					            </tr>
+					            <tr>
+                        			<!--任务状态+重要性+紧急程度-->
+					                <td class="project-status">
+					                	<div style="padding:2px;">
+					                		<span class="label label-primary">进行中</span>
+					                	</div>
+					                	<div style="padding:2px;">
+					                		<span class="label label-inverse">不重要</span>
+					                	</div>
+					                	<div style="padding:2px;">
+					                		<span class="label label-inverse">不紧急</span>
+					                	</div>
+					                </td>
+					                <!--任务标题+创建时间-->
+					                <td class="project-title">
+					                    <a href="project_detail.html">管理系统-任务管理的开发</a>
+					                    <div style="margin:2px 0;">
+					                    	<small>创建于 2016-05-13</small>
+					                    </div>
+					                    <div style="margin-top:2px;">
+											指派人：<span class="label label-success">管理员</span>		
+				                        </div>
+					                </td>
+					                <!--当前进度-->
+					                <td class="project-completion">
+					                	<div style="margin-bottom:4px;">
+											<small>执行人：<span class="label label-inverse">胡杰</span></small>		
+				                        </div>
+				                        <small>当前进度： 10%</small>
+				                        <div class="progress progress-mini">
+				                            <div style="width: 10%;" class="progress-bar"></div>
+				                        </div>
+					                </td>
+					                <!--要求时间+计划时间-->
+					                <td class="project-completion">
+					                	<div class="project-title" style="margin-bottom: 2px;">
+					                		<a>完成时间</a>
+					                	</div>
+					                    <small>要求：2015-05-20</small>
+					                    <br/>
+					                    <small>计划：<span style="color:#1ab394;">2015-05-19</span></small>
+					                </td>
+					                <!--预计工作量+试剂工作量-->
+					                <td class="project-completion">
+					                	<div class="project-title" style="margin-bottom: 2px;">
+					                		<a>工作量</a>
+					                	</div>
+					                    <small>预计：5天</small>
+					                    <br/>
+					                    <small>实际：<span style="color:#ed5565;">6</span>天</small>
+					                </td>
+					               	<!--功能按钮-->
+					                <td class="project-actions">
+					                	<div style="margin-bottom:2px;">
+					                		<a class="btn btn-white btn-sm ShowButton"><i class="fa fa-folder"></i> 查看 </a>
+					                	</div>
+					                    <div>
+					                		<a class="btn btn-white btn-sm EditButton"><i class="fa fa-pencil"></i> 编辑 </a>
+					                	</div>
+					                </td>
+					            </tr>
+                        	</tbody></table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="returnTop">
+        <a class="open-small-chat">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </div>
+	<script src="../src/js/jquery.min.js"></script>
+	<script src="../src/js/bootstrap.min.js"></script>
+	<script src="../util/util_jq.js"></script>
+	<script src="index.js?v=1"></script>
+</body>
+</html>

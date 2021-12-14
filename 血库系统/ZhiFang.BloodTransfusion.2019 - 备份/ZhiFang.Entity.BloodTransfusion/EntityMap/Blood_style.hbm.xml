@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="Bloodstyle" table="[dbo].[blood_style]">
+    <id name="Id" column="[BloodNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <!--<property name="BloodNo" column="[BloodNo]" type="Int32" not-null="false" length="4" />-->
+    <property name="CName" column="[BloodName]" type="String" not-null="false" length="30" />
+    <property name="IsMakeBlood" column="[IsMakeBlood]" type="String" not-null="false" length="2" />
+    <property name="HisDispCode" column="[HisDispCode]" type="String" not-null="false" length="50" />
+    <property name="BisDispCode" column="[BisDispCode]" type="String" not-null="false" length="50" />
+    <property name="StoreDays" column="[StoreDays]" type="String" not-null="false" length="50" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="50" />
+    <property name="ShortName" column="[ShortName]" type="String" not-null="false" length="50" />
+    <property name="DispOrder" column="[dispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="String" not-null="false" length="50" />
+    <!--<property name="Bloodclass" column="[bloodclass]" type="String" not-null="false" length="20" />-->
+    <property name="WarnDays" column="[WarnDays]" type="String" not-null="false" length="10" />
+    <property name="WarnUnit" column="[WarnUnit]" type="String" not-null="false" length="50" />
+    <property name="StoreUnit" column="[storeUnit]" type="String" not-null="false" length="50" />
+    <property name="RegAllow" column="[RegAllow]" type="String" not-null="false" length="2" />
+
+    <property name="StoreCondNo" column="[StoreCondNo]" type="Int32" not-null="false" length="4" />
+    <property name="BloodScale" column="[BloodScale]" type="Double" not-null="false" length="8" />
+    <property name="Ahead" column="[ahead]" type="Int32" not-null="false" length="4" />
+    <property name="AheadUnit" column="[aheadUnit]" type="String" not-null="false" length="10" />
+    <property name="HemolysisTime" column="[HemolysisTime]" type="String" not-null="false" length="10" />
+    <property name="HemolysisUnit" column="[HemolysisUnit]" type="String" not-null="false" length="10" />
+
+    <property name="Isprocess" column="[isprocess]" type="String" not-null="false" length="10" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="50" />
+
+    <!--<property name="BCNo" column="[BCNo]" type="String" not-null="false" length="20" />
+    <property name="BloodUnitNo" column="[BloodUnitNo]" type="String" not-null="false" length="2" />-->
+
+    <many-to-one name="BloodClass" class="BloodClass" lazy="proxy" >
+      <column name="[BCNo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodUnit" class="BloodUnit" lazy="proxy" >
+      <column name="[BloodUnitNo]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

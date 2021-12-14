@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>组合项目拆分</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		    //加载版本号文件
+			document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+		</script> 
+  <style type="text/css">
+			.margin0: {
+				margin: 0px;
+			}
+			/* 防止下拉框的下拉列表被隐藏---必须设置--- */
+			.layui-table-cell {
+				overflow: visible !important;
+			}
+        	#table_testitem .layui-table-view{margin: 0px 0px;}
+			/*列表下拉框高度调整*/
+		    table .layui-input, .layui-textarea, .layui-select{
+		    	height: 28px;  line-height: 16px; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px;
+		    }
+			 /*使得下拉框与单元格刚好合适*/ 
+			td .layui-form-select {
+				margin-top: -10px;
+				margin-left: -5px;
+				margin-right: -5px;
+			}
+		</style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding: 15px; 20px; 0px; margin: 0px;"> 
+   <div class="layui-row"> 
+    <!--左选择列表--> 
+    <div class="layui-col-sm4 layui-col-md4 layui-col-lg3"> 
+     <!--组合项目列表--> 
+     <div class="layui-row" lay-filter="filter_of_testitem"> 
+      <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+       <div class="layui-row " lay-filter="div_filter_of_testitem"> 
+        <div class="layui-form filter_of_testitem_1" lay-filter="form_testitem" style="margin: 0px;padding: 0px;"> 
+         <div class="layui-form-item" style="margin-bottom: 0px;padding: 0px"> 
+          <div class="layui-row"> 
+           <div class="layui-inline" style="width: 145px;margin-right: 0px;margin: 0px;padding: 0px;"> 
+            <input type="text" id="table_testitem_like_search" placeholder="名称/简称" autocomplete="off" class="layui-input" /> 
+           </div> 
+           <div class="layui-inline" style="margin-left: 0px;margin: 0px;padding: 0px;"> 
+            <button class="layui-btn layui-btn-xs" data-type="search_testitem"><i class="iconfont"></i>&nbsp;刷新</button> 
+           </div> 
+           <div class="layui-inline" style="margin: 0px;padding: 0px;"> 
+            <button class="layui-btn layui-btn-xs layui-bg-orange " data-type="delete"><i class="layui-icon"></i>删除</button> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="layui-row"> 
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+         <table id="table_testitem" lay-filter="table_testitem"> 
+         </table> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <!--右组合项目拆分关系列表"--> 
+    <div class="layui-col-md8 layui-col-md8 layui-col-lg9" style="padding-left: 5px;"> 
+     <div class="layui-row" lay-filter="div_toolbar_paritemsplit" style="padding-top: 3px;"> 
+      <div class="layui-btn-group div_toolbar_paritemsplit"> 
+       <button class="layui-btn layui-btn-xs" data-type="search_paritemsplit"><i class="iconfont"></i>&nbsp;刷新</button> 
+       <button class="layui-btn layui-btn-xs" data-type="add"><i class="iconfont"></i>&nbsp;添加</button> 
+       <button class="layui-btn layui-btn-xs" data-type="save"><i class="iconfont"></i>&nbsp;保存</button> 
+      </div> 
+     </div> 
+     <div class="layui-row"> 
+      <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+       <table id="table_paritemsplit" lay-filter="table_paritemsplit"> 
+       </table> 
+      </div> 
+     </div> 
+     <!--描述说明 --> 
+     <!--<div class="layui-row"> 
+      <ul lay-filter="div_table_paritemsplit_memo"> 
+       <li> <h3>备注内容：</h3> 
+        <ul> 
+         <li> 拆分条码序号为-1，组合拆分为子项进行医嘱项目分组； </li> 
+         <li> 拆分条码序号为0，为0部分按一个组合医嘱项目分组； </li> 
+         <li> 是否合并检验报告，当组合项目存在合并设置，整个组合进行合并报告； </li> 
+        </ul> </li> 
+      </ul> 
+     </div> -->
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/html" id="switchTpl_IsAutoUnion">
+			<input type="checkbox" title="" lay-skin="switch" lay-text="是|否" value="{{d.LBParItemSplit_IsAutoUnion}}"  name="checkbox_IsAutoUnion" lay-filter="checkbox_IsAutoUnion" {{ d.LBParItemSplit_IsAutoUnion == 'true' ? 'checked' : '' }} >
+		  </script> 
+  <script type="text/javascript">
+			UIVersion.loadLayui();
+			UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+			UIVersion.getJS('index.js');
+		</script>   
+ </body>
+</html>

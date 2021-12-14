@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../util/common.js"></script>
+    <script src="B_AntiBiotic.js"></script>
+    <style type="text/css">
+        #fm {
+            margin: 20px;
+        }
+
+        .fItem {
+            
+            width: 90px;
+        }
+
+            .fItem input 
+            {
+                padding:0px;
+                width: 190px;
+            }
+    </style>
+</head>
+<body>
+    <table title="抗生素" id="dg"></table>
+    <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: left; width:auto; display:inline;">
+
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+
+        </div>
+
+        <div style="float: right; margin-right: 10px; margin-top: 3px; display: none;">
+            <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入',searcher:doSearch" style="width:200px;" />
+
+        </div>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width: 350px; height: 440px;" closed="true" buttons="#dlgButtons">
+        <form id="fm">
+            <table>
+                <tr style="padding-top:20px;">
+                    <td class="fItem">抗生素ID</td>
+                    <td class="fItem"><input id='txtBAntiBiotic_Id' name="BAntiBiotic_Id" class="easyui-textbox" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">名称</td>
+                    <td class="fItem"><input id="txtBAntiBiotic_CName" name="BAntiBiotic_CName" class="easyui-textbox" required="required" /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">英文名称</td>
+                    <td class="fItem"><input id='txtBAntiBiotic_EName' name="BAntiBiotic_EName" class="easyui-textbox" required="required"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">简称</td>
+                    <td class="fItem"><input id="txtBAntiBiotic_ShortName" name="BAntiBiotic_ShortName" class="easyui-textbox"  /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">快捷码</td>
+                    <td class="fItem"><input id='txtBAntiBiotic_ShortCode' name="BAntiBiotic_ShortCode" class="easyui-textbox" /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">抗生素单位</td>
+                    <td class="fItem"><input id="txtBAntiBiotic_AntiUnit" name="BAntiBiotic_AntiUnit" class="easyui-textbox" /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">抗生素文本</td>
+                    <td class="fItem"><input id='txtBAntiBiotic_AntiNote' name="BAntiBiotic_AntiNote" class="easyui-textbox" /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">是否显示</td>
+                    <td class="fItem">
+                        <select id="ddlBAntiBiotic_Visible" name="BAntiBiotic_Visible" class="easyui-combobox" panelheight=auto style="width:194px;" editable="false">
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="fItem">显示次序</td>
+                    <td class="fItem"><input id='txtBAntiBiotic_Disporder' name="BAntiBiotic_DispOrder" class="easyui-numberbox"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">抗生素类型编号</td>
+                    <td class="fItem"><input id="txtBAntiBiotic_AntiTypeNo" name="BAntiBiotic_AntiTypeNo" panelheight=auto class="easyui-textbox" /></td>
+                </tr>
+                 <tr>
+                    <td class="fItem">数据加入时间</td>
+                    <td class="fItem"><input id='txtBAntiBiotic_DataAddTime' name="BAntiBiotic_DataAddTime" disabled="disabled" class="easyui-datetimebox"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">时间戳</td>
+                    <td class="fItem"><input id="txtBAntiBiotic_DataTimeStamp" name="BAntiBiotic_DataTimeStamp" disabled="disabled" class="easyui-datetimebox" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="dlgButtons">
+        <div align="right">
+            <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+        </div>
+    </div>
+</body>
+</html>

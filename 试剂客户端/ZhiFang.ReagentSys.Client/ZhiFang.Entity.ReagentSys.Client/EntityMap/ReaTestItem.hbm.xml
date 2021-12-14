@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaTestItem" table="[dbo].[Rea_TestItem]">
+    <id name="Id" column="[TestItemID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="CName" column="[CName]" type="String" not-null="true" length="500" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="100" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="60" />
+    <property name="Price" column="[Price]" type="Double" not-null="false" length="8" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="50" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="LisCode" column="[LisCode]" type="String" not-null="false" length="100" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="100" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="100" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="100" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

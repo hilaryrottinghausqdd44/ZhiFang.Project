@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+
+  <class name="FinanceIncome"  mutable="false">
+    <id name="Id" column="[Id]" type="Int64">
+    </id>
+    <property name="UserName" column="[UserName]" type="String" not-null="true" length="40" />
+    <property name="UOFCode" column="[UOFCode]" type="String" not-null="false" length="30" />
+    <property name="SexName" column="[SexName]" type="String" not-null="false" length="4" />
+    <property name="BillingDate" column="[BillingDate]" type="DateTime" not-null="false" length="8" />
+    <property name="SamplingDate" column="[SamplingDate]" type="DateTime" not-null="false" length="8" />
+    <property name="MarketPrice" column="[MarketPrice]" type="Double" not-null="false" length="8" />
+    <property name="GreatMasterPrice" column="[GreatMasterPrice]" type="Double" not-null="false" length="8" />
+    <property name="Price" column="[Price]" type="Double" not-null="false" length="8" />
+    <property name="AdvicePrice" column="[AdvicePrice]" type="Double" not-null="false" length="8" />
+    <property name="AdvicePriceRate" column="[AdvicePriceRate]" type="Double" not-null="false" length="8" />
+    <property name="DoctorName" column="[DoctorName]" type="String" not-null="false" length="30" />
+    <property name="MRefundFormCode" column="[MRefundFormCode]" type="String" not-null="false" length="30" />
+    <property name="RefundPrice" column="[RefundPrice]" type="Double" not-null="false" length="8" />
+  </class>
+  <sql-query name="SP_Report_FinanceIncome">
+    <return class="ZhiFang.WeiXin.Entity.FinanceIncome,ZhiFang.WeiXin.Entity">
+      <return-property name="Id" column="Id"/>
+      <return-property name="UserName" column="UserName"/>
+      <return-property name="UOFCode" column="UOFCode"/>
+      <return-property name="SexName" column="SexName"/>
+      <return-property name="BillingDate" column="BillingDate" />
+      <return-property name="SamplingDate" column="SamplingDate" />
+      <return-property name="MarketPrice" column="MarketPrice"/>
+      <return-property name="GreatMasterPrice" column="GreatMasterPrice"/>
+      <return-property name="Price" column="Price"/>
+      <return-property name="AdvicePrice" column="AdvicePrice"/>
+      <return-property name="AdvicePriceRate" column="AdvicePriceRate"/>
+      <return-property name="DoctorName" column="DoctorName"/>
+      <return-property name="MRefundFormCode" column="MRefundFormCode"/>
+      <return-property name="RefundPrice" column="RefundPrice"/>
+    </return>
+    exec SP_Report_FinanceIncome :ConsumptionStartDate,:ConsumptionEndDate,:BillingStartDate,:BillingEndDate,:SamplingStartDate,:SamplingEndDate,:UOFCode,:OSUserConsumerFormCode,:MRefundFormCode,:BonusFormCode,:AreaID,:UserAccountID,:DoctorAccountID,:OSUserConsumerFormStatus,:IsRefund,:strWhere
+  </sql-query>
+</hibernate-mapping>

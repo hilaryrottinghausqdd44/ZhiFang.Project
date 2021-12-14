@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>分布式系统设置</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.layui-form-label{width:100px;}
+		.layui-input-block{margin-left:130px;}
+	</style>
+</head>
+<body class="layui-layout-body">
+	<div class="layui-fluid" style="padding:15px;">
+		<div class="layui-form" lay-filter="form">
+			<div class="layui-form-item">
+				<label class="layui-form-label">系统名称：</label>
+				<div class="layui-input-block">
+					<input type="text" name="SystemName" placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">系统编码：</label>
+				<div class="layui-input-block">
+					<input type="text" name="SystemCode" placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">系统主地址：</label>
+				<div class="layui-input-block">
+					<input type="text" name="SystemHost" placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">系统入口地址：</label>
+				<div class="layui-input-block">
+					<input type="text" name="SystemEntryAddress" placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">备注：</label>
+				<div class="layui-input-block">
+					<textarea name="Memo" placeholder="请输入内容" class="layui-textarea"></textarea>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">排序：</label>
+				<div class="layui-input-block">
+					<input type="text" name="DispOrder" id="DispOrder" lay-verify='number' placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label"> </label>
+				<div class="layui-input-block">
+					<input type="checkbox" name="IsUse" title="使用" lay-skin="primary" checked>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label"> </label>
+				<div class="layui-input-block">
+					<button class="layui-btn" lay-submit lay-filter="submit">立即提交</button>
+					<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('form.js');
+	</script>
+</body>
+</html>

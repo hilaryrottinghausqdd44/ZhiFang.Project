@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="GB2312"?>
+<CDATA><![CDATA[<TABLE cellSpacing=1 cellPadding=0 width="100%" bgColor=skyblue border=0>
+<TBODY>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">单位编号: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress=event.returnValue=IsValidateDigit(this) id=ClIENTNO title=客户编号 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='只能输入数字'" value=8100 ColumnDefault="" databand="databand" AllowNull="No" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">单位名称: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=CNAME title=客户名称 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=中国人民解放军第五二零医院 ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">英文名称: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=ENAME title=英文名称 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">中文缩写: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=SHORTCODE title=中文缩写 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=ZGRMJFJDWELYY ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">联系人: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=LINKMAN title=联系人 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=黄勇 ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">职务:</TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=LinkManPosition title=联系人职务 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">联系人2: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=LinkMan1 title=联系人2 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">职务2:</TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=LinkManPosition1 title=联系人职务2 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">联系方法: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=PHONENUM1 title=联系方法 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=0816-2466653 ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">联系方法2: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=PHONENUM2 title=联系方法2 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=15882807256 ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">地址: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=ADDRESS title=地址 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=绵阳市剑门路西段278号 ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">邮编: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=MAILNO title=邮编 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">邮箱: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=EMAIL title=邮箱 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">客户代码:</TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=clientcode title=客户代码 style="WIDTH: 45%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=0102811002 ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"><DIVV><INPUT id=ffclientcodef onclick="Javascript:RunclientcodeF(true,'../../RBAC/Organizations/createclientcode.aspx?UserType=全部用户&amp;PersonsEachTime=1&amp;DepartmentID=128&amp;Fire=Modify&amp;buttID=BModify&amp;WindowShowModalDialog=true&amp;WindowsOpenStyle=width=400px,height=200px,scrollbars=1,resizable=yes,top=0,left=200','','客户代码',this)" type=button value=生成客户代码></DIVV></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">备注: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=romark title=备注 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">客户类型:</TD>
+<TD width="40%"><OBJTEMP><SELECT id=clientstyle title=客户类型 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" size=1 ColumnDefault="" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"><OPTION></OPTION><OPTION style="BACKGROUND-COLOR: skyblue" selected>二级医院</OPTION><OPTION>体检中心</OPTION><OPTION>三级医院</OPTION><OPTION>托管社区</OPTION><OPTION>私立医院</OPTION><OPTION>社区医院</OPTION></SELECT></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">所属区域: </TD>
+<TD width="40%"><OBJTEMP><SELECT id=clientarea title=所属区域 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" size=1 ColumnDefault="" AllowNull="No" method="=" NoChange="No" keyIndex="No"><OPTION></OPTION><OPTION>成都市</OPTION><OPTION>成都西北区</OPTION><OPTION>成都西南区</OPTION><OPTION>成都东北区</OPTION><OPTION>成都东南区</OPTION><OPTION>资阳市</OPTION><OPTION>内江市</OPTION><OPTION>自贡市</OPTION><OPTION>泸州市</OPTION><OPTION>宜宾市</OPTION><OPTION>绵阳市</OPTION><OPTION>德阳市</OPTION><OPTION>广元市</OPTION><OPTION>南充市</OPTION><OPTION>遂宁市</OPTION><OPTION>巴中市</OPTION><OPTION>达州市</OPTION><OPTION>广安市</OPTION><OPTION>乐山市</OPTION><OPTION>眉山市</OPTION><OPTION>雅安市</OPTION><OPTION>西昌市</OPTION><OPTION>攀枝花市</OPTION><OPTION>甘孜州</OPTION><OPTION>阿坝州</OPTION><OPTION>新津片区</OPTION><OPTION>高新片区</OPTION><OPTION>成华片区</OPTION><OPTION>仁寿片区</OPTION><OPTION>郫县片区</OPTION><OPTION>都江堰</OPTION><OPTION>温江</OPTION><OPTION>彭山</OPTION><OPTION>眉山东坡</OPTION><OPTION style="BACKGROUND-COLOR: red" selected>绵阳市</OPTION></SELECT></OBJTEMP></TD>
+<TD noWrap align=right width="10%">负责人:</TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=PRINCIPAL title=负责人 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">单位报告抬头: </TD>
+<TD width="40%" colSpan=3><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=ClientReportTitle title=单位报告抬头 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=中国人民解放军第五二零医院 ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD></TR>
+<TR bgColor=white>
+<TD noWrap align=right width="10%">对账日: </TD>
+<TD width="40%"><OBJTEMP><INPUT onkeypress="window.status='可以输入字符'" id=CWAccountDate title="对账日 " style="WIDTH: 99.44%; HEIGHT: 20px; BACKGROUND-COLOR: transparent" onfocus="window.status='可以输入字符'" value=25+31 ColumnDefault="" databand="databand" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"></OBJTEMP></TD>
+<TD noWrap align=right width="10%">客户分类:</TD>
+<TD width="40%"><OBJTEMP><SELECT id=NFClientType title=客户分类 style="WIDTH: 100%; BACKGROUND-COLOR: transparent" size=1 ColumnDefault="" AllowNull="Yes" method="=" NoChange="No" keyIndex="No"><OPTION></OPTION><OPTION>综合医院</OPTION><OPTION>中医院</OPTION><OPTION>妇保院</OPTION><OPTION>体检中心</OPTION><OPTION>私立医院</OPTION><OPTION>厂矿医院</OPTION><OPTION>输血机构</OPTION><OPTION style="BACKGROUND-COLOR: skyblue" selected>军队武装医院</OPTION><OPTION>专科医院</OPTION><OPTION>科研机构</OPTION><OPTION>社区服务中心</OPTION><OPTION>其它</OPTION></SELECT></OBJTEMP></TD></TR></TBODY></TABLE>]]></CDATA>

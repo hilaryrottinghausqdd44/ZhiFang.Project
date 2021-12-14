@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	//数据集
+    	var store = Ext.create('Ext.data.TreeStore',{
+    		fields:['text'],
+    		proxy:{
+    			type:'ajax',
+    			url:'TableNameList.txt',
+    			//数据匹配处理
+    			extractResponseData:function(response){
+    				var data = Ext.JSON.decode(response.responseText);
+    		        for(var i in data){
+    		        	data[i].leaf = true;
+    		        }
+    		        var obj = {children:data};
+    		        response.responseText = Ext.JSON.encode(obj);
+    		        return response;
+    			}
+    		},
+    		root:{
+    			text:'后台服务',
+    			leaf:false,
+    			expanded:true
+    		}
+    	});
+    	//左树
+    	var tree = Ext.create('Ext.tree.Panel',{
+    		region:'west',
+    		width:200,
+			autoScroll:true,
+		    enableDD:false,
+		    rootVisible:true,
+		    containerScroll:true,
+		    autoScroll:false,
+    		store:store
+    	});
+    	//功能区
+    	var panel = Ext.create('Ext.tab.Panel',{
+    		region:'center',
+    		items:[{
+    			xtype:'panel',
+    			title:'所有服务',
+    			html:'......'
+    		}]
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'border',
+    		items:[tree,panel]
+    	});
+    	//关系联动
+    	tree.on({
+    		itemclick:function(view,record){
+    			var filename = record.get('text');
+    			var p = Ext.create('Ext.panel.Panel',{
+    				title:filename,
+    				html:"<html><body><iframe src='"+filename+"' style='height:100%;width:100%' frameborder='no'></iframe></body></html>"
+    			});
+    			panel.removeAll();
+    			panel.add(p);
+    		}
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

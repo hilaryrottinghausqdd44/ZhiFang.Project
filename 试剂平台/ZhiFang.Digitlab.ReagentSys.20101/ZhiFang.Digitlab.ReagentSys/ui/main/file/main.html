@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>控制台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    
+    <script type="text/javascript" src="../../extjs/ux/CheckColumn.js"></script>
+    <script type="text/javascript" src="../../zhifangux/gridcombobox.js"></script>
+    <script type="text/javascript" src="../../zhifangux/colorscombobox.js"></script>
+	 
+    <script type="text/javascript" src="../../extjs/ux/CheckColumn.js"></script>
+    <script type="text/javascript" src="../../zhifangux/gridcombobox.js"></script>
+    <script type="text/javascript" src="../../zhifangux/colorscombobox.js"></script>
+	 
+    <script type="text/javascript" src="../../zhifangux/DateTimePicker.js"></script>
+    <script type="text/javascript" src="../../zhifangux/DateTimeNew.js"></script>
+    
+    <script type="text/javascript" src="../../zhifangux/DateIntervals.js"></script>
+	<script type="text/javascript" src="../../zhifangux/DateRange.js"></script>
+    <script type="text/javascript" src="../../zhifangux/DateTime.js"></script>
+    <script type="text/javascript" src="../../zhifangux/FontStyleSet.js"></script>
+	<script type="text/javascript" src="../../zhifangux/UXRadioGroup.js"></script>
+	<script type="text/javascript" src="../../zhifangux/PanelCheckboxGroup.js"></script>
+	<script type="text/javascript" src="../../zhifangux/SortList.js"></script>
+	<script type="text/javascript" src="../../zhifangux/PeoplePicker.js"></script>
+	<script type="text/javascript" src="../../zhifangux/DdItems.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/ux/css/CheckHeader.css" />
+    
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    
+    <script type="text/javascript" src="../../util/JcallShell.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/files.css" />
+    <script type="text/javascript" src="../../config/config_PKI.js"></script>
+    
+    <script type="text/javascript" src="main.js"></script>
+    
+    <!-- tabpanel的tab样式 -->
+    <style type="text/css">
+        #maintabpanel .x-tab-bar-body{
+            height: 30px !important;
+        }
+        #maintabpanel .x-tab-bar-strip{
+            top: 28px !important;
+        }
+    </style>
+    <script type="text/javascript">
+  		//模拟点击事件--退出应用 
+		function ExitClose(){simulateClickById("main-exit-button");}
+  		
+  		//打印  1:条码打印;2:报告打印
+  		function print(type,info,PrintFlag){
+  			//条码打印
+  		  	function PrintCode(codeInfo){
+  				var id = "main-printcode-button";
+  				var but = document.getElementById(id);
+  				but.setAttribute("PrintState","0");
+  				but.setAttribute("CodeInfo",codeInfo);
+  				//模拟点击事件
+  				simulateClickById(id);
+  			};
+  			//报告打印
+  			//reportInfo 文件路径
+  			//PrintFlag(打印标志) 1报告 2清单
+  		  	function PrintReport(reportInfo,PrintFlag){
+  				var flag = PrintFlag || "";
+  				var id = "main-printreport-button";
+  				var but = document.getElementById(id);
+  				but.setAttribute("PrintState","0");
+  				but.setAttribute("ReportFile",reportInfo);
+  				but.setAttribute("PrintFlag",flag+"");//打印标志
+  				//模拟点击事件
+  				simulateClickById(id);
+  			}
+  			
+  			switch(type){
+  				case 1:
+  					PrintCode(info);
+  					break;
+  				case 2:
+					PrintReport(info,PrintFlag);
+					break;
+  			}
+  		};
+    </script>
+</head>
+<body>
+	<div id="main-page-div"></div>
+	<!-- 退出应用 -->
+	<button id="main-exit-button" style="display:none"></button>
+	<!-- 条码打印 -->
+	<button id="main-printcode-button" style="display:none"></button>
+	<!-- 报告打印 -->
+	<button id="main-printreport-button" style="display:none"></button>
+	<script type="text/javascript">
+		(function(){
+			var but = document.getElementById('main-printreport-button');
+			var path = getRootPath();
+			but.setAttribute("Path",path);
+		})();
+	</script>
+</body>
+</html>

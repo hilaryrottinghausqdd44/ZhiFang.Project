@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>专家规则</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+</head>
+<body>
+
+    <div class="layui-fluid">
+
+        <!--功能内容-->
+        <div id="content">
+            <div class="layui-row layui-col-space5">
+                <div class="layui-col-xs12 layui-col-sm6">
+                    <div class="layui-card">
+                        <div class="layui-card-body">
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">检验小组过滤:</label>
+                                    <div class="layui-input-block">
+                                        <select id="SectionFilter" lay-filter="SectionFilter" lay-search>
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="maintable" lay-filter="maintable"></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm6">
+                    <div class="layui-card">
+                        <div class="layui-card-body">
+                            <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="tab" id="tab" style="overflow-y:auto;">
+                                <ul class="layui-tab-title">
+                                    <li class="layui-this"><i class="iconfont">&#xe628;</i>&nbsp;专家规则</li>
+                                    <li><i class="iconfont">&#xe66c;</i>&nbsp;规则明细设置</li>
+                                </ul>
+                                <div class="layui-tab-content">
+                                    <div class="layui-tab-item layui-show">
+                                        <div class="layui-form" id="LBExpertRule_Form" lay-filter="LBExpertRule_Form">
+                                            <span id="LBExpertRule_FormType" class="layui-badge" style="position:absolute;">新增</span>
+                                            <div class="layui-row">
+                                                <div class="layui-col-sm8 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">检验小组:</label>
+                                                        <div class="layui-input-block">
+                                                            <select id="LBExpertRule_LBSection_Id" name="LBExpertRule_LBSection_Id" lay-verify='required' lay-filter="LBExpertRule_LBSection_Id" autocomplete="off"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm4 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">规则次序:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" id="LBExpertRule_DispOrder" name="LBExpertRule_DispOrder" lay-verify='required|number' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-row">
+                                                <div class="layui-col-sm8 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">规则名称:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBExpertRule_CName" lay-verify='required' placeholder="必填项" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm4 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否采用:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="LBExpertRule_IsUse" name="LBExpertRule_IsUse" title="" lay-skin="primary">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-row">
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">规则组名称:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBExpertRule_GName" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-input-block">
+                                                        <span style="color:#ccc;">注：同一组规则互斥，满足一个规则后，不再判断后面的规则</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-row">
+                                                <div class="layui-col-sm8 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">提示项目:</label>
+                                                        <div class="layui-input-block">
+                                                            <input style="cursor:pointer;" type="text" name="LBExpertRule_LBItem_CName" id="LBExpertRule_LBItem_CName" placeholder="必填项" lay-verify='required' readonly autocomplete="off" class="layui-input" />
+                                                            <i class="layui-icon layui-icon-triangle-d"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm8 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">提示项目ID:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBExpertRule_LBItem_Id" id="LBExpertRule_LBItem_Id" readonly autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm4 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">警示级别:</label>
+                                                        <div class="layui-input-block">
+                                                            <select id="LBExpertRule_AlarmLevel" name="LBExpertRule_AlarmLevel" autocomplete="off"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-row">
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">结果类型:</label>
+                                                        <div class="layui-input-block">
+                                                            <select id="LBExpertRule_ResultType" name="LBExpertRule_ResultType" autocomplete="off">
+                                                                <option value="0">常规结果</option>
+                                                                <!--<option value="1">微生物结果</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">规则内关系:</label>
+                                                        <div class="layui-input-block">
+                                                            <select id="LBExpertRule_RuleRelation" name="LBExpertRule_RuleRelation" autocomplete="off">
+                                                                <option value="0">全部满足(and)</option>
+                                                                <option value="1">互斥(or)</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-row">
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">项目警示:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBExpertRule_ItemAlarmInfo" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">检验单警示:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBExpertRule_AlarmInfo" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">规则备注:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBExpertRule_Comment" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-row">
+                                                <fieldset class="layui-elem-field layui-field-title">
+                                                    <legend style="color: #333;">检验单样本条件</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-row">
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">检验仪器:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select id="LBExpertRule_EquipID" name="LBExpertRule_EquipID" autocomplete="off"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">送检科室:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select id="LBExpertRule_DeptID" name="LBExpertRule_DeptID" autocomplete="off"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">样本类型:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select id="LBExpertRule_SampleTypeID" name="LBExpertRule_SampleTypeID" autocomplete="off"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">临床诊断:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select id="LBExpertRule_DiagID" name="LBExpertRule_DiagID" autocomplete="off"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">生理期:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select id="LBExpertRule_PhyPeriodID" name="LBExpertRule_PhyPeriodID" autocomplete="off"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">采样部位:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select id="LBExpertRule_CollectPartID" name="LBExpertRule_CollectPartID" autocomplete="off"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">采样开始时间:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="text" name="LBExpertRule_BCollectTime" id="LBExpertRule_BCollectTime" placeholder="请选择时间" class="layui-input" autocomplete="off" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">采样结束时间:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="text" name="LBExpertRule_ECollectTime" id="LBExpertRule_ECollectTime" placeholder="请选择时间" class="layui-input" autocomplete="off" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">性别:</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select id="LBExpertRule_GenderID" name="LBExpertRule_GenderID" autocomplete="off"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-row">
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">年龄:</label>
+                                                                    <div class="layui-input-block" style="position:relative;">
+                                                                        <div class="layui-col-xs2">
+                                                                            <input type="number" name="LBExpertRule_LowAge" id="LBExpertRule_LowAge" lay-verify="ZDY_number" placeholder="年龄低限" class="layui-input" autocomplete="off" />
+                                                                        </div>
+                                                                        <div class="layui-col-xs1" style="text-align:center;">
+                                                                            -
+                                                                        </div>
+                                                                        <div class="layui-col-xs2">
+                                                                            <input type="number" name="LBExpertRule_HighAge" id="LBExpertRule_HighAge" lay-verify="ZDY_number" placeholder="年龄高限" class="layui-input" autocomplete="off" />
+                                                                        </div>
+                                                                        <div class="layui-col-xs7">
+                                                                            <select name="LBExpertRule_AgeUnitID" id="LBExpertRule_AgeUnitID" lay-filter="LBExpertRule_AgeUnitID"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="layui-elem-field layui-field-title">
+                                                    <legend style="color: #333;">规则明细</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-row">
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <textarea id="LBExpertRule_ExpertRuleListInfo" name="LBExpertRule_ExpertRuleListInfo" readonly class="layui-textarea"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            <div class="layui-row">
+                                                <div class="layui-btn-group" style="margin-top:5px;">
+                                                    <button type="button" id="CopyRule" class="layui-btn layui-btn-sm"><i class="iconfont">&#xe685;</i>&nbsp;复制规则</button>
+                                                    <button type="button" id="AddRule" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                    <button type="button" id="EditRule" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                    <button type="button" id="SaveRule" lay-submit lay-filter="SaveRule" class="layui-btn layui-btn-sm"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                    <button type="button" id="DelRule" class="layui-btn layui-btn-sm layui-btn-warm"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <table id="expertrulelisttable" lay-filter="expertrulelisttable"></table>
+                                        <div class="layui-form" id="LBExpertRuleList_Form" lay-filter="LBExpertRuleList_Form">
+                                            <span id="LBExpertRuleList_FormType" class="layui-badge" style="position:absolute;">新增</span>
+                                            <div class="layui-row">
+                                                <div class="layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">对比项目:</label>
+                                                        <div class="layui-input-block">
+                                                            <input style="cursor:pointer;" type="text" name="LBExpertRuleList_ItemName" id="LBExpertRuleList_ItemName" placeholder="必填项" lay-verify='required' readonly autocomplete="off" class="layui-input" />
+                                                            <i class="layui-icon layui-icon-triangle-d"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm8 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">对比项目ID:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBExpertRuleList_ItemID" id="LBExpertRuleList_ItemID" readonly autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <div class="layui-input-block" style="margin-left:20px;">
+                                                            <input type="checkbox" id="LBExpertRuleList_BRelatedItemValue" name="LBExpertRuleList_BRelatedItemValue" lay-filter="LBExpertRuleList_BRelatedItemValue" title="相关检验结果(支持其他检验单/其他小组项目)" lay-skin="primary">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">对比内容:</label>
+                                                        <div class="layui-input-block">
+                                                            <select id="LBExpertRuleList_ValueFieldType" name="LBExpertRuleList_ValueFieldType" lay-filter="LBExpertRuleList_ValueFieldType" autocomplete="off"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs6 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">对比值类型:</label>
+                                                        <div class="layui-input-block">
+                                                            <select id="LBExpertRuleList_ValueType" name="LBExpertRuleList_ValueType" lay-filter="LBExpertRuleList_ValueType" autocomplete="off"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs6 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">显示次序:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" id="LBExpertRuleList_DispOrder" name="LBExpertRuleList_DispOrder" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <div class="layui-input-block" style="margin-left:20px;">
+                                                            <input type="checkbox" id="LBExpertRuleList_BValue" name="LBExpertRuleList_BValue" title="对比内容存在" lay-skin="primary" checked>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">对比判断:</label>
+                                                        <div class="layui-input-block">
+                                                            <select id="LBExpertRuleList_CompType" name="LBExpertRuleList_CompType" lay-filter="LBExpertRuleList_CompType" autocomplete="off"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">对比值:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" id="LBExpertRuleList_CompValue" name="LBExpertRuleList_CompValue" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">系统明细说明:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" id="LBExpertRuleList_SysRuleName" name="LBExpertRuleList_SysRuleName" readonly autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">规则明细说明:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" id="LBExpertRuleList_RuleName" name="LBExpertRuleList_RuleName" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="LBExpertRuleList_BLastHisComp" name="LBExpertRuleList_BLastHisComp" title="仅判断最近一次历史结果" lay-skin="primary">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <div class="layui-input-block" style="color: #666;">
+                                                            <input type="checkbox" id="LBExpertRuleList_BLimitHisDate" lay-filter="LBExpertRuleList_BLimitHisDate" name="LBExpertRuleList_BLimitHisDate" title="仅判断" lay-skin="primary">
+                                                            <input type="number" name="LBExpertRuleList_LimitHisDate" id="LBExpertRuleList_LimitHisDate" lay-verify="ZDY_number" style="display: inline-block; width: 80px;" autocomplete="off" class="layui-input" />
+                                                            天以内历史结果
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">计算公式:</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" id="LBExpertRuleList_CalcFormula" name="LBExpertRuleList_CalcFormula" autocomplete="off" class="layui-input layui-disabled" disabled />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <div class="layui-input-block">
+                                                            <blockquote class="layui-elem-quote" style="padding:3px 8px;margin-bottom:5px;">
+                                                                <div style="font-size:12px;">例如：[项目简称1]+[项目简称2]=100</div>
+                                                                <div style="font-size:12px;">【计算公式：[项目简称1]+[项目简称2]】【对比类型：=】【对比值：100】</div>
+                                                            </blockquote>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-row">
+                                                <div class="layui-btn-group" style="margin-top:5px;">
+                                                    <button type="button" id="AddRuleList" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                    <button type="button" id="EditRuleList" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                    <button type="button" id="SaveRuleList" lay-submit lay-filter="SaveRuleList" class="layui-btn layui-btn-sm"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                    <button type="button" id="DelRuleList" class="layui-btn layui-btn-sm layui-btn-warm"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--是否在用-->
+    <script type="text/html" id="IsUseTp">
+        <input type="checkbox" name="IsUse" value="{{d.LBItemExp_IsUse}}" lay-filter="IsUse" lay-skin="primary" {{ d.LBExpertRule_IsUse == "true" ? 'checked' : '' }}>
+    </script>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getCSS("../../../views/sample/css/layui.sm.all.css");
+        UIVersion.getJS('index.js');
+    </script>
+    <style type="text/css">
+        .layui-fluid { padding: 5px; }
+        /*input前存在icon 则加到input里面*/
+        .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px; }
+        .layui-input-block{ margin-left:100px; }
+        .layui-form-label{ width:90px; }
+    </style>
+</body>
+</html>

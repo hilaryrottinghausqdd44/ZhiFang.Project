@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaBmsInDoc" table="[dbo].[Rea_BmsInDoc]">
+    <id name="Id" column="[InDocID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="InDocNo" column="[InDocNo]" type="String" not-null="false" length="20" />
+    <property name="CompanyID" column="[CompanyID]" type="Int64" not-null="false" length="8" />
+    <property name="CompanyName" column="[CompanyName]" type="String" not-null="false" length="200" />
+    <property name="Carrier" column="[Carrier]" type="String" not-null="false" length="50" />
+    <property name="UserID" column="[UserID]" type="Int64" not-null="false" length="8" />
+    <property name="UserName" column="[UserName]" type="String" not-null="false" length="50" />
+    <property name="InvoiceNo" column="[InvoiceNo]" type="String" not-null="false" length="100" />
+    <property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+    <property name="OperDate" column="[OperDate]" type="DateTime" not-null="false" length="8" />
+    <property name="PrintTimes" column="[PrintTimes]" type="Int32" not-null="false" length="4" />
+    <property name="TotalPrice" column="[TotalPrice]" type="Double" not-null="false" length="8" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="500" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="500" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="500" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="CreaterID" column="[CreaterID]" type="Int64" not-null="false" length="8" />
+    <property name="CreaterName" column="[CreaterName]" type="String" not-null="false" length="200" />
+    <property name="DeptID" column="[DeptID]" type="Int64" not-null="false" length="8" />
+    <property name="DeptName" column="[DeptName]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="InType" column="[InType]" type="Int64" not-null="false" length="8" />
+    <property name="InTypeName" column="[InTypeName]" type="String" not-null="false" length="50" />
+    <property name="StatusName" column="[StatusName]" type="String" not-null="false" length="50" />
+    <property name="OperateInDocID" column="[OperateInDocID]" type="Int64" not-null="false" length="8" />
+    <property name="OperateInDocNo" column="[OperateInDocNo]" type="String" not-null="false" length="50" />
+    <property name="CheckDocID" column="[CheckDocID]" type="Int64" not-null="false" length="8" />
+    <property name="OrgID" column="[OrgID]" type="Int64" not-null="false" length="8" />
+    <property name="ReconciliationMark" column="[ReconciliationMark]" type="Int32" not-null="false" length="4" />
+    <property name="LockMark" column="[LockMark]" type="Int32" not-null="false" length="4" />
+    <property name="OtherDocNo" column="[OtherDocNo]" type="String" not-null="false" length="50" />
+    <property name="SaleDocNo" column="[SaleDocNo]" type="String" not-null="false" length="50" />
+    <property name="SaleDocConfirmID" column="[SaleDocConfirmID]" type="Int64" not-null="false" length="8" />
+    <property name="SourceType" column="[SourceType]" type="Int64" not-null="false" length="8" />
+    <property name="SaleDocID" column="[SaleDocID]" type="Int64" not-null="false" length="8" />
+    
+    <property name="IOFlag" column="[IOFlag]" type="Int32" not-null="false" length="4" />
+    <property name="IOMemo" column="[IOMemo]" type="String" not-null="false" length="5000" />
+    
+  </class>
+</hibernate-mapping>
+

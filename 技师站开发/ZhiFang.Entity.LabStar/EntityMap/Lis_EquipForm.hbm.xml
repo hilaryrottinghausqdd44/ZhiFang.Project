@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisEquipForm" table="dbo.Lis_EquipForm">
+    <id name="Id" column="EquipFormID" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="DataTimeStamp" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="LabID" type="Int64" not-null="true" length="8" />
+    <property name="ETestDate" column="ETestDate" type="DateTime" not-null="false" length="8" />
+    <property name="ESampleNo" column="ESampleNo" type="String" not-null="false" length="20" />
+    <property name="ESampleNoForOrder" column="ESampleNoForOrder" type="String" not-null="false" length="50" />
+    <property name="EBarCode" column="EBarCode" type="String" not-null="false" length="20" />
+    <property name="EquipModuleCode" column="EquipModuleCode" type="String" not-null="false" length="20" />
+    <property name="ERack" column="ERack" type="String" not-null="false" length="20" />
+    <property name="EPosition" column="EPosition" type="Int32" not-null="false" length="4" />
+    <property name="IExamine" column="iExamine" type="Int32" not-null="false" length="4" />
+    <property name="IsExamined" column="IsExamined" type="Boolean" not-null="false" length="1" />
+    <property name="EFinishCode" column="EFinishCode" type="Int32" not-null="false" length="4" />
+    <property name="EFinishInfo" column="EFinishInfo" type="String" not-null="false" length="50" />
+    <property name="EResultComment" column="EResultComment" type="String" not-null="false" length="16" />
+    <property name="ESend" column="ESend" type="String" not-null="false" length="100" />
+    <property name="DataAddTime" column="DataAddTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="DataUpdateTime" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="LBEquip" class="LBEquip" lazy="proxy">
+      <column name="EquipID" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="LisTestForm" class="LisTestForm" lazy="proxy">
+      <column name="TestFormID" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

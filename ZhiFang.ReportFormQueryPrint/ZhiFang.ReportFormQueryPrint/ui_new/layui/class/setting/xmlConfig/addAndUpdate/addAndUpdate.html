@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+    <style>
+        
+        .layui-form-item {
+            margin-bottom: 0px!important;
+            width: 92%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form class="layui-form" lay-filter="dataForm">
+            <div class="layui-form-item" style="margin-top:17px;">
+                <label class="layui-form-label">小组类别</label>
+                <div class="layui-input-block">
+                    <select name="ReportType" lay-verify="required|notnull">
+                        
+                        <option value="Normal">生化类</option>
+                        <option value="NormalIncImage">生化类(图)</option>
+                        <option value="Micro">微生物</option>
+                        <option value="MicroIncImage">微生物(图)</option>
+                        <option value="CellMorphology">细胞形态学</option>
+                        <option value="FishCheck">Fish检测(图)</option>
+                        <option value="SensorCheck">院感检测(图)</option>
+                        <option value="ChromosomeCheck">染色体检测(图)</option>
+                        <option value="PathologyCheck">病理检测(图)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">模板名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="XSLName"  autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">页面名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="PageName" value="TechnicianPrint1.aspx"  autocomplete="off" class="layui-input" disabled>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">样式名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="Name"  autocomplete="off" class="layui-input"  >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button id="saveButton" style="margin-left:76px" class="layui-btn layui-btn-sm" lay-filter="saveButton" >提交</button>
+                    
+                </div>
+            </div>
+        </form>
+</div>
+    <script type="text/javascript">
+        UIVersion.loadLayui('2.5.6');
+        UIVersion.getJS('addAndUpdate.js');
+        UIVersion.getCSS('../../../../../../web_src/layui/css/layui.sm.all.css');
+    </script>
+</body>
+</html>

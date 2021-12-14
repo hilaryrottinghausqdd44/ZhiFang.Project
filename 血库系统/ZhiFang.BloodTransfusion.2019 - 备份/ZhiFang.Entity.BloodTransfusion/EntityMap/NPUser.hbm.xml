@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="NPUser" table="[dbo].[NPUser]">
+    <id name="Id" column="[NPUserNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="20" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="20" />
+    <property name="PassWord" column="[PassWord]" type="String" not-null="false" length="20" />
+    <property name="DeptNo" column="[DeptNo]" type="Int32" not-null="false" length="4" />
+    <property name="DistrictNo" column="[DistrictNo]" type="Int32" not-null="false" length="4" />
+    <property name="Role" column="[Role]" type="String" not-null="false" length="20" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="RefSectionNo" column="[RefSectionNo]" type="String" not-null="false" length="500" />
+    <property name="SSectionNo" column="[SSectionNo]" type="String" not-null="false" length="1000" />
+    <property name="RefSikeTypeNo" column="[RefSikeTypeNo]" type="String" not-null="false" length="500" />
+    <property name="SSikeTypeNo" column="[SSikeTypeNo]" type="String" not-null="false" length="1000" />
+    <property name="RefDeftNo" column="[RefDeftNo]" type="String" not-null="false" length="500" />
+    <property name="SDeftNo" column="[SDeftNo]" type="String" not-null="false" length="1000" />
+    <property name="RefDoctor" column="[RefDoctor]" type="String" not-null="false" length="500" />
+    <property name="SDoctor" column="[SDoctor]" type="String" not-null="false" length="1000" />
+    <property name="RefDistrictNo" column="[RefDistrictNo]" type="String" not-null="false" length="500" />
+    <property name="SDistrictNo" column="[SDistrictNo]" type="String" not-null="false" length="1000" />
+    <property name="RefWardNo" column="[RefWardNo]" type="String" not-null="false" length="500" />
+    <property name="SWardNo" column="[SWardNo]" type="String" not-null="false" length="1000" />
+    <property name="RefClientNo" column="[RefClientNo]" type="String" not-null="false" length="500" />
+    <property name="SClientNo" column="[SClientNo]" type="String" not-null="false" length="1000" />
+    <property name="HisOrderCode" column="[HisOrderCode]" type="String" not-null="false" length="20" />
+    <property name="Telephone" column="[telephone]" type="String" not-null="false" length="20" />
+    <property name="UserDataRights" column="[UserDataRights]" type="String" not-null="false" length="2000" />
+
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,147 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherLinkmanByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherLinkmanById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherLinkman',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherLinkman',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherLinkmanByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherLinkman',
+
+    		//联系人管理对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherLinkman_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherLinkman_Id',value:'联系人ID'},						 
+						 		     
+				     												 
+						{ key:'OtherLinkman_ClientID',value:'客户ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_SexID',value:'性别ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_NationalityID',value:'民族ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_AnimalID',value:'属相ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_ConstellationID',value:'星座ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_EducationLevelID',value:'学历ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_MaritalStatusID',value:'婚姻状况ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_HealthStatusID',value:'健康状况ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_CreatorID',value:'创建者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_PositionID',value:'职务ID'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Position',value:'职务'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Name',value:'姓名'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Birthday',value:'出生日期'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Dept',value:'部门'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_OfficeTel',value:'单位电话'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_MobileTel',value:'移动电话'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_HomeTel',value:'家庭电话'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Tel',value:'其他电话'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_QQ',value:'QQ号'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Email',value:'邮件地址'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Address',value:'家庭地址'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_IdNumber',value:'身份证号'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Hobby',value:'爱好'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Comment',value:'备注'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_FocusConcern',value:'关心重点'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Interests',value:'利益诉求'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_Creator',value:'创建者'}, 
+						 		     
+				     												 
+						{ key:'OtherLinkman_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherLinkman_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'联系人管理',
+    		//主键字段
+    		key:'OtherLinkman_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

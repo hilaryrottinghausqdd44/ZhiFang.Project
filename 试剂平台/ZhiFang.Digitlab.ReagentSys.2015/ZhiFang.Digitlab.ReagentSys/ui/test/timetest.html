@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>时间累积测试</title>
+		<script type="text/javascript" src="../extjs/ext-all-debug.js"></script>
+		<script type="text/javascript" src="../util/JcallShell.js"></script>
+		<script type="text/javascript">
+			var st1 = null;
+			var st2 = null;
+			//页面显示时间
+			function showTime(){
+				var date = new Date();
+				var dStr = JShell.Date.toString(date,false,true);
+				
+				var span = document.createElement('span');
+				span.textContent = dStr;
+				var dateDiv = document.createElement('div');
+				dateDiv.appendChild(span);
+				
+				var div = document.getElementById('div');
+				div.appendChild(dateDiv);
+				
+				st1 = setTimeout(showTime,1000);
+			}
+			//阻塞/加塞测试方法
+			function A(){
+				var div = document.getElementById('div2');
+				var date = new Date();
+				for(var i=0;i<10000;i++){
+					var dStr = JShell.Date.toString(date,false,true);
+					console.log(dStr);
+				}
+				
+				st2 = setTimeout(A,1000);
+			}
+			//停止测试
+			function stopAll(){
+				if(st1) clearTimeout(st1);
+				if(st2) clearTimeout(st2);
+			}
+			//启动测试
+			function startAll(){
+				setTimeout(showTime,1000);
+				setTimeout(A,1000);
+			}
+			startAll();
+		</script>
+	</head>
+	<body>
+		<button onclick="stopAll()">停止测试</button>
+		<button onclick="startAll()">继续</button>
+		<div id="div" style="float:left;width:200px;padding:10px;text-align: center;"></div>
+		<div id="div2" style="float:left;width:200px;padding:10px;text-align: center;"></div>
+	</body>
+</html>

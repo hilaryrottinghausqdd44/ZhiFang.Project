@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LBItem" table="[dbo].[LB_Item]">
+    <id name="Id" column="[ItemID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="ItemNo" column="[ItemNo]" type="Int32" not-null="false" length="4" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="50" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="50" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="50" />
+    <property name="DiagMethod" column="[DiagMethod]" type="String" not-null="false" length="50" />
+    <property name="Unit" column="[Unit]" type="String" not-null="false" length="50" />
+    <property name="ValueType" column="[ValueType]" type="Int32" not-null="false" length="4" />
+    <property name="SamplingRequire" column="[SamplingRequire]" type="String" not-null="false" length="16" />
+    <property name="ClinicalInfo" column="[ClinicalInfo]" type="String" not-null="false" length="16" />
+    <property name="ItemCharge" column="[ItemCharge]" type="Decimal" not-null="false" length="9" />
+    <property name="Prec" column="[Prec]" type="Int32" not-null="false" length="4" />
+    <property name="IsOrderItem" column="[IsOrderItem]" type="Boolean" not-null="false" length="1" />
+    <property name="GroupType" column="[GroupType]" type="Int32" not-null="false" length="4" />
+    <property name="IsSampleItem" column="[IsSampleItem]" type="Boolean" not-null="false" length="1" />
+    <property name="IsCalcItem" column="[IsCalcItem]" type="Boolean" not-null="false" length="1" />
+    <property name="IsChargeItem" column="[IsChargeItem]" type="Boolean" not-null="false" length="1" />
+    <property name="IsUnionItem" column="[IsUnionItem]" type="Boolean" not-null="false" length="1" />
+    <property name="IsPrint" column="[IsPrint]" type="Boolean" not-null="false" length="1" />
+    <property name="IsPartItem" column="[IsPartItem]" type="Boolean" not-null="false" length="1" />
+    <property name="SecretFlag" column="[SecretFlag]" type="Int32" not-null="false" length="4" />
+    <property name="HisCompType" column="[HisCompType]" type="Int32" not-null="false" length="4" />
+    <property name="HisCompH" column="[HisCompH]" type="Double" not-null="false" length="8" />
+    <property name="HisCompHH" column="[HisCompHH]" type="Double" not-null="false" length="8" />
+    <property name="UseCode" column="[UseCode]" type="String" not-null="false" length="50" />
+    <property name="StandCode" column="[StandCode]" type="String" not-null="false" length="50" />
+    <property name="DeveCode" column="[DeveCode]" type="String" not-null="false" length="50" />
+    <property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="50" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="Comment" column="[Comment]" type="String" not-null="false" length="1073741823" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SpecialtyID" column="[SpecialtyID]" type="Int64" not-null="false" length="8" />
+    <property name="HintFlag" column="[hintFlag]" type="Int32" not-null="false" length="4" />
+    <property name="FWorkLoad" column="[FWorkLoad]" type="Double" not-null="false" length="8" />
+    <property name="SectionFun" column="[SectionFun]" type="String" not-null="false" length="50" />
+    <property name="DefaultRange" column="[DefaultRange]" type="String" not-null="false" length="400" />
+    <property name="RangeAllInfo" column="[RangeAllInfo]" type="String" not-null="false" length="1000" />
+    <property name="CollectSort" column="[CollectSort]" type="Int32" not-null="false" length="4" />
+    <property name="SpecialType" column="[SpecialType]" type="Int32" not-null="false" length="4" />
+  </class>
+</hibernate-mapping>

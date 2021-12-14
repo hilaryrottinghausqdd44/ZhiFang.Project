@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/09/2013 14:31:19" ReportInfo.Modified="01/05/2015 17:20:50" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string sectionno;
+         /*
+    private void Cell54_BeforePrint(object sender, EventArgs e)
+    {
+      sectionno=((String)Report.GetColumnValue(&quot;Table.SECTIONNO&quot;));
+      switch(sectionno)
+      {       
+        case &quot;2&quot;:
+        case &quot;23&quot;:
+        case &quot;29&quot;:
+          Cell54.Text=&quot;谭爱国&quot;;
+        break;   
+        case &quot;9&quot;:
+        case &quot;11&quot;:
+        case &quot;12&quot;:
+        case &quot;17&quot;:
+        case &quot;19&quot;: 
+        case &quot;38&quot;:
+          Cell54.Text=&quot;王敬华&quot;;
+        break;
+        case &quot;21&quot;:
+        case &quot;22&quot;:
+        case &quot;25&quot;:
+        case &quot;27&quot;:
+        case &quot;31&quot;:
+          Cell54.Text=&quot;王燕&quot;; 
+        break;
+        default:
+         // Cell54.Text=&quot;张丽娜&quot;;
+        break;
+      }
+    }
+*/
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" PaperWidth="350" FirstPageSource="15" OtherPagesSource="15" Guides="113.4">
+    <ReportTitleBand Name="ReportTitle1" Width="1247.4" Height="28.35" Guides="28.35">
+      <TableObject Name="Table1" Width="975.62" Height="28.35" Border.Lines="All">
+        <TableColumn Name="Column9" Width="90.78"/>
+        <TableColumn Name="Column10" Width="100.23"/>
+        <TableColumn Name="Column11" Width="34.08"/>
+        <TableColumn Name="Column12" Width="109.68"/>
+        <TableColumn Name="Column13" Width="90.78"/>
+        <TableColumn Name="Column14" Width="90.78"/>
+        <TableColumn Name="Column31" Width="71.32"/>
+        <TableColumn Name="Column15" Width="71.32"/>
+        <TableColumn Name="Column16" Width="107.23"/>
+        <TableColumn Name="Column17" Width="119.2"/>
+        <TableColumn Name="Column36" Width="90.22"/>
+        <TableRow Name="Row2" Height="28.35">
+          <TableCell Name="Cell29" Border.Lines="All" Text="送检医院" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="核收时间" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell31" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="病人姓名" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell33" Border.Lines="All" Text="样本号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell34" Border.Lines="All" Text="项目中文" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell51" Border.Lines="All" Text="项目英文" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell35" Border.Lines="All" Text="项目结果" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell36" Border.Lines="All" Text="项目单位" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell37" Border.Lines="All" Text="项目参考值" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell56" Text="项目高低状态" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="32.35" Width="1247.4" Height="349.65" CanGrow="true" CanShrink="true" Guides="28.35">
+      <TableObject Name="Table1" Width="975.2" Height="28.35" Border.Lines="All">
+        <TableColumn Name="Column1" Width="90.58"/>
+        <TableColumn Name="Column2" Width="100.78"/>
+        <TableColumn Name="Column3" Width="33.88"/>
+        <TableColumn Name="Column4" Width="109.48"/>
+        <TableColumn Name="Column5" Width="90.58"/>
+        <TableColumn Name="Column6" Width="90.58"/>
+        <TableColumn Name="Column32" Width="71.3"/>
+        <TableColumn Name="Column7" Width="71.3"/>
+        <TableColumn Name="Column8" Width="107.21"/>
+        <TableColumn Name="Column23" Width="119.31"/>
+        <TableColumn Name="Column35" Width="90.2"/>
+        <TableRow Name="Row1" Height="28.35">
+          <TableCell Name="Cell1" Border.Lines="Right" Text="[Table.clientname]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell2" Border.Lines="Right" Text="[Table.receivedate]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell3" Border.Lines="Right" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell4" Border.Lines="Right" Text="[Table.cname]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell5" Border.Lines="Right" Text="[Table.Sampleno]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell26" Border.Lines="Right" Text="[Table.testitemname]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell52" Border.Lines="Right" Text="[Table.testitemename]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell27" Border.Lines="Right" Text="[Table.REPORTVALUEALL]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell28" Border.Lines="Right" Text="[Table.unit]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell43" Border.Lines="Right" Text="[Table.REFRANGE]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell55" Border.Lines="Right" Text="[Table.RUS]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

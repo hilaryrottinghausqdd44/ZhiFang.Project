@@ -1,0 +1,23 @@
+ 
+
+if exists(select 1 from dbo.sysreferences r join dbo.sysobjects o on (o.id = r.constid and o.type = 'F') where r.fkeyid = object_id('Blood_BagOperationDtl') and o.name = 'FK_BLOOD_BA_FK_BLOOD__BLOOD_BA') alter table Blood_BagOperationDtl drop constraint FK_BLOOD_BA_FK_BLOOD__BLOOD_BA; if exists (select 1 from sysobjects where id = object_id('Blood_BagOperation') and type = 'U') drop table Blood_BagOperation; create table Blood_BagOperation ( LabID bigint null, BagOperationID bigint not null, BagOperationNo varchar(20) null, BReqFormID nvarchar(40) null, BOutFormID varchar(20) null, BOutItemID varchar(20) null, BloodNo int null, BagOperTypeID bigint null, BagOperResultID bigint null, DeptID bigint null, DeptCName varchar(50) null, BBagCode varchar(20) null, PCode varchar(10) null, BagOperID bigint null, BagOper varchar(50) null, BagOperTime datetime null, CarrierID bigint null, Carrier varchar(50) null, IsVisible bit null, DataAddTime datetime null, DataUpdateTime datetime null, DataTimeStamp timestamp null, constraint PK_BLOOD_BAGOPERATION primary key (BagOperationID));
+
+ if exists(select 1 from dbo.sysreferences r join dbo.sysobjects o on (o.id = r.constid and o.type = 'F') where r.fkeyid = object_id('Blood_BagOperationDtl') and o.name = 'FK_BLOOD_BA_FK_BLOOD__BLOOD_BA') alter table Blood_BagOperationDtl drop constraint FK_BLOOD_BA_FK_BLOOD__BLOOD_BA; if exists (select 1 from sysobjects where id = object_id('Blood_BagOperationDtl') and type = 'U') drop table Blood_BagOperationDtl; create table Blood_BagOperationDtl ( LabID bigint null, BagOperationDtlID bigint not null, BagOperationID bigint null, DCId bigint null, BagOperResult varchar(500) null, DataAddTime datetime null, DataUpdateTime datetime null, DataTimeStamp timestamp null, constraint PK_BLOOD_BAGOPERATIONDTL primary key (BagOperationDtlID)); 
+
+  if exists(select 1 from dbo.sysreferences r join dbo.sysobjects o on (o.id = r.constid and o.type = 'F') where r.fkeyid = object_id('Blood_TransItem') and o.name = 'FK_BLOOD_TR_FK_BLOOD__BLOOD_TR') alter table Blood_TransItem drop constraint FK_BLOOD_TR_FK_BLOOD__BLOOD_TR; if exists (select 1 from sysobjects where id = object_id('Blood_TransForm') and type = 'U') drop table Blood_TransForm; create table Blood_TransForm ( LabID bigint null, TransFormID bigint not null, TransFormNo varchar(20) null, BReqFormID nvarchar(40) null, BOutFormID varchar(20) null, BOutItemID varchar(20) null, BloodNo int null, BBagCode varchar(20) null, PCode varchar(10) null, BeforeCheckID1 bigint null, BeforeCheck1 varchar(50) null, BeforeCheckID2 bigint null, BeforeCheck2 varchar(50) null, TransBeginTime datetime null, TransCheckID1 bigint null, TransCheck1 varchar(50) null, TransCheckID2 bigint null, TransCheck2 varchar(50) null, TransEndTime datetime null, Visible bit null, DispOrder int null, DataAddTime datetime null, DataUpdateTime datetime null, DataTimeStamp timestamp null, constraint PK_BLOOD_TRANSFORM primary key (TransFormID)); 
+
+  if exists(select 1 from dbo.sysreferences r join dbo.sysobjects o on (o.id = r.constid and o.type = 'F') where r.fkeyid = object_id('Blood_TransItem') and o.name = 'FK_BLOOD_TR_FK_BLOOD__BLOOD_TR') alter table Blood_TransItem drop constraint FK_BLOOD_TR_FK_BLOOD__BLOOD_TR; if exists (select 1 from dbo.sysreferences r join dbo.sysobjects o on (o.id = r.constid and o.type = 'F') where r.fkeyid = object_id('Blood_TransItem') and o.name = 'FK_BLOOD_TR_FK_BLOOD__BLOOD_TR') alter table Blood_TransItem drop constraint FK_BLOOD_TR_FK_BLOOD__BLOOD_TR; if exists (select 1 from sysobjects where id = object_id('Blood_TransItem') and type = 'U') drop table Blood_TransItem; create table Blood_TransItem ( LabID bigint null, TransItemID bigint not null, TransFormID bigint null, ContentTypeID int null, TransRecordTypeItemID bigint null, TransItemResult varchar(200) null, Visible bit null, DispOrder int null, DataAddTime datetime null, DataTimeStamp timestamp null, constraint PK_BLOOD_TRANSITEM primary key (TransItemID)); 
+
+ IF COL_LENGTH('Blood_BOutForm', 'BReqFormID') IS NOT NULL ALTER TABLE Blood_BOutForm ALTER COLUMN BReqFormID nvarchar(40); 
+
+ IF COL_LENGTH('Blood_BPreForm', 'BReqFormID') IS NOT NULL ALTER TABLE Blood_BPreForm ALTER COLUMN BReqFormID nvarchar(40); 
+
+ IF COL_LENGTH('Blood_BPreItem', 'BReqFormID') IS NOT NULL ALTER TABLE Blood_BPreItem ALTER COLUMN BReqFormID nvarchar(40);
+
+ IF COL_LENGTH('Blood_BagOperation', 'BReqFormID') IS NOT NULL ALTER TABLE Blood_BagOperation ALTER COLUMN BReqFormID nvarchar(40); 
+
+ IF COL_LENGTH('Blood_TransForm', 'BReqFormID') IS NOT NULL ALTER TABLE Blood_TransForm ALTER COLUMN BReqFormID nvarchar(40); 
+
+
+
+

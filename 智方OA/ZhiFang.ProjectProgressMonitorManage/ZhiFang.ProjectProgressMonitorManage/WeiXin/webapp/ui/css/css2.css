@@ -1,0 +1,242 @@
+
+body{
+	margin:0;
+	padding:0;
+	font-size: 14px;
+}
+/**顶部固定框*/
+.page_head_fixed {
+	position: fixed;
+	max-height: 340px;
+	z-index: 1030;
+	border-radius: 0;
+	border-width: 0 0 1px;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	padding: 5px;
+	height: 50px;
+	background-color: #169ADA;
+}
+/**首页内容区域样式*/
+.page_content {
+	padding: 0px;
+	margin-top: 50px;
+	margin-bottom: 55px;
+}
+/**底部固定框*/
+.page_floot_fixed {
+	position: fixed;
+	max-height: 340px;
+	z-index: 1030;
+	border-radius: 0;
+	border-width: 1px 0 0;
+	border-top: 0;
+	content: "";
+	padding-right: 0;
+	padding-left: 0;
+	margin-bottom: 0;
+	top: auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 55px;
+	background-color: #F5F5F5;
+}
+
+.page_info_head_title {
+	float:right;
+	padding:10px 30px;
+	font-size: 16px;
+	font-weight: bolder;
+	color:#ffffff;
+}
+.page_info_head_back{
+	float: left;
+	padding:10px;
+	font-size: 16px;
+	color:#ffffff;
+}
+
+/**头像*/
+.picture {
+	overflow: hidden;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid #fff;
+	overflow: hidden;
+	-webkit-box-shadow: 0 0 3px #ccc;
+	box-shadow: 0 0 3px #ccc;
+}
+/**按钮*/
+.button {
+	margin: 0 auto;
+	padding: 5px 15px;
+	text-align: center;
+	float: left;
+}
+.button img{
+	width:24px;
+	height:24px;
+}
+.button span {
+	/*margin-top: 2px;*/
+	display: block;
+}
+/**按钮-触摸*/
+.button_touch {
+	background-color: #169ADA
+}
+/**列表*/
+.grid_row{
+	display: block;
+	height: 70px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-bottom: 1px solid #e7e7e7;
+	text-decoration: none;
+	overflow: hidden;
+	position: relative;
+}
+.grid_row img{
+	width: 50px;
+	height: 50px;
+	margin-top: 10px;
+}
+.grid_row_touch{
+	background-color: #CCCCCC;
+}
+.grid_load_more{
+	
+}
+
+
+
+/**报告列表数据行样式*/
+.report_grid_row_hospital_name{
+	position: absolute;
+	font-size: 18px;
+	height: 18px;
+	line-height: 18px;
+	color: #232528;
+	top: 14px;
+	left: 69px;
+	max-width: 180px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.report_grid_row_user_name{
+	position: absolute;
+	font-size: 18px;
+	height: 18px;
+	line-height: 18px;
+	color: #232528;
+	top: 14px;
+	right: 8px;
+}
+.report_grid_row_date{
+	position: absolute;
+	top: 40px;
+	left: 69px;
+	height: 12px;
+	line-height: 12px;
+	font-size: 12px;
+	color: #828282;
+}
+.report_grid_row_items{
+	position: absolute;
+	top: 40px;
+	left: 150px;
+	height: 12px;
+	line-height: 12px;
+	font-size: 12px;
+	color: #828282;
+	max-width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.report_grid_row_status{
+	position: absolute;
+	top: 36px;
+	right: 8px;
+	font-size: 14px;
+	height: 18px;
+	line-height: 14px;
+	color: #232528;
+	padding:2px;
+}
+/**条码报告状态背景色 未出*/
+.report_grid_row_status_has_not_out{
+	background-color: #FF0000
+}
+/**条码报告状态背景色 已出*/
+.report_grid_row_status_has_out{
+	background-color: #0099FF
+}
+/**条码报告状态背景色 已阅*/
+.report_grid_row_status_has_readed{
+	background-color: #66FF00
+}
+
+/**设置列表行-标题*/
+.config_grid_row_title{
+	position: absolute;
+	font-size: 18px;
+	height: 18px;
+	line-height: 18px;
+	color: #232528;
+	top: 14px;
+	left: 69px;
+	max-width: 180px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+/**设置列表行-说明*/
+.config_grid_row_explain{
+	position: absolute;
+	top: 40px;
+	left: 69px;
+	height: 12px;
+	line-height: 12px;
+	font-size: 12px;
+	color: #828282;
+}
+/**用户图片*/
+.report_user_div{
+	display: block;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-bottom: 4px solid #e7e7e7;
+	text-decoration: none;
+	overflow: hidden;
+	position: relative;
+}
+.user_picture{
+	margin: 4px 2px;
+	text-align: center;
+	padding: 4px 6px;
+	float:left;
+	
+	display: inline-block;
+	border-radius: 5px;
+	border: 1px solid #fff;
+	overflow: hidden;
+	-webkit-box-shadow: 0 0 3px #ccc;
+	box-shadow: 0 0 3px #ccc;
+}
+.user_picture span {
+	margin-top: 0px;
+	display: block;
+}

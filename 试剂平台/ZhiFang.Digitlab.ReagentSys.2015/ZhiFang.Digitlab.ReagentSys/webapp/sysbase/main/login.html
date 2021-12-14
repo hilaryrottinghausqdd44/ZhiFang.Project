@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		
+		<title>试剂平台-登录</title>
+		<link rel="shortcut icon" href="../../img/logo-16.png">
+		<link rel="stylesheet" type="text/css" href="../../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../../css/css.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/login.css" />
+		
+	</head>
+
+	<body>
+		<div class="login-div">
+			<div class="login-head-div">
+				<img src="../../img/logo-rea.png"></img>
+				<div>试剂平台</div>
+			</div>
+			<div id="error" class="login-error-div" hidden="hidden"></div>
+			<div class="input-div login-account-div">
+           		<input id="account" type="text" class="form-control" placeholder="请输入账号 ">
+            	<div id="account-button" class="input-group-btn" style="left:-1000px;">
+                	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                		<span class="caret"></span>
+                	</button>
+                	<ul id="account-menu" class="dropdown-menu pull-right"></ul>
+            	</div>
+            </div>
+			<div class="input-div login-password-div">
+				<input id="password" type="password" placeholder="请输入密码 ">
+			</div>
+			
+			<div class="button-div login-button-div">
+				<button id="submit">确定</button>
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8" src="../../src/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../util/util.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../config/els.js"></script>
+		<script type="text/javascript" charset="utf-8" src="login.js"></script>
+	</body>
+
+</html>

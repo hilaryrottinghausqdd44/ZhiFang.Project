@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>送检单位人员维护</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+    <link rel="stylesheet" href="../../../../../../src/layui/dist/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../../../../admin/layuiadmin/style/admin.css" media="all" />
+    <link rel="shortcut icon" href="../../../../../../logo-16.png">
+    <style type="text/css">
+        .layui-inline {
+            width: 150px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-fluid ">
+        <div class="layui-row layui-col-space10">
+            <div class=" layui-col-md6 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="tableContainer">
+                            <table id="tableemp" lay-filter="tableemp"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6 layui-col-xs12">
+                <div class="layui-card tableHeight">
+                    <div class="layui-card-body">
+                        <div class="tableContainer">
+                            <table id="tablehospital" lay-filter="tablehospital"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="toolbarEmp">
+        <div class="layui-input-inline">
+            <input type="text" name='searchtextemp' id="searchtextemp" placeholder="名称" autocomplete="off" class="layui-input" />
+        </div>
+        <button class="layui-btn layui-btn-sm" lay-event="search">查询</button>
+    </script>
+    <script type="text/html" id="toolbarHospital">
+        <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+        <button class="layui-btn layui-btn-sm" lay-event="alldel">批量删除</button>
+    </script>
+    <script type="text/html" id="RowBtn">
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script type="text/html" id="switchTp">
+        <input type="checkbox" name="LinkType" value="{{d.Id}}_{{d.EmpID}}" lay-skin="switch" lay-text="所属|管理" lay-filter="LinkType" {{ d.LinkTypeName == "所属" ? 'checked' : '' }}>
+    </script>
+    <script src="../../../../../../src/layui/dist/layui.js"></script>
+    <script type="text/javascript">
+        UIVersion.getJS('../../../../../config/system.js');
+        UIVersion.getJS('HospitalEmp.js');
+    </script>
+</body>
+</html>

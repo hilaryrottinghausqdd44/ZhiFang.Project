@@ -1,0 +1,123 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTSampleFormByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTSampleFormById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelMEPTSampleForm',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddMEPTSampleForm',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTSampleFormByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTSampleForm',
+
+    		//样本单对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'MEPTSampleForm_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'MEPTSampleForm_Id',value:'样本单ID'},						 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_OrderFormID',value:'申请单ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_BarCode',value:'条码号   通过系统配置的条码号参数规则生成'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_IsSpiltItem',value:'是否拆分项目   糖耐量特殊项目。   1表示是拆分项目'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_IsSendOut',value:'是否外送样本'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_SendOutLabID',value:'外送实验室'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_SampleTypeID',value:'样本类型ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_SamplingGroupID',value:'采样组ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_SampleCap',value:'采样量'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_SampleCount',value:'采样次数'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_CollectPart',value:'采样部位'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_BarCodeOpTime',value:'条码生成时间'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_SerialScanTime',value:'条码扫描时间'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_BarCodeSource',value:'条码来源   1：按医嘱单编号进行拆分（1对多）   2：其他拆分条件（多对多）   3：医嘱单=条码单（1对1）即不拆分   4：签收的条码   5: 预制条码'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_PrintCount',value:'打印次数'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_ZDY1',value:'自定义1'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_ZDY2',value:'自定义2'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_ZDY3',value:'自定义3'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_ZDY4',value:'自定义4'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_ZDY5',value:'自定义5'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleForm_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'MEPTSampleForm_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'样本单',
+    		//主键字段
+    		key:'MEPTSampleForm_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

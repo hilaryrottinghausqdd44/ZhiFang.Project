@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--检验系统相关配置-->
+  <object id="LisCommonDao" type="ZhiFang.DAO.NHB.LabStar.LisCommonDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHostDao" type="ZhiFang.DAO.NHB.LabStar.BHostDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHostTypeDao" type="ZhiFang.DAO.NHB.LabStar.BHostTypeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHostTypeUserDao" type="ZhiFang.DAO.NHB.LabStar.BHostTypeUserDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BParaDao" type="ZhiFang.DAO.NHB.LabStar.BParaDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BParaItemDao" type="ZhiFang.DAO.NHB.LabStar.BParaItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBChargeTypeDao" type="ZhiFang.DAO.NHB.LabStar.LBChargeTypeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBCollectPartDao" type="ZhiFang.DAO.NHB.LabStar.LBCollectPartDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBDestinationDao" type="ZhiFang.DAO.NHB.LabStar.LBDestinationDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBDiagDao" type="ZhiFang.DAO.NHB.LabStar.LBDiagDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBDictDao" type="ZhiFang.DAO.NHB.LabStar.LBDictDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBEquipDao" type="ZhiFang.DAO.NHB.LabStar.LBEquipDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBEquipItemDao" type="ZhiFang.DAO.NHB.LabStar.LBEquipItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBEquipItemVODao" type="ZhiFang.DAO.NHB.LabStar.LBEquipItemVODao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBEquipResultTHDao" type="ZhiFang.DAO.NHB.LabStar.LBEquipResultTHDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBEquipSectionDao" type="ZhiFang.DAO.NHB.LabStar.LBEquipSectionDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBFolkDao" type="ZhiFang.DAO.NHB.LabStar.LBFolkDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemDao" type="ZhiFang.DAO.NHB.LabStar.LBItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemChargeDao" type="ZhiFang.DAO.NHB.LabStar.LBItemChargeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemCalcDao" type="ZhiFang.DAO.NHB.LabStar.LBItemCalcDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemCalcFormulaDao" type="ZhiFang.DAO.NHB.LabStar.LBItemCalcFormulaDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemCompDao" type="ZhiFang.DAO.NHB.LabStar.LBItemCompDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemGroupDao" type="ZhiFang.DAO.NHB.LabStar.LBItemGroupDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemRangeDao" type="ZhiFang.DAO.NHB.LabStar.LBItemRangeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemRangeExpDao" type="ZhiFang.DAO.NHB.LabStar.LBItemRangeExpDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemTimeWDao" type="ZhiFang.DAO.NHB.LabStar.LBItemTimeWDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemExpDao" type="ZhiFang.DAO.NHB.LabStar.LBItemExpDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBPhraseDao" type="ZhiFang.DAO.NHB.LabStar.LBPhraseDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBPhyPeriodDao" type="ZhiFang.DAO.NHB.LabStar.LBPhyPeriodDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBOrderModelDao" type="ZhiFang.DAO.NHB.LabStar.LBOrderModelDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBOrderModelItemDao" type="ZhiFang.DAO.NHB.LabStar.LBOrderModelItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSampleTypeDao" type="ZhiFang.DAO.NHB.LabStar.LBSampleTypeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSectionDao" type="ZhiFang.DAO.NHB.LabStar.LBSectionDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSectionItemDao" type="ZhiFang.DAO.NHB.LabStar.LBSectionItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSectionPrintDao" type="ZhiFang.DAO.NHB.LabStar.LBSectionPrintDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSectionItemVODao" type="ZhiFang.DAO.NHB.LabStar.LBSectionItemVODao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSectionHisCompDao" type="ZhiFang.DAO.NHB.LabStar.LBSectionHisCompDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSickTypeDao" type="ZhiFang.DAO.NHB.LabStar.LBSickTypeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSpecialtyDao" type="ZhiFang.DAO.NHB.LabStar.LBSpecialtyDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBRightDao" type="ZhiFang.DAO.NHB.LabStar.LBRightDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBReportDateDao" type="ZhiFang.DAO.NHB.LabStar.LBReportDateDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBReportDateItemDao" type="ZhiFang.DAO.NHB.LabStar.LBReportDateItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBReportDateRuleDao" type="ZhiFang.DAO.NHB.LabStar.LBReportDateRuleDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBParItemSplitDao" type="ZhiFang.DAO.NHB.LabStar.LBParItemSplitDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBPhrasesWatchDao" type="ZhiFang.DAO.NHB.LabStar.LBPhrasesWatchDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBPhrasesWatchClassDao" type="ZhiFang.DAO.NHB.LabStar.LBPhrasesWatchClassDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBPhrasesWatchClassItemDao" type="ZhiFang.DAO.NHB.LabStar.LBPhrasesWatchClassItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSampleItemDao" type="ZhiFang.DAO.NHB.LabStar.LBSampleItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSamplingChargeItemDao" type="ZhiFang.DAO.NHB.LabStar.LBSamplingChargeItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSamplingGroupDao" type="ZhiFang.DAO.NHB.LabStar.LBSamplingGroupDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBSamplingItemDao" type="ZhiFang.DAO.NHB.LabStar.LBSamplingItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBTcuveteDao" type="ZhiFang.DAO.NHB.LabStar.LBTcuveteDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBTranRuleDao" type="ZhiFang.DAO.NHB.LabStar.LBTranRuleDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBTranRuleItemDao" type="ZhiFang.DAO.NHB.LabStar.LBTranRuleItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBTranRuleTypeDao" type="ZhiFang.DAO.NHB.LabStar.LBTranRuleTypeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisBarCodeFormDao" type="ZhiFang.DAO.NHB.LabStar.LisBarCodeFormDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisBarCodeItemDao" type="ZhiFang.DAO.NHB.LabStar.LisBarCodeItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisEquipComLogDao" type="ZhiFang.DAO.NHB.LabStar.LisEquipComLogDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisEquipComFileDao" type="ZhiFang.DAO.NHB.LabStar.LisEquipComFileDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisEquipFormDao" type="ZhiFang.DAO.NHB.LabStar.LisEquipFormDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisEquipItemDao" type="ZhiFang.DAO.NHB.LabStar.LisEquipItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisOrderFormDao" type="ZhiFang.DAO.NHB.LabStar.LisOrderFormDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisOrderItemDao" type="ZhiFang.DAO.NHB.LabStar.LisOrderItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisPatientDao" type="ZhiFang.DAO.NHB.LabStar.LisPatientDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisTestFormDao" type="ZhiFang.DAO.NHB.LabStar.LisTestFormDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisTestItemDao" type="ZhiFang.DAO.NHB.LabStar.LisTestItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisTestGraphDao" type="ZhiFang.DAO.NHB.LabStar.LisTestGraphDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisOperateAuthorizeDao" type="ZhiFang.DAO.NHB.LabStar.LisOperateAuthorizeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisOperateASectionDao" type="ZhiFang.DAO.NHB.LabStar.LisOperateASectionDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisOperateDao" type="ZhiFang.DAO.NHB.LabStar.LisOperateDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisEquipGraphDao" type="ZhiFang.DAO.NHB.LabStar.LisEquipGraphDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisTestFormMsgDao" type="ZhiFang.DAO.NHB.LabStar.LisTestFormMsgDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisTestFormMsgItemDao" type="ZhiFang.DAO.NHB.LabStar.LisTestFormMsgItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisTestItemReceiveDao" type="ZhiFang.DAO.NHB.LabStar.LisTestItemReceiveDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCItemDao" type="ZhiFang.DAO.NHB.LabStar.LBQCItemDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCItemTimeDao" type="ZhiFang.DAO.NHB.LabStar.LBQCItemTimeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCMaterialDao" type="ZhiFang.DAO.NHB.LabStar.LBQCMaterialDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCMatTimeDao" type="ZhiFang.DAO.NHB.LabStar.LBQCMatTimeDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCItemRuleDao" type="ZhiFang.DAO.NHB.LabStar.LBQCItemRuleDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCRuleDao" type="ZhiFang.DAO.NHB.LabStar.LBQCRuleDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCRuleBaseDao" type="ZhiFang.DAO.NHB.LabStar.LBQCRuleBaseDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCRulesConDao" type="ZhiFang.DAO.NHB.LabStar.LBQCRulesConDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisQCDataDao" type="ZhiFang.DAO.NHB.LabStar.LisQCDataDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisQCCommentsDao" type="ZhiFang.DAO.NHB.LabStar.LisQCCommentsDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBQCPrintTemplateDao" type="ZhiFang.DAO.NHB.LabStar.LBQCPrintTemplateDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBDicCodeLinkDao" type="ZhiFang.DAO.NHB.LabStar.LBDicCodeLinkDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBItemCodeLinkDao" type="ZhiFang.DAO.NHB.LabStar.LBItemCodeLinkDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BPrintModelDao" type="ZhiFang.DAO.NHB.LabStar.BPrintModelDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBReportDateDescDao" type="ZhiFang.DAO.NHB.LabStar.LBReportDateDescDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBTGetMaxNoDao" type="ZhiFang.DAO.NHB.LabStar.LBTGetMaxNoDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LBTranRuleHostSectionDao" type="ZhiFang.DAO.NHB.LabStar.LBTranRuleHostSectionDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisBarCodeRefuseRecordDao" type="ZhiFang.DAO.NHB.LabStar.LisBarCodeRefuseRecordDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LisQueueDao" type="ZhiFang.DAO.NHB.LabStar.LisQueueDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BModuleFormControlSetDao" type="ZhiFang.DAO.NHB.LabStar.BModuleFormControlSetDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BModuleFormControlListDao" type="ZhiFang.DAO.NHB.LabStar.BModuleFormControlListDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BModuleGridListDao" type="ZhiFang.DAO.NHB.LabStar.BModuleGridListDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BModuleGridControlSetDao" type="ZhiFang.DAO.NHB.LabStar.BModuleGridControlSetDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BModuleGridControlListDao" type="ZhiFang.DAO.NHB.LabStar.BModuleGridControlListDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BModuleFormListDao" type="ZhiFang.DAO.NHB.LabStar.BModuleFormListDao,ZhiFang.DAO.NHB.LabStar">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+</objects>
+

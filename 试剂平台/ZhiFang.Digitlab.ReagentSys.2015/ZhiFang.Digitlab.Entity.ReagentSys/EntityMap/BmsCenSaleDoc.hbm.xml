@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+  <class name="BmsCenSaleDoc" table="[dbo].[BmsCenSaleDoc]">
+    <id name="Id" column="[SaleDocID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="LabID" column="[SSCID]" type="Int64" not-null="false" length="8" />
+    <property name="SaleDocNo" column="[SaleDocNo]" type="String" not-null="false" length="50" />
+    <property name="OrderDocNo" column="[OrderDocNo]" type="String" not-null="false" length="50" />
+    <property name="OtherOrderDocNo" column="[OtherOrderDocNo]" type="String" not-null="false" length="50" /> 
+    <property name="CompanyName" column="[CompanyName]" type="String" not-null="false" length="200" />
+    <property name="UserID" column="[UserID]" type="Int64" not-null="false" length="8" />
+    <property name="UserName" column="[UserName]" type="String" not-null="false" length="50" />
+    <property name="UrgentFlag" column="[UrgentFlag]" type="Int32" not-null="false" length="4" />
+    <property name="UrgentFlagName" column="[UrgentFlagName]" type="String" not-null="false" length="10" />
+    <property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+    <property name="StatusName" column="[StatusName]" type="String" not-null="false" length="10" />
+    <property name="OperDate" column="[OperDate]" type="DateTime" not-null="false" length="8" />
+    <property name="PrintTimes" column="[PrintTimes]" type="Int32" not-null="false" length="4" />
+    <property name="IOFlag" column="[IOFlag]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="50" />
+    <property name="LabName" column="[LabName]" type="String" not-null="false" length="100" />
+    <property name="Source" column="[Source]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="AccepterID" column="[AccepterID]" type="Int64" not-null="false" length="8" />
+    <property name="AccepterName" column="[AccepterName]" type="String" not-null="false" length="100" />
+    <property name="SecAccepterID" column="[SecAccepterID]" type="Int64" not-null="false" length="8" />
+    <property name="SecAccepterName" column="[SecAccepterName]" type="String" not-null="false" length="100" />
+    <property name="AccepterTime" column="[AccepterTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SecAccepterTime" column="[SecAccepterTime]" type="DateTime" not-null="false" length="8" />
+    <property name="InvoiceNo" column="[InvoiceNo]" type="String" not-null="false" length="100" />
+    <property name="AccepterMemo" column="[AccepterMemo]" type="String" not-null="false" length="1000" />
+    <property name="IsAccepterError" column="[IsAccepterError]" type="Boolean" not-null="false" length="1" />
+    <property name="IsSplit" column="[IsSplit]" type="Int32" not-null="false" length="4" />
+    <property name="IsAccountInput" column="[IsAccountInput]" type="Int32" not-null="false" length="4" />
+    <property name="TotalPrice" column="[TotalPrice]" type="Double" not-null="false" length="8" />
+    <property name="LabAddress" column="[LabAddress]" type="String" not-null="false" length="500" />
+    <property name="LabContact" column="[LabContact]" type="String" not-null="false" length="100" />
+    <property name="LabTel" column="[LabTel]" type="String" not-null="false" length="500" />
+    <property name="LabHotTel" column="[LabHotTel]" type="String" not-null="false" length="500" />
+    <property name="LabFox" column="[LabFox]" type="String" not-null="false" length="500" />
+    <property name="LabEmail" column="[LabEmail]" type="String" not-null="false" length="50" />
+    <property name="LabWebAddress" column="[LabWebAddress]" type="String" not-null="false" length="100" />
+    <property name="CompAddress" column="[CompAddress]" type="String" not-null="false" length="500" />
+    <property name="CompContact" column="[CompContact]" type="String" not-null="false" length="100" />
+    <property name="CompTel" column="[CompTel]" type="String" not-null="false" length="500" />
+    <property name="CompHotTel" column="[CompHotTel]" type="String" not-null="false" length="500" />
+    <property name="CompFox" column="[CompFox]" type="String" not-null="false" length="500" />
+    <property name="CompEmail" column="[CompEmail]" type="String" not-null="false" length="50" />
+    <property name="CompWebAddress" column="[CompWebAddress]" type="String" not-null="false" length="100" />
+    <property name="CheckerID" column="[CheckerID]" type="Int64" not-null="false" length="8" />
+    <property name="Checker" column="[Checker]" type="String" not-null="false" length="100" />
+    <property name="CheckTime" column="[CheckTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Sender" column="[Sender]" type="String" not-null="false" length="100" />
+    <property name="Receiver" column="[Receiver]" type="String" not-null="false" length="100" />
+    <property name="InvoiceReceiver" column="[InvoiceReceiver]" type="String" not-null="false" length="100" />
+    <property name="ReceiveTime" column="[ReceiveTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SendOutTime" column="[SendOutTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DeleteFlag" column="[DeleteFlag]" type="Int32" not-null="false" length="4" />
+    <property name="DeptName" column="[DeptName]" type="String" not-null="false" length="200" />
+    <many-to-one name="Comp" class="CenOrg" lazy="false">
+      <column name="[CompID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Lab" class="CenOrg" lazy="false">
+      <column name="[LabID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BmsCenOrderDoc" class="BmsCenOrderDoc" lazy="false">
+      <column name="[OrderDocID]" not-null="false"/>
+    </many-to-one>
+    <bag name="BmsCenSaleDtlList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[SaleDocID]" />
+      </key>
+      <one-to-many class="BmsCenSaleDtl"/>
+    </bag>
+    <property name="ReaCompID" column="[ReaCompID]" type="Int64" not-null="false" length="8" />
+    <property name="ReaCompName" column="[ReaCompName]" type="String" not-null="false" length="200" />
+    <property name="ReaServerCompCode" column="[ReaServerCompCode]" type="String" not-null="false" length="200" />
+    <property name="CenSaleDocID" column="[CenSaleDocID]" type="Int64" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LIIP_实验室信息集成平台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../src/layui/src/css/layui.css" media="all">
+	<link rel="shortcut icon" href="../../../logo-16.png">
+</head>
+<body class="layui-layout-body">
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md8">    
+				<div class="layui-card">
+					<div class="layui-card-header">
+						部门树测试
+					</div>
+					<div class="layui-card-body">
+						<div class="layui-row layui-col-space10">
+							<div id="content" class="layui-col-xs12 layui-col-sm4">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../src/layui/src/layui.js"></script>
+	<script>
+		layui.config({
+			base:'../'
+		}).extend({
+			depttree:'app/modules/dept/tree'
+		}).use(['depttree'],function(){
+			var $=layui.$,
+				depttree = layui.depttree;
+				
+			depttree.render({
+				elem:$("#content")
+			});
+		});
+	</script>
+</body>
+</html>

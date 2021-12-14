@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>弹出SH选择</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache" /> 
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding:10px 15px 0px 15px;"> 
+   <div class="layui-row layui-hide"> 
+    <input type="text" id="idsh" autocomplete="off" class="layui-input" /> 
+   </div> 
+   <table class="layui-hide" id="sh_table" lay-filter="sh_table"> 
+   </table> 
+   <div class="layui-form"> 
+    <div class="layui-form-item" style="margin-bottom:0;"> 
+     <div class="layui-inline"> 
+      <button class="layui-btn layui-btn-xs" id="save_SH"><i class="iconfont"></i>&nbsp;选择</button> 
+     </div> 
+     <div class="layui-inline"> 
+      <button class="layui-btn layui-btn-xs" id="clear_SH"><i class="iconfont"></i>&nbsp;清空</button> 
+     </div> 
+     <div class="layui-inline" id="check_row"> 
+      <input type="checkbox" name="isCheck" title="显示选定" lay-skin="primary" checked="" /> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('sh.js');
+	</script> 
+  <style>
+      	body{background-color: #FFFFFF;}
+      	/*input前存在icon 则加到input里面*/
+	    .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+        .layui-table-view{margin: 1px 0px; }
+        /* 防止下拉框的下拉列表被隐藏---必须设置--- */
+		.layui-table-cell {
+			overflow: visible !important;
+		}
+		/*列表下拉框高度调整*/
+	    table .layui-input, .layui-textarea, .layui-select{height: 28px; line-height: 1; line-height: 16px; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px;}
+		/* 使得下拉框与单元格刚好合适      */
+		td .layui-form-select{margin-top: -5px;margin-left: -5px;margin-right: -5px;margin-bottom: 0px;padding: 0px;}  
+	    .layui-form-item .layui-inline{margin-bottom: 0px; margin-right: 10px;}
+  	  </style>  
+ </body>
+</html>

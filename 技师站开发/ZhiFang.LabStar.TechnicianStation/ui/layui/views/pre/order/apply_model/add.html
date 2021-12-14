@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>医嘱录入-新增</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body>
+	<div class="layui-fluid" style="padding:10px;margin-bottom:58px;">
+		<div class="layui-row layui-col-space5">
+			<div class="layui-col-md9">
+				<div class="layui-row layui-col-space5">
+					<div class="layui-col-md12">
+						<div class="layui-collapse">
+							<div class="layui-colla-item">
+								<h2 class="layui-colla-title">患者就诊信息</h2>
+								<div class="layui-colla-content layui-show">
+									<!--医嘱单-病人信息-->
+									<div id="OrderForm"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-row layui-col-space5">
+					<div class="layui-col-md12">
+						<div class="layui-collapse">
+							<div class="layui-colla-item">
+								<h2 class="layui-colla-title">已选项目</h2>
+								<div class="layui-colla-content layui-show">
+									<!--选中的项目-->
+									<div id="OrderItems"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md3">
+				<div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="Tab">
+					<!--待选项目-->
+					<ul class="layui-tab-title" id="TabTitle"></ul>
+					<div class="layui-tab-content" id="TabContent" style="max-height: 540px; overflow-y: auto;"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<div>
+				<button id="save_button" class="layui-btn" lay-submit lay-filter="save_button">保存</button>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui('2.5.6');
+		UIVersion.getCSS('../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('add.js');
+	</script>
+	<style type="text/css">
+		.layui-colla-content{padding:10px;}
+		.footer{position:fixed;left:0;bottom:0;width:100%;height:68px;background-color:#ffffff;}
+		.footer div{position:fixed;right:0;bottom:0;padding:15px;}
+		/*选项卡处理*/
+        .layui-tab-title { height: 22px!important;line-height:22px; }
+        .layui-tab-title>li{ line-height:22px!important;font-size:12px!important;padding:0 5px!important;margin:0!important; }
+        .layui-tab-title>li i{ font-size:12px; }
+        .layui-tab-title .layui-this:after{ height:24px!important; }
+        .layui-tab-title .layui-tab-bar { width: 24px;height: 20px;line-height: 20px; }
+        .layui-tab[overflow]>.layui-tab-title { overflow:inherit; }
+        .layui-tab-brief .layui-tab-content { padding: 5px 5px 0; }
+		/*下拉框*/
+        .layui-form-select dl{ top:28px!important; }
+	</style>
+</body>
+</html>

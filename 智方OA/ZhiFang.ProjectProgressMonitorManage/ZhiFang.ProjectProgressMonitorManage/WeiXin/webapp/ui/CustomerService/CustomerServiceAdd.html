@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>新增服务单</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+    <link href="../src/select/css/bootstrap-select.css" rel="stylesheet" media="screen">
+
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../src/select/js/bootstrap-select.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="js/WorkLogDayAdd.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="margin:0px;border:solid 0px;border-color:red">
+    <div class="panel panel-default" style="margin:0px;border:solid 0px;border-color:aqua">
+        <div class="panel-heading text-center"><span id="cancelspan" style="float:left">取消</span><span id="panel-head" style="float:none">新增服务单</span><span id="submitspan" style="float:right">提交</span></div>
+        <table width="100%" class="table table-bordered">
+            <tr style="height:50px;border-bottom:solid 0px;border-bottom-color:gainsboro">
+                <td style="padding:0px;width:50px;padding-top:15px;" align="center" valign="middle">内容：</td>
+                <td align="left">
+                    <textarea id="todaycontentmemo" class="form-control" rows="3" placeholder="今日工作内容"></textarea>
+                </td>
+            </tr>
+            <tr style="height:50px;border-bottom:solid 0px;border-bottom-color:gainsboro">
+                <td style="padding:0px;width:50px;padding-top:15px" align="center" valign="middle">范围：</td>
+                <td align="left">
+                    <div class="input-group">
+                        <span class="input-group-addon"><img src="../img/icon/RBAC_Own.png" style="width:15px;margin:2px" /></span>
+                        <select id="exportlevel" class="form-control selectpicker" style="margin:2px">
+                            <option value="0">仅自己和直接主管可见</option>
+                            <option value="1">所属部门可见</option>
+                            <option value="2">全公司可见</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr style="height:50px;border-bottom:solid 0px;border-bottom-color:gainsboro">
+                <td style="padding:0px;width:50px;padding-top:15px" align="center" valign="middle">抄送：</td>
+                <td align="left">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button id="choosecopyforuserbtn" type="button" class="btn btn-default">选择抄送人</button>
+                        </div>
+                    </div>
+                    <div id="ids_div" style="display:none"></div>
+                    <div id="names_div" style="font-weight:bold"></div>
+                </td>
+            </tr>
+            <tr style="height:50px;border-bottom:solid 0px;border-bottom-color:gainsboro;display:none">
+                <td id="photographtd" align="center">
+                    <img src="../img/icon/photograph.png" style="width:32px;margin:2px" />
+                </td>
+            </tr>
+            <tr style="border-bottom:solid 0px;border-bottom-color:gainsboro">
+                <td colspan="2">
+                    <table id="imgtab" width="100%" class="table table-bordered">
+                        <tr id="imgtr">
+                            <td id="imgid1" align="center" valign="middle">
+                                <img id="imgpg1" src="../img/icon/photograph.png" style="width:35px;margin:0px" />
+                                <img id="imgshow1" src="" style="width:35px;margin:0px;display:none" />
+                            </td>
+                            <td id="imgid2" align="center" valign="middle">
+                                <img id="imgpg2" src="../img/icon/photograph.png" style="width:35px;margin:0px" />
+                                <img id="imgshow2" src="" style="width:35px;margin:0px;display:none" />
+                            </td>
+                            <td id="imgid3" align="center" valign="middle">
+                                <img id="imgpg3" src="../img/icon/photograph.png" style="width:35px;margin:0px" />
+                                <img id="imgshow3" src="" style="width:35px;margin:0px;display:none" />
+                            </td>
+                            <td id="imgid4" align="center" valign="middle">
+                                <img id="imgpg4" src="../img/icon/photograph.png" style="width:35px;margin:0px" />
+                                <img id="imgshow4" src="" style="width:35px;margin:0px;display:none" />
+                            </td>
+                            <td id="imgid5" align="center" valign="middle">
+                                <img id="imgpg5" src="../img/icon/photograph.png" style="width:35px;margin:0px" />
+                                <img id="imgshow5" src="" style="width:35px;margin:0px;display:none" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

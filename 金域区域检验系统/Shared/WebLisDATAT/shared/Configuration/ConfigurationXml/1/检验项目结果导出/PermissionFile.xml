@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Businesses>
+  <Business name="检验项目结果导出">
+    <Table TableEName="VIEW_ReportItemFull">
+      <DFD>
+        <Condition comment="各机构导出各自的项目结果">
+          <Match field="CLIENTNAME" macro="DepartmentName()" comp="equal" />
+          <Match field="SERIALNO" const="" comp="ne" />
+        </Condition>
+        <Condition comment="上海兰卫管理员可以导出全部">
+          <Match role="employee" const="311" comp="equal" />
+          <Match field="ReportFormID" const="0" comp="ne" />
+          <Match field="PATNO" const="" comp="ne" />
+        </Condition>
+        <Condition comment="test用户看全部">
+          <Match role="employee" const="397" comp="equal" />
+          <Match field="ReportFormID" const="1" comp="ne" />
+        </Condition>
+        <Condition comment="元化导出">
+          <Match role="employee" const="395" comp="equal" />
+          <Match field="ReportFormID" const="" comp="ne" />
+          <Match field="PATNO" const="" comp="ne" />
+          <Match field="CLIENTNAME" macro="DepartmentName()" comp="equal" />
+        </Condition>
+      </DFD>
+    </Table>
+  </Business>
+</Businesses>

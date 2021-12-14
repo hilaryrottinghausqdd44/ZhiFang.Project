@@ -1,0 +1,105 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherClientByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherClientById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherClient',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherClient',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherClientByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherClient',
+
+    		//客户信息表对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherClient_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherClient_Id',value:'客户ID'},						 
+						 		     
+				     												 
+						{ key:'OtherClient_CreatorID',value:'创建者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_PropertyID',value:'性质'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_ProvinceID',value:'省份'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_StyleID',value:'标识'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_LevelID',value:'级别'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_TypeID',value:'类别'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_Name',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_URL',value:'网址'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_PhoneNum',value:'电话'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_Address',value:'通讯地址'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_AccountNum',value:'账号'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_Romark',value:'备注'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_Creator',value:'创建者'}, 
+						 		     
+				     												 
+						{ key:'OtherClient_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherClient_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'客户信息表',
+    		//主键字段
+    		key:'OtherClient_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

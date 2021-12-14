@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>打印程序</title>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+<style>
+    .layui-colla-icon {
+        position: absolute;
+        left: 8px !important;
+        top: 0;
+        font-size: 12px !important;
+    }
+    #searchTitle {
+        position: relative;
+        height: 19px;
+        line-height: 19px;
+        padding: 0px 9px 0 23px;
+        color: #333;
+        background-color: #f2f2f2;
+        cursor: pointer;
+        font-size: 12px;
+        overflow: hidden;
+    }
+    .layui-colla-content {
+       padding: 5px !important;
+       color:black !important;
+    }
+    #conditionsForm .layui-form-label {
+        width: 50px !important;
+    }
+    #conditionsForm .layui-form-item .layui-input-inline {
+        float: left;
+        width: 146px;
+        margin-right: 0px;
+    }
+    .layui-form-item,.layui-inline{
+        margin-bottom: 0 !important;
+    }
+    .layui-form-radio {
+        line-height: 26px !important;
+        
+    }
+    .layui-btn {
+         margin-left: 0 !important; 
+    }
+</style>
+</head>
+<body>
+    
+    <div id="appType" style="display: none;">doctor</div>
+    <div class="layui-bg-gray" id="title" style="width: 100%;color: black;">
+        医生站
+    </div>
+    <div class="layui-collapse" lay-filter="test">
+        <div class="layui-colla-item">
+            <h2 class="layui-colla-title" id="searchTitle">查询框</h2>
+            <div class="layui-colla-content layui-row layui-show" id="layuiCollaContent">
+                <form id="conditionsForm" class="layui-form layui-col-sm9 layui-col-xs9 layui-col-md9 " action="" lay-filter="conditionsForm">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">姓名：</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CName" id="CName"  autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <select name="SECTIONNO"  lay-search="" lay-filter="SECTIONNO" id="SECTIONNO">
+                                <option value="">小组过滤</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <select name="selectdate"  lay-search="" lay-filter="selectdate" id="selectdate">
+                                <option value="CHECKDATE" selected="">审核（报告）时间</option>
+                                <option value="RECEIVEDATE">核收日期</option>
+                                <option value="COLLECTDATE">采样日期</option>
+                                <option value="INCEPTDATE">签收日期</option>
+                                <option value="TESTDATE">检测（上机）日期</option>
+                                <option value="OPERDATE">录入（操作）日期</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                            <input type="text" class="layui-input" id="selectdateValue" placeholder=" - ">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">条码号：</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="SERIALNO" id="SERIALNO" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">病历号：</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="PATNO" id="PATNO" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="layui-btn-container layui-col-md1 layui-col-xs1 layui-col-sm1">
+                    <button class="layui-btn layui-btn-xs" lay-event="search" style="margin-bottom: 0;"><i class="layui-icon">&#xe615;</i>查询</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="layui-row">
+            <div class="layui-col-md4 layui-col-xs4 layui-col-sm4">
+                <div class="layui-card" style="overflow: auto;">
+                    <div class="layui-card-body" style="padding:2px 2px">
+                        <table id="leftTable" lay-filter="leftTable"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md8 layui-col-xs8 layui-col-sm8">
+                <div class="layui-card">
+                    <div class="layui-card-body" id="rightContentBody" style="overflow: hidden;padding:2px 2px">
+                        <form class="layui-form" lay-filter="checkedPageType">
+                            <div class="layui-form-item" id="pageTypeDiv" style="margin:0">
+                                <!--<input id="yulan" type="radio" name="PageType" value="yulan" title="预览">
+                                    <input id="jieguo" type="radio" name="PageType" value="jieguo" title="结果">-->
+                            </div>
+                        </form>
+                        <hr style="margin:1px">
+                        <div id="contentDiv" style="text-align: center;overflow: auto;">
+                            没有数据
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="toolbarDemo">
+        <div style="overflow: auto;width: 120%;" class="layui-form" lay-filter="toolbarForm" >
+            <div style="width: 662px;">
+            <button class="layui-btn layui-btn-xs" lay-event="refresh"><i class="layui-icon">&#xe669;</i>刷新</button>
+            <input type="checkbox" name="unPrint" lay-skin="primary" lay-filter="unPrintCheckbox" title="未打印">
+            <input type="checkbox" name="filter" lay-skin="primary" lay-filter="filterCheckbox" title="过滤">
+            <div style="width: 72px;margin-right: 10px;display:inline-block">
+                <select name="SectionNo" id="printType">
+                    <option value="A4">A4</option>
+                    <option value="A5">A5</option>
+                    <option value="双A5">双A5</option>
+                </select>
+            </div>
+            <input type="checkbox" name="DoubleSided" lay-skin="primary" lay-filter="DoubleSidedCheckbox" title="双面">
+            <button class="layui-btn layui-btn-xs" lay-event="print"><i class="layui-icon">&#xe66d;</i>打印</button>
+            <button class="layui-btn layui-btn-xs" lay-event="previewprint"><i class="layui-icon">&#xe66d;</i>预览打印</button>
+            <button class="layui-btn layui-btn-xs" lay-event="mergeprint"><i class="layui-icon">&#xe66d;</i>汇总打印</button>
+            <button class="layui-btn layui-btn-xs" lay-event="ProjectContrast"><i class="layui-icon">&#xe62d;</i>项目对比</button>
+            <button class="layui-btn layui-btn-xs" lay-event="download"><i class="layui-icon">&#xe601;</i>下载</button>
+        </div>  
+    </div>  
+    </script>
+    <script type="text/javascript">UIVersion.loadLayui('2.5.6');
+        UIVersion.getJS('class/basic/App.js');
+        UIVersion.getCSS('../../web_src/layui/css/layui.sm.all.css');
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="Pragma" content="no-cache">
+	    <meta http-equiv="Cache-control" content="no-cache">
+	    <meta http-equiv="Cache" content="no-cache">
+
+		<title>试剂平台-供货单扫码</title>
+		<link rel="shortcut icon" href="../../../../img/logo-16.png">
+		<link rel="stylesheet" type="text/css" href="../../../../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../../../../css/css.css">
+			
+		<script type="text/javascript">
+			var Shell = Shell || {};
+			Shell.System = Shell.System || {};
+			//不强制登录标志
+			Shell.System.noLogin = true;
+			//是否开启本地缓存机制
+			//Shell.System.openLocalStorage = false;
+		</script>
+		
+	</head>
+
+	<body style="margin-bottom:50px;" hidden="hidden">
+		<!--标题-->
+		<nav id="navbar-top" class="navbar navbar-default navbar-fixed-top navbar-top">
+			<div id="div-show-title" class="navbar-top-title">供货单扫码</div>
+			<div class="navbar-top-back">
+				<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+				<span>返回</span>
+			</div>
+		</nav>
+		<!--扫码信息form-control-->
+		<div class="content-div" style="margin-top:55px;">
+			<div class="form-control btn btn-warning" style="width:98%;text-align:left;margin:2px 1%;">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">提示:</span>
+				<span id="div-show-info"></span>
+			</div>
+			<input type="text" id="txt-scancode" class="form-control" style="width:98%;margin:2px 1%;font-size:14px;" placeholder="请扫码" />
+		</div>
+		<!--内容DIV-->
+		<div class="list-group content-div" style="margin:4px 2px 4px 2px;" id="ContentDiv"></div>
+		
+		<!-- 模态框-确定操作提示 -->
+		<div class="modal fade" id="createDoctorOrderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">提示信息</h4>
+					</div>
+					<div class="modal-body">
+						<div id="createDoctorOrder-msg" class="alert alert-warning" role="alert" style="text-align:center;">
+						</div>
+					</div>
+					<div class="modal-footer" id="createDoctorOrder-footer">
+						<button type="button" class="btn btn-primary" id="createDoctorOrder-button">确定</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		
+		<!--底部功能栏-->
+		<div id="submit-div" class="navbar navbar-default navbar-fixed-bottom navbar-bottom" style="background-color: #ffffff;min-height:42px;">
+			<div id="div-show-count" class="div-button" style="float:left;padding:5px 10px;width:45%;text-align:center;color:#169ada;background-color:#ffffff;border:1px dashed #169ada;">总数:0</div>
+			<div id="div-check-ok" class="div-button" style="width:45%;text-align:center;">确定</div>
+		</div>
+
+		<script type="text/javascript " charset="utf-8 " src="../../../../src/jquery.min.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="../../../../util/util.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="../../../../config/els.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="scancde.js"></script>
+	</body>
+
+</html>

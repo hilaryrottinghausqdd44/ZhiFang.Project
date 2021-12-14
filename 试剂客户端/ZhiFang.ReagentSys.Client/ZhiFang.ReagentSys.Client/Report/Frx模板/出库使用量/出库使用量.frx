@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/18/2018 10:02:33" ReportInfo.Modified="04/22/2019 17:21:01" ReportInfo.CreatorVersion="1.3.15.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.ReagentSys.Client" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFAmkwwEssvI/BSCZ7lXL6+lWiK56aPTvrPIhcFqsFJa0vx5wmt1wrLYfduaG8nqx/Mh2x4x7Y6xv5wHc+kcOmIcLJi8RwLQKR1RiSC5KyI9idWFNYRXyko1WJJ66jnW82hS2KGqY/+9Dj7VcVjDqWzH3ukujeybcRQNf6aB+10dc=">
+      <TableDataSource Name="Rea_MonthUsageStatisticsDoc" DataType="System.Int32" Enabled="true" TableName="Rea_MonthUsageStatisticsDoc">
+        <Column Name="LabID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="DocID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="DocNo" DataType="System.String"/>
+        <Column Name="Round" DataType="System.String"/>
+        <Column Name="StartDate" DataType="System.DateTime"/>
+        <Column Name="EndDate" DataType="System.DateTime"/>
+        <Column Name="DeptID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="DeptName" DataType="System.String"/>
+        <Column Name="TypeID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="TypeName" DataType="System.String"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CreaterID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="CreaterName" DataType="System.String"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" DataType="System.DateTime"/>
+        <Column Name="DataTimeStamp" Enabled="false" DataType="System.Byte[]" BindableControl="Picture"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_MonthUsageStatisticsDtl" DataType="System.Int32" Enabled="true" TableName="Rea_MonthUsageStatisticsDtl">
+        <Column Name="LabID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="DocID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="DtlID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="GoodsName" DataType="System.String"/>
+        <Column Name="GoodsUnit" DataType="System.String"/>
+        <Column Name="ProdGoodsNo" DataType="System.String"/>
+        <Column Name="ReaGoodsNo" DataType="System.String"/>
+        <Column Name="CenOrgGoodsNo" DataType="System.String"/>
+        <Column Name="UnitMemo" DataType="System.String"/>
+        <Column Name="OutQty" DataType="System.Double"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" DataType="System.DateTime"/>
+        <Column Name="DataTimeStamp" Enabled="false" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="DeptID" Enabled="false" DataType="System.Int64"/>
+        <Column Name="DeptName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="Rea_ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" FirstPageSource="4" OtherPagesSource="4">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="75.6">
+      <TextObject Name="Text1" Left="170.1" Top="9.45" Width="311.85" Height="18.9" Text="试剂和耗材出库使用量汇总" HorzAlign="Center" Font="宋体, 14pt, style=Bold"/>
+      <TextObject Name="txtPageN" Left="607.25" Top="12.45" Width="75.6" Height="18.9" Text="[PageN]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text2" Left="9.45" Top="47.25" Width="160.65" Height="18.9" Text="登记日期:[Rea_MonthUsageStatisticsDoc.DataAddTime]" Format="Date" Format.Format="d" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="Text3" Left="175" Top="47.25" Width="207.9" Height="18.9" Text="登记人:[Rea_MonthUsageStatisticsDoc.CreaterName]" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="Text14" Left="388.9" Top="47.25" Width="302.4" Height="18.9" Text="领用部门:[Rea_MonthUsageStatisticsDoc.CreaterName]" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="79.6" Width="718.2" Height="28.35">
+      <LineObject Name="Line1" Left="4" Width="699.3"/>
+      <LineObject Name="Line2" Left="6" Top="28.35" Width="699.3"/>
+      <TextObject Name="Text13" Left="4" Top="4.45" Width="37.8" Height="18.9" Text="行号" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="47.25" Top="4" Width="113.4" Height="18.9" Text="产品编码" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="164.1" Top="5" Width="226.8" Height="18.9" Text="货品名称" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="394.35" Top="5" Width="66.15" Height="18.9" Text="包装单位" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="463.95" Top="5" Width="141.75" Height="18.9" Text="规格" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text16" Left="609.25" Top="4" Width="94.5" Height="18.9" Text="月用量" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="111.95" Width="718.2" Height="29.8" DataSource="Rea_MonthUsageStatisticsDtl">
+      <TextObject Name="Text12" Left="4.45" Top="4.45" Width="37.8" Height="18.9" Text="[AbsRow#]" Font="宋体, 10pt"/>
+      <TextObject Name="Text4" Left="47.25" Top="4" Width="113.4" Height="18.9" Text="[Rea_MonthUsageStatisticsDtl.ReaGoodsNo]" VertAlign="Center" Font="宋体, 11pt"/>
+      <TextObject Name="Text6" Left="164.1" Top="1.45" Width="226.8" Height="28.35" Text="[Rea_MonthUsageStatisticsDtl.GoodsName]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text8" Left="393.9" Top="4.45" Width="66.15" Height="18.9" Text="[Rea_MonthUsageStatisticsDtl.GoodsUnit]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text10" Left="465.5" Top="4.45" Width="141.75" Height="18.9" Text="[Rea_MonthUsageStatisticsDtl.UnitMemo]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text15" Left="611.25" Top="3.45" Width="94.5" Height="18.9" Text="[Rea_MonthUsageStatisticsDtl.OutQty]" Format="Number" Format.UseLocale="true" VertAlign="Center" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="145.75" Width="718.2" Height="18.9">
+      <LineObject Name="Line3" Left="9.45" Width="699.3"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

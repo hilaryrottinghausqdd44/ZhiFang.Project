@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Businesses>
+  <Business name="客户类型维护">
+    <Table TableEName="TB_ClientStyle">
+      <DFD>
+        <Condition comment="11">
+          <Match field="CT_CODE" const="" comp="ne" />
+        </Condition>
+      </DFD>
+    </Table>
+    <Table TableEName="CLIENTELE">
+      <DFD />
+    </Table>
+  </Business>
+</Businesses>

@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile>2017-08-25T11:59:32.3402563+08:00</TimeStampOfAssociatedLegacyPublishXmlFile>
+    <_PublishTargetUrl>H:\智方\WebLis\发布\WebListService</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Agent/DownLoadReport.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="Agent/ServiceAppUpload.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="Agent/ServiceDic.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="Agent/ServiceReportDownload.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="AgentRequestFormWebService.asmx">
+      <publishTime>04/01/2017 16:47:01</publishTime>
+    </File>
+    <File Include="BillService.svc">
+      <publishTime>04/01/2017 16:47:01</publishTime>
+    </File>
+    <File Include="bin/ADODB.dll">
+      <publishTime>09/19/2007 17:21:00</publishTime>
+    </File>
+    <File Include="bin/AjaxPro.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/DBUtility.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="bin/ECDS.Common.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="bin/ECDS.DALFactory.dll">
+      <publishTime>04/10/2017 09:19:12</publishTime>
+    </File>
+    <File Include="bin/FastReport.Bars.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/FastReport.dll">
+      <publishTime>05/22/2017 13:21:04</publishTime>
+    </File>
+    <File Include="bin/FastReport.Editor.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/Ionic.Zip.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/LIS.CacheConfig.dll">
+      <publishTime>04/10/2017 09:15:13</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/10/2017 09:01:18</publishTime>
+    </File>
+    <File Include="bin/WSInvoke.dll">
+      <publishTime>04/10/2017 09:08:20</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.BLL.Common.dll">
+      <publishTime>09/22/2017 13:22:29</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.BLL.Common.pdb">
+      <publishTime>09/22/2017 13:22:29</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.BLL.Report.dll">
+      <publishTime>09/27/2017 09:07:13</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.BLL.Report.pdb">
+      <publishTime>09/27/2017 09:07:13</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.BLLFactory.dll">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.BLLFactory.pdb">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Common.Dictionary.dll">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Common.Dictionary.pdb">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Common.dll">
+      <publishTime>11/01/2016 16:11:40</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Common.ExceptionManager.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Common.Log.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Common.Public.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.DAL.MsSql.dll">
+      <publishTime>09/27/2017 09:07:14</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.DAL.MsSql.pdb">
+      <publishTime>09/27/2017 09:07:14</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.DAL.Oracle.dll">
+      <publishTime>09/22/2017 13:22:28</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.DAL.Oracle.pdb">
+      <publishTime>09/22/2017 13:22:28</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.DALFactory.dll">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.DALFactory.pdb">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.DBUtility.dll">
+      <publishTime>04/01/2017 16:47:25</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.IBLL.Common.dll">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.IBLL.Common.pdb">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.IBLL.Report.dll">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.IBLL.Report.pdb">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.IDAL.dll">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.IDAL.pdb">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Model.dll">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Model.pdb">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Tools.dll">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.Tools.pdb">
+      <publishTime>09/22/2017 13:22:27</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.WebLis.dll">
+      <publishTime>09/27/2017 09:07:16</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.WebLis.pdb">
+      <publishTime>09/27/2017 09:07:16</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.WebLisService.dll">
+      <publishTime>09/27/2017 09:07:16</publishTime>
+    </File>
+    <File Include="bin/ZhiFang.WebLisService.pdb">
+      <publishTime>09/27/2017 09:07:16</publishTime>
+    </File>
+    <File Include="DLL/AjaxPro.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="DLL/DBUtility.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="DLL/ECDS.Common.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="DLL/ICSharpCode.SharpZipLib.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="DLL/log4net.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="DLL/Microsoft.Web.UI.WebControls.dll">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="ReportFormService.svc">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="ReportFormWebService.asmx">
+      <publishTime>04/01/2017 16:47:01</publishTime>
+    </File>
+    <File Include="RequestFormService.svc">
+      <publishTime>04/01/2017 16:46:51</publishTime>
+    </File>
+    <File Include="RequestFormServiceRestfull.svc">
+      <publishTime>08/30/2017 18:02:56</publishTime>
+    </File>
+    <File Include="RequestFormWebService.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="ReTestCheckService.asmx">
+      <publishTime>04/01/2017 16:47:01</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="Service_Customized/PKI/ReportForm.asmx">
+      <publishTime>04/01/2017 16:46:58</publishTime>
+    </File>
+    <File Include="Service_Customized/PKI/ReportFormRestfull.svc">
+      <publishTime>08/29/2017 09:08:34</publishTime>
+    </File>
+    <File Include="Service_Customized/PKI/RequestFormRestfull.svc">
+      <publishTime>09/15/2017 17:12:49</publishTime>
+    </File>
+    <File Include="TransferSamplingService.svc">
+      <publishTime>08/04/2017 14:52:55</publishTime>
+    </File>
+    <File Include="Util/Calendar.js">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="Util/CommonJS.js">
+      <publishTime>04/01/2017 16:47:00</publishTime>
+    </File>
+    <File Include="Web References/WeblisWervice.ReportFormWebService/Reference.map">
+      <publishTime>09/15/2017 17:12:49</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/22/2017 13:22:49</publishTime>
+    </File>
+    <File Include="WebLisDict.svc">
+      <publishTime>04/01/2017 16:47:01</publishTime>
+    </File>
+    <File Include="WebService/A.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/AutoDownloadReport.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/AutoUpdateFlag.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/DataMaintenance.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/DownLoadReport.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/DownLoadReportForm.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/ServiceAppUpload.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/ServiceDic.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/ServiceReportDownload.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/WebLisReport.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="WebService/WebLisRequest.asmx">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="XML/Appconfig.xml">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="XML/Config.xml">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="XML/ECDS.cfg.xml">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="XML/ini.xml">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="XML/log4netcfg.xml">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="XML/SysXML/FieldList.xml">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+    <File Include="XML/SysXML/InterfaceConfig.xml">
+      <publishTime>04/01/2017 16:46:53</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

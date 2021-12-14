@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="QCItem" table="[dbo].[QCItem]">
+		<id name="Id" column="[QCItemNo]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="TestItemNo" column="[TestItemNo]" type="Int64" not-null="false" length="8" />
+		<property name="EquipNo" column="[EquipNo]" type="Int64" not-null="false" length="8" />
+		<property name="IsLog" column="[IsLog]" type="Int32" not-null="false" length="4" />
+		<property name="QCItemDesc" column="[QCItemDesc]" type="String" not-null="false" length="200" />
+		<property name="IsMicro" column="[IsMicro]" type="Int32" not-null="false" length="4" />
+		<property name="QCDataType" column="[QCDataType]" type="Int32" not-null="false" length="4" />
+		<property name="QCDataTypeName" column="[QCDataTypeName]" type="String" not-null="false" length="20" />
+		<many-to-one name="QCMaterial" class="QCMaterial" lazy="false">
+			<column name="[QCMatNo]" not-null="false"/>
+		</many-to-one>
+		<bag name="QCDataList" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key>
+                <column name="[QCItemNo]" />
+            </key>
+			<one-to-many class="QCData"/>
+		</bag>		
+	</class>
+</hibernate-mapping>

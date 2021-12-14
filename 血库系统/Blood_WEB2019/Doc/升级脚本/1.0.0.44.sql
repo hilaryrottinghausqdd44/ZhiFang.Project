@@ -1,0 +1,1 @@
+IF COL_LENGTH('Blood_TransRecordType', 'TransTypeId') IS NULL ALTER TABLE Blood_TransRecordType ADD TransTypeId bigint;

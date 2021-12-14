@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9EAE633-430D-4B9C-A107-FCC58E3B4048}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.WeiXin</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.WeiXin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.BloodTransfusion\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log">
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBAccountType.cs" />
+    <Compile Include="BBWeiXinAccount.cs" />
+    <Compile Include="BBWeiXinEmpLink.cs" />
+    <Compile Include="BBWeiXinPushMessageTemplate.cs" />
+    <Compile Include="BBWeiXinUserGroup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.BloodTransfusion.Common\ZhiFang.BloodTransfusion.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.BloodTransfusion.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WeiXin\ZhiFang.Entity.WeiXin.csproj">
+      <Project>{c867875c-5404-480d-89e4-9cc67c66d963}</Project>
+      <Name>ZhiFang.Entity.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.WeiXin\ZhiFang.IBLL.WeiXin.csproj">
+      <Project>{2421232c-e74b-44c6-add8-19ac07a1357a}</Project>
+      <Name>ZhiFang.IBLL.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.WeiXin\ZhiFang.IDAO.WeiXin.csproj">
+      <Project>{ff61e24b-369f-490e-bad8-607948e35e8f}</Project>
+      <Name>ZhiFang.IDAO.WeiXin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

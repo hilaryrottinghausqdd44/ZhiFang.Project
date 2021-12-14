@@ -1,0 +1,180 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTOrderFormByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTOrderFormById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelMEPTOrderForm',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddMEPTOrderForm',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTOrderFormByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTOrderForm',
+
+    		//医嘱单对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'MEPTOrderForm_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'MEPTOrderForm_Id',value:'申请单ID'},						 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_SerialNo',value:'申请单号'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_OldSerialNo',value:'原始申请单号'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_PatCardNo',value:'就诊卡号'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_InpatientNo',value:'住院号'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_PatientKeyID',value:'病人主键ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_PatientID',value:'病人ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_PatNo',value:'病历号'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_CName',value:'姓名'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_Birthday',value:'生日'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_Age',value:'年龄'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_AgeUnitID',value:'年龄单位ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_SampleTypeID',value:'样本类型ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_TestTypeID',value:'检验类型ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_SickTypeID',value:'就诊类型ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_SampleSourceID',value:'样本来源ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_DiseaseAreaID',value:'病区ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_DiseaseRoomID',value:'病房ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_Bed',value:'病床'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_DeptID',value:'科室ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_ExecDeptID',value:'执行科室ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_DoctorID',value:'医生ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_Doctor',value:'医生'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_ClientID',value:'送检单位ID   外键LabID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_DiagID',value:'临床诊断ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_Diag',value:'临床诊断'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_SpecialtyID',value:'专业ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_IsFree',value:'是否免费'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_ChargeID',value:'费用ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_Charge',value:'费用'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_FormMemo',value:'备注'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_IsByHand',value:'获取申请单方式   默认为0   0核收,1录入'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_CollectPart',value:'采样部位'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_TestAim',value:'送检目的'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_ZDY1',value:'自定义1'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_ZDY2',value:'自定义2'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_ZDY3',value:'自定义3'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_ZDY4',value:'自定义4'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_ZDY5',value:'自定义5'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderForm_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'MEPTOrderForm_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'医嘱单',
+    		//主键字段
+    		key:'MEPTOrderForm_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

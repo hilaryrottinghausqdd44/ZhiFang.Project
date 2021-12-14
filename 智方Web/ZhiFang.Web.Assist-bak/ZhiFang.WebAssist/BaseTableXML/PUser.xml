@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312"?>
+<NewDataSet>
+
+	<TableName>
+		<FieldName>CName</FieldName>
+		<ExcelFieldName>员工姓名(必填)</ExcelFieldName>
+		<IsPrimaryKey>0</IsPrimaryKey>
+		<IsRequiredField>1</IsRequiredField>
+	</TableName>
+  <TableName>
+    <FieldName>ShortCode</FieldName>
+    <ExcelFieldName>登录账号(唯一,必填)</ExcelFieldName>
+    <IsPrimaryKey>1</IsPrimaryKey>
+    <IsRequiredField>1</IsRequiredField>
+  </TableName>
+  <TableName>
+    <FieldName>Password</FieldName>
+    <ExcelFieldName>初始密码(选填)</ExcelFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+	<TableName>
+		<FieldName>Birthday</FieldName>
+		<ExcelFieldName>出生日期(选填)</ExcelFieldName>
+		<IsPrimaryKey>0</IsPrimaryKey>
+		<IsRequiredField>0</IsRequiredField>
+	</TableName>
+</NewDataSet>

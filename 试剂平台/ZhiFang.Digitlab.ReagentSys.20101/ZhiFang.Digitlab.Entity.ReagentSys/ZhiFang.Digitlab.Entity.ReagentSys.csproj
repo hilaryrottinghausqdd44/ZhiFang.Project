@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C953320-BFFA-4FF3-A1EC-AD2B0836121C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Digitlab.Entity.ReagentSys</RootNamespace>
+    <AssemblyName>ZhiFang.Digitlab.Entity.ReagentSys</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel">
+      <HintPath>..\Lib\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Lib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityObject\GoodsQualification.cs" />
+    <Compile Include="EnumType.cs" />
+    <Compile Include="EntityObject\BmsCenOrderDocHistory.cs" />
+    <Compile Include="EntityObject\BmsCenOrderDtlHistory.cs" />
+    <Compile Include="EntityObject\BmsCenSaleDocHistory.cs" />
+    <Compile Include="EntityObject\BmsCenSaleDtlHistory.cs" />
+    <Compile Include="EntityObject\CenMsg.cs" />
+    <Compile Include="EntityObject\CenQtyDtl.cs" />
+    <Compile Include="EntityObject\CenQtyDtlTemp.cs" />
+    <Compile Include="EntityObject\CenQtyDtlTempHistory.cs" />
+    <Compile Include="EntityObject\Goods.cs" />
+    <Compile Include="EntityObject\BmsCenSaleDtlBarCode.cs" />
+    <Compile Include="EntityObject\TestEquipLab.cs" />
+    <Compile Include="EntityObject\TestEquipProd.cs" />
+    <Compile Include="EntityObject\TestEquipType.cs" />
+    <Compile Include="EntityObject\F_Feedback.cs" />
+    <Compile Include="EntityObject\GoodsRegister.cs" />
+    <Compile Include="EntityObject\BmsAccountInput.cs" />
+    <Compile Include="EntityObject\BmsAccountSaleDoc.cs" />
+    <Compile Include="ExcelHelper.cs" />
+    <Compile Include="JsonConvertClass.cs" />
+    <Compile Include="EntityObject\BmsCenOrderDoc.cs" />
+    <Compile Include="EntityObject\BmsCenOrderDtl.cs" />
+    <Compile Include="EntityObject\BmsCenSaleDoc.cs" />
+    <Compile Include="EntityObject\BmsCenSaleDtl.cs" />
+    <Compile Include="EntityObject\CenOrg.cs" />
+    <Compile Include="EntityObject\CenOrgCondition.cs" />
+    <Compile Include="EntityObject\CenOrgType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NPOIHelper.cs" />
+    <Compile Include="CommonRS.cs" />
+    <Compile Include="TimerCheckOrderDoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Goods.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BmsCenOrderDoc.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\BmsCenOrderDtl.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BmsCenSaleDoc.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BmsCenSaleDtl.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\CenOrg.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\CenOrgCondition.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\CenOrgType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BmsCenSaleDtlBarCode.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\CenMsg.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\CenQtyDtl.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BmsCenOrderDocHistory.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BmsCenOrderDtlHistory.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BmsCenSaleDocHistory.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BmsCenSaleDtlHistory.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\CenQtyDtlTemp.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\CenQtyDtlTempHistory.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\DBStoredProcedure.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\TestEquipLab.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\TestEquipProd.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\TestEquipType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\FFeedback.hbm.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Common\ZhiFang.Common.csproj">
+      <Project>{AB7C5EC2-4B34-49DF-8292-45DCBBB1907C}</Project>
+      <Name>ZhiFang.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity\ZhiFang.Digitlab.Entity.csproj">
+      <Project>{D9AFA74E-62BF-474D-AC0D-FD04F361D0A4}</Project>
+      <Name>ZhiFang.Digitlab.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\GoodsRegister.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BmsAccountInput.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BmsAccountSaleDoc.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\GoodsQualification.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

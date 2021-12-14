@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="SectionItem" table="[dbo].[SectionItem]">
+    <id name="Id" column="[SectionNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="IsDefault" column="[IsDefault]" type="Int32" not-null="false" length="4" />
+    <property name="DefaultValue" column="[DefaultValue]" type="String" not-null="false" length="20" />
+    <property name="WarningTime" column="[WarningTime]" type="String" not-null="false" length="20" />
+    <property name="BWarningTimeOnlyWorkingDay" column="[bWarningTimeOnlyWorkingDay]" type="Int32" not-null="false" length="4" />
+    <property name="BResultIsDesc" column="[bResultIsDesc]" type="Int32" not-null="false" length="4" />
+    <property name="BKXJSF" column="[bKXJSF]" type="Int32" not-null="false" length="4" />
+    <property name="KxjsfType" column="[KxjsfType]" type="Int32" not-null="false" length="4" />
+    <property name="KxjsfDec" column="[KxjsfDec]" type="Int32" not-null="false" length="4" />
+    <property name="KxjsfWhen" column="[KxjsfWhen]" type="Int32" not-null="false" length="4" />
+    <property name="BKxjsfDy" column="[bKxjsfDy]" type="Int32" not-null="false" length="4" />
+    <property name="KxjsfDyType" column="[KxjsfDyType]" type="Int32" not-null="false" length="4" />
+    <property name="BKxjsfXy" column="[bKxjsfXy]" type="Int32" not-null="false" length="4" />
+    <property name="KxjsfXyType" column="[KxjsfXyType]" type="Int32" not-null="false" length="4" />
+    <property name="KxjsfDyValue" column="[KxjsfDyValue]" type="Double" not-null="false" length="8" />
+    <property name="KxjsfXyValue" column="[KxjsfXyValue]" type="Double" not-null="false" length="8" />
+    <property name="DefaultPItemNo" column="[DefaultPItemNo]" type="Int32" not-null="false" length="4" />
+    <property name="DefaultEquipNo" column="[DefaultEquipNo]" type="Int32" not-null="false" length="4" />
+    <property name="UserNo" column="[UserNo]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DefaultValue2" column="[DefaultValue2]" type="String" not-null="false" length="20" />
+    <property name="IsTran" column="[IsTran]" type="Boolean" not-null="false" length="1" />
+    <property name="UseReagentCount" column="[UseReagentCount]" type="Int32" not-null="false" length="4" />
+    <property name="ReagentCode" column="[ReagentCode]" type="String" not-null="false" length="20" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+  </class>
+</hibernate-mapping>

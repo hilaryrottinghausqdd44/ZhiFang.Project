@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCodeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebLiser">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadBarCodeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeBarCode">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeNRequestItem">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeNRequestForm">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlWebLisOthers" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadBarCodeFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCodeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebLiser">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadBarCodeFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadBarCodeFlagResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadBarCodeCancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCodeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebLiser">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadBarCodeCancelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadBarCodeCancelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefuseDownloadBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCodeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebLiser">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefuseDownloadBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RefuseDownloadBarCodeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpgradeRequestForm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SourceOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCodeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeBarCodeForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeNRequestForm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeNRequestItem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeOthers" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpgradeRequestFormResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpgradeRequestFormResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebLisFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadRequestFormClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="drs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jzType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadRequestFormClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpLoadRequestFormClientResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppliyUpLoad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jzType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppliyUpLoadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AppliyUpLoadResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppliyUpLoad_CreatNewBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jzType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppliyUpLoad_CreatNewBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AppliyUpLoad_CreatNewBarCodeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppliyUpLoad_BoErCheng">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppliyUpLoad_BoErChengResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AppliyUpLoad_BoErChengResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadBarCode" />
+  </wsdl:message>
+  <wsdl:message name="DownloadBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadBarCodeFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadBarCodeFlag" />
+  </wsdl:message>
+  <wsdl:message name="DownloadBarCodeFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadBarCodeFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadBarCodeCancelSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadBarCodeCancel" />
+  </wsdl:message>
+  <wsdl:message name="DownloadBarCodeCancelSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadBarCodeCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefuseDownloadBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:RefuseDownloadBarCode" />
+  </wsdl:message>
+  <wsdl:message name="RefuseDownloadBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:RefuseDownloadBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpgradeRequestFormSoapIn">
+    <wsdl:part name="parameters" element="tns:UpgradeRequestForm" />
+  </wsdl:message>
+  <wsdl:message name="UpgradeRequestFormSoapOut">
+    <wsdl:part name="parameters" element="tns:UpgradeRequestFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadRequestFormClientSoapIn">
+    <wsdl:part name="parameters" element="tns:UpLoadRequestFormClient" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadRequestFormClientSoapOut">
+    <wsdl:part name="parameters" element="tns:UpLoadRequestFormClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppliyUpLoadSoapIn">
+    <wsdl:part name="parameters" element="tns:AppliyUpLoad" />
+  </wsdl:message>
+  <wsdl:message name="AppliyUpLoadSoapOut">
+    <wsdl:part name="parameters" element="tns:AppliyUpLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppliyUpLoad_CreatNewBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:AppliyUpLoad_CreatNewBarCode" />
+  </wsdl:message>
+  <wsdl:message name="AppliyUpLoad_CreatNewBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:AppliyUpLoad_CreatNewBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppliyUpLoad_BoErChengSoapIn">
+    <wsdl:part name="parameters" element="tns:AppliyUpLoad_BoErCheng" />
+  </wsdl:message>
+  <wsdl:message name="AppliyUpLoad_BoErChengSoapOut">
+    <wsdl:part name="parameters" element="tns:AppliyUpLoad_BoErChengResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RequestFormWebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">申请单下载</wsdl:documentation>
+      <wsdl:input message="tns:DownloadBarCodeSoapIn" />
+      <wsdl:output message="tns:DownloadBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCodeFlag">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">样本签收标志</wsdl:documentation>
+      <wsdl:input message="tns:DownloadBarCodeFlagSoapIn" />
+      <wsdl:output message="tns:DownloadBarCodeFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCodeCancel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取消下载</wsdl:documentation>
+      <wsdl:input message="tns:DownloadBarCodeCancelSoapIn" />
+      <wsdl:output message="tns:DownloadBarCodeCancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefuseDownloadBarCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">样本退回</wsdl:documentation>
+      <wsdl:input message="tns:RefuseDownloadBarCodeSoapIn" />
+      <wsdl:output message="tns:RefuseDownloadBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpgradeRequestForm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">申请单上传</wsdl:documentation>
+      <wsdl:input message="tns:UpgradeRequestFormSoapIn" />
+      <wsdl:output message="tns:UpgradeRequestFormSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadRequestFormClient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">申请单上传（芜湖）</wsdl:documentation>
+      <wsdl:input message="tns:UpLoadRequestFormClientSoapIn" />
+      <wsdl:output message="tns:UpLoadRequestFormClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">上传申请</wsdl:documentation>
+      <wsdl:input message="tns:AppliyUpLoadSoapIn" />
+      <wsdl:output message="tns:AppliyUpLoadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad_CreatNewBarCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">上传申请_生成新条码</wsdl:documentation>
+      <wsdl:input message="tns:AppliyUpLoad_CreatNewBarCodeSoapIn" />
+      <wsdl:output message="tns:AppliyUpLoad_CreatNewBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad_BoErCheng">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">上传申请(博尔诚医学检验所)</wsdl:documentation>
+      <wsdl:input message="tns:AppliyUpLoad_BoErChengSoapIn" />
+      <wsdl:output message="tns:AppliyUpLoad_BoErChengSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RequestFormWebServiceSoap" type="tns:RequestFormWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCode">
+      <soap:operation soapAction="http://tempuri.org/DownloadBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCodeFlag">
+      <soap:operation soapAction="http://tempuri.org/DownloadBarCodeFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCodeCancel">
+      <soap:operation soapAction="http://tempuri.org/DownloadBarCodeCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefuseDownloadBarCode">
+      <soap:operation soapAction="http://tempuri.org/RefuseDownloadBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpgradeRequestForm">
+      <soap:operation soapAction="http://tempuri.org/UpgradeRequestForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadRequestFormClient">
+      <soap:operation soapAction="http://tempuri.org/UpLoadRequestFormClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad">
+      <soap:operation soapAction="http://tempuri.org/AppliyUpLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad_CreatNewBarCode">
+      <soap:operation soapAction="http://tempuri.org/AppliyUpLoad_CreatNewBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad_BoErCheng">
+      <soap:operation soapAction="http://tempuri.org/AppliyUpLoad_BoErCheng" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RequestFormWebServiceSoap12" type="tns:RequestFormWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCode">
+      <soap12:operation soapAction="http://tempuri.org/DownloadBarCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCodeFlag">
+      <soap12:operation soapAction="http://tempuri.org/DownloadBarCodeFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadBarCodeCancel">
+      <soap12:operation soapAction="http://tempuri.org/DownloadBarCodeCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefuseDownloadBarCode">
+      <soap12:operation soapAction="http://tempuri.org/RefuseDownloadBarCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpgradeRequestForm">
+      <soap12:operation soapAction="http://tempuri.org/UpgradeRequestForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadRequestFormClient">
+      <soap12:operation soapAction="http://tempuri.org/UpLoadRequestFormClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad">
+      <soap12:operation soapAction="http://tempuri.org/AppliyUpLoad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad_CreatNewBarCode">
+      <soap12:operation soapAction="http://tempuri.org/AppliyUpLoad_CreatNewBarCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppliyUpLoad_BoErCheng">
+      <soap12:operation soapAction="http://tempuri.org/AppliyUpLoad_BoErCheng" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RequestFormWebService">
+    <wsdl:port name="RequestFormWebServiceSoap" binding="tns:RequestFormWebServiceSoap">
+      <soap:address location="http://localhost/WebLisService_2015/RequestFormWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RequestFormWebServiceSoap12" binding="tns:RequestFormWebServiceSoap12">
+      <soap12:address location="http://localhost/WebLisService_2015/RequestFormWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

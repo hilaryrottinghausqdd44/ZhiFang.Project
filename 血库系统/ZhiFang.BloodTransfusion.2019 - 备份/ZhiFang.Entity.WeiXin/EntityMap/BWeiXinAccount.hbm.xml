@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WeiXin" assembly="ZhiFang.Entity.WeiXin">
+	<class name="BWeiXinAccount" table="[dbo].[B_WeiXinAccount]">
+		<id name="Id" column="[WeiXinUserID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="IconsID" column="[IconsID]" type="Int64" not-null="false" length="8" />
+		<property name="WeiXinAccount" column="[WeiXinAccount]" type="String" not-null="true" length="50" />
+		<property name="UserName" column="[UserName]" type="String" not-null="true" length="20" />
+		<property name="SexID" column="[SexID]" type="Int64" not-null="false" length="8" />
+		<property name="PassWord" column="[PassWord]" type="String" not-null="false" length="20" />
+		<property name="Name" column="[Name]" type="String" not-null="false" length="20" />
+		<property name="Brithday" column="[Brithday]" type="DateTime" not-null="false" length="8" />
+		<property name="MobileCode" column="[MobileCode]" type="String" not-null="false" length="11" />
+		<property name="IDNumber" column="[IDNumber]" type="String" not-null="false" length="18" />
+		<property name="MediCare" column="[MediCare]" type="String" not-null="false" length="20" />
+		<property name="Email" column="[Email]" type="String" not-null="false" length="30" />
+		<property name="CountryID" column="[CountryID]" type="Int64" not-null="false" length="8" />
+		<property name="ProvinceID" column="[ProvinceID]" type="Int64" not-null="false" length="8" />
+		<property name="CityID" column="[CityID]" type="Int64" not-null="false" length="8" />
+		<property name="CountryName" column="[CountryName]" type="String" not-null="false" length="30" />
+		<property name="ProvinceName" column="[ProvinceName]" type="String" not-null="false" length="30" />
+		<property name="CityName" column="[CityName]" type="String" not-null="false" length="30" />
+		<property name="Language" column="[Language]" type="String" not-null="false" length="20" />
+		<property name="LoginInputPasswordFlag" column="[LoginInputPasswordFlag]" type="Boolean" not-null="false" length="1" />
+		<property name="Comment" column="[Comment]" type="String" not-null="false" length="300" />
+		<property name="ConcernTime" column="[ConcernTime]" type="DateTime" not-null="false" length="8" />
+		<property name="AddTime" column="[AddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="LastLoginTime" column="[LastLoginTime]" type="DateTime" not-null="false" length="8" />
+		<property name="LastLoginAddressCoordinate" column="[LastLoginAddressCoordinate]" type="String" not-null="false" length="20" />
+		<property name="HeadImgUrl" column="[HeadImgUrl]" type="String" not-null="false" length="500" />
+		<many-to-one name="BAccountType" class="BAccountType" lazy="false">
+			<column name="[AccountTypeID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BWeiXinUserGroup" class="BWeiXinUserGroup" lazy="false">
+			<column name="[B_WeiXinUserGroupID]" not-null="false"/>
+		</many-to-one>
+		<bag name="BWeiXinEmpLinkList" inverse="true" lazy="false">
+			<key>
+                <column name="[WeiXinUserID]" />
+            </key>
+			<one-to-many class="BWeiXinEmpLink"/>
+		</bag>
+	</class>
+</hibernate-mapping>

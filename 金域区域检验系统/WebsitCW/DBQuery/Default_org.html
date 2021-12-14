@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<title>Web Data Administrator - Database Properties</title>
+		<link rel="shortcut icon" href="favicon.ico">
+			<link rel="stylesheet" type="text/css" href="admin.css">
+	</HEAD>
+	<body bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0">
+		<form name="DatabaseProperties" method="post" action="DatabaseProperties.aspx?database=master"
+			id="DatabaseProperties">
+			<script language="javascript" src="Global.js"></script>
+			<TABLE width="100%" height="100%" cellSpacing="0" cellPadding="0" border="0" ID="Table1">
+				<!-- FIRST ROW: HEADER -->
+				<tr>
+					<td colspan="3" valign="bottom" align="left" width="100%" height="36" bgcolor="#c0c0c0">
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table2">
+							<tr>
+								<!--BEGIN ONE LINE-->
+								<td valign="bottom" width="308"><img src="images/logo_top.gif" width="308" height="36" alt="" border="0"></td>
+								<!--END ONE LINE-->
+								<td valign="bottom" align="right" width="100%">
+									<table cellSpacing="0" cellPadding="0" border="0" ID="Table3">
+										<tr>
+											<td valign="bottom" align="left" width="16" height="36">
+												<a id="HelpLogout_HelpImageHyperLink" href="Help/databaseproperties.aspx" target="_blank">
+													<img src="images/help.gif" name="Help" width="16" height="16" alt="Help" border="0" style="CURSOR:hand"></a>
+											</td>
+											<td valign="bottom" align="left" width="8" height="36">
+												&nbsp;
+											</td>
+											<td valign="bottom" align="left" width="16" height="36">
+												<a id="HelpLogout_LogoutImageHyperLink" href="Logout.aspx"><img src="images/logout.gif" name="Logout" width="16" height="16" alt="Logout" border="0"
+														style="CURSOR:hand"></a>
+											</td>
+											<td valign="bottom" align="left" width="8" height="36">
+												&nbsp;
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<!-- FIRST ROW: HEADER -->
+				<!-- SECOND ROW: CRUMBS -->
+				<tr>
+					<!--BEGIN ONE LINE-->
+					<td align="left" bgcolor="#99ccff" background="images/blue_back.gif" width="172" height="26"><img src="images/logo_bottom.gif" width="172" height="26" alt="" border="0"></td>
+					<!--END ONE LINE-->
+					<td align="left" bgColor="#99ccff" background="images/blue_back.gif" width="100%" height="26">
+						<table width="100%" height="26" cellSpacing="0" cellPadding="0" border="0" style="TABLE-LAYOUT:fixed"
+							ID="Table4">
+							<tr>
+								<td width="12">
+									&nbsp;
+								</td>
+								<td valign="middle" align="left" width="100%" height="26">
+									<img align="absMiddle" src="images/server_ico.gif" alt="Server Running">
+									<SPAN class="currentHeader">Server:</SPAN>&nbsp; <a id="ServerLocation_ServerNameHyperLink" class="currentItem" href="databases.aspx">
+										zf1</a> &nbsp;&nbsp; <img src="images/db_ico.gif" alt="" align="absMiddle">
+									<SPAN class="currentHeader">Database:</SPAN>&nbsp;&nbsp; <a id="DatabaseLocation_DatabaseNameHyperLink" class="currentItem" href="Tables.aspx?database=master">
+										master</a>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<!--BEGIN ONE LINE-->
+					<td align="left" bgcolor="#99ccff" width="12" height="26"><img src="images/blue_back_right.gif" width="12" height="26" alt="" border="0"></td>
+					<!--END ONE LINE-->
+				</tr>
+				<!-- SECOND ROW: CRUMBS -->
+				<!-- THIRD ROW: BOTTOM SECTION -->
+				<tr>
+					<!-- START NAVIGATION SECTION -->
+					<td bgcolor="#6699ff" valign="top" align="center" width="172" height="100%">
+						<table cellSpacing="0" cellPadding="0" width="148" border="0" style="TABLE-LAYOUT: fixed"
+							ID="Table5">
+							<tr>
+								<td height="12">
+									&nbsp;
+								</td>
+							</tr>
+							<!-- SECTION HEADING: START -->
+							<tr>
+								<td class="menuHeader">
+									SERVER TOOLS
+								</td>
+							</tr>
+							<!-- SECTION HEADING: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<!--BEGIN ONE LINE-->
+								<td height="3" valign="middle"><img src="images/blue_dotted_line.gif" width="150" height="3" alt="" border="0"></td>
+								<!--END ONE LINE-->
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="20">
+									<a id="ServerToolbar_DatabasesHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="databases.aspx"><img src="images/db_ico.gif" align="absMiddle" border="0">&nbsp;Databases</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<td id="ServerToolbar_ImportTd" height="20">
+									<a id="ServerToolbar_ImportHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="import.aspx"><img src="images/wizards_ico.gif" align="absMiddle" border="0">&nbsp;Import</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<td id="ServerToolbar_ExportTd" height="20">
+									<a id="ServerToolbar_ExportHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="export.aspx"><img src="images/wizards_ico.gif" align="absMiddle" border="0">&nbsp;Export</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<td id="ServerToolbar_SecurityTd" height="20">
+									<a id="ServerToolbar_SecurityHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="security.aspx"><img src="images/serverroles_ico.gif" align="absMiddle" border="0">&nbsp;Security</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+						</table>
+						<table cellSpacing="0" cellPadding="0" width="148" border="0" style="TABLE-LAYOUT: fixed"
+							ID="Table6">
+							<tr>
+								<td height="12">
+									&nbsp;
+								</td>
+							</tr>
+							<!-- SECTION HEADING: START -->
+							<tr>
+								<td class="menuHeader">
+									DATABASE
+								</td>
+							</tr>
+							<!-- SECTION HEADING: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<!--BEGIN ONE LINE-->
+								<td height="3" valign="middle"><img src="images/blue_dotted_line.gif" width="150" height="3" alt="" border="0"></td>
+								<!--END ONE LINE-->
+							</tr>
+							<tr>
+								<td id="DatabaseToolbar_TablesTd" height="20">
+									<a id="DatabaseToolbar_TablesHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="Tables.aspx?database=master"><img src="images/table_ico.gif" align="absMiddle" border="0">&nbsp;Tables</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<td id="DatabaseToolbar_StoredProceduresTd" height="20">
+									<a id="DatabaseToolbar_StoredProceduresHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="StoredProcedures.aspx?database=master">
+										<img src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;Stored 
+										Procedures</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<td id="DatabaseToolbar_QueryTd" height="20">
+									<a id="DatabaseToolbar_QueryHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="QueryDatabase.aspx?database=master">
+										<img src="images/query_ico.gif" align="absMiddle" border="0">&nbsp;Query</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<td id="DatabaseToolbar_PropertiesTd" height="20" class="selectedLink">
+									<a id="DatabaseToolbar_PropertiesHyperLink" class="leftMenu" onMouseOut="this.style.color='#000000';"
+										href="DatabaseProperties.aspx?database=master"><img src="images/prop_ico.gif" align="absMiddle" border="0">&nbsp;Properties</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<td id="DatabaseToolbar_UsersTd" height="20">
+									<a id="DatabaseToolbar_UsersHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="DatabaseUsers.aspx?database=master">
+										<img src="images/user_ico.gif" align="absMiddle" border="0">&nbsp;Users</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<td id="DatabaseToolbar_RolesTd" height="20">
+									<a id="DatabaseToolbar_RolesHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="DatabaseRoles.aspx?database=master">
+										<img src="images/serverroles_ico.gif" align="absMiddle" border="0">&nbsp;Roles</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+						</table>
+					</td>
+					<!-- END NAVIGATION SECTION -->
+					<!-- START CONTENT SECTION -->
+					<td valign="top" align="left">
+						<table cellSpacing="0" cellPadding="0" border="0" width="100%" ID="Table7">
+							<TBODY>
+								<tr>
+									<!--BEGIN ONE LINE-->
+									<td valign="bottom" colSpan="2" height="8" width="100%"><img src="images/spacer.gif" width="1" height="8" alt="" border="0"></td>
+									<!--END ONE LINE-->
+								</tr>
+								<tr>
+									<!--BEGIN ONE LINE-->
+									<td align="left" width="12"><img src="images/spacer.gif" width="12" height="1" alt="" border="0"></td>
+									<!--END ONE LINE-->
+									<td align="left" class="databaseListItem" width="100%">
+										<!-- PAGE CONTENT: START -->
+										<!-- SECTION HEADER: START -->
+										<table cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table8">
+											<tr>
+												<td class="databaseListHeader">
+													DATABASE PROPERTIES
+												</td>
+											</tr>
+											<!-- SECTION HEADER: END -->
+											<!-- SECTION: START -->
+											<tr>
+												<!--BEGIN ONE LINE-->
+												<td height="3" valign="middle" background="images/blue_dotted_line.gif"><img src="images/blue_dotted_line.gif" width="150" height="3" alt="" border="0"></td>
+												<!--END ONE LINE-->
+											</tr>
+											<tr>
+												<!--BEGIN ONE LINE-->
+												<td height="4" valign="middle"><img src="images/spacer.gif" width="1" height="4" alt="" border="0"></td>
+												<!--END ONE LINE-->
+											</tr>
+											<tr>
+												<td bgcolor="white" class="databaseListItem">
+													<table cellSpacing="1" cellPadding="4" width="100%" border="0" ID="Table9">
+														<tr class="tableHeader">
+															<td width="100">Property</td>
+															<td>Value</td>
+														</tr>
+														<tr class="tableItems">
+															<td>Name</td>
+															<td><span id="NamePropertyLabel">master</span></td>
+														</tr>
+														<tr class="tableItems">
+															<td>Status</td>
+															<td><span id="StatusPropertyLabel">Normal</span></td>
+														</tr>
+														<tr class="tableItems">
+															<td>Owner</td>
+															<td><span id="OwnerPropertyLabel">sa</span></td>
+														</tr>
+														<tr class="tableItems">
+															<td>Date created</td>
+															<td><span id="DateCreatedPropertyLabel">2000-8-6 1:29:12</span></td>
+														</tr>
+														<tr class="tableItems">
+															<td>Size</td>
+															<td><span id="SizePropertyLabel">21.00</span>MB</td>
+														</tr>
+														<tr class="tableItems">
+															<td>Space available</td>
+															<td><span id="SpaceAvailablePropertyLabel">4.20</span>MB</td>
+														</tr>
+														<tr class="tableItems">
+															<td>Number of users</td>
+															<td><span id="NumberOfUsersPropertyLabel">2</span></td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<!-- Section END -->
+											<!-- Section Footer START -->
+										</table>
+										<BR>
+										<!-- Section Footer END -->
+										<!-- Section Header START -->
+										<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table10">
+											<!-- Section Header END -->
+											<!-- Section START -->
+											<TR>
+												<TD height="2"><b>Data Files</b><br>
+													<hr>
+												</TD>
+											</TR>
+											<TR>
+												<TD class="databaseListItem" bgColor="white">
+													<!-- Data File Properties -->
+													<input id="DataFileProperties_AutomaticallyGrowFileCheckBox" type="checkbox" name="DataFileProperties:AutomaticallyGrowFileCheckBox"
+														checked><label for="DataFileProperties_AutomaticallyGrowFileCheckBox">Automatically grow file</label>
+													<br>
+													<br>
+													&nbsp;&nbsp;&nbsp;&nbsp; File growth
+													<br>
+													&nbsp;&nbsp;&nbsp;&nbsp;
+													<select name="DataFileProperties:GrowthTypeDropDownList" id="DataFileProperties_GrowthTypeDropDownList">
+														<option value="In megabytes">In megabytes</option>
+														<option selected value="By percent">By percent</option>
+													</select>
+													<input name="DataFileProperties:GrowthTextBox" type="text" value="10" size="4" id="DataFileProperties_GrowthTextBox">
+													<br>
+													<br>
+													&nbsp;&nbsp;&nbsp;&nbsp; Maximum file size<br>
+													&nbsp;&nbsp;&nbsp;&nbsp;<input id="DataFileProperties_UnrestrictedGrowthRadioButton" type="radio" name="DataFileProperties:MaximumFileSizeType"
+														value="UnrestrictedGrowthRadioButton" checked><label for="DataFileProperties_UnrestrictedGrowthRadioButton">Unrestricted file growth</label><br>
+													&nbsp;&nbsp;&nbsp;&nbsp;<input id="DataFileProperties_RestrictGrowthRadioButton" type="radio" name="DataFileProperties:MaximumFileSizeType"
+														value="RestrictGrowthRadioButton"><label for="DataFileProperties_RestrictGrowthRadioButton">Restrict file growth</label>
+													&nbsp;<input name="DataFileProperties:MaximumFileSizeTextBox" type="text" value="-1" size="4"
+														id="DataFileProperties_MaximumFileSizeTextBox"> MB
+													<br>
+												</TD>
+											</TR>
+											<!-- Section END -->
+											<!-- Section Footer START -->
+										</TABLE>
+										<BR>
+										<!-- Section Footer END -->
+										<!-- Section Header START -->
+										<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table11">
+											<!-- Section Header END -->
+											<!-- Section START -->
+											<TR>
+												<TD height="2">
+													<b>Transaction Log</b><br>
+													<hr>
+												</TD>
+											</TR>
+											<TR>
+												<TD class="databaseListItem" bgColor="white">
+													<!-- Log File Properties -->
+													<input id="LogFileProperties_AutomaticallyGrowFileCheckBox" type="checkbox" name="LogFileProperties:AutomaticallyGrowFileCheckBox"
+														checked><label for="LogFileProperties_AutomaticallyGrowFileCheckBox">Automatically grow file</label>
+													<br>
+													<br>
+													&nbsp;&nbsp;&nbsp;&nbsp; File growth
+													<br>
+													&nbsp;&nbsp;&nbsp;&nbsp;
+													<select name="LogFileProperties:GrowthTypeDropDownList" id="LogFileProperties_GrowthTypeDropDownList">
+														<option value="In megabytes">In megabytes</option>
+														<option selected value="By percent">By percent</option>
+													</select>
+													<input name="LogFileProperties:GrowthTextBox" type="text" value="10" size="4" id="LogFileProperties_GrowthTextBox">
+													<br>
+													<br>
+													&nbsp;&nbsp;&nbsp;&nbsp; Maximum file size<br>
+													&nbsp;&nbsp;&nbsp;&nbsp;<input id="LogFileProperties_UnrestrictedGrowthRadioButton" type="radio" name="LogFileProperties:MaximumFileSizeType"
+														value="UnrestrictedGrowthRadioButton" checked><label for="LogFileProperties_UnrestrictedGrowthRadioButton">Unrestricted file growth</label><br>
+													&nbsp;&nbsp;&nbsp;&nbsp;<input id="LogFileProperties_RestrictGrowthRadioButton" type="radio" name="LogFileProperties:MaximumFileSizeType"
+														value="RestrictGrowthRadioButton"><label for="LogFileProperties_RestrictGrowthRadioButton">Restrict file growth</label>
+													&nbsp;<input name="LogFileProperties:MaximumFileSizeTextBox" type="text" value="-1" size="4"
+														id="LogFileProperties_MaximumFileSizeTextBox"> MB
+													<br>
+												</TD>
+											</TR>
+											<!-- Section END -->
+											<!-- Section Footer START -->
+										</TABLE>
+										<BR>
+										<hr>
+										<input type="submit" name="ApplyButton" value="Apply" id="ApplyButton" class="button" onMouseOver="this.style.color='#808080';"
+											onMouseOut="this.style.color='#000000';">&nbsp; <input type="submit" name="CancelButton" value="Cancel" id="CancelButton" class="button"
+											onMouseOver="this.style.color='#808080';" onMouseOut="this.style.color='#000000';">&nbsp;
+									</td>
+					</td>
+				</tr>
+				<!-- Section END -->
+				<!-- Section Footer START -->
+			</TABLE>
+			<br>
+			<!-- Section Footer END -->
+			<!-- Page content END --> </TD></TR></TBODY></TABLE></TD></TR> 
+			<!-- THIRD ROW: BOTTOM SECTION --> 
+			</TABLE>
+		</form>
+	</body>
+</HTML>

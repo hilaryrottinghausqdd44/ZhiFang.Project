@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>配置表单项</title>
+    <meta name="renderer" content="webkit" />
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+		UIVersion.getCSS("../../../../../css/qc.css");
+    </script>
+    <style>
+        .layui-form .layui-form-label {
+            width: 90px;
+        }
+
+        .layui-form .layui-input-block {
+            margin-left: 120px;
+        }
+
+        .layui-form .layui-form-item {
+            margin-bottom: 5px;
+        }
+        .nopadding {
+        	padding: 0!important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="myStyle nopadding">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-col-sm12">
+                <div class="layui-card">
+                    <div class="layui-card-body" style="overflow:auto;">
+                        <table id="mainTable" lay-filter="mainTable"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--申请录入表单配置项-->
+    <div id="modal" style="display:none;padding:15px;">
+        <form class="layui-form" id="modalForm" lay-filter="modalForm">
+            <div class="layui-row">
+                <!--<div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">实验室</label>
+                        <div class="layui-input-block">
+                            <select name="BModuleFormControlList_LabID" lay-filter="LabID" id="LabID" lay-search="">
+                                <option value="">直接选择或搜索选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">控件类型</label>
+                        <div class="layui-input-block">
+                            <select name="BModuleFormControlList_TypeID" lay-filter="TypeID" id="TypeID"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">对应属性</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_MapField" id="MapField" placeholder="需对应数据库中字段，例：DeptNo" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">显示名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_Label" id="Label" placeholder="例：科室" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">栅格列数</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_Cols" id="Cols" placeholder="例：4/6/8/12" class="layui-input" autocomplete="off" lay-verify="number" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">默认值</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_DefaultValue" id="DefaultValue" placeholder="例：1, 日期类型：天数表示 0为当天;日期范围：{ start:-30,end:0 }" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div> 
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">值属性</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_ValueField" id="ValueField" placeholder="例：BDepartment_Id" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">显示属性</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_TextField" id="TextField" placeholder="例：BDepartment_CName" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">显示次序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_DispOrder" id="DispOrder" placeholder="例：2" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm3 layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否启用</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="BModuleFormControlList_IsUse" id="IsUse" lay-skin="primary" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm3 layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否存在空值</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="BModuleFormControlList_IsHasNull" id="IsHasNull" lay-skin="primary" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm3 layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否只读</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="BModuleFormControlList_IsReadOnly" id="IsReadOnly" lay-skin="primary">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm3 layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否显示</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="BModuleFormControlList_IsDisplay" id="IsDisplay" lay-skin="primary" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">数据服务地址</label>
+                        <div class="layui-input-block">
+                            <textarea name="BModuleFormControlList_URL" id="URL" style="min-height:42px" placeholder="例：/ServerWCF/DictionaryService.svc/ST_UDTO_SearchBDepartmentByHQL?isPlanish=true&where=(IsUse=1)&fields=BDepartment_Id,BDepartment_CName" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">回调函数</label>
+                        <div class="layui-input-block">
+                            <textarea name="BModuleFormControlList_CallBackFunc" id="CallBackFunc" style="min-height:72px" placeholder="例：(function(obj){})(obj)" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">数据集</label>
+                        <div class="layui-input-block">
+                            <textarea name="BModuleFormControlList_DataJSON" id="DataJSON" style="min-height:72px" placeholder='例：【下拉框、单选框】例：[{"value":1,"text":"男"},{"value":2,"text":"女"}]' class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">控件Class名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_ClassName" id="ClassName" placeholder="例：layui-hide layui-col-sm6 空格分隔" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">控件样式</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_StyleContent" id="StyleContent" placeholder="例：min-height:36px;font-size:24px;" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item" hidden>
+                        <label class="layui-form-label">主键ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="BModuleFormControlList_Id" id="FormControlID">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--formItemConfigTable表格头工具 -->
+    <script type="text/html" id="Toolbar">
+        <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon layui-icon-add-circle"></i>新增配置项</button>
+    </script>
+    <!--表格行工具 -->
+    <script type="text/html" id="tableOperation">
+        <a class="layui-btn layui-btn-xs" lay-event="edit" style="line-height: 18px;">编辑</a>
+        <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del" style="line-height: 18px;">删除</a>
+    </script>
+    <script type="text/javascript">
+    	UIVersion.loadLayui();
+        UIVersion.getJS('app.js');
+    </script>
+</body>
+</html>

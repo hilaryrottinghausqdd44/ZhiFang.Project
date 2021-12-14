@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/17/2018 15:46:37" ReportInfo.Modified="11/15/2018 14:04:55" ReportInfo.CreatorVersion="1.3.15.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.ReagentSys.Client" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFAmkwwEssvI/BSCZ7lXL6+lWiK56aPTvrPIhcFqsFJa0vx5wmt1wrLYfduaG8nqx/Mh2x4x7Y6xv5wHc+kcOmIcLJi8RwLQKR1RiSC5KyI9idWFNYRXyko1WJJ66jnW82hS2KGqY/+9Dj7VcVjDqWzDoMpCgfE0L+HzSHnTOs40g=">
+      <TableDataSource Name="Rea_GoodsOfMaxGonvertQtyVO" DataType="System.Int32" Enabled="true" TableName="Rea_GoodsOfMaxGonvertQtyVO">
+        <Column Name="ReaGoodsNo" DataType="System.String"/>
+        <Column Name="GoodsCName" DataType="System.String"/>
+        <Column Name="GoodsUnit" DataType="System.String"/>
+        <Column Name="UnitMemo" DataType="System.String"/>
+        <Column Name="ProdOrgName" DataType="System.String"/>
+        <Column Name="GoodsClass" DataType="System.String"/>
+        <Column Name="GoodsClassType" DataType="System.String"/>
+        <Column Name="DeptName" DataType="System.String"/>
+        <Column Name="SuitableType" DataType="System.String"/>
+        <Column Name="ReaCompanyName" DataType="System.String"/>
+        <Column Name="Price" DataType="System.Double"/>
+        <Column Name="TestCount" DataType="System.Int32"/>
+        <Column Name="MonthlyUsage" DataType="System.Double"/>
+        <Column Name="StoreLower" DataType="System.Double"/>
+        <Column Name="StoreUpper" DataType="System.Double"/>
+        <Column Name="OrderCount" DataType="System.Double"/>
+        <Column Name="AcceptCount" DataType="System.Double"/>
+        <Column Name="RefuseCount" DataType="System.Double"/>
+        <Column Name="ConfirmCount" DataType="System.Double"/>
+        <Column Name="InCount" DataType="System.Double"/>
+        <Column Name="CurQtyCount" DataType="System.Double"/>
+        <Column Name="UndeliveredCount" DataType="System.Double"/>
+        <Column Name="TransferCount" DataType="System.Double"/>
+        <Column Name="TestEquipOutCount" DataType="System.Double"/>
+        <Column Name="SumTotal" DataType="System.Double"/>
+        <Column Name="EquipTestCount" DataType="System.Double"/>
+      </TableDataSource>
+       <TableDataSource Name="Rea_ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="Rea_ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="397" PaperHeight="210" FirstPageSource="4" OtherPagesSource="4" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle1" Width="1425.06" Height="37.8">
+      <TextObject Name="txtTitle" Left="511.3" Top="0.45" Width="368.55" Height="28.35" Text="按最大包装单位综合统计" HorzAlign="Center" VertAlign="Center" Font="宋体, 14pt, style=Bold"/>
+      <TextObject Name="Text11" Left="1263.3" Top="9.45" Width="103.95" Height="18.9" Text="[PageN]" Font="宋体, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="1425.06" Height="31.35">
+      <LineObject Name="Line1" Left="2" Top="-1.45" Width="1417.5"/>
+      <LineObject Name="Line2" Left="3" Top="30.35" Width="1408.05"/>
+      <TextObject Name="lblAbsRow" Left="3.45" Top="4" Width="37.8" Height="18.9" Text="行号" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text1" Left="44.25" Top="4" Width="75.6" Height="18.9" Text="产品编号" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="120.85" Top="4" Width="75.6" Height="18.9" Text="品牌" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="199.25" Top="4" Width="94.5" Height="18.9" Text="产品名称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text14" Left="295.95" Top="4" Width="47.25" Height="18.9" Text="单位" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text15" Left="344.65" Top="4.45" Width="86.94" Height="18.9" Text="规格" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text19" Left="435.15" Top="4" Width="86.94" Height="18.9" Text="一级分类" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text20" Left="524.65" Top="4" Width="86.94" Height="18.9" Text="二级分类" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text21" Left="616.15" Top="4" Width="86.94" Height="18.9" Text="部门" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text25" Left="704.75" Top="4" Width="86.94" Height="18.9" Text="适用机型" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text26" Left="793.8" Top="4.45" Width="86.94" Height="18.9" Text="供应商" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text27" Left="884.3" Top="3" Width="68.04" Height="18.9" Text="单价(元)" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text31" Left="954.45" Top="2" Width="58.59" Height="28.35" Text="理论测试数" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text32" Left="1016.05" Top="3" Width="64.26" Height="18.9" Text="理论月用量" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text33" Left="1081.75" Top="3.45" Width="64.26" Height="18.9" Text="库存低限" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text36" Left="1147.9" Width="64.26" Height="28.35" Text="当前订货未到货数" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text38" Left="1215.05" Width="64.26" Height="28.35" Text="移库领用数" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text39" Left="1281.2" Width="64.26" Height="28.35" Text="上机使用数" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text40" Left="1348.35" Width="64.26" Height="28.35" Text="项目测试数" Font="宋体, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="77.15" Width="1425.06" Height="30.35" DataSource="Rea_GoodsOfMaxGonvertQtyVO">
+      <TextObject Name="Text2" Left="44.25" Top="1.45" Width="75.6" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.ReaGoodsNo]" Font="宋体, 10pt"/>
+      <TextObject Name="txtAbsRow" Left="3" Top="3" Width="37.8" Height="18.9" Text="[AbsRow#]" Font="宋体, 10pt"/>
+      <TextObject Name="Text3" Left="122.85" Top="2" Width="75.6" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.ProdOrgName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text16" Left="200.9" Top="1.45" Width="94.5" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.GoodsCName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text17" Left="292.95" Width="51.03" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.GoodsUnit]" Font="宋体, 10pt"/>
+      <TextObject Name="Text18" Left="346.2" Width="86.94" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.UnitMemo]" Font="宋体, 10pt"/>
+      <TextObject Name="Text22" Left="436.15" Width="86.94" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.GoodsClass]" Font="宋体, 10pt"/>
+      <TextObject Name="Text23" Left="525.65" Width="86.94" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.GoodsClassType]" Font="宋体, 10pt"/>
+      <TextObject Name="Text24" Left="615.25" Width="86.94" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.DeptName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text28" Left="704.3" Width="86.94" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.DeptName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text29" Left="793.8" Top="1.45" Width="86.94" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.ReaCompanyName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text30" Left="884.3" Top="2" Width="68.04" Height="28.35" Text="[Rea_GoodsOfMaxGonvertQtyVO.Price]" Font="宋体, 10pt"/>
+      <TextObject Name="Text4" Left="954.45" Top="4" Width="56.7" Height="18.9" Text="[Rea_GoodsOfMaxGonvertQtyVO.TestCount]" Font="宋体, 10pt"/>
+      <TextObject Name="Text34" Left="1014.05" Top="5" Width="64.26" Height="18.9" Text="[Rea_GoodsOfMaxGonvertQtyVO.MonthlyUsage]" Font="宋体, 10pt"/>
+      <TextObject Name="Text35" Left="1082.2" Top="4" Width="64.26" Height="18.9" Text="[Rea_GoodsOfMaxGonvertQtyVO.StoreLower]" Font="宋体, 10pt"/>
+      <TextObject Name="Text37" Left="1148.8" Top="4.45" Width="64.26" Height="18.9" Text="[Rea_GoodsOfMaxGonvertQtyVO.UndeliveredCount]" Font="宋体, 10pt"/>
+      <TextObject Name="Text41" Left="1216.05" Top="5" Width="64.26" Height="18.9" Text="[Rea_GoodsOfMaxGonvertQtyVO.TransferCount]" Font="宋体, 10pt"/>
+      <TextObject Name="Text42" Left="1279.75" Top="5" Width="64.26" Height="18.9" Text="[Rea_GoodsOfMaxGonvertQtyVO.TestEquipOutCount]" Font="宋体, 10pt"/>
+      <TextObject Name="Text43" Left="1347.9" Top="5" Width="64.26" Height="18.9" Text="[Rea_GoodsOfMaxGonvertQtyVO.EquipTestCount]" Font="宋体, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="111.5" Width="1425.06" Height="18.9">
+      <LineObject Name="Line3" Left="3" Top="2" Width="1408.05"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

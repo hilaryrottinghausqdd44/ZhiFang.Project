@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../../../easyui/jquery.min.js"></script>
+    <script src="../../../../easyui/jquery.easyui.min.js"></script>
+    <link href="../../../../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../../../../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../../../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../../../util/util.js"></script>
+    <script src="../../../../util/util_easyui.js"></script>
+    <script src="CLIENTELEDict.js"></script>
+    <style type="text/css">
+        #fm { margin: 0; padding: 10px 30px; }
+        .fTitle { font-size: 14px; font-weight: bold; padding: 5px 0; margin-bottom: 10px; border-bottom: 1px solid #cccccc;}
+        .fItem { margin-bottom: 10px; }
+        .fItem label {  display: inline-block;   width: 100px; }
+    </style>
+</head>
+<body>
+     <table id="dg" title="中心医疗机构字典表"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; width:auto">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+                  </div>
+
+            <div style="float: right; margin-right: 10px; margin-top: 3px;">
+                <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入编码/名称/简称',searcher:doSearch" style="width:200px;" />
+            </div>
+        </div>
+        <div id="dlg" class="easyui-dialog" style="width: 620px; height: 500px; margin: auto; overflow: scroll" closed="true" buttons="#dlgButtons">
+                    <form id="fm">
+                        <table>
+                            <tr>
+                                <td class="fItem" style="float:left;">
+                                    <label style="width:110px">编号:</label>
+                                    <input id='txtClIENTNO' name="ClIENTNO" class="easyui-numberbox" required="true" style="width: 130px;">
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width:110px">客户中文名称:</label>
+                                    <input id="txtCNAME" name="CNAME" class="easyui-textbox" required="required" style="width: 130px;" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">客户英文名称:</label>
+                                    <input id="txtENAME" name="ENAME" class="easyui-textbox" style="width: 130px;">
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">输入代码:</label>
+                                    <input id="txtSHORTCODE" name="SHORTCODE" class="easyui-textbox" required="required" style="width: 130px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">联系人:</label>
+                                    <input id="txtLINKMAN" name="LINKMAN" class="easyui-textbox" style="width: 130px;">
+                                </td>
+
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">联系人职务:</label>
+                                    <input id="txtLinkManPosition" name="LinkManPosition" class="easyui-textbox" style="width: 130px;" />
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">联系方式1:</label>
+                                    <input id="txtPHONENUM1" name="PHONENUM1" class="easyui-textbox" style="width: 130px;">
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">联系方式2:</label>
+                                    <input id="txtPHONENUM2" name="PHONENUM2" class="easyui-textbox" style="width: 130px;" />
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">地址:</label>
+                                    <input id="txtADDRESS" name="ADDRESS" class="easyui-textbox" style="width: 130px;">
+                                </td>
+
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">EMAIL:</label>
+                                    <input id="txtEMAIL" name="EMAIL" class="easyui-textbox" style="width: 130px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">办事处:</label>
+                                    <input id="txtGroupName" name="GroupName" class="easyui-textbox" style="width: 130px;">
+                                </td>
+
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">邮编:</label>
+                                    <input id="txtMAILNO" name="MAILNO" class="easyui-textbox" style="width: 130px;" />
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">业务员:</label>
+                                    <select id="ddlbmanno" name="bmanno" class="easyui-combobox" panelheight=auto style="width: 130px;" editable="false"></select>
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">负责人:</label>
+                                    <input id="txtPRINCIPAL" name="PRINCIPAL" class="easyui-textbox" style="width: 130px;" />
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">传真号码:</label>
+                                    <input id="txtFaxNo" name="FaxNo" class="easyui-textbox" style="width: 130px;" />
+
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">自动传真号码:</label>
+                                    <input id="txtAutoFax" name="AutoFax" class="easyui-numberbox" style="width: 130px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">自定义1:</label>
+                                    <input id="txtCZDY1" name="CZDY1" class="easyui-textbox" style="width: 130px;">
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">自定义2:</label>
+                                    <input id="txtCZDY2" name="CZDY2" class="easyui-textbox" style="width: 130px;">
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">自定义3:</label>
+                                    <input id="txtCZDY3" name="CZDY3" class="easyui-textbox" style="width: 130px;">
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">自定义4:</label>
+                                    <input id="txtCZDY4" name="CZDY4" class="easyui-textbox" style="width: 130px;" />
+
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">自定义5:</label>
+                                    <input id="txtCZDY5" name="CZDY5" class="easyui-textbox" style="width: 130px;">
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">自定义6:</label>
+                                    <input id="txtCZDY6" name="CZDY6" class="easyui-textbox" style="width: 130px;" />
+
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">区域:</label>
+                                    <select id="ddlclientarea" name="AreaID" editable="true" class="easyui-combobox" panelheight=100 style="width: 130px;"></select>
+
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">关联名称:</label>
+                                    <input id="txtRelationName" name="RelationName" class="easyui-textbox" style="width: 130px;" />
+
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="fItem" style="float: left;">
+                                    <label style="width: 110px">区域医疗机构编码:</label>
+                                    <input id="txtWebLisSourceOrgId" name="WebLisSourceOrgId" class="easyui-textbox" style="width: 130px;">
+                                </td>
+                                <td class="fItem" style="float: right; margin-left: 20px;">
+                                    <label style="width: 110px">是否启用:</label>
+                                    <select id="ddlISUSE" name="ISUSE" editable="false" class="easyui-combobox" panelheight=auto style="width: 130px;">
+                                        <option selected="selected" value="0">否</option>
+                                        <option value="1">是</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr style="width:99%">
+                                <td class="fItem" style="width:100%">
+                                    <label style="width: 110px">备注:</label>
+                                    <input id="txtromark" name="romark" class="easyui-textbox" style="height:60px;width: 400px;" data-options="multiline:true">
+                                    <!--<textarea id="txtromark" name="romark" rows="2" cols="41" ></textarea>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+        <div id="dlgButtons">
+            <div align="center">
+                <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+            </div>
+        </div>
+    
+</body>
+</html>

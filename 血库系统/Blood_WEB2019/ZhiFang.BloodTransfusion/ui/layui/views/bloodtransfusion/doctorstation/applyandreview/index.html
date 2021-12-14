@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>申请开单</title>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="../../../../../src/layui/dist/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../../../../../ui/layui/ux/other/soultable/soulTable.css?v=2020090401" />
+		<link href="../../../../../../ui/layui/ux/other/formselects/dist/formSelects-v4.css" rel="stylesheet" />
+		<script src="../../../../../../ui/layui/ux/zf/print.js?v=2" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.search-label {
+				width: 80px;
+				text-align: center;
+			}
+			/* layui table自动换行、自适应换行 */
+			
+			.layui-table-cell {
+				font-size: 14px;
+				padding: 0 5px;
+				height: auto;
+				overflow: visible;
+				text-overflow: inherit;
+				white-space: normal;
+				word-break: break-all;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="layui-fluid">
+			<div class="layui-row" style="margin-bottom:0px;">
+				<div class="layui-col-sm12 layui-col-md12" style="margin-bottom:0px;">
+					<!--上半部区域 查询条件区域 layui-col-space5-->
+					<div class="layui-form" style="margin-bottom:0px;padding:0px;">
+						<div class="layui-form-item" style="margin:5px;padding:0px;" lay-filter="div_filter_BloodBReqForm_SearchItem1">
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md" data-type="add">新增</button>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md" data-type="edit">编辑</button>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md" data-type="confirmApply">医嘱提交</button>
+							</div>
+							<div class="layui-inline layui-hide" lay-filter="div-senior-director">
+								<div class="layui-btn-group" style="margin-bottom:0px;">
+									<button style="margin-bottom:0px;" class="layui-btn layui-btn-sm layui-btn-md layui-hide" data-type="senior" id="LAY-app-form-div-senior">上级审核</button>
+									<button style="margin-bottom:0px;" class="layui-btn layui-btn-sm layui-btn-md layui-hide" data-type="director" id="LAY-app-form-div-director">科主任审核</button>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md" data-type="directPrint">打印</button>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md" data-type="previewPDF">预览</button>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-bg-normal layui-btn-sm layui-btn-md" data-type="reupload">上传</button>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md layui-btn-danger" data-type="deletes">删除</button>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md layui-btn-danger" data-type="obsolete">作废</button>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md layui-bg-normal" data-type="nailApprove">钉钉审批</button>
+							</div>							
+							<div class="layui-inline layui-hide" lay-filter="div-blood-record">
+								<button class="layui-btn layui-btn-sm layui-btn-md" data-type="bloodRecord">配血结果</button>
+							</div>
+							<div class="layui-inline layui-hide" lay-filter="div-send-out-record">
+								<button class="layui-btn layui-btn-sm layui-btn-md" data-type="sendOutRecord">发血记录</button>
+							</div>
+						</div>
+						<div class="layui-form-item" style="margin:0px;padding:0px;" lay-filter="div_filter_BloodBReqForm_SearchItem1">
+							<div class="layui-inline">
+								<div class="layui-input-inline">
+									<input type="text" class="layui-input" id="LAY-app-table-BloodBreqForm-Search-Date" placeholder=" - ">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<div class="layui-input-inline" style="width: 100px;">
+									<select id="bloodbreqform_search_printtotal" lay-filter="bloodbreqform_filter_printtotal" class="layui-input">
+										<option value="">请选择</option>
+										<option value="1" selected="selected">未打印</option>
+										<option value="2">已打印</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<div class="layui-input-inline" style="width: 150px;">
+									<select id="bloodbreqform_search_breqformstatus" lay-filter="bloodbreqform_filter_breqformstatus" class="layui-input">
+										<option value="">请选择</option>
+										<option value="1">医嘱暂存</option>
+										<option value="2">提交申请</option>
+										<option value="3">上级审核通过</option>
+										<option value="4">上级审核退回</option>
+										<option value="5">科主任审核通过</option>
+										<option value="6">科主任审核退回</option>
+										<option value="7">医务处审批通过</option>
+										<option value="8">医务处审批退回</option>
+										<option value="9">审批完成</option>
+										<option value="10">医嘱作废</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-md" id="LAY-app-table-BloodBreqForm-search-btn2" data-type="search">搜索</button>
+							</div>
+							<div class="layui-inline">
+								<div class="layui-input-inline layui-hide" lay-filter="div_filter_BloodBReqForm_BloodBReqType">
+									<select name="selectBloodBReqType" placeholder="就诊类型" xm-select="selectBloodBReqType" xm-select-height="28px" xm-select-search>
+										<option value="">就诊类型</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-input-inline layui-hide" lay-filter="div_filter_BloodBReqForm_BloodUseType">
+								<select name="selectBloodUseType" placeholder="申请类型" xm-select="selectBloodUseType" xm-select-height="28px" xm-select-search>
+									<option value="">申请类型</option>
+								</select>
+							</div>
+							<div class="layui-input-inline layui-hide" lay-filter="div_filter_BloodBReqForm_Dept">
+								<select name="selectDept" placeholder="科室选择" id="table-BloodBreqForm-Search-Dept" xm-select="selectDept" xm-select-height="28px" xm-select-search>
+									<option value="">科室选择</option>
+								</select>
+							</div>
+							<div class="layui-input-inline layui-hide" lay-filter="div_filter_BloodBReqForm_Doctor">
+								<select name="selectDoctor" placeholder="医生选择" id="table-BloodBreqForm-Search-Doctor" xm-select="selectDoctor" xm-select-height="28px" xm-select-search>
+									<option value="">医生选择</option>
+								</select>
+							</div>
+							<div class="layui-input-inline layui-hide" lay-filter="div_filter_BloodBReqForm_LikeSearch">
+								<input type="text" id="LAY-app-table-BloodBreqForm-Search-LikeSearch" placeholder="申请单号/患者名称/就诊号/住院号" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--上半部区域 class="layui-body  layui-main"-->
+		<div class="layui-row">
+			<div class="layui-col-sm12 layui-col-md12">
+				<!--申请主单列表-->
+				<table class="layui-hide" id="LAY-app-table-BloodBreqForm" lay-filter="LAY-app-table-BloodBreqForm">
+				</table>
+			</div>
+		</div>
+		<!--下半部区域-->
+		<div class="layui-row">
+			<div class="layui-col-sm6 layui-col-md5">
+				<!--申请明细列表-->
+				<table class="layui-hide" id="LAY-app-table-BloodBreqItem" lay-filter="LAY-app-table-BloodBreqItem">
+				</table>
+			</div>
+			<div class="layui-col-sm6 layui-col-md7">
+				<!--检验结果信息-->
+				<table class="layui-hide" id="LAY-app-table-BloodBReqFormResult" lay-filter="LAY-app-table-BloodBReqFormResult">
+				</table>
+			</div>
+		</div>
+		<!--医嘱申请审核信息:上级审核/科主任审核-->
+		<div class="layui-form" id="LAY-app-form-ReviewInfo" lay-filter="LAY-app-form-ReviewInfo" hidden="hidden" style="margin:25px;">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width:60px;">提示信息</label>
+				<div class="layui-input-block">
+					<div class="layui-form-mid layui-word-aux" id="LAY-app-label_24ReviewInfo">24小时内大量用血量为： ml</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width:60px;">审核帐号</label>
+				<div class="layui-input-block">
+					<input type="text" id="ReviewAccount" class="layui-input" autocomplete="off">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width:60px;">审核密码</label>
+				<div class="layui-input-block">
+					<input type="password" class="layui-input" id="ReviewPwd" autocomplete="off">
+				</div>
+			</div>
+			<div class="layui-form-item layui-form-text layui-hide">
+				<label class="layui-form-label" style="width:60px;">审核意见</label>
+				<div class="layui-input-block">
+					<input type="text" id="ReviewContent" placeholder="请输入内容" class="layui-input" autocomplete="off">
+					<!--<textarea placeholder="请输入内容" class="layui-textarea" id="ReviewContent" autocomplete="off"></textarea>-->
+					<!--<select id="ReviewContent" lay-verify="required" lay-reqText="审核意见不能为空!">
+						<option value="">请选择审核意见</option>
+						<option value="同意">同意</option>
+						<option value="不同意">不同意</option>
+					</select>  -->
+				</div>
+			</div>
+			<fieldset class="layui-elem-field layui-field-title layui-hide" style="margin: 2px;">
+				<legend>审核提示信息</legend>
+			</fieldset>
+		</div>
+		<!--医嘱申请作废处理-->
+		<div class="layui-form" id="LAY-app-form-BReqFormObsolete" lay-filter="LAY-app-form-BReqFormObsolete" hidden="hidden" style="margin-top:20px;margin-right:5px;">
+			<div class="layui-form-item">
+				<label class="layui-form-label">作废原因</label>
+				<div class="layui-input-block">
+					<select name="BloodBReqForm_ObsoleteMemoId" id="BloodBReqForm_ObsoleteMemoId" lay-search="" lay-verify="required" lay-reqText="作废原因不能为空!" class="layui-input"></select>
+				</div>
+			</div>
+		</div>
+		<!--PDF.JS-->
+		<a class="layui-hide" target="_blank" style="position:absolute;" id="jump"><span></span></a>
+		<a class="layui-hide btn-primary print_" href="javascript:;">打印</a>
+	</body>
+	<!--申请主单列表操作列-->
+	<script type="text/html" id="LAY-app-table-BloodBreqForm-ActionColumn">
+		<a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="editBloodBreqForm"><i class="layui-icon layui-icon-edit"></i></a>
+	</script>
+	<!--
+	<script src='http://localhost:8000/CLodopfuncs.js'></script>
+	<script src='http://localhost:18000/CLodopfuncs.js'></script>
+	-->
+	<script src="../../../../../src/layui/src/layui.js"></script>
+	<script src="../../../../../../ui/layui/config/system.js?v=2020101601"></script>
+	<script src="index.js?v=2020101601"></script>
+
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>字典对照</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../../../../css/admin.css");
+    </script>
+    <style>
+		.formItem{margin-top: 10px;}
+    </style>
+</head>
+<body>
+    <div class="layui-row">
+        <div class="" style="font-size:16px; color:cornflowerblue;">
+           复制时如果存在相同的对照会进行覆盖，不存在的会新增
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-sm12 layui-col-xs12" id="">
+            <table id="copytable" lay-filter="copytable"></table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('copyContrast.js');
+    </script>
+</body>
+</html>

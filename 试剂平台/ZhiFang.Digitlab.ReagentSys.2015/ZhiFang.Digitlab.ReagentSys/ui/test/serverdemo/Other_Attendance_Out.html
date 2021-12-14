@@ -1,0 +1,99 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherAttendanceOutByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherAttendanceOutById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherAttendanceOut',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherAttendanceOut',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherAttendanceOutByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherAttendanceOut',
+
+    		//考勤-外出对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherAttendanceOut_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherAttendanceOut_Id',value:'外出登记ID'},						 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_CreatorID',value:'创建人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_Creator',value:'创建人'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_OutManID',value:'外出人ID'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_OutMan',value:'外出人'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_OutTime',value:'外出时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_BackTime',value:'回来时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_Contents',value:'事由'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_CheckerID',value:'审核者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_Checker',value:'审核人'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_DataUpdateTime',value:'审核时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_CheckOpinion',value:'审核意见   一般十几个字，大部分没有意见'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceOut_Comment',value:'说明   最多几十个字，一般没有'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherAttendanceOut_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'考勤-外出',
+    		//主键字段
+    		key:'OtherAttendanceOut_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LBPhraseVO">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="PhraseType" column="[PhraseType]" type="String" not-null="false" length="50" />
+    <property name="TypeName" column="[TypeName]" type="String" not-null="false" length="50" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="500" />
+    <property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="50" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+  </class>
+</hibernate-mapping>

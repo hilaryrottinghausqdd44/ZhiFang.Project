@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C2A1E2E6-5BA9-41C4-846B-4492534CBA8B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.DAO.NHB.RBAC</RootNamespace>
+    <AssemblyName>ZhiFang.DAO.NHB.RBAC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.WeiXin\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate">
+      <HintPath>..\Lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\Lib\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Spring">
+      <HintPath>..\Lib\NHibernate.ByteCode.Spring.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache2">
+      <HintPath>..\Lib\NHibernate.Caches.SysCache2.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\Lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30">
+      <HintPath>..\Lib\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log">
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BCityDao.cs" />
+    <Compile Include="BCountryDao.cs" />
+    <Compile Include="BDegreeDao.cs" />
+    <Compile Include="BEducationLevelDao.cs" />
+    <Compile Include="BHealthStatusDao.cs" />
+    <Compile Include="BMaritalStatusDao.cs" />
+    <Compile Include="BNationalityDao.cs" />
+    <Compile Include="BPoliticsStatusDaoDao.cs" />
+    <Compile Include="BProfessionalAbilityDao.cs" />
+    <Compile Include="BProvinceDao.cs" />
+    <Compile Include="BSexDao.cs" />
+    <Compile Include="BTDAppComponentsDao.cs" />
+    <Compile Include="BTDAppComponentsOperateDao.cs" />
+    <Compile Include="BTDAppComponentsRefDao.cs" />
+    <Compile Include="BTDAppPictureDao.cs" />
+    <Compile Include="BTDMacroCommandDao.cs" />
+    <Compile Include="BTDModuleTypeDao.cs" />
+    <Compile Include="BTDPictureTypeConDao.cs" />
+    <Compile Include="BTDPictureTypeDao.cs" />
+    <Compile Include="HRDeptDao.cs" />
+    <Compile Include="HRDeptEmpDao.cs" />
+    <Compile Include="HRDeptIdentityDao.cs" />
+    <Compile Include="HREmpIdentityDao.cs" />
+    <Compile Include="HREmployeeDao.cs" />
+    <Compile Include="HRPositionDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RBACEmpOptionsDao.cs" />
+    <Compile Include="RBACEmpRolesDao.cs" />
+    <Compile Include="RBACModuleDao.cs" />
+    <Compile Include="RBACModuleOperDao.cs" />
+    <Compile Include="RBACRoleDao.cs" />
+    <Compile Include="RBACRoleModuleDao.cs" />
+    <Compile Include="RBACRoleRightDao.cs" />
+    <Compile Include="RBACRowFilterDao.cs" />
+    <Compile Include="RBACUserDao.cs" />
+    <Compile Include="SLogDao.cs" />
+    <Compile Include="STypeDao.cs" />
+    <Compile Include="STypeDetailDao.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{940d976a-3448-4c31-a9fe-1b8c99a38af2}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{3088c72d-5fbd-46f5-b9ba-fd8adc05b2a5}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{5bcba563-016a-493b-88f3-0dc683e9716b}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{327986fe-0805-42d5-8cc4-0a92e88ad4f1}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{92f249ba-e8d6-4aa0-8571-ab21f3e05f70}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,56 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript">
+    //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+
+</head>
+<body>
+
+    <div class="layui-bg-gray" style="padding: 5px;">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-col-md2 layui-col-xs2 layui-col-sm2">
+                <div class="layui-card">
+                    <div class="layui-card-body" id="leftContent" style="padding:7px 5px">
+                        <table class="layui-table" lay-size="sm" id="leftTable" lay-filter="leftTable">
+
+                            <tbody>
+                                <tr id="column" class="layui-table-click" style="display:none;">
+                                    <td>显示报告单列设置</td>
+                                </tr>
+                                <tr id="queryConditions" style="display:none;">
+                                    <td>设置查询报告单条件</td>
+                                </tr>
+                                <tr id="deptSetting" style="display:none;">
+                                    <td>用户对应科室设置</td>
+                                </tr>
+                                <tr id="globalSetting" style="display:none;">
+                                    <td>全局设置</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md10 layui-col-xs10 layui-col-sm10">
+                <div class="layui-card">
+                    <div class="layui-card-body" id="rightContent" style="padding:7px 5px">
+                        <div style="line-height: 26px;padding: 15px;text-align: center;color: #999;">暂无相关数据</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    UIVersion.loadLayui();
+        UIVersion.getJS('public.js');</script>
+</body>
+</html>

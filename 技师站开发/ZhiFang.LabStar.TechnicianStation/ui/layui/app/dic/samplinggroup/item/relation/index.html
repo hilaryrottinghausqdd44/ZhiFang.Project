@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>项目与采用组关系</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+  <style>
+	
+	/*表格*/ 
+	/*.layui-table-tool-temp { padding-right: 30px; }*/ 
+	/*select layui 插件*/ 
+	.xm-select-parent .xm-select-label { left: 0px !important; }
+	dl.xm-select-dl { min-width: 200px !important; } 
+    dl.xm-select-dl div.xm-cz-group { max-width: 200px !important; } 
+	/*select[xm-select-radio] + div .icon-close { *去掉select选中的关闭按钮* display: none; } ** .marLeft10 { margin-left:10px; } .buttonBox { position: relative; top: 50%; margin-top: -100px; } .buttonStyle { text-align: center; margin:10px 0; }*/*/
+     /* 字段集合 */*/
+
+  	.layui-table-view{margin: 0px 0;}
+
+    /*input前存在icon 则加到input里面*/
+    .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+	.topfooter{position: fixed;top:10px;left: 10px;z-index: 1000;width:100%;}
+
+  </style> 
+ </head> 
+ <body> 
+  <div class="layui-card " style="padding: 10px; 15px; 0px; margin: 0px;"> 
+  	<div class="layui-form" lay-filter="search-table" id="search-table" style="margin-bottom:0; padding-bottom:0;"> 
+    <div class="layui-form-item"> 
+     <div class="layui-inline"> 
+      <label class="layui-form-label">按小组过滤</label> 
+      <div class="layui-input-inline"   > 
+      	<input type="text"  id="LBSection_ID"  class="layui-input layui-hide" />
+      	<input type="text" name='LBSection_CName' id="LBSection_CName" readonly autocomplete="off" class="layui-input" />
+       <i class="layui-icon layui-icon-triangle-d"></i>  
+      </div> 
+     </div> 
+     <div class="layui-inline"> 
+      <label class="layui-form-label">按项目定位</label> 
+      <div class="layui-input-inline" > 
+        <input type="text"  id="LBItem_ID"  class="layui-input layui-hide" />
+      	<input type="text" name='LBItem_CName' id="LBItem_CName" readonly autocomplete="off" class="layui-input" />
+       <i class="layui-icon layui-icon-triangle-d"></i> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="Content" style="padding-top: 0px;overflow-y:auto;"> 
+    <fieldset class="layui-elem-field layui-field-title" style="margin: 0px;padding: 0px;"> 
+     <legend style="font-size: 12px;color: #009688;">未指定采样组项目</legend> 
+     <div class="layui-row"> 
+      <div class="layui-col-sm7 layui-col-xs8"> 
+       <div style="float:right;width:100px;text-align:center;padding-top:80px;"> 
+        <button class="layui-btn layui-btn-xs" id="add">指定(&lt;--&gt;)</button> 
+       </div> 
+       <div style="overflow: hidden;zoom:1;"> 
+        <table id="onerow-item-table" lay-filter="onerow-item-table"></table> 
+       </div> 
+      </div> 
+      <div class="layui-col-sm5 layui-col-xs4"> 
+       <table id="onerow-samplinggroup-table" lay-filter="onerow-samplinggroup-table"></table> 
+      </div> 
+     </div> 
+    </fieldset> 
+    <fieldset class="layui-elem-field layui-field-title" style="margin: 0px;padding: 0px;"> 
+     <legend style="font-size: 12px;color: #009688;">指定到唯一采样组项目</legend> 
+      <div class="layui-row"> 
+       <div class="layui-col-sm7 layui-col-xs8"> 
+        <div style="float:right;width:100px;text-align:center;padding-top:80px;"> 
+         <button class="layui-btn layui-btn-xs" id="del">撤销(&lt;--&gt;)</button> 
+        </div> 
+        <div style="overflow: hidden;zoom:1;"> 
+         <table id="tworow-sgitem-table" lay-filter="tworow-sgitem-table"></table> 
+        </div> 
+       </div> 
+       <div class="layui-col-sm5 layui-col-xs4"> 
+        <table id="tworow-samplinggroup-table" lay-filter="tworow-samplinggroup-table"></table> 
+       </div> 
+      </div> 
+    </fieldset> 
+    <fieldset class="layui-elem-field layui-field-title" style="margin: 0px;padding: 0px;"> 
+     <legend style="font-size: 12px;color: #009688;">指定到多个采样组项目</legend> 
+      <div class="layui-row"> 
+       <div class="layui-col-sm7 layui-col-xs8"> 
+        <div style="float:right;width:100px;text-align:center;padding-top:80px;"> 
+         <button class="layui-btn layui-btn-xs" id="delmultiple">撤销(&lt;--&gt;)</button> 
+        </div> 
+        <div style="overflow: hidden;zoom:1;"> 
+         <table id="threerow-item-table" lay-filter="threerow-item-table"></table> 
+        </div> 
+       </div> 
+       <div class="layui-col-sm5 layui-col-xs4"> 
+        <table id="threerow-sgroupitem-table" lay-filter="threerow-sgroupitem-table"></table> 
+        <script type="text/html" id="switchTpl">
+	            <input type="checkbox" name="IsDefult" disabled="disabled" title="" lay-skin="primary" lay-filter="isdefult" {{ d.LBSamplingItem_IsDefault == 'true' ? 'checked' : '' }} >
+	          </script> 
+	             <script type="text/html" id="barDemo">
+       	  <a class="layui-btn  layui-btn-xs" lay-event="up"><i class="layui-icon layui-icon-up"></i>上移</a>
+          <a class="layui-btn  layui-btn-xs" lay-event="down"><i class="layui-icon layui-icon-down"></i>下移</a>
+		</script> 
+       </div> 
+      </div> 
+    </fieldset> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>  
+	<style>
+	 .layui-table-view{margin: 1px 0px; }
+	 /* 防止下拉框的下拉列表被隐藏---必须设置--- */
+	.layui-table-cell {
+		overflow: visible !important;
+	 }
+	</style>
+ </body>
+</html>

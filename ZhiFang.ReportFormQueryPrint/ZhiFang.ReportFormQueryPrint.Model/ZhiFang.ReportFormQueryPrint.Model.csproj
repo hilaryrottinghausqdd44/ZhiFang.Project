@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3526D8D8-CF44-4C52-BCEF-A1812715E240}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.ReportFormQueryPrint.Model</RootNamespace>
+    <AssemblyName>ZhiFang.ReportFormQueryPrint.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReportFormQueryPrint\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseResult.cs" />
+    <Compile Include="BModuleFormControlList.cs" />
+    <Compile Include="BModuleFormControlSet.cs" />
+    <Compile Include="BModuleFormList.cs" />
+    <Compile Include="BModuleGridControlList.cs" />
+    <Compile Include="BModuleGridControlSet.cs" />
+    <Compile Include="BModuleGridList.cs" />
+    <Compile Include="B_ColumnsSetting.cs" />
+    <Compile Include="B_ColumnsUnit.cs" />
+    <Compile Include="B_Parameter.cs" />
+    <Compile Include="B_SearchSetting.cs" />
+    <Compile Include="B_SearchUnit.cs" />
+    <Compile Include="ChargeType.cs" />
+    <Compile Include="EmpDeptLinks.cs" />
+    <Compile Include="EnumType.cs" />
+    <Compile Include="BackupsReportForm.cs" />
+    <Compile Include="HistoryReportForm.cs" />
+    <Compile Include="BackupsReportItem.cs" />
+    <Compile Include="HistoryReportItem.cs" />
+    <Compile Include="BackupsReportMarrow.cs" />
+    <Compile Include="HistoryReportMarrow.cs" />
+    <Compile Include="BackupsReportMicro.cs" />
+    <Compile Include="HistoryReportMicro.cs" />
+    <Compile Include="SC_Operation.cs" />
+    <Compile Include="ReportMarrowFull.cs" />
+    <Compile Include="ReportMicroFull.cs" />
+    <Compile Include="ReportItemFull.cs" />
+    <Compile Include="ReportFormFull.cs" />
+    <Compile Include="RequestFrom.cs" />
+    <Compile Include="CLIENTELE.cs" />
+    <Compile Include="NRequestItem.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="District.cs" />
+    <Compile Include="Doctor.cs" />
+    <Compile Include="GraphData.cs" />
+    <Compile Include="HisDisp.cs" />
+    <Compile Include="NRequestForm.cs" />
+    <Compile Include="PatNo_Passwords.cs" />
+    <Compile Include="PGroup.cs" />
+    <Compile Include="PGroupPrint.cs" />
+    <Compile Include="PrintFormat.cs" />
+    <Compile Include="PrintHtml.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PUser.cs" />
+    <Compile Include="ReportDrugGene.cs" />
+    <Compile Include="ReportForm.cs" />
+    <Compile Include="ReportItem.cs" />
+    <Compile Include="ReportMarrow.cs" />
+    <Compile Include="ReportMicro.cs" />
+    <Compile Include="RequestItem.cs" />
+    <Compile Include="RequestMarrow.cs" />
+    <Compile Include="RequestMicro.cs" />
+    <Compile Include="RFGraphData.cs" />
+    <Compile Include="SampleType.cs" />
+    <Compile Include="SectionPrint.cs" />
+    <Compile Include="SickType.cs" />
+    <Compile Include="SiteOperationRecords.cs" />
+    <Compile Include="Station_PrinterList.cs" />
+    <Compile Include="S_RequestVItem.cs" />
+    <Compile Include="TestItem.cs" />
+    <Compile Include="VO\ALLReportFromVo.cs" />
+    <Compile Include="VO\SampleStateVo.cs" />
+    <Compile Include="VO\webconfigVo.cs" />
+    <Compile Include="VO\DepartmentVo.cs" />
+    <Compile Include="VO\HistoryVO.cs" />
+    <Compile Include="VO\ReportFormFilesVO.cs" />
+    <Compile Include="VO\neijiangPDFXmlVo.cs" />
+    <Compile Include="VO\qinhuangdaodiyiPdfXmlVO.cs" />
+    <Compile Include="VO\RequestFormVO.cs" />
+    <Compile Include="VO\ReportFormVO.cs" />
+    <Compile Include="VO\SelectSectionPrint.cs" />
+    <Compile Include="RFP_ReportFormPrint_Operation.cs" />
+    <Compile Include="WardType.cs" />
+    <Compile Include="BModuleModuleFormGridLink.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Common\ZhiFang.ReportFormQueryPrint.Common.csproj">
+      <Project>{4c18e3ba-35ee-478b-be4a-3ae1da33fe2a}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

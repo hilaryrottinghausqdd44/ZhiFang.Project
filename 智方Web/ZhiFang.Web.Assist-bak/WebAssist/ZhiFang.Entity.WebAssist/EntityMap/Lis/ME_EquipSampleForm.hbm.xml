@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+	<class name="MEEquipSampleForm" table="[dbo].[ME_EquipSampleForm]">
+		<id name="Id" column="[EquipSampleFormID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="GroupSampleFormID" column="[GroupSampleFormID]" type="Int64" not-null="false" length="8" />
+		<property name="EquipNo" column="[EquipNo]" type="Int32" not-null="false" length="4" />
+		<property name="EquipModuleCode" column="[EquipModuleCode]" type="String" not-null="false" length="20" />
+		<property name="ETestDate" column="[ETestDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ESampleNo" column="[ESampleNo]" type="String" not-null="false" length="20" />
+		<property name="ERack" column="[ERack]" type="String" not-null="false" length="20" />
+		<property name="EPosition" column="[EPosition]" type="Int32" not-null="false" length="4" />
+		<property name="EFinishCode" column="[EFinishCode]" type="Int32" not-null="false" length="4" />
+		<property name="EFinishInfo" column="[EFinishInfo]" type="String" not-null="false" length="50" />
+		<property name="EResultComment" column="[EResultComment]" type="String" not-null="false" length="16" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="EBarCode" column="[EBarCode]" type="String" not-null="false" length="20" />
+		<property name="Reexamined" column="[Reexamined]" type="Int32" not-null="false" length="4" />
+		<property name="IExamined" column="[iExamined]" type="Int32" not-null="false" length="4" />
+		<property name="TestTypeNo" column="[TestTypeNo]" type="Int32" not-null="false" length="4" />
+		<property name="TestType" column="[TestType]" type="String" not-null="false" length="10" />
+	</class>
+</hibernate-mapping>

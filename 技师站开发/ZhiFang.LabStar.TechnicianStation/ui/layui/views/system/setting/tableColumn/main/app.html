@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>配置表格列</title>
+    <meta name="renderer" content="webkit" />
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script type="text/javascript">
+	    //加载版本号文件
+	    document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<script type="text/javascript">
+		UIVersion.getCSS("../../../../../css/qc.css");
+	</script>
+    <style>
+        .layui-form .layui-form-label {
+            width: 90px;
+        }
+
+        .layui-form .layui-input-block {
+            margin-left: 120px;
+        }
+
+        .layui-form .layui-form-item {
+            margin-bottom: 5px;
+        }
+        .nopadding {
+        	padding: 0!important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="myStyle nopadding">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-col-sm12">
+                <div class="layui-card">
+                    <div class="layui-card-body" style="overflow:auto;">
+                        <table id="mainTable" lay-filter="mainTable"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--申请录入表单配置项-->
+    <div id="modal" style="display:none;padding:15px;">
+        <form class="layui-form" id="modalForm" lay-filter="modalForm">
+            <div class="layui-row">
+                <!--<div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">实验室</label>
+                        <div class="layui-input-block">
+                            <select name="LabID" lay-filter="LabID" id="LabID" lay-search="">
+                                <option value="">直接选择或搜索选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">控件类型</label>
+                        <div class="layui-input-block">
+                            <select name="TypeID" lay-filter="TypeID" id="TypeID"></select>
+                        </div>
+                    </div>
+                </div><!--
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">列表代码</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="GridCode" id="GridCode" placeholder="对应页面标识" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="CName" id="CName" placeholder="" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>-->
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">对应属性</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="MapField" id="MapField" placeholder="需对应数据库中字段，例：DeptNo" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">列头名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="ColName" id="ColName" placeholder="例：科室" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">宽度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Width" id="Width" placeholder="例：100" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">最小宽度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="MinWidth" id="MinWidth" placeholder="例：50" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">编辑类型</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Edit" id="Edit" placeholder="目前只支持：text(输入框)" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">固定列</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Fixed" id="Fixed" placeholder="可选值有：left（固定在左）、right（固定在右" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">显示次序</label>
+                        <div class="layui-input-block">
+                            <input type="number" name="DispOrder" id="DispOrder" placeholder="例：2" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">排序类型</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="OrderType" id="OrderType" placeholder="ASC/DESC  排序为是启用" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs4">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否排序</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="IsOrder" id="IsOrder" lay-skin="primary" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs4">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否启用</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="IsUse" id="IsUse" lay-skin="primary" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs4">
+                    <div class="layui-form-item">
+                        <!--<label class="layui-form-label">是否隐藏</label>-->
+                        <label class="layui-form-label">是否显示</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="IsHide" id="IsHide" lay-skin="primary">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">列数据扩展</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="ColData" id="ColData" placeholder='直接加到列中' class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">控件样式</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="StyleContent" id="StyleContent" placeholder="例：min-height:36px;font-size:24px;" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工具条模板</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Toolbar" id="Toolbar" placeholder="" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">排列方式</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Align" id="Align" placeholder="可选值有:left左、center中、right右" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item" hidden>
+                        <label class="layui-form-label">主键ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Id" id="Id">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--tableColumnConfigTable表格头工具 -->
+    <script type="text/html" id="tableToolbar">
+        <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon layui-icon-add-circle"></i>新增配置项</button>
+    </script>
+    <!--表格行工具 -->
+    <script type="text/html" id="tableOperation">
+        <a class="layui-btn layui-btn-xs" lay-event="edit" style="line-height: 18px;">编辑</a>
+        <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del" style="line-height: 18px;">删除</a>
+    </script>
+    <script type="text/javascript">
+		UIVersion.loadLayui();
+	  	UIVersion.getJS('app.js');
+	</script>
+</body>
+</html>

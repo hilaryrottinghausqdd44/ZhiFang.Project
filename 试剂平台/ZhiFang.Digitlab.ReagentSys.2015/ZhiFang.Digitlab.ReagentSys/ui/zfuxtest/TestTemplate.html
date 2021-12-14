@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>控件测试模板</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	 <link rel="stylesheet" type="text/css" href="../css/icon.css"/> 
+    <script type="text/javascript" src="../util/util.js"></script>
+    
+	<script type="text/javascript">
+	Ext.onReady(function(){
+		//按钮
+		var button = {
+			text:'更新',
+			handler:function(){
+				//扩展控件的公开方法
+				ImgDiv.Reload();
+			}
+		};
+		//扩展的控件
+		var ImgDiv = Ext.create('Ext.zhifangux.ImgDiv',{
+			//设置可配参数
+			title:'AAAAA',
+			//事件监听
+			listeners:{
+				//公开的事件
+				click:function(o){
+					alert("单击事件");
+				}
+			}
+		});
+		//视图展现
+		var viewport = Ext.create('Ext.Viewport',{
+			//layout:'fit',
+			items:[button,ImgDiv]
+		});
+	});
+    </script>
+</head>
+<body>
+</body>
+</html>

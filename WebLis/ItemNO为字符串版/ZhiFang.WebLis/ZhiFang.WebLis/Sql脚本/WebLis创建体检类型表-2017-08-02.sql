@@ -1,0 +1,29 @@
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[B_PhysicalExamType](
+	[Id] [bigint] NOT NULL,
+	[CName] [varchar](200) NULL,
+	[ShortCode] [varchar](50) NULL,
+	[Visible] [int] NULL,
+	[DispOrder] [int] NULL,
+	[DataAddTime] datetime  NULL,
+	[DTimeStampe] timestamp NULL
+ CONSTRAINT [PK_BPhysicalExamType] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+
+

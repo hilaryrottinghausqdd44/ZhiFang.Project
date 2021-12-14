@@ -1,0 +1,1 @@
+ IF COL_LENGTH('Blood_BUnit', 'DataTimeStamp') IS NULL ALTER TABLE Blood_BUnit ADD DataTimeStamp timestamp;

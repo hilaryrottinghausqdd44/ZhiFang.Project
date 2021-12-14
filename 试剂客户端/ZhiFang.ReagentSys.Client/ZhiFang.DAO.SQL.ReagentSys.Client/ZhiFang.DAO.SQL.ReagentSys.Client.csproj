@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13B73E95-44DF-45F0-ADEB-18669622BA80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.DAO.SQL.ReagentSys.Client</RootNamespace>
+    <AssemblyName>ZhiFang.DAO.SQL.ReagentSys.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReagentSys.Client\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\CenOrgDao_SQL.cs" />
+    <Compile Include="Client\BParameterDao_SQL.cs" />
+    <Compile Include="Client\BDictTypeDao_SQL.cs" />
+    <Compile Include="Client\DbHelperSQL.cs" />
+    <Compile Include="Client\ReaCenBarCodeFormatDao_SQL.cs" />
+    <Compile Include="Client\RBACModuleDao_SQL.cs" />
+    <Compile Include="Client\RBACRoleModuleDao_SQL.cs" />
+    <Compile Include="Client\RBACEmpRolesDao_SQL.cs" />
+    <Compile Include="Client\RBACRoleDao_SQL.cs" />
+    <Compile Include="Client\RBACUserDao_SQL.cs" />
+    <Compile Include="Client\HREmployeeDao_SQL.cs" />
+    <Compile Include="Client\SServiceClientDao_SQL.cs" />
+    <Compile Include="CSClient\CSUpdateToBSDao_SQL.cs" />
+    <Compile Include="CSClient\DbHelperSQLP.cs" />
+    <Compile Include="DBUtility\PubConstant.cs" />
+    <Compile Include="DBUtility\SqlServerHelperP.cs" />
+    <Compile Include="Client\SqlServerHelper.cs" />
+    <Compile Include="Client\HRDeptDao_SQL.cs" />
+    <Compile Include="LisInterface\DbHelperSQLP.cs" />
+    <Compile Include="LisInterface\ReaTestEquipItemDao_SQL.cs" />
+    <Compile Include="LisInterface\ReaTestEquipLabDao_SQL.cs" />
+    <Compile Include="LisInterface\ReaLisTestStatisticalResultsDao_SQL.cs" />
+    <Compile Include="LisInterface\ReaTestItemDao_SQL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{1CFA6885-EBBE-489E-9373-B672E8DAD7E7}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471E84C-7A1B-4719-89F9-CCC626D111AD}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993FBE5-AA1F-433C-A07F-34CC25C59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.ReagentSys.Client\ZhiFang.Entity.ReagentSys.Client.csproj">
+      <Project>{36917E28-CE6F-441F-8C2F-F9210AD56D31}</Project>
+      <Name>ZhiFang.Entity.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266F9-369D-4C32-8B9B-35BA9B94447F}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.NHB.ReagentSys.Client\ZhiFang.IDAO.NHB.ReagentSys.Client.csproj">
+      <Project>{DD7E515A-52CF-41A2-8325-8704EB187053}</Project>
+      <Name>ZhiFang.IDAO.NHB.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

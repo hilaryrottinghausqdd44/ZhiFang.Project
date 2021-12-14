@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值信息列表</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../src/layui/src/css/layui.css" media="all">
+	<link rel="shortcut icon" href="../../../logo-16.png">
+</head>
+<body class="layui-layout-body">
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md12">
+				<div class="layui-card layui-form">
+					<div class="layui-card-body">
+						<script type="text/html" id="table-toolbar">
+							<div class="test-table-reload-btn" style="margin-bottom:10px;">
+								<div class="layui-inline">
+									<select id="doctorList" lay-verify="">
+										<option value="">请选择一个就诊类型</option>
+										<option value="0">常规</option>
+										<option value="1">急症</option>
+										<option value="2">质控</option>
+									</select>
+								</div>
+								<button class="layui-btn" data-type="reload">搜索</button>
+								<button class="layui-btn" data-type="reload" id="add">模拟新增</button>
+								<button class="layui-btn" data-type="reload" id="update">模拟修改</button>
+								<button class="layui-btn" data-type="reload" id="delete">模拟删除</button>
+								<button class="layui-btn" data-type="reload" id="clear">模拟清空</button>
+							</div>
+						</script>
+						
+						<table class="layui-hide" id="table" lay-filter="table"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../../src/layui/src/layui.js"></script>
+	<script type="text/javascript" src="../config/system.js"></script>
+	<script type="text/javascript">
+		layui.extend({
+			uxutil:'ux/util',
+			uxtable:'ux/table'
+		}).use(['uxutil','uxtable'],function(){
+			var $=layui.$,
+				uxutil = layui.uxutil,
+				table = layui.uxtable;
+				
+			var getEmpDeptUrl = uxutil.path.ROOT + '/ServerWCF/IMService.svc/ST_UDTO_SearchCVCriticalValueEmpIdDeptLinkByHQL',
+				getUnShowMsgUrl = uxutil.path.ROOT + '/ServerWCF/IMService.svc/ST_UDTO_SearchSCMsgByHQL',
+				empId = uxutil.cookie.get(uxutil.cookie.map.USERID),
+				deptIds = [],
+				SystemCode = 'ZF_LabStar';//系统编码
+				
+			//获取危急值员工部门列表
+			function loadDeptIds(callback){
+				var url = getEmpDeptUrl,
+					DEPTID = uxutil.cookie.get(uxutil.cookie.map.DEPTID);
+					
+				url += '?fields=CVCriticalValueEmpIdDeptLink_DeptID' +
+					'&where=cvcriticalvalueempiddeptlink.IsUse=1 and cvcriticalvalueempiddeptlink.EmpID=' + empId;
+					
+				deptIds.push(DEPTID);
+					
+				uxutil.server.ajax({
+					url:url
+				},function(data){
+					if(data.success){
+						var list = data.value.list || []
+						for(var i in list){
+							if(list[i].DeptID != DEPTID){
+								deptIds.push(list[i].DeptID);
+							}
+						}
+					}
+					callback();
+				});
+			}
+			//获取未读的消息列表
+			function loadUnShowMsgs(callback){
+				var url = getUnShowMsgUrl;
+					
+				//条件=使用+所属系统代码+接收科室+
+				url += "?fields=SCMsg_Id,SCMsg_MsgContent,SCMsg_MsgTypeCode,SCMsg_SenderID,SCMsg_SenderName" +
+					"&where=scmsg.IsUse=1 and scmsg.SystemCode='" + SystemCode + 
+					"' and (scmsg.RecDeptID in (" + deptIds.join(',') + ") or scmsg.SenderID=" + empId + ")";
+					
+				uxutil.server.ajax({
+					url:url
+				},function(data){
+					var list = [];
+					if(data.success){
+						list = data.value.list || [];
+					}
+					list = list.concat(list).concat(list).concat(list).concat(list);
+					
+					callback(list);
+				});
+			}
+			
+			//数据处理
+			function changeData(data){
+				var MsgObjJson = $.parseJSON(data.MsgContent),//消息对象
+					MsgContent = MsgObjJson.MSG.MSGCONTENT,//消息内容
+					MsgTitle = MsgContent.MSGTITLE,//消息标题
+					MsgKey = MsgContent.MSGKEY,//病人信息
+					MsgList = MsgContent.MSGBODY.MSG;//消息列表
+					
+				//XML格式的消息支持一个消息多条内容，如果是单条内容的自动转变成数组
+				if(!$.isArray(MsgList)){
+					MsgList = [MsgList];
+				}
+				
+				data.SendSectionName = MsgKey.SECTIONNAME;//小组名称
+				data.SampleNo = MsgKey.SAMPLENO;//样本号
+				data.JzType = MsgKey.SICKTYPENAME;//就诊类型
+				data.DeptName = MsgKey.DEPTNAME;//开单科室
+				data.DoctorName = MsgKey.DOCTOR;//开单医生
+				data.PatNo = MsgKey.PATNO;//病历号
+				data.PatientName = MsgKey.CNAME;//病人姓名
+				data.PatientSex = MsgKey.GENDERNAME;//性别
+				data.PatientAge = MsgKey.AGE + MsgKey.AGEUNITNAME;//年龄
+				
+				var MsgAll = [];
+				for(var i in MsgList){
+					var status = MsgList[i].RESULTSTATUS;
+					if(status.indexOf("H") != -1){
+						status = '<span style="color:red;">' + status + '</span>';
+					}if(status.indexOf("L") != -1){
+						status = '<span style="color:blue;">' + status + '</span>';
+					}
+					MsgAll.push(MsgList[i].TESTITEMNAME + ' ' + MsgList[i].REPORTVALUEALL + ' ' + status);
+				}
+				data.MsgAll = MsgAll.join('</br>');
+				
+				data.ItemName = "";//检查项目
+				data.ResultValue = "";//结果值
+				data.ResultStatus = "";//状态
+				data.DataAddTime = MsgKey.CHECKDATE + ' ' + MsgKey.CHECKTIME.slice(-8);//产生时间
+				data.OutTimes = 0;//超时分钟
+				
+				return data;
+			}
+			//初始化列表
+			function initTable(data){
+				var tb = table.init({
+					elem:"#table",
+					toolbar:'#table-toolbar',
+					height:'full-100',
+					cols:[[
+						{field:'Id',title:'ID',width:180,hide:false},
+						{field:'SendSectionName',width:100,title:'小组名称',sort:true},
+						{field:'SampleNo',width:100,title:'样本号',sort:true},
+						{field:'JzType',width:100,title:'就诊类型',sort:true},
+						{field:'DeptName',width:100,title:'开单科室',sort:true},
+						{field:'DoctorName',width:100,title:'开单医生',sort:true},
+						{field:'PatNo',width:100,title:'病历号'},
+						{field:'PatientName',width:90,title:'病人姓名'},
+						{field:'PatientSex',width:60,title:'性别'},
+						{field:'PatientAge',width:60,title:'年龄'},
+						{field:'DataAddTime',width:160,title:'产生时间',sort:true},
+						{field:'MsgAll',minWidth:200,title:'危急值消息内容'},
+						{field:'MsgTypeCode',width:80,title:'类型代码',hide:true},
+						{field:'MsgContent',width:100,title:'原始消息内容',hide:true}
+					]],
+					data:data,
+					page:true,
+					done: function(res, curr, count){
+						var a = 1;
+					},
+					listeners:{
+						reload:function(that){
+							initButtonsListeners(tb);
+						}
+					}
+				});
+				
+				var CHECK_ROW = null;
+				table.on('row(table)', function(obj){
+					if(CHECK_ROW){
+						CHECK_ROW.removeClass('layui-table-click');
+					}
+					CHECK_ROW = obj.tr;
+					CHECK_ROW.addClass('layui-table-click');
+				});
+				
+				//监听行双击事件
+				table.on('rowDouble', function(obj){
+					layui.extend({
+						msgform:'app/modules/msg/form'
+					}).use('msgform',function(){
+						layui.msgform.render({
+							data:obj.data,
+							//确认后触发
+							afterConfirm:function(id){
+								//me.config.afterConfirm(id);
+							},
+							//处理后触发
+							afterHandle:function(id){
+								//me.config.afterHandle(id);
+							}
+						});
+					});
+				});
+				
+				initButtonsListeners(tb);
+			}
+			//初始化按钮监听
+			function initButtonsListeners(tb){
+				$("#add").on("click",function(){
+					tb.addRowItem({
+						"Id":new Date().getTime().toString(),
+						"SendSectionName":"测试"
+					},true);
+				});
+				$("#update").on("click",function(){
+					tb.updateRowItem({
+						"Id":"4688021045596198806",
+						"SendSectionName":new Date().getTime().toString()
+					},"Id");
+				});
+				$("#delete").on("click",function(){
+					tb.deleteRowItem("4688021045596198806");
+				});
+				$("#clear").on("click",function(){
+					tb.clearTable();
+				});
+			}
+			
+			loadDeptIds(function(){
+				loadUnShowMsgs(function(data){
+					for(var i in data){
+						data[i] = changeData(data[i]);
+					}
+					initTable(data);
+				});
+			});
+		});
+	</script>
+</body>
+</html>

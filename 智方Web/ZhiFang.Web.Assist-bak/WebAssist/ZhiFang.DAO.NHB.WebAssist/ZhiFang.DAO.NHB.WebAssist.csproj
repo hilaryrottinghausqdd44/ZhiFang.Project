@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58E46C81-992D-4F19-BD74-940E81949FB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.DAO.NHB.WebAssist</RootNamespace>
+    <AssemblyName>ZhiFang.DAO.NHB.WebAssist</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.1.40711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=1.3.1.40711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30, Version=1.3.1.40711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgeUnitDao.cs" />
+    <Compile Include="BDictDao.cs" />
+    <Compile Include="BDictTreeDao.cs" />
+    <Compile Include="BDictTypeDao.cs" />
+    <Compile Include="BLodopTempletDao.cs" />
+    <Compile Include="BTemplateDao.cs" />
+    <Compile Include="GKBarcode\GKDeptAutoCheckLinkDao.cs" />
+    <Compile Include="GKBarcode\GKSampleRequestFormDao.cs" />
+    <Compile Include="Lis\AntiGroupDao.cs" />
+    <Compile Include="Lis\ChargeTypeDao.cs" />
+    <Compile Include="Lis\MDMicroTestDevelopDao.cs" />
+    <Compile Include="Lis\MDMicroTestValueDao.cs" />
+    <Compile Include="Lis\MEGroupSampleItemDao.cs" />
+    <Compile Include="Lis\MEMicroAppraisalValueDao.cs" />
+    <Compile Include="Lis\MEGroupSampleFormDao.cs" />
+    <Compile Include="Lis\MEMicroDSTValueDao.cs" />
+    <Compile Include="Lis\MEMicroInoculantDao.cs" />
+    <Compile Include="Lis\NPUserDao.cs" />
+    <Compile Include="BObjectOperateDao.cs" />
+    <Compile Include="BObjectOperateTypeDao.cs" />
+    <Compile Include="BOperateObjectTypeDao.cs" />
+    <Compile Include="BUserUIConfigDao.cs" />
+    <Compile Include="CenOrgTypeDao.cs" />
+    <Compile Include="BParameterDao.cs" />
+    <Compile Include="Lis\DistrictDao.cs" />
+    <Compile Include="Lis\EmployeeDao.cs" />
+    <Compile Include="Lis\EquipItemDao.cs" />
+    <Compile Include="Lis\EquipmentDao.cs" />
+    <Compile Include="Lis\FolkTypeDao.cs" />
+    <Compile Include="Lis\GenderTypeDao.cs" />
+    <Compile Include="Lis\GroupItemDao.cs" />
+    <Compile Include="Lis\NRequestFormDao.cs" />
+    <Compile Include="Lis\ItemRangeDao.cs" />
+    <Compile Include="Lis\ItemTypeDao.cs" />
+    <Compile Include="Lis\NRequestItemDao.cs" />
+    <Compile Include="Lis\PGroupDao.cs" />
+    <Compile Include="Lis\SamplingGroupDao.cs" />
+    <Compile Include="Lis\SamplingitemDao.cs" />
+    <Compile Include="Lis\SectionItemDao.cs" />
+    <Compile Include="Lis\StatusTypeDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CenOrgDao.cs" />
+    <Compile Include="Lis\SampleTypeDao.cs" />
+    <Compile Include="SCBarCodeRulesDao.cs" />
+    <Compile Include="SCInterfaceMapingDao.cs" />
+    <Compile Include="SCRecordDtlDao.cs" />
+    <Compile Include="SCRecordItemLinkDao.cs" />
+    <Compile Include="SCRecordPhraseDao.cs" />
+    <Compile Include="SCRecordTypeDao.cs" />
+    <Compile Include="SCRecordTypeItemDao.cs" />
+    <Compile Include="Lis\SickTypeDao.cs" />
+    <Compile Include="Lis\SuperGroupDao.cs" />
+    <Compile Include="Lis\TestEquipDao.cs" />
+    <Compile Include="SCOperationDao.cs" />
+    <Compile Include="Lis\TestItemDao.cs" />
+    <Compile Include="Lis\TestTypeDao.cs" />
+    <Compile Include="WardTypeDao.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Base\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{1cfa6885-ebbe-489e-9373-b672e8dad7e7}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RBAC\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WebAssist\ZhiFang.Entity.WebAssist.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.WebAssist</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WeiXin\ZhiFang.Entity.WeiXin\ZhiFang.Entity.WeiXin.csproj">
+      <Project>{c867875c-5404-480d-89e4-9cc67c66d963}</Project>
+      <Name>ZhiFang.Entity.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.NHB.WebAssist\ZhiFang.IDAO.NHB.WebAssist.csproj">
+      <Project>{DD7E515A-52CF-41A2-8325-8704EB187053}</Project>
+      <Name>ZhiFang.IDAO.NHB.WebAssist</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RBAC\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WeiXin\ZhiFang.IDAO.WeiXin\ZhiFang.IDAO.WeiXin.csproj">
+      <Project>{ff61e24b-369f-490e-bad8-607948e35e8f}</Project>
+      <Name>ZhiFang.IDAO.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.WebAssist.Common\ZhiFang.WebAssist.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.WebAssist.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

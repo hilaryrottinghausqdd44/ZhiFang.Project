@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="TestItem" table="[dbo].[TestItem]">
+		<id name="Id" column="[ItemNo]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DTimeStampe]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="ItemGUID" column="[ItemGUID]" type="Int64" not-null="false" length="8" />
+		<property name="CName" column="[CName]" type="String" not-null="false" length="255" />
+		<property name="EName" column="[EName]" type="String" not-null="false" length="40" />
+		<property name="ShortName" column="[ShortName]" type="String" not-null="false" length="40" />
+		<property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="40" />
+		<property name="DiagMethod" column="[DiagMethod]" type="String" not-null="false" length="40" />
+		<property name="Unit" column="[Unit]" type="String" not-null="false" length="40" />
+		<property name="IsCalc" column="[IsCalc]" type="Int32" not-null="false" length="4" />
+		<property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="Prec" column="[Prec]" type="Int32" not-null="false" length="4" />
+		<property name="IsProfile" column="[IsProfile]" type="Int32" not-null="false" length="4" />
+		<property name="OrderNo" column="[OrderNo]" type="String" not-null="false" length="20" />
+		<property name="StandardCode" column="[StandardCode]" type="String" not-null="false" length="20" />
+		<property name="ItemDesc" column="[ItemDesc]" type="String" not-null="false" />
+		<property name="FWorkLoad" column="[FWorkLoad]" type="Double" not-null="false" length="8" />
+		<property name="Secretgrade" column="[Secretgrade]" type="Int32" not-null="false" length="4" />
+		<property name="Cuegrade" column="[Cuegrade]" type="Int32" not-null="false" length="4" />
+		<property name="IsDoctorItem" column="[IsDoctorItem]" type="Int32" not-null="false" length="4" />
+		<property name="IschargeItem" column="[IschargeItem]" type="Int32" not-null="false" length="4" />
+		<property name="Tstamp" column="[tstamp]" type="String" not-null="false" />
+		<property name="HisDispOrder" column="[HisDispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="SuperGroupNo" column="[SuperGroupNo]" type="Int32" not-null="false" length="4" />
+		<property name="Price" column="[price]" type="Double" not-null="false" length="8" />
+		<property name="SpecialType" column="[SpecialType]" type="String" not-null="false" length="50" />
+		<property name="SpecialSection" column="[SpecialSection]" type="String" not-null="false" length="50" />
+		<property name="Lowprice" column="[lowprice]" type="Double" not-null="false" length="8" />
+		<property name="SpecTypeNo" column="[SpecTypeNo]" type="Int32" not-null="false" length="4" />
+		<property name="IsCombiItem" column="[isCombiItem]" type="Int32" not-null="false" length="4" />
+		<property name="IsHistoryItem" column="[isHistoryItem]" type="Int32" not-null="false" length="4" />
+		<property name="Theoryprice" column="[theoryprice]" type="Double" not-null="false" length="8" />
+		<property name="Actualprice" column="[actualprice]" type="Double" not-null="false" length="8" />
+		<property name="ItemCode" column="[ItemCode]" type="String" not-null="false" length="50" />
+		<property name="MiniChargeUnit" column="[MiniChargeUnit]" type="String" not-null="false" length="40" />
+		<property name="LabIsReply" column="[LabIsReply]" type="Double" not-null="false" length="8" />
+		<property name="LabStatusFlag" column="[LabStatusFlag]" type="Double" not-null="false" length="8" />
+		<property name="LabUploadFlag" column="[LabUploadFlag]" type="Double" not-null="false" length="8" />
+		<property name="LabUploadDate" column="[LabUploadDate]" type="DateTime" not-null="false" length="8" />
+		<property name="Color" column="[Color]" type="String" not-null="false" />		
+    <property name="BonusPercent" column="[BonusPercent]" type="Double" not-null="false" length="8" />
+    <property name="CostPrice" column="[CostPrice]" type="Double" not-null="false" length="8" />
+    <property name="InspectionPrice" column="[InspectionPrice]" type="Double" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

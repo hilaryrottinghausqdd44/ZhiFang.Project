@@ -1,0 +1,583 @@
+/**页面*/
+html{
+	min-height:100%;
+	position:relative;
+	padding:0;
+	margin:0;
+}
+body{
+	padding-bottom:0;
+	min-height:100%;
+	font-family:'Open Sans';
+	font-size:14px;
+	color:#393939;
+	/*line-height:1.5;*/
+	padding:0;
+	margin:0;
+}
+h1 { font-size: 1.5em; }
+small { font-size: 0.875em; }
+
+/**顶部固定框*/
+.page_head_fixed {
+	position: fixed;
+	max-height: 340px;
+	z-index: 1030;
+	border-radius: 0;
+	border-width: 0 0 1px;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	/*padding: 5px;*/
+	height: 50px;
+	/*background-color: #169ADA;*/
+	background-color:rgba(22,154,218,1);
+}
+.page_info {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+.page_info_head_title {
+	float: left;
+	margin: 12px;
+	font-weight: bolder;
+	color: #ffffff;
+	font-size: 1.5em;
+}
+.page_info_head_back {
+	float: right;
+	margin: 12px 20px;
+	color: #ffffff;
+	font-size: 1.5em;
+}
+/**页面内容区域*/
+.page_content {
+	padding: 2px;
+	margin:0;
+	margin-top: 50px;
+}
+
+/**首页*/
+.home{
+	position:absolute;
+	top: 0;
+	left: 0;
+	padding:0;
+	background-color: #EEEEEE;
+	/*background-image: url(../img/icon/bg.jpg);*/
+}
+/**功能图标容器*/
+.home_icon_table{
+	width:100%;
+	margin-top: 40px;
+	border-bottom: 40px solid #EEEEEE;
+	background-color: #EEEEEE;
+}
+.home_icon_table td{
+	align:center;
+}
+/**功能图标*/
+.home_icon{
+	float: left;
+	width:90px;
+	margin:10px 5px;
+	padding:10px 5px;
+	text-align: center;
+	/*border: 1px solid #169ada;
+	border-radius: 5px;*/
+}
+.home_icon_img_div{
+	
+}
+.home_icon_img{
+	float:none;
+	width:64px;
+	height:64px;
+}
+.home_icon_text{
+	font-weight: bold;
+	margin-top: 5px;
+	font-size: 1.2em;
+}
+.default_user_photo_div{
+	width:100px;
+	height:100px;
+	border-radius: 50px;
+	border: 1px solid #E0E0E0;
+}
+.default_user_text_div{
+	margin:15px 15px 15px 10px;
+	font-size:1.2em;
+}
+/**蒙版*/
+.page_mask { 
+	position: fixed;
+	z-index: 9000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #E0E0E0;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+.page_mask_loading{
+	z-index: 9001;
+	padding:8px;
+	background-color:#ffffff;
+	width:200px;
+	height:36px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin-left:-100px;
+	margin-top:-18px;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid #fff;
+}
+.page_mask_loading img{
+	width:16px;
+	height:16px;
+}
+
+/**用户头像*/
+.user_photo_div {
+	display: block;
+	text-decoration: none;
+	overflow: hidden;
+	position: relative;
+	margin:5px 0;
+	border: 1px solid #e7e7e7;
+	border-radius: 5px;
+}
+.user_photo{
+	float: left;
+	margin:5px 2px;
+	padding:2px;
+	border:1px solid #ffffff;
+	text-align: center;
+	border-radius: 5px;
+}
+.user_photo img{
+	width:48px;
+	height:48px;
+	border:1px solid #ffffff;
+	border-radius: 5px;
+}
+.user_photo span{
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 0px;
+	display: block;
+}
+.user_photo_touch{
+	color:#169ADA;
+}
+
+/**扫码列表样式*/
+.barcode_grid_row{
+	height:50px;
+	position: relative;
+	border: 1px solid #e7e7e7;
+	font-weight: bold;
+	margin:5px;
+	border-radius: 5px;
+}
+.barcode_grid_row_photo_div{
+	float:left;
+	margin:4px;
+}
+.barcode_grid_row_photo_div img{
+	width:42px;
+	height:42px;
+}
+.barcode_grid_row_name_div{
+	float:left;
+	margin: 15px 10px;
+}
+.barcode_grid_row_barcode_div{
+	float:right;
+	right:10px;
+	margin:9px;
+	
+}
+.barcode_grid_row_barcode_div img{
+	width:32px;
+	height:32px;
+}
+
+/**报告列表样式*/
+.report_grid_view{
+	border: 1px solid #e7e7e7;
+	border-radius: 5px;
+	border-bottom:0;
+	margin: 5px 0;
+}
+.report_grid_row{
+	display: block;
+	height: 50px;
+	padding: 15px 5px;
+	border-bottom: 1px solid #e7e7e7;
+	text-decoration: none;
+	overflow: hidden;
+	position: relative;
+	font-weight: bold;
+}
+.report_grid_row_name{
+	float:left;
+	margin:0 5px;
+}
+.report_grid_row_date{
+	float:right;
+	margin:0 5px;
+}
+.report_grid_row_right{
+	float:right;
+	margin:0 5px;
+}
+
+/**报告内容-信息*/
+.report_info_div {
+	margin:5px 0;
+	border: 1px solid #e7e7e7;
+	border-radius: 5px;
+}
+.report_info_title_div {
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.2em;
+	padding:5px 2px;
+}
+.report_info_data_div {
+	font-size: 1em;
+	margin: 5px 2px;
+}
+.report_info_div_button {
+	float: right;
+	margin-top: 10px;
+}
+/**报告内容-备注*/
+.report_info_note_div{
+	margin:5px 0;
+	padding:5px;
+	border: 1px solid #e7e7e7;
+	border-radius: 5px;
+}
+/**报告内容-生化类*/
+.report_items_table {
+	width: 100%;
+	font-size: 1em;
+	margin-bottom: 10px;
+	table-layout: fixed;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0;
+	border: 1px solid #cad9ea;
+	color: #666;
+	background-color: #FFFFFF;
+}
+.report_items_table th {
+	background-repeat: repeat-x;
+	height: 30px;
+	border: 1px solid #cad9ea;
+	padding: 7px 2px;
+	text-align: center;
+	/*background-color: #cad9ea;*/
+	background-color:rgba(22,154,218,0.7);
+	color:#ffffff;
+}
+.report_items_table td {
+	height: 20px;
+	border: 1px solid #cad9ea;
+	padding: 10px 2px;
+}
+/**报告内容-微生物*/
+.report_item_name_div{
+	margin: 10px 0 0 0;
+	padding:5px 10px;
+	font-weight:bold;
+	background-color: #169ADA;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	color:#ffffff;
+}
+.report_item_content_div{
+	margin: 0 0 10px 0;
+	border:1px solid #E0E0E0;
+	min-height: 30px;
+	/*border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;*/
+}
+.report_item_micro_info_div{
+	margin:5px;
+	padding:5px;
+	border: 1px solid #E0E0E0;
+}
+.report_item_micro_info_title_div{
+	margin:0 10px;
+	border-bottom: 1px solid #E0E0E0;
+}
+.report_item_micro_sensitivity_div{
+	margin:0 5px 5px 5px;
+}
+.report_item_micro_sensitivity_table{
+	width: 100%;
+	font-size: 1em;
+	margin-bottom: 10px;
+	table-layout: fixed;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0;
+	border: 1px solid #E0E0E0;
+	color: #666;
+	background-color: #FFFFFF;
+}
+.report_item_micro_sensitivity_table th {
+	background-repeat: repeat-x;
+	height: 20px;
+	border: 1px solid #E0E0E0;
+	padding: 2px;
+	text-align: center;
+	color:#ffffff;
+	background-color: #E0E0E0;
+}
+.report_item_micro_sensitivity_table td {
+	height: 20px;
+	border: 1px solid #E0E0E0;
+	padding: 2px;
+}
+
+/**按钮-触摸*/
+.button_touch {
+	/*background-color: #EEEEEE;*/
+	color:#169ADA;
+}
+
+/**就诊人列表样式*/
+.patient_grid_row{
+	display: block;
+	height: 60px;
+	border-bottom: 1px solid #e7e7e7;
+	text-decoration: none;
+	overflow: hidden;
+	position: relative;
+}
+.patient_grid_row img{
+	position: absolute;
+	margin:5px;
+	width:48px;
+	height:48px;
+	border-radius: 5px;
+	padding:2px 3px;
+	border:1px solid #169ADA;
+}
+.patient_grid_row span{
+	position: absolute;
+	font-size: 1em;
+	font-weight: bold;
+	left:60px;
+	top:14px;
+}
+.patient_grid_row_touch{
+	color:#169ADA;
+}
+
+.patient_hospital_title_div{
+	border: 1px solid #e7e7e7;
+}
+.patient_hospital_title_div span{
+	height:50px;
+	line-height: 50px;
+	padding: 15px;
+	color:#169ADA;
+	font-weight:bold;
+	font-size: 1.3em;
+}
+.patient_hospital_title_div_add_but{
+	float: right;
+	width: 32px;
+	height:32px;
+	margin:9px 5px;
+	/*padding: 2px;*/
+	 border-radius: 100px;
+	 background-image:url('../img/icon/add_a_blue.png');
+	 background-repeat:no-repeat;
+	 background-position:50% 50%;
+	 border: 0;
+}
+.patient_hospital_title_div_edit_but{
+	float: right;
+	width: 32px;
+	height:32px;
+	margin:9px 5px;
+	padding: 2px;
+	 border-radius: 100px;
+	 background-image:url('../img/icon/minus_red_32.png');
+	 background-repeat:no-repeat;
+	 background-position:50% 50%;
+	 border: 0;
+}
+.patient_hospital_title_div_edit_but_touch{
+	/*background-image:url('../img/icon/del_a_red.png');*/
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+.patient_hospital_row{
+	height:55px;
+	margin:5px 0;
+	border-bottom: 1px solid #e7e7e7;
+}
+/**提交按钮样式*/
+.submit_button{
+	background-color:rgba(22,154,218,1);
+}
+
+/**蒙版*/
+.del_mask_div {
+	position: absolute;
+	z-index: 101;
+	width: 100%;
+	height:50px;
+	/*background: #E0E0E0;
+	text-align: center;*/
+	background: #BCE8F1;
+	text-align: right;
+	/*padding:9px;*/
+	color:red;
+	font-size: 1.3em;
+	font-weight: bold;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	/*background-image: url('../img/icon/fork_red_32.png');
+	background-repeat:no-repeat;
+	background-position:right;*/
+}
+.del_mask_div img{
+	float:right;
+	margin:9px 5px;
+}
+
+.messagebox_div{
+	z-index: 9001;
+	background-color:#ffffff;
+	position: absolute;
+	top:50%;
+	left:50%;
+	border-radius: 10px;
+	border: 2px solid darkorange;
+}
+.messagebox_div_title{
+	height:30px;
+	font-size: 1.5em;
+	font-weight: bold;
+	color:#204D74;
+	padding: 0 10px;
+	margin:8px 0;
+	margin-bottom:0;
+	border-bottom:2px solid #E0E0E0;
+}
+.messagebox_div_msg{
+	font-size: 1em;
+	padding:10px;
+	color:#666666;
+	overflow:hidden;
+	scroll:auto;
+}
+.messagebox_div_buttons{
+	position: absolute;
+	/*border-top:1px solid #E0E0E0;*/
+}
+.messagebox_div_button{
+	float:left;
+	text-align: center;
+	font-size: 1em;
+	color:#666666;
+}
+.input_text{
+	height:30px;
+	margin-top:5px;
+	margin-bottom:5px;
+	border:0;
+	border-bottom:1px solid #169ADA;
+	border-radius:5px;
+	padding:2px 10px;
+}
+
+/**输入框样式*/
+.shell_form_input_div{
+	height:40px;
+	padding:0;
+	border:0;
+	border-radius: 5px;
+	margin: 5px 0;
+}
+.shell_form_input_div input{
+	width:100%;
+	height:100%;
+	padding:0 5px 0 5px;
+	margin:0;
+	font-size:1.2em;
+	background-repeat:no-repeat;
+	border:1px solid #e7e7e7;
+	border-radius: 5px;
+}
+.shell_form_button_div{
+	height:36px;
+	margin:5px;
+	padding:0;
+	border:0;
+}
+.shell_form_button_div button{
+	width:100%;
+	height:100%;
+	border:0;
+	background-color: #169ADA;
+	color:#ffffff;
+	font-size:1.2em;
+	border-radius: 7px;
+}
+
+/**帮助样式*/
+.help_title_div{
+	text-align: center;
+	margin:10px;
+	font-weight: bolder;
+	font-size: 1.5em;
+} 
+.help_step_div{
+	margin:10px 5px;
+	border: 1px solid #e7e7e7;
+	border-radius: 5px;
+	text-align: center;
+}
+.help_step_title_div{
+	padding:5px 10px;
+	background-color:#169ADA;
+	color:#ffffff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.help_step_img_div{
+	margin:5px;
+}
+.help_step_img_div img{
+	width:200px;
+	/*height:100%;
+	min-height: 100px;*/
+	background-color: #E0E0E0;
+	text-align: center;
+	border: 1px solid #E0E0E0;
+	left:50%;
+}
+.help_step_text_div{
+	margin: 10px 10px;
+}
+.row_checked:{
+	background-color: #E0E0E0;
+}

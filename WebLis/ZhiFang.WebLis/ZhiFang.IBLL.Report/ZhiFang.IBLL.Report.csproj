@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ED437FE9-CE31-4F09-ABF4-E56A0257E1B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IBLL.Report</RootNamespace>
+    <AssemblyName>ZhiFang.IBLL.Report</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dictionary.cs" />
+    <Compile Include="IBALLReportForm.cs" />
+    <Compile Include="IBBarCodeForm.cs" />
+    <Compile Include="IBDictionaryGetPubDict.cs" />
+    <Compile Include="IBItemMergeRule.cs" />
+    <Compile Include="IBLLBase.cs" />
+    <Compile Include="IBNRequestForm.cs" />
+    <Compile Include="IBOSConsumerUserOrderForm.cs" />
+    <Compile Include="IBPrintFrom.cs" />
+    <Compile Include="IBPrintFrom_Weblis.cs" />
+    <Compile Include="IBPrintReportForm.cs" />
+    <Compile Include="IBReportForm.cs" />
+    <Compile Include="IBReportFormFull.cs" />
+    <Compile Include="IBReportItem.cs" />
+    <Compile Include="IBReportItemFull.cs" />
+    <Compile Include="IBReportMarrowFull.cs" />
+    <Compile Include="IBReportMicro.cs" />
+    <Compile Include="IBReportMicroFull.cs" />
+    <Compile Include="IBShowFrom.cs" />
+    <Compile Include="IBShowReport.cs" />
+    <Compile Include="IBStation_PrinterList.cs" />
+    <Compile Include="IBUserReportFormDataListShowConfig.cs" />
+    <Compile Include="IBNRequestItem.cs" />
+    <Compile Include="IBView_ReportItemFull.cs" />
+    <Compile Include="IBWhoNet_AntiData.cs" />
+    <Compile Include="IBWhoNet_FormData.cs" />
+    <Compile Include="IBWhoNet_MicroData.cs" />
+    <Compile Include="IReportFileInfo.cs" />
+    <Compile Include="MicroOperationStepFlow.cs" />
+    <Compile Include="MicroOperationStepLib.cs" />
+    <Compile Include="Other\IBPatNo_Passwords.cs" />
+    <Compile Include="Other\IBView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Common.Dictionary\ZhiFang.Common.Dictionary.csproj">
+      <Project>{4D598C7C-0592-4752-9CEA-5195F780C006}</Project>
+      <Name>ZhiFang.Common.Dictionary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Model\ZhiFang.Model.csproj">
+      <Project>{9828C326-B724-457E-A649-70850D5EA018}</Project>
+      <Name>ZhiFang.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

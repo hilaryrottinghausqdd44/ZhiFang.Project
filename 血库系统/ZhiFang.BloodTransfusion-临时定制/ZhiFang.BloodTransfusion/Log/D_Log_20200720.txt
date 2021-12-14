@@ -1,0 +1,28 @@
+2020-07-20 12:00:44,556 [8] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10115
+2020-07-20 12:00:45,488 [8] DEBUG : 按传入的HIS编码为:10115,获取PUser的hql(puser.Code1 = '10115' or  puser.Code2 = '10115' or puser.Code3= '10115' or puser.Code4= '10115' or puser.Code5= '10115')
+2020-07-20 12:00:45,897 [8] ERROR : 传入的HIS医生编码为:10115,在LIS获取PUser的编码为:20010!
+2020-07-20 12:00:45,915 [8] DEBUG : HIS传入的医生编码为:10115,获取到LIS医生编码为:10
+2020-07-20 12:00:46,189 [8] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-07-20 12:00:46,232 [8] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-20 12:00:46,243 [8] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-20 12:00:46,254 [8] DEBUG : 登录员工信息:PUser.Id:20010,PUser.CName:冯为盛
+2020-07-20 12:00:46,254 [8] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-07-20 12:00:46,255 [8] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-20 12:00:46,256 [8] DEBUG : 登录员工绑定医生信息:Doctor.Id:10,Doctor.CName:冯为盛
+2020-07-20 12:00:46,583 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-20 12:00:46,619 [8] DEBUG : objectID:1483204384
+2020-07-20 12:00:46,620 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-20 12:01:15,918 [8] INFO  : 获取医嘱申请的检验结果条件为:((vbloodlisresult.PatNo='2006482' or vbloodlisresult.PatNo='0000822217') and vbloodlisresult.CheckDateTime>='2020-07-13 00:00:00' and vbloodlisresult.CheckDateTime<='2020-07-20 23:59:59') and vbloodlisresult.ItemNo in (101001,101003,200223,200224,200225,300052,403002,499995,499996,499997,499998,499999,501008,502104,502108,502111,502112,502115,502120,600399,600463,600465,2100001253,2100001255)
+2020-07-20 12:01:16,879 [8] INFO  : 获取医嘱申请的检验结果条件为:((vbloodlisresult.PatNo='2006482' or vbloodlisresult.PatNo='0000822217') and vbloodlisresult.CheckDateTime>='2020-07-13 00:00:00' and vbloodlisresult.CheckDateTime<='2020-07-20 23:59:59') and vbloodlisresult.ItemNo in (101001,101003,200223,200224,200225,300052,403002,499995,499996,499997,499998,499999,501008,502104,502108,502111,502112,502115,502120,600399,600463,600465,2100001253,2100001255)
+2020-07-20 12:04:30,697 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-20 12:04:30,698 [8] DEBUG : objectID:1483204384
+2020-07-20 12:04:30,698 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-20 12:05:02,732 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-20 12:05:02,733 [8] DEBUG : objectID:1483204384
+2020-07-20 12:05:02,733 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-20 15:14:12,270 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-20 15:14:12,326 [8] DEBUG : objectID:1483204384
+2020-07-20 15:14:12,326 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-20 15:14:22,730 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-20 15:14:22,731 [8] DEBUG : objectID:1483204384
+2020-07-20 15:14:22,731 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'

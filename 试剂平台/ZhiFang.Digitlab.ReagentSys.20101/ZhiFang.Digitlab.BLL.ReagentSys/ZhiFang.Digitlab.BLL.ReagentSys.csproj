@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{764B331A-E9B8-4562-8298-EB69E587EA19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Digitlab.BLL.ReagentSys</RootNamespace>
+    <AssemblyName>ZhiFang.Digitlab.BLL.ReagentSys</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBmsCenOrderDoc.cs" />
+    <Compile Include="BBmsCenOrderDocHistory.cs" />
+    <Compile Include="BBmsCenOrderDtl.cs" />
+    <Compile Include="BBmsCenOrderDtlHistory.cs" />
+    <Compile Include="BBmsCenSaleDoc.cs" />
+    <Compile Include="BBmsCenSaleDocHistory.cs" />
+    <Compile Include="BBmsCenSaleDtl.cs" />
+    <Compile Include="BBmsCenSaleDtlHistory.cs" />
+    <Compile Include="BCenMsg.cs" />
+    <Compile Include="BCenOrg.cs" />
+    <Compile Include="BCenOrgCondition.cs" />
+    <Compile Include="BCenOrgType.cs" />
+    <Compile Include="BCenQtyDtl.cs" />
+    <Compile Include="BCenQtyDtlTemp.cs" />
+    <Compile Include="BCenQtyDtlTempHistory.cs" />
+    <Compile Include="BGoods.cs" />
+    <Compile Include="BGoodsQualification.cs" />
+    <Compile Include="BTestEquipLab.cs" />
+    <Compile Include="BTestEquipProd.cs" />
+    <Compile Include="BTestEquipType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BBmsCenSaleDtlBarCode.cs" />
+    <Compile Include="ExcelDataCommon.cs" />
+    <Compile Include="BDBStoredProcedure.cs" />
+    <Compile Include="BFFeedback.cs" />
+    <Compile Include="BGoodsRegister.cs" />
+    <Compile Include="BBmsAccountInput.cs" />
+    <Compile Include="BBmsAccountSaleDoc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Common\ZhiFang.Common.csproj">
+      <Project>{AB7C5EC2-4B34-49DF-8292-45DCBBB1907C}</Project>
+      <Name>ZhiFang.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.BLL\ZhiFang.Digitlab.BLL.csproj">
+      <Project>{E935BB0A-2950-488A-BD78-04BF9A107C5E}</Project>
+      <Name>ZhiFang.Digitlab.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity.ReagentSys\ZhiFang.Digitlab.Entity.ReagentSys.csproj">
+      <Project>{9C953320-BFFA-4FF3-A1EC-AD2B0836121C}</Project>
+      <Name>ZhiFang.Digitlab.Entity.ReagentSys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity\ZhiFang.Digitlab.Entity.csproj">
+      <Project>{D9AFA74E-62BF-474D-AC0D-FD04F361D0A4}</Project>
+      <Name>ZhiFang.Digitlab.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IBLL.Business\ZhiFang.Digitlab.IBLL.Business.csproj">
+      <Project>{1BA52340-F0CA-4F3E-92AC-EE46708C121F}</Project>
+      <Name>ZhiFang.Digitlab.IBLL.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IBLL.RBAC\ZhiFang.Digitlab.IBLL.RBAC.csproj">
+      <Project>{8F5A6D30-252F-4CB4-884C-DCF3571B6F32}</Project>
+      <Name>ZhiFang.Digitlab.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IBLL.ReagentSys\ZhiFang.Digitlab.IBLL.ReagentSys.csproj">
+      <Project>{D5AB9A35-AFE6-423C-9879-C9F2DA3985B4}</Project>
+      <Name>ZhiFang.Digitlab.IBLL.ReagentSys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IBLL\ZhiFang.Digitlab.IBLL.csproj">
+      <Project>{0B4C27E9-4484-4AD5-8591-5F20A7CAAEB1}</Project>
+      <Name>ZhiFang.Digitlab.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IDAO.ReagentSys\ZhiFang.Digitlab.IDAO.ReagentSys.csproj">
+      <Project>{304BE69E-EB4C-4FF2-96F3-6A14DEE963DC}</Project>
+      <Name>ZhiFang.Digitlab.IDAO.ReagentSys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IDAO\ZhiFang.Digitlab.IDAO.csproj">
+      <Project>{963308BE-C1E7-430F-8E7F-D3C9033C3E29}</Project>
+      <Name>ZhiFang.Digitlab.IDAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.ServiceCommon\ZhiFang.Digitlab.ServiceCommon.csproj">
+      <Project>{E457CEBA-2C8E-438C-B6A3-2C53DD0B0C23}</Project>
+      <Name>ZhiFang.Digitlab.ServiceCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

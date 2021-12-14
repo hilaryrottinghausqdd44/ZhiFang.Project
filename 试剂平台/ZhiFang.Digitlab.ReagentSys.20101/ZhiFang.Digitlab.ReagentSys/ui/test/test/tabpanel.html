@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>tabpanel加载测试页面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    
+    <script type="text/javascript" src="../../zhifangux/BasicTabPanel.js"></script>
+    <script type="text/javascript" src="../../zhifangux/BasicTreePanel.js"></script>
+    <script type="text/javascript" src="../../zhifangux/GridPanel.js"></script>
+    
+    <script type="text/javascript">
+    Ext.onReady(function(){	
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var callback = function(obj){
+    		var ClassCode = obj.appInfo.ClassCode;
+			var cl = eval(ClassCode);
+			p = Ext.create(cl,{itemId:'list1'});
+			
+			var panel = {
+	    		xtype:'panel',
+	    		layout:'border',
+	    		items:[{
+	    			region:'west',
+	    			width:200,
+	    			xtype:'zhifanguxbasictreepanel',itemId:'material',title:'仪器-质控物',
+	    			url:getRootPath()+'/QCService.svc/QC_RJ_GetJudgeEquipMatTree',
+	    			leafIconCls:'orgImg16',nLeafIconCls:'orgsImg16',defaultLoad:true,
+	    			collapsible:true,split:true,
+	    			listeners:{
+	    				select:function(com,record){
+	    					var p = com.view.ownerCt.ownerCt;
+	    					
+	    					var params = {
+	    						material:{fun:'load',params:{pId:'123'}},
+	    						items:{fun:'load',params:{pId:'124'}},
+	    						list1:{fun:'load',params:'1=1'}
+	    					};
+	    					
+	    					var zhifanguxtabpanel = p.getComponent('zhifanguxtabpanel');
+	    					zhifanguxtabpanel.load(params);
+	    				}
+	    			}
+	    		},{
+	    			region:'center',
+	        		xtype:'zhifanguxbasictabpanel',
+	        		itemId:'zhifanguxtabpanel',
+	        		title:'tabpanel测试',
+	        		items:[{
+	        			xtype:'zhifanguxbasictreepanel',itemId:'material',title:'仪器-质控物',
+	        			url:getRootPath()+'/QCService.svc/QC_RJ_GetJudgeEquipMatTree',
+	        			leafIconCls:'orgImg16',nLeafIconCls:'orgsImg16'
+	        		},{
+	        			xtype:'zhifanguxbasictreepanel',itemId:'items',title:'仪器-项目',
+	        			url:getRootPath()+'/QCService.svc/QC_RJ_GetJudgeEquipItemTree',
+	        			leafIconCls:'userImg16',nLeafIconCls:'usersImg16'
+	        		},p,{
+	        			xtype:'form',title:'表单',itemId:'form1',
+	        			items:[{xtype:'textfield',width:200}],
+	        			tbar:[{
+	        				text:'显示遮罩层',itemId:'save',iconCls:'build-button-save',
+	        				handler:function(but){
+	        					var form = but.ownerCt.ownerCt;
+	        					if(!form.mk){
+	        						form.mk = new Ext.LoadMask(form.getEl(),{
+		        						msg:'数据加载中...',
+		        						removeMask:true//完成后移除 
+		        					});
+	        					}
+	        					form.mk.show();//显示
+	        				}
+	        			}]
+	        		}],
+	        		bbar:[{
+	        			text:'隐藏遮罩层',itemId:'close',iconCls:'build-button-remove',
+        				handler:function(but){
+        					var form = but.ownerCt.ownerCt;
+        					var form1 = form.getComponent('form1');
+        					if(form1.mk){
+        						form1.mk.hide();//隐藏
+        					}
+        				}
+	        		}]
+	        	}]
+	    	};
+	    	
+	    	//总体布局
+	    	var viewport = Ext.create('Ext.container.Viewport',{
+	    		layout:'fit',
+	    		items:[panel]
+	    	});
+    	};
+    	
+    	var id = '4752784479319947518';
+    	getAppInfo(id,callback,'BTDAppComponents_ClassCode',false);
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

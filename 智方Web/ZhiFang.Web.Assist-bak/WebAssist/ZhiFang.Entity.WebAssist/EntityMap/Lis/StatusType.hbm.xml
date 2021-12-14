@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="StatusType" table="[dbo].[StatusType]">
+    <id name="Id" column="[StatusNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="20" />
+    <property name="StatusDesc" column="[StatusDesc]" type="String" not-null="false" length="250" />
+    <property name="StatusColor" column="[StatusColor]" type="String" not-null="false" length="15" />
+  </class>
+</hibernate-mapping>

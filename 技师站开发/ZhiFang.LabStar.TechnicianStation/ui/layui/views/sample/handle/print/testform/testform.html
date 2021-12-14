@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>打印检验清单</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+   <script type="text/javascript">
+       UIVersion.getCSS("../../../css/layui.sm.all.css");
+   </script>
+   <style type="text/css">
+	   .tfmystyle{
+		   padding: 5px;
+	   }
+	   .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 3px;right: 3px;color: #009688; }
+	   .tfmystyle .layui-form-radio{
+		   margin: 0!important;
+		   padding: 0!important;
+	   }
+	   .tfmystyle .layui-form-radio>i{
+		   margin-right: 0px!important;
+	   }
+	   .mystyle-label{
+		   margin-left: 22px;
+	   }
+	</style>
+</head>
+<body>
+   <div class="layui-col-xs12 tfmystyle" >
+	   <div class="layui-form">
+		   <div class="layui-row">
+			   <div class="layui-col-xs12">
+			    	<div class="layui-form-item">
+			    		<button type="button" id="print" style="" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe6fd;</i>&nbsp;打印</button>
+						<button type="button" id="design" style="" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe713;</i>&nbsp;设计模板</button>
+			    	</div>
+			   </div>
+		   </div>
+		   <div class="layui-row">
+			   <div class="layui-col-xs12">
+					<div class="layui-inline" style="">时间范围:</div>
+					<div class="layui-inline" id="baseDomHeight">
+						 <input type="text" id="DateValue" name="DateValue" class="layui-input myDate" />
+						 <i class="layui-icon layui-icon-date"></i>
+					</div>
+					
+					<div class="layui-inline  mystyle-label" style="">样本号范围:</div>
+					<div class="layui-inline" style="width: 70px;">
+						<input type="text" class="layui-input" id="StartSampleNo" placeholder="" >
+					</div>
+					<div class="layui-inline">
+						-
+					</div>
+					<div class="layui-inline" style="width: 70px;">
+						<input type="text" class="layui-input" id="EndSampleNo" placeholder="" >
+					</div>
+					
+					<div class="layui-inline  mystyle-label" style="">检验状态:</div>
+					<div class="layui-inline" style="width: 100px;">
+						<select name="" id="MainStatusID" >
+							<option value="-2">作废</option>
+							<option value="0">检验中</option>
+							<option value="2">检验确认</option>
+							<option value="3">检验审核</option>
+						</select>
+					</div>
+					
+					<div class="layui-inline  mystyle-label" style="">检验项目:</div>
+					<div class="layui-inline">
+						<input type="radio" lay-filter="" name="TestItem" id="" value="0" title="单项" checked="">
+						<input type="radio" lay-filter="" name="TestItem" id="" value="1" title="组合">
+						
+					</div>
+						
+						
+					<div class="layui-inline  mystyle-label" style="">项目名称:</div>
+					<div class="layui-inline">
+						<input type="radio" lay-filter="" name="ItemCName" id="" value="1" title="简称" checked="">
+						<input type="radio" lay-filter="" name="ItemCName" id="" value="0" title="全称">
+					</div>
+					
+					<div class="layui-inline  mystyle-label">
+						<button type="button" id="seach" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe616;</i>&nbsp;查询</button>
+					</div>
+			   </div>
+		   </div>
+	   </div>
+	   
+	   <div class="layui-row">
+		   <table id="operateTable" lay-filter="operateTable"></table>
+	   </div>
+   </div>
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('testform.js');
+    </script>
+</body>
+</html>

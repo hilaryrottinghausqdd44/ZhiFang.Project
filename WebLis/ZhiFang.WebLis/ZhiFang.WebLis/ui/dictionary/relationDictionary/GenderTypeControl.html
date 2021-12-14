@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>性别字典表对照关系表</title>
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css">
+    <script type="text/javascript" src="../../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="GenderTypeControl.js"></script>
+</head>
+<body class="easyui-layout">
+
+<div data-options="region:'west'" style="width: 600px" border="false">
+    <table id="leftGender"></table>
+    <div id="leftBars" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: left;padding-top: 3px">
+
+            <input type="radio" name="allContrast" value="0" onclick="allContrast()">全部
+            <input type="radio" name="haveContrast" value="1" onclick="haveContrast()">已对照
+            <input type="radio" name="noContrast" value="2" onclick="noContrast()">未对照
+
+        </div>
+        <div style="float: right;margin-right: 10px;padding-top: 3px">
+            <input type="text" class="easyui-searchbox" data-options="prompt:'编号/名称/简称',searcher:labSearch" style="width: 160px;" id="labSearch">
+        </div>
+    </div>
+</div>
+
+<div data-options="region:'center'"  border="false">
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'west'" style="width: 100px">
+            <div style="padding-top: 160px;text-align: center">
+
+                <a id="btn01" href="javascript:void (0)" class="easyui-linkbutton" onclick="matchSingle()" plain="false"
+                   style="width: 80px;height:40px;margin-bottom: 15px" data-options="iconCls:'icon-ok'">对照</a><br>
+                <a id="btn02" href="javascript:void (0)" class="easyui-linkbutton" onclick="cancelMatch()" plain="false"
+                   style="width: 80px;height:40px;margin-bottom: 15px" data-options="iconCls:'icon-cancel'">取消对照</a><br>
+                <a id="btn03" href="javascript:void (0)" class="easyui-linkbutton" onclick="matchAll()"
+                   plain="false" style="width: 80px;height:40px;margin-bottom: 15px" data-options="iconCls:'icon-filter'">智能对照</a><br>
+            </div>
+        </div>
+        <div data-options="region:'center'" border="false">
+            <table id="rightGender"></table>
+            <div id="rightBars" style="height:28px;width: 100%;background: #eeeeee ">
+
+                <div style="float: right;margin-right: 10px;padding-top: 3px"><input type="text" class="easyui-searchbox"
+                                                                                     data-options="prompt:'编号/名称/简称',searcher:centerSearch"
+                                                                                     style="width: 160px;" id="txtSearch"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="dlgMatch" class="easyui-dialog"  style="width:500px;height:200px;margin: auto;" closed="true" >
+    <table id="tbMatch"></table>
+</div>
+
+<div id="dlg" class="easyui-dialog"  style="width:600px;height:400px;margin: auto;" closed="true" buttons="#dlgButtons">
+    <table id="dlgGender"></table>
+</div>
+<div id="dlgButtons">
+    <a href="javascript:void (0)" class="easyui-linkbutton" onclick="save()"  iconCls="icon-save">保存</a>
+    <a href="javascript:void (0)" class="easyui-linkbutton" onclick="cancel()"  iconCls="icon-cancel">取消</a>
+</div>
+
+</body>
+</html>

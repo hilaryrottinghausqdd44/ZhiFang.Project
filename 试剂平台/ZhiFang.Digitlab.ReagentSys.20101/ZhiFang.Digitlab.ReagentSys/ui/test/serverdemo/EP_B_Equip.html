@@ -1,0 +1,156 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchEPBEquipByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchEPBEquipById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelEPBEquip',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddEPBEquip',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateEPBEquipByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateEPBEquip',
+
+    		//仪器表对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'EPBEquip_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'EPBEquip_Id',value:'仪器ID'},						 
+						 		     
+				     												 
+						{ key:'EPBEquip_UseCode',value:'代码'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_StandCode',value:'标准代码'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_DeveCode',value:'开发商标准代码'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_CName',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_EName',value:'英文名称'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_PinYinZiTou',value:'汉字拼音字头   主要用于录入方便'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_Comment',value:'描述'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_SectionID',value:'对应检验小组'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_Computer',value:'计算机'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_ComProgram',value:'程序名'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_ComPort',value:'串口位置'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_BaudRate',value:'比特率'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_Parity',value:'奇偶校验'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_DataBits',value:'数据位'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_StopBits',value:'停止位'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_DoubleDir',value:'是否双向通讯'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_LicenceKey',value:'授权码'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_LicenceType',value:'授权类型'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_SQH',value:'授权号'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_SNo',value:'授权用序号'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_LicenceDate',value:'授权日期'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_SickType',value:'数据类型'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_UseImmPlate',value:'是否为酶免仪器'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_ImmCalc',value:'酶免结果结算方式   缺省为不计算'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_CommPara',value:'酶标仪进板参数'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_ReagentPara',value:'试剂参数'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_DispOrder',value:'显示次序'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'EPBEquip_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'EPBEquip_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'仪器表',
+    		//主键字段
+    		key:'EPBEquip_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>待选医院列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../../../../src/layui/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="shortcut icon" href="../../../../../logo-16.png">
+</head>
+<body>
+    <div class="layui-fluid ">
+        <div class="layui-row layui-col-space10 text-center ">
+            <div id="test1"></div>
+        </div>
+        <div class="layui-row layui-col-space10">
+            <div style="text-align:center">
+                <button id="submit_button" class="layui-btn layui-btn-sm" lay-event="Save">确定</button>
+
+            </div>
+        </div>     
+    </div>
+    <script src="../../../../../src/layui/layui-v2.5.5/layui.js"></script>
+    <script>
+        layui.use('transfer', function () {
+            //获取待选医院列表
+            var GET_UNSELECTHOSPITAL_URL = "../../../../../../ServerWCF/LIIPCommonService.svc/ST_UDTO_SearchSelectHospitalListByEmpId";
+            //新增员工医院关系服务
+            var SAVE_EMPHOSPITAL_URL = "../../../../../../ServerWCF/LIIPCommonService.svc/ST_UDTO_BatchAddBHospitalEmpLink";
+            var $ = layui.$,
+                uxutil = layui.uxutil,
+                transfer = layui.transfer;
+            var params = uxutil.params.get(true);
+            var EMPID = params["EMPID"];
+            //alert(EMPID);
+
+            $.ajax({
+                type: 'get',
+                contentType: 'application/json',
+                url: GET_UNSELECTHOSPITAL_URL + '?page=1&limit=10000&isPlanish=true&fields=BHospital_Id,BHospital_Name,BHospital_HospitalCode&flag=false&EmpId=' + EMPID,
+                success: function (data) {
+                    if (data.success == true) {
+                        var aaa = JSON.parse(data.ResultDataValue);
+                        transfer.render({
+                            elem: '#test1'  //绑定元素
+                            , data: aaa.list
+                            , id: 'demo1' //定义索引
+                            , parseData: function (res) {
+                                return {
+                                    "value": res.BHospital_Id //数据值
+                                    , "title": "(" + res.BHospital_HospitalCode + ")" + res.BHospital_Name
+                                    , "disabled": false  //是否禁用
+                                    , "checked": false //是否选中
+                                }
+                            }
+                            , title: ["待选医院", "已选医院"]
+                            , showSearch: true
+                            , width:365
+                        })
+
+                    } else {
+
+                    }
+                }
+            });
+            $("#submit_button").on("click", function () {
+                var getData = transfer.getData('demo1');
+                if (getData && getData.length > 0) {
+                    var entitylist = [];
+                    for (var i = 0; i < getData.length; i++) {
+                        var entity = {
+                            HospitalID: getData[i].value,
+                            EmpID: EMPID,
+                            IsUse:1
+                        }
+                        entitylist.push(entity);
+                    }
+                    $.ajax({
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            entity: entitylist
+                        }),
+                        url: SAVE_EMPHOSPITAL_URL,
+                        success: function (data) {
+                            if (data.success == true) {
+                                parent.layer.closeAll('iframe');
+                                parent.loadHospitalListByEmpId(EMPID);
+
+                            } else {
+                                layer.msg('错误：' + data.ErrorInfo);
+                            }
+                        }
+                    });
+                }
+                else {
+                    parent.layer.closeAll('iframe');
+                    parent.loadHospitalListByEmpId(EMPID);
+                }
+
+            });
+        });
+    </script>
+    <script type="text/javascript" src="../../../../ux/util.js"></script>
+</body>
+</html>

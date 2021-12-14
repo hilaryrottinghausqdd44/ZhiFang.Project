@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodRecei" table="[dbo].[Blood_Recei]">
+    <id name="Id" column="[BarCode]" type="String">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="PatID" column="[PatID]" type="String" not-null="false" length="50" />
+    <property name="PatNo" column="[PatNo]" type="String" not-null="false" length="20" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="50" />
+    <property name="Patsex" column="[patsex]" type="String" not-null="false" length="10" />
+    <property name="PatAge" column="[patAge]" type="String" not-null="false" length="20" />
+    <property name="DeptNo" column="[deptNo]" type="String" not-null="false" length="20" />
+    <property name="BisbarCode" column="[BisbarCode]" type="String" not-null="false" length="50" />
+    <property name="CollectDate" column="[CollectDate]" type="DateTime" not-null="false" length="8" />
+    <property name="Receidate" column="[Receidate]" type="DateTime" not-null="false" length="8" />
+    <property name="SUserID" column="[sUserID]" type="String" not-null="false" length="50" />
+    <property name="SampleState" column="[SampleState]" type="String" not-null="false" length="50" />
+    <property name="Scanflag" column="[Scanflag]" type="Int32" not-null="false" length="4" />
+    <property name="DeliveryID" column="[deliveryID]" type="String" not-null="false" length="20" />
+    <property name="Deliveryflag" column="[deliveryflag]" type="Int32" not-null="false" length="4" />
+    <property name="Scandate" column="[scandate]" type="DateTime" not-null="false" length="8" />
+    <property name="StandNo" column="[StandNo]" type="String" not-null="false" length="10" />
+    <property name="FrameNo" column="[FrameNo]" type="String" not-null="false" length="10" />
+    <property name="BitNo" column="[BitNo]" type="String" not-null="false" length="10" />
+    <property name="StandOperator" column="[StandOperator]" type="String" not-null="false" length="50" />
+    <property name="StandOperateTime" column="[StandOperateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="StandOperatorName" column="[StandOperatorName]" type="String" not-null="false" length="50" />
+    <property name="ExpirationTime" column="[ExpirationTime]" type="DateTime" not-null="false" length="8" />
+    <property name="AboComparedFlag" column="[AboComparedFlag]" type="String" not-null="false" length="50" />
+    <property name="LisAboCheckDateTime" column="[LisAboCheckDateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="LisReViewAboCheckDateTime" column="[LisReViewAboCheckDateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="LisAboResult" column="[LisAboResult]" type="String" not-null="false" length="20" />
+    <property name="LisReViewAboResult" column="[LisReViewAboResult]" type="String" not-null="false" length="20" />
+    <property name="BSourceId" column="[BSourceId]" type="String" not-null="false" length="20" />
+    <property name="AboReportDesc" column="[AboReportDesc]" type="String" not-null="false" length="20" />
+    <property name="RhReportDesc" column="[RhReportDesc]" type="String" not-null="false" length="20" />
+    <property name="ReViewAboReportDesc" column="[ReViewAboReportDesc]" type="String" not-null="false" length="20" />
+    <property name="ReViewRHReportDesc" column="[ReViewRHReportDesc]" type="String" not-null="false" length="20" />
+    <property name="Printflag" column="[Printflag]" type="Int32" not-null="false" length="4" />
+    <property name="PrintTime" column="[PrintTime]" type="DateTime" not-null="false" length="8" />
+
+    <property name="VisitID" column="[visit_ID]" type="String" not-null="false" length="10" />
+    <property name="ReViewAboRhCheckId" column="[ReViewAboRhCheckId]" type="String" not-null="false" length="10" />
+    <property name="Patindate" column="[Patindate]" type="DateTime" not-null="false" length="8" />
+    <property name="IsCharge" column="[IsCharge]" type="Int32" not-null="false" length="4" />
+    <property name="BrsampleNo" column="[brsampleNo]" type="String" not-null="false" length="20" />
+    <property name="BrSampledate" column="[brSampledate]" type="DateTime" not-null="false" length="8" />
+    <property name="ReViewReportType" column="[ReViewReportType]" type="String" not-null="false" length="50" />
+   
+    <property name="BisbarCodeCreateTime" column="[BisbarCodeCreateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="YqCode" column="[yqCode]" type="String" not-null="false" length="20" />
+    <property name="PstNo" column="[PstNo]" type="String" not-null="false" length="20" />
+    <property name="AstNo" column="[AstNo]" type="String" not-null="false" length="20" />
+    <property name="AntiNo" column="[AntiNo]" type="String" not-null="false" length="20" />
+    <property name="BPreWayNo" column="[BPreWayNo]" type="String" not-null="false" length="20" />
+    <property name="BReqTypeID" column="[BReqTypeID]" type="String" not-null="false" length="20" />
+    <property name="DoctorCode" column="[DoctorCode]" type="String" not-null="false" length="20" />
+    <property name="AboReportDescImage" column="[AboReportDescImage]" type="Byte[]" not-null="false" length="16" />
+    <property name="RhReportDescImage" column="[RhReportDescImage]" type="Byte[]" not-null="false" length="16" />
+    <property name="AboReportDescDemoNoList" column="[AboReportDescDemoNoList]" type="String" not-null="false" length="50" />
+    <property name="AboReportDescDemoNameList" column="[AboReportDescDemoNameList]" type="String" not-null="false" length="200" />
+    <property name="RhReportDescDemoNoList" column="[RhReportDescDemoNoList]" type="String" not-null="false" length="50" />
+    <property name="RhReportDescDemoNameList" column="[RhReportDescDemoNameList]" type="String" not-null="false" length="200" />
+    <property name="SrResult1Image" column="[srResult1Image]" type="Byte[]" not-null="false" length="16" />
+    <property name="SrResult2Image" column="[srResult2Image]" type="Byte[]" not-null="false" length="16" />
+    <property name="SrResult1DemoNoList" column="[srResult1DemoNoList]" type="String" not-null="false" length="50" />
+    <property name="SrResult1DemoNameList" column="[srResult1DemoNameList]" type="String" not-null="false" length="200" />
+    <property name="SrResult2DemoNoList" column="[srResult2DemoNoList]" type="String" not-null="false" length="50" />
+    <property name="SrResult2DemoNameList" column="[srResult2DemoNameList]" type="String" not-null="false" length="200" />
+    <property name="Invalidflag" column="[invalidflag]" type="String" not-null="false" length="10" />
+    <property name="Sex" column="[sex]" type="String" not-null="false" length="10" />
+    <property name="AgeALL" column="[ageALL]" type="String" not-null="false" length="20" />
+    <property name="Bed" column="[bed]" type="String" not-null="false" length="20" />
+    <property name="NurseSender" column="[NurseSender]" type="String" not-null="false" length="20" />
+    <property name="NurseSendTime" column="[NurseSendTime]" type="String" not-null="false" length="20" />
+    <property name="InceptID" column="[InceptID]" type="String" not-null="false" length="20" />
+    <property name="Incepter" column="[incepter]" type="String" not-null="false" length="20" />
+    <property name="InceptTime" column="[inceptTime]" type="String" not-null="false" length="20" />
+    <property name="ZDY1" column="[ZDY1]" type="String" not-null="false" length="20" />
+    <property name="ZDY2" column="[ZDY2]" type="String" not-null="false" length="20" />
+    <property name="ZDY3" column="[ZDY3]" type="String" not-null="false" length="20" />
+    <property name="ZDY4" column="[ZDY4]" type="String" not-null="false" length="20" />
+    <property name="ZDY5" column="[ZDY5]" type="String" not-null="false" length="20" />
+    <property name="ReViewAboReportDescDemo" column="[ReViewAboReportDescDemo]" type="String" not-null="false" length="100" />
+    <property name="ReViewRhReportDescDemo" column="[ReViewRhReportDescDemo]" type="String" not-null="false" length="100" />
+    <property name="IFlag1" column="[IFlag1]" type="String" not-null="false" length="5" />
+    <property name="IFlag2" column="[IFlag2]" type="String" not-null="false" length="5" />
+    <property name="IFlag3" column="[IFlag3]" type="String" not-null="false" length="5" />
+    <property name="IFlag4" column="[IFlag4]" type="String" not-null="false" length="5" />
+    <property name="IFlag5" column="[IFlag5]" type="String" not-null="false" length="5" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+
+    <!--<property name="RefuseNo" column="[refuseNo]" type="String" not-null="false" length="20" />
+    <property name="RefuseDisposeNo" column="[refuseDisposeNo]" type="String" not-null="false" length="20" />
+    <property name="BindBreqFormID" column="[BindBreqFormID]" type="String" not-null="false" length="50" />-->
+    <many-to-one name="Bloodrefuse" class="Bloodrefuse" lazy="proxy" >
+      <column name="[RefuseNo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodrefuseDispose" class="BloodrefuseDispose" lazy="proxy" >
+      <column name="[RefuseDisposeNo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodBReqForm" class="BloodBReqForm" lazy="proxy" >
+      <column name="[BindBreqFormID]" not-null="false"/>
+    </many-to-one>
+    
+  </class>
+</hibernate-mapping>

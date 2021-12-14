@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodBagABOCheck" table="[dbo].[Blood_BagABOCheck]">
+    <id name="Id" column="[BInItemID]" type="String">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="BloodInId" column="[BloodInId]" type="String" not-null="false" length="20" />
+    <property name="ReCheckID" column="[ReCheckID]" type="String" not-null="false" length="20" />
+    <property name="ReCheckTime" column="[ReCheckTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ReCheckFlag" column="[ReCheckFlag]" type="Int32" not-null="false" length="4" />
+    <property name="ReCheckResult" column="[ReCheckResult]" type="Int32" not-null="false" length="4" />
+    <property name="ScanTime" column="[ScanTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Demo" column="[Demo]" type="String" not-null="false" length="500" />
+    <property name="LisAbo" column="[LisAbo]" type="String" not-null="false" length="20" />
+    <property name="LisRh" column="[LisRh]" type="String" not-null="false" length="20" />
+    <property name="LogDemo" column="[LogDemo]" type="String" not-null="false" length="500" />   
+    <property name="B3code" column="[b3code]" type="String" not-null="false" length="50" />
+    <property name="Pcode" column="[pcode]" type="String" not-null="false" length="20" />
+    <property name="Bcount" column="[bcount]" type="String" not-null="false" length="20" />
+    <property name="Bbagcode" column="[bbagcode]" type="String" not-null="false" length="20" />
+    <property name="BloodStrongFlag" column="[BloodStrongFlag]" type="String" not-null="false" length="20" />
+    <property name="BloodStrongTime" column="[BloodStrongTime]" type="String" not-null="false" length="20" />
+    <property name="BloodStrongUserID" column="[BloodStrongUserID]" type="String" not-null="false" length="20" />
+    <property name="BloodStrongID" column="[BloodStrongID]" type="String" not-null="false" length="20" />
+    <property name="BloodStrongBloodAboNo" column="[BloodStrongBloodAboNo]" type="String" not-null="false" length="20" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+
+    <!--
+    <property name="BloodAboNo" column="[BloodAboNo]" type="String" not-null="false" length="20" />
+    <property name="ReBloodAboNo" column="[ReBloodAboNo]" type="String" not-null="false" length="20" />
+    <property name="BloodNo" column="[BloodNo]" type="String" not-null="false" length="20" />
+    -->
+    <many-to-one name="Bloodstyle" class="Bloodstyle" lazy="proxy" >
+      <column name="[BloodNo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodBUnit" class="BloodBUnit" lazy="proxy" >
+      <column name="[BloodUnitNo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodABO" class="BloodABO" lazy="proxy" >
+      <column name="[BloodABONo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="ReBloodABO" class="BloodABO" lazy="proxy" >
+      <column name="[ReBloodAboNo]" not-null="false"/>
+    </many-to-one>
+
+  </class>
+</hibernate-mapping>

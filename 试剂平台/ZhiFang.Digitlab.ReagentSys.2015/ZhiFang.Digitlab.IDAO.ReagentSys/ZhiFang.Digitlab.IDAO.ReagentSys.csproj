@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{304BE69E-EB4C-4FF2-96F3-6A14DEE963DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Digitlab.IDAO.ReagentSys</RootNamespace>
+    <AssemblyName>ZhiFang.Digitlab.IDAO.ReagentSys</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDBmsCenOrderDocDao.cs" />
+    <Compile Include="IDBmsCenOrderDocHistoryDao.cs" />
+    <Compile Include="IDBmsCenOrderDtlDao.cs" />
+    <Compile Include="IDBmsCenOrderDtlHistoryDao.cs" />
+    <Compile Include="IDBmsCenSaleDocConfirmDao.cs" />
+    <Compile Include="IDReaBmsInDocDao.cs" />
+    <Compile Include="IDReaBmsTransferDtlDao.cs" />
+    <Compile Include="IDReaBmsTransferDocDao.cs" />
+    <Compile Include="IDReaChooseGoodsTemplateDao.cs" />
+    <Compile Include="IDReaCenBarCodeFormatDao.cs" />
+    <Compile Include="IDReaBmsOutDtlDao.cs" />
+    <Compile Include="IDReaBmsQtyDtlDao.cs" />
+    <Compile Include="IDBmsCenSaleDocDao.cs" />
+    <Compile Include="IDBmsCenSaleDocHistoryDao.cs" />
+    <Compile Include="IDBmsCenSaleDtlConfirmDao.cs" />
+    <Compile Include="IDBmsCenSaleDtlDao.cs" />
+    <Compile Include="IDBmsCenSaleDtlHistoryDao.cs" />
+    <Compile Include="IDCenMsgDao.cs" />
+    <Compile Include="IDCenOrgConditionDao.cs" />
+    <Compile Include="IDCenOrgDao.cs" />
+    <Compile Include="IDCenOrgTypeDao.cs" />
+    <Compile Include="IDCenQtyDtlDao.cs" />
+    <Compile Include="IDCenQtyDtlTempDao..cs" />
+    <Compile Include="IDCenQtyDtlTempHistoryDao.cs" />
+    <Compile Include="IDReaBmsReqDocDao.cs" />
+    <Compile Include="IDReaGoodsRegisterDao.cs" />
+    <Compile Include="IDReaGoodsLotDao.cs" />
+    <Compile Include="IDReaDeptGoodsDao.cs" />
+    <Compile Include="IDReaBmsInDtlDao.cs" />
+    <Compile Include="IDReaPlaceDao.cs" />
+    <Compile Include="IDReaCheckInOperationDao.cs" />
+    <Compile Include="IDReaGoodsBarcodeOperationDao.cs" />
+    <Compile Include="IDReaReqOperationDao.cs" />
+    <Compile Include="IDReaStorageDao.cs" />
+    <Compile Include="IDReaBmsReqDtlDao.cs" />
+    <Compile Include="IDReaGoodsDao.cs" />
+    <Compile Include="IDGoodsDao.cs" />
+    <Compile Include="IDReaGoodsUnitDao.cs" />
+    <Compile Include="IDReaGoodsOrgLinkDao.cs" />
+    <Compile Include="IDGoodsQualificationrDao.cs" />
+    <Compile Include="IDReaCenOrgDao.cs" />
+    <Compile Include="IDTestEquipLabDao.cs" />
+    <Compile Include="IDTestEquipProdDao.cs" />
+    <Compile Include="IDTestEquipTypeDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IDBmsCenSaleDtlBarCodeDao.cs" />
+    <Compile Include="IDDBStoredProcedureDao.cs" />
+    <Compile Include="IDFFeedbackDao.cs" />
+    <Compile Include="IDGoodsRegisterDao.cs" />
+    <Compile Include="IDBmsAccountInputDao.cs" />
+    <Compile Include="IDBmsAccountSaleDocDao.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity.ReagentSys\ZhiFang.Digitlab.Entity.ReagentSys.csproj">
+      <Project>{9C953320-BFFA-4FF3-A1EC-AD2B0836121C}</Project>
+      <Name>ZhiFang.Digitlab.Entity.ReagentSys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity\ZhiFang.Digitlab.Entity.csproj">
+      <Project>{D9AFA74E-62BF-474D-AC0D-FD04F361D0A4}</Project>
+      <Name>ZhiFang.Digitlab.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IDAO\ZhiFang.Digitlab.IDAO.csproj">
+      <Project>{963308BE-C1E7-430F-8E7F-D3C9033C3E29}</Project>
+      <Name>ZhiFang.Digitlab.IDAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

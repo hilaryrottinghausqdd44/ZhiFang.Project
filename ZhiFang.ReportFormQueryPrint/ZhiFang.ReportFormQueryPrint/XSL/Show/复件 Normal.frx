@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/15/2011 15:27:03" ReportInfo.Modified="04/18/2011 11:44:55" ReportInfo.CreatorVersion="1.6.14.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void TextSickType_BeforePrint(object sender, EventArgs e)
+    {
+      
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8SnG74qIkl2nmG3HhlGq/Ifpt5cB0w5Mpzf5MvY88dkMe3Bs6RbiDzGjHaXKWKSphJW2NWnlyqT9qdbzLriEtgAhTJ6ssp27Lm1DDODORFKHJzQDQl1rT7xfKkO19T9KgE349OyYlth6PA5fUeRfGQ/A0u+WZvdgxI+t6IESU3KmcIJJJ4Y3jDqsltRazNeC+Q==">
+      <TableDataSource Name="Table" Alias="frform" DataType="System.Int32" Enabled="true" SelectCommand="select a.FormNo, Convert(varchar(10),a.ReceiveDate,21) as ReceiveDate, &#13;&#10;a.SectionNo, a.TestTypeNo, a.SampleNo, a.StatusNo, a.SampleTypeNo, a.PatNo, a.CName, a.GenderNo, a.Birthday, a.Age, a.AgeUnitNo, a.FolkNo, a.DistrictNo, a.WardNo, a.Bed, a.DeptNo, a.Doctor, a.ChargeNo, a.Charge, a.Collecter, &#13;&#10;Convert(varchar(10),a.CollectDate,21) as CollectDate,&#13;&#10;Convert(varchar(10),a.CollectTime,24) as CollectTime,&#13;&#10;a.FormMemo, a.Technician,&#13;&#10;Convert(varchar(10),a.TestDate,21) as TestDate ,&#13;&#10;Convert(varchar(10),a.TestTime,24) as TestTime,&#13;&#10;a.Operator, &#13;&#10;Convert(varchar(10),a.OperDate,21) as OperDate,&#13;&#10;Convert(varchar(10),a.OperTime,24) as OperTime,&#13;&#10;a.Checker, &#13;&#10;Convert(varchar(10),a.CheckDate,21) as CheckDate,&#13;&#10;Convert(varchar(10),a.CheckTime,24) as CheckTime,&#13;&#10;a.SerialNo,a.BarCode,a.RequestSource, a.DiagNo, a.PrintTimes, a.SickTypeNo, a.FormComment, a.zdy1, a.zdy2, a.zdy3, a.zdy4, a.zdy5, Convert(varchar(10),a.inceptdate,21) as inceptdate,&#13;&#10;Convert(varchar(10),a.incepttime,24) as incepttime,&#13;&#10;a.incepter, &#13;&#10;Convert(varchar(10),a.onlinedate,21) as onlinedate,&#13;&#10;Convert(varchar(10),a.onlinetime,24) as onlinetime,&#13;&#10;a.bmanno, a.clientno, a.chargeflag,&#13;&#10;&#13;&#10;a.resultprinttimes, a.paritemname, a.clientprint, a.resultsend, a.reportsend,a.CountNodesFormSource, a.commsendflag, a.PrintDateTime, a.PrintOper,a.isReceive, a.ReceiveMan, a.ReceiveTime, a.concessionNum, a.resultstatus, a.testaim, a.zdy6,&#13;&#10;                          (SELECT     CName&#13;&#10;                            FROM          dbo.AgeUnit&#13;&#10;                            WHERE      (AgeUnitNo = a.AgeUnitNo)) AS AgeUnitName,&#13;&#10;                          (SELECT     CName&#13;&#10;                            FROM          dbo.GenderType&#13;&#10;                            WHERE      (GenderNo = a.GenderNo)) AS GenderName,&#13;&#10;                          (SELECT     CName&#13;&#10;                            FROM          dbo.Department&#13;&#10;                            WHERE      (DeptNo = a.DeptNo)) AS DeptName, a.Doctor AS DoctorName,&#13;&#10;							(SELECT     CName&#13;&#10;                            FROM          dbo.Diagnosis&#13;&#10;                            WHERE      (DiagNo = a.DiagNo)) AS DiagDescribe,&#13;&#10;                          (SELECT     CName&#13;&#10;                            FROM          dbo.District&#13;&#10;                            WHERE      (DistrictNo = a.DistrictNo)) AS DistrictName,&#13;&#10;                          (SELECT     CName&#13;&#10;                            FROM          dbo.WardType&#13;&#10;                            WHERE      (WardNo = a.WardNo)) AS WardName,&#13;&#10;                          (SELECT     CName&#13;&#10;                            FROM          dbo.FolkType&#13;&#10;                            WHERE      (FolkNo = a.FolkNo)) AS FolkName,&#13;&#10;                          (SELECT     CName&#13;&#10;                            FROM          dbo.SickType&#13;&#10;                            WHERE      (SickTypeNo = a.SickTypeNo)) AS SickTypeName,&#13;&#10;                          (SELECT     CName&#13;&#10;                            FROM          dbo.SampleType&#13;&#10;                            WHERE      (SampleTypeNo = a.SampleTypeNo)) AS SampleTypeName,&#13;&#10; dbo.CLIENTELE.CNAME AS ClientName&#13;&#10;FROM         dbo.ReportForm AS a left outer JOIN&#13;&#10;                      dbo.CLIENTELE ON a.clientno = dbo.CLIENTELE.ClIENTNO&#13;&#10;where a.FormNo=35">
+        <Column Name="FormNo" DataType="System.Int32"/>
+        <Column Name="ReceiveDate" DataType="System.String"/>
+        <Column Name="SectionNo" DataType="System.Int32"/>
+        <Column Name="TestTypeNo" DataType="System.Int32"/>
+        <Column Name="SampleNo" DataType="System.String"/>
+        <Column Name="StatusNo" DataType="System.Int32"/>
+        <Column Name="SampleTypeNo" DataType="System.Int32"/>
+        <Column Name="PatNo" DataType="System.String"/>
+        <Column Name="CName" DataType="System.String"/>
+        <Column Name="GenderNo" DataType="System.Int32"/>
+        <Column Name="Birthday" DataType="System.DateTime"/>
+        <Column Name="Age" DataType="System.Double"/>
+        <Column Name="AgeUnitNo" DataType="System.Int32"/>
+        <Column Name="FolkNo" DataType="System.Int32"/>
+        <Column Name="DistrictNo" DataType="System.Int32"/>
+        <Column Name="WardNo" DataType="System.Int32"/>
+        <Column Name="Bed" DataType="System.String"/>
+        <Column Name="DeptNo" DataType="System.Int32"/>
+        <Column Name="Doctor" DataType="System.String"/>
+        <Column Name="ChargeNo" DataType="System.Int32"/>
+        <Column Name="Charge" DataType="System.Decimal"/>
+        <Column Name="Collecter" DataType="System.String"/>
+        <Column Name="CollectDate" DataType="System.String"/>
+        <Column Name="CollectTime" DataType="System.String"/>
+        <Column Name="FormMemo" DataType="System.String"/>
+        <Column Name="Technician" DataType="System.String"/>
+        <Column Name="TestDate" DataType="System.String"/>
+        <Column Name="TestTime" DataType="System.String"/>
+        <Column Name="Operator" DataType="System.String"/>
+        <Column Name="OperDate" DataType="System.String"/>
+        <Column Name="OperTime" DataType="System.String"/>
+        <Column Name="Checker" DataType="System.String"/>
+        <Column Name="CheckDate" DataType="System.String"/>
+        <Column Name="CheckTime" DataType="System.String"/>
+        <Column Name="SerialNo" DataType="System.String"/>
+        <Column Name="BarCode" DataType="System.String"/>
+        <Column Name="RequestSource" DataType="System.String"/>
+        <Column Name="DiagNo" DataType="System.Int32"/>
+        <Column Name="PrintTimes" DataType="System.Int32"/>
+        <Column Name="SickTypeNo" DataType="System.Int32"/>
+        <Column Name="FormComment" DataType="System.String"/>
+        <Column Name="zdy1" DataType="System.String"/>
+        <Column Name="zdy2" DataType="System.String"/>
+        <Column Name="zdy3" DataType="System.String"/>
+        <Column Name="zdy4" DataType="System.String"/>
+        <Column Name="zdy5" DataType="System.String"/>
+        <Column Name="inceptdate" DataType="System.String"/>
+        <Column Name="incepttime" DataType="System.String"/>
+        <Column Name="incepter" DataType="System.String"/>
+        <Column Name="onlinedate" DataType="System.String"/>
+        <Column Name="onlinetime" DataType="System.String"/>
+        <Column Name="bmanno" DataType="System.Int32"/>
+        <Column Name="clientno" DataType="System.Int32"/>
+        <Column Name="chargeflag" DataType="System.String"/>
+        <Column Name="resultprinttimes" DataType="System.Int32"/>
+        <Column Name="paritemname" DataType="System.String"/>
+        <Column Name="clientprint" DataType="System.String"/>
+        <Column Name="resultsend" DataType="System.String"/>
+        <Column Name="reportsend" DataType="System.String"/>
+        <Column Name="CountNodesFormSource" DataType="System.String"/>
+        <Column Name="commsendflag" DataType="System.Int32"/>
+        <Column Name="PrintDateTime" DataType="System.DateTime"/>
+        <Column Name="PrintOper" DataType="System.String"/>
+        <Column Name="isReceive" DataType="System.Int32"/>
+        <Column Name="ReceiveMan" DataType="System.String"/>
+        <Column Name="ReceiveTime" DataType="System.DateTime"/>
+        <Column Name="concessionNum" DataType="System.String"/>
+        <Column Name="resultstatus" DataType="System.Int32"/>
+        <Column Name="testaim" DataType="System.String"/>
+        <Column Name="zdy6" DataType="System.String"/>
+        <Column Name="AgeUnitName" DataType="System.String"/>
+        <Column Name="GenderName" DataType="System.String"/>
+        <Column Name="DeptName" DataType="System.String"/>
+        <Column Name="DoctorName" DataType="System.String"/>
+        <Column Name="DiagDescribe" DataType="System.String"/>
+        <Column Name="DistrictName" DataType="System.String"/>
+        <Column Name="WardName" DataType="System.String"/>
+        <Column Name="FolkName" DataType="System.String"/>
+        <Column Name="SickTypeName" DataType="System.String"/>
+        <Column Name="SampleTypeName" DataType="System.String"/>
+        <Column Name="ClientName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table1" Alias="fritem" DataType="System.Int32" Enabled="true" SelectCommand="SELECT     dbo.ReportForm.FormNo, dbo.ReportForm.ClientNo, TestItem_2.CName AS TestItemName, TestItem_2.ShortName AS TestItemSName, dbo.ReportForm.ReceiveDate, &#13;&#10;dbo.ReportForm.SectionNo, dbo.ReportForm.TestTypeNo, dbo.ReportForm.SampleNo, dbo.ReportItem.ParItemNo, dbo.ReportItem.ItemNo,dbo.ReportItem.HisValue,dbo.ReportItem.HisComp,&#13;&#10;dbo.ReportItem.OriginalValue, dbo.ReportItem.ReportValue, dbo.ReportItem.OriginalDesc, dbo.ReportItem.ReportDesc, dbo.ReportItem.StatusNo, &#13;&#10;dbo.ReportItem.EquipNo, dbo.ReportItem.Modified, dbo.ReportItem.RefRange, dbo.ReportItem.ItemDate, dbo.ReportItem.ItemTime, &#13;&#10;dbo.ReportItem.IsMatch, dbo.ReportItem.ResultStatus, CONVERT(varchar(10), dbo.ReportItem.ItemDate, 120) + ' ' + CONVERT(varchar(8), &#13;&#10;dbo.ReportItem.ItemTime, 114) AS TestItemDateTime, ISNULL(dbo.ReportItem.ReportDesc, '') + ISNULL(CONVERT(VARCHAR(50), &#13;&#10;dbo.ReportItem.ReportValue), '') AS ReportValueAll, TestItem_1.CName AS ParItemName, TestItem_1.ShortName AS ParItemSName, &#13;&#10;TestItem_2.DispOrder, TestItem_2.DispOrder AS ItemOrder, TestItem_2.Unit, dbo.ReportForm.SerialNo, dbo.ReportForm.zdy1,&#13;&#10;&#13;&#10;dbo.ReportForm.zdy2 AS OldSerialNlo, dbo.ReportForm.zdy3, dbo.ReportForm.zdy5, dbo.ReportForm.zdy4, TestItem_2.OrderNo AS HisOrderNo, &#13;&#10;dbo.ReportForm.Technician, dbo.ReportForm.Checker, CONVERT(varchar(10), dbo.ReportForm.CheckDate, 120) + ' ' + CONVERT(varchar(8), &#13;&#10;dbo.ReportForm.CheckTime, 114) AS checkdatetime&#13;&#10;FROM         dbo.ReportItem INNER JOIN&#13;&#10;dbo.ReportForm ON dbo.ReportItem.FormNo = dbo.ReportForm.FormNo LEFT OUTER JOIN&#13;&#10;dbo.TestItem AS TestItem_1 ON dbo.ReportItem.ParItemNo = TestItem_1.ItemNo LEFT OUTER JOIN&#13;&#10;dbo.TestItem AS TestItem_2 ON dbo.ReportItem.ItemNo = TestItem_2.ItemNo&#13;&#10;where ReportItem.FormNo=35">
+        <Column Name="FormNo" DataType="System.Int32"/>
+        <Column Name="ClientNo" DataType="System.Int32"/>
+        <Column Name="TestItemName" DataType="System.String"/>
+        <Column Name="TestItemSName" DataType="System.String"/>
+        <Column Name="ReceiveDate" DataType="System.DateTime"/>
+        <Column Name="SectionNo" DataType="System.Int32"/>
+        <Column Name="TestTypeNo" DataType="System.Int32"/>
+        <Column Name="SampleNo" DataType="System.String"/>
+        <Column Name="ParItemNo" DataType="System.Int32"/>
+        <Column Name="ItemNo" DataType="System.Int32"/>
+        <Column Name="HisValue" DataType="System.String"/>
+        <Column Name="HisComp" DataType="System.String"/>
+        <Column Name="OriginalValue" DataType="System.Double"/>
+        <Column Name="ReportValue" DataType="System.Double"/>
+        <Column Name="OriginalDesc" DataType="System.String"/>
+        <Column Name="ReportDesc" DataType="System.String"/>
+        <Column Name="StatusNo" DataType="System.Int32"/>
+        <Column Name="EquipNo" DataType="System.Int32"/>
+        <Column Name="Modified" DataType="System.Int32"/>
+        <Column Name="RefRange" DataType="System.String"/>
+        <Column Name="ItemDate" DataType="System.DateTime"/>
+        <Column Name="ItemTime" DataType="System.DateTime"/>
+        <Column Name="IsMatch" DataType="System.Int32"/>
+        <Column Name="ResultStatus" DataType="System.String"/>
+        <Column Name="TestItemDateTime" DataType="System.String"/>
+        <Column Name="ReportValueAll" DataType="System.String"/>
+        <Column Name="ParItemName" DataType="System.String"/>
+        <Column Name="ParItemSName" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="ItemOrder" DataType="System.Int32"/>
+        <Column Name="Unit" DataType="System.String"/>
+        <Column Name="SerialNo" DataType="System.String"/>
+        <Column Name="zdy1" DataType="System.String"/>
+        <Column Name="zdy3" DataType="System.String"/>
+        <Column Name="zdy5" DataType="System.String"/>
+        <Column Name="zdy4" DataType="System.String"/>
+        <Column Name="HisOrderNo" DataType="System.String"/>
+        <Column Name="Technician" DataType="System.String"/>
+        <Column Name="Checker" DataType="System.String"/>
+        <Column Name="checkdatetime" DataType="System.String"/>
+        <Column Name="OldSerialNlo" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="0" TopMargin="2" RightMargin="0">
+    <ReportTitleBand Name="ReportTitle1" Width="793.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="4" Width="793.8"/>
+    <DataBand Name="Data1" Top="8" Width="793.8" Height="113.4" DataSource="Table">
+      <SubreportObject Name="Subreport1" Width="614.25" Height="113.4" ReportPage="Page2"/>
+      <SubreportObject Name="Subreport2" Left="614.25" Width="179.55" Height="113.4" ReportPage="Page3"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="125.4" Width="793.8" Height="43.47"/>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <DataBand Name="Data2" Top="22.9" Width="718.2" Height="28.35" DataSource="Table1">
+      <TextObject Name="Text33" Left="37.8" Width="122.85" Height="18.9" Text="[fritem.TestItemName]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text34" Left="160.65" Width="56.7" Height="18.9" Text="[fritem.TestItemSName]&#13;&#10;" Font="宋体, 9pt"/>
+      <TextObject Name="TextItemUnit" Left="292.95" Width="47.25" Height="18.9" Text="[fritem.Unit]" Font="宋体, 9pt"/>
+      <TextObject Name="Text1" Left="226.8" Width="66.15" Height="18.9" Text="[fritem.ReportValue]" Font="宋体, 9pt"/>
+      <TextObject Name="Text2" Left="340.2" Width="66.15" Height="18.9" Text="[fritem.RefRange]" Font="宋体, 9pt"/>
+      <DataHeaderBand Name="DataHeader1" Width="718.2" Height="18.9">
+        <TextObject Name="Text25" Left="170.1" Width="56.7" Height="18.9" Text="简称" Font="宋体, 9pt"/>
+        <TextObject Name="Text31" Left="425.25" Width="66.15" Height="18.9" Text="单位&#13;&#10;" Font="宋体, 9pt"/>
+        <TableObject Name="Table3" Width="604.8" Height="18.9" Fill.Color="CornflowerBlue">
+          <TableColumn Name="Column2" Width="37.8"/>
+          <TableColumn Name="Column3" Width="122.85"/>
+          <TableColumn Name="Column4"/>
+          <TableColumn Name="Column5"/>
+          <TableColumn Name="Column6" Width="47.25"/>
+          <TableColumn Name="Column7"/>
+          <TableColumn Name="Column8"/>
+          <TableColumn Name="Column9"/>
+          <TableColumn Name="Column10"/>
+          <TableRow Name="Row25">
+            <TableCell Name="Cell60" Text="状态" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold" TabWidth="10"/>
+            <TableCell Name="Cell61" Text="检验项目" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell62" Text="英文名称" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell63" Text="结果" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell64" Text="单位" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell65" Text="参考值" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell66" Text="历史结果" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell67" Text="历史比值" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell68" Text="组合项目" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page3">
+    <DataBand Name="Data3" Width="718.2" Height="510.3">
+      <TableObject Name="Table2" Width="151.2" Height="453.6">
+        <TableColumn Name="Column1" Width="151.2"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Fill.Color="LightGray" Text="医嘱信息" Font="宋体, 11pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6" Padding="2, 10, 2, 1" VertAlign="Center" Font="宋体, 9pt">
+            <TextObject Name="Text4" Left="3.78" Width="69.93" Height="17.01" Text="姓    名：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="TextCName" Left="66.15" Width="107.73" Height="17.01" Text="[frform.CName]" Font="宋体, 11pt, style=Bold"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell11" Font="宋体, 9pt">
+            <TextObject Name="Text5" Left="3.78" Width="69.93" Height="17.01" Text="性    别：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="Text21" Left="66.15" Width="69.93" Height="17.01" Text="[frform.GenderName]" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell16" Font="宋体, 9pt">
+            <TextObject Name="Text6" Left="3.78" Width="69.93" Height="17.01" Text="年    龄：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="Text22" Left="66.15" Width="69.93" Height="17.01" Text="[frform.Age]  [frform.AgeUnitName]" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell21" Font="宋体, 9pt">
+            <TextObject Name="Text7" Left="3.78" Width="69.93" Height="17.01" Text="样 本 号：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="Text23" Left="66.15" Width="69.93" Height="17.01" Text="[frform.SampleNo]" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell23" Font="宋体, 9pt">
+            <TextObject Name="TextSickType" Left="3.78" Width="69.93" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" Font="宋体, 9pt"/>
+            <TextObject Name="TextPatNo" Left="66.15" Width="79.38" Height="17.01" Text="[frform.PatNo]" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row7">
+          <TableCell Name="Cell25" Font="宋体, 9pt">
+            <TextObject Name="Text9" Left="3.78" Width="69.93" Height="17.01" Text="科    别：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="TextDept" Left="66.15" Width="79.38" Height="17.01" Text="[frform.DeptName]" Font="宋体, 10pt, style=Bold"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row8">
+          <TableCell Name="Cell27" Font="宋体, 9pt">
+            <TextObject Name="Text10" Left="3.78" Width="69.93" Height="17.01" Text="床    号： &#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="TextBed" Left="66.15" Width="79.38" Height="17.01" Text="[frform.Bed]" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row9">
+          <TableCell Name="Cell29" Font="宋体, 9pt">
+            <TextObject Name="Text11" Left="3.78" Width="69.93" Height="17.01" Text="备    注：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="TextFormMemo" Left="66.15" Width="126.63" Height="17.01" Text="[frform.FormMemo]&#13;&#10;" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row10">
+          <TableCell Name="Cell31" Font="宋体, 9pt">
+            <TextObject Name="Text12" Left="3.78" Width="69.93" Height="17.01" Text="报告编号：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="TextSerialNo" Left="66.15" Width="79.38" Height="17.01" Text="[frform.SerialNo]" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row11">
+          <TableCell Name="Cell33" Font="宋体, 9pt">
+            <TextObject Name="Text13" Left="3.78" Width="69.93" Height="17.01" Text="标本种类：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="TextSampleType" Left="66.15" Width="79.38" Height="17.01" Text="[frform.SampleTypeName]" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row12">
+          <TableCell Name="Cell35" Font="宋体, 9pt">
+            <TextObject Name="Text14" Left="3.78" Width="69.93" Height="17.01" Text="临床诊断：" Font="宋体, 9pt"/>
+            <TextObject Name="TextDiagnose" Left="66.15" Width="183.33" Height="17.01" Text="[frform.DiagDescribe]&#13;&#10;" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row13">
+          <TableCell Name="Cell37" Font="宋体, 9pt">
+            <TextObject Name="Text16" Left="3.78" Width="69.93" Height="17.01" Text="送检单位：" Font="宋体, 9pt"/>
+            <TextObject Name="Textclient" Left="66.15" Width="164.43" Height="17.01" Text="[frform.ClientName]&#13;&#10;" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row14">
+          <TableCell Name="Cell39" Font="宋体, 9pt">
+            <TextObject Name="Text17" Left="3.78" Width="69.93" Height="17.01" Text="送检医师：&#13;&#10;" Font="宋体, 9pt"/>
+            <TextObject Name="TextDoctor" Left="66.15" Width="117.18" Height="17.01" Text="[frform.Doctor]" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row15">
+          <TableCell Name="Cell41" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row16">
+          <TableCell Name="Cell43" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row17">
+          <TableCell Name="Cell45" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row18">
+          <TableCell Name="Cell47" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row19">
+          <TableCell Name="Cell49" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row20">
+          <TableCell Name="Cell51" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row21">
+          <TableCell Name="Cell53" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row22">
+          <TableCell Name="Cell55" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row23">
+          <TableCell Name="Cell57" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row24">
+          <TableCell Name="Cell59" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisBarCodeItem" table="[dbo].[Lis_BarCodeItem]">
+    <id name="Id" column="[BarCodeItemID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="PartitionDate" column="[PartitionDate]" type="DateTime" not-null="false" length="8" />
+    <property name="BarCodesItemID" column="[BarCodesItemID]" type="Int64" not-null="false" length="8" />
+    <property name="OrdersItemID" column="[OrdersItemID]" type="Int64" not-null="false" length="8" />
+    <property name="BarCodeItemFlag" column="[BarCodeItemFlag]" type="Int32" not-null="false" length="4" />
+    <property name="ReportDateDesc" column="[ReportDateDesc]" type="String" not-null="false"/>
+    <property name="ReceiveFlag" column="[ReceiveFlag]" type="Int32" not-null="false" length="4" />
+    <property name="CollectTime" column="[CollectTime]" type="DateTime" not-null="false" length="8" />
+    <property name="InceptTime" column="[InceptTime]" type="DateTime" not-null="false" length="8" />
+    <property name="CheckTime" column="[CheckTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ItemDispenseFlag" column="[ItemDispenseFlag]" type="Int32" not-null="false" length="4" />
+    <property name="IsItemSplitReceive" column="[IsItemSplitReceive]" type="Int32" not-null="false" length="4" />
+    <property name="ItemStatusID" column="[ItemStatusID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <many-to-one name="LisBarCodeForm" class="LisBarCodeForm" lazy="proxy">
+      <column name="[BarCodeFormID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="LisOrderItem" class="LisOrderItem" lazy="proxy">
+      <column name="[OrderItemID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

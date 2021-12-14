@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+	<class name="LBEquipResultTH" table="[dbo].[LB_EquipResultTH]">
+		<id name="Id" column="[EquipResultTHID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="CompCode" column="[CompCode]" type="String" not-null="false" length="50" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="SampleTypeID" column="[SampleTypeID]" type="Int64" not-null="false" length="8" />
+		<property name="GenderID" column="[GenderID]" type="Int64" not-null="false" length="8" />
+		<property name="LowAge" column="[LowAge]" type="Double" not-null="false" length="8" />
+		<property name="HighAge" column="[HighAge]" type="Double" not-null="false" length="8" />
+		<property name="BCollectTime" column="[bCollectTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ECollectTime" column="[eCollectTime]" type="DateTime" not-null="false" length="8" />
+		<property name="AgeUnitID" column="[AgeUnitID]" type="Int64" not-null="false" length="8" />
+		<property name="CalcType" column="[CalcType]" type="String" not-null="false" length="50" />
+		<property name="SourceValue" column="[SourceValue]" type="String" not-null="false" length="200" />
+		<property name="ReportValue" column="[ReportValue]" type="String" not-null="false" length="200" />
+		<property name="AppValue" column="[AppValue]" type="String" not-null="false" length="200" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="LBEquip" class="LBEquip" lazy="proxy">
+			<column name="[EquipID]" not-null="true"/>
+		</many-to-one>
+		<many-to-one name="LBItem" class="LBItem" lazy="proxy">
+			<column name="[ItemID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

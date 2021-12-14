@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Tables>
+  <Table TableCName="独立实验室" EName="VIEW_HrDepts_SuperLabs" DisplayManner="1" InputCols="3" UserDefinedGroupQuery="No" SophQuery="No" UserNavigator="No" IsHiddenTopSearch="No" DisplayRows="20" SortMethod="0" SumPage="False" SumAll="False" CheckBoxPager="0" PagerStyle="1" CheckBoxDBLClick="0" Buttons="|||||../image/middle/save.jpg||" BatchModify="false" BatchPrint="false" InputColsRight="1" SubsIuputShow="False" SubsMeIuputShow="False" SubsMeIuputLines="10" NeedSMS="False" HideInput="False" ButtonsLocation="bot" PositionSize="中,中,80%,80%" OpenPara="">
+    <tr>
+      <td ColumnCName="序号" ColumnEName="ID" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="Yes" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="编号" ColumnEName="SN" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="Yes" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="名称" ColumnEName="CName" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="Yes" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="12" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="简称" ColumnEName="EName" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="8" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="缩写" ColumnEName="SName" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="描述" ColumnEName="Descr" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="电话" ColumnEName="Tel" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="传真" ColumnEName="Fax" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="邮编" ColumnEName="Zip" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="地址" ColumnEName="Address" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="联系人" ColumnEName="Contact" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+        <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="5" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0" />
+      </td>
+      <td ColumnCName="上级机构" ColumnEName="ParentOrg" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="10" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="Fixed" DataSourceName="上海兰卫:四川兰卫:湖北兰卫:江西兰卫:新疆兰卫:吉林兰卫" />
+      </td>
+      <td ColumnCName="机构类型" ColumnEName="orgType" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="医疗机构" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="Fixed" DataSourceName="医疗机构:独立实验室:标本采集点:其它" />
+        <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="5" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0" />
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" QueryDefault="独立实验室" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="机构编码" ColumnEName="OrgCode" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="" FunctionOnQuery="" />
+      </td>
+    </tr>
+  </Table>
+</Tables>

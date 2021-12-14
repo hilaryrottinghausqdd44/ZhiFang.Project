@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图标头像</title>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="Icons.js"></script>
+</head>
+<body >
+<!--数据列表-->
+<table id="tbIcons"></table>
+<div id="topBars" style="height:28px;width: 100%;background: #eeeeee ">
+    <div style="float: left;padding-top: 3px">
+
+        <a id="refresh" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-reload" plain="true">刷新</a>
+        <a id="addRow" href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+        <a id="deleteRow" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-remove" plain="true" >删除</a>
+    </div>
+    <div style="float: right;margin-right: 10px;padding-top: 3px;display: none">
+        <input id="search"  type="text" class="easyui-searchbox" data-options="prompt:'图标头像ID',searcher:search" style="width: 160px;" ></div>
+</div>
+
+<!--新增，修改窗口-->
+<div id="dlg" class="easyui-dialog"  style="width:330px;height:auto;margin: auto;" closed="true" buttons="#dlgButtons">
+    <div id="frm" class="easyui-form" method="post">
+        <table style="margin: 0;padding: 10px 30px 10px 30px">
+            <tr>
+                <td> 图标头像ID:</td>
+                <td ><input id="IconsID" class="easyui-textbox" type="text" name="BIcons_Id" data-options="disabled:true"></td>
+            </tr>
+           <tr>
+                <td> 图标头像类型ID:</td>
+                <td ><input id="IconsTypeID" class="easyui-combobox" type="cmb" name="BIcons_IconsTypeID" data-options="required:false"></td>
+            </tr>
+            <tr>
+                <td >宽:</td>
+                <td><input id="Width" class="easyui-numberbox" type="text" name="BIcons_Width"></td>
+            </tr>
+            <tr>
+                <td>高:</td>
+                <td><input id="Height" class="easyui-numberbox" type="text" name="BIcons_Height" ></td>
+            </tr>
+            <tr>
+                <td>路径:</td>
+                <td ><input id="Url" class="easyui-textbox" type="text" name="BIcons_Url" data-options="required:true"></td>
+            </tr>
+
+            <tr>
+                <td>是否是本地文件:</td>
+                <td ><input id="IsLocal" class="easyui-combobox" type="cmb" name="BIcons_IsLocal" ></td>
+            </tr>
+            <tr>
+                <td>备注:</td>
+                <td ><input id="Comment" class="easyui-textbox" type="text" name="BIcons_Comment" ></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="dlgButtons">
+    <a id="save" href="javascript:void(0)" class="easyui-linkbutton"   iconCls="icon-save">保存</a>
+    <a id="cancel" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-cancel">取消</a>
+</div>
+
+</body>
+</html>

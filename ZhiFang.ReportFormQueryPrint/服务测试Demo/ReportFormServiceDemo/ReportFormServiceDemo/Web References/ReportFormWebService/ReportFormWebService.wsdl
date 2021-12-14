@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetReportFormPDFByReportFormID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByReportFormIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByReportFormIDResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportFormPDFByFormNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FormNoFormat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SplitChar" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFormNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByFormNoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByBarCodeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByPatNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PatNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByPatNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByPatNoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByZDY17">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZDY17" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByZDY17Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByZDY17Result" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fields" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="values" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsPrintTimes" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByFieldsResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateReportPrintTimes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reportformidstr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateReportPrintTimesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateReportPrintTimesResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByReportFormID_FTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByReportFormID_FTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByReportFormID_FTPResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFormNo_FTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FormNoFormat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SplitChar" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFormNo_FTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByFormNo_FTPResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateReportPrintTimesByFormId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reportformidstr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateReportPrintTimesByFormIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateReportPrintTimesByFormIdResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormBitsPDFByPatNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PatNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormBitsPDFByPatNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormBitsPDFByPatNoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfBits" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFields_Base64String">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fields" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="values" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsPrintTimes" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFields_Base64StringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByFields_Base64StringResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPathBtis" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetReportFormPDFByReportFormIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByReportFormID" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByReportFormIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByReportFormIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFormNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFormNo" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFormNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFormNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByBarCode" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByPatNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByPatNo" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByPatNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByPatNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByZDY17SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByZDY17" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByZDY17SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByZDY17Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFields" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateReportPrintTimesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateReportPrintTimes" />
+  </wsdl:message>
+  <wsdl:message name="UpdateReportPrintTimesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateReportPrintTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByReportFormID_FTPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByReportFormID_FTP" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByReportFormID_FTPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByReportFormID_FTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFormNo_FTPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFormNo_FTP" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFormNo_FTPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFormNo_FTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateReportPrintTimesByFormIdSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateReportPrintTimesByFormId" />
+  </wsdl:message>
+  <wsdl:message name="UpdateReportPrintTimesByFormIdSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateReportPrintTimesByFormIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormBitsPDFByPatNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormBitsPDFByPatNo" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormBitsPDFByPatNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormBitsPDFByPatNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFields_Base64StringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFields_Base64String" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFields_Base64StringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFields_Base64StringResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportFormWebServiceSoap">
+    <wsdl:operation name="GetReportFormPDFByReportFormID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据ReportFormID（报告库）生成PDF报告并返回报告URL</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByReportFormIDSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByReportFormIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据FormNo(四个关键字Receivedate;Section;TestTypeno;Sampleno)生成PDF报告并返回报告URL</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByFormNoSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByFormNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByBarCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据条码号生成PDF报告并返回报告URL</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByBarCodeSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByPatNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据病历号生成PDF报告并返回报告URL</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByPatNoSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByPatNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByZDY17">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据就诊号生成PDF报告并返回报告URL</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByZDY17SoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByZDY17SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据传入字段和值生成PDF报告并返回报告URL</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByFieldsSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportPrintTimes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据传入reportFormId增加打印次数</wsdl:documentation>
+      <wsdl:input message="tns:UpdateReportPrintTimesSoapIn" />
+      <wsdl:output message="tns:UpdateReportPrintTimesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByReportFormID_FTP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据ReportFormID（报告库）生成PDF报告并返回报告FTP路径</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByReportFormID_FTPSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByReportFormID_FTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo_FTP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据FormNo(四个关键字Receivedate;Section;TestTypeno;Sampleno)生成PDF报告并返回报告FTP路径</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByFormNo_FTPSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByFormNo_FTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportPrintTimesByFormId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据传入FormId(四个关键字Receivedate;SectionNo;TestTypeno;Sampleno)增加打印次数，多个报告单使用','分割</wsdl:documentation>
+      <wsdl:input message="tns:UpdateReportPrintTimesByFormIdSoapIn" />
+      <wsdl:output message="tns:UpdateReportPrintTimesByFormIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormBitsPDFByPatNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据病历号生成PDF报告并返回报告二进制流</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormBitsPDFByPatNoSoapIn" />
+      <wsdl:output message="tns:GetReportFormBitsPDFByPatNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields_Base64String">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据传入字段和值生成PDF报告并返回报告Base64字符串</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByFields_Base64StringSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByFields_Base64StringSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportFormWebServiceSoap" type="tns:ReportFormWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReportFormPDFByReportFormID">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByReportFormID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByFormNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByBarCode">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByPatNo">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByPatNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByZDY17">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByZDY17" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportPrintTimes">
+      <soap:operation soapAction="http://tempuri.org/UpdateReportPrintTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByReportFormID_FTP">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByReportFormID_FTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo_FTP">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByFormNo_FTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportPrintTimesByFormId">
+      <soap:operation soapAction="http://tempuri.org/UpdateReportPrintTimesByFormId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormBitsPDFByPatNo">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormBitsPDFByPatNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields_Base64String">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormPDFByFields_Base64String" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportFormWebServiceSoap12" type="tns:ReportFormWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReportFormPDFByReportFormID">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByReportFormID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByFormNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByBarCode">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByBarCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByPatNo">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByPatNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByZDY17">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByZDY17" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportPrintTimes">
+      <soap12:operation soapAction="http://tempuri.org/UpdateReportPrintTimes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByReportFormID_FTP">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByReportFormID_FTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo_FTP">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByFormNo_FTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportPrintTimesByFormId">
+      <soap12:operation soapAction="http://tempuri.org/UpdateReportPrintTimesByFormId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormBitsPDFByPatNo">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormBitsPDFByPatNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields_Base64String">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormPDFByFields_Base64String" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportFormWebService">
+    <wsdl:port name="ReportFormWebServiceSoap" binding="tns:ReportFormWebServiceSoap">
+      <soap:address location="http://localhost/ZhiFang.ReportFormQueryPrint/ServiceWCF/ReportFormWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportFormWebServiceSoap12" binding="tns:ReportFormWebServiceSoap12">
+      <soap12:address location="http://localhost/ZhiFang.ReportFormQueryPrint/ServiceWCF/ReportFormWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

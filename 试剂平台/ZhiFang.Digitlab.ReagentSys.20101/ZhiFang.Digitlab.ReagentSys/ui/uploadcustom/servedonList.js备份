@@ -1,0 +1,1039 @@
+/***
+ * 样本单定制列表
+ */
+Ext.ns('Ext.pretreatment');
+Ext.define('Ext.pretreatment.servedonList', {
+    extend:"Ext.grid.Panel",
+    alias:"widget.servedonList",
+    title:"",
+    objectName:"MEPTSampleForm",
+    defaultWhere:"",
+    internalWhere:"",
+    externalWhere:"",
+    /***
+     * 向左图片按钮是否显示
+     * @type Boolean
+     */
+    isLeftImage:true,
+    /***
+     * 向右图片按钮是否显示
+     * @type Boolean
+     */
+    isRightImage:true,
+    autoSelect:true,
+    /***
+     * 表格是否隔行换色，默认为false 
+     * @type Boolean
+     */
+    stripeRows:true,
+    /***
+     * 
+     * @type Boolean
+     */
+    autoWidth:true,
+    /***
+     * 是否在加载数据时显示遮罩效果
+     * @type Boolean
+     */
+    loadMask:true,
+    deleteIndex:-1,
+    autoScroll:true,
+    sortableColumns:true,
+    resizable:{handles:'s e'},
+    //pad:'16 0 0 0',
+    /***
+     * 小箭头图片的路径
+     * @type 
+     */
+    arrowSrc:getRootPath()+'/ui/css/images/extjs-icons/bullet_go.png',
+    /***
+     * 是否显示列表工具栏
+     * @type Boolean
+     */
+    istoolbar:false,
+    selectUrl:getRootPath() + "/MEPTService.svc/MEPT_UDTO_SearchMEPTSampleFormByHQL?isPlanish=true",
+    /***
+     * 样本单store字段
+     * @type 
+     */
+    storeFields:[ "MEPTOrderItemItemAllItemCName","MEPTSampleForm_MEPTOrderForm_CName", "MEPTSampleForm_MEPTOrderForm_PatNo", "MEPTSampleForm_MEPTOrderForm_InpatientNo", "MEPTSampleForm_BarCode", "MEPTSampleForm_MEPTSamplingGroup_MEPTSamplingTube_ColorValue", "MEPTSampleForm_MEPTSamplingGroup_MEPTSamplingTube_ColorName", "MEPTSampleForm_BSampleType_Name", "MEPTSampleForm_MEPTSamplingGroup_CName", "MEPTSampleForm_MEPTOrderForm_SerialNo","MEPTSampleForm_MEPTOrderForm_Doctor",  "MEPTSampleForm_MEPTOrderForm_CollectPart", "MEPTSampleForm_MEPTOrderForm_Exec_CName", "MEPTSampleForm_Zdy1", "MEPTSampleForm_MEPTOrderForm_BPatientInfo_BSex_Name", "MEPTSampleForm_Zdy2", "MEPTSampleForm_MEPTOrderForm_MEPTBSampleSource_Name", "MEPTSampleForm_MEPTOrderForm_BSickType_Name", "MEPTSampleForm_MEPTOrderForm_BTestType_Name", "MEPTSampleForm_Zdy5", "MEPTSampleForm_MEPTOrderForm_BAgeUnit_Name", "MEPTSampleForm_MEPTOrderForm_Id", "MEPTSampleForm_Id", "MEPTSampleForm_MEPTOrderForm_Zdy1", "MEPTSampleForm_MEPTOrderForm_BSampleType_Name", "MEPTSampleForm_DataTimeStamp" ],
+    /***
+     * 样本单默认查询字段
+     * 与必须的查询字段合并
+     * @type 
+     */ 
+    defaultselectFields:"MEPTSampleForm_MEPTSamplingGroup_MEPTSamplingTube_ColorName,MEPTSampleForm_BSampleType_Name,MEPTSampleForm_MEPTOrderForm_SerialNo,MEPTSampleForm_MEPTOrderForm_Doctor,MEPTSampleForm_MEPTOrderForm_BSickType_Name,MEPTSampleForm_DataTimeStamp",
+    /***
+     * 样本单查询字段(动态获取)
+     * @type 
+     */
+    selectFields:"",
+    /***
+     * 依操作对象(样本单)ID查询样本状态类型表
+     * BSampleStatusType_Name,BSampleStatusType_Color,BSampleStatusType_Id
+     * @type 
+     */
+    selectBSampleStatusTypeUrl:getRootPath() +"/SingleTableService.svc/ST_UDTO_SearchBSampleStatusByHQL?isPlanish=true&fields=BSampleStatus_Id,BSampleStatus_OperateObjectID,BSampleStatus_BOperateObjectType_Id,BSampleStatus_BOperateObjectType_Name,BSampleStatus_BSampleStatusType_Name,BSampleStatus_BSampleStatusType_Id&page=1&start=0&limit=500",
+    
+    /***
+     * 依操作对象ID(样本单)查询样本操作信息列表
+     * (返回操作人,操作时间列表)
+     */
+    selectBSampleOperateUrl:getRootPath() +"/SingleTableService.svc/ST_UDTO_SearchBSampleOperateByHQL?isPlanish=true&fields=BSampleOperate_OperateObjectID,BSampleOperate_OperaterID,BSampleOperate_Operater,BSampleOperate_OperateType_Id,BSampleOperate_OperateType_Name,BSampleOperate_Id,BSampleOperate_OperateTime,BSampleOperate_OperateHost,BSampleOperate_BOperateObjectType_Id,BSampleOperate_BOperateObjectType_Name&page=1&start=0&limit=500",
+    /***
+     * 查询样本操作类型(录入,采样,接收,签收)
+     */
+    selectBSampleOperateTypeUrl:getRootPath() +"/SingleTableService.svc/ST_UDTO_SearchBSampleOperateTypeByHQL?isPlanish=true&fields=BSampleOperateType_Id,BSampleOperateType_Name,BSampleOperateType_DataTimeStamp&limit=100",//&page=1&start=0
+    
+    /***
+     * 依样本单id查询样本单项目信息列表
+     * 样本单项目名称
+     */
+    selectMEPTSampleItemUrl:getRootPath() +"/MEPTService.svc/MEPT_UDTO_SearchMEPTSampleItemByHQL?isPlanish=true&fields=MEPTSampleItem_Id,MEPTSampleItem_ItemAllItem_CName,MEPTSampleItem_ItemAllItem_Id,MEPTSampleItem_SampleFrom_Id&page=1&start=0&limit=500",
+    
+    /***
+     * 样本单查询字段
+     * 依列表列的显示/隐藏属性拼装
+     */
+    getselectFields:function(){
+        var me = this;
+        var columnParams = me.columns;
+        me.selectFields="";
+        for(var i in columnParams){
+            var cmConfig=columnParams[i];
+            var hidden=cmConfig.hidden;
+            var locked=cmConfig.locked;
+            var width=cmConfig.width;
+            var dataIndex=cmConfig.dataIndex;
+            var align=cmConfig.align;
+            if(hidden==false){
+                me.selectFields=me.selectFields+dataIndex+",";
+            }
+        }
+        if(me.selectFields.length>0){
+            me.selectFields=me.selectFields.substring(0,me.selectFields.length-1);
+        }
+    },
+    /**
+     * 获取列属性数据
+     * @private
+     * @return {}
+     */
+    getColumnParams:function(){
+        var me = this;
+        var columnParams = me.columns;
+        for(var i in columnParams){
+            var cmConfig=columnParams[i];
+            var hidden=cmConfig.hidden;
+            var locked=cmConfig.locked;
+            var width=cmConfig.width;
+            var dataIndex=cmConfig.dataIndex;
+            var align=cmConfig.align;
+        }
+    },
+    afterRender:function() {
+        var me = this;
+        me.callParent(arguments);
+        me.getColumnParams();
+        me.getselectFields();
+        me.createformItems();
+        if (Ext.typeOf(me.callback) == "function") {
+            me.callback(me);
+        }
+    },
+    initComponent:function() {
+        var me = this;
+        me.columns =me.createColumns();
+        //Ext.Loader.setPath("Ext.ux", getRootPath() + "/ui/extjs/ux");
+        me.listeners=me.listeners||[];
+        //列表面板事件监听
+        me.listeners = {
+            contextmenu:{
+                element:'el',
+                fn:function(e,t,eOpts){
+                    //禁用浏览器的右键相应事件 
+                    e.preventDefault();e.stopEvent();
+                    //右键菜单
+                    new Ext.menu.Menu({
+                        items:[
+                        menumelbtn={
+					           text:"保存列表设置",iconCls:'build-button-edit hand',
+	                           itemId:'saveListSettings',
+				               handler:function(btn,e,optes){
+                                  alert("保存列表设置");
+				                  me.fireEvent('saveListSettingsClick');
+				               }
+				           }
+                        ]
+                    }).showAt(e.getXY());//让右键菜单跟随鼠标位置
+                }
+            },
+            resize:function(com,width,height,oldWidth,oldHeight,eOpts){//列表大小变化
+                //列表宽度和高度赋值
+                //var obj = {Width:width,Height:height};
+            },
+            columnresize:{//列宽度改变
+                fn: function(ct,column,width,e,eOpts){
+                    var dataIndex = column.dataIndex;
+                    var text = column.text;
+                    //me.setColumnWidth(dataIndex,width);
+                    alert(text+"列宽度改变");
+                }
+            },
+            columnmove:{//列位置移动
+                fn: function(ct,column,fromIdx,toIdx,eOpts){
+                    var dataIndex = column.dataIndex;
+                    var text = column.text;
+                    //me.setColumnOrderNum(dataIndex,fromIdx+1,toIdx+1);
+                    alert(text+"列位置移动");
+                }
+            },
+            itemclick:function(){
+            }         
+        };
+        me.store =me.createStore();
+
+        me.dockedItems=me.createdockedItems();
+        me.fireEvent("saveClick");
+        this.callParent(arguments);
+    },
+    getformListItemsCom:function(){
+        var me=this;
+        var com = me.getComponent("toolbar-bottom-one").getComponent("formListItems");
+        return com;
+    },
+    createStore:function(){
+        var me=this;
+        var fields="";
+        if(me.selectFields&&me.selectFields!=""){
+            fields=me.selectFields;
+        }else{
+            fields=me.defaultselectFields;
+        }
+        var store=Ext.create("Ext.data.Store", {
+            fields:me.storeFields,
+            remoteSort:true,
+            autoLoad:false,
+            sorters:[],
+            pageSize:500,
+            proxy:{
+                type:"ajax",
+                url: me.selectUrl+"&fields="+fields,
+                reader:{
+                    type:"json",
+                    root:"list",
+                    totalProperty:"count"
+                },
+                extractResponseData:function(response) {
+                    var data = Ext.JSON.decode(response.responseText);
+                    if (!data.success) {
+                        Ext.Msg.alert("提示", "错误信息:" + data.ErrorInfo);
+                    }
+                    if (data.ResultDataValue && data.ResultDataValue != "") {
+                        //data.ResultDataValue = data.ResultDataValue.replace(/[\\r\\n]+/g, "<br/>");
+                        var ResultDataValue = Ext.JSON.decode(data.ResultDataValue);
+                        data.list = ResultDataValue.list;
+                        data.count = ResultDataValue.count;
+                    } else {
+                        data.list = [];
+                        data.count = 0;
+                    }
+                    response.responseText = Ext.JSON.encode(data);
+                    me.setCount(data.count);
+                    return response;
+                }
+            },
+            listenres:{
+                load:function(s, records, successful, eOpts) {
+                    if (!successful) {
+                        Ext.Msg.alert("提示", "获取数据服务错误！");
+                    }
+                }
+            }
+        });
+        return store;
+    },
+    /***
+     * 创建列表的工具栏的样本操作类型列表
+     * sampleFormId:样本单Id
+     */
+    createformItems:function(){
+        var me=this;
+        var form=me.getformListItemsCom();
+        form.removeAll();
+        //样本操作类型
+        var lists=me.getServerLists(me.selectBSampleOperateTypeUrl,null);
+        if(lists&&lists.length>0){
+            
+            //X 5,150,300,400,每个组件中x值加150
+            var statusImgX=5;
+            var statusImgY=25;
+            
+            //X 5,150,300,400,每个组件中x值加150
+            var displayfieldX=5;
+            var displayfieldY=2;
+            var displayfieldWidth=120;
+            var labelWidth=40;
+            
+            //X 110,250,400 每个组件中x值加145
+            var bulletgoX=5;
+            var bulletgoY=20;
+            
+            //状态打勾图标
+            var statusImg={
+                    xtype:'image',
+                    hidden:true,
+                    eattributes:'statusImg',//扩展属性,以方便与小箭头图标区分
+                    width:30,
+                    height:30,
+                    y:statusImgY,
+                    src:'../../../css/images/jpg/test.jpg'
+             };
+             //小箭头
+            var bulletgo={
+                    xtype:'image',
+                    width:25,
+                    eattributes:'bulletgo',//扩展属性,以方便与状态打勾图标区分
+                    height:25,
+                    y:bulletgoY,
+                    src:'../../../css/images/extjs-icons/bullet_go.png'
+            }; 
+           var displayfield={   
+	           xtype:'displayfield',
+               labelStyle:"font-weight:bold;font-size:13px;color:green",
+               labelSeparator :"",
+               y:displayfieldY,
+	           width:100,
+               labelWidth:35
+            };
+            for(var i=0;i<lists.length;i++){
+                if(i==0){
+                    statusImgX=5;
+                    bulletgoX=5;
+                    displayfieldX=5;
+                }else{
+                    displayfieldX=displayfieldX+110;
+                }
+                if(i==0||i==lists.length){
+                //不添加小箭头图标  
+                }else{
+                    //statusImg.hidden=true;
+                    displayfield.value='';
+                    bulletgoX=displayfieldX-20;
+                    statusImgX=displayfieldX;
+                    bulletgo.x=bulletgoX;
+                    form.add(bulletgo);
+                    
+                }
+                statusImg.itemId='s'+lists[i]['BSampleOperateType_Id'];
+                statusImg.name='s'+lists[i]['BSampleOperateType_Id'];
+                
+                statusImg.x=statusImgX;
+                bulletgo.itemId='b'+lists[i]['BSampleOperateType_Id'];
+                bulletgo.name='b'+lists[i]['BSampleOperateType_Id'];
+                
+                displayfield.itemId='d'+lists[i]['BSampleOperateType_Id'];
+                displayfield.name='d'+lists[i]['BSampleOperateType_Id'];
+                displayfield.fieldLabel=lists[i]['BSampleOperateType_Name'];
+                displayfield.x=displayfieldX;
+                //依样本单id查询样本操作信息
+                displayfield.value='';//2014-01-10</br>10:12:12</br>管理员
+                
+                form.add(statusImg);
+                form.add(displayfield);
+                
+            }
+        }
+    },
+    
+    /***
+     * 公开的方法
+     * 列表选中某一行后更新列表的工具栏的样本操作类型列表信息
+     * sampleFormId:样本单Id
+     */
+    updateformItems:function(sampleFormId){
+        var me=this;
+        //先清空displayfield及
+        var form=me.getformListItemsCom();
+        var items=form.items.items;
+        var length=form.items.length;
+        for(var i=0;i<length;i++){
+	        var com =items[i];
+            var myType= com.xtype;
+            
+            //如果组件为displayfield
+            if(myType === 'displayfield'){
+                com.setValue(null);
+            }else if(myType === 'image'){
+                var eattributes=com.eattributes;
+                if(eattributes=='statusImg'){
+                    com.setVisible(false);
+                }
+            }
+        }
+        //样本操作信息
+        var hqlWhereBSampleOperate='';
+        var listsBSampleOperate=[];
+        if(sampleFormId&&sampleFormId!=null){
+            hqlWhereBSampleOperate='bsampleoperate.OperateObjectID='+sampleFormId;
+            listItems=me.getServerLists(me.selectBSampleOperateUrl,hqlWhereBSampleOperate);
+        }
+        if(listItems&&listItems.length>0){
+            //状态打勾图标
+            for(var i=0;i<listItems.length;i++){
+                var id=listItems[i]['BSampleOperate_OperateType_Id'];
+                //样本操作类型组件
+                var ditemId="d"+id;
+               
+                var displayfieldCom=form.getComponent(ditemId);
+                if(displayfieldCom){
+                    //操作人
+                    var cname=listItems[i]['BSampleOperate_Operater'];
+                    //操作时间
+                    var operateTime=''+listItems[i]['BSampleOperate_OperateTime'];
+                    var dateValue ='';
+                    var timeValue ='';
+                    operateTime=operateTime.substring(0,19);
+                    if(Ext.typeOf(operateTime) === 'string' && operateTime.length == 19){
+			            operateTime=operateTime.replace(/\//g,'-');
+                        dateValue =''+operateTime.substring(0,10);
+                        timeValue =''+operateTime.substring(10,operateTime.length);
+                        //dateValue =''+Ext.util.Format.date(operateTime,'Y-m-d');
+                        //timeValue =''+Ext.util.Format.date(operateTime,'H:i:s');
+			        }
+                    var value=''+dateValue+"</br>"+timeValue+"</br>"+"<b style='color:blue;font-size:medium'>"+cname+"</b>";
+                    displayfieldCom.setValue(value);
+                }
+                var statusItemId="s"+id;
+                var statusImgCom=form.getComponent(statusItemId);
+                if(statusImgCom){
+                    statusImgCom.setVisible(true);//isVisible(true);
+                }
+            }
+        }
+    },
+    /***
+     * 列表工具栏
+     * @return {}
+     */
+    createdockedItems:function(){
+        var me=this;
+        var dockedItems = [ 
+            {
+            xtype:"toolbar",
+            dock:"bottom",
+            height:95,
+            autoWidth:true,
+            border:false,
+            anchorSize:true,
+            autoShow :true,
+            hidden:me.istoolbar,
+            cls:'bg-white',
+            bodyCls:'bg-white',
+            autoScroll:false,
+            itemId:"toolbar-bottom-one",
+            items:[ 
+              {
+                xtype:'image',
+                eattributes:'left',//扩展属性,以方便与小箭头图标区分
+                itemId:'left',
+                hidden:me.isLeftImage,
+                width:37,
+                height:75,
+                src:'../../../css/images/imgDiv/left.jpg',
+                listeners: {
+	                click:{
+		                element:'el',
+		                fn:function(){
+		                    me.fireEvent('imgleftClick');
+		                }
+		            }
+                }
+             },
+              {
+                xtype:"form",
+                itemId:"formListItems",
+                height:75,
+                cls:'bg-white',
+                bodyCls:'bg-white',
+                autoWidth:true,
+                border:false,
+                anchorSize:true,
+                autoShow :true,
+                width:document.body.clientWidth-82,
+                autoScroll:false,
+                layout:"absolute",
+                items:[]
+            },
+            {
+                xtype:'image',
+                eattributes:'right',//扩展属性,以方便与小箭头图标区分
+                itemsId:'right',
+                width:37,
+                height:75,
+                hidden:me.isRightImage,
+                src:'../../../css/images/imgDiv/right.jpg',
+                listeners: {
+                    click:{
+                        element:'el',
+                        fn:function(){
+                            alert("客户端屏幕宽度:"+document.body.clientWidth);
+                            me.fireEvent('imgrightClick');
+                        }
+                    }
+                }
+             }
+            ]
+            }
+        ];
+        return dockedItems;
+    },
+    /***
+     * 列表列
+     * @return {}
+     */
+    createColumns:function(){
+        var me=this;
+        var columns=[
+         {
+            text:"姓名",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_CName",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"病历号",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_PatNo",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"住院号",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_InpatientNo",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"条码号",
+            dataIndex:"MEPTSampleForm_BarCode",
+            width:100,
+            renderer:function(value, cellmeta, record, rowIndex, columnIndex, store) {
+                var colorValue = record.get("MEPTSampleForm_MEPTSamplingGroup_MEPTSamplingTube_ColorValue");
+                if (colorValue == "") {
+                    colorValue = "#FFFFFF";
+                }
+                cellmeta.style = "background-color:" + colorValue;
+                return value;
+            },
+            locked:false,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"采样管颜色值",
+            dataIndex:"MEPTSampleForm_MEPTSamplingGroup_MEPTSamplingTube_ColorValue",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:true,
+            hideable:false,
+            align:"left"
+        }, {
+            text:"采样管颜色名称",
+            dataIndex:"MEPTSampleForm_MEPTSamplingGroup_MEPTSamplingTube_ColorName",
+            width:100,
+            renderer:function(value, cellmeta, record, rowIndex, columnIndex, store) {
+                var colorValue = record.get("MEPTSampleForm_MEPTSamplingGroup_MEPTSamplingTube_ColorValue");
+                if (colorValue == "") {
+                    colorValue = "#FFFFFF";
+                }
+                cellmeta.style = "background-color:" + colorValue;
+                return value;
+            },
+            locked:false,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"采样量",
+            dataIndex:"MEPTSampleForm_SampleCap",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            //依样本单id查询样本项目信息列表
+            text:"医嘱项目",
+            dataIndex:"MEPTOrderItemItemAllItemCName",
+            width:250,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:false,
+            align:"left"
+        },{
+            text:"采样部位",
+            dataIndex:"MEPTSampleForm_CollectPart",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"条码来源",
+            dataIndex:"MEPTSampleForm_BarCodeSource",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"样本类型",
+            dataIndex:"MEPTSampleForm_BSampleType_Name",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"采样组",
+            dataIndex:"MEPTSampleForm_MEPTSamplingGroup_CName",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"医嘱申请单号",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_SerialNo",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"原始申请单号",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_OldSerialNo",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"就诊卡号",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_PatCardNo",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        },{
+            text:"生日",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_Birthday",
+            width:100,
+            locked:false,
+            //xtype:"datecolumn",
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"年龄",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_Age",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"年龄单位",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_BAgeUnit_Name",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        },{
+            text:"病床",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_Bed",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"医生ID",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_DoctorID",
+            width:100,
+            sortable:false,
+            hidden:true,
+            hideable:false,//可选列不可见
+            align:"left"
+        },  {
+            text:"医生",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_Doctor",
+            width:100,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"临床诊断",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_Diag",
+            width:100,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"费用",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_Charge",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"备注",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_FormMemo",
+            width:100,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        },  {
+            text:"采样部位",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_CollectPart",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"执行部门",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_Exec_CName",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        },  {
+            text:"性别",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_BPatientInfo_BSex_Name",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"样本来源",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_MEPTBSampleSource_Name",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"就诊类型",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_BSickType_Name",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"检验类型",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_BTestType_Name",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        },{
+            text:"样本类型",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_BSampleType_Name",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:false,
+            hideable:true,
+            align:"left"
+        }, {
+            text:"医嘱单ID",
+            dataIndex:"MEPTSampleForm_MEPTOrderForm_Id",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:false,//可选列不可见
+            align:"left"
+        }, {
+            text:"样本单ID",
+            dataIndex:"MEPTSampleForm_Id",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:false,//可选列不可见
+            align:"left"
+        },
+        {
+            text:"自定义1",
+            dataIndex:"MEPTSampleForm_Zdy1",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        },
+        {
+            text:"自定义2",
+            dataIndex:"MEPTSampleForm_Zdy2",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        },
+        {
+            text:"自定义3",
+            dataIndex:"MEPTSampleForm_Zdy3",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        },{
+            text:"自定义4",
+            dataIndex:"MEPTSampleForm_Zdy4",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        },
+          {
+            text:"自定义5",
+            dataIndex:"MEPTSampleForm_Zdy5",
+            width:100,
+            locked:false,
+            sortable:false,
+            hidden:true,
+            hideable:true,
+            align:"left"
+        },{
+            text:"样本单时间戳",
+            dataIndex:"MEPTSampleForm_DataTimeStamp",
+            width:100,
+            locked:false,
+            sortable:true,
+            hidden:true,
+            hideable:false,//可选列不可见
+            align:"left"
+        }
+        ];
+        return columns;
+    },
+    /***
+     * 
+     * @param {} where
+     */
+    load:function(where) {
+        var me=this;
+        
+        if (where !== true) {
+            me.externalWhere = where;
+        }
+        var w = "";
+        if (me.externalWhere && me.externalWhere != "") {
+            if (me.externalWhere.slice(-1) == "^") {
+                w += me.externalWhere;
+            } else {
+                w += me.externalWhere + " and ";
+            }
+        }
+        if (me.defaultWhere && me.defaultWhere != "") {
+            w += me.defaultWhere + " and ";
+        }
+        if (me.internalWhere && me.internalWhere != "") {
+            w += me.internalWhere + " and ";
+        }
+        w = w.slice(-5) == " and " ? w.slice(0, -5) :w;
+        me.store.currentPage = 1;
+        var fields="";
+        if(me.selectFields&&me.selectFields!=""){
+            fields=me.selectFields;
+        }else{
+            fields=me.defaultselectFields;
+        }
+        me.store.proxy.url = me.selectUrl+"&fields="+fields + "&where=" + w;
+        me.store.load();
+    },
+    /***
+     * 新增样本单行记录信息信息
+     * @param {} barCode
+     * record:
+     */
+    addRecord:function(barCode,typeValue){
+        var me=this;
+        var result=false;
+        var record =null;
+        //样本单信息
+        var lists=me.getSampleformForBarCode(barCode);
+        //需要判断是否已经被处理
+        if(lists.length>0){
+            //依样本单Id组装样本单的医嘱项目信息
+            var sampleFromId=lists[0]["MEPTSampleForm_Id"];
+            var index=me.store.findRecord("MEPTSampleForm_Id",sampleFromId);
+            if(index==-1||index==null){
+	            var hqlWhere="meptsampleitem.SampleFrom.Id="+sampleFromId;
+	            var listItems=me.getServerLists(me.selectMEPTSampleItemUrl,hqlWhere);
+	            if(listItems.length>0){
+	                var itemsCName='';
+	                for(var i=0;i<listItems.length;i++){
+	                    var tempCName=listItems[i]["MEPTSampleItem_ItemAllItem_CName"];
+	                    itemsCName=itemsCName+tempCName+"+";
+	                }
+	                var obj=lists[0];
+                    itemsCName=itemsCName.substring(0,itemsCName.length-1);
+	                obj.MEPTOrderItemItemAllItemCName=itemsCName;
+                    
+	                record = ('Ext.data.Model',obj);
+	                me.store.add(record);
+                    result=true;
+	            }
+            }else{
+                result=false;
+                record =null;
+            }
+        }else{
+            result=false;
+            record =null;
+        }
+        if(result==true){
+		    //获取到样本单信息成功并添加到列表后,获取更新该样本单的样本操作及样本状态信息
+		    me.updateformItems(sampleFromId);   
+        }
+        return record;
+    },
+    /***
+     * 依条码号获取新的样本单数据
+     */
+    getSampleformForBarCode:function(barCode){
+        var me=this;
+        var arrLists=[];
+        //必须的查询字段
+        var fields="MEPTSampleForm_Id,MEPTSampleForm_BarCode,MEPTSampleForm_MEPTOrderForm_PatNo,MEPTSampleForm_MEPTOrderForm_CName,MEPTSampleForm_MEPTOrderForm_InpatientNo,MEPTSampleForm_MEPTSamplingGroup_MEPTSamplingTube_ColorValue,MEPTSampleForm_DataTimeStamp";
+        if(me.selectFields&&me.selectFields!=""){
+            fields=fields+me.selectFields;
+        }else{
+            fields=fields+me.defaultselectFields;
+        }
+        var myUrl="";
+        if(barCode&&barCode!=null){
+            myUrl=me.selectUrl+"&fields="+fields + "&where=meptsampleform.BarCode=" + barCode;
+            //查询数据过滤条件行记录
+	        Ext.Ajax.defaultPostHeader = 'application/json';
+	        Ext.Ajax.request({
+	            async:false,//非异步
+	            url:myUrl,
+	            method:'GET',
+	            success:function(response,opts){
+	                var result = Ext.JSON.decode(response.responseText);
+	                if(result.success){
+	                var ResultDataValue = {count:0,list:[]};
+	                if(result['ResultDataValue'] && result['ResultDataValue'] != ""){
+	                    ResultDataValue = Ext.JSON.decode(result['ResultDataValue']);
+	                    arrLists=ResultDataValue.list;
+	                }
+	                }else{
+	                    arrLists=[];
+	                }
+	            },
+	            failure : function(response,options){
+	                 arrLists=[];
+	            }
+	        });
+	        
+        }else{
+            Ext.Msg.alert('请输入正确的条码号');
+            arrLists=[];
+        }
+        return arrLists;
+    },
+    /***
+     * 获取数据集
+     * 1.依操作对象(样本单)ID查询样本状态类型表
+     * 2.依操作对象ID(样本单)查询样本操作信息列表
+     * 3.依操作对象ID(样本单)查询样本操作信息列表
+     * 4.查询样本操作类型(录入,采样,接收,签收)
+     */
+    getServerLists:function(url,hqlWhere){
+        var me=this;
+        var arrLists=[];
+        var myUrl="";
+        if(hqlWhere&&hqlWhere!=null){
+            myUrl=url+'&where='+hqlWhere;
+        }else{
+            myUrl=url;
+        }
+        //查询数据过滤条件行记录
+        Ext.Ajax.defaultPostHeader = 'application/json';
+        Ext.Ajax.request({
+            async:false,//非异步
+            url:myUrl,
+            method:'GET',
+            success:function(response,opts){
+                var result = Ext.JSON.decode(response.responseText);
+                if(result.success){
+                var ResultDataValue = {count:0,list:[]};
+                if(result['ResultDataValue'] && result['ResultDataValue'] != ""){
+                    ResultDataValue = Ext.JSON.decode(result['ResultDataValue']);
+                    arrLists=ResultDataValue.list;
+                }
+                var count = ResultDataValue['count'];
+                }else{
+                    arrLists=[];
+                }
+            },
+            failure : function(response,options){
+                 arrLists=[];
+            }
+        });
+        return arrLists;
+    }
+});

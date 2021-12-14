@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!--数据分类查询:条件定义-->
+<Tables>
+  <Table EName="检验报告单">
+    <Query WhereClause="" SQL="([VIEW_ReportFormFull].[PRINTTIMES]&lt;1)" Descr="">未打印报告</Query>
+    <Query WhereClause="" SQL="((datepart(year,[VIEW_ReportFormFull].[CHECKDATE])=datepart(year,getdate()))and (datepart(month,[VIEW_ReportFormFull].[CHECKDATE])=datepart(month,getdate()))and (datepart(week,[VIEW_ReportFormFull].[CHECKDATE])=datepart(week,getdate())))" Descr="">本周报告</Query>
+    <Query WhereClause="" SQL="(DATEPART(year,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(year,getdate()) and DATEPART(month,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(month,getdate()) and DATEPART(DAY,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(DAY,getdate()))" Descr="">今日报告</Query>
+    <Query WhereClause="" SQL="(DATEPART(year,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(year,getdate()) and DATEPART(month,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(month,getdate()) and DATEPART(DAY,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(DAY,getdate()-1))" Descr="">昨日报告</Query>
+    <Query WhereClause="" SQL="(DATEPART(year,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(year,getdate()) and DATEPART(month,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(month,getdate()) and (DATEPART(DAY,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(DAY,getdate()) or DATEPART(DAY,[VIEW_ReportFormFull].[CHECKDATE]) = DATEPART(DAY,getdate()-1)))" Descr="">两天内报告</Query>
+  </Table>
+</Tables>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaBmsCheckDoc" table="[dbo].[Rea_BmsCheckDoc]">
+    <id name="Id" column="[CheckDocID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="CheckDocNo" column="[CheckDocNo]" type="String" not-null="false" length="20" />
+    <property name="ReaCompanyID" column="[ReaCompanyID]" type="Int64" not-null="false" length="8" />
+    <property name="CompanyName" column="[CompanyName]" type="String" not-null="false" length="100" />
+    <property name="StorageID" column="[StorageID]" type="Int64" not-null="false" length="8" />
+    <property name="PlaceID" column="[PlaceID]" type="Int64" not-null="false" length="8" />
+    <property name="StorageName" column="[StorageName]" type="String" not-null="false" length="100" />
+    <property name="PlaceName" column="[PlaceName]" type="String" not-null="false" length="100" />
+    <property name="ReaServerCompCode" column="[ReaServerCompCode]" type="String" not-null="false" length="200" />
+    <property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+    <property name="StatusName" column="[StatusName]" type="String" not-null="false" length="50" />
+    <property name="IsLock" column="[IsLock]" type="Int32" not-null="false" length="4" />
+    <property name="IsException" column="[IsException]" type="Int32" not-null="false" length="4" />
+    <property name="IsHandleException" column="[IsHandleException]" type="Int32" not-null="false" length="4" />
+    <property name="CheckerID" column="[CheckerID]" type="Int64" not-null="false" length="8" />
+    <property name="CheckerName" column="[CheckerName]" type="String" not-null="false" length="50" />
+    <property name="CheckDateTime" column="[CheckDateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ExaminerID" column="[ExaminerID]" type="Int64" not-null="false" length="8" />
+    <property name="ExaminerName" column="[ExaminerName]" type="String" not-null="false" length="50" />
+    <property name="ExaminerDateTime" column="[ExaminerDateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ExaminerMemo" column="[ExaminerMemo]" type="String" not-null="false" />
+    <property name="PrintTimes" column="[PrintTimes]" type="Int32" not-null="false" length="4" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="50" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="50" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="50" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="CreaterID" column="[CreaterID]" type="Int64" not-null="false" length="8" />
+    <property name="CreaterName" column="[CreaterName]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="true" length="8" />
+    <property name="IsCompFlag" column="[IsCompFlag]" type="Boolean" not-null="false" length="1" />
+    <property name="BmsCheckResult" column="[BmsCheckResult]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsClass" column="[GoodsClass]" type="String" not-null="false" length="100" />
+    <property name="GoodsClassType" column="[GoodsClassType]" type="String" not-null="false" length="100" />
+    <property name="IsStorageGoodsLink" column="[IsStorageGoodsLink]" type="Boolean" not-null="false" length="1" />
+    <property name="IsHasZeroQty" column="[IsHasZeroQty]" type="Boolean" not-null="false" length="1" />
+  </class>
+</hibernate-mapping>

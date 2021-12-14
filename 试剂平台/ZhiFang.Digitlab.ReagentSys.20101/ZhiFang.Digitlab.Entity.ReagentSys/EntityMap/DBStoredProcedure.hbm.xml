@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+
+	<!--库存表迁移-->
+	<sql-query name="P_CenQtyDtlTemp_Migration">
+		<return-scalar column="ReturnStr" type="string" />
+		exec P_CenQtyDtlTemp_Migration :QtyDtlID
+	</sql-query>
+
+	<!--试剂消耗统计存储过程-->
+	<sql-query name="P_Stat_Reagent_Consume">
+		<return class="ZhiFang.Digitlab.Entity.ReagentSys.CenQtyDtlTempHistory, ZhiFang.Digitlab.Entity.ReagentSys" />
+		exec P_Stat_Reagent_Consume :StrPara, :GroupByType
+	</sql-query>
+
+</hibernate-mapping>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>tabpanel加载测试页面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    
+    <script type="text/javascript" src="../../zhifangux/BasicTabPanel.js"></script>
+    <script type="text/javascript" src="../../zhifangux/BasicTreePanel.js"></script>
+    <script type="text/javascript" src="../../zhifangux/BasicGridPanel.js"></script>
+    
+    <script type="text/javascript">
+    Ext.onReady(function(){	
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var store = Ext.create('Ext.data.Store',{
+    		fields:['name','age'],
+    		data:[
+    			{name:'张三1',age:12},
+    			{name:'李四2',age:14},
+    			{name:'张三3',age:12},
+    			{name:'李四4',age:14},
+    			{name:'张三5',age:12},
+    			{name:'李四6',age:14}
+    		]
+    	});
+		var panel = {
+    		xtype:'zhifanguxbasicgridpanel',
+    		title:'基础列表面板测试',
+    		selType:'checkboxmodel',multiSelect:true,
+    		selModel:{checkOnly:true},
+    		columns:[{
+    			xtype:'rownumberer',
+    			text:'序号',width:35,align:'center'
+    		},{
+    			text:'姓名',
+    			dataIndex:'name',
+    			editor:{}
+    		},{
+    			text:'年龄',
+    			dataIndex:'age'
+    		}],
+    		store:store,
+    		plugins:Ext.create('Ext.grid.plugin.CellEditing',{clicksToEdit:1}),
+    		editColumns:['name'],
+    		tbar:[{
+    			text:'按钮',
+    			handler:function(but){
+    				var g = but.ownerCt.ownerCt;
+    				var view = g.getView();
+    				view.focusRow(2);
+    			}
+    		}]
+    	};
+	    	
+    	//总体布局
+    	var viewport = Ext.create('Ext.container.Viewport',{
+    		layout:'fit',
+    		items:[panel]
+    	});
+   	});
+    </script>
+</head>
+<body>
+</body>
+</html>

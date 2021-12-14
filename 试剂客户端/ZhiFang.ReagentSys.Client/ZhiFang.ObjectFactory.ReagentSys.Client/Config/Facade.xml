@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="ZhiFang.ReagentSys.Client.RBACService" type="ZhiFang.ReagentSys.Client.RBACService,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <property name="IBImportFile" ref="BImportFile"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHRPosition" ref="BHRPosition"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <property name="IBSLog" ref="BSLog"/>
+  </object>
+
+  <object id="ZhiFang.ReagentSys.Client.SingleTableService" type="ZhiFang.ReagentSys.Client.SingleTableService,ZhiFang.ReagentSys.Client"  singleton="true">
+    <!--<property name="IBBLaboratory" ref="BBLaboratory"/>-->
+    <!--<property name="IBBConstellation" ref="BBConstellation"/>-->
+    <!--<property name="IBBEducationLevel" ref="BBEducationLevel"/>-->
+
+    <property name="IBBHealthStatus" ref="BBHealthStatus"/>
+    <!--<property name="IBBProjectType" ref="BBProjectType"/>
+		<property name="IBBLeaveType" ref="BBLeaveType"/>
+		<property name="IBBLevel" ref="BBLevel"/>-->
+    <property name="IBBMaritalStatus" ref="BBMaritalStatus"/>
+    <property name="IBBNationality" ref="BBNationality"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+    <property name="IBBProvince" ref="BBProvince"/>
+    <property name="IBBSex" ref="BBSex"/>
+    <!--<property name="IBBSubject" ref="BBSubject"/>
+		<property name="IBBSupplier" ref="BBSupplier"/>-->
+    <property name="IBBObjectOperate" ref="BBObjectOperate"/>
+    <property name="IBBObjectOperateType" ref="BBObjectOperateType"/>
+    <!--<property name="IBBOperateObjectType" ref="BBOperateObjectType"/>-->
+    <property name="IBSTypeDetail" ref="BSTypeDetail"/>
+    <property name="IBSType" ref="BSType"/>
+    <property name="IBBCountry" ref="BBCountry"/>
+    <property name="IBBPoliticsStatus" ref="BBPoliticsStatus"/>
+    <property name="IBBDegree" ref="BBDegree"/>
+    <property name="IBBCity" ref="BBCity"/>
+    <property name="IBBProfessionalAbility" ref="BBProfessionalAbility"/>
+    <property name="IBBDict" ref="BBDict"/>
+    <property name="IBBDictType" ref="BBDictType"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+    <property name="IBBLodopTemplet" ref="BBLodopTemplet"/>
+  </object>
+
+  <object id="ZhiFang.ReagentSys.Client.WeiXinAppService" type="ZhiFang.ReagentSys.Client.WeiXinAppService,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBBAccountType" ref="BBAccountType"/>
+    <property name="IBBWeiXinEmpLink" ref="BBWeiXinEmpLink"/>
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+    <property name="IBBWeiXinUserGroup" ref="BBWeiXinUserGroup"/>
+    <property name="IBBWeiXinPushMessageTemplate" ref="BBWeiXinPushMessageTemplate"/>
+    <!--<property name="IBReaBmsCenOrderDoc" ref="BReaBmsCenOrderDoc"/>-->
+  </object>
+
+  <object id="ZhiFang.ReagentSys.Client.ReaSysManageService" type="ZhiFang.ReagentSys.Client.ReaSysManageService,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBSCAttachment" ref="BSCAttachment"/>
+    <property name="IBSCInteraction" ref="BSCInteraction"/>
+    <property name="IBSCOperation" ref="BSCOperation"/>
+    <property name="IBReaCenOrg" ref="BReaCenOrg"/>
+    <property name="IBReaGoods" ref="BReaGoods"/>
+    <property name="IBReaGoodsOrgLink" ref="BReaGoodsOrgLink"/>
+    <property name="IBReaBmsInDoc" ref="BReaBmsInDoc"/>
+    <property name="IBReaBmsInDtl" ref="BReaBmsInDtl"/>
+    <property name="IBReaBmsOutDoc" ref="BReaBmsOutDoc"/>
+    <property name="IBReaBmsOutDtl" ref="BReaBmsOutDtl"/>
+    <property name="IBReaBmsReqDoc" ref="BReaBmsReqDoc"/>
+    <property name="IBReaBmsReqDtl" ref="BReaBmsReqDtl"/>
+    <property name="IBReaDeptGoods" ref="BReaDeptGoods"/>
+    <property name="IBReaGoodsLot" ref="BReaGoodsLot"/>
+    <property name="IBReaGoodsRegister" ref="BReaGoodsRegister"/>
+    <property name="IBReaGoodsUnit" ref="BReaGoodsUnit"/>
+    <property name="IBReaPlace" ref="BReaPlace"/>
+    <property name="IBReaStorage" ref="BReaStorage"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBReaReqOperation" ref="BReaReqOperation"/>
+    <property name="IBReaBmsQtyDtl" ref="BReaBmsQtyDtl"/>
+    <property name="IBReaBmsCenOrderDoc" ref="BReaBmsCenOrderDoc"/>
+    <property name="IBReaBmsCenOrderDtl" ref="BReaBmsCenOrderDtl"/>
+    <property name="IBReaCheckInOperation" ref="BReaCheckInOperation"/>
+    <property name="IBReaBmsCenSaleDocConfirm" ref="BReaBmsCenSaleDocConfirm"/>
+    <property name="IBReaBmsTransferDoc" ref="BReaBmsTransferDoc"/>
+    <property name="IBReaBmsTransferDtl" ref="BReaBmsTransferDtl"/>
+    <property name="IBReaBmsCenSaleDtlConfirm" ref="BReaBmsCenSaleDtlConfirm"/>
+    <property name="IBReaCenBarCodeFormat" ref="BReaCenBarCodeFormat"/>
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBReaChooseGoodsTemplate" ref="BReaChooseGoodsTemplate"/>
+    <property name="IBReaGoodsBarcodeOperation" ref="BReaGoodsBarcodeOperation"/>
+    <property name="IBReaBmsCenSaleDoc" ref="BReaBmsCenSaleDoc"/>
+    <property name="IBReaBmsCenSaleDtl" ref="BReaBmsCenSaleDtl"/>
+    <property name="IBReaEquipReagentLink" ref="BReaEquipReagentLink"/>
+    <property name="IBReaTestEquipLab" ref="BReaTestEquipLab"/>
+    <property name="IBReaTestEquipProd" ref="BReaTestEquipProd"/>
+    <property name="IBReaTestEquipType" ref="BReaTestEquipType"/>
+    <property name="IBReaBmsQtyDtlOperation" ref="BReaBmsQtyDtlOperation"/>
+    <property name="IBReaBmsCheckDoc" ref="BReaBmsCheckDoc"/>
+    <property name="IBReaBmsCheckDtl" ref="BReaBmsCheckDtl"/>
+    <property name="IBReaBmsQtyBalanceDoc" ref="BReaBmsQtyBalanceDoc"/>
+    <property name="IBReaBmsQtyBalanceDtl" ref="BReaBmsQtyBalanceDtl"/>
+    <property name="IBReaBmsQtyMonthBalanceDoc" ref="BReaBmsQtyMonthBalanceDoc"/>
+    <property name="IBReaUserStorageLink" ref="BReaUserStorageLink"/>
+    <property name="IBCenOrg" ref="BCenOrg"/>
+    <property name="IBBReport" ref="BBReport"/>
+    <property name="IBBTemplate" ref="BBTemplate"/>
+    <property name="IBCenOrgType" ref="BCenOrgType"/>
+    <property name="IBReaBusinessInterface" ref="BReaBusinessInterface"/>
+    <property name="IBReaBusinessInterfaceLink" ref="BReaBusinessInterfaceLink"/>
+    <property name="IBReaEquipTestItemReaGoodLink" ref="BReaEquipTestItemReaGoodLink"/>
+    <property name="IBReaTestItem" ref="BReaTestItem"/>
+    <property name="IBReaTestEquipItem" ref="BReaTestEquipItem"/>
+    <property name="IBReaAlertInfoSettings" ref="BReaAlertInfoSettings"/>
+    <property name="IBReaMonthUsageStatisticsDoc" ref="BReaMonthUsageStatisticsDoc"/>
+    <property name="IBReaMonthUsageStatisticsDtl" ref="BReaMonthUsageStatisticsDtl"/>
+    <property name="IBReaLisTestStatisticalResults" ref="BReaLisTestStatisticalResults"/>
+    <property name="IBBUserUIConfig" ref="BBUserUIConfig"/>
+    <property name="IBReaStorageGoodsLink" ref="BReaStorageGoodsLink"/>
+
+  </object>
+
+  <object id="ZhiFang.ReagentSys.Client.ReaManageService" type="ZhiFang.ReagentSys.Client.ReaManageService,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBReaGoods" ref="BReaGoods"/>
+    <property name="IBCenOrg" ref="BCenOrg"/>
+    <property name="IBReaGoodsOrgLink" ref="BReaGoodsOrgLink"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBReaBmsReqDoc" ref="BReaBmsReqDoc"/>
+    <property name="IBReaDeptGoods" ref="BReaDeptGoods"/>
+    <property name="IBReaBmsQtyDtl" ref="BReaBmsQtyDtl"/>
+    <property name="IBReaBmsInDoc" ref="BReaBmsInDoc"/>
+    <property name="IBReaBmsInDtl" ref="BReaBmsInDtl"/>
+    <property name="IBReaBmsOutDoc" ref="BReaBmsOutDoc"/>
+    <property name="IBReaBmsOutDtl" ref="BReaBmsOutDtl"/>
+    <property name="IBReaBmsCheckDoc" ref="BReaBmsCheckDoc"/>
+    <property name="IBReaBmsCheckDtl" ref="BReaBmsCheckDtl"/>
+    <property name="IBReaCenBarCodeFormat" ref="BReaCenBarCodeFormat"/>
+    <property name="IBReaEquipReagentLink" ref="BReaEquipReagentLink"/>
+    <property name="IBReaBmsTransferDoc" ref="BReaBmsTransferDoc"/>
+    <property name="IBReaGoodsBarcodeOperation" ref="BReaGoodsBarcodeOperation"/>
+    <property name="IBReaBmsCenSaleDocConfirm" ref="BReaBmsCenSaleDocConfirm"/>
+    <property name="IBReaBmsCenSaleDtlConfirm" ref="BReaBmsCenSaleDtlConfirm"/>
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBReaBmsCenOrderDoc" ref="BReaBmsCenOrderDoc"/>
+    <property name="IBReaBmsCenOrderDtl" ref="BReaBmsCenOrderDtl"/>
+    <property name="IBReaBmsCenSaleDoc" ref="BReaBmsCenSaleDoc"/>
+    <property name="IBReaBmsCenSaleDtl" ref="BReaBmsCenSaleDtl"/>
+    <property name="IBReaBmsQtyBalanceDoc" ref="BReaBmsQtyBalanceDoc"/>
+    <property name="IBReaBmsQtyMonthBalanceDoc" ref="BReaBmsQtyMonthBalanceDoc"/>
+    <property name="IBReaBmsCenOrderDocOfService" ref="BReaBmsCenOrderDocOfService"/>
+    <property name="IBBTemplate" ref="BBTemplate"/>
+    <property name="IBReaMonthUsageStatisticsDoc" ref="BReaMonthUsageStatisticsDoc"/>
+    <property name="IBReaLisTestStatisticalResults" ref="BReaLisTestStatisticalResults"/>
+    <property name="IBReaEquipTestItemReaGoodLink" ref="BReaEquipTestItemReaGoodLink"/>
+    <property name="IBReaTestEquipItem" ref="BReaTestEquipItem"/>
+    <property name="IBReaTestEquipLab" ref="BReaTestEquipLab"/>
+    <property name="IBReaTestItem" ref="BReaTestItem"/>
+    <property name="IBCSUpdateToBS" ref="BCSUpdateToBS"/>
+    <property name="IBReaPlace" ref="BReaPlace"/>
+    <property name="IBReaStorage" ref="BReaStorage"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+    <property name="IBReaCenOrg" ref="BReaCenOrg"/>
+    <property name="IBReaGoodsLot" ref="BReaGoodsLot"/>
+    <property name="IBReaBmsQtyDtlOperation" ref="BReaBmsQtyDtlOperation"/>
+    <property name="IBReaMonthUsageStatisticsDtl" ref="BReaMonthUsageStatisticsDtl"/>
+    <property name="IBReaStorageGoodsLink" ref="BReaStorageGoodsLink"/>
+    <property name="IBReaChooseGoodsTemplate" ref="BReaChooseGoodsTemplate"/>
+    <property name="IBReaBmsReqDtl" ref="BReaBmsReqDtl"/>
+    <property name="IBReaOpenBottleOperDoc" ref="BReaOpenBottleOperDoc"/>
+  </object>
+
+  <object id="ZhiFang.ReagentSys.Client.CommonService" type="ZhiFang.ReagentSys.Client.CommonService,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBFFile" ref="BFFile"/>
+    <property name="IBFFileAttachment" ref="BFFileAttachment"/>
+    <property name="IBFFileCopyUser" ref="BFFileCopyUser"/>
+    <property name="IBFFileInteraction" ref="BFFileInteraction"/>
+    <property name="IBFFileOperation" ref="BFFileOperation"/>
+    <property name="IBFFileReadingLog" ref="BFFileReadingLog"/>
+    <property name="IBFFileReadingUser" ref="BFFileReadingUser"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+  </object>
+  <object id="ZhiFang.ReagentSys.Client.ZFReaRestfulService" type="ZhiFang.ReagentSys.Client.ZFReaRestfulService,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBReaBmsCenOrderDoc" ref="BReaBmsCenOrderDoc"/>
+    <property name="IBReaBmsCenOrderDtl" ref="BReaBmsCenOrderDtl"/>
+    <property name="IBReaBmsCenSaleDoc" ref="BReaBmsCenSaleDoc"/>
+    <property name="IBReaBmsCenSaleDtl" ref="BReaBmsCenSaleDtl"/>
+    <property name="IBReaBmsCenOrderDocOfService" ref="BReaBmsCenOrderDocOfService"/>
+    <property name="IBCenOrg" ref="BCenOrg"/>
+    <property name="IBReaBmsOutDoc" ref="BReaBmsOutDoc"/> 
+    <property name="IBHRDept" ref="BHRDept"/>
+  </object>
+  <object id="ZhiFang.ReagentSys.Client.ReaStatisticalAnalysisService" type="ZhiFang.ReagentSys.Client.ReaStatisticalAnalysisService,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBReaBmsCenOrderDtl" ref="BReaBmsCenOrderDtl"/>
+    <property name="IBReaBmsCenSaleDtl" ref="BReaBmsCenSaleDtl"/>
+    <property name="IBReaBmsInDtl" ref="BReaBmsInDtl"/>
+    <property name="IBReaBmsQtyDtl" ref="BReaBmsQtyDtl"/>
+    <property name="IBReaBmsTransferDtl" ref="BReaBmsTransferDtl"/>
+    <property name="IBReaBmsOutDtl" ref="BReaBmsOutDtl"/>
+    <property name="IBComprehensiveStatistics" ref="BComprehensiveStatistics"/>
+    <property name="IBReaLisTestStatisticalResults" ref="BReaLisTestStatisticalResults"/>
+    <property name="IBReaEquipTestItemReaGoodLink" ref="BReaEquipTestItemReaGoodLink"/>
+  </object>
+
+  <object id="ZhiFang.ReagentSys.Client.ReaInternalInterface" type="ZhiFang.ReagentSys.Client.ReaInternalInterface,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBReaGoods" ref="BReaGoods"/>
+    <property name="IBReaGoodsOrgLink" ref="BReaGoodsOrgLink"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBReaStorage" ref="BReaStorage"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBReaCenOrg" ref="BReaCenOrg"/>
+    <property name="IBCenOrg" ref="BCenOrg"/>
+  </object>
+
+  <object id="ZhiFang.ReagentSys.Client.ReaExternalInterface" type="ZhiFang.ReagentSys.Client.ReaExternalInterface,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBReaGoods" ref="BReaGoods"/>
+    <property name="IBReaGoodsOrgLink" ref="BReaGoodsOrgLink"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBReaStorage" ref="BReaStorage"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBReaCenOrg" ref="BReaCenOrg"/>
+    <property name="IBCenOrg" ref="BCenOrg"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+  </object>
+
+  <object id="ZhiFang.ReagentSys.Client.ReaCustomInterface" type="ZhiFang.ReagentSys.Client.ReaCustomInterface,ZhiFang.ReagentSys.Client"  singleton="true">
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBReaCenOrg" ref="BReaCenOrg"/>    
+    <property name="IBReaBmsCenOrderDoc" ref="BReaBmsCenOrderDoc"/>
+    <property name="IBReaBmsCenOrderDtl" ref="BReaBmsCenOrderDtl"/>
+    <property name="IBReaBmsOutDoc" ref="BReaBmsOutDoc"/>
+  </object>
+
+  <!--<object id="ZhiFang.Digitlab.ReagentSys.ReaADOService" type="ZhiFang.Digitlab.ReagentSys.ReaADOService,ZhiFang.Digitlab.ReagentSys"  singleton="true">
+    <property name="IBLabInStock" ref="BLabInStock"/>
+  </object>-->
+</objects>

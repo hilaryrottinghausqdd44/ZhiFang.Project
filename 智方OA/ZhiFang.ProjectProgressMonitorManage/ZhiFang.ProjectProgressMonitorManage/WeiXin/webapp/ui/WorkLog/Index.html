@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>工作日志</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Index.js" type="text/javascript" charset="UTF-8"></script>
+    <style type="text/css" media="all">
+        .scroller li {
+            background-color: #fff;
+        }
+
+        .game-info {
+            padding: 2px 2px;
+            line-height: 30px;
+            color: #333;
+        }
+
+            .game-info p {
+                color: #999;
+            }
+    </style>
+</head>
+<body >
+    <div class="panel panel-default" style="margin:0px;">
+        <div id="panel-head" class="panel-heading text-center">工作日志<img id="worklogaddi" src="../img/icon/add.png" style="width:22px;height:22px;float:right;margin-top:2px;border:solid 0px" data-url="WorkLogTypeListChoose.html" /></div>
+        <table class="table table-bordered">
+            <tr>
+                <td id="worklogdayl" data-url="WorkLogSendTypeList.html?WorkLogType=WorkLogDay" class="text-center" width="25%">
+                    <img id="wldi" src="../img/icon/day.png" style="width:64px;height:64px" />
+                    <div id="wldt" style="color:#8a8a8a;padding: 2px">日报</div>
+                </td>
+
+                <td id="worklogweekl" data-url="WorkLogSendTypeList.html?WorkLogType=WorkLogWeek" class="text-center" width="25%">
+                    <img id="wlwi" src="../img/icon/week.png" style="width:64px;height:64px" />
+                    <div id="wlwt" style="color:#8a8a8a;padding: 2px">周报</div>
+                </td>
+                <td id="worklogmonthl" data-url="WorkLogSendTypeList.html?WorkLogType=WorkLogMonth" class="text-center" width="25%">
+                    <img id="wlmi" src="../img/icon/month.png" style="width:64px;height:64px" />
+                    <div id="wlmt" style="color:#8a8a8a;padding: 2px">月报</div>
+                </td>
+                <td id="othertd" class="text-center" width="25%">
+                    <img id="otheri" src="../img/icon/inbox-file-other.png" style="width:64px;height:64px" />
+                    <div id="othert" style="color:#8a8a8a;padding: 2px">其它</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="footer" class="container">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="navbar-inner navbar-content-center">
+                <table class="table-bordered" width="100%" height="30" border="1">
+                    <tr>
+                        <td id='applog' class="text-center" style="padding: 2px;" width="25%" data-url="../index.html">
+                            <img id="appi" src="../img/icon/unapp.png" style="width:32px;height:32px" />
+                            <div id="appt" style="color:#a9b7b7">控制台</div>
+                        </td>
+                        <td id='messagelog' class="text-center" style="padding: 2px;" width="25%" data-url="../AT/EmpATMyApprovaAllLogUn.html?ATEventType=all">
+                            <img id="messagei" src="../img/icon/unmessage.png" style="width:32px;height:32px" />
+                            <div id="messaget" style="color:#a9b7b7">消息</div>
+                        </td>
+                        <td id='workdaylog' class="text-center" width="25%">
+                            <img id="workdayi" src="../img/icon/workday.png" style="width:32px;height:32px" />
+                            <div id="workdayt" style="color:#56abe4">日报</div>
+                        </td>
+                        <td id='myinfo' class="text-center" width="25%">
+                            <img id="myinfoi" src="../img/icon/unuser.png" style="width:32px;height:32px" />
+                            <div id="myinfot" style="color:#a9b7b7">我</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="PMEGroupSampleFormSampleQuantityStatistics" >
+    <id name="Id" column="[RowId]" type="Int64">
+      <generator class="assigned" />
+    </id>    
+    <property name="GSampleTypeID" column="[GSampleTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="SampleTypeCName" column="[SampleTypeCName]" type="String" not-null="false" length="50"  />
+    <property name="DeptID" column="[DeptID]" type="Int64" not-null="true" length="8" />
+    <property name="DeptCName" column="[DeptCName]" type="String" not-null="false" length="50"  />
+    <property name="SickTypeID" column="[SickTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="SickTypeCName" column="[SickTypeCName]" type="String" not-null="false" length="50" />
+    <property name="DataAddDate" column="DataAddDate" type="String" not-null="false" length="50"/>
+    <property name="CountNumber" column="[CountNumber]" type="Int64" not-null="true" length="8" />
+    <!---->
+	</class>
+  <sql-query name="ME_GroupSampleForm_MicroSampleQuantityStatistics">
+    <return class="ZhiFang.Digitlab.Entity.PMEGroupSampleFormSampleQuantityStatistics,ZhiFang.Digitlab.Entity">
+      <return-property name="Id" column="RowId"/>
+      <return-property name="GSampleTypeID" column="GSampleTypeID"/>
+      <return-property name="SampleTypeCName" column="SampleTypeCName"/>
+      <return-property name="DeptID" column="DeptID"/>
+      <return-property name="DeptCName" column="DeptCName"/>
+      <return-property name="SickTypeID" column="SickTypeID" />
+      <return-property name="SickTypeCName" column="SickTypeCName" />
+      <return-property name="DataAddDate" column="DataAddDate"/>
+      <return-property name="CountNumber" column="CountNumber"/>
+      <!---->
+    </return>
+    exec ME_GroupSampleForm_MicroSampleQuantityStatistics :DateStartDate,:DateEndDate,:GroupList,:ItemList,:DeptList,:SampleTypeList,:PositiveFlag,:MainStateList,:WhereStr,:GroupField
+  </sql-query>
+  <sql-query name="ME_GroupSampleForm_NormalSampleQuantityStatistics">
+    <return class="ZhiFang.Digitlab.Entity.PMEGroupSampleFormSampleQuantityStatistics,ZhiFang.Digitlab.Entity">
+      <return-property name="Id" column="RowId"/>
+      <return-property name="GSampleTypeID" column="GSampleTypeID"/>
+      <return-property name="SampleTypeCName" column="SampleTypeCName"/>
+      <return-property name="DeptID" column="DeptID"/>
+      <return-property name="DeptCName" column="DeptCName"/>
+      <return-property name="SickTypeID" column="SickTypeID" />
+      <return-property name="SickTypeCName" column="SickTypeCName" />
+      <return-property name="DataAddDate" column="DataAddDate"/>
+      <return-property name="CountNumber" column="CountNumber"/>
+      <!---->
+    </return>
+    exec ME_GroupSampleForm_NormalSampleQuantityStatistics :DateStartDate,:DateEndDate,:GroupList,:ItemList,:DeptList,:SampleTypeList,:MainStateList,:WhereStr,:GroupField
+  </sql-query>
+</hibernate-mapping>

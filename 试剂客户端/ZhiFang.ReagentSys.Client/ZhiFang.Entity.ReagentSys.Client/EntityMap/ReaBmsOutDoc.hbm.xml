@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaBmsOutDoc" table="[dbo].[Rea_BmsOutDoc]">
+    <id name="Id" column="[OutDocID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DeptID" column="[DeptID]" type="Int64" not-null="false" length="8" />
+    <property name="OutType" column="[OutType]" type="Int64" not-null="true" length="8" />
+    <property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+    <property name="OperDate" column="[OperDate]" type="DateTime" not-null="false" length="8" />
+    <property name="PrintTimes" column="[PrintTimes]" type="Int32" not-null="false" length="4" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="50" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="50" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="50" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="CreaterID" column="[CreaterID]" type="Int64" not-null="false" length="8" />
+    <property name="CreaterName" column="[CreaterName]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="true" length="8" />
+    <property name="DeptName" column="[DeptName]" type="String" not-null="false" length="50" />
+    <property name="OutTypeName" column="[OutTypeName]" type="String" not-null="false" length="50" />
+    <property name="StatusName" column="[StatusName]" type="String" not-null="false" length="50" />
+    <property name="OperateOutDocID" column="[OperateOutDocID]" type="Int64" not-null="false" length="8" />
+    <property name="OperateOutDocNo" column="[OperateOutDocNo]" type="String" not-null="false" length="50" />
+    <property name="OutDocNo" column="[OutDocNo]" type="String" not-null="false" length="20" />
+    <property name="TotalPrice" column="[TotalPrice]" type="Double" not-null="false" length="8" />
+    <property name="CheckDocID" column="[CheckDocID]" type="Int64" not-null="false" length="8" />
+    <property name="TakerID" column="[TakerID]" type="Int64" not-null="false" length="8" />
+    <property name="TakerName" column="[TakerName]" type="String" not-null="false" length="50" />
+    <property name="StorageID" column="[StorageID]" type="Int64" not-null="false" length="8" />
+    <property name="StorageName" column="[StorageName]" type="String" not-null="false" length="50" />
+    <property name="OutBoundID" column="[OutBoundID]" type="Int64" not-null="false" length="8" />
+    <property name="OutBoundName" column="[OutBoundName]" type="String" not-null="false" length="50" />
+    <property name="ConfirmId" column="[ConfirmId]" type="Int64" not-null="false" length="8" />
+    <property name="ConfirmName" column="[ConfirmName]" type="String" not-null="false" length="50" />
+    <property name="ConfirmTime" column="[ConfirmTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ConfirmMemo" column="[ConfirmMemo]" type="String" not-null="false" length="500" />
+    <property name="IsHasCheck" column="[IsHasCheck]" type="Boolean" not-null="false" length="1" />
+    <property name="CheckID" column="[CheckID]" type="Int64" not-null="false" length="8" />
+    <property name="CheckName" column="[CheckName]" type="String" not-null="false" length="50" />
+    <property name="CheckTime" column="[CheckTime]" type="DateTime" not-null="false" length="8" />
+    <property name="CheckMemo" column="[CheckMemo]" type="String" not-null="false" length="500" />
+    <property name="IsHasApproval" column="[IsHasApproval]" type="Boolean" not-null="false" length="1" />
+    <property name="ApprovalId" column="[ApprovalId]" type="Int64" not-null="false" length="8" />
+    <property name="ApprovalCName" column="[ApprovalCName]" type="String" not-null="false" length="50" />
+    <property name="ApprovalTime" column="[ApprovalTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ApprovalMemo" column="[ApprovalMemo]" type="String" not-null="false" length="500" />
+
+    <property name="IOFlag" column="[IOFlag]" type="Int32" not-null="false" length="4" />
+    <property name="IOMemo" column="[IOMemo]" type="String" not-null="false" length="5000" />
+<<<<<<< .mine
+    <property name="IsNeedBOpen" column="[IsNeedBOpen]" type="Boolean" not-null="false" length="1" />
+||||||| .r2673
+    
+=======
+
+    <property name="LabcName" column="[LabcName]" type="String" not-null="false" length="100" />
+    <property name="ReaServerLabcCode" column="[ReaServerLabcCode]" type="String" not-null="false" length="200" />
+    <property name="LabOutDocID" column="[LabOutDocID]" type="Int64" not-null="false" length="8" />
+    <property name="IsThirdFlag" column="[IsThirdFlag]" type="Int32" not-null="false" length="4" />
+    <property name="SupplierConfirmID" column="[SupplierConfirmID]" type="Int64" not-null="false" length="8" />
+    <property name="SupplierConfirmName" column="[SupplierConfirmName]" type="String" not-null="false" length="100" />    
+    <property name="SupplierConfirmTime" column="[SupplierConfirmTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SupplierConfirmMemo" column="[SupplierConfirmMemo]" type="String" not-null="false" length="500" />
+    
+>>>>>>> .r2783
+  </class>
+</hibernate-mapping>

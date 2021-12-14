@@ -1,0 +1,26 @@
+2017-11-17 22:11:04,005 [12] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2017-11-17 22:11:04,106 [12] DEBUG : objectID:526676974
+2017-11-17 22:11:04,107 [12] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2017-11-17 22:11:04,123 [12] INFO  :  IF COL_LENGTH('OS_DoctorBonus', 'ReturnCode') IS NULL ALTER TABLE OS_DoctorBonus ADD ReturnCode varchar(50) ; 
+2017-11-17 22:11:04,271 [12] INFO  :  IF COL_LENGTH('OS_DoctorBonus', 'ResultCode') IS NULL ALTER TABLE OS_DoctorBonus ADD ResultCode varchar(50) ; 
+2017-11-17 22:11:04,273 [12] INFO  :  IF COL_LENGTH('OS_DoctorBonus', 'ReturnMsg') IS NULL ALTER TABLE OS_DoctorBonus ADD ReturnMsg varchar(500) ; 
+2017-11-17 22:11:04,275 [12] INFO  :  IF COL_LENGTH('OS_DoctorBonus', 'ErrCode') IS NULL ALTER TABLE OS_DoctorBonus ADD ErrCode varchar(50) ; 
+2017-11-17 22:11:04,277 [12] INFO  :  IF COL_LENGTH('OS_DoctorBonus', 'ErrCodeDes') IS NULL ALTER TABLE OS_DoctorBonus ADD ErrCodeDes varchar(500) ; 
+2017-11-17 22:11:04,279 [12] INFO  :  IF COL_LENGTH('OS_DoctorBonus', 'ErrorMemo') IS NULL ALTER TABLE OS_DoctorBonus ADD ErrorMemo varchar(500) ; 
+2017-11-17 22:11:04,281 [12] INFO  :  IF COL_LENGTH('OS_DoctorBonus', 'PaymentNo') IS NULL ALTER TABLE OS_DoctorBonus ADD PaymentNo varchar(50) ; 
+2017-11-17 22:11:04,282 [12] INFO  :  IF COL_LENGTH('OS_DoctorBonus', 'PaymentTime') IS NULL ALTER TABLE OS_DoctorBonus ADD PaymentTime [datetime] ; 
+2017-11-17 22:11:04,286 [12] INFO  :  update B_Parameter set ParaValue='1.0.0.10' where ParaType='SYS' and ParaNo='SYS_DBVersion'
+2017-11-17 22:11:45,523 [25] ERROR : 医生奖金结算单ID：5382200824120745439的状态为：二审退回！
+2017-11-17 22:16:56,856 [43] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2017-11-17 22:16:56,857 [43] DEBUG : objectID:526676974
+2017-11-17 22:16:56,858 [43] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2017-11-17 22:17:00,389 [43] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2017-11-17 22:17:00,390 [43] DEBUG : objectID:526676974
+2017-11-17 22:17:00,390 [43] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2017-11-17 22:17:06,763 [43] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2017-11-17 22:17:06,764 [43] DEBUG : objectID:526676974
+2017-11-17 22:17:06,764 [43] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2017-11-17 22:17:30,130 [29] ERROR : 医生奖金结算单ID：5382200824120745438的状态为：一审退回！
+2017-11-17 22:19:45,801 [43] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2017-11-17 22:19:45,803 [43] DEBUG : objectID:526676974
+2017-11-17 22:19:45,803 [43] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'

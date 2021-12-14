@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值查询</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body display="none">
+	<div class="layui-tab layui-tab-brief" lay-filter="tab">
+		<ul class="layui-tab-title">
+			<li lay-id="list" class="layui-this">本账号危急值</li>
+			<li lay-id="listbydept">所有危急值</li>
+		</ul>
+		<div class="layui-tab-content">
+			<div class="layui-tab-item layui-show">
+				<iframe id="list" class="iframe" url="list.html"></iframe>
+			</div>
+			<div class="layui-tab-item">
+				<iframe id="listbydept" class="iframe" url="listall.html"></iframe>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('index.js');
+	</script>
+	<style type="text/css">
+		.iframe{
+			overflow:hidden;overflow-x:hidden;overflow-y:hidden;width:100%;
+			top:0px;left:0px;right:0px;bottom:0px;border:0;visibility:hidden;
+		}
+		.layui-tab{margin:0;}
+		.layui-tab-content{padding:0;}
+	</style>
+</body>
+</html>

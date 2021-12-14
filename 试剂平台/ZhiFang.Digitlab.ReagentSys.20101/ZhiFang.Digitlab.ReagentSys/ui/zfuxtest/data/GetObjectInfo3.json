@@ -1,0 +1,17 @@
+//高级表单查询--全部与查询条件:数据对象二
+{
+	success:true,
+	errorInfo:'',
+	tree:[
+		{DisplayName:'用户',InteractionField:'User',expanded:true,checked:false,tree:[
+			{DisplayName:'姓名',InteractionField:'UserName',leaf:true,checked:false},
+			{DisplayName:'年龄',InteractionField:'UserAge',leaf:true,checked:false},
+			{DisplayName:'性别',InteractionField:'UserSex',leaf:true,checked:false},
+			{DisplayName:'所属部门',InteractionField:'Org',expanded:true,checked:false,tree:[
+				{DisplayName:'名称',InteractionField:'OrgName',leaf:true,checked:false},
+				{DisplayName:'隶属',InteractionField:'OrgLishu',leaf:true,checked:false},
+				{DisplayName:'级别',InteractionField:'OrgJiBie',leaf:true,checked:false}
+			]}
+		]}
+	]
+}

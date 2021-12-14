@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Businesses>
+  <Business name="客户地区维护">
+    <Table TableEName="TB_ClientArea">
+      <DFD>
+        <Condition comment="11">
+          <Match field="CA_CODE" const="" comp="ne" />
+        </Condition>
+      </DFD>
+    </Table>
+  </Business>
+</Businesses>

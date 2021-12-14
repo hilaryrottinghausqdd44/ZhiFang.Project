@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+
+		<title>试剂平台-供货单列表</title>
+		<link rel="shortcut icon" href="../../../../img/logo-16.png">
+		<link rel="stylesheet" type="text/css" href="../../../../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../../../../css/css.css">
+		<script type="text/javascript">
+			var Shell = Shell || {};
+			Shell.System = Shell.System || {};
+			//不强制登录标志
+			Shell.System.noLogin = true;
+			//是否开启本地缓存机制
+			Shell.System.openLocalStorage = false;
+		</script>
+		<style>
+			.navbar-top-extract-data {
+				float: left;
+				padding: 13px 10px;
+				margin-top: -50px;
+			}
+			
+			.navbar-top-refresh-data {
+				float: right;
+				padding: 13px 10px;
+				margin-top: -50px;
+			}
+		</style>
+	</head>
+
+	<body style="margin:2px;" hidden="hidden">
+		<!--标题-->
+		<nav id="navbar-top" class="navbar navbar-default navbar-fixed-top navbar-top">
+			<div id="div-show-title" class="navbar-top-title">供货单验收</div>
+			<div class="navbar-top-extract-data" id="div-extract-data">	
+                <!--
+                	作者：longfuchu@163.com
+                	时间：2017-08-01
+                	描述：glyphicon glyphicon-cloud-download 
+                -->
+				<button type="button" id="btnExtract" class="btn btn-primary  btn-sm" style="padding:2px 6px; border: solid 0px;">提取</button>
+			</div>
+			<div class="navbar-top-refresh-data">
+				<span id="div-refresh-data" class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true" style="font-size: 18px;margin-right:10px;"></span>
+			</div>
+		</nav>
+		<!--内容DIV-->
+		<div class="list-group content-div" id="ContentDiv" style="margin-bottom:0;"></div>
+		<div id="div-loadmore-data" class="div-button" style="width:100%;margin:5px 0;text-align:center;" hidden="hidden">加载更多</div>
+
+		<!-- 模态框 -->
+		<div class="modal fade" id="modal-operate-confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title">提取供货单</h4>
+					</div>
+					<div class="modal-body">
+						<li role="presentation" class="dropdown" id="CompOrgOption" data="" style="width:98%;margin-left:2px;margin-bottom:15px;font-size:14px;">
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								供应商选择 <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+							</ul>
+						</li>
+						<input type="text" id="text-saleDocNo" class="form-control" style="width:98%;font-size:14px;" placeholder="请扫供货单号" />
+					</div>
+					<div class="modal-footer" id="extract-data-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>	
+						<button type="button" class="btn btn-primary" id="button-confirm-extract-data">确认提取</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<script type="text/javascript" charset="utf-8" src="../../../../src/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../../../util/util.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../../../config/els.js"></script>
+		<script type="text/javascript" charset="utf-8" src="list.js?v=2017071901"></script>
+	</body>
+
+</html>

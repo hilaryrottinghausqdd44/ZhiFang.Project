@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    
+    <link rel="stylesheet" href="../../../../../web_src/jquery-weui/lib/weui.min.css"/>
+    <link rel="stylesheet" href="../../../../../web_src/jquery-weui/css/jquery-weui.min.css"/>
+    <link rel="stylesheet" href="../../../css/weui.css">
+    
+	<script type="text/javascript" charset="utf-8" src="../../../../../web_src/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../../web_src/jquery-weui/js/jquery-weui.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../../web_src/jquery-weui/js/swiper.min.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="../../../util/JcallShell.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../util/Date.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../util/Isvalid.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../localStorage/User.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../localStorage/Home.js"></script>
+    <script type="text/javascript" charset="utf-8" src="info.js?v=6"></script>
+</head>
+<body style="padding-top: 50px;">
+	<header class='demos-header'>
+		<h1 class="demos-title">用户信息</h1>
+	</header>
+	<div class="bd">
+		<div class="page__bd">
+			<!--姓名-->
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" id="Name" type="text" placeholder="必填">
+				</div>
+			</div>
+			<!--性别-->
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="name" class="weui-label">性别</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" id="SexID" type="text" placeholder="必填">
+				</div>
+			</div>
+			<!--出生年月-->
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="date" class="weui-label">出生年月</label></div>
+				<div class="weui-cell__bd">
+					<!--<input class="weui-input" id="Birthday" type="text" placeholder="必填">-->
+                    <input id="Birthday" class="weui-input" placeholder="必填" type="date" value="">
+				</div>
+			</div>
+			<!--联系电话-->
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" id="MobileCode" type="number" pattern="[0-9]*" placeholder="必填">
+				</div>
+			</div>
+			<!--身份证-->
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label class="weui-label">身份证</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" id="IDNumber" type="text"  placeholder="必填">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="weui-btn-area">
+		<a class="weui-btn weui-btn_primary" href="javascript:" id="saveButton">确定</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>取单时间设置</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+  <style type="text/css">
+  	body{background-color: #FFFFFF;}
+	/* 防止下拉框的下拉列表被隐藏---必须设置--- */
+	.layui-table-cell {
+		overflow: visible !important;
+	}
+	.layui-table-view{margin: 1px 0;}
+  </style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding:15px 15px 10px 15px; margin: 0px;"> 
+   <div class="layui-row"> 
+    <div class=" layui-col-md3 layui-col-sm4"> 
+     <div class="layui-btn-group"> 
+      <button class="layui-btn layui-btn-xs" type="button" id="add"><i class="iconfont"></i>&nbsp;新增分类</button> 
+      <button class="layui-btn layui-btn-xs" type="button" id="addItem"><i class="iconfont"></i>&nbsp;选择项目</button> 
+     </div> 
+     <table id="reportdate-table" lay-filter="reportdate-table">
+     	 <script type="text/html" id="barDemo">
+			  <a class="layui-btn layui-bg-orange layui-btn-xs" lay-event="del"><i class="layui-icon"></i>删除</a>
+			</script> 
+     </table> 
+     <script type="text/html" id="isuseTpl">
+		  {{#  if(d.LBReportDate_IsUse === 'false'){ }}
+		    否
+		  {{#  } else { }}
+		    是
+		  {{#  } }}
+		</script> 
+    </div> 
+    <div class=" layui-col-md6 layui-col-sm5" style="padding-left: 5px;"> 
+     <div class="layui-btn-group"> 
+      <button class="layui-btn layui-btn-xs" type="button" id="adddesc"><i class="iconfont"></i>&nbsp;新增取单时间分类明细</button> 
+     </div> 
+     <table id="reportdatedesc-table" lay-filter="reportdatedesc-table"></table> 
+     <script type="text/html" id="barReportDate">
+			  <a class="layui-btn layui-bg-orange layui-btn-xs" lay-event="del"><i class="layui-icon"></i>删除</a>
+			</script> 
+     <div class="layui-btn-group"> 
+      <button class="layui-btn layui-btn-xs" type="button" id="addrule"><i class="iconfont"></i>&nbsp;新增取单时间段规则</button> 
+     </div> 
+     <table id="reportdaterule-table" lay-filter="reportdaterule-table"> 
+      <script type="text/html" id="barRule">
+			  <a class="layui-btn layui-bg-orange layui-btn-xs" lay-event="del"><i class="layui-icon"></i>删除</a>
+			</script> 
+     </table> 
+    </div> 
+    <div class=" layui-col-md3 layui-col-sm3"> 
+     <span style="font-size:small;color: #1DA296 ;">取单时间分类项目明细</span> 
+     <div class="layui-row" style="padding-left: 5px;padding-top: 5px;"> 
+      <table id="reportdateitem-table" lay-filter="reportdateitem-table"></table> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>  
+	<style>
+	 .layui-table-view{margin: 1px 0px; }
+	</style>
+ </body>
+</html>

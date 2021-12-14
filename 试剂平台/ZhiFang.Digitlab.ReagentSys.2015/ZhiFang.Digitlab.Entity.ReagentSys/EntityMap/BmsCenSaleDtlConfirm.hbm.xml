@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+  <class name="BmsCenSaleDtlConfirm" table="[dbo].[BmsCenSaleDtlConfirm]">
+    <id name="Id" column="[SaleDtlConfirmID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="LabID" column="[SSCID]" type="Int64" not-null="false" length="8" />
+    <property name="SaleDtlConfirmNo" column="[SaleDtlConfirmNo]" type="String" not-null="false" length="50" />
+    <property name="SaleDocConfirmNo" column="[SaleDocConfirmNo]" type="String" not-null="false" length="50" />
+    <property name="OrderDocNo" column="[OrderDocNo]" type="String" not-null="false" length="50" />
+    <property name="ProdGoodsNo" column="[ProdGoodsNo]" type="String" not-null="false" length="50" />
+    <property name="ProdOrgName" column="[ProdOrgName]" type="String" not-null="false" length="100" />
+    <property name="GoodsName" column="[GoodsName]" type="String" not-null="false" length="100" />
+    <property name="GoodsUnit" column="[GoodsUnit]" type="String" not-null="false" length="10" />
+    <property name="UnitMemo" column="[UnitMemo]" type="String" not-null="false" length="100" />
+    <property name="StorageType" column="[StorageType]" type="String" not-null="false" length="200" />
+    <property name="TempRange" column="[TempRange]" type="String" not-null="false" length="100" />
+    <property name="GoodsQty" column="[GoodsQty]" type="Int32" not-null="true" length="4" />
+    <property name="Price" column="[Price]" type="Double" not-null="true" length="8" />
+    <property name="SumTotal" column="[SumTotal]" type="Double" not-null="false" length="8" />
+    <property name="TaxRate" column="[TaxRate]" type="Double" not-null="false" length="8" />
+    <property name="LotNo" column="[LotNo]" type="String" not-null="false" length="100" />
+    <property name="ProdDate" column="[ProdDate]" type="DateTime" not-null="false" length="8" />
+    <property name="InvalidDate" column="[InvalidDate]" type="DateTime" not-null="false" length="8" />
+    <property name="BiddingNo" column="[BiddingNo]" type="String" not-null="false" length="100" />
+    <property name="ApproveDocNo" column="[ApproveDocNo]" type="String" not-null="false" length="200" />
+    <property name="GoodsSerial" column="[GoodsSerial]" type="String" not-null="false" length="100" />
+    <property name="RegisterInvalidDate" column="[RegisterInvalidDate]" type="DateTime" not-null="false" length="8" />
+    <property name="LotSerial" column="[LotSerial]" type="String" not-null="false" length="100" />
+    <property name="SysLotSerial" column="[SysLotSerial]" type="String" not-null="false" length="100" />
+    <property name="RegisterNo" column="[RegisterNo]" type="String" not-null="false" length="200" />
+    <property name="AcceptCount" column="[AcceptCount]" type="Int32" not-null="false" length="4" />
+    <property name="RefuseCount" column="[RefuseCount]" type="Int32" not-null="false" length="4" />
+    <property name="AcceptMemo" column="[AcceptMemo]" type="String" not-null="false" length="1000" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="BmsCenSaleDocConfirm" class="BmsCenSaleDocConfirm" lazy="false">
+      <column name="[SaleDocConfirmID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BmsCenSaleDtl" class="BmsCenSaleDtl" lazy="false">
+      <column name="[SaleDtlID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BmsCenOrderDoc" class="BmsCenOrderDoc" lazy="false">
+      <column name="[OrderDocID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BmsCenOrderDtl" class="BmsCenOrderDtl" lazy="false">
+      <column name="[OrderDtlID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Prod" class="CenOrg" lazy="false">
+      <column name="[ProdID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Goods" class="Goods" lazy="false">
+      <column name="[GoodsID]" not-null="false"/>
+    </many-to-one>
+    <property name="ReaGoodsID" column="[ReaGoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="ReaGoodsName" column="[ReaGoodsName]" type="String" not-null="false" length="100" />
+    <property name="GoodsNo" column="[GoodsNo]" type="String" not-null="false" length="100" />
+    <property name="OrderGoodsID" column="[OrderGoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="Status" column="[Status]" type="Int64" not-null="false" length="8" />
+    <property name="StatusName" column="[StatusName]" type="String" not-null="false" length="100" />
+    <property name="BarCodeMgr" column="[BarCodeMgr]" type="Int32" not-null="false" length="4" />
+    <property name="InCount" column="[InCount]" type="Int32" not-null="false" length="4" />
+  </class>
+</hibernate-mapping>

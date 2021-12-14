@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../util/common.js"></script>
+    <script src="B_HospitalLevel.js"></script>
+    <style type="text/css">
+        #fm {
+            margin: 20px;
+        }
+
+        .fItem {
+            
+            width: 80px;
+        }
+
+            .fItem input 
+            {
+                padding:0px;
+                width: 190px;
+            }
+    </style>
+</head>
+<body>
+    <table title="医院级别" id="dg"></table>
+    <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: left; width:auto; display:inline;">
+
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+
+        </div>
+
+        <div style="float: right; margin-right: 10px; margin-top: 3px; display: none;">
+            <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入编码/名称/简称',searcher:doSearch" style="width:200px;" />
+
+        </div>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width: 340px; height: 445px;" closed="true" buttons="#dlgButtons">
+        <form id="fm">
+            <table>
+                <tr style="padding-top:20px;">
+                    <td class="fItem">医院等级ID</td>
+                    <td class="fItem"><input id='txtBHospitalLevel_Id' name="BHospitalLevel_Id" class="easyui-textbox" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">名称</td>
+                    <td class="fItem"><input id="txtBHospitalLevel_Name" name="BHospitalLevel_Name" class="easyui-textbox" required="required"/></td>
+                </tr>
+                <tr>
+                    <td class="fItem">代码</td>
+                    <td class="fItem"><input id="txtBHospitalLevel_Code" name="BHospitalLevel_Code" class="easyui-textbox" /></td>
+                </tr>            
+                <tr>
+                    <td class="fItem">简称</td>
+                    <td class="fItem"><input id='txtBHospitalLevel_SName' name="BHospitalLevel_SName" class="easyui-textbox"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">快捷码</td>
+                    <td class="fItem"><input id='txtBHospitalLevel_Shortcode' name="BHospitalLevel_Shortcode" class="easyui-textbox"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">拼音字头</td>
+                    <td class="fItem"><input id='txtBHospitalLevel_PinYinZiTou' name="BHospitalLevel_PinYinZiTou" class="easyui-textbox"></td>
+                </tr>
+               
+                <tr>
+                    <td class="fItem">是否使用</td>
+                    <td class="fItem">
+                        <select id="ddlBHospitalLevel_IsUse" name="BHospitalLevel_IsUse" class="easyui-combobox" panelheight=auto style="width:194px;" editable="false">
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="fItem">创建时间</td>
+                    <td class="fItem"><input id='txtBHospitalLevel_DataAddTime' name="BHospitalLevel_DataAddTime" class="easyui-datetimebox" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">时间戳</td>
+                    <td class="fItem"><input id="txtBHospitalLevel_DataTimeStamp" name="BHospitalLevel_DataTimeStamp" class="easyui-datetimebox" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">描述</td>
+                    <td class="fItem"><input id='txtBHospitalLevel_Comment' name="BHospitalLevel_Comment" multiline="true" style="height:90px;" class="easyui-textbox"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="dlgButtons">
+        <div align="right">
+            <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA6A2EF3-1134-45E4-8420-DA3F40D9197C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IBLL.LabStar</RootNamespace>
+    <AssemblyName>ZhiFang.IBLL.LabStar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IBBModuleFormControlList.cs" />
+    <Compile Include="IBBModuleFormControlSet.cs" />
+    <Compile Include="IBBModuleFormList.cs" />
+    <Compile Include="IBBModuleGridControlList.cs" />
+    <Compile Include="IBBModuleGridControlSet.cs" />
+    <Compile Include="IBBModuleGridList.cs" />
+    <Compile Include="IBBPrintModel.cs" />
+    <Compile Include="IBLBChargeType.cs" />
+    <Compile Include="IBLBExpertRule.cs" />
+    <Compile Include="IBLBExpertRuleList.cs" />
+    <Compile Include="IBLBItemExp.cs" />
+    <Compile Include="IBLBPhyPeriod.cs" />
+    <Compile Include="IBLBCollectPart.cs" />
+    <Compile Include="IBLisBarCodeRefuseRecord.cs" />
+    <Compile Include="IBLBTranRuleHostSection.cs" />
+    <Compile Include="IBLisEquipComFile.cs" />
+    <Compile Include="IBLisEquipComLog.cs" />
+    <Compile Include="IBLBItemCharge.cs" />
+    <Compile Include="IBLBItemCodeLink.cs" />
+    <Compile Include="IBLBDicCodeLink.cs" />
+    <Compile Include="IBLBEquipSection.cs" />
+    <Compile Include="IBLBOrderModel.cs" />
+    <Compile Include="IBLBOrderModelItem.cs" />
+    <Compile Include="IBLBTGetMaxNo.cs" />
+    <Compile Include="IBLBReportDateDesc.cs" />
+    <Compile Include="IBLBRight.cs" />
+    <Compile Include="IBLBSectionPrint.cs" />
+    <Compile Include="IBBHost.cs" />
+    <Compile Include="IBBHostTypeUser.cs" />
+    <Compile Include="IBBHostType.cs" />
+    <Compile Include="IBBParaItem.cs" />
+    <Compile Include="IBBPara.cs" />
+    <Compile Include="IBLBQCItemRule.cs" />
+    <Compile Include="IBLBQCMatTime.cs" />
+    <Compile Include="IBLBQCMaterial.cs" />
+    <Compile Include="IBLBQCItemTime.cs" />
+    <Compile Include="IBLBQCItem.cs" />
+    <Compile Include="IBLBQCRule.cs" />
+    <Compile Include="IBLBQCRuleBase.cs" />
+    <Compile Include="IBLBQCRulesCon.cs" />
+    <Compile Include="IBLisQCComments.cs" />
+    <Compile Include="IBLisQueue.cs" />
+    <Compile Include="IBLisQCData.cs" />
+    <Compile Include="IBLisTestFormMsg.cs" />
+    <Compile Include="IBLisTestItemReceive.cs" />
+    <Compile Include="IBLisTestFormMsgItem.cs" />
+    <Compile Include="IBLisTestGraph.cs" />
+    <Compile Include="IBLisOperateAuthorize.cs" />
+    <Compile Include="IBLisEquipGraph.cs" />
+    <Compile Include="IBLisOperate.cs" />
+    <Compile Include="IBLisOperateASection.cs" />
+    <Compile Include="IBLBDict.cs" />
+    <Compile Include="IBLBEquipResultTH.cs" />
+    <Compile Include="IBLBReportDate.cs" />
+    <Compile Include="IBLBReportDateRule.cs" />
+    <Compile Include="IBLBParItemSplit.cs" />
+    <Compile Include="IBLBPhrasesWatch.cs" />
+    <Compile Include="IBLBPhrasesWatchClass.cs" />
+    <Compile Include="IBLBPhrasesWatchClassItem.cs" />
+    <Compile Include="IBLBReportDateItem.cs" />
+    <Compile Include="IBLBSampleItem.cs" />
+    <Compile Include="IBLBSamplingChargeItem.cs" />
+    <Compile Include="IBLBSamplingGroup.cs" />
+    <Compile Include="IBLBSamplingItem.cs" />
+    <Compile Include="IBLBTcuvete.cs" />
+    <Compile Include="IBLBTranRule.cs" />
+    <Compile Include="IBLBTranRuleItem.cs" />
+    <Compile Include="IBLBTranRuleType.cs" />
+    <Compile Include="IBLisCommon.cs" />
+    <Compile Include="IBLBDestination.cs" />
+    <Compile Include="IBLBFolk.cs" />
+    <Compile Include="IBLBDiag.cs" />
+    <Compile Include="IBLBEquip.cs" />
+    <Compile Include="IBLBEquipItem.cs" />
+    <Compile Include="IBLBItem.cs" />
+    <Compile Include="IBLBItemCalc.cs" />
+    <Compile Include="IBLBItemCalcFormula.cs" />
+    <Compile Include="IBLBItemComp.cs" />
+    <Compile Include="IBLBItemGroup.cs" />
+    <Compile Include="IBLBItemRange.cs" />
+    <Compile Include="IBLBItemRangeExp.cs" />
+    <Compile Include="IBLBItemTimeW.cs" />
+    <Compile Include="IBLBPhrase.cs" />
+    <Compile Include="IBLBSampleType.cs" />
+    <Compile Include="IBLBSection.cs" />
+    <Compile Include="IBLBSectionItem.cs" />
+    <Compile Include="IBLBSickType.cs" />
+    <Compile Include="IBLBSpecialty.cs" />
+    <Compile Include="IBLBSectionHisComp.cs" />
+    <Compile Include="IBLisBarCodeForm.cs" />
+    <Compile Include="IBLisBarCodeItem.cs" />
+    <Compile Include="IBLisEquipForm.cs" />
+    <Compile Include="IBLisEquipItem.cs" />
+    <Compile Include="IBLisOrderForm.cs" />
+    <Compile Include="IBLisOrderItem.cs" />
+    <Compile Include="IBLisPatient.cs" />
+    <Compile Include="IBLisTestForm.cs" />
+    <Compile Include="IBLisTestItem.cs" />
+    <Compile Include="IBLBQCPrintTemplate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.LabStar\ZhiFang.Entity.LabStar.csproj">
+      <Project>{50641dca-bffc-4818-9fef-d9338dbb2327}</Project>
+      <Name>ZhiFang.Entity.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.LabStar.Common\ZhiFang.LabStar.Common.csproj">
+      <Project>{d187edc5-9421-4097-85ec-ab82a76a82d5}</Project>
+      <Name>ZhiFang.LabStar.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>微生物</title>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="MicroItem.js"></script>
+</head>
+<body >
+<!--数据列表-->
+<table id="tbMicroItem"></table>
+<div id="topBars" style="height:28px;width: 100%;background: #eeeeee ">
+    <div style="float: left;padding-top: 3px">
+
+        <a id="refresh" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-reload" plain="true">刷新</a>
+        <a id="addRow" href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+        <a id="deleteRow" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-remove" plain="true" >删除</a>
+    </div>
+    <div style="float: right;margin-right: 10px;padding-top: 3px;display: none;">
+        <input id="MicroItem_search"  type="text" class="easyui-searchbox" data-options="prompt:'微生物ID'" style="width: 160px;" ></div>
+</div>
+
+<!--新增，修改窗口-->
+<div id="dlg" class="easyui-dialog"  style="width:330px;height:auto;margin: auto;" closed="true" buttons="#dlgButtons">
+    <div id="frm" class="easyui-form" method="post">
+        <table style="margin: 0;padding: 10px 30px 10px 30px">
+            <tr>
+                <td> 微生物ID:</td>
+                <td ><input id="MicroID" class="easyui-numberbox" type="text" name="BMicroItem_Id" data-options="required:true"></td>
+            </tr>
+            <tr>
+                <td >微生物类型ID:</td>
+                <td><input id="MicroTypeNo" class="easyui-numberbox" type="text" name="BMicroItem_MicroTypeNo"></td>
+            </tr>
+            <tr>
+                <td>中文名称:</td>
+                <td><input id="CName" class="easyui-textbox" type="text" name="BMicroItem_CName" ></td>
+            </tr>
+            <tr>
+                <td>英文名称:</td>
+                <td ><input id="EName" class="easyui-textbox" type="text" name="BMicroItem_EName"  ></td>
+            </tr>
+            <tr>
+                <td>简称:</td>
+                <td ><input id="ShortName" class="easyui-textbox" type="text" name="BMicroItem_ShortName"></td>
+            </tr>
+            <tr>
+                <td>简码:</td>
+                <td ><input id="ShortCode" class="easyui-textbox" type="text" name="BMicroItem_ShortCode" ></td>
+            </tr>
+            <tr>
+                <td>是否可见:</td>
+                <td ><input id="Visible" class="easyui-combobox" type="cmb" name="BMicroItem_Visible" ></td>
+            </tr>
+            <tr>
+                <td>次序:</td>
+                <td ><input id="DispOrder" class="easyui-numberbox" type="text" name="BMicroItem_DispOrder" ></td>
+            </tr>
+            <tr>
+                <td>微生物描述:</td>
+                <td ><input id="MicroDesc" class="easyui-textbox" type="text" name="BMicroItem_MicroDesc" ></td>
+            </tr>
+            <tr>
+                <td>是否是细菌:</td>
+                <td ><input id="IsMicro" class="easyui-combobox" type="cmb" name="BMicroItem_IsMicro" ></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="dlgButtons">
+    <a id="save" href="javascript:void(0)" class="easyui-linkbutton"   iconCls="icon-save">保存</a>
+    <a id="cancel" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-cancel">取消</a>
+</div>
+
+</body>
+</html>

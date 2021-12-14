@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>数据库基础执行脚本</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../../css/admin.css");
+    </script>
+    <style>
+        .myStyle .btnBox {
+            text-align: right;
+        }
+        /*重写layui-elem-field*/
+        .myStyle .layui-elem-field {
+            min-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-fluid myStyle">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-col-sm12">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        <div class="layui-row">
+                            <div class="layui-col-sm6 layui-col-xs8">
+                                SQL执行脚本(可选中执行)
+                            </div>
+                            <div class="layui-col-sm6 layui-col-xs4">
+                                <div class="btnBox">
+                                    <button class="layui-btn layui-btn-sm" id="execute">执行(F5)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-card-body" style="overflow:auto;">
+                        <div class="layui-tab layui-tab-brief" lay-filter="tab" id="tab">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this" data-index="0">执行语句</li>
+                                <li data-index="1">查询语句</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show" data-index="0">
+                                    <form action="" method="post" enctype="application/x-www-form-urlencoded" class="layui-form" id="ExecSQLForm" name="ExecSQLForm" target="targetIfr">
+                                        <!--执行语句-->
+                                        <textarea id="ExecSQL" placeholder="请输入正确格式的sql语句" autocomplete="off" class="layui-textarea"></textarea>
+                                        <input type="hidden" name="strSQL" value="" />
+                                    </form>
+                                </div>
+                                <div class="layui-tab-item" data-index="1">
+                                    <form action="" method="post" enctype="application/x-www-form-urlencoded" class="layui-form" id="QuerySQLForm" name="QuerySQLForm" target="targetIfr">
+                                        <!--查询语句-->
+                                        <textarea id="QuerySQL" placeholder="请输入正确格式的查询sql语句" autocomplete="off" class="layui-textarea"></textarea>
+                                        <input type="hidden" name="strSQL" value="" />
+                                    </form>
+                                    <fieldset class="layui-elem-field">
+                                        <legend style="font-size:14px;">查询结果</legend>
+                                        <div class="layui-field-box">
+                                            <table id="QuerySQLTable" lay-filter="QuerySQLTable"></table>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <iframe name="targetIfr" id="targetIfr" style="display:none"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('app.js');
+    </script>
+</body>
+</html>

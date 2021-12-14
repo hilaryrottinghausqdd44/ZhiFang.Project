@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="OSShoppingCart" table="[dbo].[OS_ShoppingCart]">
+		<id name="Id" column="[UOIID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="UOFID" column="[UOFID]" type="Int64" not-null="false" length="8" />
+		<property name="UserAccountID" column="[UserAccountID]" type="Int64" not-null="false" length="8" />
+		<property name="UserWeiXinUserID" column="[UserWeiXinUserID]" type="Int64" not-null="false" length="8" />
+		<property name="UserName" column="[UserName]" type="String" not-null="false" length="20" />
+		<property name="UserOpenID" column="[UserOpenID]" type="String" not-null="false" length="50" />
+		<property name="OSUserConsumerFormID" column="[OS_UserConsumerFormID]" type="Int64" not-null="false" length="8" />
+		<property name="RecommendationItemProductID" column="[RecommendationItemProductID]" type="Int64" not-null="false" length="8" />
+		<property name="ItemProductClassTreeLinkID" column="[ItemProductClassTreeLinkID]" type="Int64" not-null="false" length="8" />
+		<property name="ItemID" column="[ItemID]" type="Int64" not-null="false" length="8" />
+		<property name="ItemName" column="[ItemName]" type="String" not-null="false" length="50" />
+		<property name="Count" column="[Count]" type="Int32" not-null="false" length="4" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="MarketPrice" column="[MarketPrice]" type="Double" not-null="false" length="8" />
+		<property name="GreatMasterPrice" column="[GreatMasterPrice]" type="Double" not-null="false" length="8" />
+		<property name="DiscountPrice" column="[DiscountPrice]" type="Double" not-null="false" length="8" />
+		<property name="Discount" column="[Discount]" type="Double" not-null="false" length="8" />
+		<property name="Status" column="[Status]" type="Int64" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

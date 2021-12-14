@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>专业</title>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="Specialty.js"></script>
+</head>
+<body >
+<!--数据列表-->
+<table id="tbSpecialty"></table>
+<div id="topBars" style="height:28px;width: 100%;background: #eeeeee ">
+    <div style="float: left;padding-top: 3px">
+
+        <a id="refresh" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-reload" plain="true">刷新</a>
+        <a id="addRow" href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+        <a id="deleteRow" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-remove" plain="true" >删除</a>
+    </div>
+    <div style="float: right;margin-right: 10px;padding-top: 3px;display: none;">
+        <input id="Specialty_search"  type="text" class="easyui-searchbox" data-options="prompt:'图标头像ID'" style="width: 160px;" ></div>
+</div>
+
+<!--新增，修改窗口-->
+<div id="dlg" class="easyui-dialog"  style="width:330px;height:auto;margin: auto;" closed="true" buttons="#dlgButtons">
+    <div id="frm" class="easyui-form" method="post">
+        <table style="margin: 0;padding: 10px 30px 10px 30px">
+            <tr>
+                <td> 实验室ID:</td>
+                <td ><input id="LabID" class="easyui-textbox" type="text" name="BSpecialty_LabID" data-options="required:true"></td>
+            </tr>
+            <tr>
+                <td >专业ID:</td>
+                <td><input id="SpecialtyID" class="easyui-textbox" type="text" name="BSpecialty_Id" data-options="required:true"></td>
+            </tr>
+            <tr>
+                <td >名称:</td>
+                <td><input id="Name" class="easyui-textbox" type="text" name="BSpecialty_Name"></td>
+            </tr>
+
+            <tr>
+                <td>简称:</td>
+                <td ><input id="SName" class="easyui-textbox" type="text" name="BSpecialty_SName"  ></td>
+            </tr>
+            <tr>
+                <td>快捷码:</td>
+                <td ><input id="Shortcode" class="easyui-textbox" type="text" name="BSpecialty_Shortcode"></td>
+            </tr>
+            <tr>
+                <td>汉字拼音字头:</td>
+                <td ><input id="PinYinZiTou" class="easyui-textbox" type="text" name="BSpecialty_PinYinZiTou" ></td>
+            </tr>
+            <tr>
+                <td>备注:</td>
+                <td ><input id="Comment" class="easyui-textbox" type="text" name="BSpecialty_Comment" ></td>
+            </tr>
+            <tr>
+                <td>代码:</td>
+                <td ><input id="UseCode" class="easyui-textbox" type="text" name="BSpecialty_UseCode" ></td>
+            </tr>
+            <tr>
+                <td>标准代码:</td>
+                <td ><input id="StandCode" class="easyui-textbox" type="text" name="BSpecialty_StandCode" ></td>
+            </tr>
+            <tr>
+                <td>开发商标准代码:</td>
+                <td ><input id="DeveCode" class="easyui-textbox" type="text" name="BSpecialty_DeveCode" ></td>
+            </tr>
+            <tr>
+                <td>是否使用:</td>
+                <td ><input id="IsUse" class="easyui-combobox" type="cmb" name="BSpecialty_IsUse" ></td>
+            </tr>
+            <tr>
+                <td>显示次序:</td>
+                <td ><input id="DispOrder" class="easyui-textbox" type="text" name="BSpecialty_DispOrder" ></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<div id="dlgButtons">
+    <a id="save" href="javascript:void(0)" class="easyui-linkbutton"   iconCls="icon-save">保存</a>
+    <a id="cancel" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-cancel">取消</a>
+</div>
+
+</body>
+</html>

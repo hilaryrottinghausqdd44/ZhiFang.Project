@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ProjectProgressMonitorManage" assembly="ZhiFang.Entity.ProjectProgressMonitorManage">
+  <class name="PProjectTask" table="[dbo].[P_ProjectTask]">
+    <id name="Id" column="[ProjectTaskID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="500" />
+    <property name="TaskHelp" column="[TaskHelp]" type="String" not-null="false" length="500" />
+    <property name="PTaskID" column="[PTaskID]" type="Int64" not-null="false" length="8" />
+    <property name="StandWorkload" column="[StandWorkload]" type="Double" not-null="false" length="8" />
+    <property name="EstiWorkload" column="[EstiWorkload]" type="Double" not-null="false" length="8" />
+    <property name="Workload" column="[Workload]" type="Double" not-null="false" length="8" />
+    <property name="EstiStartTime" column="[EstiStartTime]" type="DateTime" not-null="false" length="8" />
+    <property name="EstiEndTime" column="[EstiEndTime]" type="DateTime" not-null="false" length="8" />
+    <property name="StartTime" column="[StartTime]" type="DateTime" not-null="false" length="8" />
+    <property name="EndTime" column="[EndTime]" type="DateTime" not-null="false" length="8" />
+    <property name="RemainWorkDays" column="[RemainWorkDays]" type="Double" not-null="false" length="8" />
+    <property name="EstiAllDays" column="[EstiAllDays]" type="Double" not-null="false" length="8" />
+    <property name="AllDays" column="[AllDays]" type="Double" not-null="false" length="8" />
+    <property name="OtherMsg" column="[OtherMsg]" type="String" not-null="false" />
+    <property name="ExtraMsg" column="[ExtraMsg]" type="String" not-null="false" />
+    <property name="IsStandard" column="[IsStandard]" type="Boolean" not-null="false" length="1" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+    <property name="Contents" column="[Contents]" type="String" not-null="false" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="PlanTheNextFewDays" column="[PlanTheNextFewDays]" type="Int32" not-null="false" />
+    <property name="PlanTheEndFewDays" column="[PlanTheEndFewDays]" type="Int32" not-null="false" />
+    <many-to-one name="Creater" class="ZhiFang.Entity.RBAC.HREmployee" lazy="false">
+      <column name="[CreatEmpID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="PProject" class="PProject" lazy="false">
+      <column name="[ProjectID]" not-null="false"/>
+    </many-to-one>
+    <bag name="PProjectTaskProgressList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[ProjectTaskID]" />
+      </key>
+      <one-to-many class="PProjectTaskProgress"/>
+    </bag>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BTestItemClinicalSignificance" table="[dbo].[B_TestItemClinicalSignificance]">
+		<id name="Id" column="[ClinicalSignificanceID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="CName" column="[CName]" type="String" not-null="false" length="50" />
+		<property name="HighSignificance" column="[HighSignificance]" type="String" not-null="false" length="500" />
+		<property name="LowSignificance" column="[LowSignificance]" type="String" not-null="false" length="500" />
+		<property name="SuperHighSignificance" column="[SuperHighSignificance]" type="String" not-null="false" length="500" />
+		<property name="SuperLowSignificance" column="[SuperLowSignificance]" type="String" not-null="false" length="500" />
+		<property name="MorphologySignificance" column="[MorphologySignificance]" type="String" not-null="false" length="500" />
+		<property name="VirusesSignificance" column="[VirusesSignificance]" type="String" not-null="false" length="500" />
+		<property name="BaseSignificance" column="[BaseSignificance]" type="String" not-null="false" length="500" />
+		<property name="OtherSignificance" column="[OtherSignificance]" type="String" not-null="false" length="200" />
+		<property name="Comment" column="[Comment]" type="String" not-null="false"  />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="UseCode" column="[UseCode]" type="String" not-null="false" length="50" />
+		<property name="StandCode" column="[StandCode]" type="String" not-null="false" length="50" />
+		<property name="DeveCode" column="[DeveCode]" type="String" not-null="false" length="50" />
+		<property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="20" />
+		<property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BSampleType" class="BSampleType" lazy="false">
+			<column name="[SampleTypeID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BSpecialty" class="BSpecialty" lazy="false">
+			<column name="[SpecialtyID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

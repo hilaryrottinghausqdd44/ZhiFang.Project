@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Tables>
+  <Table TableCName="历史记录查询" EName="TB_Log" DisplayManner="1" InputCols="2" UserDefinedGroupQuery="No" SophQuery="No" UserNavigator="No" IsHiddenTopSearch="No" DisplayRows="20" SortMethod="0" SumPage="False" SumAll="False" CheckBoxPager="0" PagerStyle="1" CheckBoxDBLClick="0" InputColsRight="1" SubsIuputShow="False" SubsMeIuputShow="False" SubsMeIuputLines="10" NeedSMS="False" HideInput="True" ButtonsLocation="bot" PositionSize="中,中,80%,80%" OpenPara="" Buttons="|||||||" ModalClass="" BatchModify="false" BatchPrint="false">
+    <tr>
+      <td ColumnCName="编号" ColumnEName="Id" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="4" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="系统" ColumnEName="FirstType" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="模块" ColumnEName="SecondType" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="6" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="功能" ColumnEName="OperateType" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="记录" ColumnEName="Content" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="40" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="操作人编号" ColumnEName="UserId" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="操作人" ColumnEName="UserName" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="6" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="操作时间" ColumnEName="UserDate" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="6" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+    </tr>
+  </Table>
+</Tables>

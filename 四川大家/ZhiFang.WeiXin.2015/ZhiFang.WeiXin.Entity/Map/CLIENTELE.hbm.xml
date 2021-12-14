@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="CLIENTELE" table="[dbo].[CLIENTELE]">
+		<id name="Id" column="[ClIENTNO]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DTimeStampe]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="CNAME" column="[CNAME]" type="String" not-null="false" length="300" />
+		<property name="ENAME" column="[ENAME]" type="String" not-null="false" />
+		<property name="SHORTCODE" column="[SHORTCODE]" type="String" not-null="false" />
+		<property name="ISUSE" column="[ISUSE]" type="Double" not-null="false" length="8" />
+		<property name="LINKMAN" column="[LINKMAN]" type="String" not-null="false" />
+		<property name="PHONENUM1" column="[PHONENUM1]" type="String" not-null="false" />
+		<property name="ADDRESS" column="[ADDRESS]" type="String" not-null="false" />
+		<property name="MAILNO" column="[MAILNO]" type="String" not-null="false" />
+		<property name="EMAIL" column="[EMAIL]" type="String" not-null="false" />
+		<property name="PRINCIPAL" column="[PRINCIPAL]" type="String" not-null="false" />
+		<property name="PHONENUM2" column="[PHONENUM2]" type="String" not-null="false" />
+		<property name="CLIENTTYPE" column="[CLIENTTYPE]" type="Double" not-null="false" length="8" />
+		<property name="Bmanno" column="[bmanno]" type="Double" not-null="false" length="8" />
+		<property name="Romark" column="[romark]" type="String" not-null="false" />
+		<property name="Titletype" column="[titletype]" type="Double" not-null="false" length="8" />
+		<property name="Uploadtype" column="[uploadtype]" type="Double" not-null="false" length="8" />
+		<property name="Tstamp" column="[tstamp]" type="String" not-null="false" length="255" />
+		<property name="Printtype" column="[printtype]" type="Double" not-null="false" length="8" />
+		<property name="InputDataType" column="[InputDataType]" type="Double" not-null="false" length="8" />
+		<property name="Reportpagetype" column="[reportpagetype]" type="Double" not-null="false" length="8" />
+		<property name="Clientarea" column="[clientarea]" type="String" not-null="false" />
+		<property name="Clientstyle" column="[clientstyle]" type="String" not-null="false" />
+		<property name="FaxNo" column="[FaxNo]" type="String" not-null="false" />
+		<property name="AutoFax" column="[AutoFax]" type="Double" not-null="false" length="8" />
+		<property name="ClientReportTitle" column="[ClientReportTitle]" type="String" not-null="false" />
+		<property name="IsPrintItem" column="[IsPrintItem]" type="Double" not-null="false" length="8" />
+		<property name="CZDY1" column="[CZDY1]" type="String" not-null="false" />
+		<property name="CZDY2" column="[CZDY2]" type="String" not-null="false" />
+		<property name="CZDY3" column="[CZDY3]" type="String" not-null="false" />
+		<property name="CZDY4" column="[CZDY4]" type="String" not-null="false" />
+		<property name="CZDY5" column="[CZDY5]" type="String" not-null="false" />
+		<property name="CZDY6" column="[CZDY6]" type="String" not-null="false" />
+		<property name="LinkManPosition" column="[LinkManPosition]" type="String" not-null="false" />
+		<property name="LinkMan1" column="[LinkMan1]" type="String" not-null="false" />
+		<property name="LinkManPosition1" column="[LinkManPosition1]" type="String" not-null="false" />
+		<property name="Clientcode" column="[clientcode]" type="String" not-null="false" />
+		<property name="CWAccountDate" column="[CWAccountDate]" type="String" not-null="false" />
+		<property name="NFClientType" column="[NFClientType]" type="String" not-null="false" />
+		<property name="WebLisSourceOrgID" column="[WebLisSourceOrgID]" type="String" not-null="false" />
+		<property name="Doctor" column="[Doctor]" type="String" not-null="false" />
+		<property name="BusinessName" column="[BusinessName]" type="String" not-null="false" />
+		<property name="LabIsReply" column="[LabIsReply]" type="Double" not-null="false" length="8" />
+		<property name="LabStatusFlag" column="[LabStatusFlag]" type="Double" not-null="false" length="8" />
+		<property name="LabUploadFlag" column="[LabUploadFlag]" type="Double" not-null="false" length="8" />
+		<property name="LabUploadDate" column="[LabUploadDate]" type="DateTime" not-null="false" length="8" />
+		<property name="Time" column="[time]" type="DateTime" not-null="false" length="8" />
+		<property name="Groupname" column="[Groupname]" type="String" not-null="false" length="100" />
+		<property name="RelationName" column="[RelationName]" type="String" not-null="false" length="50" />
+		<property name="AreaID" column="[AreaID]" type="Int32" not-null="false" length="4" />
+	</class>
+</hibernate-mapping>

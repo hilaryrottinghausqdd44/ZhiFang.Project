@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>角色权限</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--不缓存缓存页面-->
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link href="../../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="RoleModuleList.js?v=1"></script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'west',title:'角色列表',split:true" style="width:350px;">
+        <table id="dgrole"></table>
+    </div>
+    <div data-options="region:'center',title:'模块列表',iconCls:'icon-app-grid-16'">
+        <table id="Tree"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; ">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="refresh()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()" plain="true" data-options="iconCls:'icon-save'">保存</a>
+            </div>
+            <!--<div style="float: right; margin-right: 10px; margin-top: 3px;">
+                <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入编码/名称/简称',searcher:doSearch" style="width:200px;" />
+            </div>-->
+        </div>
+    </div>
+    
+</body>
+</html>

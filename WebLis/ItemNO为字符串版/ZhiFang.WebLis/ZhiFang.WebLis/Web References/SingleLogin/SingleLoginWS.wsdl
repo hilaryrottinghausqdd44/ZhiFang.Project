@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetXMLToMergeCWAndWeblisModules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLToMergeCWAndWeblisModulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXMLToMergeCWAndWeblisModulesResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMergeCWAndWeblisModulesXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMergeCWAndWeblisModulesXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMergeCWAndWeblisModulesXMLResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetXMLToMergeCWAndWeblisModulesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXMLToMergeCWAndWeblisModules" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLToMergeCWAndWeblisModulesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXMLToMergeCWAndWeblisModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMergeCWAndWeblisModulesXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMergeCWAndWeblisModulesXML" />
+  </wsdl:message>
+  <wsdl:message name="GetMergeCWAndWeblisModulesXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMergeCWAndWeblisModulesXMLResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SingleLoginWSSoap">
+    <wsdl:operation name="GetXMLToMergeCWAndWeblisModules">
+      <wsdl:input message="tns:GetXMLToMergeCWAndWeblisModulesSoapIn" />
+      <wsdl:output message="tns:GetXMLToMergeCWAndWeblisModulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMergeCWAndWeblisModulesXML">
+      <wsdl:input message="tns:GetMergeCWAndWeblisModulesXMLSoapIn" />
+      <wsdl:output message="tns:GetMergeCWAndWeblisModulesXMLSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SingleLoginWSSoap" type="tns:SingleLoginWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetXMLToMergeCWAndWeblisModules">
+      <soap:operation soapAction="http://tempuri.org/GetXMLToMergeCWAndWeblisModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMergeCWAndWeblisModulesXML">
+      <soap:operation soapAction="http://tempuri.org/GetMergeCWAndWeblisModulesXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SingleLoginWSSoap12" type="tns:SingleLoginWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetXMLToMergeCWAndWeblisModules">
+      <soap12:operation soapAction="http://tempuri.org/GetXMLToMergeCWAndWeblisModules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMergeCWAndWeblisModulesXML">
+      <soap12:operation soapAction="http://tempuri.org/GetMergeCWAndWeblisModulesXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SingleLoginWS">
+    <wsdl:port name="SingleLoginWSSoap" binding="tns:SingleLoginWSSoap">
+      <soap:address location="http://192.168.0.133/APYWebsitCW2/WebService/SingleLoginWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SingleLoginWSSoap12" binding="tns:SingleLoginWSSoap12">
+      <soap12:address location="http://192.168.0.133/APYWebsitCW2/WebService/SingleLoginWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

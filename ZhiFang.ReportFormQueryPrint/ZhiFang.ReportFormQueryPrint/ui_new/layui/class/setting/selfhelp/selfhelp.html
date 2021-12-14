@@ -1,0 +1,718 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        table td {
+            border: none !important;
+        }
+        .layui-table tr:hover {
+            background-color: white !important;
+        }
+        .layui-form-item .layui-form-label {
+            width: 120px !important;
+            text-align: center;
+        }
+        .layui-form-item .layui-input-block {
+            margin-left: 130px !important;
+            margin-right: 30px !important;
+        }
+    </style>
+</head>
+<body class="layui-bg-gray">
+    <div  style="position: relative;top: 50%;margin-top:-370px">
+            <div class="layui-col-md12" style="padding: 20px;">
+                <div class="layui-card" style="height:700px">
+                    <div class="layui-card-header">全局设置</div>
+                    <div class="layui-card-body">
+                        <div class="layui-row" style="margin-top: 5px; margin-left: 17px"><button class="layui-btn  layui-btn-xs" id="saveSetting">保存</button></div>
+                        <hr style="margin:8px 0">
+                        <div style="overflow-y:auto;height:600px">
+                            <form class="layui-form" lay-filter="settingForm" action="">
+                                <table class="layui-table" style="border:0; ">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">默认打印类型</label>
+                                                            <div class="layui-input-block">
+                                                                <select name="printPageType" id="printPageType">
+                                                                    <option value="A4" selected="">A4</option>
+                                                                    <option value="A5">A5</option>
+                                                                    <option value="双A5">双A5</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">限制医嘱项目打印</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="noparitemname" id="noparitemname" autocomplete="off" placeholder='医嘱项目可接收多个，填写项目名称，使用分号;隔开！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">限制打印次数</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printtimes" id="printtimes" autocomplete="off" placeholder='' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <div class="layui-field-box">
+
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">设置查询字段</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="selectColumn" id="selectColumn" autocomplete="off" placeholder='字符全部大写可接收多个，使用逗号隔开！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">查询多少天之前的记录</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="lastDay" id="lastDay" autocomplete="off" placeholder='' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <div class="layui-field-box">
+
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">提示信息关闭倒计时</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="tackTime" id="tackTime" autocomplete="off" placeholder='' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">限制小组打印</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="notPrintSectionNo" id="notPrintSectionNo" autocomplete="off" placeholder='小组号可接收多个，使用逗号隔开！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>打印计数文字</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printnumnameTop" id="printnumnameTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printnumnameLeft" id="printnumnameLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printnumnameFontSize" id="printnumnameFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字颜色</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printnumnameColor" id="printnumnameColor" autocomplete="off" placeholder='填写英文颜色或者16进制颜色，如:red,#ffffff' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="printnumnameIsHidden" value="true" title="是">
+                                                                <input type="radio" name="printnumnameIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>打印计数框</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printnumTop" id="printnumTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printnumLeft" id="printnumLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printnumFontSize" id="printnumnameFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字颜色</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printnumColor" id="printnumnameColor" autocomplete="off" placeholder='填写英文颜色或者16进制颜色，如:red,#ffffff' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="printnumIsHidden" value="true" title="是">
+                                                                <input type="radio" name="printnumIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>自助打印标题</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="selfhelpTextTop" id="selfhelpTextTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="selfhelpTextLeft" id="selfhelpTextLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="selfhelpTextFontSize" id="selfhelpTextFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字颜色</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="selfhelpTextColor" id="selfhelpTextColor" autocomplete="off" placeholder='填写英文颜色或者16进制颜色，如:red,#ffffff' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="selfhelpTextIsHidden" value="true" title="是">
+                                                                <input type="radio" name="selfhelpTextIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>时间位置</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="DateTimeTop" id="DateTimeTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="DateTimeLeft" id="DateTimeLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="DateTimeFontSize" id="DateTimeFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字颜色</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="DateTimeColor" id="DateTimeColor" autocomplete="off" placeholder='填写英文颜色或者16进制颜色，如:red,#ffffff' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="DateTimeIsHidden" value="true" title="是">
+                                                                <input type="radio" name="DateTimeIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>检验中的报告单</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="tabgridTop" id="tabgridTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="tabgridLeft" id="tabgridLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">列头字体大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="tabgridHangTouFontSize" id="tabgridHangTouFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">内容字体大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="tabgridNeiRongFontSize" id="tabgridNeiRongFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="tabgridHidden" value="true" title="是">
+                                                                <input type="radio" name="tabgridHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>输入框</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="caridTop" id="caridTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="caridLeft" id="caridLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">输入框宽度</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="caridWidth" id="caridWidth" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">输入框高度</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="caridHeight" id="caridHeight" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="caridFontSize" id="caridFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="caridIsHidden" value="true" title="是">
+                                                                <input type="radio" name="caridIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>清除打印计数按钮</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="closeprintnumTop" id="closeprintnumTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="closeprintnumLeft" id="closeprintnumLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="closeprintnumIsHidden" value="true" title="是">
+                                                                <input type="radio" name="closeprintnumIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>打开小键盘</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="openJianpanTop" id="openJianpanTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="openJianpanLeft" id="openJianpanLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="openJianpanIsHidden" value="true" title="是">
+                                                                <input type="radio" name="openJianpanIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>关闭小键盘</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="closeJianpanTop" id="closeJianpanTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="closeJianpanLeft" id="closeJianpanLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>关闭提示文字</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="closeTop" id="closeTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="closeLeft" id="closeLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="closeFontSize" id="closeFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字颜色</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="closeColor" id="closeColor" autocomplete="off" placeholder='填写英文颜色或者16进制颜色，如:red,#ffffff' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>查询提示文字</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="reportviewTop" id="reportviewTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="reportviewLeft" id="reportviewLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="reportviewFontSize" id="reportviewFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字颜色</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="reportviewColor" id="reportviewColor" autocomplete="off" placeholder='填写英文颜色或者16进制颜色，如:red,#ffffff' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>中心控件</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="panelTop" id="panelTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="panelLeft" id="panelLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">中心控件宽度</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="panelWidth" id="panelWidth" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">中心控件高度</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="panelHeight" id="panelHeight" autocomplete="off" placeholder='填写英文颜色或者16进制颜色，如:red,#ffffff' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>检验完成的信息框</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="reportformlistsTop" id="reportformlistsTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="reportformlistsLeft" id="reportformlistsLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="reportformlistsFontSize" id="reportformlistsFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="reportformlistsIsHidden" value="true" title="是">
+                                                                <input type="radio" name="reportformlistsIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>大字体提示</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="bigReportviewTop" id="bigReportviewTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="bigReportviewLeft" id="bigReportviewLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">文字大小</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="bigReportviewFontSize" id="bigReportviewFontSize" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="bigReportviewIsHidden" value="true" title="是">
+                                                                <input type="radio" name="bigReportviewIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>默认条件</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">默认条件</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="defaultCondition" id="defaultCondition" autocomplete="off" placeholder='格式：PatNo="1001" ,值用双引号包含！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>查询按钮</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printreportButtonTop" id="printreportButtonTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printreportButtonLeft" id="printreportButtonLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">宽度</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printreportButtonWidth" id="printreportButtonWidth" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">高度</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="printreportButtonHeight" id="printreportButtonHeight" autocomplete="off" placeholder='请填写正整数!' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="printreportButtonIsHidden" value="true" title="是">
+                                                                <input type="radio" name="printreportButtonIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>读卡按钮</legend>
+                                                    <div class="layui-field-box">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">上边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="readCardButtonTop" id="readCardButtonTop" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">左边距</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="readCardButtonLeft" id="readCardButtonLeft" autocomplete="off" placeholder='填写范围0-100！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">宽度</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="readCardButtonWidth" id="readCardButtonWidth" autocomplete="off" placeholder='请填写正整数！' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">高度</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name="readCardButtonHeight" id="readCardButtonHeight" autocomplete="off" placeholder='填写英文颜色或者16进制颜色，如:red,#ffffff' class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否隐藏</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="readCardButtonIsHidden" value="true" title="是">
+                                                                <input type="radio" name="readCardButtonIsHidden" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td>
+                                                <fieldset class="layui-elem-field">
+                                                    <legend>打印方式</legend>
+                                                    <div class="layui-field-box">
+                                                        
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">是否使用CLodop方式打印</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="radio" name="IsUseClodopPrint" value="true" title="是">
+                                                                <input type="radio" name="IsUseClodopPrint" value="false" title="否" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        
+
+    </div>
+    
+    <script type="text/javascript">
+        UIVersion.loadLayui('2.5.6');
+        UIVersion.getJS('selfhelp.js');
+        UIVersion.getCSS('../../../../../web_src/layui/css/layui.sm.all.css');
+    </script>
+
+</body>
+</html>

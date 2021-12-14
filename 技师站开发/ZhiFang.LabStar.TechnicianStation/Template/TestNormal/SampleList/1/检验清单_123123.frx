@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/14/2018 17:11:39" ReportInfo.Modified="12/11/2018 13:25:01" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="ReportFormQueryDataSource" Alias="frform" ReferenceName="Data.frform" DataType="System.Int32" Enabled="true" TableName="ReportFormQueryDataSource">
+        <Column Name="RFID" DataType="System.String"/>
+        <Column Name="ReceiveDate" DataType="System.DateTime"/>
+        <Column Name="SectionNo" DataType="System.Int64"/>
+        <Column Name="TestTypeNo" DataType="System.Int64"/>
+        <Column Name="SampleNo" DataType="System.String"/>
+        <Column Name="SectionName" DataType="System.String"/>
+        <Column Name="TestTypeName" DataType="System.String"/>
+        <Column Name="SampleTypeNo" DataType="System.String"/>
+        <Column Name="SampletypeName" DataType="System.String"/>
+        <Column Name="SecretType" DataType="System.Int64"/>
+        <Column Name="PatNo" DataType="System.String"/>
+        <Column Name="CName" DataType="System.String"/>
+        <Column Name="InpatientNo" DataType="System.String"/>
+        <Column Name="PatCardNo" DataType="System.String"/>
+        <Column Name="GenderNo" DataType="System.Int64"/>
+        <Column Name="GenderName" DataType="System.String"/>
+        <Column Name="Age" DataType="System.Double"/>
+        <Column Name="AgeUnitNo" DataType="System.Int64"/>
+        <Column Name="AgeUnitName" DataType="System.String"/>
+        <Column Name="Birthday" DataType="System.DateTime"/>
+        <Column Name="DistrictNo" DataType="System.Int64"/>
+        <Column Name="DistrictName" DataType="System.String"/>
+        <Column Name="WardNo" DataType="System.Int64"/>
+        <Column Name="WardName" DataType="System.String"/>
+        <Column Name="Bed" DataType="System.String"/>
+        <Column Name="DeptNo" DataType="System.Int64"/>
+        <Column Name="DeptName" DataType="System.String"/>
+        <Column Name="Doctor" DataType="System.String"/>
+        <Column Name="SerialNo" DataType="System.String"/>
+        <Column Name="ParitemName" DataType="System.String"/>
+        <Column Name="Collecter" DataType="System.String"/>
+        <Column Name="CollectDate" DataType="System.DateTime"/>
+        <Column Name="CollectTime" DataType="System.DateTime"/>
+        <Column Name="Incepter" DataType="System.String"/>
+        <Column Name="InceptDate" DataType="System.DateTime"/>
+        <Column Name="InceptTime" DataType="System.DateTime"/>
+        <Column Name="Technician" DataType="System.String"/>
+        <Column Name="TestDate" DataType="System.DateTime"/>
+        <Column Name="TestTime" DataType="System.DateTime"/>
+        <Column Name="Operator" DataType="System.String"/>
+        <Column Name="OperDate" DataType="System.DateTime"/>
+        <Column Name="OperTime" DataType="System.DateTime"/>
+        <Column Name="Checker" DataType="System.String"/>
+        <Column Name="CheckDate" DataType="System.DateTime"/>
+        <Column Name="CheckTime" DataType="System.DateTime"/>
+        <Column Name="FormComment" DataType="System.String"/>
+        <Column Name="FormMemo" DataType="System.String"/>
+        <Column Name="SickTypeNo" DataType="System.Int64"/>
+        <Column Name="SickTypeName" DataType="System.String"/>
+        <Column Name="DiagNo" DataType="System.Int64"/>
+        <Column Name="DiagName" DataType="System.String"/>
+        <Column Name="ClientNo" DataType="System.Int64"/>
+        <Column Name="ClientName" DataType="System.String"/>
+        <Column Name="Sender2" DataType="System.String"/>
+        <Column Name="PrintTimes" DataType="System.Int32"/>
+        <Column Name="ClientPrint" DataType="System.Int32"/>
+        <Column Name="PrintOper" DataType="System.String"/>
+        <Column Name="PrintDateTime" DataType="System.DateTime"/>
+        <Column Name="PrintOper1" DataType="System.String"/>
+        <Column Name="PrintDateTime1" DataType="System.DateTime"/>
+        <Column Name="resultsend" DataType="System.String"/>
+        <Column Name="reportsend" DataType="System.String"/>
+        <Column Name="PageName" DataType="System.String"/>
+        <Column Name="PageCount" DataType="System.String"/>
+        <Column Name="ZDY1" DataType="System.String"/>
+        <Column Name="ZDY2" DataType="System.String"/>
+        <Column Name="ZDY3" DataType="System.String"/>
+        <Column Name="ZDY4" DataType="System.String"/>
+        <Column Name="ZDY5" DataType="System.String"/>
+        <Column Name="ZDY6" DataType="System.String"/>
+        <Column Name="ZDY7" DataType="System.String"/>
+        <Column Name="ZDY8" DataType="System.String"/>
+        <Column Name="formno" DataType="System.String"/>
+        <Column Name="SectionType" DataType="System.Int64"/>
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" DataType="System.DateTime"/>
+        <Column Name="DataMigrationTime" DataType="System.DateTime"/>
+        <Column Name="DataTimeStamp" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="MainTesterId" DataType="System.Int64"/>
+        <Column Name="PatientID" DataType="System.String"/>
+        <Column Name="ExaminerId" DataType="System.Int64"/>
+        <Column Name="CollectPart" DataType="System.String"/>
+        <Column Name="ReportFormID" DataType="System.Int64"/>
+        <Column Name="ActiveFlag" DataType="System.Int32"/>
+        <Column Name="ItemName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="ReportItemQueryDataSource" Alias="fritem" DataType="System.Int32" Enabled="true" TableName="ReportItemQueryDataSource">
+        <Column Name="RFID" DataType="System.String"/>
+        <Column Name="ReceiveDate" DataType="System.DateTime"/>
+        <Column Name="SectionNo" DataType="System.Int64"/>
+        <Column Name="TestTypeNo" DataType="System.Int64"/>
+        <Column Name="SampleNo" DataType="System.String"/>
+        <Column Name="OrderNo" DataType="System.Int32"/>
+        <Column Name="ParItemNo" DataType="System.Int64"/>
+        <Column Name="ItemNo" DataType="System.Int64"/>
+        <Column Name="ParitemName" DataType="System.String"/>
+        <Column Name="ItemCname" DataType="System.String"/>
+        <Column Name="ItemEname" DataType="System.String"/>
+        <Column Name="ReportValue" DataType="System.Double"/>
+        <Column Name="ReportDesc" DataType="System.String"/>
+        <Column Name="ItemValue" DataType="System.String"/>
+        <Column Name="ItemUnit" DataType="System.String"/>
+        <Column Name="ResultStatus" DataType="System.String"/>
+        <Column Name="RefRange" DataType="System.String"/>
+        <Column Name="EquipNo" DataType="System.Int64"/>
+        <Column Name="EquipName" DataType="System.String"/>
+        <Column Name="DiagMethod" DataType="System.String"/>
+        <Column Name="Prec" DataType="System.Int32"/>
+        <Column Name="StandardCode" DataType="System.String"/>
+        <Column Name="ItemDesc" DataType="System.String"/>
+        <Column Name="SecretGrade" DataType="System.Int32"/>
+        <Column Name="Visible" DataType="System.Int32"/>
+        <Column Name="ZDY1" DataType="System.String"/>
+        <Column Name="zdy2" DataType="System.String"/>
+        <Column Name="zdy3" DataType="System.String"/>
+        <Column Name="UNIT" DataType="System.String"/>
+        <Column Name="TESTITEMSNAME" DataType="System.String"/>
+        <Column Name="TESTITEMNAME" DataType="System.String"/>
+        <Column Name="ReportFormID" DataType="System.Int64"/>
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" DataType="System.DateTime"/>
+        <Column Name="DataMigrationTime" DataType="System.DateTime"/>
+        <Column Name="DataTimeStamp" DataType="System.Byte[]" BindableControl="Picture"/>
+      </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperHeight="148">
+    <PageHeaderBand Name="PageHeader1" Width="718.2" Height="85.05" Guides="0">
+      <TextObject Name="Text1" Left="211.55" Width="292.95" Height="18.9" Text="北京大学第三医院检验报告单" Font="黑体, 14pt"/>
+      <TextObject Name="Text3" Left="20.45" Top="24.8" Width="75.6" Height="18.9" Text="姓名:" Font="黑体, 10pt"/>
+      <TextObject Name="Text6" Left="152.75" Top="24.8" Width="94.5" Height="18.9" Text="病 例 号:" Font="黑体, 10pt"/>
+      <TextObject Name="Text9" Left="313.4" Top="24.8" Width="94.5" Height="18.9" Text="样本编号:" Font="黑体, 10pt"/>
+      <TextObject Name="Text12" Left="527.5" Top="24.8" Width="94.5" Height="18.9" Text="采样日期:" Font="黑体, 10pt"/>
+      <TextObject Name="Text32" Left="593.65" Top="24.8" Width="75.6" Height="18.9" Text="[FormatDateTime([frform.CollectDate],&quot;Short Date&quot;)]" Font="黑体, 9pt"/>
+      <TextObject Name="Text53" Left="381.65" Top="24.95" Width="85.05" Height="28.35" Text="[frform.TestTypeName][frform.SampleNo]" Font="黑体, 9pt"/>
+      <TextObject Name="Text54" Left="646.25" Top="24.95" Width="75.6" Height="18.9" Text="[FormatDateTime([frform.CollectTime],&quot;Short Time&quot;)]" Font="黑体, 9pt"/>
+      <TextObject Name="Text7" Left="152.75" Top="45.74" Width="94.5" Height="18.9" Text="病 床 号:" Font="黑体, 10pt"/>
+      <TextObject Name="Text10" Left="313.4" Top="45.74" Width="94.5" Height="18.9" Text="科    别:" Font="黑体, 10pt"/>
+      <TextObject Name="Text13" Left="527.5" Top="45.74" Width="94.5" Height="18.9" Text="标本种类:" Font="黑体, 10pt"/>
+      <TextObject Name="Text27" Left="218.9" Top="45.74" Width="85.05" Height="18.9" Text="[frform.WardName][frform.Bed]" Font="黑体, 9pt"/>
+      <TextObject Name="Text33" Left="593.65" Top="45.74" Width="94.5" Height="18.9" Text="[frform.SampletypeName]" Font="黑体, 9pt"/>
+      <TextObject Name="Text30" Left="379.55" Top="45.74" Width="132.3" Height="18.9" Text="[frform.DeptName]" Font="黑体, 9pt"/>
+      <TextObject Name="Text5" Left="20.45" Top="45.74" Width="94.5" Height="18.9" Text="性别:" Font="黑体, 10pt"/>
+      <TextObject Name="Text25" Left="58.25" Top="45.74" Width="132.3" Height="18.9" Text="[frform.GenderName]" Font="黑体, 9pt"/>
+      <TextObject Name="Text16" Left="60.35" Top="24.95" Width="85.05" Height="18.9" Text="[frform.CName]" Font="宋体, 9pt"/>
+      <TextObject Name="Text17" Left="221" Top="24.95" Width="94.5" Height="18.9" Text="[frform.PatNo]" Font="宋体, 9pt"/>
+      <TextObject Name="Text4" Left="20.45" Top="66.15" Width="94.5" Height="18.9" Text="年龄:" Font="黑体, 10pt"/>
+      <TextObject Name="Text24" Left="58.25" Top="66.15" Width="132.3" Height="18.9" Text="[frform.Age][frform.AgeUnitName]" Font="黑体, 9pt"/>
+      <TextObject Name="Text8" Left="152.75" Top="66.15" Width="94.5" Height="18.9" Text="临床诊断:" Font="黑体, 10pt"/>
+      <TextObject Name="Text11" Left="313.4" Top="66.15" Width="94.5" Height="18.9" Text="送检医师:" Font="黑体, 10pt"/>
+      <TextObject Name="Text28" Left="218.9" Top="66.15" Width="132.3" Height="18.9" Text="[frform.ZDY5]" Font="黑体, 9pt"/>
+      <TextObject Name="Text29" Left="379.55" Top="66.15" Width="132.3" Height="18.9" Text="[frform.Doctor]" Font="黑体, 9pt"/>
+      <TextObject Name="Text55" Left="527.56" Top="66.15" Width="94.5" Height="18.9" Text="备    注:" Font="黑体, 10pt"/>
+      <TextObject Name="Text56" Left="593.71" Top="66.15" Width="94.5" Height="18.9" Text="[frform.FormMemo]" Font="黑体, 9pt"/>
+      <LineObject Name="Line2" Left="18.9" Top="85.05" Width="689.85"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="89.05" Width="718.2" Height="311.85" Guides="311.85,311.85">
+      <SubreportObject Name="Subreport1" Width="699.3" Height="311.85" ReportPage="Page2"/>
+      <TextObject Name="Text2" Left="670.95" Top="41.58" Width="47.25" Height="18.9" Text="提 示&#13;&#10;" Font="宋体, 8pt"/>
+      <TextObject Name="Text14" Left="670.95" Top="56.7" Width="18.9" Height="255.15" Text="如果对检验结果有疑问请在七日内到检验科核实" Font="宋体, 8pt"/>
+      <TextObject Name="Text15" Left="689.85" Top="56.7" Width="18.9" Height="255.15" Text="此结果仅对本份检测标本负责！" Font="宋体, 8pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="404.9" Width="718.2" Height="47.25">
+      <LineObject Name="Line3" Left="18.9" Width="689.85"/>
+      <TextObject Name="Text34" Left="18.9" Top="9.45" Width="85.05" Height="18.9" Text="签收日期：" Font="宋体, 9pt"/>
+      <TextObject Name="Text36" Left="75.6" Top="9.45" Width="94.5" Height="18.9" Text="[FormatDateTime([frform.InceptDate],&quot;Short Date&quot;)]" Font="宋体, 9pt"/>
+      <TextObject Name="Text60" Left="170.1" Top="9.45" Width="85.05" Height="18.9" Text="报告日期：" Font="宋体, 9pt"/>
+      <TextObject Name="Text61" Left="226.8" Top="9.45" Width="94.5" Height="18.9" Text="[FormatDateTime([frform.CheckDate],&quot;Short Date&quot;)]" Font="宋体, 9pt"/>
+      <TextObject Name="Text62" Left="321.3" Top="9.45" Width="85.05" Height="18.9" Text="检测岗位：" Font="宋体, 9pt"/>
+      <TextObject Name="Text63" Left="378" Top="9.45" Width="94.5" Height="18.9" Text="[frform.SectionName]" Font="宋体, 9pt"/>
+      <PictureObject Name="NameImageTechnician" Left="519.75" Top="9.45" Width="75.6" Height="37.8"/>
+      <TextObject Name="Text64" Left="472.5" Top="9.45" Width="94.5" Height="18.9" Text="检验者：" Font="黑体, 10pt"/>
+      <PictureObject Name="NameImageChecker" Left="652.05" Top="9.45" Width="75.6" Height="37.8"/>
+      <TextObject Name="Text65" Left="595.35" Top="9.45" Width="94.5" Height="18.9" Text="报告者：" Font="黑体, 10pt"/>
+      <TextObject Name="Text66" Left="18.9" Top="28.35" Width="85.05" Height="18.9" Text="签收时间：" Font="宋体, 9pt"/>
+      <TextObject Name="Text67" Left="75.6" Top="28.35" Width="94.5" Height="18.9" Text="[FormatDateTime([frform.InceptTime],&quot;Short Time&quot;)]" Font="宋体, 9pt"/>
+      <TextObject Name="Text68" Left="170.1" Top="28.35" Width="85.05" Height="18.9" Text="报告时间：" Font="宋体, 9pt"/>
+      <TextObject Name="Text69" Left="226.8" Top="28.35" Width="94.5" Height="18.9" Text="[FormatDateTime([frform.CheckTime],&quot;Short Time&quot;)]" Font="宋体, 9pt"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <DataBand Name="Data2" Top="22.9" Width="718.2" Height="20.35" MaxRows="18">
+      <TextObject Name="Text47" Left="55.7" Top="1.45" Width="141.75" Height="18.9" Text="[fritem.ItemCname]" Font="黑体, 10pt"/>
+      <TextObject Name="Text48" Left="197.45" Top="1.45" Width="94.5" Height="18.9" Text="[fritem.ItemEname]" Font="黑体, 10pt"/>
+      <TextObject Name="Text49" Left="301.4" Top="1.45" Width="85.05" Height="18.9" AfterDataEvent="Text49_AfterData" Text="[fritem.ItemValue]" Font="黑体, 10pt"/>
+      <TextObject Name="Text50" Left="405.35" Top="1.45" Width="75.6" Height="18.9" Text="[fritem.ResultStatus]" Font="黑体, 10pt"/>
+      <TextObject Name="Text51" Left="499.85" Top="1.45" Width="113.4" Height="18.9" BeforePrintEvent="Text51_BeforePrint" Text="[fritem.RefRange]" Font="黑体, 10pt"/>
+      <TextObject Name="Text21" Left="18.9" Width="37.8" Height="18.9" Text="[Row#]" Font="宋体, 9pt"/>
+      <TextObject Name="Text22" Left="614.25" Width="75.6" Height="18.9" Text="[fritem.ItemUnit]" Font="宋体, 9pt"/>
+      <DataHeaderBand Name="DataHeader1" Width="718.2" Height="18.9">
+        <TextObject Name="Text43" Left="56.7" Width="122.85" Height="18.9" Text="中文名称" Font="黑体, 10pt"/>
+        <TextObject Name="Text44" Left="302.4" Width="85.05" Height="18.9" Text="结果" Font="黑体, 10pt"/>
+        <TextObject Name="Text45" Left="614.25" Width="75.6" Height="18.9" Text="单位" Font="黑体, 10pt"/>
+        <TextObject Name="Text57" Left="189" Width="94.5" Height="18.9" Text="英文名称" Font="黑体, 10pt"/>
+        <TextObject Name="Text58" Left="406.35" Width="66.15" Height="18.9" Text="状态&#13;&#10;" Font="黑体, 10pt"/>
+        <TextObject Name="Text59" Left="500.85" Width="85.05" Height="18.9" Text="参考值" Font="黑体, 10pt"/>
+        <LineObject Name="Line1" Left="18.9" Top="18.9" Width="689.85"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+</Report>

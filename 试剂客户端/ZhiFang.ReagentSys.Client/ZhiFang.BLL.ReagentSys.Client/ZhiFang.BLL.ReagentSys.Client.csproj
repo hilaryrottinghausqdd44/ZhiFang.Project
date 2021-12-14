@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BFE1E8C0-9C5F-4203-9EC8-90B4D3AAEBE6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.ReagentSys.Client</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.ReagentSys.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReagentSys.Client\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBDict.cs" />
+    <Compile Include="BBDictTree.cs" />
+    <Compile Include="BBDictType.cs" />
+    <Compile Include="BBLodopTemplet.cs" />
+    <Compile Include="BBReport.cs" />
+    <Compile Include="BBTemplate.cs" />
+    <Compile Include="BBUserUIConfig.cs" />
+    <Compile Include="BCenOrgType.cs" />
+    <Compile Include="BComprehensiveStatistics.cs" />
+    <Compile Include="BCSUpdateToBS.cs" />
+    <Compile Include="BReaAlertInfoSettings.cs" />
+    <Compile Include="BReaBmsSerial.cs" />
+    <Compile Include="BReaBmsCenOrderDocOfService.cs" />
+    <Compile Include="BReaBmsCenOrderDoc.cs" />
+    <Compile Include="BReaBmsCenOrderDtl.cs" />
+    <Compile Include="BReaBmsCenSaleDtl.cs" />
+    <Compile Include="BReaBmsCenSaleDocConfirm.cs" />
+    <Compile Include="BReaBmsCenSaleDtlConfirm.cs" />
+    <Compile Include="BBOperateObjectType.cs" />
+    <Compile Include="BBParameter.cs" />
+    <Compile Include="BBObjectOperate.cs" />
+    <Compile Include="BBObjectOperateType.cs" />
+    <Compile Include="BReaBmsCheckDoc.cs" />
+    <Compile Include="BReaBmsCheckDtl.cs" />
+    <Compile Include="BReaBmsOutDoc.cs" />
+    <Compile Include="BReaBmsInDoc.cs" />
+    <Compile Include="BReaBmsOutDtl.cs" />
+    <Compile Include="BReaBmsInDtl.cs" />
+    <Compile Include="BReaBmsQtyBalanceDoc.cs" />
+    <Compile Include="BReaBmsQtyBalanceDtl.cs" />
+    <Compile Include="BReaBmsQtyDtl.cs" />
+    <Compile Include="BReaBmsQtyMonthBalanceDoc.cs" />
+    <Compile Include="BReaBmsReqDoc.cs" />
+    <Compile Include="BReaBmsReqDtl.cs" />
+    <Compile Include="BReaBmsTransferDoc.cs" />
+    <Compile Include="BReaBmsTransferDtl.cs" />
+    <Compile Include="BReaBusinessInterface.cs" />
+    <Compile Include="BReaBusinessInterfaceLink.cs" />
+    <Compile Include="BReaCenBarCodeFormat.cs" />
+    <Compile Include="BCenOrg.cs" />
+    <Compile Include="BReaCenOrg.cs" />
+    <Compile Include="BReaCheckInOperation.cs" />
+    <Compile Include="BReaChooseGoodsTemplate.cs" />
+    <Compile Include="BReaDeptGoods.cs" />
+    <Compile Include="BReaEquipReagentLink.cs" />
+    <Compile Include="BReaEquipTestItemReaGoodLink.cs" />
+    <Compile Include="BReaGoods.cs" />
+    <Compile Include="BReaGoodsBarcodeOperation.cs" />
+    <Compile Include="BReaGoodsLot.cs" />
+    <Compile Include="BReaGoodsOrgLink.cs" />
+    <Compile Include="BReaGoodsRegister.cs" />
+    <Compile Include="BReaBmsCenSaleDoc.cs" />
+    <Compile Include="BReaGoodsUnit.cs" />
+    <Compile Include="BReaLisTestStatisticalResults.cs" />
+    <Compile Include="BReaMonthUsageStatisticsDoc.cs" />
+    <Compile Include="BReaMonthUsageStatisticsDtl.cs" />
+    <Compile Include="BReaOpenBottleOperDoc.cs" />
+    <Compile Include="BReaPlace.cs" />
+    <Compile Include="BReaReqOperation.cs" />
+    <Compile Include="BReaBmsQtyDtlOperation.cs" />
+    <Compile Include="BReaStorage.cs" />
+    <Compile Include="BReaStorageGoodsLink.cs" />
+    <Compile Include="BReaTestEquipItem.cs" />
+    <Compile Include="BReaTestItem.cs" />
+    <Compile Include="BReaUserStorageLink.cs" />
+    <Compile Include="BSCAttachment.cs" />
+    <Compile Include="BSCInteraction.cs" />
+    <Compile Include="BSCOperation.cs" />
+    <Compile Include="BReaTestEquipLab.cs" />
+    <Compile Include="BReaTestEquipProd.cs" />
+    <Compile Include="BReaTestEquipType.cs" />
+    <Compile Include="BUpdateLabDataBase.cs" />
+    <Compile Include="ExcelDataCommon.cs" />
+    <Compile Include="ExportDataToExcelHelp.cs" />
+    <Compile Include="OutDtlListGroupBy\OutDtlGroupByOfGroupBy13.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OutDtlListGroupBy\OutDtlGroupByReaGoodsNoGoodsUnit.cs" />
+    <Compile Include="OutDtlListGroupBy\OutDtlGroupByCompReaGoodsNo.cs" />
+    <Compile Include="OutDtlListGroupBy\OutDtlGroupByOfGroupBy12.cs" />
+    <Compile Include="OutDtlListGroupBy\OutDtlListGroupByContext.cs" />
+    <Compile Include="OutDtlListGroupBy\OutDtlListGroupByHelp.cs" />
+    <Compile Include="OutDtlListGroupBy\OutDtlListGroupByStrategy.cs" />
+    <Compile Include="QtyListGroupBy\GroupByCompReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyListGroupBy\GroupByCompReaGoodsNo.cs" />
+    <Compile Include="QtyListGroupBy\GroupByReaGoodsNoGoodsUnit.cs" />
+    <Compile Include="QtyListGroupBy\GroupByStoragePlaceReaGoodsNo.cs" />
+    <Compile Include="QtyListGroupBy\GroupByStorageReaGoodsNo.cs" />
+    <Compile Include="QtyListGroupBy\GroupByStorageCompReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyListGroupBy\GroupByStoragePlaceCompReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyListGroupBy\GroupByStoragePlaceReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyListGroupBy\GroupByStorageReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyListGroupBy\GroupByReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyListGroupBy\QtyListGroupByContext.cs" />
+    <Compile Include="QtyListGroupBy\QtyListGroupByHelp.cs" />
+    <Compile Include="QtyListGroupBy\QtyListGroupByStrategy.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByReaGoodsNoGoodsUnit.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByReaBmsQtyDtl.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByStoragePlaceCompReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByStoragePlaceReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByStorageCompReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByStorageReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByCompReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByCompReaGoodsNo.cs" />
+    <Compile Include="QtyWarningGroupBy\WarnGroupByReaGoodsNoLotNo.cs" />
+    <Compile Include="QtyWarningGroupBy\QtyWarningGroupByContext.cs" />
+    <Compile Include="QtyWarningGroupBy\QtyWarningGroupByHelp.cs" />
+    <Compile Include="QtyWarningGroupBy\QtyWarningGroupByStrategy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.ReagentSys.Client\ZhiFang.Entity.ReagentSys.Client.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WeiXin\ZhiFang.Entity.WeiXin.csproj">
+      <Project>{c867875c-5404-480d-89e4-9cc67c66d963}</Project>
+      <Name>ZhiFang.Entity.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{F5A15ED6-4EB8-4E39-8B19-357B799A1F10}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.ReagentSys.Client\ZhiFang.IBLL.ReagentSys.Client.csproj">
+      <Project>{be78b18b-9004-4280-ba87-08c167f00be6}</Project>
+      <Name>ZhiFang.IBLL.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.NHB.ReagentSys.Client\ZhiFang.IDAO.NHB.ReagentSys.Client.csproj">
+      <Project>{dd7e515a-52cf-41a2-8325-8704eb187053}</Project>
+      <Name>ZhiFang.IDAO.NHB.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.WeiXin\ZhiFang.IDAO.WeiXin.csproj">
+      <Project>{ff61e24b-369f-490e-bad8-607948e35e8f}</Project>
+      <Name>ZhiFang.IDAO.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReagentSys.Client.Common\ZhiFang.ReagentSys.Client.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.ReagentSys.Client.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550F2-BF83-4C13-9386-9ACF6E2AE591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

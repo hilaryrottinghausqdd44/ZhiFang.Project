@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>项目详细信息</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+	<meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+  <style>
+		.layui-table-view{margin: 1px 0;}
+		.expform .layui-form-label {
+            position: relative;float: left;display: block;padding: 9px 15px;
+            width: 90px;font-weight: 400;line-height: 10px;text-align: right;
+        }
+        .expform .layui-input-block{margin-left: 120px; min-height: 36px;}
+	</style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="margin-bottom:0;"> 
+   <div class="layui-card-body"> 
+    <div class="layui-tab layui-tab-brief" lay-filter="tabs"> 
+     <ul class="layui-tab-title" > 
+      <li lay-id="info" id="info1" class="layui-this">详细信息</li> 
+      <li lay-id="group_item" id="group_item1">组合项目</li> 
+     </ul> 
+     <div class="layui-tab-content"> 
+      <div class="layui-tab-item layui-show"> 
+       <div class="layui-row" id="infoform"  > 
+       </div> 
+       <div class="layui-tab layui-tab-brief" lay-filter="infotab" > 
+        <ul class="layui-tab-title"> 
+         <li lay-id="ItemRange" class="layui-this">参考值范围</li> 
+         <li lay-id="ItemRangeExp">参考值范围后处理</li> 
+         <li lay-id="ItemRangeExp1">描述结果判断</li> 
+         <li lay-id="Calc">计算项目信息</li> 
+        </ul> 
+        <div class="layui-tab-content" style="height: 100px;"> 
+         <div class="layui-tab-item layui-show"> 
+          <table class="layui-hide" id="range_table" lay-filter="range_table"></table> 
+         </div> 
+         <div class="layui-tab-item"> 
+         	<div id="expform"></div>
+         </div> 
+         <div class="layui-tab-item"> 
+          <table class="layui-hide" id="rangeexp1_table" lay-filter="rangeexp1_table"></table> 
+         </div> 
+         <div class="layui-tab-item"> 
+          <table class="layui-hide" id="calc_table" lay-filter="calc_table"></table> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-tab-item"> 
+       <div class="layui-row" id="groupinfoform"> 
+        </div> 
+       <table class="layui-hide" id="group_table" lay-filter="group_table"> 
+        <script type="text/html" id="existTpl">
+            <input type="checkbox" name="LisTestItem_IsExist" title="" disabled="disabled" lay-skin="primary" lay-filter="LisTestItem_IsExist" {{ d.LisTestItem_IsExist == '1' ? 'checked' : '' }} >
+        </script> 
+       </table> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>  
+ </body>
+</html>

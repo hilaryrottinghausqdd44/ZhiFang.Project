@@ -1,0 +1,102 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherWorkReportByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherWorkReportById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherWorkReport',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherWorkReport',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherWorkReportByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherWorkReport',
+
+    		//工作报告对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherWorkReport_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherWorkReport_Id',value:'工作报告ID'},						 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_ReportCycleID',value:'报告周期ID'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_ReportTypeID',value:'报告类型ID'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_ReportStatusID',value:'状态ID'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_Title',value:'标题'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_Content',value:'内容'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_Department',value:'部门'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_IsHasAttachment',value:'是否有附件   附件在附件系统中'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_CreatorID',value:'报告人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_Creator',value:'报告人'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_DataAddTime',value:'报告时间'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_CheckerID',value:'审核者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_Checker',value:'审核人'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_CheckTime',value:'审核时间'}, 
+						 		     
+				     												 
+						{ key:'OtherWorkReport_CheckOpinion',value:'审核意见'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherWorkReport_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'工作报告',
+    		//主键字段
+    		key:'OtherWorkReport_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

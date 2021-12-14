@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>类型信息</title>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../../../../src/layui/dist/css/layui.css" />
+		<style type="text/css">
+			body {
+				padding: 10px 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="layui-container">
+			<div class="layui-form" lay-filter="LAY-app-form-WatchClass">
+				<div class="layui-form-item">
+					<label class="layui-form-label">指标类型</label>
+					<div class="layui-input-block">
+						<select name="PhrasesWatchClass_QIndicatorTypeId" id="PhrasesWatchClass_QIndicatorTypeId" lay-filter="PhrasesWatchClass_QIndicatorTypeId"
+						 autocomplete="off" placeholder="请选择质量指标类型">
+							<option value=""></option>							
+							<option value="1">标本类型错误率</option>
+							<option value="2">标本容器错误率</option>
+							<option value="3">标本采集量错误率</option>
+							<option value="4">血培养污染统计</option>
+							<option value="5">抗凝标本凝集</option>
+							<option value="6">标本标识错误</option>
+							<option value="7">标本检验前储存不适当</option>
+							<option value="8">标本运输途中损坏</option>
+							<option value="9">标本运输温度不适当</option>
+							<option value="10">标本运输时间过长</option>
+							<option value="11">标本采集时机不正确</option>
+							<option value="12">微生物标本污染</option>
+							<option value="13">其他类型</option>
+							<option value="14">标本运输丢失</option>
+						</select>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">上级类型</label>
+					<div class="layui-input-block">
+						<input type="text" name="PhrasesWatchClass_ParentID" id="PhrasesWatchClass_ParentID" lay-filter="PhrasesWatchClass_ParentID"
+						 autocomplete="off" placeholder="请选择上级类型" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">类型名称</label>
+					<div class="layui-input-block">
+						<input type="text" name="PhrasesWatchClass_CName" lay-verify="required" autocomplete="off" placeholder="请输入类型名称"
+						 class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">快捷码</label>
+					<div class="layui-input-block">
+						<input type="text" name="PhrasesWatchClass_ShortCode" autocomplete="off" placeholder="请输入快捷码" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">显示次序</label>
+					<div class="layui-input-block">
+						<input type="text" name="PhrasesWatchClass_DispOrder" lay-verify="number" autocomplete="off" placeholder="请输入显示次序"
+						 class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">是否启用</label>
+					<div class="layui-input-block">
+						<input type="radio" name="PhrasesWatchClass_Visible" value="1" title="是" checked="">
+						<input type="radio" name="PhrasesWatchClass_Visible" value="0" title="否">
+					</div>
+				</div>
+				<div class="layui-form-item layui-hide">
+					<input type="text" name="PhrasesWatchClass_Id" id="PhrasesWatchClass_Id" hidden="hidden" readonly="readonly" class="layui-input">
+					<input type="text" name="PhrasesWatchClass_QIndicatorTypeCName" id="PhrasesWatchClass_QIndicatorTypeCName" hidden="hidden"
+					 class="layui-input">
+					<input type="button" lay-submit lay-filter="LAY-app-watchClassForm-submit" id="LAY-app-watchClassForm-submit"
+					 value="确认">
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="../../../../../src/layui/src/layui.js"></script>
+<script src="../../../../../../ui/layui/config/system.js"></script>
+<script type="text/javascript">
+	layui.extend({
+		uxutil: 'ux/util',
+		watchClassForm: 'app/statistical/dict/phraseswatchclass/watchClassForm',
+		watchClassTreeSelect: 'app/statistical/dict/phraseswatchclass/watchClassTreeSelect'
+	}).use(["uxutil", "form", "watchClassTreeSelect", "watchClassForm"], function() {
+		"use strict";
+
+		var $ = layui.jquery;
+		var uxutil = layui.uxutil;
+		var form = layui.form;
+		var treeSelect = layui.treeSelect;
+		var watchClassForm = layui.watchClassForm;
+		var watchClassTreeSelect = layui.watchClassTreeSelect;
+
+		//接收传入参数
+		var params = uxutil.params.get();
+		var PK = "",
+			formtype = "";
+		if (params["formtype"]) formtype = params["formtype"];
+		if (params["id"]) PK = params["id"];
+		var parentID = 0;
+		//表单初始化
+		var watchClassForm1 = watchClassForm.render({
+			title: '质量指标类型信息',
+			elem: '#LAY-app-form-WatchClass',
+			formfilter: 'LAY-app-form-WatchClass',
+			PK: PK,
+			formtype: formtype,
+			// 加载完成后的回调函数
+			afterLoad: function(data) {
+				parentID = data['PhrasesWatchClass_ParentID'];
+			}
+		});
+		//类型选择树初始化
+		watchClassTreeSelect.render({
+			elem: '#PhrasesWatchClass_ParentID',
+			placeholder: '请选择上级类型',
+			search: true,
+			haschangeData: true,
+			click: function(data) {
+				var tid = 0;
+				if (data) {
+					tid = data.current.tid || 0;
+				}
+				document.getElementById("PhrasesWatchClass_ParentID").value = tid;
+			},
+			// 加载完成后的回调函数
+			success: function(data) {
+				treeSelect.checkNode('PhrasesWatchClass_ParentID', parentID);
+			}
+		});
+		form.on('select(PhrasesWatchClass_QIndicatorTypeId)', function(data) {
+			document.getElementById("PhrasesWatchClass_QIndicatorTypeCName").value = data.elem[data.elem.selectedIndex].text;
+		});
+	});
+</script>

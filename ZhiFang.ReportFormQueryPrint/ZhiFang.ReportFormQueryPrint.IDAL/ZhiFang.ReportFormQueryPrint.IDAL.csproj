@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0387526F-984F-460B-A4A3-18AD0EE02218}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.ReportFormQueryPrint.IDAL</RootNamespace>
+    <AssemblyName>ZhiFang.ReportFormQueryPrint.IDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReportFormQueryPrint\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDBModuleFormControlList.cs" />
+    <Compile Include="IDBModuleFormControlSet.cs" />
+    <Compile Include="IDBModuleFormList.cs" />
+    <Compile Include="IDBModuleGridControlList.cs" />
+    <Compile Include="IDBModuleGridControlSet.cs" />
+    <Compile Include="IDBModuleGridList.cs" />
+    <Compile Include="IDBModuleModuleFormGridLink.cs" />
+    <Compile Include="IDRFPReportFormPrintOperation.cs" />
+    <Compile Include="IDSiteOperationRecords.cs" />
+    <Compile Include="IDS_RequestVItem.cs" />
+    <Compile Include="ISC_Operation.cs" />
+    <Compile Include="IReportDBUpdate.cs" />
+    <Compile Include="IDALLReportForm.cs" />
+    <Compile Include="IDataBase.cs" />
+    <Compile Include="IDBColumnsSetting.cs" />
+    <Compile Include="IDBColumnsUnit.cs" />
+    <Compile Include="IDBParameter.cs" />
+    <Compile Include="IDBSearchSetting.cs" />
+    <Compile Include="IDBSearchUnit.cs" />
+    <Compile Include="IDChargeType.cs" />
+    <Compile Include="IDCLIENTELE.cs" />
+    <Compile Include="IDDepartment.cs" />
+    <Compile Include="IDDistrict.cs" />
+    <Compile Include="IDDoctor.cs" />
+    <Compile Include="IDNRequestItem.cs" />
+    <Compile Include="IDNRequestForm.cs" />
+    <Compile Include="IDPGroup.cs" />
+    <Compile Include="IDPGroupPrint.cs" />
+    <Compile Include="IDPrintFormat.cs" />
+    <Compile Include="IDPrintHtml.cs" />
+    <Compile Include="IDEmpDeptLinks.cs" />
+    <Compile Include="IDPUser.cs" />
+    <Compile Include="IDReportDrugGene.cs" />
+    <Compile Include="IDRequestForm.cs" />
+    <Compile Include="IDReportForm.cs" />
+    <Compile Include="IDReportFormMerge.cs" />
+    <Compile Include="IDRequestItem.cs" />
+    <Compile Include="IDReportItem.cs" />
+    <Compile Include="IDRequestMarrow.cs" />
+    <Compile Include="IDReportMarrow.cs" />
+    <Compile Include="IDRequestMicro.cs" />
+    <Compile Include="IDReportMicro.cs" />
+    <Compile Include="IDRFGraphData.cs" />
+    <Compile Include="IDWardType.cs" />
+    <Compile Include="IDSampleType.cs" />
+    <Compile Include="IDSectionPrint.cs" />
+    <Compile Include="IDSickType.cs" />
+    <Compile Include="IDStation_PrinterList.cs" />
+    <Compile Include="IDTestItem.cs" />
+    <Compile Include="IHisDisp.cs" />
+    <Compile Include="IDPatNo_Passwords.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Model\ZhiFang.ReportFormQueryPrint.Model.csproj">
+      <Project>{3526d8d8-cf44-4c52-bcef-a1812715e240}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

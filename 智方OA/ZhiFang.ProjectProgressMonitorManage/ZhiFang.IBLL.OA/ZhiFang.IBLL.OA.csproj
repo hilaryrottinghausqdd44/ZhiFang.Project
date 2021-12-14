@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95EC9451-0AD9-41FA-9DDA-21EF788CBF86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IBLL.OA</RootNamespace>
+    <AssemblyName>ZhiFang.IBLL.OA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IBAHOperation.cs" />
+    <Compile Include="IBAHServerEquipLicence.cs" />
+    <Compile Include="IBAHServerLicence.cs" />
+    <Compile Include="IBAHServerProgramLicence.cs" />
+    <Compile Include="IBAHSingleLicence.cs" />
+    <Compile Include="IBATApproveStatus.cs" />
+    <Compile Include="IBATAttendanceEventType.cs" />
+    <Compile Include="IBATEmpAttendanceEventParaSettings.cs" />
+    <Compile Include="IBATEmpAttendanceEventLog.cs" />
+    <Compile Include="IBATHolidaySetting.cs" />
+    <Compile Include="IBATTransportation.cs" />
+    <Compile Include="IBBAccountType.cs" />
+    <Compile Include="IBBIcons.cs" />
+    <Compile Include="IBBWeiXinAccount.cs" />
+    <Compile Include="IBBWeiXinPushMessageTemplate.cs" />
+    <Compile Include="IBBWeiXinUserGroup.cs" />
+    <Compile Include="IBBWeiXinEmpLink.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IBSServiceClient.cs" />
+    <Compile Include="IBSServiceClientlevel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.OA\ZhiFang.Entity.OA.csproj">
+      <Project>{4feeee53-1839-4db8-b7d7-79df2fc7506d}</Project>
+      <Name>ZhiFang.Entity.OA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.ProjectProgressMonitorManage\ZhiFang.Entity.ProjectProgressMonitorManage.csproj">
+      <Project>{E3B08151-FBE9-4E8E-B390-11BD9F7DEF4A}</Project>
+      <Name>ZhiFang.Entity.ProjectProgressMonitorManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

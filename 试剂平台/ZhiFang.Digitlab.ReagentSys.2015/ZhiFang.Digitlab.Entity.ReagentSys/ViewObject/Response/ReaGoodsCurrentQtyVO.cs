@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+
+namespace ZhiFang.Digitlab.Entity.ReagentSys.ViewObject.Response
+{
+    /// <summary>
+    /// 获取采购申请货品库存数量VO
+    /// </summary>
+    public class ReaGoodsCurrentQtyVO
+    {
+        public ReaGoodsCurrentQtyVO() { }
+        public virtual string CurGoodsId { get; set; }
+        /// <summary>
+        /// 货品当前库存数量描述
+        /// </summary>
+        public virtual string CurrentQty { get; set; }
+        /// <summary>
+        /// 货品对应同系列的库存数量
+        /// </summary>
+        public virtual string GoodsOtherQty { get; set; }
+    }
+}

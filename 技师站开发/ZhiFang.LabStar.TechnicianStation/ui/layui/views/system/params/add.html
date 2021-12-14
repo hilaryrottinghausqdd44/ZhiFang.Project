@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>新增系统相关性设置</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+    <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+    <style>
+    .left{
+       width:100%;
+    }
+    .right{
+       width:100px; 
+       float:right;
+       padding-left: 5px;
+       background-color: #f2f2f2;
+    }
+    .layui-table-view .layui-form-checkbox.layui-btn-disabled[lay-skin=primary] i,.layui-table-view .layui-form-checkbox.layui-checkbox-disbaled[lay-skin=primary] i{background-color: #e9e9e9;border-color: #e9e9e9;}
+ 
+  </style> 
+ </head> 
+ <body> 
+  <div class="layui-fluid"> 
+   <div class="layui-row"> 
+    <div class="layui-col-md12 layui-col-sm12 layui-col-xs12"> 
+     <div  id="LAY-section-item-copy"> 
+      <div style="position: absolute;top: 0;right: 0;width: 90px;height: 100%;"> 
+       <div class="layui-card" style="height: 100%;"> 
+        <div class="layui-card-body"> 
+         <div class="layui-form" lay-filter="addcopy" id="addcopy">  
+         <div class="layui-btn-container"> 
+          <button type="button" id="save" lay-submit="" lay-filter="add-save-submit" class="layui-btn layui-btn-xs"><i class="layui-icon">&#xe605;</i>&nbsp;确定</button> 
+          <button type="button" id="cancel" class="layui-btn layui-btn-xs layui-btn-primary"><i class="iconfont">&#xe63a;</i>&nbsp;取消</button> 
+         </div>   
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div style="margin-right: 90px;height: 100%;padding-right: 5px;"> 
+       <div class="layui-card"> 
+        <div class="layui-card-body"> 
+         <span class="layui-badge" id="spanbadge">点击选择一个小组</span> 
+         <table id="table" lay-filter="table"></table> 
+        </div>
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+ </body>
+ <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/admin.css');
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('add.js');
+	</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LIIP_实验室信息集成平台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../src/layui/src/css/layui.css" media="all">
+	<link rel="shortcut icon" href="../../../logo-16.png">
+</head>
+<body>
+	<div class="layui-fluid">
+		<div class="layui-card">
+			<div class="layui-card-header">文本编辑器</div>
+			<div class="layui-card-body">
+				<div id="editor-div"></div>
+				<div style="text-align:right;margin-top:10px;">
+					<a id="save" class="layui-btn">保存结果</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../src/layui/src/layui.js"></script>
+	<script src="../../src/layui/src/ace.js"></script>
+	<script src="../config/system.js"></script>
+	<script>
+		layui.extend({
+			uxutil: 'ux/util',
+			uxeditor: 'ux/editor'
+		}).use(['uxeditor'],function(){
+			var $ = layui.$,
+				editor = layui.uxeditor;
+				
+			//构建一个默认的编辑器
+			var index = editor.build('editor-div',{height:600});
+			$("#save").on("click",function(){
+				var html = editor.getContent(index);
+				layer.msg(html);
+				console.log(html);
+			});
+		});
+	</script>
+</body>
+</html>

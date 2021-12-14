@@ -1,0 +1,8 @@
+//标题
+LODOP.PRINT_INITA(0,0,"65mm","40mm","试剂系统_{TITLE}_打印条码");
+LODOP.SET_PRINT_PAGESIZE(1,"65mm","40mm","");
+//产品名称
+LODOP.ADD_PRINT_TEXT("5mm","5mm","34mm","10mm","{GoodsName}");
+LODOP.SET_PRINT_STYLEA(0,"FontName","微软雅黑");
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Bold",1);

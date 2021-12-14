@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>打印程序</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Cache" content="no-cache" />
+    
+    <link rel="stylesheet" type="text/css" href="../web_src/extjs/resources/css/ext-all.css" />
+    <script type="text/javascript" src="../web_src/extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../web_src/extjs/locale/ext-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../web_src/jquery.min.js"></script>
+
+    <script type="text/javascript" src="util/util.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+    <script type="text/javascript" src="class/selfhelp/app.js"></script>
+    
+    <style type='text/css'>
+		.x-grid-row{vertical-align:middle}
+		.x-grid-row-over .x-grid-cell-inner{font-weight:bold;}
+        .x-grid-record-unprint .x-grid-cell {
+            background-color: #FFFFFF!important;
+        }
+        .x-grid-record-print .x-grid-cell {
+            background-color: #F5DEB3!important;
+        }
+        .x-grid-record-itemclick .x-grid-cell{
+            background-color:lightskyblue!important;
+        }
+        #readCardButton .x-btn-inner {
+        	font-size:20px;
+        }
+	</style>
+	
+</head>
+<body onkeydown="if(event.keyCode==116){event.keyCode=0;return false;}">
+	<!--<input type="text" id="selfhelpText"  />
+	<input type="button" id="selfhelpButton" value="读卡" />-->
+	<object id="activieX" classid="clsid:95214D52-7ADA-49DD-A9F8-E42710B95645" ></object>
+	<object id="CertCtl" type="application/cert-reader" width="0" height="0"></object>
+	<div id="embed"></div>
+	<script>
+     	 /*$('#selfhelpText').bind('keypress', function(event) {
+	        if (event.keyCode == "13") {            
+	            event.preventDefault(); 
+	            var carid = parent.window.document.getElementById("carid").getElementsByTagName('input')[0];
+	            carid.value = $('#selfhelpText').val();
+	            temp1 = Ext.getCmp("selfhelpApp");
+	            temp1.printReport($('#selfhelpText').val());
+	        }
+	    });*/
+	    
+	    $(document).click(function(){
+       	var carid = parent.window.document.getElementById("carid").getElementsByTagName('input')[0];
+	     carid.focus();
+        });
+
+    </script>
+</body>
+</html>

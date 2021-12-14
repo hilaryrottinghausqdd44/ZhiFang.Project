@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>批量检验单审核</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+	<meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+  <style>
+		.searchform{width:800px;}
+		/*input前存在icon 则加到input里面*/
+        .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+	</style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="margin-bottom:0;"> 
+   <div class="layui-card-body"> 
+   <span style="color: #1DA296;">仅针对完成初审的检验单</span>
+    <div class="layui-form" lay-filter="form" id="form"> 
+       <div class="layui-form-item layui-hide"> 
+    	 	<input type="text" name='SickTypeID' id="SickTypeID" readonly autocomplete="off" class="layui-input" />
+    	 	<input type="text" name='DeptID' id="DeptID" readonly autocomplete="off" class="layui-input" />
+    	</div>
+     <div class="layui-form-item"> 
+      <div class="layui-col-xs3"> 
+       <label class="layui-form-label">就诊类型:</label> 
+       <div class="layui-input-block">
+       	  <input type="text" name='SickTypeName' id="SickTypeName" readonly autocomplete="off" class="layui-input"  placeholder="就诊类型 "/>
+       <i class="layui-icon layui-icon-triangle-d"></i>    
+       </div> 
+      </div> 
+      <div class="layui-col-xs9"> 
+       <label class="layui-form-label">检验日期:</label> 
+       <div class="layui-input-block" style="width: 235px;"> 
+        <input type="text" id="GTestDate" name="GTestDate" class="layui-input myDate" placeholder="检验日期" /> 
+        <i class="layui-icon layui-icon-date"></i> 
+       </div> 
+      </div> 
+     </div> 
+     
+     <div class="layui-form-item"> 
+      <div class="layui-col-xs3"> 
+       <label class="layui-form-label">科室:</label> 
+       <div class="layui-input-block"> 
+       	<input type="text" name='DeptName' id="DeptName" readonly autocomplete="off" class="layui-input"  placeholder="科室 "/>
+       <i class="layui-icon layui-icon-triangle-d"></i>    
+       </div> 
+      </div> 
+      <div class="layui-col-xs4"> 
+       <label class="layui-form-label">样本号范围:</label> 
+       <div class="layui-input-block"> 
+        <div class="layui-input-inline" style="width: 110px;"> 
+         <input type="text" name="sampleno_min" placeholder="" autocomplete="off" class="layui-input" /> 
+        </div> 
+        <div class="layui-form-mid">
+          - 
+        </div> 
+        <div class="layui-input-inline" style="width: 110px;"> 
+         <input type="text" name="sampleno_max" placeholder="" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-col-xs5"> 
+       <button class="layui-btn layui-btn-xs" id="search" lay-submit="" lay-filter="search"> <i class="layui-icon"></i>查询 </button> 
+      </div> 
+     </div> 
+    </div> 
+    <!--<hr class="layui-border-green">--> 
+    <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="tabs"> 
+     <ul class="layui-tab-title"> 
+      <li class="layui-this"><i class="iconfont">&#xe63c;</i>&nbsp;检验单</li> 
+      <li><i class="iconfont">&#xe673;</i>&nbsp;消息</li> 
+     </ul> 
+     <div class="layui-tab-content"> 
+      <div class="layui-tab-item layui-show"> 
+       <div class="layui-row"> 
+        <div class="layui-col-xs7"> 
+         <table class="layui-hide" id="table" lay-filter="table"> 
+         </table> 
+        </div> 
+        <div class="layui-col-xs5" style="padding-left: 1px;"> 
+         <table class="layui-hide" id="item_table" lay-filter="item_table"> 
+         </table> 
+        </div> 
+       </div> 
+       <div class="layui-form"> 
+        <div class="layui-col-xs4"> 
+         <label class="layui-form-label" style="width: 120px;">检验确认(初审)人:</label> 
+         <div class="layui-input-block" style="margin-left: 140px;"> 
+          <select name="ExecutorID" id="ExecutorID" lay-verify="" lay-search="" lay-filter="ExecutorID"></select> 
+         </div> 
+        </div> 
+        <div class="layui-col-xs1"> 
+         <button class="layui-btn layui-btn-xs" id="save"><i class="iconfont"></i>&nbsp;执行</button> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-tab-item" style="margin:0px;"> 
+       <div class="layui-col-xs6"> 
+        <span style="color: #1DA296">成功消息</span> 
+        <textarea class="layui-textarea" id="success_info" readonly="readonly"></textarea> 
+       </div> 
+       <div class="layui-col-xs6" style="padding-left: 1px;"> 
+        <span style="color: #1DA296">失败消息</span> 
+        <textarea class="layui-textarea" id="fail_info" readonly="readonly"> </textarea> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>  
+ </body>
+</html>

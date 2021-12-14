@@ -1,0 +1,2068 @@
+﻿
+
+
+
+.Newbutton
+{   font-size: 9pt; color: White;
+	font-family: "Tahoma","宋体";
+}
+
+body
+{
+	font-size: 10pt;
+} 
+
+
+.rentTitle
+{
+	font-weight: bold;
+	font-size: 50px;
+	color: #00cc66;
+	font-family: 黑体;
+}
+
+.sellTitle
+{
+	font-weight: bold;
+	font-size: 50px;
+	color: #ff6600;
+	font-family: 黑体;
+}
+/*显示模态窗口样式*/
+.modalBackground
+{
+
+    right:0%;
+     bottom:0%;
+    position: absolute;
+    background-color: #e6e6e6;
+    height: 105%;
+    width: 105%;
+    z-index: 99;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+    font-weight: normal;
+    font-size: 30pt;
+    vertical-align: middle;
+    color: red;
+    font-style: normal;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 30%;
+    
+   
+}
+    
+/*正在处理数据*/
+.modalProcessing
+{
+    right: 0%;
+    bottom:0%;
+    
+    position: absolute;
+    background-color: #e6e6e6;
+    width: 900px;
+    height: 600px;
+    z-index: 99;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+    font-weight: normal;
+    font-size: 30pt;
+    vertical-align: middle;
+    color: red;
+    font-style: normal;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 30%;
+}
+
+/*loading页面*/
+.ajaxloading
+{
+    position: absolute;
+    background-color: #e6e6e6;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+    font-weight: normal;
+    font-size: 20pt;
+    vertical-align: middle;
+    color: #FF0000;
+    font-style: normal;
+    text-align: center;
+    display: none;
+    left: 0px;
+    top: 0px;
+    padding-left: 5%;
+    padding-top: 40%;
+    padding-bottom: 55%;
+}
+
+
+.iframeshow
+{
+    width: 800px;
+    height: 600px;
+    color: #0000cc;
+}
+
+legend
+{
+    color: #0000cc;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.textLarge
+{
+    font-weight: bold;
+    font-size: 14pt;
+    color: #0000ff;
+}
+
+ 
+#DivTop { width:100%; height: 50px; } 
+ 
+#DivContainer
+{ height: 500px; width: 1000px; padding: 0; } 
+ 
+#DivLeft { background-color: #eaeaea; width:130px; overflow:auto; float: left; outline-color: yellow; }
+
+#DivContent{
+    width: 100%;
+    outline-color: red;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-bottom: 12px;
+    text-align:left;
+}
+ 
+#DivFooter { height: 50px; clear:both; }
+
+/*跟进列表*/
+.paneltracelist
+{
+    left: 640px;
+    position: absolute;
+    top: 40px;
+    vertical-align: top;
+}
+
+/*本店跟进列表*/
+.paneltracelistself
+{
+    left: 640px;
+    position: absolute;
+    top: 300px;
+    vertical-align: top;
+    
+
+    
+}
+
+
+/*管理跟进列表*/
+.paneltracelistIssue
+{
+    left: 745px;
+    position: absolute;
+    top: 200px;
+    vertical-align: top;
+    font-size:10pt;
+}
+
+/*管理跟进列表*/
+.paneltracelistIssueself
+{
+    left: 700px;
+    position: absolute;
+    top: 400px;
+    vertical-align: top;
+
+}
+
+/*跟进增加主界面*/
+
+
+#panelAddTrace
+{
+    width: 300px;
+    display: none;
+    position: absolute;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-color: #ccffcc;
+    border-right: #99cc99 solid;
+    border-top: #99cc99 solid;
+    border-left: #99cc99 solid;
+    border-bottom: #99cc99 solid;
+}
+
+
+
+.pager
+{
+    width:74%; overflow:auto; float: left;  text-align:left;
+}
+
+.pagesizeselect
+{
+	width:25%;
+    text-align:right; overflow:auto; float: right;
+}
+
+.msglist
+{
+    text-align: left;
+    overflow: hidden;
+    float: right;
+    font-family: "宋体";
+    font-size: 9pt;
+    border-style: none;
+    border-width: 0px;
+    background-color: #ffff99;
+    display: inline;
+    width: 145px;
+    height: 55px;
+    vertical-align: top;
+    padding-right: 0px;
+    padding-left: 2px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.nospace
+{
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin: 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+
+.msgadd
+{
+    display: inline;
+    text-align: left;
+    overflow: hidden;
+    float: right;
+    cursor: hand;
+    
+}
+
+
+
+.navboxcont_2DB09C0 { width: 100%; height:500px}
+.navboxleft_2DB09C0
+{
+    
+    width: 130px;
+    overflow: auto;
+    float: left;
+    height: 100%;
+}
+.navboxauto_2DB09C0 { margin-left:130px; width:auto; height:100%}
+
+.DivContent
+{  width: 100%; padding: 12px; outline-color: red; }
+ 
+ /*--------------表格样式------------------------*/
+/*当前行*/
+
+.onrow td
+{
+    background-color: #ddffff;
+}
+
+
+/*一般行*/
+.row 
+{
+    background-color: #ffffff;
+}
+
+/*双数行*/
+.drow
+{
+    background-color: #ebf4fb;
+}
+
+/*特殊行*/
+.markrow
+{
+    background-color: #eeeeee;
+}
+
+/*新记录*/
+.newrow
+{
+     background-color: #ffff99;
+	
+}
+
+.issuerow
+{
+    background-color: #f4f8ff;
+}
+
+
+/*已提交记录*/
+.srow
+{
+	background-color: #fffacd;
+}
+/*已经核审通过房源*/
+.arow
+{
+  /* background-color: #e5f4f5; /*background-color: #ccff99;*/
+}
+/*已结束房源*/
+.erow
+{
+    font-style: italic;
+	color: #696969;
+
+}
+
+/*又有产证，又是已结束房源*/
+.emrow
+{
+	background-color: #eeeeee;
+	font-style: italic;
+}
+
+
+/*奇数行*/
+tr.evenrow　td
+{
+    background-color: #ffffcc;
+}
+/*偶数行*/
+tr.oddrow td
+{
+    background-color: lavender;
+}
+
+.gt0
+{
+border:solid 0px;
+padding:0px 0px 0px 0px;
+font-size:100%;
+}
+.gt1{
+    border:solid 0px #A1C6EB;
+    padding:0px 0px 0px 0px;
+    background:#3484D7;
+    font-size:100%;
+}
+
+.mustText
+{
+	background-color: #ffffdd;
+	border: 1px solid #c0c0c0;  
+}
+
+.normalText
+{
+	background-color: #f4f4f4;
+	border: 1px solid #c0c0c0;  
+}
+
+.shownormalText
+{
+	font-family: "宋体";
+	font-size: 9pt;
+	border-style:none;
+	border-width: 0px;
+	BACKGROUND-COLOR: transparent;
+	
+}
+.showmustText
+{
+	font-family: "宋体";
+	font-size: 9pt;
+	border-style:none;
+	border-width: 0px;
+	BACKGROUND-COLOR: transparent;
+	
+}
+.show
+{
+	font-family: "宋体";
+	font-size: 9pt;
+	border-style:none;
+	border-width: 0px;
+	BACKGROUND-COLOR: transparent;
+	
+}
+
+.showMultilineText
+{
+	font-family: "宋体";
+	font-size: 9pt;
+	border-style:none;
+	border-width: 0px;
+	BACKGROUND-COLOR: transparent;
+	overflow:auto;
+}
+
+select
+{
+	border: 1px solid #c0c0c0;
+}
+
+.titleText
+{
+	font-family:"黑体";
+	font-size:40px;
+	font-style: normal; 
+}
+
+.mainTitle
+{
+    font-size: 30pt;
+    color: #000066;
+    font-family: 华文新魏;
+}
+
+.thtitle
+{
+	font-size: 16pt;
+	vertical-align: middle;
+	color: #000099;
+	background-color: lightblue;
+	text-align: center;
+}
+
+
+.sec1 
+{
+	BORDER-RIGHT: gray 0px solid; 
+	BORDER-TOP: #ffffff 0px solid; 
+	BORDER-LEFT: #ffffff 0px solid; 
+	CURSOR: hand; COLOR: #000000; 
+	BORDER-BOTTOM: #ffffff 0px solid; 
+	
+	background-image:url(../Images/sheet_unselect.gif);
+	background-color:Transparent;
+	background-repeat:no-repeat;
+}
+.sec2 
+{
+	BORDER-LEFT: #ffffff 0px solid; 
+	BORDER-RIGHT: gray 0px solid; 
+	BORDER-TOP: #ffffff 0px solid; 
+	FONT-WEIGHT: bold; 
+	
+	background-image:url(../Images/sheet_select.gif);
+	background-color:Transparent;
+	background-repeat:no-repeat;
+
+	CURSOR: hand; 
+	COLOR: #000000 
+}
+.main_tab 
+{
+	BORDER-RIGHT: white 0px solid; 
+	BORDER-LEFT: #ffffff 0px solid; 
+	COLOR: #000000; 
+	BORDER-BOTTOM: white 0px solid; 
+	BACKGROUND-COLOR: white 
+}
+
+
+.InputCss {  
+    font-size: 9pt; 
+    color: #003399; 
+    font-family: "宋体"; 
+    font-style: normal; 
+	/*background-color: #CCCC99; */
+    border-color: #93BEE2 #93BEE2 #93BEE2 #93BEE2 ; 
+    border: 1px #93BEE2 solid; 
+}
+/*按钮样式*/
+.ButtonCss {
+    font-family: "Tahoma", "宋体";
+    font-size: 9pt; color: #003399;
+    border: 1px #003399 solid;
+    BORDER-BOTTOM: #93bee2 1px solid; 
+    BORDER-LEFT: #93bee2 1px solid; 
+    BORDER-RIGHT: #93bee2 1px solid; 
+    BORDER-TOP: #93bee2 1px solid;
+    background-image:url(../Images/bluebuttonbg.gif);
+    background-color: #e8f4ff;
+    CURSOR: hand;
+    font-style: normal ;
+}
+/*日期按钮*/
+.calButtonCss
+{
+    width :18px;
+    height:18px;
+	font-family: "Tahoma", "宋体";
+    font-size: 0pt; color:Aqua  ;
+    border: 0px #003399 solid;
+    color:#eeeeee;
+    background-image:url(../Images/b_calendar.gif); 
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-color:Transparent;
+    CURSOR: hand;
+    font-style: normal ;
+}
+/*选单人按钮*/
+.manButtonCss
+{
+    width :18px;
+    height:18px;
+	font-family: "Tahoma", "宋体";
+    font-size: 0pt; color:Aqua  ;
+    border: 0px #003399 solid;
+    color:#eeeeee;
+    background-image:url(../Images/singleMan.gif); 
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-color:Transparent;
+    CURSOR: hand;
+    font-style: normal ;
+}
+/*下载按钮*/
+.fdButtonCss
+{
+    width :18px;
+    height:18px;
+	font-family: "Tahoma", "宋体";
+    font-size: 0pt; color:Aqua  ;
+    border: 0px #003399 solid;
+    color:#eeeeee;
+    background-image:url(../Images/filedown.gif); 
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-color:Transparent;
+    CURSOR: hand;
+    font-style: normal ;
+}
+
+/* 删除按钮 */
+.delButtonCss
+{
+	width :18px;
+    height:18px;
+	font-family: "Tahoma", "宋体";
+    font-size: 0pt; color:Aqua  ;
+    border: 0px #003399 solid;
+    color:#eeeeee;
+    background-image:url(../Images/delete.gif); 
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-color:Transparent;
+    CURSOR: hand;
+    font-style: normal ;
+}
+/* 查看按钮 */
+.viewButtonCss
+{
+	width :18px;
+    height:18px;
+	font-family: "Tahoma", "宋体";
+    font-size: 0pt; color:Aqua  ;
+    border: 0px #003399 solid;
+    color:#eeeeee;
+    background-image:url(../Images/search.gif); 
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-color:Transparent;
+    CURSOR: hand;
+    font-style: normal ;
+}
+
+/* 编辑按钮 */
+.editButtonCss
+{
+	width :18px;
+    height:18px;
+	font-family: "Tahoma", "宋体";
+    font-size: 0pt; color:Aqua  ;
+    border: 0px #003399 solid;
+    color:#eeeeee;
+    background-image:url(../Images/op_edit.gif); 
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-color:Transparent;
+    CURSOR: hand;
+    font-style: normal ;
+}
+
+/*蓝色按钮样式*/
+.blueButtonCss {
+    font-family: "Tahoma", "宋体";
+    font-size: 9pt; color: #003366;
+    border: 0px #93bee2 solid;
+    BORDER-BOTTOM: #93bee2 1px solid; 
+    BORDER-LEFT: #93bee2 1px solid; 
+    BORDER-RIGHT: #93bee2 1px solid; 
+    BORDER-TOP: #93bee2 1px solid;
+    background-image:url(../Images/buttonbgblue.gif);
+    background-color: #ffffff;
+    CURSOR: hand;
+    font-style: normal ;
+}
+/*红色按钮样式*/
+.redButtonCss {
+    font-family: "Tahoma", "宋体";
+    font-size: 9pt; color: #0066cc;
+    border: 1px #93bee2 solid;
+    BORDER-BOTTOM: #93bee2 1px solid; 
+    BORDER-LEFT: #93bee2 1px solid; 
+    BORDER-RIGHT: #93bee2 1px solid; 
+    BORDER-TOP: #93bee2 1px solid;
+    background-image:url(../../Images/buttonbgred.gif);
+    background-color: #ffffff;
+    CURSOR: hand;
+    font-style: normal ;
+}
+/*绿色按钮样式*/
+.greenButtonCss {
+    font-family: "Tahoma", "宋体";
+    font-size: 9pt; color: #0066cc;
+    border: 1px #93bee2 solid;
+    BORDER-BOTTOM: #93bee2 1px solid; 
+    BORDER-LEFT: #93bee2 1px solid; 
+    BORDER-RIGHT: #93bee2 1px solid; 
+    BORDER-TOP: #93bee2 1px solid;
+    background-image:url(../Images/buttonbggreen.gif);
+    background-color: #ffffff;
+    CURSOR: hand;
+    font-style: normal ;
+}
+
+.imgButton
+{
+    cursor: hand;
+    
+}
+
+/*不显示为按钮的样式*/
+.noButtonCss
+{
+	width: 0px;
+	height: 0px;
+}
+/*          */
+.NomButtonCss 
+{
+	font-family: "Tahoma", "宋体"; 
+	font-size: 12px; 
+	color: #5E5E5E; 
+	border: 1px #CCCCCC solid; 
+	background-color: #FFFFFF; 
+	font-style: normal
+}
+.InputSta {
+	font-family: "Tahoma", "宋体";
+	font-size: 9pt;
+	color: #0066cc;
+	border: 1px solid;
+	background-color: White;
+	border-color: #93BEE2 #93BEE2 #93BEE2 #93BEE2;
+	font-style: normal
+}
+.SelectSta {
+	font-family: "Tahoma", "宋体";
+	font-size: 9pt;
+	color: #0066cc;
+	border: 1px #F1F1E4 solid;
+	background-color:  #e8f4ff;
+	font-style: normal
+}
+.ButtonSta { font-family: "Tahoma", "宋体"; font-size: 9pt; color: #CCCCCC; border: 1px #CCCCCC solid; background-color: #FFFFFF; font-style: normal ; width: 60px}
+.GbText {  font-size: 9pt}
+.CurText { font-size: 12px }
+
+.SplitHRCss { color: #5E5E5E; background-color: #5E5E5E; border: 0px #5E5E5E solid; }
+
+.SecText {
+	font-size: 9pt;
+	color : Gray;
+}
+.BGbText {
+	font-size: 9pt;
+	font : oblique;
+}
+.SchFinishText {
+	font-size: 9pt;
+	color : Gray;
+}
+.FinishText
+{
+    text-decoration: line-through;
+    color: Gray;
+
+}
+
+
+
+.maintext
+{
+	font-size: 9pt;
+	color: #006699;
+	text-decoration: none;
+}
+
+
+
+A
+{
+	font-size: 9pt;
+	color: #006699;
+	text-decoration: none;
+}
+A:ACTIVE {
+
+	color : #006699;	
+	text-decoration: none;
+}
+A:FOCUS
+{
+	color: black;
+	text-decoration: none;
+}
+A:HOVER
+{
+	color: #ff4500;
+	text-decoration: underline;
+}
+A:LINK {
+	
+	text-decoration: none;
+}
+
+
+.InputSta_page { font-family: "Tahoma", "宋体"; font-size: 11px; color: #5E5E5E; border: 1px #FFFFFF solid; background-color: #CCCCCC; font-style: normal }
+.tbbaord {  border: #CCCCCC; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+.leftboard {  border-color: black #D7D7AE #D7D7AE; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-family: "宋体"; font-size: 12px; color: #333333}
+.StaText {  font-size: 9px; font-style: normal}
+.noRepeatTd {  background-repeat: no-repeat}
+.money {  font-family: "宋体"; font-size: xx-small; font-weight: 100; text-transform: capitalize}
+.td {font-family: "Tahoma", "宋体";font-size: 9px; }
+
+
+
+button{
+	font-family: "Tahoma", "宋体";
+	font-size: 9pt;
+	color: #0066cc;
+	background-color: #f0fbec;
+	font-style: normal;
+	border-top: 1px solid #ffffff;
+	border-right: 1px solid #c8e4ff;
+	border-bottom: 1px solid #c8e4ff;
+	border-left: 1px solid #ffffff;
+}
+input
+{
+	font-family: "Tahoma", "宋体";
+	font-size: 9pt;
+	color: #0066cc;
+	background-color: #ffffff;
+	font-style: normal;
+	border-top: 1px solid #93BEE2;
+	border-right: 1px solid #93BEE2;
+	border-bottom: 1px solid #93BEE2;
+	border-left: 1px solid #93BEE2;
+}
+textarea{
+	font-family: "Tahoma", "宋体";
+	font-size: 9pt;
+	color: #0066cc;
+	background-color: #ffffff;
+	font-style: normal;
+	border-top: 1px solid #93BEE2;
+	border-right: 1px solid #93BEE2;
+	border-bottom: 1px solid #93BEE2;
+	border-left: 1px solid #93BEE2;
+}
+Select {
+	font-family: "Tahoma", "宋体";
+	font-size: 9pt;
+	color: #0066cc;
+	border: 1px #c8e4ff solid;
+	background-color:  #e8f4ff;
+	font-style: normal;
+	border-top: 1px solid #93BEE2;
+	border-right: 1px solid #93BEE2;
+	border-bottom: 1px solid #93BEE2;
+	border-left: 1px solid #93BEE2;
+}
+.Input2 {  
+font-size: 9pt; 
+color: #0066CC; 
+font-family: "宋体"; 
+font-style: normal; 
+border: 0px solid #003390; 
+}
+
+.Input3 {
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #0066CC;
+	text-decoration: none;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-right-color: #FFFFFF;
+	border-bottom-color: #0066CC;
+	border-left-color: #FFFFFF;
+
+}
+/*error样式*/
+.errorbg {
+    background-image:url(../Images/nopage.gif);
+}
+
+.errortext
+{
+    color: red;
+}
+
+/*特殊的表格头样式*/
+.a1{BACKGROUND-IMAGE:url(../Images/t_bg1.gif);COLOR:#000000;}
+
+
+#pageHead
+{
+	FONT-SIZE:   18pt;
+
+	color:#000000;
+	HEIGHT:   30px;
+	TEXT-DECORATION:   none;
+	border-bottom: solid 1px #336699;
+	width:100%;
+	
+	/*width:expression(document.body.clientWidth < 620? "620px": "auto" );*/
+}
+#headWord
+{
+	float:left;
+}
+#headEffect
+{
+	position:relative;
+	float:right;
+	width:70%;
+	overflow:hidden;
+	/*FILTER:  progid:DXImageTransform.Microsoft.Gradient(gradientType=1,startColorStr='#ffffff',endColorStr='#99ccff');*/
+}
+
+
+#pageBody
+{
+	font:12px tahoma;
+	margin:5px auto;
+	width:100%;
+
+}
+/*
+页脚
+*/
+#pageFoot
+{
+	vertical-align:text-bottom;
+	text-align:center;
+	font:12px tahoma;
+	margin:0px;
+	width:100%;
+	
+	
+}
+/*
+工具栏
+
+
+
+
+*/
+.toolBar
+{
+	width:100%;
+	height:25px;
+	padding-right:5px;
+}
+
+.leftbar
+{
+	width:50%;
+	display: inline;
+	text-align: left;
+}
+.rightbar
+{
+	width:50%;
+	display: inline;
+	text-align: right;
+}
+
+
+
+#fileUploadPanel
+{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	text-align:center;
+}
+
+#userControlBody
+{
+	font:12px tahoma;
+	margin:0px;
+}
+
+.boline
+{
+	border-bottom: solid 1px #333333;
+	text-align:left;
+	margin:1px auto;
+	vertical-align:top;
+	background:#CCFF99;
+}
+.left
+{
+	float:left;
+	width:50%;
+	vertical-align:top;
+}
+.right
+{
+	vertical-align:top;
+}
+
+.dt
+{
+	padding:1px 4px 1px 4px;
+	border-style:   solid;
+	border-width:   1;
+	font-size:12px;
+	border-bottom-width:thick;
+}
+.dt trline
+{
+	border:outset;	
+	vertical-align:top;
+}
+.btnIm
+{
+	background-image:url(../Images/aa.jpg);
+	background-repeat:no-repeat;
+	padding:0;
+}
+.btnAs
+{
+	 BORDER-RIGHT:   #7b9ebd   1px   solid;   
+	 PADDING-RIGHT:   2px;   
+	 BORDER-TOP:   #7b9ebd   1px   solid;   
+	 PADDING-LEFT:   2px;   FONT-SIZE:   12px;   
+	 BORDER-LEFT:   #7b9ebd   1px   solid;   
+	 CURSOR:   hand;   
+	 COLOR:   black;   
+	 PADDING-TOP:   2px;   
+	 BORDER-BOTTOM:   #7b9ebd   1px   solid;
+}
+.btnAss
+{
+	BORDER-RIGHT:   #002D96   1px   solid;   
+	PADDING-RIGHT:   2px;   
+	BORDER-TOP:   #002D96   1px   solid;   
+	PADDING-LEFT:   2px;  
+	 FONT-SIZE:   12px;   
+	  BORDER-LEFT:   #002D96   1px   solid;   
+	  CURSOR:   hand;   
+	  COLOR:   black;   
+	  PADDING-TOP:   2px;   
+	  BORDER-BOTTOM:   #002D96   1px   solid
+
+}
+.tdcell
+{
+	vertical-align: top;
+	border-bottom-width: 1px;
+	border-bottom-color: #444444;
+	padding-right: 5px;
+	padding-left: 3px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	width: 220px;
+	font-size: 9pt;
+}
+.ColLabel {
+	width: 80px;
+	text-align: right;
+	background-position: right;
+	padding-right:8px;
+
+}
+.ColText {
+	width: 200px;
+
+}
+.inputRows{
+	border-bottom-width: thin;
+	border-bottom-style: dashed;
+	border-bottom-color: #0066CC;
+}
+
+/*主编辑表 样式 表格为4列时使用*/
+.mainTable
+{
+    width: 720px;
+    border-left-color: #e8f4ff;
+    border-bottom-color: #e8f4ff;
+    border-top-style: none;
+    border-top-color: #e8f4ff;
+    border-right-style: none;
+    border-left-style: none;
+    border-right-color: #e8f4ff;
+    border-bottom-style: none;
+   	font-size:12px;
+   
+}
+
+.mainTable td
+{
+   
+	border-bottom-width:1px;
+	border-bottom-style:dashed;
+	border-bottom-color:#0066CC;
+	width: 40%;
+}
+
+.mainTable th
+{
+    
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #0066CC;
+	width: 10%;
+	height: 30px;
+	text-align: right;
+	padding-right: 5px;
+	padding-left: 3px;
+
+}
+.mainTable span /* 设置Label标签中的文本不换行 */
+{
+	white-space:nowrap;
+}
+
+
+/*主编辑表样式 表格为2列时使用*/
+.mainTable2
+{
+border-color:#e8f4ff;
+width:400px;
+font-size:12px;
+
+}
+.mainTable2 td
+{
+    
+	border-bottom-width:1px;
+	border-bottom-style:dashed;
+	border-bottom-color:#0066CC;
+	width: 400px;
+}
+
+.mainTable2 th
+{
+ 
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #0066CC;
+	width: 100px;
+	height: 30px;
+	text-align: right;
+	padding-right: 5px;
+	padding-left: 0px;
+
+}
+.mainTable2 span /* 设置Label标签中的文本不换行 */
+{
+	white-space:nowrap;
+}
+
+/*跟进记录样式*/
+.tracelist
+{
+    border-color: #e8f4ff;
+    
+}
+
+.tracelist th
+{
+    font-size: 11px;
+    width: 40px;
+    border-bottom-width: 1px;
+    border-bottom-color: #006699;
+    border-bottom-style: dashed;
+    color: #666666;
+}
+.tracelist td
+{
+    border-bottom-width: 1px;
+    width:300px;
+    border-bottom-color: #006699;
+    border-bottom-style: dashed;
+}
+
+
+.issuetoolbar
+{
+	width: 600px;
+}
+
+/*颜色显示标签*/
+
+.rowmarktable
+{
+    
+}
+.rowmarktable td
+{
+    	border-right: #66ccff 1px solid;
+	border-top: #66ccff 1px solid;
+	border-left: #66ccff 1px solid;
+	border-bottom: #66ccff 1px solid;
+    
+}
+
+/*公开 主显示表 样式 表格为4列时使用*/
+
+
+.issueTable
+{
+	width: 600px;
+
+}
+
+
+.issueTable td
+{
+	font-size: 18px;
+	height: 40px;
+	width: 35%;
+	text-align: center;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.issueTable th
+{
+	font-size: 14px;
+	width: 15%;
+	height: 40px;
+	text-align: center;
+	padding-right: 5px;
+	padding-left: 3px;
+	background-color: #99ccff;
+	font-weight: normal;
+
+}
+
+
+
+/*end 公开 主显示表 样式 表格为4列时使用*/
+/*公开 查看 2 列*/
+.issueTable2
+{
+	width: 600px;
+
+}
+.issueTable2 td 
+{
+   font-size: 18px;
+	height: 40px;
+	width: 80%;
+	text-align:left;
+
+}
+.issueTable2 th
+{
+	font-size: 14px;
+	width: 20%;
+	height: 40px;
+	text-align: center;
+	padding-right: 5px;
+	padding-left: 3px;
+	background-color: #99ccff;
+	font-weight: normal;
+
+}
+
+.issueTablePhone th span
+{
+	white-space:nowrap;
+}
+
+
+.issueTable th span
+{
+	white-space:nowrap;
+}
+
+
+.issueTable2 th span
+{
+	white-space:nowrap;
+}
+
+
+.countcss
+{
+	font-size: 12px;
+	color: blue;
+}
+
+/*end 公开 查看*/
+
+
+
+
+/* 显示电话样式*/
+
+.issueTablePhone
+{
+	width: 220px;
+
+}
+.issueTablePhone td
+{
+   font-size: 18px;
+	height: 40px;
+	width: 60%;
+	text-align: center;
+}
+
+.issueTablePhone th
+{
+	font-size: 14px;
+	width: 40%;
+	height: 40px;
+	text-align: center;
+	padding-right: 5px;
+	padding-left: 3px;
+	background-color: #99ccff;
+	font-weight: normal;
+
+}
+
+
+/* end 显示电话样式*/
+
+
+/* datagrid样式 */
+.dg_header 
+{ 
+font-weight :bold ; 
+color:#FFFFCC; 
+background-color :#6681D9; 
+border-width: 2px; 
+border-color :#CC9966; 
+border-style :solid; 
+
+} 
+.dg_alter 
+{ 
+background-color :#FFE0C0; 
+border-left-color:Green; 
+border-width: 2px; 
+border-color :#CC9966; 
+border-style :solid; 
+} 
+.dg_item 
+{ 
+vertical-align:middle;
+height:10px;
+} 
+.dg_page 
+{ 
+border-style :solid; 
+text-align:right;
+} 
+
+
+.cssFieldset
+{
+    width:720px;
+	border: 1px solid #0066CC;
+}
+.cssFieldsetIn
+{
+	border: 1px solid #A6CAF0;
+}
+.topMenuTitle
+{
+
+
+	
+}
+.topMenuButton 
+{
+	width:100px;
+	height:24px;/*垂直居中*/
+	line-height: 24px;/*垂直居中*/
+	overflow: hidden;
+	float:right;
+	text-align:center;
+	FLOAT:left;
+	color:#2A3FAA;
+	padding:0px;
+	margin:0px;
+	font-weight:bolder;
+	font-size: 14px;
+	text-align:center;
+	vertical-align:middle;
+	cursor: default;
+	
+}
+
+/* 阶段列表-右键菜单 */
+.skin /*背景*/
+{ 
+	BORDER-RIGHT: buttonhighlight 2px outset; 
+	BORDER-TOP: buttonhighlight 2px outset; 
+	FONT-SIZE: 10pt;  
+	display:none;
+	BORDER-LEFT: buttonhighlight 2px outset; 
+	WIDTH: 80px; 
+	CURSOR: default; 
+	BORDER-BOTTOM: buttonhighlight 2px outset; 
+	FONT-FAMILY: Arial, Helvetica, sans-serif; 
+	POSITION: absolute; 
+	BACKGROUND-COLOR: menu; 
+	text-align:center;
+}
+  .menuitems /*单项*/
+{ 
+	width:100%;
+	text-align:center;
+	padding:0;
+	border:solid 0px gray;
+}
+.edPnl 
+{ 
+	BORDER-RIGHT: buttonhighlight 5px outset; 
+	BORDER-TOP: buttonhighlight 5px outset; 
+	FONT-SIZE: 10pt;  
+	display:none;
+	BORDER-LEFT: buttonhighlight 5px outset; 
+	WIDTH: 550px; 
+	height:300px;
+	CURSOR: default; 
+	BORDER-BOTTOM: buttonhighlight 5px outset; 
+	FONT-FAMILY: Arial, Helvetica, sans-serif; 
+	POSITION: absolute; 
+	BACKGROUND-COLOR: menu; 
+	text-align:center;
+	vertical-align:middle;
+	padding:auto;
+	margin:auto;
+}
+.panelcss
+{
+	float:left;
+}
+
+.recentList TR
+.tableList TR
+{
+    /*不知道为什么有错误
+    star : expression(
+    onmouseover=function(){this.style.backgroundColor="#DDDDEE";}
+    onmouseout=function(){this.style.backgroundColor ="#AAAAAA";}
+    )
+*/
+
+}
+.recentList
+{
+    font-size: 9pt;
+}
+.recentList caption
+{
+    font-size:15px;
+    font-weight:bolder;
+}
+
+
+/*默认表格样式*/
+.tableList
+{
+     font-size: 12px;
+    width:830px;
+
+}
+.tableList TD
+{
+    text-align: center;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin: 0px;
+}
+
+.tableListDesc
+{
+    white-space:nowrap;
+    
+}
+
+/*房源查询样式*/
+#divsearch
+{
+    font-size: 10pt;
+}
+#divsearch td
+{
+}
+
+/*公开 发布列表样式*/
+.issueTableList
+{
+    font-size: 10pt;
+    width: 900px;
+    border-right: #66ccff 1px solid;
+    border-top: #66ccff 1px solid;
+    border-left: #66ccff 1px solid;
+    border-bottom: #66ccff 1px solid;
+}
+
+
+.issueTableList TH
+{
+    height: 25px;
+    border-right: #66ccff 1px solid;
+    border-top: #66ccff 1px solid;
+    border-left: #66ccff 1px solid;
+    border-bottom: #66ccff 1px solid;
+    background-color: lightblue;
+}
+
+
+.issueTableList TD
+{
+	word-wrap:break-word;/*强制换行*/
+	word-break:normal;
+	
+	height: 25px;
+	text-align: center;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin: 0px;
+	border-right: #66ccff 1px solid;
+	border-top: #66ccff 1px solid;
+	border-left: #66ccff 1px solid;
+	border-bottom: #66ccff 1px solid;
+	overflow: hidden;
+}
+
+
+.noticeTableList
+{
+    font-size: 10pt;
+	width: 830px;
+    border-right: #66ccff 1px solid;
+	border-top: #66ccff 1px solid;
+	border-left: #66ccff 1px solid;
+	border-bottom: #66ccff 1px solid;
+}
+
+
+.noticeTableList TH
+{
+	height: 25px;
+	border-right: #66ccff 1px solid;
+	border-top: #66ccff 1px solid;
+	border-left: #66ccff 1px solid;
+	border-bottom: #66ccff 1px solid;
+	background-color: aliceblue;
+}
+/**/
+.noticeTableList TD
+{
+	word-wrap:break-word;/*强制换行*/
+	word-break:normal;
+	
+	height: 25px;
+	text-align: center;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin: 0px;
+	border-right: #66ccff 1px solid;
+	border-top: #66ccff 1px solid;
+	border-left: #66ccff 1px solid;
+	border-bottom: #66ccff 1px solid;
+	overflow: hidden;
+}
+/*end公开 发布列表样式*/
+
+/*通讯录列表*/
+
+.phoneTableList
+{
+	font-size: 11pt;
+	width: 800px;
+	border-right: #66ccff 1px solid;
+	border-top: #66ccff 1px solid;
+	border-left: #66ccff 1px solid;
+	border-bottom: #66ccff 1px solid;
+}
+
+
+.phoneTableList TH
+{
+    height: 25px;
+    border-right: #66ccff 1px solid;
+    border-top: #66ccff 1px solid;
+    border-left: #66ccff 1px solid;
+    border-bottom: #66ccff 1px solid;
+    background-color: lightblue;
+}
+
+
+.phoneTableList TD
+{
+	word-wrap:break-word;/*强制换行*/
+	word-break:normal;
+	
+	height: 25px;
+	text-align: center;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin: 0px;
+	border-right: #66ccff 1px solid;
+	border-top: #66ccff 1px solid;
+	border-left: #66ccff 1px solid;
+	border-bottom: #66ccff 1px solid;
+	overflow: hidden;
+}
+
+/**/
+
+
+
+
+
+/*默认日志格式*/
+.logtableList
+{
+    width:97%;
+}
+
+.logtableList TD
+{
+    text-align:left;
+    FONT-SIZE: 9pt; 
+
+
+}
+
+/*默认打印表格样式*/
+.pTableList
+{
+    width:980px;
+    font-family:幼圆;
+    color:Black;
+}
+
+
+.pTableList TH
+{
+   font-weight:bold;
+    
+}
+.pTableList A
+{
+    FONT-SIZE: 12pt; 
+    color:Black;
+}
+
+.pTableList TD
+{
+    text-align:center;
+    FONT-SIZE: 12pt; 
+     padding-left:0px;
+    padding-right:0px;
+
+}
+/*默认打印交易记录&修改记录表格样式*/
+.plTableList
+{
+    font-family: 幼圆;
+    color: Black;
+    font-size: 12pt;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+
+.plTableList TD
+{
+    font-size: 12pt;
+    border-top-style: none;
+    border-bottom: thin dotted;
+    border-right-style: none;
+    border-left-style: none;
+    padding-top: 5px;
+}
+
+/*打印标题*/
+.pTitle
+{
+    font-family:"黑体";
+	font-size:30px;
+	font-style: normal;
+	text-align:center;
+	width:980px;
+    
+}
+
+.tabledistrict
+{
+    
+    
+}
+.tabledistrict th
+{
+    width:100px;
+    
+    
+}
+.tabledistrict td
+{
+    
+    
+    width:200px;
+}
+
+.hidClass
+{
+     display:none;
+
+}
+
+
+.tablesearch
+{
+    width: 400px;
+    border-right: 0px;
+    border-top: 0px;
+    overflow: hidden;
+    border-left: 0px;
+    border-bottom: 0px;
+    border-collapse: collapse;
+}
+.tablesearch th
+{
+    width: 100px;
+    text-align: right;
+    background-color: mintcream;
+}
+.tablesearch tr
+{
+    width:300px;
+    text-align:left;
+}
+.tablesearch td
+{
+    white-space:nowrap;
+    
+}
+.mainHouse
+{
+    width:900px;
+}
+.tablesummary
+.tablesummary th
+{
+	font-size: 9pt;
+}
+.tablesummary td
+{
+
+	font-size: 9pt;
+}
+/*浮动层*/
+#floater {
+	position: absolute;
+	left: 500;
+	top: 146;
+	width: 100;
+	visibility: visible;
+	z-index: 10;
+}
+
+
+
+.unitRent {font-size: 10px}
+.highline
+{
+    background-color: #ddeeee;
+}
+.tdaddress
+{
+	vertical-align:top;
+	border-bottom-width:1px;
+	border-bottom-color:#444444;
+	padding:0 3px;
+}
+.mbody
+{
+	font-size: 9pt;
+	background-image: url(Images/backgroud.gif);
+	background-repeat: repeat;
+}
+
+.headerbody
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding: 0;
+	margin: 0px;
+	margin-left: 0;
+}
+.menubody
+{
+    background-color: #333333;
+}
+
+
+.oldValueCss
+{
+	font-weight: bold;
+	color: #ff6666;
+}
+
+.rentPrice
+{
+	font-weight: bold;
+	color: #006633;
+}
+.sellPrice
+{
+	font-weight: bold;
+	color: #ff6600;
+}
+
+
+
+.textConent {
+	font-size: 12px;
+	padding: 10px;
+}
+.title2Text {
+	font-size: 16px;
+	font-weight: bold;
+}
+.warringRed
+{
+    font-size: large;
+    color: #FF0000;
+    font-family: 黑体;
+}
+.autoCloseTime
+{
+    font-size: 22px;
+    color: dimgray;
+}
+
+
+.Wdate{
+	border:#93BEE2 1px solid;
+
+	background:url(datePicker.gif) no-repeat right;
+}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}
+
+thead 
+{
+    background: url(~/Images/buttonbggreen.gif);
+}
+
+.viewWdate
+{
+	border-style:none;
+	border-width: 0px;
+	
+	BACKGROUND-COLOR: transparent;
+   background:url(datePicker.gif) no-repeat right;
+}
+
+.treeRightCss table
+{
+    display: inline;
+
+}
+
+.bottomLine
+{
+    border-bottom: thick solid;
+}
+
+.publicrow
+{
+    background-color: #d7fbb8;
+}
+
+/*main panel 主面板*/
+
+.panelmain{ width:320px; border:1px solid #9cceeb;margin:5px;padding:0px;  }
+.panelmain .title{ background:url('title2.gif'); 
+height:17px; padding:7px 5px 2px 15px; font-weight:bold; border-bottom:1px solid #9bbdd3;  }
+
+.panelmain .title2{ background:url('title3.gif'); 
+height:17px; padding:7px 5px 4px 15px; font-weight:bold; border-bottom:1px solid #9bbdd3;  }
+.panelmain .content{ padding:6px 0px 10px 4px; }
+
+
+
+/*楼盘 房源显示*/
+.panelmainRoom
+{
+    width: 230px;
+    border: 1px solid #9cceeb;
+    margin: 5px;
+    padding: 0px;
+    background-color: #fbffff;
+    float: left;
+}
+.panelmainRoom .title{ background:url('title2.gif'); 
+height:17px; padding:7px 5px 2px 15px; font-weight:bold; border-bottom:1px solid #9bbdd3;  }
+
+
+.panelmainRoom .content 
+{
+    padding: 6px 0px 10px 4px;
+    text-align: center;
+    
+}
+
+.panelmainRoom .content td
+{
+    font-size: 16px;
+    padding: 0px 0px 0px 10px;
+}
+
+/*标准两列表格*/
+.tab2
+{
+    
+}
+.tab2 th
+{
+    text-align:right;
+    width:30%;
+}
+.tab2 td
+{
+    text-align:left;
+    width:70%;
+}
+
+
+
+#toolmenu
+{
+    display: inline; 
+    overflow: auto;
+    float: left;
+    width: 115px;
+    height: 100%;
+}
+#toolframe
+{
+width:auto; height:100%;
+
+    margin-left:120px; 
+}
+
+
+#divleft
+{
+        display: inline; 
+    overflow: auto;
+    float: left;
+    width: 300px;
+    height: 100%;
+}
+
+#divframe
+{
+    width: 600px;
+    height: 100%;
+    float: left;
+    position: absolute;
+    top: 100px;
+}
+
+.divPhotoFrame
+{
+    border-right: white ridge;
+    border-top: white ridge;
+    border-left: white ridge;
+    border-bottom: white ridge;
+    text-align: center;
+}
+
+
+
+legend {
+	font-weight: 700;color:black;
+}
+
+dl {
+	margin: 2px 0 0;
+	padding: 4px 0;
+	border-bottom: 1px solid #dedede;
+	height: 30px;
+	clear: both;
+}
+
+dt,dd {
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	margin: 0;
+	padding: 0;
+}
+
+dt {
+	font-weight: 700;
+	width: 150px;
+	text-align: right;
+	background-color: #666;
+	color : #fff;
+	height:90%;
+}
+
+dd {
+	margin-left: 5px;
+}
+
+.tooltips {
+	position:absolute;
+	left:-500px;
+	top:-500px;
+	font:bold 12px Tahoma;
+	color:#666;
+	border-top: 1px solid #00B800; 
+	background: url(tips_icon.gif) no-repeat bottom; 
+	margin: 0; 
+	padding: 5px 5px 15px; 
+	width: 290px;
+	_width:300px;
+}
+.summary {
+	margin-left: 3px;
+	font: 12px Tahoma;
+	color: #666;
+	border: 1px solid #0099cc;
+	background: #ddedfb;
+	display : none;
+}
+.summary .title {
+	font-weight: bold;
+	margin-left:8px;
+	padding:3px;
+}
+.summary ol{
+	margin-top:0;
+	margin-bottom:2px;
+}
+.style-warn {
+	background-color : yellow;
+}
+.style-pass {
+	background-color : blue;
+}
+.msg {
+	background: #fff url(icons.gif) no-repeat -25px -75px;
+	border: 1px solid #fff;
+	display: inline;
+	margin-left: 5px;
+	padding: 2px 2px 2px 18px;
+	vertical-align : -1px;
+	*vertical-align : 5px;
+	_vertical-align : 3px;
+}
+
+.pass {
+	background-position: 1px -57px;
+	background-color: #E6FFE6;
+	border-color: #00BE00;
+}
+
+.error {
+	background-position: 1px -38px;
+	background-color: #FFF2E9;
+	border-color: #FF6600;
+}
+
+.tips {
+	background-position: 1px 2px;
+	background-color: #E2F5FF;
+	border-color: #00A8FF;
+}
+
+.loading {
+	background: #fff url(loading.gif) no-repeat left center;
+	background-color: #E2F5FF;
+	border-color: #00A8FF;
+}
+
+.block {
+	background-position: 1px -18px;
+	background-color: #FFF2E9;
+	border-color: #FF6600;
+}
+.clearfix {
+	clear : both;
+}
+#passwordInfo {
+	*margin-left:5px;
+	width:220px;
+	height: 20px;
+	background: transparent url(levels.gif) left top no-repeat;
+}

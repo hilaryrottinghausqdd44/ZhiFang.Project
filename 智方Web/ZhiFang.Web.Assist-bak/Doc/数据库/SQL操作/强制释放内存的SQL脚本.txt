@@ -1,0 +1,83 @@
+登陆SQL Server。
+
+2.    准备自动强制释放内存的SQL脚本。
+
+3.    选中SQL SERVER代理下级作业节点右键新建作业。
+
+4.    配置作业的步骤。
+
+5.    配置作业的计划。 
+
+6.    完成作业的计划配置后，点确认，每天凌晨3点定时清理内存的定时作业就完成了配置了。
+
+第二种方法，通过设置服务器最高内存值的方法来释放内存，具体操作是先把服务器最大内存设置成一个小值，但不能太小，太小容易使SQL SERVER挂掉，然后再把服务器最大内存值设置回合适的值，建议占服务器总内存的80%。
+
+请查看本人写的另一篇经验
+
+2SQL Server内存占用高不释放怎么办
+附加参考内容。
+
+ 
+
+----自动强制释放内存的SQL脚本
+
+DECLARE @TargetMemory decimal(19,2),@TotalMemory decimal(19,2),@UseMemoryPecent decimal(19,2)
+
+SELECT @TargetMemory=cntr_value FROM sys.dm_os_performance_counters 
+
+WHERE counter_name='Target Server Memory (KB)'
+
+SELECT @TotalMemory=cntr_value FROM sys.dm_os_performance_counters 
+
+WHERE counter_name='Total Server Memory (KB)'
+
+SET @UseMemoryPecent=@TotalMemory/@TargetMemory
+
+SELECT @UseMemoryPecent
+
+IF @UseMemoryPecent>0.1
+
+BEGIN
+
+ --清除存储过程缓存
+
+        DBCC FREEPROCCACHE 
+
+--清除会话缓存  
+
+        DBCC FREESESSIONCACHE 
+
+--清除系统缓存  
+
+        DBCC FREESYSTEMCACHE('All')
+
+--清除所有缓存  
+
+        DBCC DROPCLEANBUFFERS  
+
+--打开高级配置  
+
+        EXEC sp_configure 'show advanced options', 1  
+
+--设置最大内存值，清除现有缓存空间  1000 M  （根据实际情况设置，具体思路是最大值先调小，然后再设回合适的值。）
+
+        EXEC sp_configure 'max server memory', 1000
+
+        EXEC ('RECONFIGURE')  
+
+--设置等待时间，强制释放内存需等待一些时间
+
+        WAITFOR DELAY '00:01:30'  
+
+--重新设置最大内存值  3000 M   根据实际情况设置，具体思路是最大值先调小，然后再设回合适的值。）
+
+        EXEC sp_configure 'max server memory', 3000  
+
+        EXEC ('RECONFIGURE')  
+
+--关闭高级配置  
+
+        EXEC sp_configure 'show advanced options', 0 
+
+            
+END

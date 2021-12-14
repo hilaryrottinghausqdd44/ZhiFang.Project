@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<title>试剂平台-供货单验收</title>
+		<link rel="shortcut icon" href="../../../../img/logo-16.png">
+		<link rel="stylesheet" type="text/css" href="../../../../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../../../../css/css.css">
+		<style>
+			.navbar-top-back-data {
+				float: left;
+				padding: 13px 10px;
+				margin-top: -50px;
+			}
+		</style>
+		<script type="text/javascript">
+			var Shell = Shell || {};
+			Shell.System = Shell.System || {};
+			//不强制登录标志
+			Shell.System.noLogin = true;
+			//是否开启本地缓存机制
+			Shell.System.openLocalStorage = false;
+		</script>
+	</head>
+	<body style="margin-bottom: 50px;" hidden="hidden">
+		<!--标题-->
+		<nav id="navbar-top" class="navbar navbar-default navbar-fixed-top navbar-top">
+			<div class="navbar-top-title" id="div-show-title">待验收信息</div>
+			<div class="navbar-top-back-data" id="dt-div-top-back">
+				<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+				<span>返回</span>
+			</div>
+		</nav>
+		<!--金额显示-->
+		<div style="padding:60px 2% 2px 2%;background-color:#ffffff;" class="btn-group btn-group-justified" id="dt-show-total">
+		</div>
+		<!--明细功能按钮栏-->
+		<div style="padding:2px 2% 3px 2%;" class="btn-group btn-group-justified" id="dt-div-buttons">
+			<button id="btn-reset-data" class="btn btn-default btn-primary" style="width:25%;">重置</button>
+			<button id="btn-right-scancode" class="btn btn-default btn-success" style="width:25%;">接收扫码</button>
+			<button id="btn-error-scancode" class="btn btn-default btn-danger" style="width:25%;">拒收扫码</button>
+			<button id="btn-alldata-check" class="btn btn-default btn-success" style="width:25%;">整单验收</button>
+		</div>
+
+		<!--明细内容DIV-->
+		<div class="list-group content-div" id="dt-div-content" style="margin-top:5px;"></div>
+
+		<!--明细底部功能栏-->
+		<div id="dt-div-submit" class="navbar navbar-default navbar-fixed-bottom navbar-bottom btn-group btn-group-justified" style="background-color: #ffffff;min-height: 40px;" hidden="hidden">
+			<button type="button" id="dt-btn-temp-save" class="btn btn-default" style="float:left;width:48%;text-align:center;margin:2px;">暂存</button>
+			<button type="button" id="dt-btn-save-check" class="btn btn-primary" style="float:right;width:48%;text-align:center;margin:2px;">确认验收</button>
+		</div>
+
+		<!--扫码信息form-control-->
+		<div class="content-div" style="margin-top:55px;" hidden="hidden" id="scancode-div-top">
+			<div class="form-control btn btn-warning" style="width:98%;text-align:left;margin:2px 1%;">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">提示:</span>
+				<span id="scancode-div-show-info"></span>
+			</div>
+			<input type="text" id="scancode-text" class="form-control" style="width:98%;margin:2px 1%;font-size:14px;" placeholder="请扫码" />
+		</div>
+
+		<!--扫码内容DIV-->
+		<div class="list-group content-div" style="margin:4px 2px 4px 2px;" id="scancode-div-content" hidden="hidden"></div>
+
+		<!--扫码底部功能栏-->
+		<div id="scancode-div-submit" class="navbar navbar-default navbar-fixed-bottom navbar-bottom" style="background-color: #ffffff;min-height:42px;padding: 5px;" hidden="hidden">
+			<button type="button" id="scancode-div-show-count" class="btn btn-default" style="float:left;padding:5px 10px;width:48%;text-align:center;color:#169ada;background-color:#ffffff;border:1px dashed #169ada;">总数:0</button>
+			<button type="button" id="btn-confirm-scancode" class="btn btn-primary" style="float:right;margin-left:5px;width:48%;text-align:center;">确认扫码</button>
+		</div>
+
+		<!-- 操作模态框 -->
+		<div class="modal fade" id="modal-operate-confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title">操作提示</h4>
+					</div>
+					<div class="modal-body">
+						<div id="operate-confirm-msg" class="alert alert-warning" role="alert" style="text-align:center;">
+							确定执行该操作吗？
+						</div>
+					</div>
+					<div class="modal-footer" id="operate-confirm-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal" id="operate-cancel-button">取消</button>
+						<button type="button" class="btn btn-primary" id="operate-confirm-button">确定</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<!-- 弹出验收确认模态框 -->
+		<div class="modal fade" id="modal-check-confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabelw" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title">实验室验收确认</h4>
+					</div>
+					<div class="modal-body">
+						<div style="float:left;margin-bottom:5px;">主验收人:<span id="mainCheckUseName"></span></div>
+						<textarea id="InvoiceNo" class="form-control" rows="3" style="margin-bottom:5px;" placeholder="发票信息 请输入发票号信息，用逗号隔开"></textarea>
+						<textarea id="AccepterMemo" class="form-control" rows="4" style="margin-bottom:5px;" placeholder="验收备注 请输入备注"></textarea>
+						<div style="float:left;margin-bottom:5px;" id="checkUserInfo" hidden="hidden">供货确认:
+							<input type="text" id="Account" style="width:38%" placeholder="请输入账号" />
+							<input type="password" id="Pwd" style="width:35%" placeholder="请输入密码" />
+						</div>
+						<div style="float:left;padding:5px;margin-bottom:5px;border: red solid 1px;" id="checkInfoMsg" hidden="hidden">
+							<p>验收时，需要两人确认，其中主验收人为当前登录用户，供货确认为供应商或本机构的"账户+密码"用户。</p>
+							<p><span style="color:red;">注意：</span>主验收人和供货确认不能是同一人，必须是供应商或本机构的不同用户</p>
+						</div>
+					</div>
+					<div class="modal-footer" id="check-confirm-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-primary" id="button-check-confirm">确定</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		<script type="text/javascript " charset="utf-8 " src="../../../../src/jquery.min.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="../../../../util/util.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="../../../../config/els.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="../check/common.js?v=201713"></script>
+		<script type="text/javascript " charset="utf-8 " src="acceptance.js?v=201713"></script>
+		<script type="text/javascript " charset="utf-8 " src="info.js?v=201801"></script>
+		<form onsubmit=""></form>
+	</body>
+</html>

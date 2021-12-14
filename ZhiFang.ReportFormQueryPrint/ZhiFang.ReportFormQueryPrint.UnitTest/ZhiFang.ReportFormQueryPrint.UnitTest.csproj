@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{78FBA5FA-5532-4095-85F1-A3C22C78781A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.ReportFormQueryPrint.UnitTest</RootNamespace>
+    <AssemblyName>ZhiFang.ReportFormQueryPrint.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="PUserTest.cs" />
+    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportCreate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.BLL\ZhiFang.ReportFormQueryPrint.BLL.csproj">
+      <Project>{9e05c10b-4500-4c45-b15b-b28754466f5e}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Common\ZhiFang.ReportFormQueryPrint.Common.csproj">
+      <Project>{4c18e3ba-35ee-478b-be4a-3ae1da33fe2a}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.DAL.MSSQL\ZhiFang.ReportFormQueryPrint.DAL.MSSQL.csproj">
+      <Project>{ce8b6ccd-1306-4f9c-bb0e-76f9ef2e397e}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.DAL.MSSQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.DAL.Oracle\ZhiFang.ReportFormQueryPrint.DAL.Oracle.csproj">
+      <Project>{bf7d6140-0475-44a1-9880-342e5c4a0915}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.DAL.Oracle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.DBUtility\ZhiFang.ReportFormQueryPrint.DBUtility.csproj">
+      <Project>{d161060b-8286-476b-a72f-3c6b8e59682c}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Factory\ZhiFang.ReportFormQueryPrint.Factory.csproj">
+      <Project>{4077ec0c-3b5f-4439-b3d5-039587b3ed73}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.IDAL\ZhiFang.ReportFormQueryPrint.IDAL.csproj">
+      <Project>{0387526f-984f-460b-a4a3-18ad0ee02218}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Interceptor\ZhiFang.ReportFormQueryPrint.Interceptor.csproj">
+      <Project>{d5a90ad4-b981-483d-b0f4-c9b010afa205}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Interceptor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Model\ZhiFang.ReportFormQueryPrint.Model.csproj">
+      <Project>{3526D8D8-CF44-4C52-BCEF-A1812715E240}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.ObjectFactory\ZhiFang.ReportFormQueryPrint.ObjectFactory.csproj">
+      <Project>{5d2e6c0b-f3b6-49ec-9c15-8c2de9cb2226}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.ObjectFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Tools\ZhiFang.ReportFormQueryPrint.Tools.csproj">
+      <Project>{c2b678b5-5b7b-41e0-9b95-182d0c3efefe}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint\ZhiFang.ReportFormQueryPrint.csproj">
+      <Project>{fff2c5d6-f2ba-40a9-b2d3-3ab9e1335a96}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.Debug.config">
+      <DependentUpon>app.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>app.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

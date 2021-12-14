@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>样本类型</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../../css/admin.css");
+    </script>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space5">
+            <div class=" layui-col-md6 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="tableContainer">
+                            <table id="table" lay-filter="table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6 layui-col-xs12">
+                <div class="layui-card tableHeight">
+                    <div class="layui-card-body">
+                        <form class="layui-form" id='layForm' lay-filter='form'>
+                            <div class="layui-row">
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">主键id</label>
+                                        <div class="layui-input-block">
+                                            <input type="hidden" name='LBSampleType_Id' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_CName' id="CName" autocomplete="off" lay-verify='required' placeholder="必填项" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">英文名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_EName' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">简称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_SName' id="SName" autocomplete="off" lay-verify='required' placeholder="必填项" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">标准编码</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_StandCode' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">用户编码</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_UseCode' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">开发商标准码</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_DeveCode' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">快捷码</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_Shortcode' id="Shortcode" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">拼音字头</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_PinYinZiTou' id="PinYinZiTou" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">显示次序</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_DispOrder' id="DispOrder" lay-verify='number' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">是否启用</label>
+                                        <div class="layui-input-block">
+                                            <input type="checkbox" name='LBSampleType_IsUse' id="isUse" lay-skin='switch' checked lay-text="启用|禁用" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSampleType_Comment' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md10 layui-col-md-offset2 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn layui-btn-sm layui-btn-disabled" disabled="disabled" lay-submit id="save" lay-filter='save'><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                            <button id='cancel' type="button" lay-filter='reset' class="layui-btn layui-btn-sm layui-btn-primary"><i class="iconfont">&#xe609;</i>&nbsp;重置</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="toolbar">
+        <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="add"><i class="layui-icon">&#xe654;</i>新增</button>
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</button>
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="import"><i class="iconfont">&#xe6a2;</i>&nbsp;导入</button>
+            <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</button>
+        </div>
+        <div class="layui-input-inline">
+            <input type="text" name='search' id="search" placeholder="名称/简称/拼音字头" autocomplete="off" class="layui-input" />
+        </div>
+        <button class="layui-btn layui-btn-sm" type="button" lay-event="search"><i class="layui-icon">&#xe615;</i>查询</button>
+    </script>
+    <script type="text/html" id="switchTp">
+        <input type="checkbox" name="isUse" value="{{d.LBSampleType_IsUse}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="tableSwitch" {{ d.LBSampleType_IsUse == "true" ? 'checked' : '' }}>
+    </script>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('sampleType.js');
+    </script>
+    <style>
+        body>.layui-fluid { padding: 5px; }
+        .layui-form label { padding: 9px 0;width: 100px; }
+        .tableHeight { overflow: auto; }
+        .layui-table-tool-temp { padding-right: 30px; }
+        .layui-disabled, .layui-disabled:hover { color: #666 !important; }
+    </style>
+</body>
+</html>

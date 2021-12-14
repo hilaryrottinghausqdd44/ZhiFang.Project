@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../util/common.js"></script>
+    <script src="B_Province.js"></script>
+    <style type="text/css">
+        #fm {
+            margin: 20px;
+        }
+
+        .fItem {
+           
+            width: 80px;
+        }
+
+            .fItem input 
+            {
+                padding:0px;
+                width: 190px;
+            }
+    </style>
+</head>
+<body>
+    <table title="省份" id="dg"></table>
+    <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: left; width:auto; display:inline;">
+
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+
+        </div>
+
+        <div style="float: right; margin-right: 10px; margin-top: 3px; display: none;">
+            <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入',searcher:doSearch" style="width:200px;" />
+
+        </div>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width: 340px; height: 470px;" closed="true" buttons="#dlgButtons">
+        <form id="fm">
+            <table>
+                <tr style="padding-top:20px;">
+                    <td class="fItem">省份ID</td>
+                    <td class="fItem"><input id='txtBProvince_Id' name="BProvince_Id" class="easyui-textbox"  disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">所属国家ID</td>
+                    <td class="fItem"><input id='txtBProvince_BCountry_Id' name="BProvince_BCountry_Id" class="easyui-combobox" panelheight=auto editable="false"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">名称</td>
+                    <td class="fItem"><input id="txtBProvince_Name" name="BProvince_Name" class="easyui-textbox" required="required" /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">英文名称</td>
+                    <td class="fItem"><input id='txtBProvince_EName' name="BProvince_EName" class="easyui-textbox" required="required" ></td>
+                </tr>
+                <tr>
+                    <td class="fItem">简称</td>
+                    <td class="fItem"><input id="txtBProvince_SName" name="BProvince_SName" class="easyui-textbox" /></td>
+                </tr>
+                <tr>
+                    <td class="fItem">快捷码</td>
+                    <td class="fItem"><input id='txtBProvince_Shortcode' name="BProvince_Shortcode" class="easyui-textbox"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">拼音字头</td>
+                    <td class="fItem"><input id="txtBProvince_PinYinZiTou" name="BProvince_PinYinZiTou" class="easyui-textbox" /></td>
+                </tr>
+               
+                <tr>
+                    <td class="fItem">是否使用</td>
+                    <td class="fItem">
+                        <select id="ddlBProvince_IsUse" name="BProvince_IsUse" class="easyui-combobox" panelheight=auto style="width:194px;" editable="false">
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="fItem">创建时间</td>
+                    <td class="fItem"><input id='txtBProvince_DataAddTime' name="BProvince_DataAddTime" class="easyui-datetimebox" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">时间戳</td>
+                    <td class="fItem"><input id="txtBProvince_DataTimeStamp" name="BProvince_DataTimeStamp" class="easyui-datetimebox" disabled="disabled" /></td>
+                </tr>
+                 <tr>
+                    <td class="fItem">备注</td>
+                    <td class="fItem"><input id='txtBProvince_Comment' multiline="true" style="height:90px;" name="Comment" class="easyui-textbox"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="dlgButtons">
+        <div align="right">
+            <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+        </div>
+    </div>
+</body>
+</html>

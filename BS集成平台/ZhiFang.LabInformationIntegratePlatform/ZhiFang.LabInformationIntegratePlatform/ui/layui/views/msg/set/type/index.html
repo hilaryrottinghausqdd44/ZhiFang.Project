@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>公共消息类型</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.layui-form-label{width:100px;}
+		.layui-input-block{margin-left:130px;}
+		.row-checked{background-color:#009688;}
+		.layui-table-view{margin:0;}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid" style="padding:15px;">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md4">
+				<div class="layui-card">
+					<div class="layui-card-body" style="padding:5px;">
+						<table class="layui-hide" id="table1" lay-filter="table1"></table>
+						<script type="text/html" id="table1-toolbar-top">
+							<div class="layui-inline" style="width:100px;">
+								<select name="table1-IsUse" id="table1-IsUse" lay-filter="table1-IsUse">
+									<option value="">是否使用</option>
+									<option value="1" checked>使用</option>
+									<option value="0">不使用</option>
+								</select>
+							</div>
+							<div class="layui-inline" style="width:140px;">
+								<input class="layui-input" id="table1-search-input" placeholder="系统名称/系统编码" fields="SystemName/SystemCode">
+							</div>
+							<button class="layui-btn" lay-event="search">查询</button>
+						</script>
+					</div>
+				</div>
+				
+			</div>
+			<div class="layui-col-md8">
+				<div class="layui-card">
+					<div class="layui-card-body" style="padding:5px;">
+						<table class="layui-hide" id="table" lay-filter="table"></table>
+						<script type="text/html" id="table-toolbar-top">
+							<div class="layui-inline" style="width:100px;">
+								<select name="IsUse" id="IsUse" lay-filter="IsUse">
+									<option value="">是否使用</option>
+									<option value="1">使用</option>
+									<option value="0">不使用</option>
+								</select>
+							</div>
+							<div class="layui-inline" style="width:220px;">
+								<input class="layui-input" id="search-input" placeholder="类型名称/类型代码" fields="CName/Code">
+							</div>
+							<button class="layui-btn" lay-event="search">查询</button>
+							
+							<button class="layui-btn" lay-event="add">新增</button>
+							<button class="layui-btn layui-btn-normal" style="margin-left:unset;" lay-event="edit">修改</button>
+							<button class="layui-btn layui-btn-danger" style="margin-left:unset;" lay-event="del">删除</button>
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('index.js');
+	</script>
+</body>
+</html>

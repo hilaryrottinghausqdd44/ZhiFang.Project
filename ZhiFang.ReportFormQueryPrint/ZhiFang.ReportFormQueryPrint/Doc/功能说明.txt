@@ -1,0 +1,27 @@
+【需要的功能包】
+1、ui/extjs
+2、ui/css
+3、ui/ux
+4、ui/util
+5、ui/echarts
+6、ui/print
+7、ui/ReportPrint
+8、ui/reportprint.html
+
+【参数传递说明】
+可选参数共三个:
+	PATNO(病历号);
+	ZDY3(卡号);
+	CNAME(姓名);
+	RECEIVEDATE(核收日期)
+
+参数RECEIVEDATE的格式说明:RECEIVEDATE=2014-01-01;2014-08-01,以英文分号(;)分隔,分号前为开始日期,分号后为结束日期。
+
+RECEIVEDATE=2014-01-01,表示只有开始日期,没有结束日期;
+RECEIVEDATE=;2014-08-01,表示只有结束日期,没有开始日期。
+
+程序访问格式,例如：
+/ui/reportprint.html?PATNO=1&RECEIVEDATE=2014-01-01;2014-08-01
+
+【程序路径】
+项目名称/ui/reportprint.html

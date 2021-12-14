@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+	<class name="BloodBPreForm" table="[dbo].[Blood_BPreForm]">
+		<id name="Id" column="[BPreFormID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="YqCode" column="[yqCode]" type="String" not-null="false" length="20" />
+		<property name="BPreFormNo" column="[BPreFormNo]" type="String" not-null="false" length="20" />
+		<property name="BPreCheckFlag" column="[BPreCheckFlag]" type="Int32" not-null="false" length="4" />
+		<property name="BarCode" column="[BarCode]" type="String" not-null="false" length="50" />
+		<property name="IsCharge" column="[IsCharge]" type="Int32" not-null="false" length="4" />
+		<property name="OutFlag" column="[OutFlag]" type="Int32" not-null="false" length="4" />
+		<property name="OperatorID" column="[OperatorID]" type="Int64" not-null="false" length="8" />
+		<property name="Operator" column="[Operator]" type="String" not-null="false" length="50" />
+		<property name="OperTime" column="[OperTime]" type="DateTime" not-null="false" length="8" />
+		<property name="CheckID" column="[CheckID]" type="Int64" not-null="false" length="8" />
+		<property name="Checker" column="[Checker]" type="String" not-null="false" length="50" />
+		<property name="CheckTime" column="[CheckTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BloodOrder" column="[BloodOrder]" type="String" not-null="false" length="10" />
+		<property name="BPreAntiBody" column="[BPreAntiBody]" type="String" not-null="false" length="20" />
+		<property name="FirstABOWay" column="[FirstABOWay]" type="String" not-null="false" length="20" />
+		<property name="FirstABOTest" column="[FirstABOTest]" type="String" not-null="false" length="20" />
+		<property name="OverdueID" column="[OverdueID]" type="Int64" not-null="false" length="8" />
+		<property name="OverdueCName" column="[OverdueCName]" type="String" not-null="false" length="50" />
+		<property name="BarCodeMemo" column="[BarCodeMemo]" type="String" not-null="false" length="50" />
+		<property name="FirstRhTest" column="[FirstRhTest]" type="String" not-null="false" length="20" />
+		<property name="IsCompleted" column="[IsCompleted]" type="Int32" not-null="false" length="4" />
+		<property name="BPreSendTime" column="[BPreSendTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BPreSendID" column="[BPreSendID]" type="Int64" not-null="false" length="8" />
+		<property name="BPreSendCName" column="[BPreSendCName]" type="String" not-null="false" length="50" />
+		<property name="PrintTime" column="[PrintTime]" type="DateTime" not-null="false" length="8" />
+		<property name="PrintCount" column="[PrintCount]" type="Int32" not-null="false" length="4" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+		<property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BloodBReqForm" class="BloodBReqForm"  lazy="proxy" >
+			<column name="[BReqFormID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodBReqItem" class="BloodBReqItem"  lazy="proxy" >
+			<column name="[BReqItemID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodPatinfo" class="BloodPatinfo"  lazy="proxy" >
+			<column name="[PatID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodQtyDtl" class="BloodQtyDtl"  lazy="proxy" >
+			<column name="[QtyDtlID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

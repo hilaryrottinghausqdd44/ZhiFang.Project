@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/14/2018 17:11:39" ReportInfo.Modified="05/28/2021 10:56:35" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Table" ReferenceName="Data.Table" DataType="System.Int32" Enabled="true" TableName="Table">
+      <Column Name="LisTestForm_CName" DataType="System.String"/>
+      <Column Name="LisTestForm_GTestDate" DataType="System.String"/>
+      <Column Name="LisTestForm_GSampleNo" DataType="System.Int64"/>
+      <Column Name="LisTestForm_PatNo" DataType="System.String"/>
+      <Column Name="LisTestForm_BarCode" DataType="System.String"/>
+      <Column Name="ReportValue" DataType="System.String"/>
+      <Column Name="ResultStatus" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperHeight="148">
+    <PageHeaderBand Name="PageHeader1" Width="718.2" Height="56.7" Guides="0">
+      <TextObject Name="Text2" Left="264.6" Width="132.3" Height="37.8" Text="检测报告" Font="宋体, 18pt"/>
+      <TextObject Name="Text3" Top="37.8" Width="141.75" Height="18.9" Text="检验方法：速率法" Font="宋体, 10pt"/>
+      <TextObject Name="Text4" Left="151.2" Top="37.8" Width="141.75" Height="18.9" Text="检验方法：速率法" Font="宋体, 10pt"/>
+      <TextObject Name="Text5" Left="311.85" Top="37.8" Width="141.75" Height="18.9" Text="检验方法：速率法" Font="宋体, 10pt"/>
+      <TextObject Name="Text6" Left="481.95" Top="37.8" Width="141.75" Height="18.9" Text="检验方法：速率法" Font="宋体, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="60.7" Width="718.2" Height="113.4">
+      <SubreportObject Name="Subreport1" Width="718.2" Height="113.4" ReportPage="Page2"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <DataBand Name="Data2" Top="22.9" Width="359.1" Height="18.9" Columns.Count="2">
+      <TextObject Name="Text9" Width="75.6" Height="18.9" Text="[Table.LisTestForm_GSampleNo]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text10" Left="85.05" Width="132.3" Height="18.9" Text="[Table.LisTestForm_BarCode]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text11" Left="226.8" Width="75.6" Height="18.9" Text="[Table.ReportValue]" VertAlign="Center" Font="宋体, 10pt"/>
+      <DataHeaderBand Name="DataHeader1" Width="718.2" Height="18.9">
+        <TextObject Name="Text1" Width="75.6" Height="18.9" Text="样本号" VertAlign="Center" Font="宋体, 10pt"/>
+        <TextObject Name="Text7" Left="75.6" Width="75.6" Height="18.9" Text="条码" VertAlign="Center" Font="宋体, 10pt"/>
+        <TextObject Name="Text8" Left="226.8" Width="75.6" Height="18.9" Text="结果" VertAlign="Center" Font="宋体, 10pt"/>
+        <TextObject Name="Text12" Left="359.1" Width="75.6" Height="18.9" Text="样本号" VertAlign="Center" Font="宋体, 10pt"/>
+        <TextObject Name="Text13" Left="434.7" Width="75.6" Height="18.9" Text="条码" VertAlign="Center" Font="宋体, 10pt"/>
+        <TextObject Name="Text14" Left="585.9" Width="75.6" Height="18.9" Text="结果" VertAlign="Center" Font="宋体, 10pt"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+</Report>

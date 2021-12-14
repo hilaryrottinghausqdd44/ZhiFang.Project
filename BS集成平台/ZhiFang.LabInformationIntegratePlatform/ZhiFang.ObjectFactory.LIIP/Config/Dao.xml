@@ -1,0 +1,304 @@
+﻿<objects xmlns="http://www.springframework.net">
+  <!--权限系统-->
+  <object id="BCityDao" type="ZhiFang.DAO.NHB.RBAC.BCityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BCountryDao" type="ZhiFang.DAO.NHB.RBAC.BCountryDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BCountyDao" type="ZhiFang.DAO.NHB.RBAC.BCountyDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BProvinceDao" type="ZhiFang.DAO.NHB.RBAC.BProvinceDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BSexDao" type="ZhiFang.DAO.NHB.RBAC.BSexDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BProfessionalAbilityDao" type="ZhiFang.DAO.NHB.RBAC.BProfessionalAbilityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRDeptDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACUserDao" type="ZhiFang.DAO.NHB.RBAC.RBACUserDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRDeptEmpDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptEmpDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRDeptIdentityDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptIdentityDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HREmpIdentityDao" type="ZhiFang.DAO.NHB.RBAC.HREmpIdentityDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HREmployeeDao" type="ZhiFang.DAO.NHB.RBAC.HREmployeeDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRPositionDao" type="ZhiFang.DAO.NHB.RBAC.HRPositionDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACEmpRolesDao" type="ZhiFang.DAO.NHB.RBAC.RBACEmpRolesDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACModuleDao" type="ZhiFang.DAO.NHB.RBAC.RBACModuleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACModuleOperDao" type="ZhiFang.DAO.NHB.RBAC.RBACModuleOperDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleModuleDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleModuleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleRightDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleRightDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRowFilterDao" type="ZhiFang.DAO.NHB.RBAC.RBACRowFilterDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACEmpOptionsDao" type="ZhiFang.DAO.NHB.RBAC.RBACEmpOptionsDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="DataRowRoleHQL" type="ZhiFang.Entity.RBAC.DataRowRoleHQL,ZhiFang.Entity.RBAC" singleton="false">
+  </object>
+  <object id="SLogDao" type="ZhiFang.DAO.NHB.RBAC.SLogDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="STypeDao" type="ZhiFang.DAO.NHB.RBAC.STypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="STypeDetailDao" type="ZhiFang.DAO.NHB.RBAC.STypeDetailDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BMaritalStatusDao" type="ZhiFang.DAO.NHB.RBAC.BMaritalStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BNationalityDao" type="ZhiFang.DAO.NHB.RBAC.BNationalityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BEducationLevelDao" type="ZhiFang.DAO.NHB.RBAC.BEducationLevelDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHealthStatusDao" type="ZhiFang.DAO.NHB.RBAC.BHealthStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDegreeDao" type="ZhiFang.DAO.NHB.RBAC.BDegreeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BPoliticsStatusDao" type="ZhiFang.DAO.NHB.RBAC.BPoliticsStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SServiceClientDao" type="ZhiFang.DAO.NHB.RBAC.SServiceClientDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SServiceClientlevelDao" type="ZhiFang.DAO.NHB.RBAC.SServiceClientlevelDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--权限系统-->
+
+  <!--构建工具相关-->
+  <object id="BTDAppComponentsDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDModuleTypeDao" type="ZhiFang.DAO.NHB.RBAC.BTDModuleTypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDAppPictureDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppPictureDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDAppComponentsOperateDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsOperateDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDPictureTypeConDao" type="ZhiFang.DAO.NHB.RBAC.BTDPictureTypeConDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDPictureTypeDao" type="ZhiFang.DAO.NHB.RBAC.BTDPictureTypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--<object id="BTDMacroCommandDao" type="ZhiFang.DAO.NHB.RBAC.BTDMacroCommandDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>-->
+  <object id="BTDAppComponentsRefDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsRefDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--构建工具相关-->
+  <!--系统公用-->
+  <object id="BParameterDao" type="ZhiFang.DAO.NHB.Common.BParameterDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SCAttachmentDao" type="ZhiFang.DAO.NHB.Common.SCAttachmentDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SCInteractionDao" type="ZhiFang.DAO.NHB.Common.SCInteractionDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SCOperationDao" type="ZhiFang.DAO.NHB.Common.SCOperationDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDictTreeDao" type="ZhiFang.DAO.NHB.Common.BDictTreeDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDictTypeDao" type="ZhiFang.DAO.NHB.Common.BDictTypeDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDictDao" type="ZhiFang.DAO.NHB.Common.BDictDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="FFileDao" type="ZhiFang.DAO.NHB.Common.FFileDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+    <property name="IDHRDeptDao" ref="HRDeptDao" />
+    <property name="IDRBACRoleDao" ref="RBACRoleDao" />
+    <property name="IDHREmployeeDao" ref="HREmployeeDao" />
+    <property name="IDBHospitalEmpLinkDao" ref="BHospitalEmpLinkDao" />
+    <property name="IDBHospitalAreaDao" ref="BHospitalAreaDao" />
+    <property name="IDBHospitalDao" ref="BHospitalDao" />
+  </object>
+  <object id="FFileAttachmentDao" type="ZhiFang.DAO.NHB.Common.FFileAttachmentDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileCopyUserDao" type="ZhiFang.DAO.NHB.Common.FFileCopyUserDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileInteractionDao" type="ZhiFang.DAO.NHB.Common.FFileInteractionDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileOperationDao" type="ZhiFang.DAO.NHB.Common.FFileOperationDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileReadingLogDao" type="ZhiFang.DAO.NHB.Common.FFileReadingLogDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileReadingUserDao" type="ZhiFang.DAO.NHB.Common.FFileReadingUserDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--系统公用-->
+  <!--消息系统-->
+  <object id="SCMsgTypeDao" type="ZhiFang.DAO.NHB.LIIP.SCMsgTypeDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SCMsgPhraseDicDao" type="ZhiFang.DAO.NHB.LIIP.SCMsgPhraseDicDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SCMsgHandleDao" type="ZhiFang.DAO.NHB.LIIP.SCMsgHandleDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SCMsgDao" type="ZhiFang.DAO.NHB.LIIP.SCMsgDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SCIMInfomationContentDao" type="ZhiFang.DAO.NHB.LIIP.SCIMInfomationContentDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IntergrateSystemSetDao" type="ZhiFang.DAO.NHB.LIIP.IntergrateSystemSetDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="CVCriticalValueEmpIdDeptLinkDao" type="ZhiFang.DAO.NHB.LIIP.CVCriticalValueEmpIdDeptLinkDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--消息系统-->
+  <!--微信系统-->
+  <object id="WXAccountTypeDao" type="ZhiFang.DAO.NHB.LIIP.WXAccountTypeDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="WXIconsDao" type="ZhiFang.DAO.NHB.LIIP.WXIconsDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="WXMessageSendTaskDao" type="ZhiFang.DAO.NHB.LIIP.WXMessageSendTaskDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="WXMsgSendLogDao" type="ZhiFang.DAO.NHB.LIIP.WXMsgSendLogDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="WXWeiXinEmpLinkDao" type="ZhiFang.DAO.NHB.LIIP.WXWeiXinEmpLinkDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="WXWeiXinPushMessageTemplateDao" type="ZhiFang.DAO.NHB.LIIP.WXWeiXinPushMessageTemplateDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="WXWeiXinAccountDao" type="ZhiFang.DAO.NHB.LIIP.WXWeiXinAccountDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="WXWeiXinUserGroupDao" type="ZhiFang.DAO.NHB.LIIP.WXWeiXinUserGroupDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--微信系统-->
+  <!--平台提供各系统公用字典-->
+  <object id="BHospitalDao" type="ZhiFang.DAO.NHB.LIIP.BHospitalDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHospitalAreaDao" type="ZhiFang.DAO.NHB.LIIP.BHospitalAreaDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHospitalDeptDao" type="ZhiFang.DAO.NHB.LIIP.BHospitalDeptDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHospitalLevelDao" type="ZhiFang.DAO.NHB.LIIP.BHospitalLevelDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHospitalTypeDao" type="ZhiFang.DAO.NHB.LIIP.BHospitalTypeDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHospitalEmpLinkDao" type="ZhiFang.DAO.NHB.LIIP.BHospitalEmpLinkDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHospitalTypeLinkDao" type="ZhiFang.DAO.NHB.LIIP.BHospitalTypeLinkDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SAccountRegisterDao" type="ZhiFang.DAO.NHB.LIIP.SAccountRegisterDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--平台公共字典-->
+  <!--平台统计-->
+  <object id="SCMsgStaticDao" type="ZhiFang.DAO.MSSQL.LIIPStatic.SCMsgStaticDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <!--平台统计-->
+  <!--RBAC数据同步-->
+  <object id="LabStarV6DepartmentDao" type="ZhiFang.DAO.MSSQL.LabStarV6.DepartmentDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="LabStarV6DeptDoctorDao" type="ZhiFang.DAO.MSSQL.LabStarV6.DeptDoctorDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="LabStarV6PUserDao" type="ZhiFang.DAO.MSSQL.LabStarV6.PUserDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="LabStarV6DoctorDao" type="ZhiFang.DAO.MSSQL.LabStarV6.DoctorDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="LabStarV6NPUserDao" type="ZhiFang.DAO.MSSQL.LabStarV6.NPUserDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="SLIIPSystemRBACCloneLogDao" type="ZhiFang.DAO.NHB.LIIP.SLIIPSystemRBACCloneLogDao,ZhiFang.DAO.NHB.LIIP">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="QMSHRDeptDao" type="ZhiFang.DAO.MSSQL.QMS.HRDeptDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSHRDeptEmpDao" type="ZhiFang.DAO.MSSQL.QMS.HRDeptEmpDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSHRDeptIdentityDao" type="ZhiFang.DAO.MSSQL.QMS.HRDeptIdentityDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSHREmpIdentityDao" type="ZhiFang.DAO.MSSQL.QMS.HREmpIdentityDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSHREmployeeDao" type="ZhiFang.DAO.MSSQL.QMS.HREmployeeDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSHRPositionDao" type="ZhiFang.DAO.MSSQL.QMS.HRPositionDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACEmpOptionsDao" type="ZhiFang.DAO.MSSQL.QMS.RBACEmpOptionsDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACEmpRolesDao" type="ZhiFang.DAO.MSSQL.QMS.RBACEmpRolesDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACModuleDao" type="ZhiFang.DAO.MSSQL.QMS.RBACModuleDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACModuleOperDao" type="ZhiFang.DAO.MSSQL.QMS.RBACModuleOperDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACRoleDao" type="ZhiFang.DAO.MSSQL.QMS.RBACRoleDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACRoleModuleDao" type="ZhiFang.DAO.MSSQL.QMS.RBACRoleModuleDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACRoleRightDao" type="ZhiFang.DAO.MSSQL.QMS.RBACRoleRightDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACRowFilterDao" type="ZhiFang.DAO.MSSQL.QMS.RBACRowFilterDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <object id="QMSRBACUserDao" type="ZhiFang.DAO.MSSQL.QMS.RBACUserDao,ZhiFang.DAO.MSSQL">
+  </object>
+  <!--RBAC数据同步-->
+</objects>

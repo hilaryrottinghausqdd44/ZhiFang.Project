@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>医嘱模板</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body>
+	<div class="layui-fluid">
+        <div class="layui-card">
+			<div class="layui-card-body">
+				<div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="Tab">
+					<ul class="layui-tab-title" id="TabTitle"></ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+							<div class="layui-form">
+								<div class="layui-inline">
+									<input type="text" name="OrderModelCName" id="OrderModelCName" placeholder="医嘱模板名称检索" class="layui-input" autocomplete="off" />
+								</div>
+								<div class="layui-inline">
+									<input type="text" name="ShortCode" id="ShortCode" placeholder="简码检索" class="layui-input" autocomplete="off" />
+								</div>
+								<div class="layui-inline">
+									<button type="button" id="search" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-search"></i>查询</button>
+								</div>
+								<div class="layui-inline">
+									<div class="layui-btn-group">
+										<button type="button" id="add" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-add-1"></i>新增</button>
+										<button type="button" id="edit" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-edit"></i>编辑</button>
+										<button type="button" id="selectItem" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-add-1"></i>选择项目</button>
+										<button type="button" id="del" class="layui-btn layui-btn-xs layui-btn-warm"><i class="layui-icon layui-icon-delete"></i>删除</button>
+									</div>
+								</div>
+							</div>
+							<div class="layui-row layui-col-space5">
+								<div class="layui-col-sm8 layui-col-xs12">
+									<div class="layui-row layui-col-space5">
+										<div class="layui-col-xs4" id="NavTableBox">
+											<table id="NavTable" lay-filter="NavTable"></table>
+										</div>
+										<div class="layui-col-xs8" id="OrderModelTableBox">
+											<table id="OrderModelTable" lay-filter="OrderModelTable"></table>
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-sm4 layui-col-xs12">
+									<table id="OrderModelItemTable" lay-filter="OrderModelItemTable"></table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--新增编辑表单-->
+    <div id="addEditFormBox" style="display:none;padding:5px;">
+        <form class="layui-form" id="addEditForm" lay-filter='addEditForm'>
+			<div class="layui-row">
+				<div class="layui-col-xs6 layui-hide">
+					<div class="layui-form-item">
+						<label class="layui-form-label">主键ID:</label>
+						<div class="layui-input-block">
+							<input type="text" name="Id" id="Id" placeholder="" class="layui-input" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs6">
+					<div class="layui-form-item">
+						<label class="layui-form-label">模板名称:</label>
+						<div class="layui-input-block">
+							<input type="text" name="CName" id="CName" placeholder="" class="layui-input" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs6">
+					<div class="layui-form-item">
+						<label class="layui-form-label">模板类型:</label>
+						<div class="layui-input-block">
+							<select name="OrderModelTypeID" lay-filter="OrderModelTypeID" id="OrderModelTypeID"></select>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs6 OrderModelType OrderModelType2">
+					<div class="layui-form-item">
+						<label class="layui-form-label">科室:</label>
+						<div class="layui-input-block">
+							<select name="DeptID" lay-filter="DeptID" id="DeptID" lay-search="">
+								<option value="">选择科室</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs6 OrderModelType OrderModelType1">
+					<div class="layui-form-item">
+						<label class="layui-form-label">用户:</label>
+						<div class="layui-input-block">
+							<select name="UserID" lay-filter="UserID" id="UserID" lay-search="">
+								<option value="">选择人员</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs6">
+					<div class="layui-form-item">
+						<label class="layui-form-label">简称:</label>
+						<div class="layui-input-block">
+							<input type="text" name="SName" id="SName" placeholder="" class="layui-input" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs6">
+					<div class="layui-form-item">
+						<label class="layui-form-label">简码:</label>
+						<div class="layui-input-block">
+							<input type="text" name="SCode" id="SCode" placeholder="" class="layui-input" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs6">
+					<div class="layui-form-item">
+						<label class="layui-form-label">显示次序:</label>
+						<div class="layui-input-block">
+							<input type="text" name="DispOrder" id="DispOrder" placeholder="" class="layui-input" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs6">
+					<div class="layui-form-item">
+						<label class="layui-form-label">是否使用:</label>
+						<div class="layui-input-block">
+							<select name="IsUse" lay-filter="IsUse" id="IsUse">
+								<option value="1">是</option>
+								<option value="0">否</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs12">
+					<div class="layui-form-item">
+						<label class="layui-form-label">说明:</label>
+						<div class="layui-input-block">
+							<input type="text" name="OrderModelDesc" id="OrderModelDesc" placeholder="" class="layui-input" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-xs12">
+					<div class="layui-form-item">
+						<div class="layui-input-block" style="text-align:right;margin-top:20px;">
+							<div class="layui-btn-group">
+								<button type="button" id="save" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-ok"></i>保存</button>
+								<button type="button" id="close" class="layui-btn layui-btn-xs layui-btn-warm"><i class="layui-icon layui-icon-close"></i>关闭</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>
+	
+	<style type="text/css">
+		body>.layui-fluid,.layui-card-body{padding:5px;}
+		/*选项卡处理*/
+        .layui-tab-title { height: 22px!important;line-height:22px; }
+        .layui-tab-title>li{ line-height:22px!important;font-size:12px!important;padding:0 8px!important;margin:0!important; }
+        .layui-tab-title>li i{ font-size:12px; }
+        .layui-tab-title .layui-this:after{ height:24px!important; }
+        .layui-tab-title .layui-tab-bar { width: 24px;height: 20px;line-height: 20px; }
+        .layui-tab[overflow]>.layui-tab-title { overflow:inherit; }
+        .layui-tab-brief .layui-tab-content { padding: 5px 5px 0; }
+        .layui-form-select dl{ top:28px!important; }
+	</style>
+</body>
+</html>

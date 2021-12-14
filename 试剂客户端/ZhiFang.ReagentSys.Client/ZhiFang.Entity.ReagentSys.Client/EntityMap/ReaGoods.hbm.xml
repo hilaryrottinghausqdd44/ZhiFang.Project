@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaGoods" table="[dbo].[Rea_Goods]">
+    <id name="Id" column="[GoodsID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsNo" column="[GoodsNo]" type="String" not-null="false" length="100" />
+    <property name="CName" column="[CName]" type="String" not-null="true" length="200" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="200" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="200" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="100" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="GoodsClass" column="[GoodsClass]" type="String" not-null="false" length="100" />
+    <property name="GoodsClassType" column="[GoodsClassType]" type="String" not-null="false" length="100" />
+    <property name="ProdGoodsNo" column="[ProdGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="ProdOrgName" column="[ProdOrgName]" type="String" not-null="false" length="100" />
+    <property name="ProdEara" column="[ProdEara]" type="String" not-null="false" length="50" />
+    <property name="Price" column="[Price]" type="Double" not-null="false" length="8" />
+    <property name="GoodsUnitID" column="[GoodsUnitID]" type="Int64" not-null="false" length="8" />
+    <property name="UnitName" column="[UnitName]" type="String" not-null="false" length="100" />
+    <property name="UnitMemo" column="[UnitMemo]" type="String" not-null="false" length="200" />
+    <property name="StorageType" column="[StorageType]" type="String" not-null="false" length="1000" />
+    <property name="GoodsDesc" column="[GoodsDesc]" type="String" not-null="false" length="500" />
+    <property name="ApproveDocNo" column="[ApproveDocNo]" type="String" not-null="false" length="200" />
+    <property name="Standard" column="[Standard]" type="String" not-null="false" length="200" />
+    <property name="RegistNo" column="[RegistNo]" type="String" not-null="false" length="200" />
+    <property name="RegistDate" column="[RegistDate]" type="DateTime" not-null="false" length="8" />
+    <property name="RegistNoInvalidDate" column="[RegistNoInvalidDate]" type="DateTime" not-null="false" length="8" />
+    <property name="Purpose" column="[Purpose]" type="String" not-null="false" length="1000" />
+    <property name="Constitute" column="[Constitute]" type="String" not-null="false" length="1000" />
+    <property name="License" column="[License]" type="Byte[]" not-null="false" length="16" />
+    <property name="GoodsPicture" column="[GoodsPicture]" type="Byte[]" not-null="false" length="16" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="100" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="100" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="100" />
+    <property name="Equipment" column="[Equipment]" type="String" not-null="false" length="100" />
+    <property name="CenOrgConfirm" column="[CenOrgConfirm]" type="Int32" not-null="false" length="4" />
+    <property name="BarCodeMgr" column="[BarCodeMgr]" type="Int32" not-null="false" length="4" />
+    <property name="IsRegister" column="[IsRegister]" type="Int32" not-null="false" length="4" />
+    <property name="IsPrintBarCode" column="[IsPrintBarCode]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="GoodsMemo" column="[GoodsMemo]" type="String" not-null="false" length="16" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="LinkGroupCode" column="[LinkGroupCode]" type="String" not-null="false" length="50" />
+    <property name="GonvertQty" column="[GonvertQty]" type="Double" not-null="false" length="8" />
+    <property name="SuitableType" column="[SuitableType]" type="String" not-null="false" length="100" />
+    <property name="TestCount" column="[TestCount]" type="Int32" not-null="false" length="4" />
+    <property name="GoodsSort" column="[GoodsSort]" type="Int32" not-null="false" length="4" />
+    <property name="IsMinUnit" column="[IsMinUnit]" type="Boolean" not-null="false" length="1" />
+    <property name="StoreUpper" column="[StoreUpper]" type="Double" not-null="false" length="8" />
+    <property name="StoreLower" column="[StoreLower]" type="Double" not-null="false" length="8" />
+    <property name="BeforeWarningDay" column="[BeforeWarningDay]" type="Double" not-null="false" length="8" />
+    <property name="ProdID" column="[ProdID]" type="Int64" not-null="false" length="8" />
+    <property name="ReaGoodsNo" column="[ReaGoodsNo]" type="String" not-null="true" length="100" />
+    <property name="ReaCompanyName" column="[ReaCompanyName]" type="String" not-null="false" length="200" />
+    <property name="MatchCode" column="[MatchCode]" type="String" not-null="false" length="100" />
+    <property name="DeptName" column="[DeptName]" type="String" not-null="false" length="100" />
+    <property name="MonthlyUsage" column="[MonthlyUsage]" type="Double" not-null="false" length="8" />
+    <property name="IsNeedPerformanceTest" column="[IsNeedPerformanceTest]" type="Boolean" not-null="false" length="1" />
+    <property name="NetGoodsNo" column="[NetGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="VerificationMemo" column="[VerificationMemo]" type="String" not-null="false" length="5000" />
+<<<<<<< .mine
+
+    <property name="IsNeedBOpen" column="[IsNeedBOpen]" type="Boolean" not-null="false" length="1" />
+    <property name="BOpenDays" column="[BOpenDays]" type="Int32" not-null="false" length="4" />
+    
+||||||| .r2653
+=======
+
+    <property name="IsMed" column="[IsMed]" type="Boolean" not-null="false" length="1" />
+    <property name="InvType" column="[InvType]" type="String" not-null="false" length="100" />
+    <property name="TS" column="[TS]" type="DateTime" not-null="false" length="8" />
+>>>>>>> .r2673
+  </class>
+</hibernate-mapping>

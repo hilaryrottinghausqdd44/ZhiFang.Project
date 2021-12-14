@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>员工设置数据</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <link rel="stylesheet" href="../../../../../src/layui/dist/css/layui.css" media="all" />
+    <style>
+        
+        .tableHeight {
+            overflow: auto;
+        }
+
+        .layui-table-tool-temp {
+            padding-right: 30px;
+        }
+    </style>
+</head>
+	<body>
+	    <div class="tableContainer">
+		    <table id="table" lay-filter="table"></table>
+	    </div>
+		<script type="text/html" id="toolbar">
+			<button class="layui-btn layui-btn-sm" lay-event="add">同步</button>
+		</script>
+	    <script src="../../../../../src/layui/src/layui.js"></script>
+	    <script type="text/javascript">
+	        UIVersion.getJS('../../../../config/system.js');
+	        UIVersion.getJS('rbacempOptions.js');
+	    </script>
+	</body>
+</html>

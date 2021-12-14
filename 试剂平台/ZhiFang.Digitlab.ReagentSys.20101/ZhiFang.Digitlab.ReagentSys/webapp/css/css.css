@@ -1,0 +1,381 @@
+/**输入框样式*/
+.input-div{
+	height:40px;
+	padding:0;
+	border:0;
+	border-radius: 5px;
+	margin: 5px 0;
+}
+.input-div input{
+	width:100%;
+	height:100%;
+	padding:0 5px 0 5px;
+	margin:0;
+	font-size:1.2em;
+	background-repeat:no-repeat;
+	border:1px solid #e7e7e7;
+	border-radius: 5px;
+}
+/**按钮样式*/
+.button-div{
+	height:36px;
+	margin:5px;
+	padding:0;
+	border:0;
+}
+.button-div button{
+	width:100%;
+	height:100%;
+	border:0;
+	background-color: #169ada;
+	color:#ffffff;
+	font-size:1.2em;
+	border-radius: 7px;
+}
+
+/**蒙版*/
+.page_mask { 
+	position: fixed;
+	z-index: 90000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #E0E0E0;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+.page_mask_loading{
+	z-index: 90001;
+	padding:8px;
+	background-color:#ffffff;
+	width:200px;
+	height:38px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin-left:-100px;
+	margin-top:-18px;
+	text-align: center;
+	border-radius: 2px;
+	border: 1px solid #fff;
+}
+.page_mask_loading img{
+	width:22px;
+	height:22px;
+}
+
+/**信息*/
+.messagebox_div{
+	z-index: 90001;
+	background-color:#ffffff;
+	position: absolute;
+	top:50%;
+	left:50%;
+	border-radius: 10px;
+	border: 2px solid darkorange;
+}
+.messagebox_div_title{
+	height:30px;
+	font-size: 1.5em;
+	font-weight: bold;
+	color:#204D74;
+	padding: 0 10px;
+	margin:8px 0;
+	margin-bottom:0;
+	border-bottom:2px solid #E0E0E0;
+}
+.messagebox_div_msg{
+	font-size: 1em;
+	padding:10px;
+	color:#666666;
+	overflow:hidden;
+	scroll:auto;
+}
+.messagebox_div_buttons{
+	position: absolute;
+	/*border-top:1px solid #E0E0E0;*/
+}
+.messagebox_div_button{
+	float:left;
+	text-align: center;
+	font-size: 1em;
+	color:#666666;
+}
+
+/**没有数据*/
+.no-data-div{
+	color:#5cb85c;
+	text-align:center;
+	margin:20px 10px;
+	padding:10px;
+	border:1px solid #5cb85c;
+	border-radius: 2px;
+}
+/**错误信息*/
+.error-div{
+	color:#d9534f;
+	text-align:center;
+	margin:20px 10px;
+	padding:10px;
+	border:1px solid #d9534f;
+	border-radius: 2px;
+}
+
+.body{
+	/*margin:10px;*/
+	color:#999999;
+}
+.head{
+	margin:10px 0;
+	text-align:center;
+}
+
+/**顶部功能栏*/
+.navbar-top{
+	text-align:center;
+	background-color:#ffffff;
+	color:#169ada;
+}
+.navbar-top-title {
+	float: left;
+	width: 100%;
+	margin:10px 0;
+	font-size: 24px;
+}
+.navbar-top-back {
+	float: left;
+    padding:13px 10px;
+    margin-top:-50px;
+}
+.navbar-top-home {
+	float: right;
+    padding:13px 10px;
+    margin-top:-50px;
+}
+/**内容体*/
+.content-div{
+	margin-top:60px;
+}
+
+/**底部功能栏*/
+.navbar-bottom{
+	color:#999999;
+}
+.navbar-bottom-text{
+	display: block;
+    text-align: center;
+    word-wrap: break-word;
+}
+.navbar-bottom-logo{
+	width:70px;
+	margin-top: -10px;
+	border:1px solid #eoeoeo;
+	background-color: #169ada;
+	/*background-color: #5cb85c;*/
+}
+.navbar-bottom li {
+    float: left;
+    width: 20%;
+    height: 64px;
+    padding: 5px;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #ffffff;
+    padding-left: 0;
+    list-style: none;
+    /*border: 1px solid #e0e0e0;*/
+}
+
+.navbar-bottom-icon {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+.navbar-bottom-icon-touch{
+	color:#169ada;
+}
+.touch{
+	color:#169ada;
+}
+.list-ul{ 
+	overflow: hidden;
+}
+.list-li{ 
+	line-height: 60px; 
+	border-bottom: 1px solid #fcfcfc; 
+	position:relative;
+	padding: 0 12px; 
+	color: #666;
+	background: #f2f2f2;
+	-webkit-transform: translateX(0px);
+}
+.list-li-remove-div{
+	position: absolute; 
+	top: 0; 
+	right: -80px; 
+	text-align: center; 
+	background: #ffcb20; 
+	color: #fff; 
+	width: 80px
+}
+.list-group-item{
+	/*padding:0;*/
+}
+.list-group-item-heading{
+	color:#006dcc;
+}
+.list-group-item-right-icon{
+	float:right;
+	color:#ddd;
+}
+.list-group-item-content{
+	margin:1px;
+	padding:10px;
+	background-color: #ffffff;
+	z-index:9999;
+	-webkit-transform: translateX(0px);
+}
+.list-group-item-text{
+	margin:5px;
+	font-size:11px;
+}
+.remove-button-div{
+	z-index:-1;
+	float:right;
+	width:60px;
+	text-align: center;
+	margin:5px;
+	margin-top:-65px;
+	padding:10px;
+	background-color:#ffffff;
+	color:#d9534f;
+	border:1px solid #d9534f;
+	/*border-radius: 2px;*/
+}
+.number-spinner{
+	border:1px solid #e0e0e0;
+	height: 30px;
+    width: 112px;
+    text-align:center;
+    margin:5px;
+}
+.number-spinner button {
+	float: left;
+    width: 30px;
+    height:28px;
+    padding: 0;
+    margin:0;
+    border:0;
+    color: #169ada;
+    background-color: #ffffff;
+    font: 22px Arial bold;
+    outline:none;
+}
+.number-spinner input{
+	float: left;
+    width: 50px;
+    height: 28px;
+    padding:0;
+    margin:0;
+    border:0;
+	border-left:1px solid #e0e0e0;
+	border-right:1px solid #e0e0e0;
+    color: red;
+    text-align:center;
+    outline:none;
+    border-radius: 0;
+}
+.number-spinner-decrease{
+}
+.number-spinner-increase{
+}
+.date-div{
+	float:left;
+	padding:5px;
+	margin:5px 0;
+	background-color: #169ada;
+	border:1px solid #169ada;
+	color:#ffffff;
+}
+.date-div span{
+	
+}
+.date-div input{
+	width:100px;
+	height:24px;
+	padding:5px 10px;
+	color:#169ada;
+	border-radius: 0;
+}
+.return-top{
+	position: fixed;
+	bottom:0;
+	right:0;
+	width:60px;
+	height:60px;
+	color:#5cb85c;
+	text-align:center;
+	margin:20px 10px;
+	padding:10px;
+	border:1px solid #5cb85c;
+	border-radius: 2px;
+	z-index: 99999;
+	font-weight: bold;
+	/*background-color: #e0e0e0;*/
+	filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.8; /*Firefox私有，透明度50%*/
+	opacity:0.8;/*其他，透明度50%*/
+}
+.enum-div{
+	width:60px;
+	text-align:center;
+	padding:2px;
+	margin:2px;
+	font-size:11px;
+}
+.block60{
+	text-align:center;
+	font-weight: bold;
+	margin:20px 10px;
+	padding:10px;
+	color:#5cb85c;
+	border:1px solid #5cb85c;
+	border-radius: 2px;
+	filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.8; /*Firefox私有，透明度50%*/
+	opacity:0.8;/*其他，透明度50%*/
+}
+.mask-window{
+	position: fixed;
+	z-index: 90001;
+	top: 0;
+	left: 10%;
+	width: 90%;
+	height: 100%;
+	background-color: #ffffff;
+	padding:20px;
+}
+.div-button{
+	float:left;
+	border:1px solid #169ada;
+	padding:5px 10px;
+	margin:5px;
+	background-color: #169ada;
+	color:#ffffff;
+}
+.div-button-active{
+	background-color: #f0ad4e;
+	border:1px solid #f0ad4e;
+}
+.div-button-2{
+	float:left;
+	border:1px solid #169ada;
+	padding:5px 10px;
+	margin:5px;
+	background-color: #ffffff;
+	color:#169ada;
+	font-size: 9px;
+}

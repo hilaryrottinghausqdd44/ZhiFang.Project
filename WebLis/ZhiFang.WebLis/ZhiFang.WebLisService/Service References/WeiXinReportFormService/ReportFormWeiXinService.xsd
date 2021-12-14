@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ZhiFang.WeiXin.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ZhiFang.WeiXin.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BSearchAccountReportForm">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountHospitalSearchContextID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Age" type="xs:int" />
+          <xs:element minOccurs="0" name="AgeUnit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COLLECTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="COLLECTTIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DataUpdateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="HospitalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HospitalName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IDNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemList" nillable="true" type="tns:ArrayOfRFReportItemFull" />
+          <xs:element minOccurs="0" name="MarrowList" nillable="true" type="tns:ArrayOfRFReportMarrowFull" />
+          <xs:element minOccurs="0" name="MediCare" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MicroList" nillable="true" type="tns:ArrayOfRFReportMicroFull" />
+          <xs:element minOccurs="0" name="MobileCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PItemName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PatNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReadedFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReportFormIndexID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ReportFormTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReportFormType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SBarCodeRFID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TakeNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VisNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WeiXinAccount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WeiXinUserID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BSearchAccountReportForm" nillable="true" type="tns:BSearchAccountReportForm" />
+  <xs:complexType name="BaseEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataAddTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataTimeStamp" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="LabID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseEntity" nillable="true" type="tns:BaseEntity" />
+  <xs:complexType name="ArrayOfRFReportItemFull">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RFReportItemFull" nillable="true" type="tns:RFReportItemFull" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRFReportItemFull" nillable="true" type="tns:ArrayOfRFReportItemFull" />
+  <xs:complexType name="RFReportItemFull">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckType" type="xs:int" />
+          <xs:element minOccurs="0" name="CheckTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Cuegrade" type="xs:int" />
+          <xs:element minOccurs="0" name="Curritemredo" type="xs:int" />
+          <xs:element minOccurs="0" name="DISPORDER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EQUIPNO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EquipName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FORMNO" type="xs:int" />
+          <xs:element minOccurs="0" name="HISORDERNO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISMATCH" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ITEMDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ITEMNO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ITEMORDER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ITEMTIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Itemename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Itemunit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODIFIED" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OLDSERIALNO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORIGINALDESC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORIGINALVALUE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PARITEMNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PARITEMNO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PARITEMSNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PREC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECEIVEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="REFRANGE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPORTDESC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPORTVALUE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPORTVALUEALL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RESULTSTATUS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportFormID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportFormIndexID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ReportItemID" type="xs:int" />
+          <xs:element minOccurs="0" name="SAMPLENO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECTIONNO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SERIALNO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STATUSNO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Secretgrade" type="xs:int" />
+          <xs:element minOccurs="0" name="SectionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Shortcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Shortname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TECHNICIAN" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TESTITEMDATETIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TESTITEMNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TESTITEMSNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TESTTYPENO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UNIT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY10" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY5" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY6" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY7" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY8" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZDY9" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RFReportItemFull" nillable="true" type="tns:RFReportItemFull" />
+  <xs:complexType name="ArrayOfRFReportMarrowFull">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RFReportMarrowFull" nillable="true" type="tns:RFReportMarrowFull" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRFReportMarrowFull" nillable="true" type="tns:ArrayOfRFReportMarrowFull" />
+  <xs:complexType name="RFReportMarrowFull">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BloodDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BloodNum" type="xs:int" />
+          <xs:element minOccurs="0" name="BloodPercent" type="xs:double" />
+          <xs:element minOccurs="0" name="CItemNo" type="xs:int" />
+          <xs:element minOccurs="0" name="EquipName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EquipNo" type="xs:int" />
+          <xs:element minOccurs="0" name="FormNo" type="xs:int" />
+          <xs:element minOccurs="0" name="IsCale" type="xs:int" />
+          <xs:element minOccurs="0" name="IsMatch" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPrint" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemCName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ItemEName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemNo" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Itemname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MarrowDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MarrowNum" type="xs:int" />
+          <xs:element minOccurs="0" name="MarrowPercent" type="xs:double" />
+          <xs:element minOccurs="0" name="Modified" type="xs:int" />
+          <xs:element minOccurs="0" name="OrgDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrgValue" type="xs:double" />
+          <xs:element minOccurs="0" name="ParItemCName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParItemEName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParItemNo" type="xs:int" />
+          <xs:element minOccurs="0" name="PrintOrder" type="xs:int" />
+          <xs:element minOccurs="0" name="ReceiveDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RefRange" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportFormID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportFormIndexID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ReportImage" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="ReportItemID" type="xs:int" />
+          <xs:element minOccurs="0" name="ReportText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportValue" type="xs:double" />
+          <xs:element minOccurs="0" name="ResultStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SampleNo" type="xs:int" />
+          <xs:element minOccurs="0" name="SectionNo" type="xs:int" />
+          <xs:element minOccurs="0" name="StatusNo" type="xs:int" />
+          <xs:element minOccurs="0" name="TestTypeNo" type="xs:int" />
+          <xs:element minOccurs="0" name="ValueTypeNo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RFReportMarrowFull" nillable="true" type="tns:RFReportMarrowFull" />
+  <xs:complexType name="ArrayOfRFReportMicroFull">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RFReportMicroFull" nillable="true" type="tns:RFReportMicroFull" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRFReportMicroFull" nillable="true" type="tns:ArrayOfRFReportMicroFull" />
+  <xs:complexType name="RFReportMicroFull">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AntiName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AntiNo" type="xs:int" />
+          <xs:element minOccurs="0" name="AntiUnit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Antiename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Antishortcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Antishortname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckType" type="xs:int" />
+          <xs:element minOccurs="0" name="DescName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DescNo" type="xs:int" />
+          <xs:element minOccurs="0" name="EquipName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EquipNo" type="xs:int" />
+          <xs:element minOccurs="0" name="FormNo" type="xs:int" />
+          <xs:element minOccurs="0" name="IsMatch" type="xs:int" />
+          <xs:element minOccurs="0" name="IsReceive" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ItemDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemNo" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Itemename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MicroCountDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MicroDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MicroName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MicroNo" type="xs:int" />
+          <xs:element minOccurs="0" name="Microename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Modified" type="xs:int" />
+          <xs:element minOccurs="0" name="MresulttType" type="xs:int" />
+          <xs:element minOccurs="0" name="ReceiveDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RefRange" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportFormID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportFormIndexID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ReportItemID" type="xs:int" />
+          <xs:element minOccurs="0" name="ResultNo" type="xs:int" />
+          <xs:element minOccurs="0" name="SampleNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SectionNo" type="xs:int" />
+          <xs:element minOccurs="0" name="SerialNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SusDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SusQuan" type="xs:double" />
+          <xs:element minOccurs="0" name="Suscept" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TestTypeNo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RFReportMicroFull" nillable="true" type="tns:RFReportMicroFull" />
+</xs:schema>

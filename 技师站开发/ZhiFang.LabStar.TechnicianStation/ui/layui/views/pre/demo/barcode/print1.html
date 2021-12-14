@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>模式1-条码打印</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <link rel="stylesheet" href="../../../../../src/layui/dist/css/layui.css" media="all" /> 
+  <link rel="stylesheet" href="css.css" media="all" /> 
+  <script type="text/javascript" src="../../../../../src/jquery-1.11.1.min.js"></script> 
+  <script type="text/javascript" src="../../../../../src/layui/dist/layui.js"></script> 
+
+  <script type="text/html" id="unToolbar">
+	  <div class="layui-btn-container">
+	   <button class="layui-btn layui-btn-sm " lay-event="acceptance"><i class="layui-icon  layuiadmin-button-btn"></i>核收</button>
+	   <button class="layui-btn layui-btn-sm " lay-event="refresh"><i class="layui-icon layui-icon-refresh-3 layuiadmin-button-btn"></i>刷新</button>
+	   <button class="layui-btn layui-btn-sm " lay-event="confirm"><i class="layui-icon layui-icon-ok-circle  layuiadmin-button-btn"></i>确认</button>
+	   <button class="layui-btn layui-btn-sm " lay-event="printBarcode"><i class="layui-icon layui-icon-print  layuiadmin-button-btn"></i>打印条码</button>
+	   <button class="layui-btn layui-btn-sm " lay-event="printList"><i class="layui-icon layui-icon-print  layuiadmin-button-btn"></i>打印清单</button>
+	   <button class="layui-btn layui-btn-sm " lay-event="originalAdvice"><i class="layui-icon layui-icon-search  layuiadmin-button-btn"></i>原始医嘱</button>
+	  </div>
+    </script> 
+  <script type="text/html" id="unBarTool">
+  	  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除条码</a>
+      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">作废条码</a>
+      <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="editsampletype">修改样本类型</a>
+      <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">信息补录</a>
+	</script> 
+  <script type="text/html" id="toolbar">
+	  <div class="layui-btn-container">
+	   <button class="layui-btn layui-btn-sm" lay-event="printData11"><i class="layui-icon layui-icon-print  layuiadmin-button-btn"></i>打印条码</button>
+	   <button class="layui-btn layui-btn-sm" lay-event="originalAdvice"><i class="layui-icon layui-icon-search  layuiadmin-button-btn"></i>原始医嘱</button>
+	   <button class="layui-btn layui-btn-sm" lay-event="printData"><i class="layui-icon   layuiadmin-button-btn"></i>读卡</button>
+	   <button class="layui-btn layui-btn-sm" lay-event="printData11"><i class="layui-icon layui-icon-print  layuiadmin-button-btn"></i>取单凭证</button>
+	  </div>
+	</script> 
+  <script type="text/html" id="barTool">
+  	  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除条码</a>
+      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">作废条码</a>
+      <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="revoke">撤销确认</a>
+	</script> 
+ </head> 
+ <body class="layui-layout-body"> 
+   <div class="layui-row layui-col-space15"> 
+    <div class="layui-col-md12"> 
+   <div class="layui-card"> 
+    <div class="layui-card-body"> 
+     <div class="layui-tab layui-tab-brief" lay-filter="print-tabs"> 
+      <ul class="layui-tab-title"> 
+       <li class="layui-this">未处理</li> 
+       <li>已处理</li> 
+      </ul> 
+      <div class="layui-tab-content" style="padding-bottom: 0px;"> 
+       <div class="layui-tab-item layui-show"> 
+        <div class="layui-row"> 
+         <div class="layui-form  layuiadmin-card-header-auto" style="padding-top: 15px;"> 
+          <div class="layui-form-item"> 
+           <div class="layui-inline"> 
+            <div class="layui-input-block"> 
+             <div class="layui-inline" style="width: 100px;margin-left: -110px;"> 
+              <select name="comselect" lay-filter="LAY-barcode-comselect-unconfirm"> <option value="0">科室</option> <option value="1">XX</option> </select> 
+             </div> 
+             <div class="layui-inline" style="width: 150px;" id="cbSelect"> 
+              <select id="comselect2" lay-filter="LAY-barcode-comselect-dept-unconfirm"> <option value="0">内5科</option> <option value="1">内1科</option> </select> 
+             </div> 
+             <div class="layui-inline layui-hide" style="width: 150px;" id="LAY-e-txtSelect"> 
+              <input type="text" id="txtSelect" autocomplete="off" class="layui-input" /> 
+             </div> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">病人类型</label> 
+            <div class="layui-input-block" style="width: 150px;"> 
+             <select name="PatientType" lay-filter="LAY-comselect-PatientType-unconfirm"> <option value="0">一般</option> </select> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="layui-row layui-col-space1"> 
+         <div class="layui-col-md7"> 
+          <table id="LAY-unconfirm-patient" lay-filter="LAY-unconfirm-patient"></table> 
+         </div> 
+         <div class="layui-col-md3"> 
+          <table id="LAY-unconfirm-barcode" lay-filter="LAY-unconfirm-barcode"></table> 
+         </div> 
+         <div class="layui-col-md2"> 
+          <table id="LAY-unconfirm-item" lay-filter="LAY-unconfirm-item"></table> 
+         </div> 
+        </div> 
+        <div class="layui-row"> 
+         <div class="layui-form layuiadmin-card-header-auto" style="padding-top: 2px;"> 
+          <div class="layui-form-item"> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">打印份数</label> 
+            <div class="layui-input-block" style="width: 150px;"> 
+             <input type="number" name="printNum" placeholder="份数" style="width: 70px;" class="layui-input" value="0" min="0" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label" style="width: auto;">样本过滤天数</label> 
+            <div class="layui-input-block" style="width: 150px;"> 
+             <input type="number" name="filterNum" placeholder="天数" style="width: 70px;" class="layui-input" value="0"  /> 
+            </div> 
+           </div> 
+           <div class="layui-inline" id="autoPrint"> 
+            <input type="checkbox" name="autoPrint"  title="自动打印" lay-skin="primary" /> 
+           </div> 
+           <div class="layui-inline" id="directPrint"> 
+            <input type="checkbox" name="directPrint"  title="直接打印条码" lay-skin="primary" /> 
+           </div> 
+           <div class="layui-inline " id="sampleNo"> 
+            <input type="checkbox" name="sampleNo"  title="获取样本号" lay-skin="primary" /> 
+           </div> 
+           <div class="layui-inline" > 
+	          <button class="layui-btn layui-btn-normal layui-btn-xs" id="btnSet"><i class="layui-icon layui-icon-set  layuiadmin-button-btn"></i></button>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="layui-tab-item"> 
+        <div class="layui-row"> 
+         <div class="layui-form layuiadmin-card-header-auto" style="padding-top: 15px;"> 
+          <div class="layui-form-item" id="lay-date-serach"> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">开始时间</label> 
+            <div class="layui-input-block"> 
+             <input type="text" class="layui-input" id="test-laydate-type-datetime-mode1" name="txtstartdate" placeholder="yyyy-MM-dd HH:mm:ss" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">结束时间</label> 
+            <div class="layui-input-block"> 
+             <input type="text" class="layui-input" id="test-laydate-type-datetime-mode2" name="txtenddate" placeholder="yyyy-MM-dd HH:mm:ss" style="width: 150px;" /> 
+            </div> 
+           </div>
+           <div class="layui-inline"> 
+            <label class="layui-form-label">姓名</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="txtCName_Search" placeholder="姓名" autocomplete="off" class="layui-input" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">科室</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="txtDept_search" placeholder="科室" autocomplete="off" class="layui-input" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">病区</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="txtArea" placeholder="病区" autocomplete="off" class="layui-input" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">床号</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="txtBed" placeholder="床号" autocomplete="off" class="layui-input" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">病历</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="txtMedical" placeholder="病历" autocomplete="off" class="layui-input" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">条码</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="txtBarcode" placeholder="条码" autocomplete="off" class="layui-input" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">ABC</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="txtABC" placeholder="ABC" autocomplete="off" class="layui-input" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">打印者</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="txtOperation" placeholder="打印者" autocomplete="off" class="layui-input" style="width: 150px;" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <button class="layui-btn layuiadmin-btn-admin" lay-submit="" lay-filter="LAY-confirm-from-search" > <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i> </button> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="layui-row layui-col-space1"> 
+         <div class="layui-col-md7"> 
+          <table id="LAY-confirm-patient" lay-filter="LAY-confirm-patient"></table> 
+         </div> 
+         <div class="layui-col-md3"> 
+          <table id="LAY-confirm-barcode" lay-filter="LAY-confirm-barcode"></table> 
+         </div> 
+         <div class="layui-col-md2"> 
+          <table id="LAY-confirm-item" lay-filter="LAY-confirm-item"></table> 
+         </div> 
+        </div> 
+        <div class="layui-row"> 
+         <div class="layui-form layuiadmin-card-header-auto" style="padding-top: 2px;"> 
+          <div class="layui-form-item"> 
+           <div class="layui-inline"> 
+            <label class="layui-form-label">打印份数</label> 
+            <div class="layui-input-block" style="width: 150px;"> 
+             <input type="number" name="printNum" placeholder="份数" style="width: 70px;" class="layui-input" value="0" /> 
+            </div> 
+           </div> 
+           <div class="layui-inline"> 
+            <input type="checkbox" name="autoPrint" title="直接打印条码" lay-skin="primary" /> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+   </div> 
+  <script type="text/javascript" src="../../../../config/system.js"></script>  
+  <script type="text/javascript" src="print1.js"></script>  
+ </body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>注册</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.iframe{
+			overflow:hidden;overflow-x:hidden;overflow-y:hidden;width:100%;
+			top:0px;left:0px;right:0px;bottom:0px;border:0;visibility:hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-tab layui-tab-brief" lay-filter="tab">
+		<ul class="layui-tab-title">
+			<li lay-id="reg_doctor" class="layui-this">医生护士注册</li>
+			<li lay-id="reg_tech">检验技师注册</li>
+		</ul>
+		<div class="layui-tab-content">
+			<div class="layui-tab-item layui-show">
+				<iframe id="reg_doctor" class="iframe" url="{ZF_LAB_START}/ui/layui/views/system/user/reg_doctor.html"></iframe>
+			</div>
+			<div class="layui-tab-item">
+				<iframe id="reg_tech" class="iframe" url="{ZF_LAB_START}/ui/layui/views/system/user/reg_tech.html"></iframe>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('reg.js');
+	</script>
+</body>
+</html>

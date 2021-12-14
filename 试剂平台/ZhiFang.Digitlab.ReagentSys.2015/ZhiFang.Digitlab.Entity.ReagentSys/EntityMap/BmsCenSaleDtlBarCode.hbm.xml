@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+	<class name="BmsCenSaleDtlBarCode" table="[dbo].[BmsCenSaleDtlBarCode]">
+		<id name="Id" column="[SaleDtlBarCodeID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="GoodsSerial" column="[GoodsSerial]" type="String" not-null="false" length="100" />
+		<property name="LotSerial" column="[LotSerial]" type="String" not-null="false" length="100" />
+		<property name="PackSerial" column="[PackSerial]" type="String" not-null="false" length="100" />
+		<property name="MixSerial" column="[MixSerial]" type="String" not-null="false" length="100" />
+		<many-to-one name="BmsCenSaleDtl" class="BmsCenSaleDtl" lazy="false">
+			<column name="[SaleDtlID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

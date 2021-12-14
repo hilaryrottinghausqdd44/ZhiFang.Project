@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="Equipment" table="[dbo].[Equipment]">
+    <id name="Id" column="[EquipNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <!--<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />-->
+    <property name="CName" column="[CName]" type="String" not-null="false" length="40" />
+    <property name="ShortName" column="[ShortName]" type="String" not-null="false" length="40" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="40" />
+    <property name="SectionNo" column="[SectionNo]" type="Int32" not-null="false" length="4" />
+    <property name="Computer" column="[Computer]" type="String" not-null="false" length="20" />
+    <property name="ComProgram" column="[ComProgram]" type="String" not-null="false" length="20" />
+    <property name="ComPort" column="[ComPort]" type="String" not-null="false" length="10" />
+    <property name="BaudRate" column="[BaudRate]" type="String" not-null="false" length="10" />
+    <property name="Parity" column="[Parity]" type="String" not-null="false" length="10" />
+    <property name="DataBits" column="[DataBits]" type="String" not-null="false" length="10" />
+    <property name="StopBits" column="[StopBits]" type="String" not-null="false" length="10" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="DoubleDir" column="[DoubleDir]" type="Int32" not-null="false" length="4" />
+    <property name="LicenceKey" column="[LicenceKey]" type="String" not-null="false" length="30" />
+    <property name="LicenceType" column="[LicenceType]" type="String" not-null="false" length="25" />
+    <property name="LicenceDate" column="[LicenceDate]" type="DateTime" not-null="false" length="8" />
+    <property name="SQH" column="[SQH]" type="String" not-null="false" length="4" />
+    <property name="SNo" column="[SNo]" type="Int32" not-null="false" length="4" />
+    <property name="SickType" column="[SickType]" type="Int32" not-null="false" length="4" />
+    <property name="UseImmPlate" column="[UseImmPlate]" type="Int32" not-null="false" length="4" />
+    <property name="ImmCalc" column="[ImmCalc]" type="Int32" not-null="false" length="4" />
+    <property name="CommPara" column="[CommPara]" type="String" not-null="false" length="800" />
+    <property name="ReagentPara" column="[ReagentPara]" type="String" not-null="false" length="800" />
+    <property name="EquipfunctionTypeNo" column="[EquipfunctionTypeNo]" type="Int32" not-null="false" length="4" />
+    <property name="EquipIndexNo" column="[EquipIndexNo]" type="String" not-null="false" length="30" />
+    <property name="SampleNoStart" column="[SampleNoStart]" type="String" not-null="false" length="20" />
+    <property name="SampleNoEnd" column="[SampleNoEnd]" type="String" not-null="false" length="20" />
+  </class>
+</hibernate-mapping>

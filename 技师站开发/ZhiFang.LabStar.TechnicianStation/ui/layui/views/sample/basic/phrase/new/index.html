@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>短语</title>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../../css/layui.sm.all.css");
+    </script>
+</head>
+<body>
+    <div class="myStyle">
+        <div class="layui-row">
+            <div class="layui-col-sm12">
+                <div class="layui-card">
+                    <div class="layui-card-body" style="overflow:auto;">
+                        <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="Tab" id="Tab">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">选择短语</li>
+                                <li>短语设置</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show">
+                                    <fieldset class="layui-elem-field">
+                                        <legend>已维护短语选择</legend>
+                                        <div class="layui-field-box">
+                                            <div class="layui-form" id="checkboxcontent" style="overflow: auto;"></div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="layui-elem-field layui-field-title">
+                                        <legend>当前短语</legend>
+                                        <div class="layui-field-box">
+                                            <div class="layui-form">
+                                                <div class="layui-form-item">
+                                                    <textarea name="Comment" id="Comment" autocomplete="off" class="layui-textarea"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="layui-form">
+                                        <div class="layui-row">
+                                            <div class="layui-col-xs6">
+                                                <div class="layui-form-item" style="padding-left:2px;">
+                                                    <label class="layui-form-label" style="width:60px;">回车过滤:</label>
+                                                    <div class="layui-input-block" style="margin-left:70px;">
+                                                        <input type="text" name='filter' id="filter" placeholder="" autocomplete="off" class="layui-input" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs6">
+                                                <div class="layui-form-item" style="text-align:right;">
+                                                    <div class="layui-btn-group">
+                                                        <button type="button" class="layui-btn layui-btn-xs" id="ok"><i class="layui-icon layui-icon-ok"></i>确认</button>
+                                                        <button type="button" class="layui-btn layui-btn-xs layui-btn-primary" id="cancel"><i class="layui-icon layui-icon-close"></i>取消</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-tab-item">
+                                    <table id="table" lay-filter="table"></table>
+                                    <fieldset class="layui-elem-field">
+                                        <legend>短语信息<span id="FormType" style="color: #009688;">【新增】</span></legend>
+                                        <div class="layui-field-box" style="padding:5px 3px!important;">
+                                            <div class="layui-form" id="AddPhraseForm">
+                                                <div class="layui-row">
+                                                    <div class="layui-col-xs12">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label" id="LBPhraseCNameLabel">名称:</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name='LBPhrase_CName' id="LBPhrase_CName" lay-verify="required" autocomplete="off" class="layui-input" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs6 layui-hide" id="SampleTypeBox">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">样本类型:</label>
+                                                            <div class="layui-input-block">
+                                                                <select name='LBPhrase_SampleTypeID' id="LBPhrase_SampleTypeID" lay-filter="LBPhrase_SampleTypeID" lay-search></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs6">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">显示次序</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name='LBPhrase_DispOrder' id="LBPhrase_DispOrder" lay-verify="number" autocomplete="off" class="layui-input" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs6">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">拼音字头</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name='LBPhrase_PinYinZiTou' id="LBPhrase_PinYinZiTou" autocomplete="off" class="layui-input" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs6">
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">快捷码</label>
+                                                            <div class="layui-input-block">
+                                                                <input type="text" name='LBPhrase_Shortcode' id="LBPhrase_Shortcode" autocomplete="off" class="layui-input" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs12">
+                                                        <div class="layui-form-item" style="text-align:right;">
+                                                            <div class="layui-btn-group" style="margin-top: 10px;">
+                                                                <button type="button" class="layui-btn layui-btn-xs" id="add"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                                <button type="button" class="layui-btn layui-btn-xs layui-btn-primary" lay-submit lay-filter="save" id="save"><i class="layui-icon layui-icon-ok"></i>保存</button>
+                                                                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger" id="del"><i class="layui-icon layui-icon-delete"></i>删除</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+    <style>
+        .layui-elem-field legend{ color:#333; }
+    </style>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿//非构建类--通用型组件或控件:部门下拉绑定树选择器的测试数据
+{
+    'success':true,
+    'errorInfo':'',
+    'tree':[
+        {'text':'treePanel','expanded':true,'leaf':false,'tree':[
+            {'text':'EXTJS示例','expanded':true,'leaf':false,'tree':[
+                {'text':'树','expanded':true,'leaf':false,'tree':[
+                     {'text':'树支1','url':'tree.html','expanded':true,'leaf':true},
+                     {'text':'树支2','url':'tree.html','expanded':true,'leaf':true},
+                     {'text':'树支3','url':'tree.html','expanded':true,'leaf':true}]},
+                {'text':'列表','url':'list.html','expanded':true,'leaf':true},
+                {'text':'表单','url':'form.html','expanded':true,'leaf':true},
+                {'text':'图','url':'chrt.html','expanded':true,'leaf':true}
+            ]}
+        ]},
+        
+             {'text':'treePanel00','expanded':true,'leaf':false,'tree':[
+            {'text':'EXTJS示例1','expanded':false,'leaf':false,'tree':[
+                {'text':'树1','url':'tree.html','expanded':true,'leaf':true},
+                {'text':'列表1','url':'list.html','expanded':true,'leaf':true},
+                {'text':'表单1','url':'form.html','expanded':true,'leaf':false,'tree':[
+                       {'text':'表单1树干0','url':'chrt.html','expanded':true,'leaf':true},
+                       {'text':'表单1树干1','url':'chrt.html','expanded':true,'leaf':true}]},
+                {'text':'图1','url':'chrt.html','expanded':true,'leaf':false,'tree':[
+                       {'text':'图1树干0','url':'chrt.html','expanded':true,'leaf':true},
+                       {'text':'图1树干1','url':'chrt.html','expanded':true,'leaf':true}]
+                   }
+            ]}
+        ]}
+    ]
+}

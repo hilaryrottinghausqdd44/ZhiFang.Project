@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisTestGraph" table="[dbo].[Lis_TestGraph]">
+    <id name="Id" column="[TestGraphID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="GTestDate" column="[GTestDate]" type="DateTime" not-null="false" length="8" />
+    <property name="IExamine" column="[iExamine]" type="Int32" not-null="false" length="4" />
+    <property name="GraphNo" column="[GraphNo]" type="Int32" not-null="false" length="4" />
+    <property name="GraphName" column="[GraphName]" type="String" not-null="false" length="100" />
+    <property name="GraphType" column="[GraphType]" type="String" not-null="false" length="20" />
+    <!--<property name="GraphData" type="BinaryBlob" not-null="false" length="2147483647">
+      <column name="[GraphData]" sql-type="Image"> </column>
+    </property>-->
+    <property name="GraphDataID" column="[GraphDataID]" type="Int64" not-null="false" length="8" />
+    <property name="GraphInfo" column="[GraphInfo]" type="String" not-null="false" length="16" />
+    <property name="GraphComment" column="[GraphComment]" type="String" not-null="false" length="16" />
+    <property name="MainStatusID" column="[MainStatusID]" type="Int32" not-null="false" length="4" />
+    <property name="StatusID" column="[StatusID]" type="Int64" not-null="false" length="8" />
+    <property name="ReportStatusID" column="[ReportStatusID]" type="Int64" not-null="false" length="8" />
+    <property name="IsReport" column="[IsReport]" type="Boolean" not-null="false" length="1" />
+    <property name="GraphHeight" column="[GraphHeight]" type="Int32" not-null="false" length="4" />
+    <property name="GraphWidth" column="[GraphWidth]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="LisTestForm" class="LisTestForm" lazy="proxy">
+      <column name="[TestFormID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>
+

@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36917E28-CE6F-441F-8C2F-F9210AD56D31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Entity.BloodTransfusion</RootNamespace>
+    <AssemblyName>ZhiFang.Entity.BloodTransfusion</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.BloodTransfusion\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel">
+      <HintPath>..\Lib\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonRS.cs" />
+    <Compile Include="EntityObject\Blood_BagChargeLink.cs" />
+    <Compile Include="EntityObject\Blood_ABO.cs" />
+    <Compile Include="EntityObject\Blood_AggluItem.cs" />
+    <Compile Include="EntityObject\Blood_BagHandoverOper.cs" />
+    <Compile Include="EntityObject\Blood_BagProcess.cs" />
+    <Compile Include="EntityObject\Blood_BagProcessType.cs" />
+    <Compile Include="EntityObject\Blood_bagProcessTypeQry.cs" />
+    <Compile Include="EntityObject\Blood_BagRecordDtl.cs" />
+    <Compile Include="EntityObject\Blood_BagRecordItem.cs" />
+    <Compile Include="EntityObject\Blood_BagRecordType.cs" />
+    <Compile Include="EntityObject\Blood_BInForm.cs" />
+    <Compile Include="EntityObject\Blood_BInItem.cs" />
+    <Compile Include="EntityObject\Blood_BInItemState.cs" />
+    <Compile Include="EntityObject\Blood_BOutForm.cs" />
+    <Compile Include="EntityObject\Blood_BOutItem.cs" />
+    <Compile Include="EntityObject\Blood_BPreForm.cs" />
+    <Compile Include="EntityObject\Blood_BPreItem.cs" />
+    <Compile Include="EntityObject\Blood_BReqForm.cs" />
+    <Compile Include="EntityObject\Blood_BReqItem.cs" />
+    <Compile Include="EntityObject\Blood_BReqFormResult.cs" />
+    <Compile Include="EntityObject\Blood_BTestItem.cs" />
+    <Compile Include="EntityObject\Blood_BUnit.cs" />
+    <Compile Include="EntityObject\Blood_ChargeGroupItem.cs" />
+    <Compile Include="EntityObject\Blood_ChargeItem.cs" />
+    <Compile Include="EntityObject\Blood_ChargeItemLink.cs" />
+    <Compile Include="EntityObject\Blood_ChargeItemType.cs" />
+    <Compile Include="EntityObject\Blood_ChargeMoney.cs" />
+    <Compile Include="EntityObject\Blood_Class.cs" />
+    <Compile Include="EntityObject\Blood_ClassUnitLink.cs" />
+    <Compile Include="EntityObject\Blood_InLoadfat.cs" />
+    <Compile Include="EntityObject\Blood_Interface_Maping.cs" />
+    <Compile Include="EntityObject\Blood_Interface_Transport.cs" />
+    <Compile Include="EntityObject\Blood_In_Checked.cs" />
+    <Compile Include="EntityObject\Blood_In_CheckedCurrent.cs" />
+    <Compile Include="EntityObject\Blood_In_CheckedItem.cs" />
+    <Compile Include="EntityObject\Blood_LargeUseItem.cs" />
+    <Compile Include="EntityObject\Blood_LisResult.cs" />
+    <Compile Include="EntityObject\Blood_Patinfo.cs" />
+    <Compile Include="EntityObject\Blood_QtyDtl.cs" />
+    <Compile Include="EntityObject\Blood_Recei.cs" />
+    <Compile Include="EntityObject\Blood_ReceiItem.cs" />
+    <Compile Include="EntityObject\Blood_SelfBlood.cs" />
+    <Compile Include="EntityObject\Blood_SetQtyAlertColor.cs" />
+    <Compile Include="EntityObject\Blood_SetQtyAlertInfo.cs" />
+    <Compile Include="EntityObject\Blood_Style.cs" />
+    <Compile Include="EntityObject\Blood_TransForm.cs" />
+    <Compile Include="EntityObject\Blood_TransItem.cs" />
+    <Compile Include="EntityObject\B_Template.cs" />
+    <Compile Include="EntityObject\SC_BagOperation.cs" />
+    <Compile Include="EntityObject\Blood_UseDesc.cs" />
+    <Compile Include="EntityObject\Blood_Unit.cs" />
+    <Compile Include="EntityObject\AgeUnit.cs" />
+    <Compile Include="EntityObject\B_UserUIConfig.cs" />
+    <Compile Include="EntityObject\B_Dict.cs" />
+    <Compile Include="EntityObject\B_DictType.cs" />
+    <Compile Include="EntityObject\B_DictTree.cs" />
+    <Compile Include="EntityObject\B_OperateObjectType.cs" />
+    <Compile Include="EntityObject\B_Parameter.cs" />
+    <Compile Include="EntityObject\B_ObjectOperate.cs" />
+    <Compile Include="EntityObject\B_ObjectOperateType.cs" />
+    <Compile Include="EntityObject\SC_Operation.cs" />
+    <Compile Include="EntityObject\V_Blood_LisResult.cs" />
+    <Compile Include="EnumType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewObject\BDictMapingVO.cs" />
+    <Compile Include="XMLConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BParameter.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BloodTransfusion.Common\ZhiFang.BloodTransfusion.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.BloodTransfusion.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BDictTree.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BDict.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\BDictType.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BUserUIConfig.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_BReqForm.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\Blood_BReqItem.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\Blood_BTestItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_Class.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_LargeUseItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_Style.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\Blood_Unit.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\AgeUnit.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_UseDesc.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_BReqFormResult.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_BUnit.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_ABO.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BOutForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BOutItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BPreForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BPreItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_TransForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_TransItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_BInForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BInItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BInItemState.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_ReceiItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_BagProcess.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BagProcessType.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\Blood_bagProcessTypeQry.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_Recei.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SYSCache\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BTemplate.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Blood_AggluItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BagHandoverOper.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BagRecordDtl.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BagRecordItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_BagRecordType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_ChargeGroupItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_ChargeItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_ChargeItemLink.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_ChargeItemType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_ChargeMoney.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_InLoadfat.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_Interface_Transport.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_In_Checked.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_In_CheckedCurrent.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_In_CheckedItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_Patinfo.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_QtyDtl.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_SelfBlood.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_SetQtyAlertColor.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_SetQtyAlertInfo.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_BagOperation.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_Operation.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\V_Blood_LisResult.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_ClassUnitLink.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\Blood_BagChargeLink.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_LisResult.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Blood_Interface_Maping.hbm.xml" />
+    <Content Include="ReportMap\说明.txt" />
+    <Content Include="ReportObject\说明.txt" />
+    <Content Include="ViewMap\说明.txt" />
+    <Content Include="ViewObject\说明.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

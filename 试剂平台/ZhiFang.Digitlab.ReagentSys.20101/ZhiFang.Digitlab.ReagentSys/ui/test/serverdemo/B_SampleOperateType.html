@@ -1,0 +1,84 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBSampleOperateTypeByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBSampleOperateTypeById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelBSampleOperateType',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddBSampleOperateType',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBSampleOperateTypeByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBSampleOperateType',
+
+    		//样本操作类型   录入   采样   接收   核收   签收   检验   拒收   二审   审核   打印   。。。对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'BSampleOperateType_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'BSampleOperateType_Id',value:'操作类型ID'},						 
+						 		     
+				     												 
+						{ key:'BSampleOperateType_OperateLevel',value:'操作级别'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperateType_Name',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperateType_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperateType_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperateType_PinYinZiTou',value:'汉字拼音字头'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperateType_Comment',value:'说明'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperateType_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperateType_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'BSampleOperateType_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'样本操作类型   录入   采样   接收   核收   签收   检验   拒收   二审   审核   打印   。。。',
+    		//主键字段
+    		key:'BSampleOperateType_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Businesses>
+  <Business name="项目视图">
+    <Table TableEName="VIEW_TestItem_All">
+      <DFD>
+        <Condition comment="各医院机构只能看自己的数据">
+          <Match field="orgName" macro="DepartmentName()" comp="equal" />
+        </Condition>
+      </DFD>
+    </Table>
+  </Business>
+</Businesses>

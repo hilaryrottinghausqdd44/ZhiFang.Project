@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HIS医嘱信息</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body>
+	<div id="content" class="layui-fluid">
+		<div class="layui-row" id="table">
+			<div class="layui-col-xs12">
+				<div class="layui-field-box">
+					<table id="OrderFormList" lay-filter="OrderFormList"></table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		UIVersion.loadLayui('2.6.8');
+		UIVersion.getCSS('../../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('hisOrderInfo.js');
+	</script>
+	<style type="text/css">
+		.body{padding:2px;background-color:#fff;}
+	</style>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>样本颜色字典表对照关系表</title>
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css">
+    <script type="text/javascript" src="../../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="SampleColorControl.js"></script>
+</head>
+<body class="easyui-layout">
+<div data-options="region:'west'" style="width: 400px" border="true">
+    <table id="tbColor"></table>
+    <div id="leftBars" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: right;margin-right: 10px;padding-top: 3px">
+            <input type="text" class="easyui-searchbox" data-options="prompt:'颜色名称',searcher:colorSearch" style="width: 160px;" id="colorSearch">
+        </div>
+    </div>
+
+</div>
+<div data-options="region:'center'" border="true">
+    <div class="easyui-layout" fit="true">
+
+    <div id="tbSample" data-options="region:'center'" border="false">
+    </div>
+
+    <div data-options="region:'south'" border="false" style="height:30px;width: 100%;background: #eeeeee ">
+        <div style="float: right;margin-right: 20px;padding-top: 3px">
+            <a href="javascript:void (0)" class="easyui-linkbutton" onclick="save()"  iconCls="icon-save">保存</a>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <script src="../../util/common.js"></script>
+    <script src="BStatement.js"></script>
+    <style type="text/css">
+        #fm { margin: 0;padding: 10px 30px; }
+        
+        .fItem {margin-bottom: 5px;}
+        .fItem label {display: inline-block;width: 80px; }
+    </style>
+</head>
+<body>
+
+    <div class="easyui-layout" data-options="fit:true">
+
+        <div id="dg" data-options="region:'center'" title="对账单" style="background: #fafafa; width:75%;height:100%">
+
+        </div>
+   
+        <div data-options="region:'east'" title="对账信息" collapsible="false" style="width: 25%; height: 100%; margin-bottom: 0px; float: right;" border="true">
+   
+        <form id="fm" fit="true">
+            <div style="margin-top:40%;">
+                <div class="fItem">
+                    <label style="width:30%">序号:</label>
+                    <input type="text" id="txtNo" name="id" class="easyui-textbox" disabled="disabled" style="width:60%;" />
+                </div>
+                <div class="fItem">
+                    <label style="width:30%">对账月:</label>
+                    <input type="text" id="txtMonthname" name="monthname" class="easyui-textbox" disabled="disabled" style="width: 60%" />
+                </div>
+                <div class="fItem">
+                    <label style="width:30%">客户名称:</label>
+                    <input type="text" id="txtClientname" name="clientname" class="easyui-textbox" disabled="disabled" style="width: 60%" />
+                </div>
+                <div class="fItem">
+                    <label style="width:30%">生成日期:</label>
+                    <input type="text" id="txtCreatedate" class="easyui-textbox" disabled="disabled" name="createdate" style="width: 60%" />
+                </div>
+                <div class="fItem">
+                    <label style="width:30%">确认状态:</label>
+                    <select style="width: 60%" class="easyui-combobox" panelheight=auto name="status" id="cbStatus">
+
+                        <option>未确认</option>
+                        <option>确认无误</option>
+                        <option>确认有误</option>
+                    </select>
+                </div>
+                <div class="fItem">
+                    <label style="width:30%">备注:</label>
+                    <textarea id="txtRemark" class="text" name="remark" style="width: 60%; "></textarea>
+                </div>
+
+            </div>
+
+            <!--<div style="height:30px; width: 100%; background-color: #efefef; margin-top: 69%; ">
+                <div style="margin-left:35%;padding-top:1px;padding-bottom:1px">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="reset1()" data-options="iconCls:'icon-remove'">重置</a>
+                </div>
+            </div>-->
+        </form>
+        <div style="height: 32px; width: 25%; background-color: #efefef;  position: fixed; bottom: 0; right: 0;">
+            <div style="margin-left:35%;padding-top:2px;padding-bottom:1px">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="reset1()" data-options="iconCls:'icon-remove'">重置</a>
+            </div>
+        </div>
+        
+
+         <table></table>
+    </div>
+        <div id="toolbar" fit="true">
+
+            <div style=" align-content:center;margin-left:10%;">
+                对账月:<input style="width:14%" class=" easyui-textbox" id="txtmonthname" />  客户名称:<input style="width:14%" class="easyui-textbox" id="txtclientname" />
+                确认状态:<select style="width:14%" editable="false" class="easyui-combobox" panelheight=auto id="cbstatus">
+    <!--<option>全部</option>-->
+    <option value="未确认">未确认</option>
+    <option value="确认无误">确认无误</option>
+    <option value="确认有误">确认有误</option>
+</select>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="query()" plain="true" data-options="iconCls:'icon-search'">查询</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="reset2()" plain="true" data-options="iconCls:'icon-remove'">重置</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+            </div>
+
+        </div>
+   
+    </div>
+    <div>
+        <iframe id="downloadiframe"></iframe>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GB2312" ?> 
+<Tables>
+	<Table ID="Database" Name="数据库配置">
+		<!--
+			XML,		// XML 数据库						/// 无				
+			MSSQL,		// Microsoft Sql Server 数据库		/// SqlClient?
+			ORACEL,		// Oracle 数据库					/// OracleClient?
+			MSACCESS,	// Microsoft Access 数据库			/// OLEDB
+			DB2,		// IBM DB2 数据库					/// OLEDB
+			EXCEL,		// Microsoft Excel 数据库			/// OLEDB
+			UNKOWN		// 未知数据库						/// OLEDB 
+		-->
+		<tr>
+			<td value="0">XML</td>
+			<td value="1">MSSQL</td>
+			<td value="2">ORACEL</td>
+			<td value="3">MSACCESS</td>
+			<td value="4">DB2</td>
+			<td value="5">EXCEL</td>
+			<td value="99">UNKNOW</td>
+		</tr>
+	</Table>
+</Tables>

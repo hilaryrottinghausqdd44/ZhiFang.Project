@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodBTestItem" table="[dbo].[Blood_BTestItem]">
+    <id name="Id" column="[BTestItemNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <!--<property name="BTestItemNo" column="[BTestItemNo]" type="Int32" not-null="false" length="4" />-->
+    <property name="CName" column="[BTestItemName]" type="String" not-null="false" length="50" />
+    <property name="ISgroup" column="[ISgroup]" type="String" not-null="false" length="20" />
+    <property name="BUnitNo" column="[BUnitNo]" type="String" not-null="false" length="20" />
+    <property name="Liscode1" column="[liscode1]" type="String" not-null="false" length="20" />
+    <property name="Liscode2" column="[liscode2]" type="String" not-null="false" length="20" />
+    <property name="Liscode3" column="[liscode3]" type="String" not-null="false" length="20" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="20" />
+    <property name="Visible" column="[visible]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[dispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Shortcode" column="[shortcode]" type="String" not-null="false" length="20" />
+    <property name="HisOrderCode" column="[HisOrderCode]" type="String" not-null="false" length="20" />
+    <property name="Reference" column="[reference]" type="String" not-null="false" length="200" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="IsResultItem" column="[IsResultItem]" type="Boolean" not-null="false" length="1" />
+    <property name="IsPreTrransfusionEvaluationItem" column="[IsPreTrransfusionEvaluationItem]" type="Boolean" not-null="false" length="1" />
+
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="50" />
+  </class>
+</hibernate-mapping>

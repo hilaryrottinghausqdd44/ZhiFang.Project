@@ -1,0 +1,52 @@
+【需要的功能包】
+1、ui/extjs
+2、ui/css
+3、ui/ux
+4、ui/util
+5、ui/echarts
+6、ui/print
+7、ui/ReportPrint
+8、ui/ReportSearch
+9、ui/reportsearch.html
+
+【参数传递说明】
+可选参数共三个:
+	PATNO(病历号);
+	SERIALNO(条码号);
+	ZDY2(住院ID);
+	HASPRINT(是否开启打印功能,默认开启,只有当值是false时才关闭);
+	
+必须选择其中一个参数传递进本程序,且参数值不能为空。
+
+当参数为PATNO(病历号)或ZDY2(住院ID)时,必须传RECEIVEDATE(核收日期);
+当参数为SERIALNO(条码号)时,可以选择传或不传RECEIVEDATE(核收日期)。
+
+参数RECEIVEDATE的格式说明:RECEIVEDATE=2014-01-01;2014-08-01,以英文分号(;)分隔,分号前为开始日期,分号后为结束日期。
+
+RECEIVEDATE=2014-01-01,表示只有开始日期,没有结束日期;
+RECEIVEDATE=;2014-08-01,表示只有结束日期,没有开始日期。
+
+程序访问格式,例如：
+/ui/reportsearch.html?PATNO=1&RECEIVEDATE=2014-01-01;2014-08-01
+
+【程序路径】
+项目名称/ui/reportsearch.html
+
+=========================================
+【单独调用历史对比】
+
+【需要的功能包】
+1、ui/reportchart.html
+
+【参数传递说明】
+必传参数共四个:
+	PATNO(病历号);
+	ITEMNO(项目编号);
+	SECTIONTYPE(结果类型);
+	RECEIVEDATE(核收日期)
+
+程序访问格式,例如：
+/ui/reportchart.html?ITEMNO=200403&PATNO=0000701513&SECTIONTYPE=item&RECEIVEDATE=2014/10/23
+
+【程序路径】
+项目名称/ui/reportchart.html

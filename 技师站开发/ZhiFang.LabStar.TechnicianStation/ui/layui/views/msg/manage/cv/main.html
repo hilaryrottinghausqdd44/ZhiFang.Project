@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值监控台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.layui-table,.layui-table-view{margin:0;}
+		.layui-progress{margin:50px 0 60px;}
+		.layui-progress:last-child{margin-bottom:10px;}
+		.layui-progress-bar{text-align:left;}
+		.layui-progress-text{top:-35px;line-height:26px;font-size:26px;}
+		.layui-progress h3{position:absolute;right:0;top:-35px;color:#999;font-size:14px;}
+		
+		.loading{padding:40px 20px;}
+		.loading .loading-bg{
+			width:64px;height:24px;
+			left:50%;margin-left:-32px;
+			top:50%;margin-top:-12px;
+			background:url(loading-0.gif) no-repeat;
+			position:absolute;
+		}
+		.layui-inline{margin-bottom:5px;}
+	</style>
+</head>
+<body style="background-color:#f2f2f2;color:#666;;">
+	<div class="layui-fluid" style="padding:15px;">
+		<div class="layui-row layui-col-space15" id="cards-div">
+			<div class="layui-col-md12">
+				<div class="layui-card layui-form" style="padding:10px;padding-bottom:5px;">
+					<div class="layui-inline" style="width:100px;">
+						<select name="DateTimeRangeType" id="DateTimeRangeType" lay-filter="DateTimeRangeType">
+							<option value="">时间范围</option>
+							<option value="3">3天</option>
+							<option value="7">7天</option>
+							<option value="30">30天</option>
+						</select>
+					</div>
+					<div class="layui-inline" style="width:180px;">
+						<input name="dates" id="dates" type="text" class="layui-input" placeholder=" - ">
+					</div>
+					<div class="layui-inline">
+						<select name="status" id="status" lay-filter="status">
+							<option value="">选择状态</option>
+							<option value="1">超时未确认</option>
+							<option value="2">待确认</option>
+							<option value="3">待处理</option>
+							<optgroup label="完结/未完结">
+								<option value="4">完结</option>
+								<option value="5">未完结</option>
+							</optgroup>
+						</select>
+					</div>
+					<div class="layui-inline" style="width:160px;" id="RecDept_Div">
+						<select name="RecDept" id="RecDept" lay-filter="RecDept" lay-search>
+							<option value="">选择开单科室</option>
+						</select>
+					</div>
+					<div class="layui-inline" style="width:unset;">
+						<button class="layui-btn" id="search-button">查询</button>
+						<button class="layui-btn layui-btn-primary" id="search-clear" style="margin-left:0;">清空</button>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md8">
+				<div class="layui-row layui-col-space15">
+					<div class="layui-col-md12">
+						<div class="layui-card">
+							<div class="layui-card-header">历史危急值列表</div>
+							<div class="layui-card-body">
+								<table id="cv_table_history" lay-filter="cv_table_history"></table>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="layui-col-md4">
+				<div class="layui-card">
+					<div class="layui-card-header">历史危急值概况</div>
+					<div class="layui-card-body">
+						<div id="cv_charts_pie" style="height:332px;"></div>
+					</div>
+				</div>
+				<div class="layui-card">
+					<div class="layui-card-header">历史响应情况</div>
+					<div class="layui-card-body" style="padding-top:5px;" id="cv_history_progress">
+						<div class="loading"><div class="loading-bg"></div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('main.js');
+	</script>
+</body>
+</html>

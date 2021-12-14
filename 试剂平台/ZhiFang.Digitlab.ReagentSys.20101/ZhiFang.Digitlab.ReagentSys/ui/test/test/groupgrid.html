@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>分组表头列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    
+	<script type="text/javascript">
+	Ext.onReady(function(){	
+		Ext.QuickTips.init();//初始化后就会激活提示功能
+		Ext.Loader.setConfig({enabled: true});//允许动态加载
+		var panel = Ext.create('Ext.grid.Panel',{
+			title:'分组表头列表测试',
+			columns:[{
+				text:'名称',
+				dataIndex:'name'
+			},{
+				text:'警告限',
+				columns:[{
+					text:'低值',
+					dataIndex:'L'
+				},{
+					text:'高值',
+					dataIndex:'H'
+				}]
+			}]
+		});
+		
+		//总体布局
+		var viewport = Ext.create('Ext.container.Viewport',{
+			layout:'fit',
+			items:[panel]
+		});
+	});
+	
+	</script>
+</head>
+<body>
+</body>
+</html>

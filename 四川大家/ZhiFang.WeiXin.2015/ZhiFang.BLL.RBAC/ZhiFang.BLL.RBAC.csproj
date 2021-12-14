@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB749A8C-88BB-45DB-862D-ED3A76F0BCBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.RBAC</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.RBAC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.WeiXin\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\Lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log">
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBCity.cs" />
+    <Compile Include="BBCountry.cs" />
+    <Compile Include="BBDegree.cs" />
+    <Compile Include="BBEducationLevel.cs" />
+    <Compile Include="BBHealthStatus.cs" />
+    <Compile Include="BBMaritalStatus.cs" />
+    <Compile Include="BBNationality.cs" />
+    <Compile Include="BBPoliticsStatus.cs" />
+    <Compile Include="BBProfessionalAbility.cs" />
+    <Compile Include="BBProvince.cs" />
+    <Compile Include="BBSex.cs" />
+    <Compile Include="BBTDAppComponents.cs" />
+    <Compile Include="BBTDAppComponentsOperate.cs" />
+    <Compile Include="BBTDAppComponentsRef.cs" />
+    <Compile Include="BBTDAppPicture.cs" />
+    <Compile Include="BBTDMacroCommand.cs" />
+    <Compile Include="BBTDModuleType.cs" />
+    <Compile Include="BBTDPictureType.cs" />
+    <Compile Include="BBTDPictureTypeCon.cs" />
+    <Compile Include="BHRDept.cs" />
+    <Compile Include="BHRDeptEmp.cs" />
+    <Compile Include="BHRDeptIdentity.cs" />
+    <Compile Include="BHREmpIdentity.cs" />
+    <Compile Include="BHREmployee.cs" />
+    <Compile Include="BHRPosition.cs" />
+    <Compile Include="BImportFile.cs" />
+    <Compile Include="BRBACEmpOptions.cs" />
+    <Compile Include="BRBACEmpRoles.cs" />
+    <Compile Include="BRBACModule.cs" />
+    <Compile Include="BRBACModuleOper.cs" />
+    <Compile Include="BRBACRole.cs" />
+    <Compile Include="BRBACRoleModule.cs" />
+    <Compile Include="BRBACRoleRight.cs" />
+    <Compile Include="BRBACRowFilter.cs" />
+    <Compile Include="BRBACUser.cs" />
+    <Compile Include="BSLog.cs" />
+    <Compile Include="BSType.cs" />
+    <Compile Include="BSTypeDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{056f6e08-20c6-443c-86e5-055a0504aba6}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{3088c72d-5fbd-46f5-b9ba-fd8adc05b2a5}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{5bcba563-016a-493b-88f3-0dc683e9716b}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{0448af93-d854-466f-86c7-8f7843cb9f06}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{4712f40e-4f7e-455c-99d9-8db93344bc75}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{327986fe-0805-42d5-8cc4-0a92e88ad4f1}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{92f249ba-e8d6-4aa0-8571-ab21f3e05f70}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.Common\ZhiFang.WeiXin.Common.csproj">
+      <Project>{b7f82a5b-128a-4558-ad09-11ce50be277f}</Project>
+      <Name>ZhiFang.WeiXin.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

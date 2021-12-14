@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LIIP_实验室信息集成平台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<link rel="stylesheet" href="../../src/layui/2.5.5/dist/css/layui.css" media="all">
+	<link rel="stylesheet" href="layuiadmin/style/admin.css" media="all">
+	<link rel="shortcut icon" href="../../../logo-16.png">
+	
+	<style>
+		/*.layui-nav-tree .layui-nav-item{line-height:24px;}
+		.layui-nav-tree .layui-nav-item a{line-height:24px;height:24px;padding:0 10px;font-size:12px;cursor:pointer;}
+		
+		.layui-side-menu .layui-nav .layui-nav-item{line-height:24px;}
+		.layui-side-menu .layui-nav .layui-nav-item a{line-height:24px;height:24px;}*/
+		.layui-form-checkbox[lay-skin="primary"] span{color:#ffffff;}
+		.msgintegrator-connected{
+			cursor:pointer;
+			color:#5FB878;
+    	}
+		.msgintegrator-disconnected{
+			cursor:pointer;
+			color:#FF5722;
+			animation:fade 1000ms infinite;
+    		-webkit-animation:fade 1000ms infinite;
+		}
+        .layui-nav-itemed > .layui-nav-child {
+			background-color:rgba(0,0,0,.1)!important;
+		}
+	</style>
+</head>
+<body class="layui-layout-body">
+	<div id="LAY_app" style="display:none;">
+		<div class="layui-layout layui-layout-admin">
+			<!-- 头部区域 -->
+			<div class="layui-header">
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item layadmin-flexible" lay-unselect>
+						<a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
+							<i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+						</a>
+					</li>
+					<!--<li class="layui-nav-item layui-hide-xs" lay-unselect>
+						<a href="../../extjs/index.html" target="_blank" title="EXTJS版本">
+							<i class="layui-icon layui-icon-website"></i>
+						</a>
+					</li>-->
+					<li class="layui-nav-item" lay-unselect>
+						<a href="javascript:;" layadmin-event="refresh" title="刷新">
+							<i class="layui-icon layui-icon-refresh-3"></i>
+						</a>
+					</li>
+					<!--<li class="layui-nav-item layui-hide-xs" lay-unselect>
+						<input type="text" placeholder="搜索..." autocomplete="off" class="layui-input layui-input-search" layadmin-event="serach" lay-action="template/search.html?keywords="> 
+					</li>-->
+				</ul>
+				<ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+					<!--<li class="layui-nav-item" lay-unselect>
+		<a id="msgcard" lay-text="消息卡片" title="消息卡片">
+			<i class="layui-icon layui-icon-fire"></i>
+			<span class="layui-badge-dot"></span>
+		</a>
+	</li>-->
+					<!--<li class="layui-nav-item" lay-unselect>
+						<a id="msgintegrator" lay-text="通信组件" title="通信组件连接中...">
+							<i class="layui-icon layui-icon-link"></i>
+							<span class="layui-badge-dot"></span>
+						</a>
+					</li>-->
+					<!--<li class="layui-nav-item" lay-unselect>
+						<a lay-href="../views/msg/search/list.html" layadmin-event="message" lay-text="消息中心" title="消息中心">
+							<i class="layui-icon layui-icon-notice"></i>
+							<span class="layui-badge-dot"></span>
+						</a>
+					</li>-->
+					<!--<li class="layui-nav-item" lay-unselect>
+						<a lay-href="../views/news/list.html" layadmin-event="message-news" lay-text="新闻中心" title="新闻中心">
+							<i class="layui-icon layui-icon-read"></i>
+							<span class="layui-badge-dot layui-hide" id="newsDot" style="left: 30px;top: 25px;"></span>
+						</a>
+					</li>
+					<li class="layui-nav-item" lay-unselect>
+						<a id="PrivateMsg" lay-href="message/private/index.html" layadmin-event="message-private" lay-text="私信" title="私信">
+							<i class="layui-icon layui-icon-dialogue"></i>
+						</a>
+					</li>
+					<li class="layui-nav-item layui-hide-xs" lay-unselect>
+						<a href="javascript:;" layadmin-event="theme">
+							<i class="layui-icon layui-icon-theme"></i>
+						</a>
+					</li>
+					<li class="layui-nav-item layui-hide-xs" lay-unselect>
+						<a href="javascript:;" layadmin-event="note">
+							<i class="layui-icon layui-icon-note"></i>
+						</a>
+					</li>
+					<li class="layui-nav-item layui-hide-xs" lay-unselect>
+						<a href="javascript:;" layadmin-event="fullscreen">
+							<i class="layui-icon layui-icon-screen-full"></i>
+						</a>
+					</li>-->
+					<li class="layui-nav-item" lay-unselect style="margin-right:20px;">
+						<a href="javascript:;">
+							<cite id="UserName"></cite>
+						</a>
+						<dl class="layui-nav-child">
+							<!--<dd id="showMsgCard" hidden="hidden"><a style="cursor:pointer;">开启消息推送</a></dd>
+							<dd id="hideMsgCard" hidden="hidden"><a style="cursor:pointer;">关闭消息推送</a></dd>
+							<dd id="stopLink"><a style="cursor:pointer;">关闭通信连接</a></dd>-->
+							<!--<dd><a lay-href="../views/set/index.html">设置</a></dd>-->
+							<!--<dd><a lay-href="views/set/user/info.html">基本资料</a></dd>-->
+							<!--<dd><a lay-href="views/set/user/password.html">修改密码</a></dd>
+							<hr>-->
+							<dd id="Close" style="text-align: center;"><a>退出</a></dd>
+						</dl>
+					</li>
+					<!--<li class="layui-nav-item layui-hide-xs" lay-unselect>
+						<a href="javascript:;" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>
+					</li>
+					<li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect>
+						<a href="javascript:;" layadmin-event="more"><i class="layui-icon layui-icon-more-vertical"></i></a>
+					</li>-->
+				</ul>
+			</div>
+			<!-- 侧边菜单 -->
+			<div class="layui-side layui-side-menu">
+				<div class="layui-side-scroll">
+					<div class="layui-logo" lay-href="home/console.html">
+						<span>区域检验</span>
+					</div>
+					<ul id="ModuleTree" class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+						
+					</ul>
+				</div>
+			</div>
+			<!-- 页面标签 -->
+			<div class="layadmin-pagetabs" id="LAY_app_tabs">
+				<div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
+				<div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
+				<div class="layui-icon layadmin-tabs-control layui-icon-down">
+					<ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+						<li class="layui-nav-item" lay-unselect>
+							<a href="javascript:;"></a>
+							<dl class="layui-nav-child layui-anim-fadein">
+								<dd layadmin-event="closeThisTabs"><a href="javascript:;">关闭当前标签页</a></dd>
+								<dd layadmin-event="closeOtherTabs"><a href="javascript:;">关闭其它标签页</a></dd>
+								<dd layadmin-event="closeAllTabs"><a href="javascript:;">关闭全部标签页</a></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div class="layui-tab" lay-unauto lay-allowClose="true" lay-filter="layadmin-layout-tabs">
+					<ul class="layui-tab-title" id="LAY_app_tabsheader">
+						<li lay-id="home/zhuhai/index.html" lay-attr="home/zhuhai/index.html" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 主体内容 -->
+			<div class="layui-body" id="LAY_app_body">
+				<div class="layadmin-tabsbody-item layui-show">
+					<iframe src="home/zhuhai/index.html?v=1" frameborder="0" class="layadmin-iframe"></iframe>
+				</div>
+			</div>
+			<!-- 辅助元素，一般用于移动设备下遮罩 -->
+			<div class="layadmin-body-shade" layadmin-event="shade"></div>
+		</div>
+	</div>
+	
+	<script src="../../src/layui/2.5.5/dist/layui.js"></script>
+	<script type="text/javascript">
+		UIVersion.getJS('../config/system.js');
+		UIVersion.getJS('index_zhuhai.js');
+	</script>
+	<script type="text/javascript">
+		//卡片
+		var CARD = null;
+		//初始化消息集成器
+		function initMsgIntefrator(callback){
+			layui.config({
+				base:'../'
+			}).extend({
+				uxutil:'ux/util',
+				msgintegrator:'modules/msg/integrator'
+			}).use(['uxutil','msgintegrator'],function(){
+				var $ = layui.$,
+					uxutil = layui.uxutil,
+					icon = $("#msgintegrator").find(".layui-icon"),
+					connectInfoList = [];
+					
+				//通信组件按钮点击触发
+				icon.on("click",function(){
+					var html = [];
+					for(var i in connectInfoList){
+						var type = connectInfoList[i].Type,
+							color = "";
+						switch (type){
+							case "0":color = "orange";break;
+							case "1":color = "green";break;
+							case "-1":color = "red";break;
+							default:break;
+						}
+						html.push('<div style="padding:5px;">');
+						html.push('<a>【' + connectInfoList[i].Time + '】 </a>');
+						html.push('<a style="color:' + color + '">' + connectInfoList[i].Info + ' </a>');
+						html.push("</div>");
+					}
+					layer.open({
+						title:'通信连接信息',
+						content:html.join('')
+					});   
+				});
+				
+				layui.msgintegrator.init({
+					//消息集成器实例化正常后触发
+					done:function(that){
+						callback();
+					},
+					//通信连接后触发
+					connected:{
+						name:"ui.layui.admin.index.html",
+						fun:function(instance){
+							icon.removeClass("msgintegrator-disconnected");
+							icon.addClass("msgintegrator-connected");
+							icon.attr("title","通信正常");
+							connectInfoList.push({"Type":"1","Info":"通信连接成功","Time":uxutil.date.toString(uxutil.server.date.getDate())});
+						}
+					},
+					//通信连接断开后触发
+					disconnected:{
+						name:"ui.layui.admin.index.html",
+						fun:function(reconnectCount){
+							icon.removeClass("msgintegrator-connected");
+							icon.addClass("msgintegrator-disconnected");
+							icon.attr("title","通信连接断开");
+							connectInfoList.push({"Type":"-1","Info":"通信连接断开,已尝试"+reconnectCount+"次重连","Time":uxutil.date.toString(uxutil.server.date.getDate())});
+						}
+					}
+				});
+			
+				$("#stopLink").on("click",function(){
+					layui.msgintegrator.stop();
+				});
+			});
+		};
+		//初始化消息卡片模块
+		function initMsgCardModule(){
+			layui.config({
+				base:'../'
+			}).extend({
+				uxutil:'ux/util',
+				msgcard:'modules/msg/card'
+			}).use(['uxutil','msgcard'],function(){
+				var $ = layui.$,
+					uxutil = layui.uxutil,
+					msgcard = layui.msgcard;
+				
+				function initMsgCard(){
+					CARD = CARD || msgcard.render({
+						isLayer:true,
+						//isWindowOpen:true,
+						area:['100px','100px']//宽度高度
+					});
+				}
+				//获取设备信息
+				var device = layui.device();
+				if(device.android || device.ios || device.weixin){
+					$("head").append("<style>.layui-nav .layui-nav-item a{padding:0 10px;}</style>");
+					//移动端不显示卡片
+					return;
+				}
+				
+				//cookie信息存在显示页面信息，不存在返回登录页面
+				var UserName = uxutil.cookie.get(uxutil.cookie.map.USERNAME);
+				if(UserName && UserName != "SuperUser"){
+					//获取是否开启消息推动
+					var showMsgCard = uxutil.localStorage.get("showMsgCard");
+					if(showMsgCard == '1'){
+						$("#hideMsgCard").show();
+						//启动消息卡片
+						initMsgCard();
+					}else{
+						$("#showMsgCard").show();
+					}
+					$("#showMsgCard").on("click",function(){
+						uxutil.localStorage.set("showMsgCard","1");
+						$("#showMsgCard").hide();
+						$("#hideMsgCard").show();
+						initMsgCard();
+					});
+					$("#hideMsgCard").on("click",function(){
+						uxutil.localStorage.set("showMsgCard","0");
+						$("#hideMsgCard").hide();
+						$("#showMsgCard").show();
+						if(CARD){
+							CARD.close();
+							CARD = null;
+						}
+					});
+				}
+			});
+		}
+		
+		//延时处理
+		//setTimeout(function(){
+		//	//初始化消息集成器
+		//	initMsgIntefrator(function(){
+		//		//初始化消息卡片模块
+		//		initMsgCardModule();
+		//	});
+		//	getUnreadNewsList();
+  //      }, 1000);
+		
+		//获得未读新闻
+        function getUnreadNewsList() {
+			layui.config({
+				base:'../'
+			}).extend({
+				uxutil:'ux/util'
+			}).use(['uxutil'],function(){
+                var $ = layui.$,
+                    uxutil = layui.uxutil;
+				//获取未读新闻服务
+				var GET_UNREADNEWS_LIST_URL = uxutil.path.ROOT + '/ServerWCF/CommonService.svc/UnHREmployeeReaderCount';
+				var NewsCount = 0;
+				var url = GET_UNREADNEWS_LIST_URL;
+				uxutil.server.ajax({
+					url: url
+				}, function (data) {
+					if (data.success) {
+						NewsCount = parseInt(data.BoolInfo);
+                        if (NewsCount > 0) {
+                            if ($("#newsDot").hasClass("layui-hide")) $("#newsDot").removeClass("layui-hide");
+                        } else {
+							 if (!$("#newsDot").hasClass("layui-hide")) $("#newsDot").addClass("layui-hide");
+                        }
+					} else {
+						layer.msg(data.msg);
+					}
+				});
+			});
+        }
+	</script>
+</body>
+</html>

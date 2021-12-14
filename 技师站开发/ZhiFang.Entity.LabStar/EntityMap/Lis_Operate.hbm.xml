@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisOperate" table="dbo.Lis_Operate">
+    <id name="Id" column="OperateID" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="DataTimeStamp" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="LabID" type="Int64" not-null="true" length="8" />
+    <property name="PartitionDate" column="PartitionDate" type="DateTime" not-null="false" length="8" />
+    <property name="OperateObject" column="OperateObject" type="String" not-null="false" length="100" />
+    <property name="OperateObjectID" column="OperateObjectID" type="Int64" not-null="false" length="8" />
+    <property name="OperateFormID" column="OperateFormID" type="Int64" not-null="false" length="8" />
+    <property name="OperateType" column="OperateType" type="String" not-null="false" length="100" />
+    <property name="OperateTypeID" column="OperateTypeID" type="Int64" not-null="false" length="8" />
+    <property name="OperateMemoAuto" column="OperateMemoAuto" type="StringClob" not-null="false" />
+    <property name="DataInfo" column="DataInfo" type="StringClob" not-null="false" />
+    <property name="OperateMemo" column="OperateMemo" type="StringClob" not-null="false" />
+    <property name="OperateUserID" column="OperateUserID" type="Int64" not-null="false" length="8" />
+    <property name="OperateUser" column="OperateUser" type="String" not-null="false" length="100" />
+    <property name="OperateHost" column="OperateHost" type="String" not-null="false" length="100" />
+    <property name="OperateAddress" column="OperateAddress" type="String" not-null="false" length="100" />
+    <property name="OperateHostType" column="OperateHostType" type="String" not-null="false" length="100" />
+    <property name="RelationUserID" column="RelationUserID" type="Int64" not-null="false" length="8" />
+    <property name="RelationUser" column="RelationUser" type="String" not-null="false" length="100" />
+    <property name="OperateDeptID" column="OperateDeptID" type="Int64" not-null="false" length="8" />
+    <property name="OperateDept" column="OperateDept" type="String" not-null="false" length="100" />
+    <property name="BarCode" column="BarCode" type="String" not-null="false" length="100" />
+    <property name="OperateName" column="OperateName" type="String" not-null="false" length="100" />
+    <property name="TranceTime" column="TranceTime" type="DateTime" not-null="false" length="8" />
+    <property name="IsTrance" column="IsTrance" type="Boolean" not-null="false" length="1" />
+    <property name="IOFlag" column="IOFlag" type="Int32" not-null="false" length="4" />
+    <property name="IOTime" column="IOTime" type="DateTime" not-null="false" length="8" />
+    <property name="IOUserID" column="IOUserID" type="Int64" not-null="false" length="8" />
+    <property name="IOUserName" column="IOUserName" type="String" not-null="false" length="100" />
+    <property name="DataAddTime" column="DataAddTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="DataUpdateTime" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

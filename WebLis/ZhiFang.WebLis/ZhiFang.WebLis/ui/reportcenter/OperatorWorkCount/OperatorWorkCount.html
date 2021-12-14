@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>医院操作人员工作量统计</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="../../My97DatePickerBeta/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="OperatorWorkCount.js"></script>
+</head>
+<body>
+<div class="easyui-panel" data-options="fit:true,border:false">
+
+    <div class="easyui-panel" title="查询条件" style="padding: 0px; background: #eee; height: 58px;width:100%">
+        <div id="toolber">
+            日期类型: 
+            <input id="cmbDateType" name="dept">
+            <!--<select id="cmbDateType" class="easyui-combobox" data-options="panelHeight:80" name="DateType"  style="width:100px;">-->
+                <!--<option value="day" >年-月-日</option>-->
+                <!--<option value="month" >年-月</option>-->
+                <!--<option value="year">年</option>-->
+
+            <!--</select>-->
+
+            <!--<input id="txtoperdatebegin" type="text" class="easyui-datebox" style="width: 94px"/>-->
+            <!----->
+            <!--<input id="txtoperdateend" class="easyui-datebox" type="text" style="width: 94px"/>-->
+            <input type="text" id="txtDateBegin" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy年MM月dd日'})" class="Wdate"/>
+            -
+            <input type="text" id="txtDateEnd" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy年MM月dd日'})" class="Wdate"/>
+            <font color="black">客户:</font>
+            <input id="ClientNo" class="easyui-combobox" type="text"/>
+            <font color="black">操作人员:</font>
+            <input id="txtOperator" type="text" class="easyui-textbox"/>
+            <a id="btn_select" style="margin-right: 2px;" class="easyui-linkbutton">查询</a> <a
+                id="btn_excel" style="margin-right: 2px;" onclick="sExcel()" class="easyui-linkbutton">
+            生成Excel</a> <a id="btn_print" style="margin-right: 2px;display: none" class="easyui-linkbutton">打印</a>
+            <a id="btnload" style="margin-right: 2px;" onclick="btnexport()" class="easyui-linkbutton">
+                点击下载</a>
+        </div>
+    </div>
+
+    <div id="gd" class="easyui-panel" title="医院操作人员工作量统计报表" data-options="border:false" style="height: 87%;width: 100%">
+        <table id="tblOperatorCount">
+        </table>
+    </div>
+
+    <div id="jj" class="easyui-panel" title="医院操作人员工作量统计报表" style="height: 87%;width:100%">
+        <iframe id="query" style="height: 99%; width: 100%;" frameborder="0"></iframe>
+        <iframe id="preview" style="height: -1px; width: -1px;" hidden="hidden" frameborder="0">
+        </iframe>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaDeptGoods" table="[dbo].[Rea_DeptGoods]">
+    <id name="Id" column="[DeptGoodsID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <!--<property name="GoodsCName" column="[GoodsCName]" type="String" not-null="true" length="200" />-->
+    <property name="DeptName" column="[DeptName]" type="String" not-null="false" length="50" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="CreaterID" column="[CreaterID]" type="Int64" not-null="false" length="8" />
+    <property name="CreaterName" column="[CreaterName]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DeptID" column="[DeptID]" type="Int64" not-null="false" length="8" />
+    <!--<many-to-one name="HRDept" class="ZhiFang.Entity.RBAC.HRDept" lazy="false">
+      <column name="[DeptID]" not-null="false"/>
+    </many-to-one>-->
+    <many-to-one name="ReaGoods" class="ReaGoods" lazy="false">
+      <column name="[GoodsID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

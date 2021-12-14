@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Columns>
+    <column columnename="nfclientname" columncname="客户" isvisible="yes" order="" sort="nfclientname asc">
+    </column>
+    <column columnename="nfbusinessname" columncname="销售员" isvisible="no" order="" sort="">
+    </column>
+    <column columnename="paritemno" columncname="项目编号" isvisible="yes" order="" sort="">
+    </column>
+    <column columnename="itemnamecw" columncname="项目名称" isvisible="yes" order="" sort="itemnamecw asc">
+    </column>
+    <column columnename="MiniChargeUnit" columncname="最小收费单位" isvisible="no" order="" sort="">
+    </column>
+    <column columnename="ItemPrice" columncname="折前价格" isvisible="yes" order="" sort="">
+    </column>
+    <column columnename="ItemAgioPrice" columncname="折后价格" isvisible="yes" order="" sort="">
+    </column>
+    <column columnename="nfsicktypename" columncname="就诊类型" isvisible="no" order="" sort="">
+    </column>
+  </Columns>
+  <SubTotals>
+    <subtotal subtotalename="nfclientname" subtotalcname="客户小计" issubtotal="yes">
+    </subtotal>
+    <subtotal subtotalename="nfbusinessname" subtotalcname="销售员小计" issubtotal="no">
+    </subtotal>
+    <subtotal subtotalename="itemnamecw" subtotalcname="项目号小计" issubtotal="yes">
+    </subtotal>
+  </SubTotals>
+</root>

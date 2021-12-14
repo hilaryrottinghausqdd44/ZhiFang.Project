@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.OA" assembly="ZhiFang.Entity.OA">
+	<class name="SServiceClientlevel" table="[dbo].[S_ServiceClientlevel]">
+		<id name="Id" column="[SClevelID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="Name" column="[Name]" type="String" not-null="false" length="40" />
+		<property name="SName" column="[SName]" type="String" not-null="false" length="40" />
+		<property name="Code" column="[Code]" type="String" not-null="false" length="20" />
+		<property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="20" />
+		<property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="Comment" column="[Comment]" type="String" not-null="false" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<bag name="SServiceClientList" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key>
+                <column name="[SClevelID]" />
+            </key>
+			<one-to-many class="SServiceClient"/>
+		</bag>
+	</class>
+</hibernate-mapping>

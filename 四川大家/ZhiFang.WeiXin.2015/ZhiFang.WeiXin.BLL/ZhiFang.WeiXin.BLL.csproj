@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F7C2F3D-5260-49AD-B3A8-1CB3D09066A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.WeiXin.BLL</RootNamespace>
+    <AssemblyName>ZhiFang.WeiXin.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.WeiXin\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastReport, Version=1.3.15.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBDict.cs" />
+    <Compile Include="BBDictType.cs" />
+    <Compile Include="BBLabDistrict.cs" />
+    <Compile Include="BBLabGroupItem.cs" />
+    <Compile Include="BBLabTestItem.cs" />
+    <Compile Include="BBWeiXinEmpLink.cs" />
+    <Compile Include="BBWeiXinPushMessageTemplate.cs" />
+    <Compile Include="BBusinessLogicClientControl.cs" />
+    <Compile Include="BNRequestForm.cs" />
+    <Compile Include="BNRequestItem.cs" />
+    <Compile Include="BPatDiagInfo.cs" />
+    <Compile Include="BBarCodeForm.cs" />
+    <Compile Include="BGenderType.cs" />
+    <Compile Include="BClientEleArea.cs" />
+    <Compile Include="BBItemCon.cs" />
+    <Compile Include="BBParameter.cs" />
+    <Compile Include="BBTestItemControl.cs" />
+    <Compile Include="BItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="BItemColorDict.cs" />
+    <Compile Include="BOSItemProductClassTree.cs" />
+    <Compile Include="BOSItemProductClassTreeLink.cs" />
+    <Compile Include="BBHospitalDept.cs" />
+    <Compile Include="BBAccountHospitalSearchContext.cs" />
+    <Compile Include="BBAccountType.cs" />
+    <Compile Include="BBAntiBiotic.cs" />
+    <Compile Include="BBAntiType.cs" />
+    <Compile Include="BBDoctorAccount.cs" />
+    <Compile Include="BBHospital.cs" />
+    <Compile Include="BBHospitalLevel.cs" />
+    <Compile Include="BBHospitalSearch.cs" />
+    <Compile Include="BBHospitalType.cs" />
+    <Compile Include="BBIcons.cs" />
+    <Compile Include="BBIconsType.cs" />
+    <Compile Include="BBMicroItem.cs" />
+    <Compile Include="BBScanningBarCodeReportForm.cs" />
+    <Compile Include="BBSearchAccount.cs" />
+    <Compile Include="BBSearchAccountReportForm.cs" />
+    <Compile Include="BBSpecialty.cs" />
+    <Compile Include="BBWeiXinAccount.cs" />
+    <Compile Include="BBWeiXinUserGroup.cs" />
+    <Compile Include="BItemAllItem.cs" />
+    <Compile Include="BOSManagerRefundFormAttachment.cs" />
+    <Compile Include="BFinanceIncome.cs" />
+    <Compile Include="BUserConsumerItemDetails.cs" />
+    <Compile Include="BParameterCache.cs" />
+    <Compile Include="BBRuleNumber.cs" />
+    <Compile Include="BBSampleType.cs" />
+    <Compile Include="BTestItemClinicalSignificance.cs" />
+    <Compile Include="BOSDoctorBonus.cs" />
+    <Compile Include="BOSDoctorBonusForm.cs" />
+    <Compile Include="BOSDoctorBonusAttachment.cs" />
+    <Compile Include="BOSDoctorBonusOperation.cs" />
+    <Compile Include="BOSDoctorOrderForm.cs" />
+    <Compile Include="BOSDoctorOrderItem.cs" />
+    <Compile Include="BOSManagerRefundForm.cs" />
+    <Compile Include="BOSManagerRefundFormOperation.cs" />
+    <Compile Include="BOSRecommendationItemProduct.cs" />
+    <Compile Include="BOSShoppingCart.cs" />
+    <Compile Include="BOSUserConsumerForm.cs" />
+    <Compile Include="BOSUserConsumerItem.cs" />
+    <Compile Include="BOSUserOrderForm.cs" />
+    <Compile Include="BOSUserOrderItem.cs" />
+    <Compile Include="BCLIENTELE.cs" />
+    <Compile Include="BBLabSickType.cs" />
+    <Compile Include="BBSickTypeControl.cs" />
+    <Compile Include="BBLabSampleType.cs" />
+    <Compile Include="BBSampleTypeControl.cs" />
+    <Compile Include="BBDoctorControl.cs" />
+    <Compile Include="BBLabDoctor.cs" />
+    <Compile Include="BDoctor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BRFReportFormIndexInfo.cs" />
+    <Compile Include="BRFReportItemFull.cs" />
+    <Compile Include="BRFReportMarrowFull.cs" />
+    <Compile Include="BRFReportMicroFull.cs" />
+    <Compile Include="BSWeiXinAccountLog.cs" />
+    <Compile Include="BSickType.cs" />
+    <Compile Include="BSampleType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{056f6e08-20c6-443c-86e5-055a0504aba6}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{940d976a-3448-4c31-a9fe-1b8c99a38af2}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{3088c72d-5fbd-46f5-b9ba-fd8adc05b2a5}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{5BCBA563-016A-493B-88F3-0DC683E9716B}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{0448af93-d854-466f-86c7-8f7843cb9f06}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{327986fe-0805-42d5-8cc4-0a92e88ad4f1}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{92f249ba-e8d6-4aa0-8571-ab21f3e05f70}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.Common\ZhiFang.WeiXin.Common.csproj">
+      <Project>{B7F82A5B-128A-4558-AD09-11CE50BE277F}</Project>
+      <Name>ZhiFang.WeiXin.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.DAO.NHB\ZhiFang.WeiXin.DAO.NHB.csproj">
+      <Project>{4A11B9FA-7865-4872-817C-56845E79F009}</Project>
+      <Name>ZhiFang.WeiXin.DAO.NHB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.Entity\ZhiFang.WeiXin.Entity.csproj">
+      <Project>{CC03E805-5743-4343-840A-92FAA7457315}</Project>
+      <Name>ZhiFang.WeiXin.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.IBLL\ZhiFang.WeiXin.IBLL.csproj">
+      <Project>{81CE76B4-4265-4CBF-93ED-D3176E1B450A}</Project>
+      <Name>ZhiFang.WeiXin.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.IDAO\ZhiFang.WeiXin.IDAO.csproj">
+      <Project>{C0B34E1E-63D0-456A-8385-B51E3B519101}</Project>
+      <Name>ZhiFang.WeiXin.IDAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

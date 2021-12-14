@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1BA52340-F0CA-4F3E-92AC-EE46708C121F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Digitlab.IBLL.Business</RootNamespace>
+    <AssemblyName>ZhiFang.Digitlab.IBLL.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IBBAccountType.cs" />
+    <Compile Include="IBBAgeUnit.cs" />
+    <Compile Include="IBBAttendanceType.cs" />
+    <Compile Include="IBBBackSectionState.cs" />
+    <Compile Include="IBBBusinessType.cs" />
+    <Compile Include="IBBCheckStatus.cs" />
+    <Compile Include="IBBCity.cs" />
+    <Compile Include="IBBConstellation.cs" />
+    <Compile Include="IBBCountry.cs" />
+    <Compile Include="IBBCultivationCondition.cs" />
+    <Compile Include="IBBCultureMedium.cs" />
+    <Compile Include="IBBDegree.cs" />
+    <Compile Include="IBBDiag.cs" />
+    <Compile Include="IBBDic.cs" />
+    <Compile Include="IBBDicClass.cs" />
+    <Compile Include="IBBDiseaseArea.cs" />
+    <Compile Include="IBBDiseaseRoom.cs" />
+    <Compile Include="IBBDoctor.cs" />
+    <Compile Include="IBBEducationLevel.cs" />
+    <Compile Include="IBBExecutionState.cs" />
+    <Compile Include="IBBFileGroup.cs" />
+    <Compile Include="IBBFileType.cs" />
+    <Compile Include="IBBFinancial.cs" />
+    <Compile Include="IBBHealthStatus.cs" />
+    <Compile Include="IBBIdentificationMethod.cs" />
+    <Compile Include="IBBLaboratory.cs" />
+    <Compile Include="IBBMedicalDepartment.cs" />
+    <Compile Include="IBBMicroBCBottleReceivingPerson.cs" />
+    <Compile Include="IBBMicroBCBottleTypeOfItem.cs" />
+    <Compile Include="IBBMicroBCBottleTypeOfManufacturer.cs" />
+    <Compile Include="IBBMicroBloodCultureBottleManufacturer.cs" />
+    <Compile Include="IBBMicroBloodCultureBottleType.cs" />
+    <Compile Include="IBBMicroTestItemAndSample.cs" />
+    <Compile Include="IBBPoliticsStatus.cs" />
+    <Compile Include="IBBProfessionalAbility.cs" />
+    <Compile Include="IBBProjectType.cs" />
+    <Compile Include="IBBLeaveType.cs" />
+    <Compile Include="IBBLevel.cs" />
+    <Compile Include="IBBMaritalStatus.cs" />
+    <Compile Include="IBBMaxNumberToRule.cs" />
+    <Compile Include="IBBNationality.cs" />
+    <Compile Include="IBBNumberBuildRule.cs" />
+    <Compile Include="IBBNumberBuildRuleCondition.cs" />
+    <Compile Include="IBBOperateObjectType.cs" />
+    <Compile Include="IBBParameter.cs" />
+    <Compile Include="IBBPatientInfo.cs" />
+    <Compile Include="IBBPaymentType.cs" />
+    <Compile Include="IBBPhrase.cs" />
+    <Compile Include="IBBPhraseType.cs" />
+    <Compile Include="IBBProduce.cs" />
+    <Compile Include="IBBProvince.cs" />
+    <Compile Include="IBBReimbursementState.cs" />
+    <Compile Include="IBBReimbursementType.cs" />
+    <Compile Include="IBBReportCycle.cs" />
+    <Compile Include="IBBReportStatus.cs" />
+    <Compile Include="IBBReportType.cs" />
+    <Compile Include="IBBRetainedBacteriaBoxType.cs" />
+    <Compile Include="IBBSampleCharacter.cs" />
+    <Compile Include="IBBSampleNumberBuildRuleCondition.cs" />
+    <Compile Include="IBBSampleOperate.cs" />
+    <Compile Include="IBBSampleOperateType.cs" />
+    <Compile Include="IBBSampleStatus.cs" />
+    <Compile Include="IBBSampleStatusType.cs" />
+    <Compile Include="IBBSampleTypeAndCultureMedium.cs" />
+    <Compile Include="IBBSex.cs" />
+    <Compile Include="IBBSickType.cs" />
+    <Compile Include="IBBSoftWare.cs" />
+    <Compile Include="IBBSoftWareVersionManager.cs" />
+    <Compile Include="IBBStainingMethod.cs" />
+    <Compile Include="IBBStatus.cs" />
+    <Compile Include="IBBStorageType.cs" />
+    <Compile Include="IBBStorehouse.cs" />
+    <Compile Include="IBBSubject.cs" />
+    <Compile Include="IBBSupplier.cs" />
+    <Compile Include="IBBTestType.cs" />
+    <Compile Include="IBBURLGroup.cs" />
+    <Compile Include="IBBURLType.cs" />
+    <Compile Include="IBBSampleType.cs" />
+    <Compile Include="IBBNodeTable.cs" />
+    <Compile Include="IBBSpecialty.cs" />
+    <Compile Include="IBBTimeUnit.cs" />
+    <Compile Include="IBBWeiXinAccount.cs" />
+    <Compile Include="IBBWeiXinEmpLink.cs" />
+    <Compile Include="IBBWeiXinPushMessageTemplate.cs" />
+    <Compile Include="IBBWeiXinUserGroup.cs" />
+    <Compile Include="IBEPBEquip.cs" />
+    <Compile Include="IBEPBEquipCommInfo.cs" />
+    <Compile Include="IBEPEquipItem.cs" />
+    <Compile Include="IBEPEquipType.cs" />
+    <Compile Include="IBEPEquipTypeOperate.cs" />
+    <Compile Include="IBEPMicroEquipAntiChannel.cs" />
+    <Compile Include="IBEPMicroEquipMicroChannel.cs" />
+    <Compile Include="IBEPModule.cs" />
+    <Compile Include="IBGMGroup.cs" />
+    <Compile Include="IBGMGroupEquip.cs" />
+    <Compile Include="IBGMGroupItem.cs" />
+    <Compile Include="IBGMGroupType.cs" />
+    <Compile Include="IBGMGroupTypeOperate.cs" />
+    <Compile Include="IBItemAllItem.cs" />
+    <Compile Include="IBNumberRule.cs" />
+    <Compile Include="IBSampleNumberRule.cs" />
+    <Compile Include="IBSCInteraction.cs" />
+    <Compile Include="IBSIDictionaryRelation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IBItemItemCon.cs" />
+    <Compile Include="IBSTypeDetail.cs" />
+    <Compile Include="IBSType.cs" />
+    <Compile Include="IBBSoftWareUpdateHistory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity\ZhiFang.Digitlab.Entity.csproj">
+      <Project>{D9AFA74E-62BF-474D-AC0D-FD04F361D0A4}</Project>
+      <Name>ZhiFang.Digitlab.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IBLL\ZhiFang.Digitlab.IBLL.csproj">
+      <Project>{0B4C27E9-4484-4AD5-8591-5F20A7CAAEB1}</Project>
+      <Name>ZhiFang.Digitlab.IBLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

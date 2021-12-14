@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="MEPTOrderForm" table="[dbo].[MEPT_OrderForm]">
+    <id name="Id" column="[OrderFormID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="SerialNo" column="[SerialNo]" type="String" not-null="true" length="30" />
+    <property name="OldSerialNo" column="[OldSerialNo]" type="String" not-null="false" length="60" />
+    <property name="PatCardNo" column="[PatCardNo]" type="String" not-null="false" length="20" />
+    <property name="InpatientNo" column="[InpatientNo]" type="String" not-null="false" length="20" />
+    <property name="PatientID" column="[PatientID]" type="String" not-null="true" length="20" />
+    <property name="PatNo" column="[PatNo]" type="String" not-null="false" length="20" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="40" />
+    <property name="Birthday" column="[Birthday]" type="DateTime" not-null="false" length="8" />
+    <property name="Age" column="[Age]" type="Double" not-null="false" length="8" />
+    <property name="Bed" column="[Bed]" type="String" not-null="false" length="10" />
+    <property name="Doctor" column="[Doctor]" type="String" not-null="false" length="50" />
+    <property name="Diag" column="[Diag]" type="String" not-null="false" length="100" />
+    <property name="IsFree" column="[IsFree]" type="Int32" not-null="false" length="4" />
+    <property name="Charge" column="[Charge]" type="Decimal" not-null="false" length="8" />
+    <property name="FormMemo" column="[FormMemo]" type="String" not-null="false" length="16" />
+    <property name="IsByHand" column="[IsByHand]" type="Int32" not-null="false" length="4" />
+    <property name="CollectPart" column="[CollectPart]" type="String" not-null="false" length="200" />
+    <property name="TestAim" column="[TestAim]" type="String" not-null="false" length="80" />
+    <property name="ZDY1" column="[ZDY1]" type="String" not-null="false" length="50" />
+    <property name="ZDY2" column="[ZDY2]" type="String" not-null="false" length="50" />
+    <property name="ZDY3" column="[ZDY3]" type="String" not-null="false" length="50" />
+    <property name="ZDY4" column="[ZDY4]" type="String" not-null="false" length="50" />
+    <property name="ZDY5" column="[ZDY5]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ChargeFlag" column="[ChargeFlag]" type="Boolean" not-null="false" length="1" />
+    <property name="ZDY6" column="[ZDY6]" type="String" not-null="false" length="50" />
+    <property name="ZDY7" column="[ZDY7]" type="String" not-null="false" length="50" />
+    <property name="ZDY8" column="[ZDY8]" type="String" not-null="false" length="50" />
+    <property name="ZDY9" column="[ZDY9]" type="String" not-null="false" length="50" />
+    <property name="ZDY10" column="[ZDY10]" type="String" not-null="false" length="50" />
+    <many-to-one name="Exec" class="BMedicalDepartment" >
+      <column name="[ExecDeptID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BDiseaseArea" class="BDiseaseArea" >
+      <column name="[DiseaseAreaID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BDiseaseRoom" class="BDiseaseRoom" >
+      <column name="[DiseaseRoomID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BDoctor" class="BDoctor" >
+      <column name="[DoctorID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BMedicalDepartment" class="BMedicalDepartment" >
+      <column name="[DeptID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEPTBCharge" class="MEPTBCharge" >
+      <column name="[ChargeID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Client" class="BLaboratory" >
+      <column name="[ClientID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BDiag" class="BDiag" >
+      <column name="[DiagID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BLaboratory" class="BLaboratory" >
+      <column name="[LabID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BPatientInfo" class="BPatientInfo" >
+      <column name="[PatientKeyID]" not-null="true"/>
+    </many-to-one>
+    <many-to-one name="MEPTBSampleSource" class="MEPTBSampleSource" >
+      <column name="[SampleSourceID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BSampleType" class="BSampleType" >
+      <column name="[SampleTypeID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BSickType" class="BSickType" >
+      <column name="[SickTypeID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BSpecialty" class="BSpecialty" >
+      <column name="[SpecialtyID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BTestType" class="BTestType" >
+      <column name="[TestTypeID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BSampleStatus" class="BSampleStatus" >
+      <column name="[SampleStatusID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BAgeUnit" class="BAgeUnit" >
+      <column name="[AgeUnitID]" not-null="false"/>
+    </many-to-one>
+    <bag name="MEChargeInfoList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[OrderFormID]" />
+      </key>
+      <one-to-many class="MEChargeInfo"/>
+    </bag>
+    <bag name="MEGroupSampleFormList" inverse="false" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[OrderFormID]" />
+      </key>
+      <one-to-many class="MEGroupSampleForm"/>
+    </bag>
+    <bag name="MEPTOrderItemList" inverse="false" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[OrderFormID]" />
+      </key>
+      <one-to-many class="MEPTOrderItem"/>
+    </bag>
+    <bag name="MEPTSampleFormList" inverse="false" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[OrderFormID]" />
+      </key>
+      <one-to-many class="MEPTSampleForm"/>
+    </bag>
+  </class>
+</hibernate-mapping>

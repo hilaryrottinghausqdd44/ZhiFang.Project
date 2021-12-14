@@ -1,0 +1,4 @@
+IF EXISTS(SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Blood_UseDesc]') AND type in (N'U')) DROP TABLE [dbo].[Blood_UseDesc]; CREATE TABLE [dbo].[Blood_UseDesc]( [LabID] [bigint] NULL, [Id] [bigint] NOT NULL, [VersionNo] [varchar](50) NULL, [Contents] [text] NULL, [Visible] [bit] NULL, [DispOrder] [int] NULL, [DataAddTime] [datetime] NULL, [DataTimeStamp] [timestamp] NULL, CONSTRAINT [PK_Blood_UseDesc] PRIMARY KEY CLUSTERED ( [Id] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY] ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]; 
+
+IF COL_LENGTH('B_Parameter', 'NodeID') IS NULL ALTER TABLE B_Parameter ADD NodeID bigint;
+ IF COL_LENGTH('B_Parameter', 'GroupNo') IS NULL ALTER TABLE B_Parameter ADD GroupNo bigint; 

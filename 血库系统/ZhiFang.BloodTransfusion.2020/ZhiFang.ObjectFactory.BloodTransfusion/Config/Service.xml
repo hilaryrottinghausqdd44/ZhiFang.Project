@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--权限系统-->
+  <object id="BBCity" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBCity,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BCityDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBCountry" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBCountry,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BCountryDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBProvince" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBProvince,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BProvinceDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHRDept" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHRDept,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HRDeptDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACUser,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACUserDao"/>
+        <property name="IBHREmployee" ref="BHREmployee"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHRDeptEmp" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHRDeptEmp,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HRDeptEmpDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHRDeptIdentity" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHRDeptIdentity,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HRDeptIdentityDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHREmpIdentity" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHREmpIdentity,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HREmpIdentityDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACUserEmp" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACUser,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACUserDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHREmployee" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHREmployee,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HREmployeeDao"/>
+        <property name="IBHRDept" ref="BHRDept"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IBRBACUser" ref="BRBACUserEmp"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHRPosition" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHRPosition,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HRPositionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACEmpRoles" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACEmpRoles,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACEmpRolesDao"/>
+        <property name="IBHREmployee" ref="BHREmployee"/>
+        <property name="IBRBACRole" ref="BRBACRole"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACModule" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACModule,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACModuleDao"/>
+        <property name="IDRBACRoleModuleDao" ref="RBACRoleModuleDao"/>
+        <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACModuleOper" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACModuleOper,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACModuleOperDao"/>
+        <property name="IBRBACRoleRight" ref="BRBACRoleRightBRBACModuleOper"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRole" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRole,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRoleDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRoleModule" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRoleModule,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRoleModuleDao"/>
+        <property name="IBRBACRole" ref="BRBACRole"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRoleRight" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRoleRight,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRoleRightDao"/>
+        <property name="IBRBACRole" ref="BRBACRole"/>
+        <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+        <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRoleRightBRBACModuleOper" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRoleRight,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRoleRightDao"/>
+        <property name="IBRBACRole" ref="BRBACRole"/>
+        <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACEmpOptions" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACEmpOptions,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACEmpOptionsDao"/>
+        <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRowFilter" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRowFilter,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRowFilterDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BSServiceClientlevel" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BSServiceClientlevel,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="SServiceClientlevelDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSServiceClient" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BSServiceClient,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="SServiceClientDao"/>
+      </object>
+    </property>
+  </object>
+  <!--权限系统-->
+  <!--构建工具-->
+
+  <!--构建工具-->
+
+  <!--系统公用-->
+  <object id="BFFile" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFile,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileDao"/>
+        <property name="IDFFileOperationDao" ref="FFileOperationDao"/>
+        <property name="IDFFileCopyUserDao" ref="FFileCopyUserDao"/>
+        <property name="IDFFileReadingUserDao" ref="FFileReadingUserDao"/>
+        <property name="IDFFileReadingLogDao" ref="FFileReadingLogDao"/>
+        <property name="IBBDictTree" ref="BBDictTree"/>
+        <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IDRBACEmpRolesDao" ref="RBACEmpRolesDao"/>
+        <property name="IBBParameter" ref="BBParameter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileAttachment" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileAttachment,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileAttachmentDao"/>
+        <property name="IDFFileDao" ref="FFileDao"/>
+        <property name="IBBParameter" ref="BBParameter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileCopyUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileCopyUser,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileCopyUserDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileInteraction" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileInteraction,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileInteractionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileOperation" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileOperation,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileOperationDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileReadingLog" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileReadingLog,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileReadingLogDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileReadingUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileReadingUser,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileReadingUserDao"/>
+      </object>
+    </property>
+  </object>
+  <!--系统公用-->
+
+  <!--微信-->
+  <object id="BBAccountType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.WeiXin.BBAccountType,ZhiFang.BLL.WeiXin">
+        <property name="DBDao" ref="BAccountTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBWeiXinAccount" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.WeiXin.BBWeiXinAccount,ZhiFang.BLL.WeiXin">
+        <property name="DBDao" ref="BWeiXinAccountDao"/>
+        <property name="IDBWeiXinEmpLinkDao" ref="BWeiXinEmpLinkDao"/>
+        <property name="IDBWeiXinPushMessageTemplateDao" ref="BWeiXinPushMessageTemplateDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBWeiXinEmpLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.WeiXin.BBWeiXinEmpLink,ZhiFang.BLL.WeiXin">
+        <property name="DBDao" ref="BWeiXinEmpLinkDao"/>
+        <property name="IDRBACUserDao" ref="RBACUserDao"/>
+        <property name="IDBWeiXinAccountDao" ref="BWeiXinAccountDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBWeiXinPushMessageTemplate" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.WeiXin.BBWeiXinPushMessageTemplate,ZhiFang.BLL.WeiXin">
+        <property name="DBDao" ref="BWeiXinPushMessageTemplateDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBWeiXinUserGroup" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.WeiXin.BBWeiXinUserGroup,ZhiFang.BLL.WeiXin">
+        <property name="DBDao" ref="BWeiXinUserGroupDao"/>
+      </object>
+    </property>
+  </object>
+  <!--微信-->
+
+  <!--血库系统-->
+  <object id="BBParameter" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBParameter,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BParameterDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBDictType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBDictType,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BDictTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBDict" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBDict,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BDictDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBDictTree" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBDictTree,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BDictTreeDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BBTemplate" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBTemplate,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BTemplateDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBUserUIConfig" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBUserUIConfig,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BUserUIConfigDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodABO" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodABO,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodABODao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodAggluItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodAggluItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodAggluItemDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBagHandoverOper" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBagHandoverOper,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBagHandoverOperDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBagProcess" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBagProcess,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBagProcessDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBagProcessType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBagProcessType,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBagProcessTypeDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBagProcessTypeQry" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBagProcessTypeQry,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBagProcessTypeQryDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBagRecordDtl" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBagRecordDtl,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBagRecordDtlDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBagRecordItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBagRecordItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBagRecordItemDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBagRecordType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBagRecordType,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBagRecordTypeDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBInForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBInForm,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBInFormDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBInItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBInItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBInItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBOutForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBOutForm,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBOutFormDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBOutItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBOutItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBOutItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBPreForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBPreForm,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBPreFormDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBPreItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBPreItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBPreItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBReqForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBReqForm,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBReqFormDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBReqFormResult" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBReqFormResult,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBReqFormResultDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBReqItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBReqItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBReqItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBTestItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBTestItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBTestItemDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodBUnit" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBUnit,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBUnitDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BBloodChargeGroupItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodChargeGroupItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodChargeGroupItemDao"/>
+        <property name="IDBloodChargeItemDao" ref="BloodChargeItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodChargeItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodChargeItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodChargeItemDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodChargeItemLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodChargeItemLink,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodChargeItemLinkDao"/>
+        <property name="IDBloodChargeItemDao" ref="BloodChargeItemDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodChargeItemType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodChargeItemType,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodChargeItemTypeDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodChargeMoney" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodChargeMoney,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodChargeMoneyDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodClass" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodClass,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodClassDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodInChecked" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodInChecked,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodInCheckedDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodInCheckedCurrent" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodInCheckedCurrent,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodInCheckedCurrentDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodInCheckedItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodInCheckedItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodInCheckedItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodInLoadfat" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodInLoadfat,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodInLoadfatDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodInterfaceTransport" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodInterfaceTransport,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodInterfaceTransportDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodLargeUseItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodLargeUseItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodLargeUseItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodPatinfo" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodPatinfo,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodPatinfoDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodQtyDtl" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodQtyDtl,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodQtyDtlDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodRecei" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodRecei,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodReceiDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodReceiItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodReceiItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodReceiItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodSelfBlood" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodSelfBlood,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodSelfBloodDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodSetQtyAlertColor" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodSetQtyAlertColor,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodSetQtyAlertColorDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodSetQtyAlertInfo" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodSetQtyAlertInfo,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodSetQtyAlertInfoDao"/>
+        <property name="IDBloodStyleDao" ref="BloodStyleDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodStyle" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodStyle,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodStyleDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodTransForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodTransForm,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodTransFormDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodTransItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodTransItem,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodTransItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodUnit" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodUnit,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodUnitDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCBagOperation" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BSCBagOperation,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="SCBagOperationDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCOperation" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BSCOperation,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="SCOperationDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodUseDesc" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodUseDesc,ZhiFang.BLL.BloodTransfusion">
+        <!--DBDaoByInt-->
+        <property name="DBDao" ref="BloodUseDescDao"/>
+      </object>
+    </property>
+  </object>
+  <!--<object id="BBloodBInItemState" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBInItemState,ZhiFang.BLL.BloodTransfusion">
+        --><!--DBDaoByInt--><!--
+        <property name="DBDao" ref="BloodBInItemStateDao"/>
+      </object>
+    </property>
+  </object>-->
+   <object id="BBloodBagChargeLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodBagChargeLink,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodBagChargeLinkDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodClassUnitLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodClassUnitLink,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodClassUnitLinkDao"/>
+        <property name="IDBloodUnitDao" ref="BloodUnitDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodLisResult" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodLisResult,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodLisResultDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodInterfaceMaping" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.BloodTransfusion.BBloodInterfaceMaping,ZhiFang.BLL.BloodTransfusion">
+        <property name="DBDao" ref="BloodInterfaceMapingDao"/>       
+        <property name="IDBDictDao" ref="BDictDao"/>
+        <property name="IDBloodStyleDao" ref="BloodStyleDao"/>
+        <property name="IDBloodBTestItemDao" ref="BloodBTestItemDao"/>
+        <property name="IDBloodBagProcessTypeDao" ref="BloodBagProcessTypeDao"/>
+        <property name="IDBloodUnitDao" ref="BloodUnitDao"/>
+        <property name="IDBloodABODao" ref="BloodABODao"/>
+        <property name="IDBloodChargeItemDao" ref="BloodChargeItemDao"/>
+        <property name="IDPUserDao" ref="PUserDao"/>
+        <property name="IDDepartmentDao" ref="DepartmentDao"/>
+        <property name="IBSCOperation" ref="BSCOperation"/>
+      </object>
+    </property>
+  </object>
+  <!--血库系统-->
+
+  <object id="BDepartment" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BDepartment,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="DepartmentDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BDepartmentUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BDepartmentUser,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="DepartmentUserDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BPUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BPUser,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="PUserDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBloodDocGrade" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBloodDocGrade,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BloodDocGradeDao"/>
+      </object>
+    </property>
+  </object>
+  
+
+</objects>
+

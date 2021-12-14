@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="MEMicroAppraisalValue" table="[dbo].[ME_MicroAppraisalValue]">
+    <id name="Id" column="[AppraisalValueID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="IMType" column="[IMType]" type="String" not-null="false" length="50" />
+    <property name="MicroTestDevelopID" column="[MicroTestDevelopID]" type="Int64" not-null="false" length="8" />
+    <property name="MicroID" column="[MicroID]" type="Int64" not-null="false" length="8" />
+    <property name="ResistancePhenotypeName" column="[ResistancePhenotypeName]" type="String" not-null="false" length="50" />
+    <property name="EquipResistancePhenotype" column="[EquipResistancePhenotype]" type="String" not-null="false" length="50" />
+    <property name="AppraisalResult" column="[AppraisalResult]" type="String" not-null="false" length="200" />
+    <property name="LaboratoryEvaluation" column="[LaboratoryEvaluation]" type="String" not-null="false" length="500" />
+    <property name="RetainedBacteriaID" column="[RetainedBacteriaID]" type="Int64" not-null="false" length="8" />
+    <property name="Zdy1" column="[zdy1]" type="String" not-null="false" length="200" />
+    <property name="Zdy2" column="[zdy2]" type="String" not-null="false" length="200" />
+    <property name="Zdy3" column="[zdy3]" type="String" not-null="false" length="200" />
+    <property name="Zdy4" column="[zdy4]" type="String" not-null="false" length="200" />
+    <property name="Zdy5" column="[zdy5]" type="String" not-null="false" length="200" />
+    <property name="EquipNo" column="[EquipNo]" type="Int32" not-null="false" length="4" />
+    <property name="EquipSampleNo" column="[EquipSampleNo]" type="String" not-null="false" length="20" />
+    <property name="ResultComment" column="[ResultComment]" type="String" not-null="false" length="16" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="IMID" column="[IMID]" type="Int64" not-null="false" length="8" />
+    <property name="MicroAntiClassID" column="[MicroAntiClassID]" type="Int64" not-null="false" length="8" />
+    <property name="GTestDate" column="[GTestDate]" type="DateTime" not-null="false" length="8" />
+    <property name="MicroPositive" column="[MicroPositive]" type="String" not-null="false" length="10" />
+    <property name="IsCopy" column="[IsCopy]" type="Int32" not-null="false" length="4" />
+  </class>
+</hibernate-mapping>

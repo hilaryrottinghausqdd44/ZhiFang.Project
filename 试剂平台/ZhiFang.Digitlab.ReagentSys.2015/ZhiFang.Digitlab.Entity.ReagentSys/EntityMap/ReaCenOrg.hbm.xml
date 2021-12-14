@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+  <class name="ReaCenOrg" table="[dbo].[Rea_CenOrg]">
+    <id name="Id" column="[OrgID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="OrgNo" column="[OrgNo]" type="Int32" not-null="true" length="4" />
+    <property name="OrgType" column="[OrgType]" type="Int32" not-null="true" length="4" />
+    <property name="PlatformOrgID" column="[PlatformOrgID]" type="Int64" not-null="false" length="8" />
+    <property name="PlatformOrgNo" column="[PlatformOrgNo]" type="Int32" not-null="false" length="4" />
+    <property name="CName" column="[CName]" type="String" not-null="true" length="100" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="100" />
+    <property name="ServerIP" column="[ServerIP]" type="String" not-null="false" length="100" />
+    <property name="ServerPort" column="[ServerPort]" type="String" not-null="false" length="10" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="50" />
+    <property name="Address" column="[Address]" type="String" not-null="false" length="100" />
+    <property name="Contact" column="[Contact]" type="String" not-null="false" length="100" />
+    <property name="Tel" column="[Tel]" type="String" not-null="false" length="500" />
+    <property name="Tel1" column="[Tel1]" type="String" not-null="false" length="500" />
+    <property name="HotTel" column="[HotTel]" type="String" not-null="false" length="500" />
+    <property name="HotTel1" column="[HotTel1]" type="String" not-null="false" length="500" />
+    <property name="Fox" column="[Fox]" type="String" not-null="false" length="500" />
+    <property name="Email" column="[Email]" type="String" not-null="false" length="50" />
+    <property name="WebAddress" column="[WebAddress]" type="String" not-null="false" length="100" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="100" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="100" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="100" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="100" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

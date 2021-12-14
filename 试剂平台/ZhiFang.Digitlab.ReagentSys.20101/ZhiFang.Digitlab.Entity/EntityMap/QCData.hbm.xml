@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="QCData" table="[dbo].[QCData]">
+		<id name="Id" column="[QCDataID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="ReceiveDate" column="[ReceiveDate]" type="DateTime" not-null="true" length="8" />
+		<property name="QCDataLotNo" column="[QCDataLotNo]" type="Int32" not-null="false" length="4" />
+		<property name="ReceiveTime" column="[ReceiveTime]" type="String" not-null="true" length="20" />
+		<property name="UserValue" column="[UserValue]" type="Double" not-null="false" length="8" />
+		<property name="OriginalValue" column="[OriginalValue]" type="Double" not-null="false" length="8" />
+		<property name="RuleIndex" column="[RuleIndex]" type="Int32" not-null="false" length="4" />
+		<property name="IfUse" column="[IfUse]" type="Int32" not-null="false" length="4" />
+		<property name="Operator" column="[operator]" type="String" not-null="false" length="20" />
+		<property name="Loserule" column="[loserule]" type="String" not-null="false" length="20" />
+		<property name="Losememo" column="[losememo]" type="String" not-null="false" length="200" />
+		<property name="Loseoperator" column="[loseoperator]" type="String" not-null="false" length="20" />
+		<property name="IloseType" column="[iloseType]" type="Int32" not-null="false" length="4" />
+		<property name="LoseType" column="[loseType]" type="String" not-null="false" length="10" />
+		<property name="LoseReason" column="[LoseReason]" type="String" not-null="false" length="50" />
+		<property name="CorrectMeasure" column="[CorrectMeasure]" type="String" not-null="false" length="50" />
+		<property name="CorrectValue" column="[CorrectValue]" type="Double" not-null="false" length="8" />
+		<property name="UserDesc" column="[UserDesc]" type="String" not-null="false" length="40" />
+		<property name="OriginalDesc" column="[OriginalDesc]" type="String" not-null="false" length="40" />
+		<property name="PlateNo" column="[PlateNo]" type="Int32" not-null="false" length="4" />
+		<property name="PositionNo" column="[PositionNo]" type="Int32" not-null="false" length="4" />
+		<property name="IsAnaly" column="[IsAnaly]" type="Int32" not-null="false" length="4" />
+		<many-to-one name="QCItem" class="QCItem" lazy="false">
+			<column name="[QCItemNo]" not-null="true"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

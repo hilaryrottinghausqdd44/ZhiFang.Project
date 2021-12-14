@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="RFReportMicroFull" table="[dbo].[ReportMicroFull]">
+		<id name="Id" column="[ReportMicroIndexID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="ReportFormIndexID" column="[ReportFormIndexID]" type="Int64" not-null="false" length="8" />
+		<property name="ReportFormID" column="[ReportFormID]" type="String" not-null="true" length="50" />
+		<property name="ReportItemID" column="[ReportItemID]" type="Int32" not-null="true" length="4" />
+		<property name="ResultNo" column="[ResultNo]" type="Int32" not-null="true" length="4" />
+		<property name="ItemNo" column="[ItemNo]" type="Int32" not-null="false" length="4" />
+		<property name="ItemName" column="[ItemName]" type="String" not-null="false" length="200" />
+		<property name="DescNo" column="[DescNo]" type="Int32" not-null="false" length="4" />
+		<property name="DescName" column="[DescName]" type="String" not-null="false" length="250" />
+		<property name="MicroNo" column="[MicroNo]" type="Int32" not-null="false" length="4" />
+		<property name="MicroDesc" column="[MicroDesc]" type="String" not-null="false" length="200" />
+		<property name="MicroName" column="[MicroName]" type="String" not-null="false" length="200" />
+		<property name="AntiNo" column="[AntiNo]" type="Int32" not-null="false" length="4" />
+		<property name="AntiName" column="[AntiName]" type="String" not-null="false" length="200" />
+		<property name="Suscept" column="[Suscept]" type="String" not-null="false" length="50" />
+		<property name="SusQuan" column="[SusQuan]" type="Double" not-null="false" length="8" />
+		<property name="RefRange" column="[RefRange]" type="String" not-null="false" length="200" />
+		<property name="SusDesc" column="[SusDesc]" type="String" not-null="false" length="50" />
+		<property name="AntiUnit" column="[AntiUnit]" type="String" not-null="false" length="50" />
+		<property name="ItemDate" column="[ItemDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ItemTime" column="[ItemTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ItemDesc" column="[ItemDesc]" type="String" not-null="false" length="200" />
+		<property name="EquipNo" column="[EquipNo]" type="Int32" not-null="false" length="4" />
+		<property name="Modified" column="[Modified]" type="Int32" not-null="false" length="4" />
+		<property name="IsMatch" column="[IsMatch]" type="Int32" not-null="false" length="4" />
+		<property name="CheckType" column="[CheckType]" type="Int32" not-null="false" length="4" />
+		<property name="SerialNo" column="[SerialNo]" type="String" not-null="false" length="30" />
+		<property name="FormNo" column="[FormNo]" type="String"  not-null="false" length="50" />
+		<property name="IsReceive" column="[isReceive]" type="Int32" not-null="false" length="4" />
+		<property name="MicroCountDesc" column="[microCountDesc]" type="String" not-null="false" length="200" />
+		<property name="MresulttType" column="[mresulttType]" type="Int32" not-null="false" length="4" />
+		<property name="Itemename" column="[itemename]" type="String" not-null="false" length="40" />
+		<property name="Microename" column="[Microename]" type="String" not-null="false" length="40" />
+		<property name="Antiename" column="[Antiename]" type="String" not-null="false" length="40" />
+		<property name="Antishortname" column="[Antishortname]" type="String" not-null="false" length="10" />
+		<property name="Antishortcode" column="[antishortcode]" type="String" not-null="false" length="10" />
+		<property name="Barcode" column="[Barcode]" type="String" not-null="false" length="20" />
+		<property name="ReceiveDate" column="[ReceiveDate]" type="DateTime" not-null="false" length="8" />
+		<property name="SectionNo" column="[SectionNo]" type="Int32" not-null="false" length="4" />
+		<property name="TestTypeNo" column="[TestTypeNo]" type="Int32" not-null="false" length="4" />
+		<property name="SampleNo" column="[SampleNo]" type="String" not-null="false" length="20" />
+		<property name="EquipName" column="[EquipName]" type="String" not-null="false" length="40" />
+    <property name="MethodName" column="[MethodName]" type="String" not-null="false" length="40" />
+	</class>
+</hibernate-mapping>

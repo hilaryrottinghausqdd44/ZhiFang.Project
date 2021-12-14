@@ -1,0 +1,75 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBSampleStatusByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBSampleStatusById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelBSampleStatus',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddBSampleStatus',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBSampleStatusByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBSampleStatus',
+
+    		//样本状态对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'BSampleStatus_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'BSampleStatus_Id',value:'样本状态ID'},						 
+						 		     
+				     												 
+						{ key:'BSampleStatus_OperateObjectTypeID',value:'操作对象类型ID'}, 
+						 		     
+				     												 
+						{ key:'BSampleStatus_SampleStatusTypeID',value:'样本状态ID'}, 
+						 		     
+				     												 
+						{ key:'BSampleStatus_OperateObjectID',value:'操作对象ID   1：医嘱单-OrderID,   2：样本单-SampleSingleID,   3：检验单   4、医嘱项目-OrderItemID   5、样本单项目-SampleItemID   6、检验单项目'}, 
+						 		     
+				     												 
+						{ key:'BSampleStatus_Comment',value:'说明'}, 
+						 		     
+				     												 
+						{ key:'BSampleStatus_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'BSampleStatus_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'样本状态',
+    		//主键字段
+    		key:'BSampleStatus_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

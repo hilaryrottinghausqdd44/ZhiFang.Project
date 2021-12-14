@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LBMergeItemFormVO">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="PatNo" column="[PatNo]" type="String" not-null="false" length="50" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="100" />
+    <property name="IsMerge" column="[IsMerge]" type="Int64" not-null="false" length="8" />
+    <property name="ItemCount" column="[ItemCount]" type="Int64" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

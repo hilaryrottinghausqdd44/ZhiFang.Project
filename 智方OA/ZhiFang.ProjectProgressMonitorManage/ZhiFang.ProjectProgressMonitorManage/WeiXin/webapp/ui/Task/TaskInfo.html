@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>任务明细</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Common/TaskCommon.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="js/TaskInfo.js" type="text/javascript" charset="UTF-8"></script>
+    <style>
+        .btn-circle {
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-default" style="margin:0px;">
+        <div class="panel-heading text-center">
+            <span id="cancelspan" style="float:left;height:25px">取消</span>
+            <span id="panel-head" style="float:none">任务明细</span>
+            <table style='float:right;' border=0>
+                <tr>
+                    <td><a href="#" id="Interaction" class="btn btn-primary btn-xs" style="margin-left:5px" role="button">交&nbsp;&nbsp;&nbsp;&nbsp;流</a></td>
+                    <td><a href="#" id="OperationLog" class="btn btn-info btn-xs" style="margin-left:5px" role="button">流程记录</a></td>
+                    <td><a href="#" id="Worklog" class="btn btn-success btn-xs" style="margin-left:5px" role="button">工作日志</a></td>
+                </tr>
+            </table>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <td style="width:89px;" valign="middle">任务内容：</td>
+                <td class="text-center">
+                    <textarea id="Contents" class="form-control" rows="5" readonly="readonly"></textarea>
+                </td>
+            </tr>
+            <tr id="PTaskCNametr">
+                <td style="width:89px;" valign="middle">父任务：</td>
+                <td class="text-center">
+                    <input id="PTaskCName" type="text" class="form-control" readonly="readonly" value='' />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">任务状态：</td>
+                <td class="text-center">
+                    <span id="StatusName" class="label label-primary" style="padding:5px;font-size:15px;float:left;">任务状态</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">任务进度：</td>
+                <td>
+                    <span id="PaceName" class="text-primary" style="float:left">0%</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">要求时间：</td>
+                <td valign="middle">
+                    <span id="ReqEndTime" class="label label-success" style="padding:5px;font-size:15px;">2016-07-01</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">紧急程度：</td>
+                <td>
+                    <span id="UrgencyName" class="text-danger" style="float:left">紧急程度</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">任务类别：</td>
+                <td class="text-center">
+                    <span id="TypeName" class="text-info" style="float:left">任务类别</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">执行者：</td>
+                <td class="text-left">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button id="choosecopyforuserbtn" type="button" class="btn btn-default">选择执行者</button>
+                        </div>
+                    </div>
+                    <div id="ids_div" style="display:none"></div>
+                    <div id="names_div" style="font-weight:bold"></div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">相关人员：</td>
+                <td class="text-left">
+                    <div id="ptEmpList" style="padding: 2px" ></div>                   
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">备注：</td>
+                <td class="text-center">
+                    <textarea id="Memo" class="form-control" rows="5" readonly="readonly"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle">附件：</td>
+                <td class="text-center">
+                    <div id="ptAttachment" style="padding: 2px"></div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:89px;" valign="middle" colspan="2" align="right">
+                    <button id="OneAuditing" type="button" class="btn btn-primary">一审受理</button>
+                    <button id="OneAudited" type="button" class="btn btn-success">一审通过</button>
+                    <button id="OneAuditBack" type="button" class="btn btn-danger">一审退回</button>
+                    <button id="TwoAuditing" type="button" class="btn btn-primary">二审受理</button>
+                    <button id="TwoAudited" type="button" class="btn btn-success">二审通过</button>
+                    <button id="TwoAuditBack" type="button" class="btn btn-danger">二审退回</button>
+                    <button id="Publishing" type="button" class="btn btn-primary">分配受理</button>
+                    <button id="Publish" type="button" class="btn btn-primary">分配任务</button>
+                    <button id="PublishBack" type="button" class="btn btn-danger">分配退回</button>
+                    <button id="Executing" type="button" class="btn btn-primary">执行受理</button>
+                    <button id="Executed" type="button" class="btn btn-success">执行完成</button>
+                    <button id="ExecutStop" type="button" class="btn btn-danger">不执行</button>
+                    <button id="Checking" type="button" class="btn btn-primary">验收受理</button>
+                    <button id="Checked" type="button" class="btn btn-success">验收完成</button>
+                    <button id="CheckBack" type="button" class="btn btn-danger">验收退回</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--添加操作备注面板-->
+    <div class="modal fade" id="AddOperLog_div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:50px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">添加操作意见</h4>
+                </div>
+                <div class="modal-body" style="padding: 0px;"><textarea id="OperateMemo" class="form-control" rows="5"></textarea></div>
+                <div class="modal-footer">
+                    <button type="button" id="AddOperLog_action_pass_btn" class="btn btn-success">提交</button>
+                    <button type="button" id="AddOperLog_action_rebut_btn" class="btn btn-danger">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

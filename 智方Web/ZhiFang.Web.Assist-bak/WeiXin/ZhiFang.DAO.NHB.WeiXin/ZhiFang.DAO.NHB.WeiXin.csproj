@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60E95425-9221-4D82-AF52-3DB7529F2652}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.DAO.NHB.WeiXin</RootNamespace>
+    <AssemblyName>ZhiFang.DAO.NHB.WeiXin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\Lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30">
+      <HintPath>..\..\Lib\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log">
+      <HintPath>..\..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAccountTypeDao.cs" />
+    <Compile Include="BWeiXinAccountDao.cs" />
+    <Compile Include="BWeiXinEmpLinkDao.cs" />
+    <Compile Include="BWeiXinPushMessageTemplateDao.cs" />
+    <Compile Include="BWeiXinUserGroupDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Base\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{1cfa6885-ebbe-489e-9373-b672e8dad7e7}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RBAC\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WeiXin\ZhiFang.Entity.WeiXin.csproj">
+      <Project>{c867875c-5404-480d-89e4-9cc67c66d963}</Project>
+      <Name>ZhiFang.Entity.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RBAC\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.WeiXin\ZhiFang.IDAO.WeiXin.csproj">
+      <Project>{ff61e24b-369f-490e-bad8-607948e35e8f}</Project>
+      <Name>ZhiFang.IDAO.WeiXin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

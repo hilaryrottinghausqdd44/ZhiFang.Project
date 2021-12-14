@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45D7B243-199A-4DE7-A777-EC02BD1BBCE6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.LabStar</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.LabStar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.LabStar.TechnicianStation\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastReport, Version=2013.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=2013.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Editor, Version=2013.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\FastReport.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBModuleFormControlList.cs" />
+    <Compile Include="BBModuleFormControlSet.cs" />
+    <Compile Include="BBModuleFormList.cs" />
+    <Compile Include="BBModuleGridControlList.cs" />
+    <Compile Include="BBModuleGridControlSet.cs" />
+    <Compile Include="BBModuleGridList.cs" />
+    <Compile Include="BLBExpertRule.cs" />
+    <Compile Include="BLBExpertRuleList.cs" />
+    <Compile Include="BLBItemExp.cs" />
+    <Compile Include="BLBPhyPeriod.cs" />
+    <Compile Include="BLBCollectPart.cs" />
+    <Compile Include="BLisBarCodeRefuseRecord.cs" />
+    <Compile Include="BLBTranRuleHostSection.cs" />
+    <Compile Include="BLisEquipComFile.cs" />
+    <Compile Include="BLisEquipComLog.cs" />
+    <Compile Include="BBPrintModel.cs" />
+    <Compile Include="BLBItemCharge.cs" />
+    <Compile Include="BLBChargeType.cs" />
+    <Compile Include="BLBItemCodeLink.cs" />
+    <Compile Include="BLBDicCodeLink.cs" />
+    <Compile Include="BLBEquipSection.cs" />
+    <Compile Include="BLBOrderModel.cs" />
+    <Compile Include="BLBOrderModelItem.cs" />
+    <Compile Include="BLBTGetMaxNo.cs" />
+    <Compile Include="BLBReportDateDesc.cs" />
+    <Compile Include="BLBRight.cs" />
+    <Compile Include="BLBSectionHisComp.cs" />
+    <Compile Include="BLBSectionPrint.cs" />
+    <Compile Include="BBHost.cs" />
+    <Compile Include="BBHostTypeUser.cs" />
+    <Compile Include="BBHostType.cs" />
+    <Compile Include="BBParaItem.cs" />
+    <Compile Include="BBPara.cs" />
+    <Compile Include="BLisCommonMethod.cs" />
+    <Compile Include="BLBQCItemRule.cs" />
+    <Compile Include="BLBQCRule.cs" />
+    <Compile Include="BLBQCRuleBase.cs" />
+    <Compile Include="BLBQCRulesCon.cs" />
+    <Compile Include="BLisEquipGraph.cs" />
+    <Compile Include="BLisOperateASection.cs" />
+    <Compile Include="BLisOperate.cs" />
+    <Compile Include="BLisOperateAuthorize.cs" />
+    <Compile Include="BLBQCItem.cs" />
+    <Compile Include="BLBQCItemTime.cs" />
+    <Compile Include="BLBQCMaterial.cs" />
+    <Compile Include="BLBQCMatTime.cs" />
+    <Compile Include="BLisQueue.cs" />
+    <Compile Include="BLisQCComments.cs" />
+    <Compile Include="BLisQCData.cs" />
+    <Compile Include="BLisTestFormMsgItem.cs" />
+    <Compile Include="BLisTestFormMsg.cs" />
+    <Compile Include="BLisTestItemReceive.cs" />
+    <Compile Include="BLisTestGraph.cs" />
+    <Compile Include="BLBDict.cs" />
+    <Compile Include="BLBEquipResultTH.cs" />
+    <Compile Include="BLBReportDate.cs" />
+    <Compile Include="BLBReportDateRule.cs" />
+    <Compile Include="BLBParItemSplit.cs" />
+    <Compile Include="BLBPhrasesWatch.cs" />
+    <Compile Include="BLBPhrasesWatchClass.cs" />
+    <Compile Include="BLBPhrasesWatchClassItem.cs" />
+    <Compile Include="BLBReportDateItem.cs" />
+    <Compile Include="BLBSampleItem.cs" />
+    <Compile Include="BLBSamplingChargeItem.cs" />
+    <Compile Include="BLBSamplingGroup.cs" />
+    <Compile Include="BLBSamplingItem.cs" />
+    <Compile Include="BLBTcuvete.cs" />
+    <Compile Include="BLBTranRule.cs" />
+    <Compile Include="BLBTranRuleItem.cs" />
+    <Compile Include="BLBTranRuleType.cs" />
+    <Compile Include="BLisCommon.cs" />
+    <Compile Include="BLBDestination.cs" />
+    <Compile Include="BLBFolk.cs" />
+    <Compile Include="BLBDiag.cs" />
+    <Compile Include="BLBEquip.cs" />
+    <Compile Include="BLBEquipItem.cs" />
+    <Compile Include="BLBItem.cs" />
+    <Compile Include="BLBItemCalc.cs" />
+    <Compile Include="BLBItemCalcFormula.cs" />
+    <Compile Include="BLBItemComp.cs" />
+    <Compile Include="BLBItemGroup.cs" />
+    <Compile Include="BLBItemRange.cs" />
+    <Compile Include="BLBItemRangeExp.cs" />
+    <Compile Include="BLBItemTimeW.cs" />
+    <Compile Include="BLBPhrase.cs" />
+    <Compile Include="BLBSampleType.cs" />
+    <Compile Include="BLBSection.cs" />
+    <Compile Include="BLBSectionItem.cs" />
+    <Compile Include="BLBSickType.cs" />
+    <Compile Include="BLBSpecialty.cs" />
+    <Compile Include="BLisBarCodeForm.cs" />
+    <Compile Include="BLisBarCodeItem.cs" />
+    <Compile Include="BLisEquipForm.cs" />
+    <Compile Include="BLisEquipItem.cs" />
+    <Compile Include="BLisOrderForm.cs" />
+    <Compile Include="BLisOrderItem.cs" />
+    <Compile Include="BLisPatient.cs" />
+    <Compile Include="BLisTestForm.cs" />
+    <Compile Include="BLisTestItem.cs" />
+    <Compile Include="BLBQCPrintTemplate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.ADO\ZhiFang.DAO.ADO.csproj">
+      <Project>{0cf78469-9642-4f5a-885b-e8eb28174e1f}</Project>
+      <Name>ZhiFang.DAO.ADO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{1cfa6885-ebbe-489e-9373-b672e8dad7e7}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.LabStar\ZhiFang.Entity.LabStar.csproj">
+      <Project>{50641dca-bffc-4818-9fef-d9338dbb2327}</Project>
+      <Name>ZhiFang.Entity.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.LIIP\ZhiFang.Entity.LIIP.csproj">
+      <Project>{34a7c4df-e99d-4a8c-b614-c9e7a22fed91}</Project>
+      <Name>ZhiFang.Entity.LIIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.LabStar\ZhiFang.IBLL.LabStar.csproj">
+      <Project>{ba6a2ef3-1134-45e4-8420-da3f40d9197c}</Project>
+      <Name>ZhiFang.IBLL.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.LabStar\ZhiFang.IDAO.LabStar.csproj">
+      <Project>{286b724d-312b-4657-8e2b-2772b31ffa97}</Project>
+      <Name>ZhiFang.IDAO.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.LabStar.Common\ZhiFang.LabStar.Common.csproj">
+      <Project>{d187edc5-9421-4097-85ec-ab82a76a82d5}</Project>
+      <Name>ZhiFang.LabStar.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550f2-bf83-4c13-9386-9acf6e2ae591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

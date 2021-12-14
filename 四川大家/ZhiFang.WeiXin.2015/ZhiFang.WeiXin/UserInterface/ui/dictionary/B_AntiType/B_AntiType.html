@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../util/common.js"></script>
+    <script src="B_AntiType.js"></script>
+    <style type="text/css">
+        #fm {
+            margin: 20px;
+        }
+
+        .fItem {
+            padding: 5px 5px 5px 20px;
+            width: 90px;
+        }
+
+            .fItem input {
+                width: 150px;
+            }
+    </style>
+</head>
+<body>
+    <table title="抗生素类型" id="dg"></table>
+    <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: left; width:auto; display:inline;">
+
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+
+        </div>
+
+        <div style="float: right; margin-right: 10px; margin-top: 3px; display: none;">
+            <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入',searcher:doSearch" style="width:200px;" />
+
+        </div>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width: 375px; height: 260px;" closed="true" buttons="#dlgButtons">
+        <form id="fm">
+            <table>
+                <tr style="padding-top:20px;">
+                    <td class="fItem">抗生素类型ID</td>
+                    <td class="fItem"><input id='txtBAntiType_Id' name="BAntiType_Id" class="easyui-textbox" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td class="fItem">名称</td>
+                    <td class="fItem"><input id="txtBAntiType_CName" name="BAntiType_CName" required="required" class="easyui-textbox" /></td>
+                </tr>
+               
+                <tr>
+                    <td class="fItem">快捷码</td>
+                    <td class="fItem"><input id="txtBAntiType_ShortCode" name="BAntiType_ShortCode" class="easyui-textbox" /></td>
+                </tr>
+               
+               
+                <tr>
+                    <td class="fItem">显示次序</td>
+                    <td class="fItem"><input id='txtBAntiType_Disporder' name="BAntiType_Disporder" class="easyui-numberbox"></td>
+                </tr>
+               
+            </table>
+        </form>
+    </div>
+    <div id="dlgButtons">
+        <div align="right">
+            <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+        </div>
+    </div>
+</body>
+</html>

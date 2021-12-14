@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用血类型</title>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="../../../../../src/layui/dist/css/layui.css" />
+		<script type="text/javascript" src="../../../../../src/layui/dist/layui.js"></script>
+		<script src="../../../../../../ui/layui/config/system.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+		<style type="text/css">
+			.layui-form>.layui-form-item input{
+		  		width: 185px;
+		  		height: 32px;
+		  	}
+		  	
+		  	.layui-form>.layui-form-item>label{
+		  		width: 100px;
+		  	}
+		  	
+		  	.layui-panel{
+				border: 1px solid #E6E6E6;
+				background-color: #E6E6E6;
+				padding: 5px;
+				line-height: 50px;
+			}
+			
+		  	.layui-table-view{
+		  		margin: 0;
+		  	}
+		</style>		
+	</head>
+	<body>
+		<div class="layui-fluid">
+			<div class="layui-row" style="margin-top: 20px;">
+				<div class="layui-col-md8">
+					<div class="layui-panel" style="margin: 0;">
+						<label>是否启用</label>
+						<select class="layui-select" id="LAY-search-select-visible" style="width: 100px;">
+							<option value="-1">全部</option>
+							<option value="1" selected="true">启用</option>
+							<option value="0">禁用</option>
+						</select>
+						<input type="text" id="LAY-search-text"  autocomplete="off" placeholder="类型编号/类型名称"/ style="width: 230px;height: 33px;">
+						<div class="layui-btn-group">
+							<button class="layui-btn" id="LAY-btn-search" data-type = "search"><i class ="layui-icon layui-icon-search"></i>检索</button>
+							<button class="layui-btn" id="LAY-btn-add" data-type = "add"><i class="layui-icon layui-icon-add-1"></i>新增</button>
+							<button class="layui-btn" id="LAY-btn-edit" data-type = "edit"><i class="layui-icon layui-icon-edit"></i>修改</button>
+						</div>
+					</div>
+					<table class="layui-table" id="LAY-bloodusetype-table" lay-filter="LAY-bloodusetype-table-filter" style="margin: 0;"></table>
+				</div>
+				<div class="layui-col-md4" style="margin-top: 80px;">
+					<div class="layui-form" lay-filter="LAY-bloodusetype-form-filter">
+						<div class="layui-form-item layui-hide">
+							<label class="layui-form-label">类型编号</label>
+							<input type="text" class="layui-input" name="BloodUseType_Id" autocomplete="off"></input>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">类型名称</label>
+							<input type="text" class="layui-input" name="BloodUseType_CName" autocomplete="off"/>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">提前申请时间</label>
+							<input type="text" class="layui-input" name="BloodUseType_BeforTime" autocomplete="off"/>
+						</div>	
+						<div class="layui-form-item">
+							<label class="layui-form-label">申请时间单位</label>
+							<div class="layui-input-inline">
+								<select class="layui-form-select" name="BloodUseType_BeforUnit">
+									<option value="分钟" selected="true">分钟</option>
+									<option value="小时">小时</option>
+								</select>
+						    </div>		
+						</div>	
+						<div class="layui-form-item">
+							<label class="layui-form-label">是否使用</label>
+							<div class="layui-input-inline">
+								<select class="layui-form-select" name="BloodUseType_Visible">
+									<option value="true">启用</option>
+									<option value="false">禁用</option>
+								</select>
+							</div>
+						</div>	
+						<div class="layui-form-item">
+							<label class="layui-form-label">简码</label>
+							<input type="text" class="layui-input" name="BloodUseType_ShortCode" autocomplete="off"/>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">显示序号</label>
+							<input type="text" class="layui-input" name="BloodUseType_DispOrder" autocomplete="off"/>
+						</div>	
+						<div class="layui-form-item layui-layout-admin">
+				            <div class="layui-input-block">
+				                <button id="form-save" class="layui-btn" lay-submit lay-filter="save" event-url="">提交</button>
+				                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				            </div>
+			           </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

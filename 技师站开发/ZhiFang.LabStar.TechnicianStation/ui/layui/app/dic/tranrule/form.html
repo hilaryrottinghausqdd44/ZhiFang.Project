@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>分发规则设置</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache" /> 
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+  	</script> 
+  <style>
+  	  	body{background-color: #FFFFFF;}
+		/*input前存在icon 则加到input里面*/
+        .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+    </style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding:10px 15px 0 15px; margin: 0px;"> 
+   <div class="layui-form" id="LBTranRule" lay-filter="LBTranRule"> 
+    <div class="layui-form-item layui-hide"> 
+     <label class="layui-form-label">分发规则ID</label> 
+     <div class="layui-input-block"> 
+      <input type="text" name="LBTranRule_Id" id="LBTranRule_Id" autocomplete="off" class="layui-input" /> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">规则名称</label> 
+      <div class="layui-input-block"> 
+       <input type="text" name="LBTranRule_CName" required="" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">规则类型</label> 
+      <div class="layui-input-block"> 
+       <input type="text" name="LBTranRule_LBTranRuleType_Id" id="LBTranRule_LBTranRuleType_Id" class="layui-input layui-hide" /> 
+       <input type="text" name="LBTranRule_LBTranRuleType_CName" id="LBTranRule_LBTranRuleType_CName" readonly="" autocomplete="off" lay-verify="required" placeholder="必填项" class="layui-input" /> 
+       <i class="layui-icon layui-icon-triangle-d"></i> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">样本区间号</label> 
+      <div class="layui-input-inline" style="width: 85px;"> 
+       <input type="text" value="1" name="LBTranRule_SampleNoMin" id="LBTranRule_SampleNoMin" placeholder="起始样本号" autocomplete="off" class="layui-input" /> 
+      </div> 
+      <div class="layui-form-mid">
+        - 
+      </div> 
+      <div class="layui-input-inline" style="width: 85px;"> 
+       <input type="text" value="9999" name="LBTranRule_SampleNoMax" placeholder="终止样本号" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">样本号前缀</label> 
+      <div class="layui-input-block"> 
+       <input type="text" name="LBTranRule_SampleNoRule" id="LBTranRule_SampleNoRule" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">时间范围</label> 
+      <div class="layui-input-inline" style="width: 85px;"> 
+       <input type="text" value="00:00:00" name="LBTranRule_UseTimeMin" id="LBTranRule_UseTimeMin" lay-verify="time" autocomplete="off" class="layui-input" /> 
+      </div> 
+      <div class="layui-form-mid">
+        - 
+      </div> 
+      <div class="layui-input-inline" style="width: 85px;"> 
+       <input type="text" value="23:59:59"  name="LBTranRule_UseTimeMax" id="LBTranRule_UseTimeMax" lay-verify="time" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">复位周期</label> 
+      <div class="layui-input-block"> 
+       <select name="LBTranRule_ResetType" autocomplete="off" id="LBTranRule_ResetType" lay-search=""  lay-filter="LBTranRule_ResetType"></select> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">下一样本号</label> 
+      <div class="layui-input-block"> 
+       <input type="text" name="LBTranRule_NextSampleNo" id="LBTranRule_NextSampleNo" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">是否启用</label> 
+      <div class="layui-input-block"> 
+       <input type="checkbox" name="LBTranRule_IsUseNextNo" id="LBTranRule_IsUseNextNo" lay-skin="switch" lay-filter="LBTranRule_IsUseNextNo" lay-text="是|否" /> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">送检科室</label> 
+      <div class="layui-input-block"> 
+       <select name="LBTranRule_DeptID" id="LBTranRule_DeptID" lay-search=""  lay-filter="LBTranRule_DeptID"> <option value="">请选择</option> </select> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">就诊类型</label> 
+      <div class="layui-input-block "> 
+       <select name="LBTranRule_SickTypeID" id="LBTranRule_SickTypeID" lay-search=""  lay-filter="LBTranRule_SickTypeID"> <option value="">请选择</option> </select> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">样本类型</label> 
+      <div class="layui-input-block com_select"> 
+       <input type="text" name="LBTranRule_SampleTypeID" id="LBTranRule_SampleTypeID" class="layui-input layui-hide" /> 
+       <input type="text" name="LBTranRule_SampleTypeName" id="LBTranRule_SampleTypeName" readonly="" autocomplete="off" class="layui-input" /> 
+       <i class="layui-icon layui-icon-triangle-d"></i> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label ">采样组</label> 
+      <div class="layui-input-block com_select"> 
+       <input type="text" name="LBTranRule_SamplingGroupID" id="LBTranRule_SamplingGroupID" class="layui-input layui-hide" /> 
+       <input type="text" name="LBTranRule_SamplingGroupName" id="LBTranRule_SamplingGroupName" readonly="" autocomplete="off" class="layui-input" /> 
+       <i class="layui-icon layui-icon-triangle-d"></i> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">外送单位</label> 
+      <div class="layui-input-block"> 
+       <select name="LBTranRule_ClientID" id="LBTranRule_ClientID" lay-search=""  lay-filter="LBTranRule_ClientID"> <option value="">请选择</option> </select> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">分发备注</label> 
+      <div class="layui-input-block"> 
+       <input type="text" name="LBTranRule_DispenseMemo" placeholder="分发备注" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">急查标识</label> 
+      <div class="layui-input-block"> 
+       <input type="text" name="LBTranRule_UrgentState" placeholder="急查标识" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">优先次序</label> 
+      <div class="layui-input-block"> 
+       <input type="text" value="1" name="LBTranRule_DispOrder" placeholder="优先次序" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">自动打印</label> 
+      <div class="layui-input-block"> 
+       <input type="checkbox" name="LBTranRule_IsAutoPrint" id="LBTranRule_IsAutoPrint" lay-skin="switch" lay-filter="LBTranRule_IsAutoPrint" lay-text="是|否" /> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">打印份数</label> 
+      <div class="layui-input-block"> 
+       <input type="text" name="LBTranRule_PrintCount" placeholder="打印份数" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">检验日期</label> 
+      <div class="layui-input-block"> 
+       <select name="LBTranRule_TestDelayDates" id="LBTranRule_TestDelayDates" lay-filter="LBTranRule_TestDelayDates"></select> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">允许跟随</label> 
+      <div class="layui-input-block"> 
+       <input type="checkbox" checked="" name="LBTranRule_IsFollow" id="LBTranRule_IsFollow" lay-skin="switch" lay-filter="LBTranRule_IsFollow" lay-text="是|否" /> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">样本号方式</label> 
+      <div class="layui-input-block"> 
+       <select name="LBTranRule_SampleNoType" id="LBTranRule_SampleNoType" lay-filter="LBTranRule_SampleNoType"> <option value="">请选择</option> <option value="1">使用条码号作为样本号</option> <option value="2">一个条码分发到多个小组时使用相同样本号</option> </select> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">分发星期</label> 
+      <div class="layui-input-block"> 
+       <select name="LBTranRule_TranWeek" id="LBTranRule_TranWeek" lay-filter="LBTranRule_TranWeek"> <option value="">请选择</option> <option value="1">星期一</option> <option value="2">星期二</option> <option value="3">星期三</option> <option value="4">星期四</option> <option value="5">星期五</option> <option value="6">星期六</option> <option value="7">星期日</option> </select> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="layui-form-item" pane=""> 
+     <label class="layui-form-label">分发至星期</label> 
+     <div class="layui-input-block"> 
+      <input type="checkbox" name="like1[1]" lay-skin="primary" title="星期一" /> 
+      <input type="checkbox" name="like1[2]" lay-skin="primary" title="星期二" /> 
+      <input type="checkbox" name="like1[3]" lay-skin="primary" title="星期三" /> 
+      <input type="checkbox" name="like1[4]" lay-skin="primary" title="星期四" /> 
+      <input type="checkbox" name="like1[5]" lay-skin="primary" title="星期五" /> 
+      <input type="checkbox" name="like1[6]" lay-skin="primary" title="星期六" /> 
+      <input type="checkbox" name="like1[7]" lay-skin="primary" title="星期日" /> 
+     </div> 
+    </div> 
+    <div class="layui-form-item"> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">打印流转单</label> 
+      <div class="layui-input-block"> 
+       <input type="checkbox" name="LBTranRule_IsPrintProce" id="LBTranRule_IsPrintProce" lay-skin="switch" lay-filter="LBTranRule_IsPrintProce" lay-text="是|否" /> 
+      </div> 
+     </div> 
+     <div class="layui-col-xs6"> 
+      <label class="layui-form-label">流转单模板</label> 
+      <div class="layui-input-block"> 
+       <input type="text" name="LBTranRule_ProceModel" placeholder="流转单模板" autocomplete="off" class="layui-input" /> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="footer"> 
+     <div class="layui-btn-group"> 
+      <button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="save" id="save"><i class="iconfont"></i>&nbsp;保存</button> 
+      <button id="cancel" class="layui-btn layui-btn-primary layui-btn-sm"><i class="iconfont"></i>&nbsp;取消</button> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('form.js');
+	</script> 
+  <style type="text/css">
+		.footer{position:fixed;left:0;bottom:0;width:100%;height:38px;background-color:#ffffff;}
+		.footer div{position:fixed;right:0;bottom:0;padding:5px 15px;}
+		
+		/*.footer{position:fixed;bottom:0;width:100%;height:32px;background-color:#ffffff;}
+		.footer div{position:fixed;padding-left:100;bottom:0;padding:5px 15px;}*/
+	</style>  
+ </body>
+</html>

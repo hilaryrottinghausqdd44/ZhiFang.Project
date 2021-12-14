@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaMonthUsageStatisticsDtl" table="[dbo].[Rea_MonthUsageStatisticsDtl]">
+    <id name="Id" column="[DtlID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="DeptID" column="[DeptID]" type="Int64" not-null="false" length="8" />
+    <property name="DeptName" column="[DeptName]" type="String" not-null="false" length="20" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DocID" column="[DocID]" type="Int64" not-null="true" length="8" />
+    <property name="GoodsName" column="[GoodsName]" type="String" not-null="false" length="100" />
+    <property name="GoodsUnit" column="[GoodsUnit]" type="String" not-null="false" length="100" />
+    <property name="ProdGoodsNo" column="[ProdGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="ReaGoodsNo" column="[ReaGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="CenOrgGoodsNo" column="[CenOrgGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="UnitMemo" column="[UnitMemo]" type="String" not-null="false" length="200" />
+    <property name="OutQty" column="[OutQty]" type="Double" not-null="false" length="8" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="true" length="8" />
+  </class>
+</hibernate-mapping>

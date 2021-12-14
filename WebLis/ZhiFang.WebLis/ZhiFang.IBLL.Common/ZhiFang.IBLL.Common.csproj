@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6EA88541-C2A5-4C8C-84C6-4E9D4C8CC7A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IBLL.Common</RootNamespace>
+    <AssemblyName>ZhiFang.IBLL.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDictionary\IBAgeUnit.cs" />
+    <Compile Include="BaseDictionary\IBbarCodeSeq.cs" />
+    <Compile Include="BaseDictionary\IBBClientPara.cs" />
+    <Compile Include="BaseDictionary\IBBusinessLogicClientControl.cs" />
+    <Compile Include="BaseDictionary\IBBUSINESSMAN.cs" />
+    <Compile Include="BaseDictionary\IBBUSINESSMANControl.cs" />
+    <Compile Include="BaseDictionary\IBCLIENTELE.cs" />
+    <Compile Include="BaseDictionary\IBClientEleArea.cs" />
+    <Compile Include="BaseDictionary\IBCLIENTELEControl.cs" />
+    <Compile Include="BaseDictionary\IBClientProfile.cs" />
+    <Compile Include="BaseDictionary\IBDownloadDictHelp.cs" />
+    <Compile Include="BaseDictionary\IBDepartment.cs" />
+    <Compile Include="BaseDictionary\IBDepartmentControl.cs" />
+    <Compile Include="BaseDictionary\IBDiagnosis.cs" />
+    <Compile Include="BaseDictionary\IBDiagnosisControl.cs" />
+    <Compile Include="BaseDictionary\IBDictionaryGetPubDict.cs" />
+    <Compile Include="BaseDictionary\IBDistrict.cs" />
+    <Compile Include="BaseDictionary\IBDistrictControl.cs" />
+    <Compile Include="BaseDictionary\IBDoctor.cs" />
+    <Compile Include="BaseDictionary\IBDoctorControl.cs" />
+    <Compile Include="BaseDictionary\IBEquipment.cs" />
+    <Compile Include="BaseDictionary\IBEquipmentControl.cs" />
+    <Compile Include="BaseDictionary\IBFolkType.cs" />
+    <Compile Include="BaseDictionary\IBFolkTypeControl.cs" />
+    <Compile Include="BaseDictionary\IBGenderType.cs" />
+    <Compile Include="BaseDictionary\IBGenderTypeControl.cs" />
+    <Compile Include="BaseDictionary\IBItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="BaseDictionary\IBBPhysicalExamType.cs" />
+    <Compile Include="BaseDictionary\IBItemColorDict.cs" />
+    <Compile Include="BaseDictionary\IBLab_BUSINESSMAN.cs" />
+    <Compile Include="BaseDictionary\IBLab_CLIENTELE.cs" />
+    <Compile Include="BaseDictionary\IBLab_Department.cs" />
+    <Compile Include="BaseDictionary\IBLab_Diagnosis.cs" />
+    <Compile Include="BaseDictionary\IBLab_District.cs" />
+    <Compile Include="BaseDictionary\IBLab_Doctor.cs" />
+    <Compile Include="BaseDictionary\IBLab_Equipment.cs" />
+    <Compile Include="BaseDictionary\IBLab_FolkType.cs" />
+    <Compile Include="BaseDictionary\IBLab_GenderType.cs" />
+    <Compile Include="BaseDictionary\IBLab_PGroup.cs" />
+    <Compile Include="BaseDictionary\IBLab_SampleType.cs" />
+    <Compile Include="BaseDictionary\IBLab_SickType.cs" />
+    <Compile Include="BaseDictionary\IBLab_StatusType.cs" />
+    <Compile Include="BaseDictionary\IBLab_SuperGroup.cs" />
+    <Compile Include="BaseDictionary\IBLocationbarCodePrintPamater.cs" />
+    <Compile Include="BaseDictionary\IBModules.cs" />
+    <Compile Include="BaseDictionary\IBPGroupControl.cs" />
+    <Compile Include="BaseDictionary\IBPGroupPrint.cs" />
+    <Compile Include="BaseDictionary\IBPrintFormat.cs" />
+    <Compile Include="BaseDictionary\IBPGroup.cs" />
+    <Compile Include="BaseDictionary\IBPUser.cs" />
+    <Compile Include="BaseDictionary\IBResultTestItemControl.cs" />
+    <Compile Include="BaseDictionary\IBRFGraphData.cs" />
+    <Compile Include="BaseDictionary\IBSampleType.cs" />
+    <Compile Include="BaseDictionary\IBSampleTypeControl.cs" />
+    <Compile Include="BaseDictionary\IBSamplingGroup.cs" />
+    <Compile Include="BaseDictionary\IBSearchReCheckLog.cs" />
+    <Compile Include="BaseDictionary\IBSendOrder.cs" />
+    <Compile Include="BaseDictionary\IBSickType.cs" />
+    <Compile Include="BaseDictionary\IBSickTypeControl.cs" />
+    <Compile Include="BaseDictionary\IBStatusType.cs" />
+    <Compile Include="BaseDictionary\IBStatusTypeControl.cs" />
+    <Compile Include="BaseDictionary\IBSuperGroup.cs" />
+    <Compile Include="BaseDictionary\IBSuperGroupControl.cs" />
+    <Compile Include="BaseDictionary\IBTB_CheckClientAccount.cs" />
+    <Compile Include="BaseDictionary\IBTestItemTest.cs" />
+    <Compile Include="BaseDictionary\IBTestType.cs" />
+    <Compile Include="BaseDictionary\IBWardType.cs" />
+    <Compile Include="IBBase.cs" />
+    <Compile Include="IBBatchCopy.cs" />
+    <Compile Include="IBGetLabList.cs" />
+    <Compile Include="BaseDictionary\IBLabDownLoadInfo.cs" />
+    <Compile Include="IBDataPage.cs" />
+    <Compile Include="BaseDictionary\IBGroupItem.cs" />
+    <Compile Include="BaseDictionary\IBLab_GroupItem.cs" />
+    <Compile Include="BaseDictionary\IBLab_TestItem.cs" />
+    <Compile Include="BaseDictionary\IBTestItem.cs" />
+    <Compile Include="BaseDictionary\IBTestItemControl.cs" />
+    <Compile Include="IBDataDownload.cs" />
+    <Compile Include="IBGetListByTimeStampe.cs" />
+    <Compile Include="IBLogInfo.cs" />
+    <Compile Include="IBGetLabCustomerList.cs" />
+    <Compile Include="IBReportData.cs" />
+    <Compile Include="IBRequestData.cs" />
+    <Compile Include="IBSynchData.cs" />
+    <Compile Include="IBValidUser.cs" />
+    <Compile Include="IConfigHelper.cs" />
+    <Compile Include="IDataCache.cs" />
+    <Compile Include="IFilesHelper.cs" />
+    <Compile Include="IBTransCodeControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Common.Dictionary\ZhiFang.Common.Dictionary.csproj">
+      <Project>{4D598C7C-0592-4752-9CEA-5195F780C006}</Project>
+      <Name>ZhiFang.Common.Dictionary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Model\ZhiFang.Model.csproj">
+      <Project>{9828C326-B724-457E-A649-70850D5EA018}</Project>
+      <Name>ZhiFang.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

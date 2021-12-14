@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>layui</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style>
+		.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+	</style>
+ </head> 
+ <body> 	
+  <div class="layui-fluid"> 
+   <div class="layui-row"> 
+    <div id="divContent"></div> 
+   </div> 
+    <div class="layui-row layui-hide" >
+	  <input type="text" name="sectionID" id="sectionID" autocomplete="off" class="layui-input" /> 
+	 </div>
+  </div> 
+  <script>
+  		UIVersion.loadLayui();
+//		UIVersion.getCSS('../../../css/admin.css');
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+  </script>
+ 	<script type="text/javascript">
+	
+
+		layui.extend({
+			uxutil:'ux/util',
+			sortlist:'app/dic/section/item/sort/sortlist'
+		}).use(['uxutil','sortlist'],function(){
+				var $ = layui.$,
+			    uxutil = layui.uxutil,
+				sortlist = layui.sortlist;
+		
+		    sortlist.render({
+		        elemDiv : "#divContent",
+		        //显示列前缀
+		        prefix:'LBSection',
+		        //显示列
+		        ordercols:[
+					{field:'LBSection_Id',width: 180,title: '小组编号',sort: true,hide:true},
+			        {field:'LBSection_CName', minWidth:150,flex:1, title: '小组名称', sort: true},
+					{field:'LBSection_EName', width:150,title: '英文名称', sort: true},
+					{field:'LBSection_SName', width:150,title: '简称', sort: true}
+			    ],
+			    pkfield:'LBSection_Id',//主键
+			    disporderfield:'LBSection_DispOrder',//次序
+			    //获取小组列表服务地址
+			    selectUrl :uxutil.path.ROOT + '/ServerWCF/LabStarBaseTableService.svc/LS_UDTO_SearchLBSectionByHQL?isPlanish=true',
+			    //修改小组项目服务地址
+			    editUrl:uxutil.path.ROOT + '/ServerWCF/LabStarBaseTableService.svc/LS_UDTO_UpdateLBSectionByField',
+			    elem:'#sortList',
+			    id:'sortList',
+			    title:'检验小组排序',
+			    height:'full-50',
+			    size: 'sm'
+//			    initSort: {field: 'LBSection_DispOrder',type: 'asc' }
+//			    where:{where:'lbsection.Id='+document.getElementById("sectionID").value}
+		    });
+		});
+	</script>
+ </body>
+</html>

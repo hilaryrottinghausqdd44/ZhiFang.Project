@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>已确认条码</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body>
+	<div class="layui-fluid body" style="display:none;">
+		<!--功能按钮栏-->
+		<div id="toolbar" class="toolbar"></div>
+		<div class="layui-row">
+			<div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+				<!--门诊条码列表-->
+				<div id="barcode-index" class="barcode-index"></div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui('2.6.8');
+		UIVersion.getCSS('../../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('confirmBarCode.js');
+	</script>
+	<style type="text/css">
+		.layui-table-view{margin:0;}
+		.body{padding:2px;background-color:#fff;}
+		.toolbar{padding:2px;margin-bottom:2px;border:1px solid #e6e6e6;}
+		.barcode-index{padding:2px;margin-bottom:2px;border:1px solid #e6e6e6;}
+	</style>
+</body>
+</html>

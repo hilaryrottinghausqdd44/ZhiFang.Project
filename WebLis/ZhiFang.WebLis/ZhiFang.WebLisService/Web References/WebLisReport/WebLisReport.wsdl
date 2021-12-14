@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org1/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org1/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org1/">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <s:complexType name="ArrayOfString">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="s:string[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="s:base64Binary[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpLoadReportFromBytes_WeiXinSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="xmlData" type="s:base64Binary" />
+    <wsdl:part name="pdfdata" type="s:base64Binary" />
+    <wsdl:part name="pdfdata_td" type="s:base64Binary" />
+    <wsdl:part name="fileData" type="s:base64Binary" />
+    <wsdl:part name="fileType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytes_WeiXinSoapOut">
+    <wsdl:part name="UpLoadReportFromBytes_WeiXinResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytesSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="xmlData" type="s:base64Binary" />
+    <wsdl:part name="pdfdata" type="s:base64Binary" />
+    <wsdl:part name="pdfdata_td" type="s:base64Binary" />
+    <wsdl:part name="fileData" type="s:base64Binary" />
+    <wsdl:part name="fileType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytesSoapOut">
+    <wsdl:part name="UpLoadReportFromBytesResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportImageSoapIn">
+    <wsdl:part name="ImageName" type="s:string" />
+    <wsdl:part name="ImageData" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportImageSoapOut">
+    <wsdl:part name="UpLoadReportImageResult" type="s:boolean" />
+    <wsdl:part name="errorMsg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytes_ImageListSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="xmlData" type="s:base64Binary" />
+    <wsdl:part name="pdfdata" type="s:base64Binary" />
+    <wsdl:part name="pdfdata_td" type="s:base64Binary" />
+    <wsdl:part name="fileData" type="s:base64Binary" />
+    <wsdl:part name="ImageNameList" type="tns:ArrayOfString" />
+    <wsdl:part name="ImageByteList" type="tns:ArrayOfBase64Binary" />
+    <wsdl:part name="fileType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytes_ImageListSoapOut">
+    <wsdl:part name="UpLoadReportFromBytes_ImageListResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateReportStatusSoapIn">
+    <wsdl:part name="barcode" type="s:string" />
+    <wsdl:part name="weblisflag" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateReportStatusSoapOut">
+    <wsdl:part name="UpdateReportStatusResult" type="s:boolean" />
+    <wsdl:part name="errmsg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateReportStatus_DSoapIn">
+    <wsdl:part name="ReportFormno" type="s:string" />
+    <wsdl:part name="Memo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateReportStatus_DSoapOut">
+    <wsdl:part name="UpdateReportStatus_DResult" type="s:boolean" />
+    <wsdl:part name="errmsg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormListSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="whereSQL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormListSoapOut">
+    <wsdl:part name="DownloadReportFormListResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormListBySerialNoSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="SerialNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormListBySerialNoSoapOut">
+    <wsdl:part name="DownloadReportFormListBySerialNoResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormListByOrgSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="OrgName" type="s:string" />
+    <wsdl:part name="WhereClause" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormListByOrgSoapOut">
+    <wsdl:part name="DownloadReportFormListByOrgResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="whereSQL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListSoapOut">
+    <wsdl:part name="DownloadReportFormItemListResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListBySerialNoSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="SerialNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListBySerialNoSoapOut">
+    <wsdl:part name="DownloadReportFormItemListBySerialNoResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListByReportFormIDSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ReportFormID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListByReportFormIDSoapOut">
+    <wsdl:part name="DownloadReportFormItemListByReportFormIDResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListByFormNOSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="FormNO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListByFormNOSoapOut">
+    <wsdl:part name="DownloadReportFormItemListByFormNOResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListByClientNOSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ClientNO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormItemListByClientNOSoapOut">
+    <wsdl:part name="DownloadReportFormItemListByClientNOResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="downLoadPDFFileContentSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="fileName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="downLoadPDFFileContentSoapOut">
+    <wsdl:part name="downLoadPDFFileContentResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="DownloadPDFFileBySerialNoSoapIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="SerialNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DownloadPDFFileBySerialNoSoapOut">
+    <wsdl:part name="DownloadPDFFileBySerialNoResult" type="s:int" />
+    <wsdl:part name="errorMsg" type="s:string" />
+    <wsdl:part name="returnValue" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapOut">
+    <wsdl:part name="UserLoginResult" type="s:string" />
+    <wsdl:part name="ErrDescription" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteLogSoapIn" />
+  <wsdl:message name="WriteLogSoapOut">
+    <wsdl:part name="WriteLogResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:portType name="WebLisReportSoap">
+    <wsdl:operation name="UpLoadReportFromBytes_WeiXin" parameterOrder="token xmlData pdfdata pdfdata_td fileData fileType errorMsg">
+      <wsdl:input message="tns:UpLoadReportFromBytes_WeiXinSoapIn" />
+      <wsdl:output message="tns:UpLoadReportFromBytes_WeiXinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes" parameterOrder="token xmlData pdfdata pdfdata_td fileData fileType errorMsg">
+      <wsdl:input message="tns:UpLoadReportFromBytesSoapIn" />
+      <wsdl:output message="tns:UpLoadReportFromBytesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportImage" parameterOrder="ImageName ImageData errorMsg">
+      <wsdl:input message="tns:UpLoadReportImageSoapIn" />
+      <wsdl:output message="tns:UpLoadReportImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes_ImageList" parameterOrder="token xmlData pdfdata pdfdata_td fileData ImageNameList ImageByteList fileType errorMsg">
+      <wsdl:input message="tns:UpLoadReportFromBytes_ImageListSoapIn" />
+      <wsdl:output message="tns:UpLoadReportFromBytes_ImageListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus" parameterOrder="barcode weblisflag errmsg">
+      <wsdl:input message="tns:UpdateReportStatusSoapIn" />
+      <wsdl:output message="tns:UpdateReportStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus_D" parameterOrder="ReportFormno Memo errmsg">
+      <wsdl:input message="tns:UpdateReportStatus_DSoapIn" />
+      <wsdl:output message="tns:UpdateReportStatus_DSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormList" parameterOrder="token whereSQL errorMsg returnValue">
+      <wsdl:input message="tns:DownloadReportFormListSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormListBySerialNo" parameterOrder="token SerialNo errorMsg returnValue">
+      <wsdl:input message="tns:DownloadReportFormListBySerialNoSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormListBySerialNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormListByOrg" parameterOrder="token OrgName WhereClause errorMsg returnValue">
+      <wsdl:input message="tns:DownloadReportFormListByOrgSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormListByOrgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemList" parameterOrder="token whereSQL errorMsg returnValue">
+      <wsdl:input message="tns:DownloadReportFormItemListSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormItemListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListBySerialNo" parameterOrder="token SerialNo errorMsg returnValue">
+      <wsdl:input message="tns:DownloadReportFormItemListBySerialNoSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormItemListBySerialNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByReportFormID" parameterOrder="token ReportFormID errorMsg returnValue">
+      <wsdl:input message="tns:DownloadReportFormItemListByReportFormIDSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormItemListByReportFormIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByFormNO" parameterOrder="token FormNO errorMsg returnValue">
+      <wsdl:input message="tns:DownloadReportFormItemListByFormNOSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormItemListByFormNOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByClientNO" parameterOrder="token ClientNO errorMsg returnValue">
+      <wsdl:input message="tns:DownloadReportFormItemListByClientNOSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormItemListByClientNOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="downLoadPDFFileContent" parameterOrder="token fileName errorMsg returnValue">
+      <wsdl:input message="tns:downLoadPDFFileContentSoapIn" />
+      <wsdl:output message="tns:downLoadPDFFileContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPDFFileBySerialNo" parameterOrder="token SerialNo errorMsg returnValue">
+      <wsdl:input message="tns:DownloadPDFFileBySerialNoSoapIn" />
+      <wsdl:output message="tns:DownloadPDFFileBySerialNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin" parameterOrder="UserName Password ErrDescription">
+      <wsdl:input message="tns:UserLoginSoapIn" />
+      <wsdl:output message="tns:UserLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteLog">
+      <wsdl:input message="tns:WriteLogSoapIn" />
+      <wsdl:output message="tns:WriteLogSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebLisReportSoap" type="tns:WebLisReportSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="UpLoadReportFromBytes_WeiXin">
+      <soap:operation soapAction="http://tempuri.org1/UpLoadReportFromBytes_WeiXin" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes">
+      <soap:operation soapAction="http://tempuri.org1/UpLoadReportFromBytes" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportImage">
+      <soap:operation soapAction="http://tempuri.org1/UpLoadReportImage" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes_ImageList">
+      <soap:operation soapAction="http://tempuri.org1/UpLoadReportFromBytes_ImageList" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus">
+      <soap:operation soapAction="http://tempuri.org1/UpdateReportStatus" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus_D">
+      <soap:operation soapAction="http://tempuri.org1/UpdateReportStatus_D" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormList">
+      <soap:operation soapAction="http://tempuri.org1/DownloadReportFormList" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormListBySerialNo">
+      <soap:operation soapAction="http://tempuri.org1/DownloadReportFormListBySerialNo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormListByOrg">
+      <soap:operation soapAction="http://tempuri.org1/DownloadReportFormListByOrg" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemList">
+      <soap:operation soapAction="http://tempuri.org1/DownloadReportFormItemList" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListBySerialNo">
+      <soap:operation soapAction="http://tempuri.org1/DownloadReportFormItemListBySerialNo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByReportFormID">
+      <soap:operation soapAction="http://tempuri.org1/DownloadReportFormItemListByReportFormID" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByFormNO">
+      <soap:operation soapAction="http://tempuri.org1/DownloadReportFormItemListByFormNO" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByClientNO">
+      <soap:operation soapAction="http://tempuri.org1/DownloadReportFormItemListByClientNO" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downLoadPDFFileContent">
+      <soap:operation soapAction="http://tempuri.org1/downLoadPDFFileContent" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPDFFileBySerialNo">
+      <soap:operation soapAction="http://tempuri.org1/DownloadPDFFileBySerialNo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://tempuri.org1/UserLogin" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteLog">
+      <soap:operation soapAction="http://tempuri.org1/WriteLog" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebLisReportSoap12" type="tns:WebLisReportSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="UpLoadReportFromBytes_WeiXin">
+      <soap12:operation soapAction="http://tempuri.org1/UpLoadReportFromBytes_WeiXin" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes">
+      <soap12:operation soapAction="http://tempuri.org1/UpLoadReportFromBytes" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportImage">
+      <soap12:operation soapAction="http://tempuri.org1/UpLoadReportImage" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes_ImageList">
+      <soap12:operation soapAction="http://tempuri.org1/UpLoadReportFromBytes_ImageList" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus">
+      <soap12:operation soapAction="http://tempuri.org1/UpdateReportStatus" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus_D">
+      <soap12:operation soapAction="http://tempuri.org1/UpdateReportStatus_D" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormList">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadReportFormList" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormListBySerialNo">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadReportFormListBySerialNo" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormListByOrg">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadReportFormListByOrg" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemList">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadReportFormItemList" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListBySerialNo">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadReportFormItemListBySerialNo" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByReportFormID">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadReportFormItemListByReportFormID" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByFormNO">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadReportFormItemListByFormNO" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormItemListByClientNO">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadReportFormItemListByClientNO" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downLoadPDFFileContent">
+      <soap12:operation soapAction="http://tempuri.org1/downLoadPDFFileContent" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPDFFileBySerialNo">
+      <soap12:operation soapAction="http://tempuri.org1/DownloadPDFFileBySerialNo" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap12:operation soapAction="http://tempuri.org1/UserLogin" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteLog">
+      <soap12:operation soapAction="http://tempuri.org1/WriteLog" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://tempuri.org1/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebLisReport">
+    <wsdl:port name="WebLisReportSoap" binding="tns:WebLisReportSoap">
+      <soap:address location="http://152.136.176.251/ReportReceive/WebService/WebLisReport.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebLisReportSoap12" binding="tns:WebLisReportSoap12">
+      <soap12:address location="http://152.136.176.251/ReportReceive/WebService/WebLisReport.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

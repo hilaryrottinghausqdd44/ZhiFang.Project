@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+ <title>高级表单查询组件--全部与的查询条件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+ 
+     <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+
+	 <script type="text/javascript" src="../../util/util.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../css/icon.css"/>  
+    <script src="../../zhifangux/AdvancedSearchForm.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+Ext.onReady(function(){
+var advancedSearchForm=Ext.create('Ext.zhifangux.AdvancedSearchForm', {
+    title: '',
+	id:'test_AdvancedSearchForm_id',
+	titleAlign :"center",
+	autoScroll : true,
+	bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+    cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+	height:520,        //容器高度像素
+    width:790,       //容器宽度像素
+	 minWidth:790,//窗体最小宽度,默认值为790
+	saveServerUrl: 'data/GetAdvancedSearchFormTest.json', //往后台保存数据的服务地址
+    dataServerUrl: 'data/GetAdvancedSearchFormTest.json', //数据后台服务地址
+	myComboboxRoot:'ResultDataValue',//生成下拉列表控件时读取后台返回的数据源的root,默认值为ResultDataValue
+	margin :  '11 10 10 50',
+    //renderTo: Ext.getBody()
+		listeners:{
+				//公开的事件
+				btnOKClick:function(){
+				var dd=Ext.getCmp("test_AdvancedSearchForm_id");
+					dd.height=300;
+				alert(dd.height);
+				alert("btnOKClick");
+				},
+				btnClearAllClick:function(){
+				var dd=Ext.getCmp("test_AdvancedSearchForm_id");
+					dd.height=400;
+		alert(dd.height);
+				alert("btnClearAllClick");
+				},
+				btnColseClick:function(){
+						var dd=Ext.getCmp("test_AdvancedSearchForm_id");
+					dd.height=200;
+		alert(dd.height);
+				}
+			}
+	});
+	
+			//按钮
+		var button =Ext.create('Ext.Button', {
+		text: '获取选中值',
+
+		handler: function() {
+		var dd=Ext.getCmp("test_AdvancedSearchForm_id");
+		dd.height=100;
+		alert(dd.height);
+       //alert(myUXRadioGroup.GetLastValue());
+    }
+});
+		
+			//视图展现
+		var viewport = Ext.create('Ext.Viewport',{
+		items:[button,advancedSearchForm]
+		});
+		
+		
+});
+    </script>
+</head>
+<body >
+
+</body>
+</html>

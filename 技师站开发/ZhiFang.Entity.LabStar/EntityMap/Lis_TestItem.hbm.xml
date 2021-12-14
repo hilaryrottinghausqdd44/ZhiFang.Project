@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisTestItem" table="dbo.Lis_TestItem">
+    <id name="Id" column="TestItemID" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="DataTimeStamp" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="LabID" type="Int64" not-null="true" length="8" />
+    <property name="OrdersItemID" column="OrdersItemID" type="Int64" not-null="false" length="8" />
+    <property name="BarCodesItemID" column="BarCodesItemID" type="Int64" not-null="false" length="8" />
+    <property name="EquipResultID" column="EquipResultID" type="Int64" not-null="false" length="8" />
+    <property name="GTestDate" column="GTestDate" type="DateTime" not-null="false" length="8" />
+    <property name="IDoWith" column="iDoWith" type="Int32" not-null="false" length="4" />
+    <property name="IResultState" column="iResultState" type="Int32" not-null="false" length="4" />
+    <property name="ICommState" column="iCommState" type="Int32" not-null="false" length="4" />
+    <property name="MainStatusID" column="MainStatusID" type="Int32" not-null="false" length="4" />
+    <property name="StatusID" column="StatusID" type="Int64" not-null="false" length="8" />
+    <property name="ReportStatusID" column="ReportStatusID" type="Int64" not-null="false" length="8" />
+    <property name="ISource" column="iSource" type="Int32" not-null="false" length="4" />
+    <property name="IExamine" column="iExamine" type="Int32" not-null="false" length="4" />
+    <property name="EquipID" column="EquipID" type="Int64" not-null="false" length="8" />
+    <property name="ValueType" column="ValueType" type="Int32" not-null="false" length="4" />
+    <property name="ReportValue" column="ReportValue" type="String" not-null="false" length="300" />
+    <property name="ReportInfo" column="ReportInfo" type="String" not-null="false" length="1073741823" />
+    <property name="ReportInfoPrint" column="ReportInfoPrint" type="String" not-null="false" length="1073741823" />
+    <property name="ResultComment" column="ResultComment" type="String" not-null="false" length="1000" />
+    <property name="ResultStatus" column="ResultStatus" type="String" not-null="false" length="20" />
+    <property name="ResultStatusCode" column="ResultStatusCode" type="String" not-null="false" length="50" />
+    <property name="QuanValue" column="QuanValue" type="Double" not-null="false" length="8" />
+    <property name="BAlarmColor" column="bAlarmColor" type="Boolean" not-null="false" length="1" />
+    <property name="AlarmColor" column="AlarmColor" type="String" not-null="false" length="50" />
+    <property name="IsReport" column="IsReport" type="Boolean" not-null="false" length="1" />
+    <property name="QuanValue2" column="QuanValue2" type="Double" not-null="false" length="8" />
+    <property name="QuanValue3" column="QuanValue3" type="Double" not-null="false" length="8" />
+    <property name="TestMethod" column="TestMethod" type="String" not-null="false" length="50" />
+    <property name="Unit" column="Unit" type="String" not-null="false" length="50" />
+    <property name="RefRange" column="RefRange" type="String" not-null="false" length="400" />
+    <property name="RedoDesc" column="RedoDesc" type="String" not-null="false" length="200" />
+    <property name="PreResultID" column="PreResultID" type="Int64" not-null="false" length="8" />
+    <property name="PreGTestDate" column="PreGTestDate" type="DateTime" not-null="false" length="8" />
+    <property name="PreValue" column="PreValue" type="String" not-null="false" length="400" />
+    <property name="PreValueComp" column="PreValueComp" type="String" not-null="false" length="50" />
+    <property name="PreCompStatus" column="PreCompStatus" type="String" not-null="false" length="50" />
+    <property name="HisResultCount" column="HisResultCount" type="Int32" not-null="false" length="4" />
+    <property name="PreTestItemID2" column="PreTestItemID2" type="Int64" not-null="false" length="8" />
+    <property name="PreGTestDate2" column="PreGTestDate2" type="DateTime" not-null="false" length="8" />
+    <property name="PreValue2" column="PreValue2" type="String" not-null="false" length="400" />
+    <property name="PreTestItemID3" column="PreTestItemID3" type="Int64" not-null="false" length="8" />
+    <property name="PreGTestDate3" column="PreGTestDate3" type="DateTime" not-null="false" length="8" />
+    <property name="PreValue3" column="PreValue3" type="String" not-null="false" length="400" />
+    <property name="AlarmLevel" column="AlarmLevel" type="Int32" not-null="false" length="4" />
+    <property name="AlarmInfo" column="AlarmInfo" type="String" not-null="false" length="50" />
+    <property name="OriglValue" column="OriglValue" type="String" not-null="false" length="300" />
+    <property name="EReportValue" column="EReportValue" type="String" not-null="false" length="300" />
+    <property name="EResultStatus" column="EResultStatus" type="String" not-null="false" length="50" />
+    <property name="EResultAlarm" column="EResultAlarm" type="String" not-null="false" length="200" />
+    <property name="ETestComment" column="ETestComment" type="String" not-null="false" length="16" />
+    <property name="ESend" column="ESend" type="String" not-null="false" length="100" />
+    <property name="EReagentInfo" column="EReagentInfo" type="String" not-null="false" length="100" />
+    <property name="EAlarmState" column="EAlarmState" type="Int32" not-null="false" length="4" />
+    <property name="OperaterID" column="OperaterID" type="Int64" not-null="false" length="8" />
+    <property name="DispOrder" column="DispOrder" type="Int32" not-null="false" length="4" />
+    <property name="RedoStatus" column="RedoStatus" type="Int32" not-null="false" length="4" />
+    <property name="RedoValues" column="RedoValues" type="String" not-null="false" length="200" />
+    <property name="TestTime" column="TestTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddTime" column="DataAddTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="DataUpdateTime" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="LisBarCodeItem" class="LisBarCodeItem" lazy="proxy">
+      <column name="BarCodeItemID" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="LisOrderItem" class="LisOrderItem" lazy="proxy">
+      <column name="OrderItemID" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="LisTestForm" class="LisTestForm" lazy="proxy">
+      <column name="TestFormID" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="LBItem" class="LBItem" lazy="proxy">
+      <column name="ItemID" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="PLBItem" class="LBItem" lazy="proxy">
+      <column name="PItemID" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

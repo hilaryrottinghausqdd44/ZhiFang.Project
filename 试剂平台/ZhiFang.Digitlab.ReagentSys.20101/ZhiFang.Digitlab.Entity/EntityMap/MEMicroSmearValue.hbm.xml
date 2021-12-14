@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="MEMicroSmearValue" table="[dbo].[ME_MicroSmearValue]">
+		<id name="Id" column="[SmearValueID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="EmpName" column="[EmpName]" type="String" not-null="false" length="60" />
+		<property name="WBC" column="[WBC]" type="Int64" not-null="false" length="8" />
+		<property name="EP" column="[EP]" type="Int64" not-null="false" length="8" />
+		<property name="CharacterEvaluation" column="[CharacterEvaluation]" type="Int64" not-null="false" length="8" />
+		<property name="GNB" column="[GNB]" type="Int64" not-null="false" length="8" />
+		<property name="GNC" column="[GNC]" type="Int64" not-null="false" length="8" />
+		<property name="GPB" column="[GPB]" type="Int64" not-null="false" length="8" />
+		<property name="GPC" column="[GPC]" type="Int64" not-null="false" length="8" />
+		<property name="YeastLikeFungus" column="[YeastLikeFungus]" type="Int64" not-null="false" length="8" />
+		<property name="PseudoHyphae" column="[PseudoHyphae]" type="Int64" not-null="false" length="8" />
+		<property name="Fungus" column="[Fungus]" type="Int64" not-null="false" length="8" />
+		<property name="Evaluation" column="[Evaluation]" type="Int64" not-null="false" length="8" />
+		<property name="SmearMemo" column="[SmearMemo]" type="String" not-null="false" length="500" />
+		<property name="IsReport" column="[isReport]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="EmpID" column="[EmpID]" type="Int64" not-null="false" length="8" />
+		<many-to-one name="BStainingMethod" class="BStainingMethod" lazy="false">
+			<column name="[StainingMethodID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEGroupSampleForm" class="MEGroupSampleForm" lazy="false">
+			<column name="[GroupSampleFormID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEGroupSampleItem" class="MEGroupSampleItem" lazy="false">
+			<column name="[ResultID]" not-null="false"/>
+		</many-to-one>
+    <bag name="MEMicroSmearValueDetailList" inverse="true" lazy="true">
+      <key>
+        <column name="[SmearValueID]" />
+      </key>
+      <one-to-many class="MEMicroSmearValueDetail"/>
+    </bag>
+	</class>
+</hibernate-mapping>

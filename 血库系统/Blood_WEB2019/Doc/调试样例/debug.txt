@@ -1,0 +1,31 @@
+//构造URL参数需要从以下表找数据
+select * from  PUser A, Doctor B Where A.UserNo = B.DoctorNo
+
+select * from Doctor
+
+select * from Department 
+
+select * from DepartmentUser
+===========================================
+
+获取/SingleTableService.svc/ST_UDTO_SearchBParameterByByParaNo?paraNo=BL-BBSC-IDFT-0022 参数编码
+
+护士站血袋交接
+http://localhost/ZhiFang.BloodTransfusion/ui/interface/his/index.html?sysCode=nurseStation&moduleCode=bloodprohandover&deptId=225&doctorId=11340&admId=5926539
+
+护士站输血记录
+http://localhost/ZhiFang.BloodTransfusion/ui/interface/his/index.html?sysCode=nurseStation&moduleCode=transrecord&deptId=225&doctorId=11340&admId=5926539
+
+护士站血袋回收
+http://localhost/ZhiFang.BloodTransfusion/ui/interface/his/index.html?sysCode=nurseStation&moduleCode=bloodbagretrieve&deptId=225&doctorId=11340&admId=5926539
+
+=====医生站====================
+用血申请
+http://localhost/ZhiFang.BloodTransfusion/ui/interface/his/index.html?sysCode=doctorStation&moduleCode=applyandreview&deptId=225&doctorId=11340&admId=5926539
+用血医务科审批
+http://localhost/ZhiFang.BloodTransfusion/ui/interface/his/index.html?sysCode=doctorStation&moduleCode=medical&deptId=225&doctorId=11340&admId=5926539
+=========综合查询=========
+http://localhost/ZhiFang.BloodTransfusion/ui/interface/his/index.html?sysCode=statistics&moduleCode=reqntegrated&deptId=225&doctorId=11340&admId=5926539
+
+
+

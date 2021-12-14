@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="Pragma" content="no-cache"> 
+	<meta http-equiv="Cache-control" content="no-cache">
+    <title>PDF打印</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="printPDF.js?v=20180315"></script>
+</head>
+
+<body class="easyui-layout">
+	<div data-options="region:'west',split:true" style="width:300px;">
+		<table id="pdfWin_grid"></table>
+		<div id="messager"></div>
+	</div>
+	<div id="pdfWin_div" data-options="region:'center'" style="background:gray;">
+		<iframe id="pdfWin_iframe" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px"></iframe>
+	</div>
+	<div id="iframe-div"></div>
+</body>
+</html>

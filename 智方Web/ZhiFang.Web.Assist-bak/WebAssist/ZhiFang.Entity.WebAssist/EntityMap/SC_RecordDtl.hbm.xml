@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="SCRecordDtl" table="[dbo].[SC_RecordDtl]">
+    <id name="Id" column="[RecordDtlId]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="RecordDtlNo" column="[RecordDtlNo]" type="String" not-null="false" length="50" />
+    <property name="BObjectID" column="[BObjectID]" type="Int64" not-null="false" length="8" />
+    <property name="ContentTypeID" column="[ContentTypeID]" type="Int64" not-null="false" length="8" />
+
+    <property name="ItemResult" column="[ItemResult]" type="String" not-null="false" length="300" />
+    <property name="NumberItemResult" column="[NumberItemResult]" type="Double" not-null="false" length="8" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="2147483647" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="TestItemCode" column="[TestItemCode]" type="String" not-null="false" length="50" />
+    
+    <many-to-one name="SCRecordType" class="SCRecordType" >
+      <column name="[RecordTypeID]" not-null="true"/>
+    </many-to-one>
+    <many-to-one name="SCRecordTypeItem" class="SCRecordTypeItem" >
+      <column name="[RecordTypeItemID]" not-null="true"/>
+    </many-to-one>
+
+
+  </class>
+</hibernate-mapping>

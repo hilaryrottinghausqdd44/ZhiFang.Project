@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+	<class name="LBItemRangeExp" table="[dbo].[LB_ItemRangeExp]">
+		<id name="Id" column="[ItemRangeExpID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="JudgeType" column="[JudgeType]" type="Int32" not-null="false" length="4" />
+		<property name="JudgeValue" column="[JudgeValue]" type="String" not-null="false" length="300" />
+		<property name="ResultStatus" column="[ResultStatus]" type="String" not-null="false" length="20" />
+		<property name="ResultReport" column="[ResultReport]" type="String" not-null="false" length="500" />
+		<property name="ResultComment" column="[ResultComment]" type="String" not-null="false" length="1000" />
+		<property name="IsAddReport" column="[IsAddReport]" type="Boolean" not-null="false" length="1" />
+		<property name="ExpReport" column="[expReport]" type="Int32" not-null="false" length="4" />
+		<property name="ExpComment" column="[expComment]" type="String" not-null="false" length="500" />
+		<property name="AlarmColor" column="[AlarmColor]" type="String" not-null="false" length="50" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BAlarmColor" column="[bAlarmColor]" type="Boolean" not-null="false" length="1" />
+    <property name="AlarmLevel" column="AlarmLevel" type="Int32" not-null="false" length="4" />
+		<many-to-one name="LBItem" class="LBItem" lazy="proxy">
+			<column name="[ItemID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

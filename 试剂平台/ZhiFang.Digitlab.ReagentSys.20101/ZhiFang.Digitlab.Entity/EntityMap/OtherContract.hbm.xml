@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="OtherContract" table="[dbo].[Other_Contract]">
+    <id name="Id" column="[ContractID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="OrderNo" column="[OrderNo]" type="Int32" not-null="false" length="4" />
+    <property name="Name" column="[Name]" type="String" not-null="false" length="40" />
+    <property name="ClientID" column="[ClientID]" type="Int64" not-null="false" length="8" />
+    <property name="ClientNane" column="[ClientNane]" type="String" not-null="false" length="200" />
+    <property name="PaymentCompany" column="[PaymentCompany]" type="String" not-null="false" length="200" />
+    <property name="PaymentTypeID" column="[PaymentTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="BusinessTypeID" column="[BusinessTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="ItemTypeID" column="[ItemTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="Amount" column="[Amount]" type="Decimal" not-null="false" length="8" />
+    <property name="HardwareAmount" column="[HardwareAmount]" type="Decimal" not-null="false" length="8" />
+    <property name="PurchasesBudget" column="[PurchasesBudget]" type="Decimal" not-null="false" length="8" />
+    <property name="IntermediaryCosts" column="[IntermediaryCosts]" type="Decimal" not-null="false" length="8" />
+    <property name="SigningTime" column="[SigningTime]" type="DateTime" not-null="false" length="8" />
+    <property name="AdvancePaymentProportion" column="[AdvancePaymentProportion]" type="Double" not-null="false" length="8" />
+    <property name="AcceptancePaymentProportion" column="[AcceptancePaymentProportion]" type="Double" not-null="false" length="8" />
+    <property name="BalanceDueProportion" column="[BalanceDueProportion]" type="Double" not-null="false" length="8" />
+    <property name="ServiceFeeProportion" column="[ServiceFeeProportion]" type="Double" not-null="false" length="8" />
+    <property name="Deposit" column="[Deposit]" type="Decimal" not-null="false" length="8" />
+    <property name="SingleCharges" column="[SingleCharges]" type="Decimal" not-null="false" length="8" />
+    <property name="DoubleCharges" column="[DoubleCharges]" type="Decimal" not-null="false" length="8" />
+    <property name="EndTime" column="[EndTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Contents" column="[Contents]" type="String" not-null="false" length="16" />
+    <property name="IsHasAttachment" column="[IsHasAttachment]" type="Int32" not-null="false" length="4" />
+    <property name="ReceivablesProportion" column="[ReceivablesProportion]" type="Double" not-null="false" length="8" />
+    <property name="ExecutionStateID" column="[ExecutionStateID]" type="Int64" not-null="false" length="8" />
+    <property name="BackSectionStateID" column="[BackSectionStateID]" type="Int64" not-null="false" length="8" />
+    <property name="SignedDepartment" column="[SignedDepartment]" type="String" not-null="false" length="200" />
+    <property name="SalesMan" column="[SalesMan]" type="String" not-null="false" length="40" />
+    <property name="Comment" column="[Comment]" type="String" not-null="false" length="16" />
+    <property name="CreatorID" column="[CreatorID]" type="Int64" not-null="false" length="8" />
+    <property name="Creator" column="[Creator]" type="String" not-null="false" length="20" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Checker" column="[Checker]" type="String" not-null="false" length="20" />
+    <property name="CheckerID" column="[CheckerID]" type="Int64" not-null="false" length="8" />
+    <property name="CheckTime" column="[CheckTime]" type="DateTime" not-null="false" length="8" />
+    <property name="CheckOpinion" column="[CheckOpinion]" type="String" not-null="false" length="16" />
+    <property name="ApproverID" column="[ApproverID]" type="Int64" not-null="false" length="8" />
+    <property name="Approver" column="[Approver]" type="String" not-null="false" length="20" />
+    <property name="ApprovalTime" column="[ApprovalTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ApprovalOpinion" column="[ApprovalOpinion]" type="String" not-null="false" length="16" />
+  </class>
+</hibernate-mapping>

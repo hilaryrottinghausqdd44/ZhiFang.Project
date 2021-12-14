@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="GB2312"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<xsl:output method="xml" encoding="GB2312" indent="yes"/>
+<xsl:param name="ID1" />
+<xsl:template match="TREENODES">
+
+<table height="100%" width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#1571d6" background="images/XSmall/mainHead.jpg" ID="Table1">
+		<tr>
+			<td width="62%" class="font1" align="center">
+<style type="text/css">
+<![CDATA[
+<!--
+body {
+	margin-top: 0px;
+	background-image: url(images/beijing.jpg);
+         font-size: 14px;
+}
+.menu {background-color:green;width:120; height:20;color: white; text-align: center;font-size:9pt;font-weight:bolder}
+.submenu {position:absolute;top:40;background-color:lightyellow;width:180; font-size:9pt}
+-->
+]]>
+</style>
+<SCRIPT>
+　　var cm=null;
+　　document.onclick = new Function("show(null)") 
+function getPos(el,sProp) 
+{var iPos = 0
+  　　while (el!=null) 
+　　 {iPos+=el["offset" + sProp]
+　　　　el = el.offsetParent}
+  　　return iPos} 
+function show(el,m) 
+{if (m) {m.style.display='';
+　　　　　　m.style.pixelLeft = getPos(el,"Left")
+　　　　　　m.style.pixelTop = getPos(el,"Top") + el.offsetHeight} 
+  　　if ((m!=cm) && (cm)) cm.style.display='none'; cm=m } 
+</SCRIPT>
+<script language="JavaScript" src="objectSwap.js"></script>
+
+									
+<div align="center" nowrap="nowrap">
+
+						<xsl:for-each select="treenode/treenode[@Location='top' and  @Checked='True']">
+							<div id="d{position()}" onmouseover="show(this,d{position()});" class="menu">><xsl:value-of select="@Text"/></div>
+							<script>mpmenu<xsl:value-of select="position()"/>=new mMenu('<b><xsl:value-of select="@Text"/></b>','?ID1=<xsl:value-of select="@NodeData" />','self','','','','');
+							<DIV ID="ds{position()}" CLASS="submenu" style="display:none">
+								<xsl:for-each select="./treenode">
+                                   <BR/>
+                                   <A HREF="?ID1=<xsl:value-of select="../@NodeData" />&amp;ID2=<xsl:value-of select="@NodeData" />">天极网 Yesky.com</A>
+									mpmenu<xsl:value-of select="position()"/>.addItem(new mMenuItem('·<xsl:value-of select="@Text"/>','?ID1=<xsl:value-of select="../@NodeData" />&amp;ID2=<xsl:value-of select="@NodeData" />','self',false,'·<xsl:value-of select="@Text"/>',null,'','','',''));
+								</xsl:for-each>
+							</DIV>
+								</script>
+						   <!--xsl:if test="position()!=last()"> | </xsl:if-->
+						</xsl:for-each>
+							
+
+       			</div>
+       	</td>
+</tr>
+   </table>
+  </xsl:template>
+</xsl:stylesheet>

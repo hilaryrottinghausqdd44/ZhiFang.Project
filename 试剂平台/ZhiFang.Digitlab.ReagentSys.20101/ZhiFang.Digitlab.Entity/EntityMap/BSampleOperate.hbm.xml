@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="BSampleOperate" table="[dbo].[B_SampleOperate]">
+		<id name="Id" column="[SampleOperateID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="OperateObjectID" column="[OperateObjectID]" type="Int64" not-null="false" length="8" />
+		<property name="OperaterID" column="[OperaterID]" type="Int64" not-null="false" length="8" />
+		<property name="Operater" column="[Operater]" type="String" not-null="false" length="30" />
+		<property name="OperateTime" column="[OperateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="OperateHost" column="[OperateHost]" type="String" not-null="false" length="50" />
+		<property name="OperateMemo" column="[OperateMemo]" type="String" not-null="false" length="8000" />
+		<property name="Zdy1" column="[zdy1]" type="String" not-null="false" length="200" />
+		<property name="Zdy2" column="[zdy2]" type="String" not-null="false" length="200" />
+		<property name="Zdy3" column="[zdy3]" type="String" not-null="false" length="200" />
+		<property name="Zdy4" column="[zdy4]" type="String" not-null="false" length="200" />
+		<property name="Zdy5" column="[zdy5]" type="String" not-null="false" length="200" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BOperateObjectType" class="BOperateObjectType" lazy="false">
+			<column name="[OperateObjectTypeID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="OperateType" class="BSampleOperateType" lazy="false">
+			<column name="[OperateTypeID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

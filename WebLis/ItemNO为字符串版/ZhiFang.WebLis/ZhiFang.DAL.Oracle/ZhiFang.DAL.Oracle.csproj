@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A349EDCB-8B87-49B1-ABFD-5386DD33FBB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.DAL.Oracle</RootNamespace>
+    <AssemblyName>ZhiFang.DAL.Oracle</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.WebLis\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common.AppConfig, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.AppConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Dictionary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Dictionary.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.ExceptionManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.ExceptionManager.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Public, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Public.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.DBUtility, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.DBUtility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDALLisDB.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weblis\AgeUnit.cs" />
+    <Compile Include="Weblis\BarCodeForm.cs" />
+    <Compile Include="Weblis\barCodeSeq.cs" />
+    <Compile Include="Weblis\BusinessLogicClientControl.cs" />
+    <Compile Include="Weblis\BUSINESSMAN.cs" />
+    <Compile Include="Weblis\B_BUSINESSMANControl.cs" />
+    <Compile Include="Weblis\B_CLIENTELEControl.cs" />
+    <Compile Include="Weblis\B_DepartmentControl.cs" />
+    <Compile Include="Weblis\B_DistrictControl.cs" />
+    <Compile Include="Weblis\B_DoctorControl.cs" />
+    <Compile Include="Weblis\B_FolkTypeControl.cs" />
+    <Compile Include="Weblis\B_Lab_BUSINESSMAN.cs" />
+    <Compile Include="Weblis\B_Lab_CLIENTELE.cs" />
+    <Compile Include="Weblis\B_Lab_Department.cs" />
+    <Compile Include="Weblis\B_Lab_District.cs" />
+    <Compile Include="Weblis\B_Lab_Doctor.cs" />
+    <Compile Include="Weblis\B_Lab_FolkType.cs" />
+    <Compile Include="Weblis\B_Lab_GroupItem.cs" />
+    <Compile Include="Weblis\B_Lab_PGroup.cs" />
+    <Compile Include="Weblis\B_Lab_SampleType.cs" />
+    <Compile Include="Weblis\B_Lab_SickType.cs" />
+    <Compile Include="Weblis\B_Lab_SuperGroup.cs" />
+    <Compile Include="Weblis\B_Lab_TestItem.cs" />
+    <Compile Include="Weblis\B_PGroupControl.cs" />
+    <Compile Include="Weblis\B_SampleTypeControl.cs" />
+    <Compile Include="Weblis\B_SickTypeControl.cs" />
+    <Compile Include="Weblis\B_SuperGroupControl.cs" />
+    <Compile Include="Weblis\B_TestItemControl.cs" />
+    <Compile Include="Weblis\CLIENTELE.cs" />
+    <Compile Include="Weblis\ClientEleArea.cs" />
+    <Compile Include="Weblis\ClientProfile.cs" />
+    <Compile Include="Weblis\Department.cs" />
+    <Compile Include="Weblis\Diagnosis.cs" />
+    <Compile Include="Weblis\DictionaryGetPubDict.cs" />
+    <Compile Include="Weblis\District.cs" />
+    <Compile Include="Weblis\Doctor.cs" />
+    <Compile Include="Weblis\D_LabDownLoadInfo.cs" />
+    <Compile Include="Weblis\D_LogInfo.cs" />
+    <Compile Include="Weblis\FolkType.cs" />
+    <Compile Include="Weblis\GenderType.cs" />
+    <Compile Include="Weblis\GroupItem.cs" />
+    <Compile Include="Weblis\ItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="Weblis\ItemColorDict.cs" />
+    <Compile Include="Weblis\ItemMergeRule.cs" />
+    <Compile Include="Weblis\LocationbarCodePrintPamater.cs" />
+    <Compile Include="Weblis\NRequestForm.cs" />
+    <Compile Include="Weblis\NRequestItem.cs" />
+    <Compile Include="Weblis\Other\applybase.cs" />
+    <Compile Include="Weblis\Other\B_Lab_Base.cs" />
+    <Compile Include="Weblis\Other\DView.cs" />
+    <Compile Include="Weblis\Other\PatNo_Passwords.cs" />
+    <Compile Include="Weblis\PGroup.cs" />
+    <Compile Include="Weblis\PGroupPrint.cs" />
+    <Compile Include="Weblis\B_PhysicalExamType.cs" />
+    <Compile Include="Weblis\PrintFormat.cs" />
+    <Compile Include="Weblis\ReportFileControl.cs" />
+    <Compile Include="Weblis\ReportFormFull.cs" />
+    <Compile Include="Weblis\ReportFormMerge.cs" />
+    <Compile Include="Weblis\ReportItemFull.cs" />
+    <Compile Include="Weblis\ReportMarrowFull.cs" />
+    <Compile Include="Weblis\ReportMicroFull.cs" />
+    <Compile Include="Weblis\SampleType.cs" />
+    <Compile Include="Weblis\SamplingGroup.cs" />
+    <Compile Include="Weblis\SendOrder.cs" />
+    <Compile Include="Weblis\SickType.cs" />
+    <Compile Include="Weblis\SuperGroup.cs" />
+    <Compile Include="Weblis\B_GenderTypeControl.cs" />
+    <Compile Include="Weblis\B_Lab_GenderType.cs" />
+    <Compile Include="Weblis\S_Modules.cs" />
+    <Compile Include="Weblis\TestItem.cs" />
+    <Compile Include="Weblis\TestType.cs" />
+    <Compile Include="Weblis\View_ReportItemFull.cs" />
+    <Compile Include="Weblis\WardType.cs" />
+    <Compile Include="Weblis\WhoNet_AntiData.cs" />
+    <Compile Include="Weblis\WhoNet_FormData.cs" />
+    <Compile Include="Weblis\WhoNet_MicroData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.IDAL\ZhiFang.IDAL.csproj">
+      <Project>{2CCE404D-AA91-4DE0-8510-8BDECED79723}</Project>
+      <Name>ZhiFang.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Model\ZhiFang.Model.csproj">
+      <Project>{9828C326-B724-457E-A649-70850D5EA018}</Project>
+      <Name>ZhiFang.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Tools\ZhiFang.Tools.csproj">
+      <Project>{4A0D9BC5-645C-411D-B518-50DB2C34ACFC}</Project>
+      <Name>ZhiFang.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WeblisOracle\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

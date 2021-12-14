@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="WarpAndDeptVO">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="DeptNo" column="[DeptNo]" type="Int32" not-null="false" length="4" />
+    <property name="WardNo" column="[WardNo]" type="String" not-null="false" length="50" />
+    <property name="HisWardNo" column="[HisWardNo]" type="String" not-null="false" length="50" />
+  </class>
+</hibernate-mapping>

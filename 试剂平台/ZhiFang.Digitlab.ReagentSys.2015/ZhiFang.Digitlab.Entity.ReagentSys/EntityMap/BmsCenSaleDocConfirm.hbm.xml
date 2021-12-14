@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+  <class name="BmsCenSaleDocConfirm" table="[dbo].[BmsCenSaleDocConfirm]">
+    <id name="Id" column="[SaleDocConfirmID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="LabID" column="[SSCID]" type="Int64" not-null="false" length="8" />
+    <property name="SaleDocConfirmNo" column="[SaleDocConfirmNo]" type="String" not-null="false" length="50" />
+    <property name="SaleDocNo" column="[SaleDocNo]" type="String" not-null="false" length="50" />
+    <property name="OrderDocNo" column="[OrderDocNo]" type="String" not-null="false" length="50" />
+    <property name="LabName" column="[LabName]" type="String" not-null="false" length="100" />
+    <property name="CompanyName" column="[CompanyName]" type="String" not-null="false" length="200" />
+    <property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+    <property name="StatusName" column="[StatusName]" type="String" not-null="false" length="100" />
+    <property name="AccepterID" column="[AccepterID]" type="Int64" not-null="false" length="8" />
+    <property name="AccepterName" column="[AccepterName]" type="String" not-null="false" length="100" />
+    <property name="AcceptTime" column="[AcceptTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SecAccepterID" column="[SecAccepterID]" type="Int64" not-null="false" length="8" />
+    <property name="SecAccepterName" column="[SecAccepterName]" type="String" not-null="false" length="100" />
+    <property name="SecAcceptTime" column="[SecAcceptTime]" type="DateTime" not-null="false" length="8" />
+    <property name="AcceptMemo" column="[AcceptMemo]" type="String" not-null="false" length="1000" />
+    <property name="SourceType" column="[SourceType]" type="Int64" not-null="false" length="8" />
+    <property name="IsAcceptError" column="[IsAcceptError]" type="Boolean" not-null="false" length="1" />
+    <property name="PrintTimes" column="[PrintTimes]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="1000" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DeleteFlag" column="[DeleteFlag]" type="Int32" not-null="false" length="4" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="BmsCenSaleDoc" class="BmsCenSaleDoc" lazy="false">
+      <column name="[SaleDocID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BmsCenOrderDoc" class="BmsCenOrderDoc" lazy="false">
+      <column name="[OrderDocID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Comp" class="CenOrg" lazy="false">
+      <column name="[CompID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Lab" class="CenOrg" lazy="false">
+      <column name="[LabID]" not-null="false"/>
+    </many-to-one>
+    <bag name="BmsCenSaleDtlConfirmList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[SaleDocConfirmID]" />
+      </key>
+      <one-to-many class="BmsCenSaleDtlConfirm"/>
+    </bag>
+    <property name="ReaCompID" column="[ReaCompID]" type="Int64" not-null="false" length="8" />
+    <property name="ReaCompName" column="[ReaCompName]" type="String" not-null="false" length="200" />
+    <property name="InvoiceNo" column="[InvoiceNo]" type="String" not-null="false" length="100" />
+  </class>
+</hibernate-mapping>

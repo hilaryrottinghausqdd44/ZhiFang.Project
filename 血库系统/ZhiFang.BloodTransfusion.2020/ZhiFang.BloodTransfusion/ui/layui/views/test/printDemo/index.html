@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../../ux/zf/print.js?v=2" type="text/javascript" charset="utf-8"></script>
+	</head>
+	
+	<body>
+		<button id="print">直接打印</button>
+		<button id="preview">预览打印</button>
+		
+		<script type="text/javascript">
+			var big = 'BIG.pdf';
+			var small = 'small.pdf';
+			var print = document.getElementById('print');
+			print.onclick = function(){
+				//var list = [big,big,big,big,big];
+				var list = [];
+				for(var i=0;i<5;i++){
+					list.push(small);
+				}
+				printList(list,0);
+			};
+			function printList(list,index){
+				if(index >= list.length) return;
+				
+				console.log(index + '开始：' + new Date());
+				var url = list[index];
+				zfprint.print(url,function(pdf){
+					console.log(index + '结束：' + new Date());
+					printList(list,++index);
+				});
+			};
+			
+			var preview = document.getElementById('preview');
+			preview.onclick = function(){
+				//console.log('开始：' + new Date());
+				zfprint.preview(small,function(pdf){
+					console.log('结束：' + new Date());
+				});
+			};
+		</script>
+	</body>
+</html>

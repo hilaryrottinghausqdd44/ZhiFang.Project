@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>实验室项目字典</title>
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css">
+    <script type="text/javascript" src="../../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="LabTestItem.js?v=1.0"></script>
+</head>
+<body>
+    <table id="tbTestItem">
+    </table>
+    <div id="topBars" style="height: 28px; width: 100%; background: #eeeeee">
+        <div style="float: left; padding-top: 3px">
+            <a href="javascript:void (0)" class="easyui-linkbutton" onclick="refresh()" iconcls="icon-reload"
+                plain="true">刷新</a> <a href="javascript:void (0)" class="easyui-linkbutton" onclick="addRow()"
+                    iconcls="icon-add" plain="true">新增</a> <a href="javascript:void (0)" class="easyui-linkbutton"
+                        onclick="deleteRow()" iconcls="icon-remove" plain="true" id="delRows">删除</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" onclick="disableRecords()"
+                iconcls="icon-cancel-2" plain="true" id="disable">禁用</a> <a href="javascript:void (0)"
+                    class="easyui-linkbutton" onclick="enableRecords()" iconcls="icon-accept" plain="true"
+                    id="enable">启用</a> <a href="javascript:void (0)" class="easyui-linkbutton" onclick="copyToLab()"
+                        iconcls="button-copy" plain="true">复制</a>
+        </div>
+        <div id="copyBar" style="margin-top: 3px; float: left; width: 300px; display: inline;">
+            <div style="float: left; width: 200px; height: 25px; margin-left: 5px;">
+                <input id="objectLab"></div>
+            <div style="float: left;">
+                <a href="javascript:void (0)" class="easyui-linkbutton" onclick="copyRecords()" iconcls="button-save"
+                    plain="true">保存</a></div>
+        </div>
+        <div style="float: right; margin-right: 10px; padding-top: 3px">
+            <input type="text" class="easyui-searchbox" data-options="prompt:'编码/名称/简称',searcher:search"
+                style="width: 160px;" id="txtSearch"></div>
+    </div>
+    <!--一阶对话框-->
+    <div id="dlg" class="easyui-dialog" style="width: 620px; height: 500px; margin: auto;"
+        closed="true" buttons="#dlgButtons">
+        <div id="frm" class="easyui-form" method="post">
+            <table style="padding: 10px 0px 10px 30px">
+                <tr>
+                    <td>
+                        项目编号:
+                    </td>
+                    <td>
+                        <input id="ItemNo" class="easyui-textbox" type="text" name="ItemNo" data-options="required:true,validType:['length[0,50]']">
+                    </td>
+                    <td style="padding-left: 20px">
+                        实验室编码:
+                    </td>
+                    <td>
+                        <input id="LabCode" class="easyui-textbox" type="text" name="LabCode" data-options="disabled:true,required:true">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        项目中文名称:
+                    </td>
+                    <td>
+                        <input id="CName" class="easyui-textbox" type="text" name="CName" data-options="required:true">
+                    </td>
+                    <td style="padding-left: 20px">
+                        单位:
+                    </td>
+                    <td>
+                        <input id="Unit" class="easyui-textbox" type="text" name="Unit">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        项目英文名称:
+                    </td>
+                    <td>
+                        <input id="EName" class="easyui-textbox" type="text" name="EName">
+                    </td>
+                    <td style="padding-left: 20px">
+                        精度:
+                    </td>
+                    <td>
+                        <input id="Prec" class="easyui-textbox" type="cmb" name="Prec">
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        项目简称:
+                    </td>
+                    <td>
+                        <input id="ShortName" class="easyui-textbox" type="text" name="ShortName" data-options="required:true">
+                    </td>
+                    <td style="padding-left: 20px">
+                        是否是收费项目:
+                    </td>
+                    <td>
+                        <input id="IschargeItem" class="easyui-textbox" type="cmb" name="IschargeItem">
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <td>
+                        项目简码:
+                    </td>
+                    <td>
+                        <input id="ShortCode" class="easyui-textbox" type="text" name="ShortCode" data-options="required:true">
+                    </td>
+                    <td style="padding-left: 20px">
+                        是否是医嘱项目:
+                    </td>
+                    <td>
+                        <input id="IsDoctorItem" class="easyui-textbox" type="cmb" name="IsDoctorItem">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        标准代码:
+                    </td>
+                    <td>
+                        <input id="StandardCode" class="easyui-textbox" type="text" name="StandardCode">
+                    </td>
+                    <td style="padding-left: 20px">
+                        是否是组合项目:
+                    </td>
+                    <td>
+                        <input id="IsProfile" class="easyui-textbox" type="cmb" name="IsProfile">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        项目价格:
+                    </td>
+                    <td>
+                        <input id="Price" class="easyui-textbox" type="text" name="Price">
+                    </td>
+                    <td style="padding-left: 20px">
+                        是否显示:
+                    </td>
+                    <td>
+                        <input id="Visible" class="easyui-textbox" type="cmb" name="Visible">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        市场价格:
+                    </td>
+                    <td>
+                        <input id="MarketPrice" class="easyui-textbox" type="text" name="MarketPrice">
+                    </td>
+                    <td  style="padding-left: 20px">
+                        提示等级:
+                    </td>
+                    <td>
+                        <input id="Cuegrade" class="easyui-textbox" type="cmb" name="Cuegrade">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        大家价格:
+                    </td>
+                    <td>
+                        <input id="GreatMasterPrice" class="easyui-textbox" type="text" name="GreatMasterPrice">
+                    </td>
+                    <td style="padding-left: 20px">
+                        是否计算项目:
+                    </td>
+                    <td>
+                        <input id="IsCalc" class="easyui-textbox" type="cmb" name="IsCalc">
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        对应医嘱系统编码:
+                    </td>
+                    <td>
+                        <input id="OrderNo" class="easyui-textbox" type="text" name="OrderNo">
+                    </td>
+                    <td style="padding-left: 20px">
+                        检验方法:
+                    </td>
+                    <td>
+                        <input id="DiagMethod" class="easyui-textbox" type="text" name="DiagMethod">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        显示次序:
+                    </td>
+                    <td>
+                        <input id="DispOrder" class="easyui-textbox" type="text" name="DispOrder">
+                    </td>
+                    <td style="padding-left: 20px">
+                        保密等级:
+                    </td>
+                    <td>
+                        <input id="Secretgrade" class="easyui-textbox" type="cmb" name="Secretgrade">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        颜色:
+                    </td>
+                    <td>
+                        <input id="Color" class="easyui-textbox" type="cmb" name="Color">
+                    </td>
+                      <td  style="padding-left: 20px">
+                        咨询费:
+                    </td>
+                    <td>
+                        <input id="BonusPercent" class="easyui-textbox" type="text" name="BonusPercent">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        项目说明:
+                    </td>
+                    <td colspan="3">
+                        <input id="ItemDesc" class="easyui-textbox" type="text" name="ItemDesc" data-options="multiline:true"
+                            style="height: 60px; width: 100%">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        工作量参数:
+                    </td>
+                    <td>
+                        <input id="FWorkLoad" class="easyui-textbox" type="text" name="FWorkLoad">
+                    </td>
+                    <td style="padding-left: 20px">
+                        是否是组套项目:
+                    </td>
+                    <td>
+                        <input id="IsCombiItem" class="easyui-textbox" type="cmb" name="IsCombiItem">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        检验大组:
+                    </td>
+                    <td>
+                        <input id="LabSuperGroupNo" class="easyui-textbox" type="cmb" name="LabSuperGroupNo">
+                    </td>
+                    <td style="padding-left: 20px">
+                        是否使用:
+                    </td>
+                    <td>
+                        <input id="UseFlag" type="cmb" class="easyui-validatebox" name="UseFlag">
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                        体检标记:
+                    </td>
+                    <td>
+                        <input id="PhysicalFlag" class="easyui-textbox" type="cmb" name="PhysicalFlag">
+                    </td>
+                    <td  style="padding-left: 20px"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="dlgButtons">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()" iconcls="icon-save">
+            保存</a> <a href="javascript:void (0)" class="easyui-linkbutton" onclick="cancel()"
+                iconcls="icon-cancel">取消</a>
+    </div>
+    <!--组套对话框-->
+    <div id="dlgItem" class="easyui-dialog" style="width: 600px; height: 400px; margin: auto;"
+        closed="true">
+        <div class="easyui-layout" data-options="fit:true" border="false">
+            <div id="north" data-options="region:'north'" border="true" style="height: 30px;
+                width: 100%; background: #eeeeee">
+                <div style="padding-top: 3px; margin-left: 5px">
+                    <input type="text" class="easyui-searchbox" data-options="prompt:'编码/名称/简称',searcher:searchItem"
+                        style="width: 160px;" id="dlgSearch"></div>
+            </div>
+            <div id="center" data-options="region:'center'" border="false">
+                <table id="outItem">
+                </table>
+            </div>
+            <div id="east" data-options="region:'east'" border="false" style="width: 320px">
+                <div class="easyui-layout" data-options="fit:true" border="false">
+                    <div id="west" data-options="region:'west'" border="true" style="width: 60px">
+                        <div style="padding-top: 80px; text-align: center">
+                            <a id="leftAll" href="javascript:void (0)" class="easyui-linkbutton" onclick="leftAllMove()"
+                                plain="false" style="width: 40px; margin-bottom: 5px"><<</a><br>
+                            <a id="left" href="javascript:void (0)" class="easyui-linkbutton" onclick="leftMove()"
+                                plain="false" style="width: 40px; margin-bottom: 5px"><</a><br>
+                            <a id="right" href="javascript:void (0)" class="easyui-linkbutton" onclick="rightMove()"
+                                plain="false" style="width: 40px; margin-bottom: 5px">></a><br>
+                            <a id="rightAll" href="javascript:void (0)" class="easyui-linkbutton" onclick="rightAllMove()"
+                                plain="false" style="width: 40px;">>></a><br>
+                        </div>
+                    </div>
+                    <div id="eastCenter" data-options="region:'center'" border="false">
+                        <table id="inItem">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="south" data-options="region:'south'" border="true" style="height: 35px;
+                background: #eeeeee">
+                <div style="text-align: right; padding-top: 3px; padding-right: 5px">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="dlgSave()" iconcls="icon-save">
+                        保存</a> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="dlgCancel()"
+                            iconcls="icon-cancel">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!--价格修改页面-->
+	<div id="edit-price-div" class="easyui-dialog" style="width: 270px; height: 180px; margin: auto;"
+        closed="true" buttons="#edit-price-div-buttons">
+		<div id="edit-price-div-form" class="easyui-form" method="post" style="padding:10px;">
+			<!--实验室编号,实验室项目No-->
+            <div hidden="hidden">
+            	<input id="Edit_LabCode" name="Edit_LabCode" type="text" class="easyui-textbox" >
+            	<input id="Edit_LabItemNo" name="Edit_LabItemNo" type="text" class="easyui-textbox" >
+            </div>
+			<!--市场价格-->
+            <div style="padding:2px;">
+            	市场价格:
+            	<input id="Edit_MarketPrice" name="Edit_MarketPrice" type="text" class="easyui-numberbox" data-options="min:0,precision:2">
+            </div>
+            <!--大家价格-->
+            <div style="padding:2px;">
+            	大家价格:
+            	<input id="Edit_GreatMasterPrice" name="Edit_GreatMasterPrice" type="text" class="easyui-numberbox" data-options="min:0,precision:2">
+            </div>
+            <!--折扣价格-->
+            <div style="padding:2px;">
+            	折扣价格:
+            	<input id="Edit_Price" name="Edit_Price" type="text" class="easyui-numberbox" data-options="min:0,precision:2">
+            </div>
+        </div>
+	</div>
+	<div id="edit-price-div-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="onEditPriceSave()" iconcls="icon-save">
+            保存</a> <a href="javascript:void (0)" class="easyui-linkbutton" onclick="onEditPriceCancel()"
+                iconcls="icon-cancel">取消</a>
+    </div>
+</body>
+</html>

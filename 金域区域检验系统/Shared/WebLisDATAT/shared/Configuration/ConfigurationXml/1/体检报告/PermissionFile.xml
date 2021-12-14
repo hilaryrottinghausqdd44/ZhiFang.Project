@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Businesses>
+  <Business name="检验报告">
+    <Table TableEName="ReportFormFull">
+      <DFD>
+        <Condition comment="sa打印全部">
+          <Match role="employee" const="311" comp="equal" />
+          <Match field="PRINTEXEC" const="" comp="ne" />
+        </Condition>
+      </DFD>
+    </Table>
+    <Table TableEName="VIEW_ReportFormFull">
+      <DFD>
+      </DFD>
+    </Table>
+  </Business>
+</Businesses>

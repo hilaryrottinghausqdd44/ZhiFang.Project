@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BWeiXinUserGroup" table="[dbo].[B_WeiXinUserGroup]">
+		<id name="Id" column="[WeiXinUserGroupID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="GroupName" column="[GroupName]" type="String" not-null="true" length="20" />
+		<property name="Comment" column="[Comment]" type="String" not-null="false" length="300" />
+		<property name="OperaterId" column="[OperaterId]" type="Int64" not-null="false" length="8" />
+		<property name="OperaterName" column="[OperaterName]" type="String" not-null="false" length="20" />
+		<property name="Count" column="[Count]" type="Int32" not-null="false" length="4" />
+		<property name="AddTime" column="[AddTime]" type="DateTime" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

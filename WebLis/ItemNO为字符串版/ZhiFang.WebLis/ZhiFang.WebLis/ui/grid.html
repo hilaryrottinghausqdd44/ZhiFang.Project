@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../util/common.js"></script>
+		<script src="grid.js"></script>
+	</head>
+
+	<body class="easyui-layout">
+		<div id="mainpanel" class="easyui-layout" dada-options="fit:true,border:false" style="width:100%;height:100%;">
+
+			<div data-options="region:'north',iconCls:'icon-search'" title="消费采样-查询&外送清单" style="height: 75px">
+				<div style="float: left">
+					<div style="padding: 5px;">
+						采血站点：<input id="txtClientNo" class="easyui-combobox" style="width: 200px" /> 条 码：<input id="txtSerialno" class="easyui-textbox" style="width: 180px" /> 消费码：
+						<input id="txtPayCode" class="easyui-textbox" style="width: 180px" /> 姓 名：<input id="txtCName" class="easyui-textbox" style="width: 140px" />
+					</div>
+				</div>
+
+				<div style="padding: 5px;float: right; vertical-align: middle; border: 1px; border-color: Black;">
+					<a id="btnsearch" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',size:'small'">查询</a>
+					<a id="btnprint" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-print',size:'small'">打印外送清单</a>
+				</div>
+			</div>
+
+			<div data-options="region:'center',title:'申请列表',iconCls:'icon-app-grid-16',tools:'#ToolsPanel'">
+				<div id="NRequestFormList" class="easyui-datagrid" data-options="border:false,singleSelect:true,fit:true,fitColumns:true">
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

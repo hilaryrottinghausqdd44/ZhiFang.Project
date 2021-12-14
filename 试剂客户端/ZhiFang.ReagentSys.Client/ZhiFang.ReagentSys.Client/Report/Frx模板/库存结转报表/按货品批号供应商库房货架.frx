@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/30/2018 16:54:27" ReportInfo.Modified="06/11/2019 10:20:40" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {              
+      
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.ReagentSys.Client" ConnectionString="rijcmlqAFHGp6KQj27H4qUwAIR20hSnyrpNtgmeY+I5zyTmYE0HuZfX1hs9fAqnt4DRtzHmqi4Hqgr6pCX/W9Bnlc3X4+AAVAqal7ujm2u5GLGSlJS8z/Kbnccvo1GHvbgZTeFR69qXeixeYBqUZkDnVGhgRuYyGrGSj6GivhHmCs8Q3SXEcRpfLdVbWq6WztUdV0Gxgaj9oEs6xO1srK5UwaxFEkCgYoWdek5d4BwL6r2kmPw=">
+      <TableDataSource Name="Rea_BmsQtyMonthBalanceDoc" Alias="ReaBmsQtyMonthBalanceDoc" DataType="System.Int32" Enabled="true" TableName="Rea_BmsQtyMonthBalanceDoc">
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="QtyMonthBalanceDocID" DataType="System.Int64"/>
+        <Column Name="StorageID" DataType="System.Int64"/>
+        <Column Name="PlaceID" DataType="System.Int64"/>
+        <Column Name="StorageName" DataType="System.String"/>
+        <Column Name="PlaceName" DataType="System.String"/>
+        <Column Name="QtyMonthBalanceDocNo" DataType="System.String"/>
+        <Column Name="Round" DataType="System.String"/>
+        <Column Name="StartDate" DataType="System.DateTime"/>
+        <Column Name="EndDate" DataType="System.DateTime"/>
+        <Column Name="TypeID" DataType="System.Int64"/>
+        <Column Name="TypeName" DataType="System.String"/>
+        <Column Name="StatisticalTypeID" DataType="System.Int64"/>
+        <Column Name="StatisticalTypeName" DataType="System.String"/>
+        <Column Name="OperID" DataType="System.Int64"/>
+        <Column Name="OperName" DataType="System.String"/>
+        <Column Name="OperDate" DataType="System.DateTime"/>
+        <Column Name="PrintTimes" DataType="System.Int32"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CreaterID" DataType="System.Int64"/>
+        <Column Name="CreaterName" DataType="System.String"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" DataType="System.DateTime"/>
+        <Column Name="DataTimeStamp" DataType="System.Byte[]" BindableControl="Picture"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_BmsQtyMonthBalanceDtl" Alias="DtlList" DataType="System.Int32" Enabled="true" TableName="Rea_BmsQtyMonthBalanceDtl">
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="QtyMonthBalanceDtlID" DataType="System.Int64"/>
+        <Column Name="QtyMonthBalanceDocID" DataType="System.Int64"/>
+        <Column Name="ReaCompanyID" DataType="System.Int64"/>
+        <Column Name="CompanyName" DataType="System.String"/>
+        <Column Name="OrgID" DataType="System.Int64"/>
+        <Column Name="ReaServerCompCode" DataType="System.String"/>
+        <Column Name="GoodsNo" DataType="System.String"/>
+        <Column Name="CompGoodsLinkID" DataType="System.Int64"/>
+        <Column Name="GoodsID" DataType="System.Int64"/>
+        <Column Name="GoodsName" DataType="System.String"/>
+        <Column Name="LotNo" DataType="System.String"/>
+        <Column Name="ProdDate" DataType="System.DateTime"/>
+        <Column Name="RegisterNo" DataType="System.String"/>
+        <Column Name="InvalidDate" DataType="System.DateTime"/>
+        <Column Name="InvalidWarningDate" DataType="System.DateTime"/>
+        <Column Name="GoodsUnitID" DataType="System.Int64"/>
+        <Column Name="GoodsUnit" DataType="System.String"/>
+        <Column Name="UnitMemo" DataType="System.String"/>
+        <Column Name="Price" DataType="System.Double"/>
+        <Column Name="PreMonthQty" DataType="System.Double"/>
+        <Column Name="PreMonthQtyPrice" DataType="System.Double"/>
+        <Column Name="InQty" DataType="System.Double"/>
+        <Column Name="InQtyPrice" DataType="System.Double"/>
+        <Column Name="EquipQty" DataType="System.Double"/>
+        <Column Name="EquipPrice" DataType="System.Double"/>
+        <Column Name="ReturnQty" DataType="System.Double"/>
+        <Column Name="ReturnPrice" DataType="System.Double"/>
+        <Column Name="MonthQty" DataType="System.Double"/>
+        <Column Name="MonthQtyPrice" DataType="System.Double"/>
+        <Column Name="LossQty" DataType="System.Double"/>
+        <Column Name="LossQtyPrice" DataType="System.Double"/>
+        <Column Name="AdjustmentOutQty" DataType="System.Double"/>
+        <Column Name="AdjustmentOutQtyPrice" DataType="System.Double"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CreaterID" DataType="System.Int64"/>
+        <Column Name="CreaterName" DataType="System.String"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" DataType="System.DateTime"/>
+        <Column Name="DataTimeStamp" DataType="System.Byte[]" BindableControl="Picture"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="Rea_ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="364" PaperHeight="257">
+    <PageHeaderBand Name="PageHeader1" Width="1300.32" Height="97.95">
+      <LineObject Name="Line1" Top="66.15" Width="1294.65"/>
+      <LineObject Name="Line2" Top="97.95" Width="1294.65"/>
+      <TextObject Name="lblTitle" Left="359.1" Top="9.45" Width="444.15" Height="18.9" Text="[ReaBmsQtyMonthBalanceDoc.LabCName]试剂结转报表" HorzAlign="Center" WordWrap="false" Font="新宋体, 14pt, style=Bold"/>
+      <TextObject Name="lblStartDate" Left="226.8" Top="37.8" Width="141.75" Height="18.9" Text="起始日期:[ReaBmsQtyMonthBalanceDoc.StartDate]" Format="Date" Format.Format="d" Font="宋体, 10pt"/>
+      <TextObject Name="lblTypeName" Left="9.45" Top="37.8" Width="207.9" Height="18.9" Text="月结类型:[ReaBmsQtyMonthBalanceDoc.TypeName]" Font="宋体, 10pt"/>
+      <TextObject Name="lblGoodsName" Top="75.6" Width="103.95" Height="18.9" Text="品名" Font="宋体, 10pt"/>
+      <TextObject Name="lblGoodsUnit" Left="113.4" Top="75.6" Width="47.25" Height="18.9" Text="单位" Font="宋体, 10pt"/>
+      <TextObject Name="lblUnitMemo" Left="160.65" Top="75.6" Width="75.6" Height="18.9" Text="规格" Font="宋体, 10pt"/>
+      <TextObject Name="lblPreMonthQty" Left="236.25" Top="75.6" Width="83.16" Height="18.9" Text="初始库存数" Font="宋体, 10pt"/>
+      <TextObject Name="lblInQty" Left="321.3" Top="75.6" Width="56.7" Height="18.9" Text="入库数" Font="宋体, 10pt"/>
+      <TextObject Name="lblEquipQty" Left="378" Top="75.6" Width="66.15" Height="18.9" Text="仪器使用" Font="宋体, 10pt"/>
+      <TextObject Name="lblReturnQty" Left="444.15" Top="75.6" Width="66.15" Height="18.9" Text="退供应商" Font="宋体, 10pt"/>
+      <TextObject Name="lblAdjustmentOutQty" Left="510.3" Top="75.6" Width="64.26" Height="18.9" Text="调账出库" Font="宋体, 10pt"/>
+      <TextObject Name="lblLossQty" Left="576.45" Top="75.6" Width="64.26" Height="18.9" Text="库存报损" Font="宋体, 10pt"/>
+      <TextObject Name="lblMonthQty" Left="642.6" Top="75.6" Width="66.15" Height="18.9" Text="库存数" Font="宋体, 10pt"/>
+      <TextObject Name="lblMonthQtyPrice" Left="708.75" Top="75.6" Width="75.6" Height="18.9" Text="库存金额" Font="宋体, 10pt"/>
+      <TextObject Name="lblInQtyPrice" Left="859.95" Top="75.6" Width="85.05" Height="18.9" Text="入库金额" Font="宋体, 10pt"/>
+      <TextObject Name="lblEquipPrice" Left="945" Top="75.6" Width="94.5" Height="18.9" Text="仪器使用金额" Font="宋体, 10pt"/>
+      <TextObject Name="lblEndDate" Left="368.55" Top="37.8" Width="141.75" Height="18.9" Text="结束日期:[ReaBmsQtyMonthBalanceDoc.EndDate]" Format="Date" Format.Format="d" Font="宋体, 10pt"/>
+      <TextObject Name="lblPreMonthQtyPrice" Left="784.35" Top="75.6" Width="75.6" Height="18.9" Text="初始金额" Font="宋体, 10pt"/>
+      <TextObject Name="lblLossQtyPrice" Left="1228.5" Top="75.6" Width="64.26" Height="18.9" Text="报损金额" Font="宋体, 10pt"/>
+      <TextObject Name="lblReturnPrice" Left="1039.5" Top="75.6" Width="92.61" Height="18.9" Text="退供应商金额" Font="宋体, 10pt"/>
+      <TextObject Name="lblAdjustmentOutQtyPrice" Left="1134" Top="75.6" Width="92.61" Height="18.9" Text="调帐出库金额" Font="宋体, 10pt"/>
+      <TextObject Name="lblStorageName" Left="510.3" Top="37.8" Width="245.7" Height="28.35" Text="库房:[ReaBmsQtyMonthBalanceDoc.StorageName]" Font="宋体, 10pt"/>
+      <TextObject Name="lblPlaceName" Left="756" Top="37.8" Width="245.7" Height="37.8" Text="货架:[ReaBmsQtyMonthBalanceDoc.PlaceName]"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="101.95" Width="1300.32" Guides="9.45" KeepDetail="true">
+      <DataBand Name="DtlData" Top="105.95" Width="1300.32" Height="37.8" DataSource="Rea_BmsQtyMonthBalanceDtl">
+        <TextObject Name="GoodsName" Width="113.4" Height="28.35" Text="[DtlList.GoodsName]" Font="宋体, 10pt"/>
+        <TextObject Name="GoodsUnit" Left="113.4" Top="9.45" Width="37.8" Height="18.9" Text="[DtlList.GoodsUnit]" Font="宋体, 10pt"/>
+        <TextObject Name="UnitMemo" Left="151.2" Top="9.45" Width="85.05" Height="18.9" Text="[DtlList.UnitMemo]" Font="宋体, 10pt"/>
+        <TextObject Name="PreMonthQty" Left="236.25" Top="9.45" Width="75.6" Height="18.9" Text="[DtlList.PreMonthQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="InQty" Left="311.85" Top="9.45" Width="66.15" Height="18.9" Text="[DtlList.InQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="EquipQty" Left="378" Top="9.45" Width="66.15" Height="18.9" Text="[DtlList.EquipQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="ReturnQty" Left="444.15" Top="9.45" Width="66.15" Height="18.9" Text="[DtlList.ReturnQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="AdjustmentOutQty" Left="510.3" Top="9.45" Width="66.15" Height="18.9" Text="[DtlList.AdjustmentOutQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="LossQty" Left="576.45" Top="9.45" Width="66.15" Height="18.9" Text="[DtlList.LossQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="MonthQty" Left="642.6" Top="9.45" Width="66.15" Height="18.9" Text="[DtlList.MonthQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="MonthQtyPrice" Left="708.75" Top="9.45" Width="75.6" Height="18.9" Text="[DtlList.MonthQtyPrice]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="InQtyPrice" Left="869.4" Top="9.45" Width="85.05" Height="18.9" Text="[DtlList.InQtyPrice]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="EquipPrice" Left="954.45" Top="9.45" Width="94.5" Height="18.9" Text="[DtlList.EquipPrice]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="PreMonthQtyPrice" Left="784.35" Top="9.45" Width="75.6" Height="18.9" Text="[DtlList.PreMonthQtyPrice]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="ReturnPrice" Left="1048.95" Top="9.45" Width="94.5" Height="18.9" Text="[DtlList.ReturnPrice]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="LossQtyPrice" Left="1228.5" Top="9.45" Width="75.6" Height="18.9" Text="[DtlList.LossQtyPrice]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="AdjustmentOutQtyPrice" Left="1143.45" Top="9.45" Width="85.05" Height="18.9" Text="[DtlList.AdjustmentOutQtyPrice]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="147.75" Width="1300.32" Height="18.9">
+      <LineObject Name="Line3" Left="-28.35" Width="1313.55"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

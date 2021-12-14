@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="BMicroBCBottleTypeOfManufacturer" table="[dbo].[B_MicroBCBottleTypeOfManufacturer]">
+		<id name="Id" column="[MicroBCBTOMID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BMicroBloodCultureBottleManufacturer" class="BMicroBloodCultureBottleManufacturer" >
+			<column name="[MicroBCBMID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BMicroBloodCultureBottleType" class="BMicroBloodCultureBottleType" >
+			<column name="[MicroBCBTID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

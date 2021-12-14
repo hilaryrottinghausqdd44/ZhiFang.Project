@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>字典对照</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../../../css/admin.css");
+    </script>
+    <style>
+      	.formItem{margin-left: 12px; margin-top:20px;}
+        .formselect{margin-top:20px;}
+		/*使得下拉框与单元格刚好合适*/
+		td .layui-form-select { margin-top: -10px;margin-left: -15px;margin-right: -15px; }
+		td .layui-form-select dl { top: 32px; }
+    </style>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-col-sm12 layui-col-xs12" id="main">
+            <!--主体部分-->
+            <div class="layui-row layui-col-space5">
+				<div class="layui-col-sm3 layui-col-xs3 layui-col-space10 layui-card" style="margin-top: 3px;">
+					<div class="layui-row" >
+						<table id="sicktable" lay-filter="sicktable"></table>
+					</div>
+				</div>
+                <div class="layui-col-sm9 layui-col-xs9">
+                    <div class="layui-card">
+                        <div class="layuiadmin-card-header-auto ">                          
+                            <div class="layui-row">
+                                <form class="layui-form" id="StatisticalWhere">
+                                    <div class="layui-row" style="">
+                                        <!--查询-->
+                                        <div class="layui-inline formItem">
+                                            检验小组:
+                                        </div>
+                                        <div class="layui-inline formselect">
+                                            <select name="SectionID" lay-search="" id="SectionID" lay-filter="SectionID">
+                                                <option value="">请选择</option>
+                                            </select>
+                                        </div>
+                                        <div class="layui-inline formItem">
+                                            组合类型:
+                                        </div>
+                                        <div class="layui-inline formselect">
+                                            <select name="GroupType" lay-search="" id="GroupType" lay-filter="GroupType">
+                                                <option value="">请选择</option>
+                                                <option value="1">单项</option>
+                                                <option value="2">组合</option>
+                                                <option value="3">组套</option>
+                                            </select>
+                                        </div>
+										<div class="layui-inline formItem" >
+											项目名称:
+										</div>
+										<div class="layui-inline formselect">
+											<input type="text" name="ItemCName" id="ItemCName" autocomplete="off" placeholder="名称或者简称" class="layui-input">
+										</div>
+										<div class="layui-inline formItem" >
+											<div class="layui-input-inline">
+												<button class="layui-btn layui-btn-sm" id="search" type="button"  lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i>查询</button>
+											</div>
+										</div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="layui-card-body" style="overflow:auto;">
+                            <div class="layui-row layui-col-space10" style="margin-top: 25px;">
+								<table id="table" lay-filter="table"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="Toolbar">
+        <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="add">追加对照</button>
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="edit">保存编辑项</button>
+            <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" lay-event="del">删除对照</button>
+            <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" lay-event="copy">复制对照</button>
+            <span id="talbetooltext" style="font-size:12px;"></span>
+        </div>
+    </script>
+	<script type="text/html" id="TransTypeTool">
+			<select name="TransTypeID" lay-filter="TransTypeID">
+			    <option value="0">进出</option>
+			    <option value="1">进</option>
+			    <option value="2">出</option>
+			</select>
+	</script>
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('item_contrast.js');
+    </script>
+</body>
+</html>

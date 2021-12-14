@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+	<class name="SamplingGroup" table="[dbo].[SamplingGroup]">
+		<id name="Id" column="[SamplingGroupNo]" type="Int32">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="SamplingGroupName" column="[SamplingGroupName]" type="String" not-null="false" length="50" />
+		<property name="SampleTypeNo" column="[SampleTypeNo]" type="Int32" not-null="true" length="4" />
+		<property name="CubeType" column="[CubeType]" type="Int32" not-null="true" length="4" />
+		<property name="CubeColor" column="[CubeColor]" type="String" not-null="false" length="50" />
+		<property name="SpecialtyType" column="[SpecialtyType]" type="Int32" not-null="true" length="4" />
+		<property name="Shortname" column="[shortname]" type="String" not-null="false" length="20" />
+		<property name="Shortcode" column="[shortcode]" type="String" not-null="false" length="20" />
+		<property name="Destination" column="[destination]" type="String" not-null="false" length="50" />
+		<property name="Capability" column="[capability]" type="Decimal" not-null="false" length="9" />
+		<property name="Unit" column="[unit]" type="String" not-null="false" length="10" />
+		<property name="Mincapability" column="[mincapability]" type="Decimal" not-null="false" length="9" />
+		<property name="Disporder" column="[disporder]" type="Int32" not-null="false" length="4" />
+		<property name="Synopsis" column="[synopsis]" type="String" not-null="false" length="100" />
+		<property name="AppCap" column="[AppCap]" type="Double" not-null="false" length="8" />
+		<property name="PrinterName" column="[PrinterName]" type="String" not-null="false" length="100" />
+		<property name="ShortCode2" column="[ShortCode2]" type="String" not-null="false" length="20" />
+		<property name="PrintCount" column="[PrintCount]" type="Int32" not-null="false" length="4" />
+		<property name="ChargeMode" column="[ChargeMode]" type="Int32" not-null="false" length="4" />
+		<property name="ChargeID1" column="[ChargeID1]" type="Int32" not-null="false" length="4" />
+		<property name="ChargeID2" column="[ChargeID2]" type="Int32" not-null="false" length="4" />
+		<property name="ChargeID3" column="[ChargeID3]" type="Int32" not-null="false" length="4" />
+		<property name="AffixTubeFlag" column="[AffixTubeFlag]" type="String" not-null="false" length="20" />
+		<property name="VirtualNo" column="[VirtualNo]" type="Int32" not-null="false" length="4" />
+	</class>
+</hibernate-mapping>

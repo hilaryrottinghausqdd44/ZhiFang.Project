@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Pdf打印测试</title>
+    <script src="pdfobject/pdfobject_source.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var success = new PDFObject({ url: "../TmpReportImagePath/_138723_25_1_9_2011-04-21@center.PDF",
+                id: "myPDF",
+                width: "500px",
+                height: "300px",
+                pdfOpenParams: {
+                    navpanes: 1,
+                    statusbar: 0,
+                    view: "FitH",
+                    pagemode: "thumbs"
+                }
+            }).embed("pdf");
+        };
+    </script>
+</head>
+<body>
+    <!--<embed src="../TmpReportImagePath/_138723_25_1_9_2011-04-21@center.PDF" width="500" height="300"></embed>-->
+    <div id="pdf">
+        <object height="100%" width="100%" type="application/pdf" data="/pdf/sample.pdf#">
+        </object>
+    </div>
+    <input type="button" value="print" onclick="window.print();" />
+</body>
+</html>

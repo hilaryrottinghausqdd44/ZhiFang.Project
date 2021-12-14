@@ -1,0 +1,728 @@
+﻿<objects xmlns="http://www.springframework.net">
+  <!--权限系统-->
+  <object id="BBCity" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBCity,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BCityDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBCountry" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBCountry,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BCountryDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBCounty" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBCounty,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BCountyDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBProvince" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBProvince,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BProvinceDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHRDept" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHRDept,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HRDeptDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACUser,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACUserDao"/>
+        <property name="IBHREmployee" ref="BHREmployee"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHRDeptEmp" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHRDeptEmp,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HRDeptEmpDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHRDeptIdentity" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHRDeptIdentity,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HRDeptIdentityDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHREmpIdentity" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHREmpIdentity,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HREmpIdentityDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHREmployee" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHREmployee,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HREmployeeDao"/>
+        <property name="IBHRDept" ref="BHRDept"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IDBSexDao" ref="BSexDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BHRPosition" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BHRPosition,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="HRPositionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACEmpRoles" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACEmpRoles,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACEmpRolesDao"/>
+        <property name="IBHREmployee" ref="BHREmployee"/>
+        <property name="IBRBACRole" ref="BRBACRole"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACModule" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACModule,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACModuleDao"/>
+        <property name="IDRBACRoleModuleDao" ref="RBACRoleModuleDao"/>
+        <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACModuleOper" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACModuleOper,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACModuleOperDao"/>
+        <property name="IBRBACRoleRight" ref="BRBACRoleRightBRBACModuleOper"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRole" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRole,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRoleDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRoleModule" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRoleModule,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRoleModuleDao"/>
+        <property name="IBRBACRole" ref="BRBACRole"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRoleRight" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRoleRight,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRoleRightDao"/>
+        <property name="IBRBACRole" ref="BRBACRole"/>
+        <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+        <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRoleRightBRBACModuleOper" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRoleRight,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRoleRightDao"/>
+        <property name="IBRBACRole" ref="BRBACRole"/>
+        <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACEmpOptions" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACEmpOptions,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACEmpOptionsDao"/>
+        <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+      </object>
+    </property>
+  </object>
+  <object id="BRBACRowFilter" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BRBACRowFilter,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="RBACRowFilterDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSLog" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BSLog,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="SLogDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBSex" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBSex,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BSexDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBProfessionalAbility" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBProfessionalAbility,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BProfessionalAbilityDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BImportFile" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BImportFile,ZhiFang.BLL.RBAC">
+        <property name="IBHREmployee" ref="BHREmployee"/>
+        <property name="IBRBACUser" ref="BRBACUser"/>
+        <property name="IBHRDept" ref="BHRDept"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSTypeDetail" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BSTypeDetail,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="STypeDetailDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BSType,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="STypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBPoliticsStatus" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBPoliticsStatus,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BPoliticsStatusDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBDegree" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBDegree,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BDegreeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBMaritalStatus" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBMaritalStatus,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BMaritalStatusDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBNationality" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBNationality,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BNationalityDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBEducationLevel" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBEducationLevel,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BEducationLevelDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBHealthStatus" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBHealthStatus,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BHealthStatusDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSServiceClientlevel" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BSServiceClientlevel,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="SServiceClientlevelDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSServiceClient" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BSServiceClient,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="SServiceClientDao"/>
+      </object>
+    </property>
+  </object>
+  <!--权限系统-->
+  <!--构建工具-->
+  <object id="BBTDAppComponents" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBTDAppComponents,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BTDAppComponentsDao"/>
+        <property name="BTDAppComponentsRefDBDao" ref="BTDAppComponentsRefDao"/>
+        <property name="BTDAppComponentsOperateDBDao" ref="BTDAppComponentsOperateDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBTDAppPicture" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBTDAppPicture,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BTDAppPictureDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBTDModuleType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBTDModuleType,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BTDModuleTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBTDPictureType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBTDPictureType,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BTDPictureTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBTDPictureTypeCon" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBTDPictureTypeCon,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BTDPictureTypeConDao"/>
+      </object>
+    </property>
+  </object>
+  <!--<object id="BBTDMacroCommand" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBTDMacroCommand,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BTDMacroCommandDao"/>
+      </object>
+    </property>
+  </object>-->
+  <object id="BBTDAppComponentsRef" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBTDAppComponentsRef,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BTDAppComponentsRefDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBTDAppComponentsOperate" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.RBAC.BBTDAppComponentsOperate,ZhiFang.BLL.RBAC">
+        <property name="DBDao" ref="BTDAppComponentsOperateDao"/>
+      </object>
+    </property>
+  </object>
+  <!--构建工具-->
+  <!--系统公用-->
+  <object id="BBParameter" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BBParameter,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="BParameterDao"/>
+        <!--<property name="IBSCOperation" ref="BSCOperation"/>-->
+      </object>
+    </property>
+  </object>
+  <object id="BBDictType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BBDictType,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="BDictTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBDict" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BBDict,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="BDictDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBDictTree" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BBDictTree,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="BDictTreeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCAttachment" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BSCAttachment,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="SCAttachmentDao"/>
+        <property name="IBBParameter" ref="BBParameter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCInteraction" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BSCInteraction,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="SCInteractionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCOperation" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BSCOperation,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="SCOperationDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BFFile" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFile,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileDao"/>
+        <property name="IDFFileOperationDao" ref="FFileOperationDao"/>
+        <property name="IDFFileCopyUserDao" ref="FFileCopyUserDao"/>
+        <property name="IDBParameterDao" ref="BParameterDao"/>
+        <property name="IDFFileReadingUserDao" ref="FFileReadingUserDao"/>
+        <property name="IDFFileReadingLogDao" ref="FFileReadingLogDao"/>
+        <property name="IBBDictTree" ref="BBDictTree"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IDRBACEmpRolesDao" ref="RBACEmpRolesDao"/>
+        <property name="IBBParameter" ref="BBParameter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileAttachment" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileAttachment,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileAttachmentDao"/>
+        <property name="IDFFileDao" ref="FFileDao"/>
+        <property name="IBBParameter" ref="BBParameter"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileCopyUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileCopyUser,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileCopyUserDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileInteraction" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileInteraction,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileInteractionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileOperation" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileOperation,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileOperationDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileReadingLog" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileReadingLog,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileReadingLogDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BFFileReadingUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.Common.BFFileReadingUser,ZhiFang.BLL.Common">
+        <property name="DBDao" ref="FFileReadingUserDao"/>
+      </object>
+    </property>
+  </object>
+  <!--系统公用-->
+  <!--消息系统-->
+  <object id="BSCMsgType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BSCMsgType,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="SCMsgTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCMsgPhraseDic" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BSCMsgPhraseDic,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="SCMsgPhraseDicDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCMsgHandle" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BSCMsgHandle,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="SCMsgHandleDao"/>
+        <property name="IDSCMsgDao" ref="SCMsgDao"/>
+        <property name="IDCVCriticalValueEmpIdDeptLinkDao" ref="CVCriticalValueEmpIdDeptLinkDao"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+        <property name="IDRBACEmpRolesDao" ref="RBACEmpRolesDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCMsg" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BSCMsg,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="SCMsgDao"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IDCVCriticalValueEmpIdDeptLinkDao" ref="CVCriticalValueEmpIdDeptLinkDao"/>
+        <property name="IDSCMsgTypeDao" ref="SCMsgTypeDao"/>
+        <property name="IDRBACUserDao" ref="RBACUserDao"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+        <property name="IDBHospitalDao" ref="BHospitalDao"/>
+        <property name="IDBHospitalEmpLinkDao" ref="BHospitalEmpLinkDao"/>
+        <property name="IDIntergrateSystemSetDao" ref="IntergrateSystemSetDao"/>
+        <property name="IDSCMsgHandleDao" ref="SCMsgHandleDao"/>
+        <property name="IDRBACEmpRolesDao" ref="RBACEmpRolesDao"/>
+        <property name="IDRBACRoleDao" ref="RBACRoleDao"/>
+        <property name="IDBParameterDao" ref="BParameterDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BSCIMInfomationContent" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BSCIMInfomationContent,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="SCIMInfomationContentDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BIntergrateSystemSet" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BIntergrateSystemSet,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="IntergrateSystemSetDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BCVCriticalValueEmpIdDeptLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BCVCriticalValueEmpIdDeptLink,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="CVCriticalValueEmpIdDeptLinkDao"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+        <property name="IDRBACUserDao" ref="RBACUserDao"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IDRBACRoleDao" ref="RBACRoleDao"/>
+        <property name="IDRBACEmpRolesDao" ref="RBACEmpRolesDao"/>
+        <property name="IDBSexDao" ref="BSexDao"/>
+      </object>
+    </property>
+  </object>
+  <!--消息系统-->
+  <!--微信系统-->
+  <object id="BWXAccountType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BWXAccountType,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="WXAccountTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BWXIcons" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BWXIcons,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="WXIconsDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BWXMessageSendTask" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BWXMessageSendTask,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="WXMessageSendTaskDao"/>
+        <property name="IDWXMsgSendLogDao" ref="WXMsgSendLogDao"/>
+        <property name="IDBHospitalEmpLinkDao" ref="BHospitalEmpLinkDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BWXMsgSendLog" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BWXMsgSendLog,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="WXMsgSendLogDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BWXWeiXinEmpLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BWXWeiXinEmpLink,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="WXWeiXinEmpLinkDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BWXWeiXinPushMessageTemplate" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BWXWeiXinPushMessageTemplate,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="WXWeiXinPushMessageTemplateDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BWXWeiXinAccount" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BWXWeiXinAccount,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="WXWeiXinAccountDao"/>
+        <property name="IDWXWeiXinEmpLinkDao" ref="WXWeiXinEmpLinkDao"/>
+        <property name="IDRBACUserDao" ref="RBACUserDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BWXWeiXinUserGroup" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BWXWeiXinUserGroup,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="WXWeiXinUserGroupDao"/>
+      </object>
+    </property>
+  </object>
+  <!--微信系统-->
+  <!--平台提供各系统公用字典-->
+  <object id="BBHospital" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BBHospital,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="BHospitalDao"/>
+        <property name="IDBHospitalAreaDao" ref="BHospitalAreaDao"/>
+        <property name="IDBHospitalLevelDao" ref="BHospitalLevelDao"/>
+        <property name="IDBHospitalTypeDao" ref="BHospitalTypeDao"/>
+        <property name="IDBProvinceDao" ref="BProvinceDao"/>
+        <property name="IDBCityDao" ref="BCityDao"/>
+        <property name="IDBCountyDao" ref="BCountyDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBHospitalArea" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BBHospitalArea,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="BHospitalAreaDao"/>
+        <property name="IDBHospitalDao" ref="BHospitalDao"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BBHospitalDept" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BBHospitalDept,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="BHospitalDeptDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BBHospitalLevel" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BBHospitalLevel,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="BHospitalLevelDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BBHospitalType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BBHospitalType,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="BHospitalTypeDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BBHospitalEmpLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BBHospitalEmpLink,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="BHospitalEmpLinkDao"/>
+        <property name="IDBHospitalDao" ref="BHospitalDao"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BBHospitalTypeLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BBHospitalTypeLink,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="BHospitalTypeLinkDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BSAccountRegister" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.BSAccountRegister,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="SAccountRegisterDao"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IDRBACUserDao" ref="RBACUserDao"/>
+        <property name="IDRBACEmpRolesDao" ref="RBACEmpRolesDao"/>
+        <property name="IDBHospitalEmpLinkDao" ref="BHospitalEmpLinkDao"/>
+        <property name="IDRBACRoleDao" ref="RBACRoleDao"/>
+        <property name="IDBHospitalDao" ref="BHospitalDao"/>
+        <property name="IDBSexDao" ref="BSexDao"/>
+      </object>
+    </property>
+  </object>
+
+  <!--平台提供各系统公用字典-->
+  <!--RBAC数据同步-->
+  <object id="BBDeptClone" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.RBACClone.BBDeptClone,ZhiFang.BLL.LIIP">
+        <property name="IDepartmentClone" ref="LabStarV6DepartmentDao"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IDSLIIPSystemRBACCloneLog" ref="SLIIPSystemRBACCloneLogDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BBEmpClone" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.RBACClone.BBEmpClone,ZhiFang.BLL.LIIP">
+        <property name="PUserCloneDao" ref="LabStarV6PUserDao"/>
+        <property name="DoctorCloneDao" ref="LabStarV6DoctorDao"/>
+        <property name="NPUserCloneDao" ref="LabStarV6NPUserDao"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+        <property name="IDRBACRoleDao" ref="RBACRoleDao"/>
+        <property name="IDRBACEmpRolesDao" ref="RBACEmpRolesDao"/>
+        <property name="IDBSexDao" ref="BSexDao"/>
+        <property name="IDRBACUserDao" ref="RBACUserDao"/>
+        <property name="IDSLIIPSystemRBACCloneLog" ref="SLIIPSystemRBACCloneLogDao"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="BSLIIPSystemRBACCloneLog" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.RBACClone.BSLIIPSystemRBACCloneLog,ZhiFang.BLL.LIIP">
+        <property name="DBDao" ref="SLIIPSystemRBACCloneLogDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBQMSEmpClone" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LIIP.RBACClone.BBQMSEmpClone,ZhiFang.BLL.LIIP">
+        <property name="IDBSexDao" ref="BSexDao"/>
+        <property name="IDBTDAppComponentsDao" ref="BTDAppComponentsDao"/>
+        <property name="IDBTDAppComponentsOperateDao" ref="BTDAppComponentsOperateDao"/>
+        <property name="IDQMSHRDeptDao" ref="QMSHRDeptDao"/>
+        <property name="IDQMSHRDeptEmpDao" ref="QMSHRDeptEmpDao"/>
+        <property name="IDQMSHRDeptIdentityDao" ref="QMSHRDeptIdentityDao"/>
+        <property name="IDQMSHREmpIdentityDao" ref="QMSHREmpIdentityDao"/>
+        <property name="IDQMSHREmployeeDao" ref="QMSHREmployeeDao"/>
+        <property name="IDQMSHRPositionDao" ref="QMSHRPositionDao"/>
+        <property name="IDQMSRBACEmpOptionsDao" ref="QMSRBACEmpOptionsDao"/>
+        <property name="IDQMSRBACEmpRolesDao" ref="QMSRBACEmpRolesDao"/>
+        <property name="IDQMSRBACModuleDao" ref="QMSRBACModuleDao"/>
+        <property name="IDQMSRBACModuleOperDao" ref="QMSRBACModuleOperDao"/>
+        <property name="IDQMSRBACRoleDao" ref="QMSRBACRoleDao"/>
+        <property name="IDQMSRBACRoleModuleDao" ref="QMSRBACRoleModuleDao"/>
+        <property name="IDQMSRBACRoleRightDao" ref="QMSRBACRoleRightDao"/>
+        <property name="IDQMSRBACRowFilterDao" ref="QMSRBACRowFilterDao"/>
+        <property name="IDQMSRBACUserDao" ref="QMSRBACUserDao"/>
+        <property name="IDHRDeptDao" ref="HRDeptDao"/>
+        <property name="IDHRDeptEmpDao" ref="HRDeptEmpDao"/>
+        <property name="IDHRDeptIdentityDao" ref="HRDeptIdentityDao"/>
+        <property name="IDHREmpIdentityDao" ref="HREmpIdentityDao"/>
+        <property name="IDHREmployeeDao" ref="HREmployeeDao"/>
+        <property name="IDHRPositionDao" ref="HRPositionDao"/>
+        <property name="IDRBACEmpOptionsDao" ref="RBACEmpOptionsDao"/>
+        <property name="IDRBACEmpRolesDao" ref="RBACEmpRolesDao"/>
+        <property name="IDRBACModuleDao" ref="RBACModuleDao"/>
+        <property name="IDRBACModuleOperDao" ref="RBACModuleOperDao"/>
+        <property name="IDRBACRoleDao" ref="RBACRoleDao"/>
+        <property name="IDRBACRoleModuleDao" ref="RBACRoleModuleDao"/>
+        <property name="IDRBACRoleRightDao" ref="RBACRoleRightDao"/>
+        <property name="IDRBACRowFilterDao" ref="RBACRowFilterDao"/>
+        <property name="IDRBACUserDao" ref="RBACUserDao"/>
+        <property name="IDSLIIPSystemRBACCloneLog" ref="SLIIPSystemRBACCloneLogDao"/>
+      </object>
+    </property>
+  </object>
+  <!--RBAC数据同步-->
+</objects>

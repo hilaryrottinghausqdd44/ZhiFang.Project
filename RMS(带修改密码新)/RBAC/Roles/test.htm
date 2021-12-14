@@ -1,0 +1,286 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<title>PersonList</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta content="Microsoft FrontPage 4.0" name="GENERATOR">
+		<meta content="FrontPage.Editor.Document" name="ProgId">
+		<style type="text/css">.unnamed1 { BORDER-RIGHT: #0099ff 1px dashed; BORDER-TOP: #0099ff 1px dashed; BORDER-LEFT: #0099ff 1px dashed; BORDER-BOTTOM: #0099ff 1px dashed }
+	</style>
+		<script language="javascript" event="onbuttonclick" for="Toolbar1">
+			switch (event.srcNode.getAttribute('Id'))
+			{
+				case 'Employee':
+					PostModules.txtRoleTypeName.value="请稍候..";
+					PostModules.txtRoleType.value="1";
+					if(ChooseEmpl());
+						firSubmit();
+					break;
+				case 'Department':
+					window.open('personadd.aspx?Id=0','','width=580px,height=460px,resizable=yes,left=' + (screen.availWidth-740)/2 + ',top=' + (screen.availHeight-540)/2 );	
+					break;
+				case 'Position':
+					window.open('personadd.aspx?Id=0','','width=580px,height=460px,resizable=yes,left=' + (screen.availWidth-740)/2 + ',top=' + (screen.availHeight-540)/2 );	
+					break;
+				case 'Post':
+					window.open('personadd.aspx?Id=0','','width=580px,height=460px,resizable=yes,left=' + (screen.availWidth-740)/2 + ',top=' + (screen.availHeight-540)/2 );	
+					break;
+			}
+		</script>
+		
+		<script language="javascript" event="onnodebound" for="TreeView1">
+			checkTreeNodes1All(TreeView1.getChildren());
+			//testchecked(TreeView2.getChildren())
+			//alert('treeview1');
+		</script>
+		
+		<script language="javascript" event="onnodebound" for="TreeView2">
+			//alert(TreeView1.getChildren());
+			testchecked(TreeView2.getChildren());
+			//alert('treeview2');
+			document.getElementById('oToolTip').style.display='none';
+			 window.status="权限逻辑组织完成";
+			//oToolTipContent
+			//alert(document.getElementById('oToolTip').style.display);
+		</script>
+		
+		<script language="javascript" event="onclick" for="TreeView1">
+		var node=TreeView1.getTreeNode(TreeView1.clickedNodeIndex);
+		if(node==null)
+			return;
+		if(node.getAttribute("Checked"))
+		{
+			//alert(typeof(node.getAttribute("Checked")) + "=1" + node.getAttribute("Checked"));
+			node.setAttribute("Checked",false);
+		}
+		else
+		{
+			//alert(typeof(node.getAttribute("Checked")) + "=2" + node.getAttribute("Checked"));
+			node.setAttribute("Checked",true);
+		}
+		
+		checkChain(node);
+		window.status=node.getAttribute("Text");
+		//alert(node.getAttribute("Checked")+"--clicked");
+		</script>
+		<script language="javascript" event="oncheck" for="TreeView1">
+		var node1=TreeView1.getTreeNode(TreeView1.clickedNodeIndex);
+		if(node1==null)
+			return;
+		
+		
+		//alert(node1.getAttribute("Checked"));
+		//////////////////////////////////////////////////
+		
+		if(node1.getAttribute("Checked"))
+		{
+			walkChildren(node1.getChildren() ,true);
+			walkParent(node1.getParent());
+		}
+		else
+		{
+			walkChildren(node1.getChildren() ,false);
+		}
+		
+		</script>
+		<script language="javascript">
+	<!--
+		function checkChain(myNode)
+		{
+			if(myNode.getAttribute("Checked"))
+			{
+				walkChildren(myNode.getChildren(),true);
+				walkParent(myNode.getParent());
+			}
+			else
+			{
+				walkChildren(myNode.getChildren(),false);
+			}
+		}
+		
+		function walkChildren(arrayChildren,bChecked)
+		{
+			var currentChild;
+			for (var i = 0; i < arrayChildren.length; i++)
+			{
+				currentChild = arrayChildren[i];
+				currentChild.setAttribute("Checked",bChecked);
+				
+				walkChildren(currentChild.getChildren(), bChecked);
+				
+			}
+		} 
+		function walkParent(nodeParent)
+		{
+			if(nodeParent!=null&&typeof(nodeParent) != "undefined")
+			{
+				nodeParent.setAttribute("Checked",true);
+				walkParent(nodeParent.getParent());
+			}
+		}
+		
+		function firSubmit()
+		{
+			if(PostModules.txtRoleType.value==""||PostModules.txtRoleType.value=="null")
+			{
+				alert('没有选择员工，部门，职位或岗位');
+				return false;
+			}	
+			PostModules.hArrayModuleID.value="";
+			PostModules.hArrayModuleIDRemoved.value="";
+			collectModules(TreeView1.getChildren());
+			
+			//alert(PostModules.hArrayModuleID.value + "\n\n" + PostModules.hArrayModuleIDRemoved.value);
+			return true;
+			
+		}
+		function collectModules(TreeNodes)
+		{
+			if(TreeNodes!=null&&typeof(TreeNodes) != "undefined")
+			{
+				for(var i=0;i<	TreeNodes.length;i++)
+				{
+					var currentChild;
+					currentChild = TreeNodes[i];
+					if(currentChild.getAttribute("Checked"))
+						PostModules.hArrayModuleID.value +="," + currentChild.getAttribute("NodeData");
+					else
+						PostModules.hArrayModuleIDRemoved.value +="," + currentChild.getAttribute("NodeData");
+					
+					var childNodes;
+					childNodes=currentChild.getChildren();
+					collectModules(childNodes);
+				}
+			}
+				//添加的模块
+			if(PostModules.hArrayModuleID.value.substring(0,1)==",")
+				PostModules.hArrayModuleID.value=PostModules.hArrayModuleID.value.substring(1,PostModules.hArrayModuleID.value.length);
+				
+			//删除的模块
+			if(PostModules.hArrayModuleIDRemoved.value.substring(0,1)==",")
+				PostModules.hArrayModuleIDRemoved.value=PostModules.hArrayModuleIDRemoved.value.substring(1,PostModules.hArrayModuleIDRemoved.value.length);
+		}
+		
+		function testchecked(treenodes)
+		{
+			
+			if(treenodes==null||typeof(treenodes)=="undefined")
+				return;
+			
+			//alert(treenodes[0]);
+			for(var i=0;i<treenodes.length;i++) {
+
+			    window.status = treenodes[i].getAttribute("Text") + "-->初始化中....请稍候...";
+				testcheckedpost(TreeView1.getChildren(),treenodes[i]);
+				
+				testchecked(treenodes[i].getChildren());
+			}
+		}
+		function testcheckedpost(treenodes,treenode1)
+		{
+			if(treenodes==null||typeof(treenodes)=="undefined")
+				return;
+			for(var i=0;i<treenodes.length;i++)
+			{
+				if(treenodes[i].getAttribute("NodeData")==treenode1.getAttribute("NodeData"))
+				{
+					treenodes[i].setAttribute("Checked",true); 
+					//alert(treenodes[i].getAttribute("Checked"));
+					return;
+				}
+				testcheckedpost(treenodes[i].getChildren(),treenode1);
+			}
+		}
+		function checkTreeNodes1All(treenodes)
+		{
+			for(var i=0;i<treenodes.length;i++)
+			{
+				treenodes[i].setAttribute("CheckBox","True");
+				//treenodes[i].setAttribute("Expanded","True");
+				//window.status = treenodes[i].getAttribute("Text") + "-->选中";
+				checkTreeNodes1All(treenodes[i].getChildren());
+				
+			}
+		}
+	//-->
+		</script>
+		<script language="javascript" id="clientEventHandlersJS">
+<!--
+
+function window_onload() {
+	
+	return true;
+}
+
+function ChooseEmpl()
+{
+	var result;
+	result = window.showModalDialog('../Organizations/searchperson.aspx','','dialogWidth=30;dialogHeight=30;status=no;scroll=no');
+	if (result != 'undefined' && typeof(result)!='undefined')
+	{
+		var rv = result.split("|");
+		if (rv.length == 2)
+		{	PostModules.txtRoleTypeName.value='按员工分配';
+			PostModules.txtRoleName.value = rv[1];
+			PostModules.txtRoleID.value = rv[0];
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}
+}
+//-->
+		</script>
+	</HEAD>
+	<body leftMargin="0" topMargin="0" onload="return window_onload()" bgcolor="#f0f0f0">
+		<form name="PostModules" method="post" action="AllModules.aspx?txtRoleType=0&amp;txtRoleID=6&amp;txtRoleName=%u7f57%u6587%u9ad8" id="PostModules" onsubmit="return firSubmit()">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTU0ODAwNDk3Mg9kFgICAQ9kFgJmDw8WAh4EVGV4dGVkZGSLGpQdNK9W3IMnFPCYKIlobyQrIQ==" />
+</div>
+
+			<script language="javascript">
+				function RoleEdit(id)
+				{
+					window.open ('RoleEdit.aspx?id=' + id,'RoleEdit','width=500,height=400,scrollbars=0,top=170,left=200');
+				}
+			</script>
+			<P align="left">
+				<span id="Label1" style="color:#FF8080;font-size:Small;"></span></P>
+			<DIV id="oToolTip" style="DISPLAY: ;POSITION: absolute">
+			    <div style="BORDER-RIGHT: black 2px solid; PADDING-RIGHT: 10px; BORDER-TOP: black 2px solid; PADDING-LEFT: 10px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=skyblue, EndColorStr=#FFFFFF); LEFT: 0px; PADDING-BOTTOM: 10px; FONT: 10pt tahoma; BORDER-LEFT: black 2px solid; WIDTH: 170px; PADDING-TOP: 10px; BORDER-BOTTOM: black 2px solid; TOP: 0px; HEIGHT: 120px">
+				    <b>正在显示该角色的<br />权限模块逻辑结构:</b>
+				    <hr style="BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid"
+					    SIZE="1">
+				    <label id="oToolTipContent">:::请稍候:::</label>
+				    <div></div>
+			    </div>
+		    </DIV>
+			<P>
+				<?XML:NAMESPACE PREFIX=TVNS />
+				<?IMPORT NAMESPACE=TVNS IMPLEMENTATION="/webctrl_client/1_0/treeview.htc" />
+				<tvns:treeview id="TreeView1"  treenodesrc="<TREENODES><treenode text='系统设置' tooltip='最高权限系统设置' para='' SN='01' ImageUrl='../../images/icons/0003_b.gif' NodeData='5'><treenode text='模块管理' tooltip='最高权限模块管理' para='' SN='0101' ImageUrl='../../images/icons/0003_b.gif' NodeData='110'><treenode text='系统访问策略' tooltip='最高权限系统访问策略' SN='010101' ImageUrl='../../images/icons/0003_b.gif' NodeData='111' /><treenode text='操作按钮管理' tooltip='最高权限操作按钮管理' SN='010102' ImageUrl='../../images/icons/0003_b.gif' NodeData='112' /><treenode text='操作按钮定制' tooltip='最高权限操作按钮定制' para='' SN='010103' ImageUrl='../../images/icons/0003_b.gif' NodeData='114' /><treenode text='数据过滤模板' tooltip='最高权限数据过滤模板' para='' SN='010104' ImageUrl='../../images/icons/0003_b.gif' NodeData='113' /></treenode><treenode text='信息列表模块管理' tooltip='最高权限信息列表模块管理' para='' SN='0102' ImageUrl='../../images/icons/0036_b.gif' NodeData='642' /><treenode text='模块排序' tooltip='最高权限模块排序' para='' SN='0103' ImageUrl='../../images/icons/0049_b.gif' NodeData='108' /><treenode text='单表数据库' tooltip='最高权限单表数据库' para='' SN='0104' ImageUrl='../../images/icons/200.gif' NodeData='528' /><treenode text='单表系统设置' tooltip='最高权限单表系统设置' para='' SN='0105' ImageUrl='../../images/icons/0075_b.gif' NodeData='330'><treenode text='数据共享升级' tooltip='最高权限数据共享升级' para='' SN='010501' ImageUrl='../../images/icons/0048_b.gif' NodeData='357' /><treenode text='单表数据库' tooltip='最高权限单表数据库' para='' SN='010502' ImageUrl='../../images/icons/db_ico.gif' NodeData='358' /></treenode><treenode text='CS程序登记管理' tooltip='最高权限CS程序登记管理' SN='0106' ImageUrl='../../images/icons/0036_b.gif' NodeData='346' /><treenode text='应用程序迁移' tooltip='最高权限应用程序迁移' para='' SN='0107' ImageUrl='../../images/icons/zhi3.gif' NodeData='600' /><treenode text='桌面配置' tooltip='最高权限桌面配置' para='' SN='0108' ImageUrl='../../images/icons/zhi2.gif' NodeData='2'><treenode text='顶部链接' tooltip='最高权限顶部链接' para='' SN='010801' ImageUrl='../../images/icons/0078_b.gif' NodeData='215' /></treenode><treenode text='系统文件上传' tooltip='最高权限系统文件上传' para='' SN='0109' ImageUrl='../../images/icons/zhi3.gif' NodeData='602' /><treenode text='模块时效性' tooltip='最高权限模块时效性' para='' SN='0110' ImageUrl='../../images/icons/0013_b.gif' NodeData='11'><treenode text='考勤管理' tooltip='最高权限考勤管理' para='' SN='011001' ImageUrl='../../images/icons/0013_b.gif' NodeData='13' /></treenode><treenode text='统计图设置' tooltip='最高权限统计图设置' para='WindowSize=MAX' SN='0111' ImageUrl='../../images/icons/0003_b.gif' NodeData='612' /><treenode text='问卷调查管理' tooltip='最高权限问卷调查管理' para='' SN='0112' ImageUrl='../../images/icons/0011_b.gif' NodeData='659' /><treenode text='功能树管理' tooltip='最高权限功能树管理' para='' SN='0113' ImageUrl='../../images/icons/0003_b.gif' NodeData='672'><treenode text='功能树管理1' tooltip='最高权限功能树管理1' para='treename=烂皮,烂皮兄,烂皮弟,烂皮新,烂摊子,小张,小王' SN='011301' ImageUrl='../../images/icons/0003_b.gif' NodeData='675' /><treenode text='功能树管理2' tooltip='最高权限功能树管理2' para='treename=智方新闻,医院新闻' SN='011302' ImageUrl='../../images/icons/0003_b.gif' NodeData='676' /><treenode text='功能树管理3' tooltip='最高权限功能树管理3' para='treename=合作伙伴新闻' SN='011303' ImageUrl='../../images/icons/0003_b.gif' NodeData='677' /></treenode><treenode text='功能树移动' tooltip='最高权限功能树移动' para='' SN='0114' ImageUrl='../../images/icons/0003_b.gif' NodeData='673' /></treenode><treenode text='系统维护' tooltip='最高权限系统维护' para='' SN='02' ImageUrl='../../images/icons/zhi3.gif' NodeData='603'><treenode text='人员组织机构' tooltip='最高权限人员组织机构' para='' SN='0201' ImageUrl='../../images/icons/zhi1.gif' NodeData='4'><treenode text='账号管理' tooltip='最高权限账号管理' para='' SN='020101' ImageUrl='../../images/icons/0074_b.gif' NodeData='101' /><treenode text='职位管理' tooltip='最高权限职位管理' para='' SN='020102' ImageUrl='../../images/icons/0063_b.gif' NodeData='102' /><treenode text='岗位管理' tooltip='最高权限岗位管理' para='' SN='020103' ImageUrl='../../images/icons/0037_b.gif' NodeData='103' /><treenode text='离职人员' tooltip='最高权限离职人员' para='' SN='020104' ImageUrl='../../images/icons/0057_b.gif' NodeData='115' /></treenode><treenode text='角色模块管理' tooltip='最高权限角色模块管理' para='' SN='0202' ImageUrl='../../images/icons/0060_b.gif' NodeData='105'><treenode text='系统权限（全）' tooltip='最高权限系统权限（全）' para='' SN='020201' ImageUrl='../../images/icons/0060_b.gif' NodeData='126' /><treenode text='操作权限' tooltip='最高权限操作权限' para='' SN='020202' ImageUrl='../../images/icons/0060_b.gif' NodeData='107' /><treenode text='系统权限(快速)' tooltip='最高权限系统权限(快速)' para='' SN='020203' ImageUrl='../../images/icons/0060_b.gif' NodeData='106' /></treenode><treenode text='模块角色管理' tooltip='最高权限模块角色管理' para='' SN='0203' ImageUrl='../../images/icons/0060_b.gif' NodeData='10' /><treenode text='岗位模块管理' tooltip='最高权限岗位模块管理' para='' SN='0204' ImageUrl='../../images/icons/0060_b.gif' NodeData='104' /><treenode text='桌面模板' tooltip='最高权限桌面模板' para='Catagory=首页' SN='0205' ImageUrl='../../images/icons/zhi3.gif' NodeData='637'><treenode text='桌面1' tooltip='最高权限桌面1' SN='020501' ImageUrl='../../images/icons/0004_b.gif' NodeData='629'><treenode text='桌面1' tooltip='最高权限桌面1' SN='02050101' ImageUrl='../../images/icons/0004_b.gif' NodeData='638' /><treenode text='桌面1' tooltip='最高权限桌面1' SN='02050102' ImageUrl='../../images/icons/0004_b.gif' NodeData='639' /><treenode text='桌面1' tooltip='最高权限桌面1' SN='02050103' ImageUrl='../../images/icons/0004_b.gif' NodeData='640' /></treenode></treenode><treenode text='页面模板' tooltip='最高权限页面模板' para='Catagory=首页' SN='0206' ImageUrl='../../images/icons/zhi3.gif' NodeData='573' /><treenode text='新闻栏目管理' tooltip='最高权限新闻栏目管理' para='' SN='0207' ImageUrl='../../images/icons/zhi3.gif' NodeData='599' /><treenode text='帮助新闻' tooltip='最高权限帮助新闻' para='Catagory=帮助新闻' SN='0208' ImageUrl='../../images/icons/htmlicon.gif' NodeData='606' /><treenode text='字典维护' tooltip='最高权限字典维护' SN='0209' ImageUrl='../../images/icons/200.gif' NodeData='532' /><treenode text='新闻输入模板' tooltip='最高权限新闻输入模板' para='' SN='0210' ImageUrl='../../images/icons/0034_b.gif' NodeData='615' /><treenode text='短信发送' tooltip='最高权限短信发送' para='' SN='0211' ImageUrl='../../images/icons/0004_b.gif' NodeData='661' /></treenode><treenode text='主页面测试' tooltip='最高权限主页面测试' SN='03' ImageUrl='../../images/icons/0004_b.gif' NodeData='614' /><treenode text='信息浏览-测试' tooltip='最高权限信息浏览-测试' SN='04' ImageUrl='../../images/icons/0076_b.gif' NodeData='610' /><treenode text='信息发布' tooltip='最高权限信息发布' SN='05' ImageUrl='../../images/icons/0004_b.gif' NodeData='608' /><treenode text='公司动态' tooltip='最高权限公司动态' para='' SN='06' ImageUrl='../../images/icons/zhi4.gif' NodeData='7'><treenode text='应用系统平台开发' tooltip='最高权限应用系统平台开发' para='Catagory=应用系统平台开发' SN='0601' ImageUrl='http://192.168.0.137/oa/images/icons/htmlicon.gif' NodeData='626' /><treenode text='智方新闻' tooltip='最高权限智方新闻' para='Catagory=智方新闻' SN='0602' ImageUrl='../../images/icons/htmlicon.gif' NodeData='61' /><treenode text='行业新闻' tooltip='最高权限行业新闻' para='Catagory=行业新闻' SN='0603' ImageUrl='http://localhost/OA/images/icons/htmlicon.gif' NodeData='62' /><treenode text='市场新闻' tooltip='最高权限市场新闻' para='Catagory=市场新闻' SN='0604' ImageUrl='../../images/icons/0064_b.gif' NodeData='127' /><treenode text='开发新闻' tooltip='最高权限开发新闻' para='Catagory=开发新闻' SN='0605' ImageUrl='../../images/icons/0034_b.gif' NodeData='128' /><treenode text='销售新闻' tooltip='最高权限销售新闻' para='Catagory=销售新闻' SN='0606' ImageUrl='../../images/icons/0034_b.gif' NodeData='129' /><treenode text='办事处新闻' tooltip='最高权限办事处新闻' para='Catagory=办事处新闻' SN='0607' ImageUrl='../../images/icons/0034_b.gif' NodeData='130' /><treenode text='合作伙伴新闻' tooltip='最高权限合作伙伴新闻' para='Catagory=合作伙伴新闻' SN='0608' ImageUrl='../../images/icons/0034_b.gif' NodeData='131' /><treenode text='医院新闻' tooltip='最高权限医院新闻' para='Catagory=医院新闻' SN='0609' ImageUrl='../../images/icons/0034_b.gif' NodeData='132' /><treenode text='公司通知' tooltip='最高权限公司通知' para='Catagory=公司通知' SN='0610' ImageUrl='../../images/icons/ioc22.GIF' NodeData='534' /><treenode text='企业文化' tooltip='最高权限企业文化' para='Catagory=企业文化' SN='0611' ImageUrl='../../images/icons/ioc22.GIF' NodeData='536' /><treenode text='工程与服务' tooltip='最高权限工程与服务' para='Catagory=工程与服务' SN='0612' ImageUrl='../../images/icons/ioc22.GIF' NodeData='537' /><treenode text='LIS项目进度管理' tooltip='最高权限LIS项目进度管理' para='Catagory=LIS项目进度管理' SN='0613' ImageUrl='../../images/icons/zhi4.gif' NodeData='567'><treenode text='LIS项目概要' tooltip='最高权限LIS项目概要' para='Catagory=LIS项目概要' SN='061301' ImageUrl='../../images/icons/zhi4.gif' NodeData='568' /></treenode><treenode text='开发进度管理' tooltip='最高权限开发进度管理' para='Catagory=开发进度管理' SN='0614' ImageUrl='../../images/icons/zhi4.gif' NodeData='569' /><treenode text='日立项目概要' tooltip='最高权限日立项目概要' para='Catagory=日立项目概要' SN='0615' ImageUrl='../../images/icons/zhi4.gif' NodeData='570' /><treenode text='业务合同概要' tooltip='最高权限业务合同概要' para='Catagory=业务合同概要' SN='0616' ImageUrl='../../images/icons/zhi4.gif' NodeData='571' /><treenode text='项目介绍' tooltip='最高权限项目介绍' para='Catagory=项目介绍' SN='0617' ImageUrl='../../images/icons/0036_b.gif' NodeData='671' /><treenode text='检验报告格式' tooltip='最高权限检验报告格式' para='Catagory=检验报告格式' SN='0618' ImageUrl='../../images/icons/zhi4.gif' NodeData='572' /></treenode><treenode text='用户资源管理' tooltip='最高权限用户资源管理' SN='07' ImageUrl='../../images/icons/zhi1.gif' NodeData='579'><treenode text='用户资源管理-测试' tooltip='最高权限用户资源管理-测试' SN='0701' ImageUrl='../../images/icons/zhi1.gif' NodeData='621' /></treenode><treenode text='周工作计划' tooltip='最高权限周工作计划' SN='08' ImageUrl='../../images/icons/0004_b.gif' NodeData='488'><treenode text='周计划编制' tooltip='最高权限周计划编制' SN='0801' ImageUrl='../../images/icons/0029_b.gif' NodeData='489' /><treenode text='周计划审核' tooltip='最高权限周计划审核' SN='0802' ImageUrl='../../images/icons/0029_b.gif' NodeData='490' /><treenode text='周计划执行' tooltip='最高权限周计划执行' SN='0803' ImageUrl='../../images/icons/0029_b.gif' NodeData='491' /><treenode text='周工作评价' tooltip='最高权限周工作评价' SN='0804' ImageUrl='../../images/icons/0029_b.gif' NodeData='492' /><treenode text='周计划查询' tooltip='最高权限周计划查询' SN='0805' ImageUrl='../../images/icons/0029_b.gif' NodeData='507' /><treenode text='工作日志管理' tooltip='最高权限工作日志管理' SN='0806' ImageUrl='../../images/icons/0004_b.gif' NodeData='538' /></treenode><treenode text='年月工作计划' tooltip='最高权限年月工作计划' para='id=190' SN='09' ImageUrl='../../images/icons/0004_b.gif' NodeData='467'><treenode text='年月计划编制' tooltip='最高权限年月计划编制' SN='0901' ImageUrl='../../images/icons/0029_b.gif' NodeData='511' /><treenode text='年月计划审核' tooltip='最高权限年月计划审核' SN='0902' ImageUrl='../../images/icons/0029_b.gif' NodeData='512' /><treenode text='年月计划执行' tooltip='最高权限年月计划执行' SN='0903' ImageUrl='../../images/icons/0029_b.gif' NodeData='513' /><treenode text='年月工作评价' tooltip='最高权限年月工作评价' SN='0904' ImageUrl='../../images/icons/0029_b.gif' NodeData='514' /><treenode text='年月工作查询' tooltip='最高权限年月工作查询' SN='0905' ImageUrl='../../images/icons/0029_b.gif' NodeData='515' /><treenode text='测试' tooltip='最高权限测试' para='id=223' SN='0906' ImageUrl='../../images/icons/0004_b.gif' NodeData='607' /></treenode><treenode text='开发定制管理' tooltip='最高权限开发定制管理' SN='10' ImageUrl='../../images/icons/zhi3.gif' NodeData='460'><treenode text='BS开发培训' tooltip='最高权限BS开发培训' SN='1001' ImageUrl='../../images/icons/0002_b.gif' NodeData='540' /><treenode text='任务申请' tooltip='最高权限任务申请' SN='1002' ImageUrl='../../images/icons/0016_b.gif' NodeData='461' /><treenode text='任务审核' tooltip='最高权限任务审核' SN='1003' ImageUrl='../../images/icons/0016_b.gif' NodeData='462' /><treenode text='开发进展' tooltip='最高权限开发进展' SN='1004' ImageUrl='../../images/icons/0016_b.gif' NodeData='463' /><treenode text='开发验收' tooltip='最高权限开发验收' SN='1005' ImageUrl='../../images/icons/0016_b.gif' NodeData='465' /><treenode text='开发查询' tooltip='最高权限开发查询' SN='1006' ImageUrl='../../images/icons/0016_b.gif' NodeData='466' /><treenode text='程序错误修改' tooltip='最高权限程序错误修改' SN='1007' ImageUrl='../../images/icons/0016_b.gif' NodeData='471' /><treenode text='开发变更' tooltip='最高权限开发变更' SN='1008' ImageUrl='../../images/icons/ioc31.GIF' NodeData='516' /><treenode text='开发审核' tooltip='最高权限开发审核' SN='1009' ImageUrl='../../images/icons/0016_b.gif' NodeData='526' /></treenode><treenode text='在线文档' tooltip='最高权限在线文档' para='' SN='11' ImageUrl='../../images/icons/ioc09.GIF' NodeData='8'><treenode text='个人文件夹' tooltip='最高权限个人文件夹' para='' SN='1101' ImageUrl='../../images/icons/0059_b.gif' NodeData='63' /><treenode text='共享文件夹' tooltip='最高权限共享文件夹' para='' SN='1102' ImageUrl='../../images/icons/shared.gif' NodeData='64'></treenode><treenode text='公共文件夹' tooltip='最高权限公共文件夹' para='' SN='1103' ImageUrl='../../images/icons/0062_b.gif' NodeData='125' /></treenode><treenode text='智方产品介绍' tooltip='最高权限智方产品介绍' SN='12' ImageUrl='../../images/icons/0000_b.gif' NodeData='543'><treenode text='检验之星介绍' tooltip='最高权限检验之星介绍' SN='1201' ImageUrl='../../images/icons/0000_b.gif' NodeData='544' /><treenode text='EIP介绍' tooltip='最高权限EIP介绍' SN='1202' ImageUrl='../../images/icons/0000_b.gif' NodeData='545' /></treenode><treenode text='开发需求' tooltip='最高权限开发需求' para='Catagory=开发需求' SN='13' ImageUrl='../../images/icons/htmlicon.gif' NodeData='549'><treenode text='综合' tooltip='最高权限综合' para='Catagory=综合' SN='1301' ImageUrl='../../images/icons/htmlicon.gif' NodeData='550' /><treenode text='业务处理' tooltip='最高权限业务处理' para='Catagory=业务处理' SN='1302' ImageUrl='../../images/icons/htmlicon.gif' NodeData='551'><treenode text='血库' tooltip='最高权限血库' para='Catagory=血库' SN='130201' ImageUrl='../../images/icons/htmlicon.gif' NodeData='554' /><treenode text='试剂' tooltip='最高权限试剂' para='Catagory=试剂' SN='130202' ImageUrl='../../images/icons/htmlicon.gif' NodeData='555' /><treenode text='护士医生站' tooltip='最高权限护士医生站' para='Catagory=护士医生站' SN='130203' ImageUrl='../../images/icons/htmlicon.gif' NodeData='557' /><treenode text='技师站' tooltip='最高权限技师站' para='Catagory=技师站' SN='130204' ImageUrl='../../images/icons/htmlicon.gif' NodeData='558' /><treenode text='查询站' tooltip='最高权限查询站' para='Catagory=查询站' SN='130205' ImageUrl='../../images/icons/htmlicon.gif' NodeData='559' /></treenode><treenode text='科室管理' tooltip='最高权限科室管理' para='Catagory=科室管理' SN='1303' ImageUrl='../../images/icons/htmlicon.gif' NodeData='552'><treenode text='人事' tooltip='最高权限人事' para='Catagory=人事' SN='130301' ImageUrl='../../images/icons/htmlicon.gif' NodeData='564' /><treenode text='设备管理' tooltip='最高权限设备管理' para='Catagory=设备管理' SN='130302' ImageUrl='../../images/icons/htmlicon.gif' NodeData='565' /><treenode text='财务管理' tooltip='最高权限财务管理' para='Catagory=财务管理' SN='130303' ImageUrl='../../images/icons/htmlicon.gif' NodeData='566' /></treenode><treenode text='质量控制' tooltip='最高权限质量控制' para='Catagory=质量控制' SN='1304' ImageUrl='../../images/icons/htmlicon.gif' NodeData='553'><treenode text='室内质控' tooltip='最高权限室内质控' para='Catagory=室内质控' SN='130401' ImageUrl='../../images/icons/htmlicon.gif' NodeData='561' /><treenode text='EQA/IQC' tooltip='最高权限EQA/IQC' para='Catagory=EQA/IQC' SN='130402' ImageUrl='../../images/icons/htmlicon.gif' NodeData='562' /><treenode text='质量认证' tooltip='最高权限质量认证' para='Catagory=质量认证' SN='130403' ImageUrl='../../images/icons/htmlicon.gif' NodeData='563' /></treenode><treenode text='信息交换' tooltip='最高权限信息交换' para='Catagory=信息交换' SN='1305' ImageUrl='../../images/icons/htmlicon.gif' NodeData='560' /><treenode text='55' tooltip='最高权限55' para='Catagory=55' SN='1306' ImageUrl='http://localhost/WebSiteOA/images/icons/htmlicon.gif' NodeData='636' /></treenode><treenode text='实验室管理' tooltip='最高权限实验室管理' para='' SN='14' ImageUrl='../../images/icons/lab2.gif' NodeData='429'><treenode text='设备管理系统' tooltip='最高权限设备管理系统' SN='1401' ImageUrl='../../images/icons/lab4.gif' NodeData='430' /><treenode text='试剂管理' tooltip='最高权限试剂管理' para='exe=试剂管理' SN='1402' ImageUrl='../../images/icons/regm1.gif' NodeData='431' /><treenode text='技师工作站' tooltip='最高权限技师工作站' para='exe=检验之星' SN='1403' ImageUrl='../../images/icons/LIS1gif.gif' NodeData='432' /><treenode text='报告单查询' tooltip='最高权限报告单查询' para='' SN='1404' ImageUrl='../../images/icons/report1.gif' NodeData='433' /><treenode text='论文管理' tooltip='最高权限论文管理' SN='1405' ImageUrl='../../images/icons/paper1.gif' NodeData='434' /><treenode text='项目临床意义' tooltip='最高权限项目临床意义' SN='1406' ImageUrl='../../images/icons/0084_b.gif' NodeData='435' /><treenode text='样本拒绝管理' tooltip='最高权限样本拒绝管理' SN='1407' ImageUrl='../../images/icons/0083_b.gif' NodeData='436' /><treenode text='实验室登记' tooltip='最高权限实验室登记' SN='1408' ImageUrl='../../images/icons/0080_b.gif' NodeData='437' /><treenode text='认证与质量管理' tooltip='最高权限认证与质量管理' SN='1409' ImageUrl='../../images/icons/0081_b.gif' NodeData='438' /></treenode><treenode text='其他产品' tooltip='最高权限其他产品' para='' SN='15' ImageUrl='../../images/icons/0044_b.gif' NodeData='297'><treenode text='检验圈' tooltip='最高权限检验圈' SN='1501' ImageUrl='../../images/icons/0000_b.gif' NodeData='548' /><treenode text='销售评估' tooltip='最高权限销售评估' SN='1502' ImageUrl='../../images/icons/zhi1.gif' NodeData='582' /><treenode text='销售登记' tooltip='最高权限销售登记' SN='1503' ImageUrl='../../images/icons/zhi1.gif' NodeData='581' /><treenode text='杨文明的门户' tooltip='最高权限杨文明的门户' SN='1504' ImageUrl='../../images/icons/0003_b.gif' NodeData='625' /><treenode text='数字签名' tooltip='最高权限数字签名' para='' SN='1505' ImageUrl='../../images/icons/0060_b.gif' NodeData='298' /><treenode text='签名论证' tooltip='最高权限签名论证' para='' SN='1506' ImageUrl='../../images/icons/0005_b.gif' NodeData='299' /><treenode text='数字签名演示' tooltip='最高权限数字签名演示' para='' SN='1507' ImageUrl='../../images/icons/0060_b.gif' NodeData='387' /><treenode text='节目单管理' tooltip='最高权限节目单管理' SN='1508' ImageUrl='../../images/icons/ioc16.GIF' NodeData='519' /><treenode text='个人办公室' tooltip='最高权限个人办公室' para='' SN='1509' ImageUrl='../../images/icons/ioc34.GIF' NodeData='388'><treenode text='个人通讯录' tooltip='最高权限个人通讯录' SN='150901' ImageUrl='../../images/icons/0068_b.gif' NodeData='389' /><treenode text='备忘日志' tooltip='最高权限备忘日志' SN='150902' ImageUrl='../../images/icons/0068_b.gif' NodeData='395' /><treenode text='工作日志管理' tooltip='最高权限工作日志管理' SN='150903' ImageUrl='../../images/icons/0068_b.gif' NodeData='411' /></treenode><treenode text='公共资料' tooltip='最高权限公共资料' para='' SN='1510' ImageUrl='../../images/icons/ioc17.GIF' NodeData='390'><treenode text='公司通讯录' tooltip='最高权限公司通讯录' SN='151001' ImageUrl='../../images/icons/0006_b.gif' NodeData='391' /><treenode text='邮编检索' tooltip='最高权限邮编检索' SN='151002' ImageUrl='../../images/icons/0006_b.gif' NodeData='392' /><treenode text='列车时刻表' tooltip='最高权限列车时刻表' SN='151003' ImageUrl='../../images/icons/0006_b.gif' NodeData='393' /><treenode text='航班时刻表' tooltip='最高权限航班时刻表' SN='151004' ImageUrl='../../images/icons/0006_b.gif' NodeData='394' /><treenode text='综合资料' tooltip='最高权限综合资料' SN='151005' ImageUrl='../../images/icons/0006_b.gif' NodeData='420' /><treenode text='帮助系统' tooltip='最高权限帮助系统' SN='151006' ImageUrl='../../images/icons/0006_b.gif' NodeData='450' /></treenode><treenode text='行政管理' tooltip='最高权限行政管理' para='' SN='1511' ImageUrl='../../images/icons/ioc05.GIF' NodeData='397'><treenode text='图书资料管理' tooltip='最高权限图书资料管理' SN='151101' ImageUrl='../../images/icons/0007_b.gif' NodeData='398' /><treenode text='固定资产管理' tooltip='最高权限固定资产管理' SN='151102' ImageUrl='../../images/icons/0007_b.gif' NodeData='399' /><treenode text='会议管理' tooltip='最高权限会议管理' SN='151103' ImageUrl='../../images/icons/0007_b.gif' NodeData='400' /><treenode text='车辆管理' tooltip='最高权限车辆管理' SN='151104' ImageUrl='../../images/icons/0007_b.gif' NodeData='401' /><treenode text='公文管理' tooltip='最高权限公文管理' SN='151105' ImageUrl='../../images/icons/0007_b.gif' NodeData='402' /><treenode text='用车管理' tooltip='最高权限用车管理' SN='151106' ImageUrl='../../images/icons/0007_b.gif' NodeData='403' /></treenode><treenode text='人事管理' tooltip='最高权限人事管理' para='Category=人事管理' SN='1512' ImageUrl='../../images/icons/0037_b.gif' NodeData='404'><treenode text='人力资源' tooltip='最高权限人力资源' SN='151201' ImageUrl='../../images/icons/0019_b.gif' NodeData='405' /><treenode text='考勤及外出登记' tooltip='最高权限考勤及外出登记' SN='151202' ImageUrl='../../images/icons/0007_b.gif' NodeData='406' /><treenode text='档案管理' tooltip='最高权限档案管理' SN='151203' ImageUrl='../../images/icons/0051_b.gif' NodeData='407' /><treenode text='招聘管理' tooltip='最高权限招聘管理' SN='151204' ImageUrl='../../images/icons/0019_b.gif' NodeData='408' /><treenode text='安全与健康' tooltip='最高权限安全与健康' SN='151205' ImageUrl='../../images/icons/0019_b.gif' NodeData='409' /><treenode text='绩效考核' tooltip='最高权限绩效考核' SN='151206' ImageUrl='../../images/icons/0016_b.gif' NodeData='410' /><treenode text='薪酬管理' tooltip='最高权限薪酬管理' SN='151207' ImageUrl='../../images/icons/0019_b.gif' NodeData='419' /><treenode text='社保与福利' tooltip='最高权限社保与福利' SN='151208' ImageUrl='../../images/icons/0037_b.gif' NodeData='517' /></treenode><treenode text='日立管理' tooltip='最高权限日立管理' para='' SN='1513' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='439'><treenode text='日立售后服务' tooltip='最高权限日立售后服务' SN='151301' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='440' /><treenode text='服务报告书' tooltip='最高权限服务报告书' SN='151302' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='441' /><treenode text='销售登记系统' tooltip='最高权限销售登记系统' SN='151303' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='442' /><treenode text='零配件管理' tooltip='最高权限零配件管理' SN='151304' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='443' /><treenode text='客户管理' tooltip='最高权限客户管理' SN='151305' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='449' /></treenode><treenode text='罗氏管理' tooltip='最高权限罗氏管理' SN='1514' ImageUrl='../../images/icons/roch1.gif' NodeData='445'><treenode text='投放项目管理' tooltip='最高权限投放项目管理' SN='151401' ImageUrl='../../images/icons/roch1.gif' NodeData='446'><treenode text='按合同统计' tooltip='最高权限按合同统计' para='' SN='15140101' ImageUrl='../../images/icons/roch1.gif' NodeData='456' /><treenode text='投分类统计' tooltip='最高权限投分类统计' para='' SN='15140102' ImageUrl='../../images/icons/roch1.gif' NodeData='457' /><treenode text='用户测试量统计' tooltip='最高权限用户测试量统计' para='' SN='15140103' ImageUrl='../../images/icons/roch1.gif' NodeData='458' /></treenode><treenode text='软件开发管理' tooltip='最高权限软件开发管理' SN='151402' ImageUrl='../../images/icons/roch1.gif' NodeData='447' /><treenode text='客户管理' tooltip='最高权限客户管理' SN='151403' ImageUrl='../../images/icons/roch1.gif' NodeData='448' /><treenode text='销售管理' tooltip='最高权限销售管理' SN='151404' ImageUrl='../../images/icons/roch1.gif' NodeData='451' /><treenode text='售后服务' tooltip='最高权限售后服务' SN='151405' ImageUrl='../../images/icons/roch1.gif' NodeData='452' /><treenode text='服务报告书' tooltip='最高权限服务报告书' SN='151406' ImageUrl='../../images/icons/roch1.gif' NodeData='453' /><treenode text='零配件管理' tooltip='最高权限零配件管理' SN='151407' ImageUrl='../../images/icons/roch1.gif' NodeData='454' /><treenode text='代理店管理' tooltip='最高权限代理店管理' SN='151408' ImageUrl='../../images/icons/roch1.gif' NodeData='455' /></treenode><treenode text='出差管理' tooltip='最高权限出差管理' para='' SN='1515' ImageUrl='../../images/icons/ioc32.GIF' NodeData='472'><treenode text='出差申请' tooltip='最高权限出差申请' SN='151501' ImageUrl='../../images/icons/ioc32.GIF' NodeData='473' /><treenode text='出差审核' tooltip='最高权限出差审核' SN='151502' ImageUrl='../../images/icons/ioc32.GIF' NodeData='474' /><treenode text='出差总结' tooltip='最高权限出差总结' SN='151503' ImageUrl='../../images/icons/ioc32.GIF' NodeData='475' /><treenode text='总结审核' tooltip='最高权限总结审核' SN='151504' ImageUrl='../../images/icons/ioc32.GIF' NodeData='476' /><treenode text='出差报销' tooltip='最高权限出差报销' SN='151505' ImageUrl='../../images/icons/ioc32.GIF' NodeData='477' /><treenode text='报销审核' tooltip='最高权限报销审核' SN='151506' ImageUrl='../../images/icons/ioc32.GIF' NodeData='478' /><treenode text='报销批准' tooltip='最高权限报销批准' SN='151507' ImageUrl='../../images/icons/ioc32.GIF' NodeData='479' /><treenode text='报销付款' tooltip='最高权限报销付款' SN='151508' ImageUrl='../../images/icons/ioc32.GIF' NodeData='480' /><treenode text='出差归档' tooltip='最高权限出差归档' SN='151509' ImageUrl='../../images/icons/ioc32.GIF' NodeData='481' /><treenode text='出差查询' tooltip='最高权限出差查询' SN='151510' ImageUrl='../../images/icons/ioc32.GIF' NodeData='482' /></treenode><treenode text='考勤查询' tooltip='最高权限考勤查询' SN='1516' ImageUrl='../../images/icons/0004_b.gif' NodeData='493'><treenode text='考勤登记' tooltip='最高权限考勤登记' SN='151601' ImageUrl='../../images/icons/0029_b.gif' NodeData='494' /></treenode><treenode text='市场跟踪' tooltip='最高权限市场跟踪' SN='1517' ImageUrl='../../images/icons/0029_b.gif' NodeData='503'><treenode text='潜在用户登记' tooltip='最高权限潜在用户登记' SN='151701' ImageUrl='../../images/icons/0029_b.gif' NodeData='504' /><treenode text='潜在用户查询' tooltip='最高权限潜在用户查询' SN='151702' ImageUrl='../../images/icons/0029_b.gif' NodeData='505' /></treenode><treenode text='连接仪器查询' tooltip='最高权限连接仪器查询' SN='1518' ImageUrl='../../images/icons/zhifang2.gif' NodeData='521' /><treenode text='代理店管理' tooltip='最高权限代理店管理' SN='1519' ImageUrl='../../images/icons/zhifang2.gif' NodeData='522' /><treenode text='报告格式管理' tooltip='最高权限报告格式管理' SN='1520' ImageUrl='../../images/icons/report1.gif' NodeData='527'><treenode text='报告格式浏览' tooltip='最高权限报告格式浏览' SN='152001' ImageUrl='../../images/icons/report1.gif' NodeData='531' /></treenode><treenode text='UU库管' tooltip='最高权限UU库管' SN='1521' ImageUrl='../../images/icons/0000_b.gif' NodeData='547' /><treenode text='血库系统' tooltip='最高权限血库系统' SN='1522' ImageUrl='../../images/icons/zhi2.gif' NodeData='542' /><treenode text='测试1' tooltip='最高权限测试1' SN='1523' ImageUrl='../../images/icons/0002_b.gif' NodeData='530' /></treenode><treenode text='检验日志' tooltip='最高权限检验日志' SN='16' ImageUrl='../../images/icons/0036_b.gif' NodeData='670' /><treenode text='仪器信息维护' tooltip='最高权限仪器信息维护' para='' SN='17' ImageUrl='../../images/icons/0036_b.gif' NodeData='679' /><treenode text='QMS仪器维护' tooltip='最高权限QMS仪器维护' SN='18' ImageUrl='../../images/icons/0036_b.gif' NodeData='682' /><treenode text='人力资源' tooltip='最高权限人力资源' para='' SN='19' ImageUrl='../../images/icons/0019_b.gif' NodeData='687'><treenode text='上班签到' tooltip='最高权限上班签到' SN='1901' ImageUrl='../../images/icons/0036_b.gif' NodeData='678' /><treenode text='上班签到(代签)' tooltip='最高权限上班签到(代签)' SN='1902' ImageUrl='../../images/icons/0036_b.gif' NodeData='685' /><treenode text='下班签退' tooltip='最高权限下班签退' SN='1903' ImageUrl='../../images/icons/0036_b.gif' NodeData='684' /><treenode text='下班签退(代签)' tooltip='最高权限下班签退(代签)' SN='1904' ImageUrl='../../images/icons/0036_b.gif' NodeData='686' /><treenode text='外出登记' tooltip='最高权限外出登记' SN='1905' ImageUrl='../../images/icons/0046_b.gif' NodeData='688' /><treenode text='外出登记(代签)' tooltip='最高权限外出登记(代签)' SN='1906' ImageUrl='../../images/icons/0046_b.gif' NodeData='691' /><treenode text='出差登记' tooltip='最高权限出差登记' SN='1907' ImageUrl='../../images/icons/ioc32.GIF' NodeData='695' /><treenode text='出差登记(代签)' tooltip='最高权限出差登记(代签)' SN='1908' ImageUrl='../../images/icons/ioc32.GIF' NodeData='696' /><treenode text='请假申请' tooltip='最高权限请假申请' para='isSelf=yes' SN='1909' ImageUrl='../../images/icons/0054_b.gif' NodeData='689' /><treenode text='请假申请(代签)' tooltip='最高权限请假申请(代签)' para='isSelf=no' SN='1910' ImageUrl='../../images/icons/0054_b.gif' NodeData='690' /><treenode text='我的考勤' tooltip='最高权限我的考勤' para='isSelf=yes' SN='1911' ImageUrl='../../images/icons/0007_b.gif' NodeData='692' /><treenode text='员工状态' tooltip='最高权限员工状态' SN='1912' ImageUrl='../../images/icons/0074_b.gif' NodeData='693' /><treenode text='考勤管理' tooltip='最高权限考勤管理' SN='1913' ImageUrl='../../images/icons/0019_b.gif' NodeData='694' /></treenode><treenode text='短信配置' tooltip='最高权限短信配置' para='' SN='20' ImageUrl='../../images/icons/0003_b.gif' NodeData='683' /></TREENODES>"  target="MainList" HelperID="__TreeView1_State__" systemImagesPath="/webctrl_client/1_0/treeimages/" selectExpands="false" onexpand="javascript: if (this.clickedNodeIndex != null) this.queueEvent('onexpand', this.clickedNodeIndex)" oncollapse="javascript: if (this.clickedNodeIndex != null) this.queueEvent('oncollapse', this.clickedNodeIndex)" oncheck="javascript: if (this.clickedNodeIndex != null) this.queueEvent('oncheck', this.clickedNodeIndex)" onselectedindexchange="javascript: if (event.oldTreeNodeIndex != event.newTreeNodeIndex) this.queueEvent('onselectedindexchange', event.oldTreeNodeIndex + ',' + event.newTreeNodeIndex)">
+				</tvns:treeview>
+			</P>
+			<P>
+				<input id="hArrayModuleID" type="hidden" name="hArrayModuleID">
+			</P>
+			<P align="left">&nbsp;</P>
+			<P>
+				<input id="hArrayModuleIDRemoved" type="hidden" name="hArrayModuleIDRemoved">
+			</P>
+			<P align="left">
+				<tvns:treeview id="TreeView2"  treenodesrc="<TREENODES><treenode text='公司动态' tooltip='最高权限公司动态' para='' SN='06' ImageUrl='../../images/icons/zhi4.gif' NodeData='7'><treenode text='智方新闻' tooltip='最高权限智方新闻' para='Catagory=智方新闻' SN='0602' ImageUrl='../../images/icons/htmlicon.gif' NodeData='61' /><treenode text='行业新闻' tooltip='最高权限行业新闻' para='Catagory=行业新闻' SN='0603' ImageUrl='http://localhost/OA/images/icons/htmlicon.gif' NodeData='62' /><treenode text='市场新闻' tooltip='最高权限市场新闻' para='Catagory=市场新闻' SN='0604' ImageUrl='../../images/icons/0064_b.gif' NodeData='127' /><treenode text='开发新闻' tooltip='最高权限开发新闻' para='Catagory=开发新闻' SN='0605' ImageUrl='../../images/icons/0034_b.gif' NodeData='128' /><treenode text='销售新闻' tooltip='最高权限销售新闻' para='Catagory=销售新闻' SN='0606' ImageUrl='../../images/icons/0034_b.gif' NodeData='129' /><treenode text='办事处新闻' tooltip='最高权限办事处新闻' para='Catagory=办事处新闻' SN='0607' ImageUrl='../../images/icons/0034_b.gif' NodeData='130' /><treenode text='合作伙伴新闻' tooltip='最高权限合作伙伴新闻' para='Catagory=合作伙伴新闻' SN='0608' ImageUrl='../../images/icons/0034_b.gif' NodeData='131' /><treenode text='医院新闻' tooltip='最高权限医院新闻' para='Catagory=医院新闻' SN='0609' ImageUrl='../../images/icons/0034_b.gif' NodeData='132' /><treenode text='公司通知' tooltip='最高权限公司通知' para='Catagory=公司通知' SN='0610' ImageUrl='../../images/icons/ioc22.GIF' NodeData='534' /><treenode text='企业文化' tooltip='最高权限企业文化' para='Catagory=企业文化' SN='0611' ImageUrl='../../images/icons/ioc22.GIF' NodeData='536' /><treenode text='工程与服务' tooltip='最高权限工程与服务' para='Catagory=工程与服务' SN='0612' ImageUrl='../../images/icons/ioc22.GIF' NodeData='537' /><treenode text='LIS项目进度管理' tooltip='最高权限LIS项目进度管理' para='Catagory=LIS项目进度管理' SN='0613' ImageUrl='../../images/icons/zhi4.gif' NodeData='567'><treenode text='LIS项目概要' tooltip='最高权限LIS项目概要' para='Catagory=LIS项目概要' SN='061301' ImageUrl='../../images/icons/zhi4.gif' NodeData='568' /></treenode><treenode text='开发进度管理' tooltip='最高权限开发进度管理' para='Catagory=开发进度管理' SN='0614' ImageUrl='../../images/icons/zhi4.gif' NodeData='569' /><treenode text='日立项目概要' tooltip='最高权限日立项目概要' para='Catagory=日立项目概要' SN='0615' ImageUrl='../../images/icons/zhi4.gif' NodeData='570' /><treenode text='业务合同概要' tooltip='最高权限业务合同概要' para='Catagory=业务合同概要' SN='0616' ImageUrl='../../images/icons/zhi4.gif' NodeData='571' /><treenode text='检验报告格式' tooltip='最高权限检验报告格式' para='Catagory=检验报告格式' SN='0618' ImageUrl='../../images/icons/zhi4.gif' NodeData='572' /></treenode><treenode text='用户资源管理' tooltip='最高权限用户资源管理' SN='07' ImageUrl='../../images/icons/zhi1.gif' NodeData='579'><treenode text='用户资源管理-测试' tooltip='最高权限用户资源管理-测试' SN='0701' ImageUrl='../../images/icons/zhi1.gif' NodeData='621' /></treenode><treenode text='周工作计划' tooltip='最高权限周工作计划' SN='08' ImageUrl='../../images/icons/0004_b.gif' NodeData='488'><treenode text='周计划编制' tooltip='最高权限周计划编制' SN='0801' ImageUrl='../../images/icons/0029_b.gif' NodeData='489' /><treenode text='周计划审核' tooltip='最高权限周计划审核' SN='0802' ImageUrl='../../images/icons/0029_b.gif' NodeData='490' /><treenode text='周计划执行' tooltip='最高权限周计划执行' SN='0803' ImageUrl='../../images/icons/0029_b.gif' NodeData='491' /><treenode text='周工作评价' tooltip='最高权限周工作评价' SN='0804' ImageUrl='../../images/icons/0029_b.gif' NodeData='492' /><treenode text='周计划查询' tooltip='最高权限周计划查询' SN='0805' ImageUrl='../../images/icons/0029_b.gif' NodeData='507' /><treenode text='工作日志管理' tooltip='最高权限工作日志管理' SN='0806' ImageUrl='../../images/icons/0004_b.gif' NodeData='538' /></treenode><treenode text='开发定制管理' tooltip='最高权限开发定制管理' SN='10' ImageUrl='../../images/icons/zhi3.gif' NodeData='460'><treenode text='BS开发培训' tooltip='最高权限BS开发培训' SN='1001' ImageUrl='../../images/icons/0002_b.gif' NodeData='540' /><treenode text='任务申请' tooltip='最高权限任务申请' SN='1002' ImageUrl='../../images/icons/0016_b.gif' NodeData='461' /><treenode text='任务审核' tooltip='最高权限任务审核' SN='1003' ImageUrl='../../images/icons/0016_b.gif' NodeData='462' /><treenode text='开发进展' tooltip='最高权限开发进展' SN='1004' ImageUrl='../../images/icons/0016_b.gif' NodeData='463' /><treenode text='开发验收' tooltip='最高权限开发验收' SN='1005' ImageUrl='../../images/icons/0016_b.gif' NodeData='465' /><treenode text='开发查询' tooltip='最高权限开发查询' SN='1006' ImageUrl='../../images/icons/0016_b.gif' NodeData='466' /><treenode text='程序错误修改' tooltip='最高权限程序错误修改' SN='1007' ImageUrl='../../images/icons/0016_b.gif' NodeData='471' /><treenode text='开发变更' tooltip='最高权限开发变更' SN='1008' ImageUrl='../../images/icons/ioc31.GIF' NodeData='516' /><treenode text='开发审核' tooltip='最高权限开发审核' SN='1009' ImageUrl='../../images/icons/0016_b.gif' NodeData='526' /></treenode><treenode text='在线文档' tooltip='最高权限在线文档' para='' SN='11' ImageUrl='../../images/icons/ioc09.GIF' NodeData='8'><treenode text='个人文件夹' tooltip='最高权限个人文件夹' para='' SN='1101' ImageUrl='../../images/icons/0059_b.gif' NodeData='63' /><treenode text='共享文件夹' tooltip='最高权限共享文件夹' para='' SN='1102' ImageUrl='../../images/icons/shared.gif' NodeData='64'></treenode><treenode text='公共文件夹' tooltip='最高权限公共文件夹' para='' SN='1103' ImageUrl='../../images/icons/0062_b.gif' NodeData='125' /></treenode><treenode text='开发需求' tooltip='最高权限开发需求' para='Catagory=开发需求' SN='13' ImageUrl='../../images/icons/htmlicon.gif' NodeData='549'><treenode text='综合' tooltip='最高权限综合' para='Catagory=综合' SN='1301' ImageUrl='../../images/icons/htmlicon.gif' NodeData='550' /><treenode text='业务处理' tooltip='最高权限业务处理' para='Catagory=业务处理' SN='1302' ImageUrl='../../images/icons/htmlicon.gif' NodeData='551'><treenode text='血库' tooltip='最高权限血库' para='Catagory=血库' SN='130201' ImageUrl='../../images/icons/htmlicon.gif' NodeData='554' /><treenode text='试剂' tooltip='最高权限试剂' para='Catagory=试剂' SN='130202' ImageUrl='../../images/icons/htmlicon.gif' NodeData='555' /><treenode text='护士医生站' tooltip='最高权限护士医生站' para='Catagory=护士医生站' SN='130203' ImageUrl='../../images/icons/htmlicon.gif' NodeData='557' /><treenode text='技师站' tooltip='最高权限技师站' para='Catagory=技师站' SN='130204' ImageUrl='../../images/icons/htmlicon.gif' NodeData='558' /><treenode text='查询站' tooltip='最高权限查询站' para='Catagory=查询站' SN='130205' ImageUrl='../../images/icons/htmlicon.gif' NodeData='559' /></treenode><treenode text='科室管理' tooltip='最高权限科室管理' para='Catagory=科室管理' SN='1303' ImageUrl='../../images/icons/htmlicon.gif' NodeData='552'><treenode text='人事' tooltip='最高权限人事' para='Catagory=人事' SN='130301' ImageUrl='../../images/icons/htmlicon.gif' NodeData='564' /><treenode text='设备管理' tooltip='最高权限设备管理' para='Catagory=设备管理' SN='130302' ImageUrl='../../images/icons/htmlicon.gif' NodeData='565' /><treenode text='财务管理' tooltip='最高权限财务管理' para='Catagory=财务管理' SN='130303' ImageUrl='../../images/icons/htmlicon.gif' NodeData='566' /></treenode><treenode text='质量控制' tooltip='最高权限质量控制' para='Catagory=质量控制' SN='1304' ImageUrl='../../images/icons/htmlicon.gif' NodeData='553'><treenode text='室内质控' tooltip='最高权限室内质控' para='Catagory=室内质控' SN='130401' ImageUrl='../../images/icons/htmlicon.gif' NodeData='561' /><treenode text='EQA/IQC' tooltip='最高权限EQA/IQC' para='Catagory=EQA/IQC' SN='130402' ImageUrl='../../images/icons/htmlicon.gif' NodeData='562' /><treenode text='质量认证' tooltip='最高权限质量认证' para='Catagory=质量认证' SN='130403' ImageUrl='../../images/icons/htmlicon.gif' NodeData='563' /></treenode><treenode text='信息交换' tooltip='最高权限信息交换' para='Catagory=信息交换' SN='1305' ImageUrl='../../images/icons/htmlicon.gif' NodeData='560' /></treenode><treenode text='实验室管理' tooltip='最高权限实验室管理' para='' SN='14' ImageUrl='../../images/icons/lab2.gif' NodeData='429'><treenode text='设备管理系统' tooltip='最高权限设备管理系统' SN='1401' ImageUrl='../../images/icons/lab4.gif' NodeData='430' /><treenode text='试剂管理' tooltip='最高权限试剂管理' para='exe=试剂管理' SN='1402' ImageUrl='../../images/icons/regm1.gif' NodeData='431' /><treenode text='技师工作站' tooltip='最高权限技师工作站' para='exe=检验之星' SN='1403' ImageUrl='../../images/icons/LIS1gif.gif' NodeData='432' /><treenode text='报告单查询' tooltip='最高权限报告单查询' para='' SN='1404' ImageUrl='../../images/icons/report1.gif' NodeData='433' /><treenode text='论文管理' tooltip='最高权限论文管理' SN='1405' ImageUrl='../../images/icons/paper1.gif' NodeData='434' /><treenode text='项目临床意义' tooltip='最高权限项目临床意义' SN='1406' ImageUrl='../../images/icons/0084_b.gif' NodeData='435' /><treenode text='样本拒绝管理' tooltip='最高权限样本拒绝管理' SN='1407' ImageUrl='../../images/icons/0083_b.gif' NodeData='436' /><treenode text='实验室登记' tooltip='最高权限实验室登记' SN='1408' ImageUrl='../../images/icons/0080_b.gif' NodeData='437' /><treenode text='认证与质量管理' tooltip='最高权限认证与质量管理' SN='1409' ImageUrl='../../images/icons/0081_b.gif' NodeData='438' /></treenode><treenode text='其他产品' tooltip='最高权限其他产品' para='' SN='15' ImageUrl='../../images/icons/0044_b.gif' NodeData='297'><treenode text='数字签名' tooltip='最高权限数字签名' para='' SN='1505' ImageUrl='../../images/icons/0060_b.gif' NodeData='298' /><treenode text='签名论证' tooltip='最高权限签名论证' para='' SN='1506' ImageUrl='../../images/icons/0005_b.gif' NodeData='299' /><treenode text='数字签名演示' tooltip='最高权限数字签名演示' para='' SN='1507' ImageUrl='../../images/icons/0060_b.gif' NodeData='387' /><treenode text='节目单管理' tooltip='最高权限节目单管理' SN='1508' ImageUrl='../../images/icons/ioc16.GIF' NodeData='519' /><treenode text='个人办公室' tooltip='最高权限个人办公室' para='' SN='1509' ImageUrl='../../images/icons/ioc34.GIF' NodeData='388'><treenode text='个人通讯录' tooltip='最高权限个人通讯录' SN='150901' ImageUrl='../../images/icons/0068_b.gif' NodeData='389' /><treenode text='备忘日志' tooltip='最高权限备忘日志' SN='150902' ImageUrl='../../images/icons/0068_b.gif' NodeData='395' /><treenode text='工作日志管理' tooltip='最高权限工作日志管理' SN='150903' ImageUrl='../../images/icons/0068_b.gif' NodeData='411' /></treenode><treenode text='公共资料' tooltip='最高权限公共资料' para='' SN='1510' ImageUrl='../../images/icons/ioc17.GIF' NodeData='390'><treenode text='公司通讯录' tooltip='最高权限公司通讯录' SN='151001' ImageUrl='../../images/icons/0006_b.gif' NodeData='391' /><treenode text='邮编检索' tooltip='最高权限邮编检索' SN='151002' ImageUrl='../../images/icons/0006_b.gif' NodeData='392' /><treenode text='列车时刻表' tooltip='最高权限列车时刻表' SN='151003' ImageUrl='../../images/icons/0006_b.gif' NodeData='393' /><treenode text='航班时刻表' tooltip='最高权限航班时刻表' SN='151004' ImageUrl='../../images/icons/0006_b.gif' NodeData='394' /><treenode text='综合资料' tooltip='最高权限综合资料' SN='151005' ImageUrl='../../images/icons/0006_b.gif' NodeData='420' /><treenode text='帮助系统' tooltip='最高权限帮助系统' SN='151006' ImageUrl='../../images/icons/0006_b.gif' NodeData='450' /></treenode><treenode text='行政管理' tooltip='最高权限行政管理' para='' SN='1511' ImageUrl='../../images/icons/ioc05.GIF' NodeData='397'><treenode text='图书资料管理' tooltip='最高权限图书资料管理' SN='151101' ImageUrl='../../images/icons/0007_b.gif' NodeData='398' /><treenode text='固定资产管理' tooltip='最高权限固定资产管理' SN='151102' ImageUrl='../../images/icons/0007_b.gif' NodeData='399' /><treenode text='会议管理' tooltip='最高权限会议管理' SN='151103' ImageUrl='../../images/icons/0007_b.gif' NodeData='400' /><treenode text='车辆管理' tooltip='最高权限车辆管理' SN='151104' ImageUrl='../../images/icons/0007_b.gif' NodeData='401' /><treenode text='公文管理' tooltip='最高权限公文管理' SN='151105' ImageUrl='../../images/icons/0007_b.gif' NodeData='402' /><treenode text='用车管理' tooltip='最高权限用车管理' SN='151106' ImageUrl='../../images/icons/0007_b.gif' NodeData='403' /></treenode><treenode text='人事管理' tooltip='最高权限人事管理' para='Category=人事管理' SN='1512' ImageUrl='../../images/icons/0037_b.gif' NodeData='404'><treenode text='人力资源' tooltip='最高权限人力资源' SN='151201' ImageUrl='../../images/icons/0019_b.gif' NodeData='405' /></treenode><treenode text='日立管理' tooltip='最高权限日立管理' para='' SN='1513' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='439'><treenode text='日立售后服务' tooltip='最高权限日立售后服务' SN='151301' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='440' /><treenode text='服务报告书' tooltip='最高权限服务报告书' SN='151302' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='441' /><treenode text='销售登记系统' tooltip='最高权限销售登记系统' SN='151303' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='442' /><treenode text='零配件管理' tooltip='最高权限零配件管理' SN='151304' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='443' /><treenode text='客户管理' tooltip='最高权限客户管理' SN='151305' ImageUrl='../../images/icons/HTlogo1.gif' NodeData='449' /></treenode><treenode text='罗氏管理' tooltip='最高权限罗氏管理' SN='1514' ImageUrl='../../images/icons/roch1.gif' NodeData='445'><treenode text='投放项目管理' tooltip='最高权限投放项目管理' SN='151401' ImageUrl='../../images/icons/roch1.gif' NodeData='446'><treenode text='按合同统计' tooltip='最高权限按合同统计' para='' SN='15140101' ImageUrl='../../images/icons/roch1.gif' NodeData='456' /><treenode text='投分类统计' tooltip='最高权限投分类统计' para='' SN='15140102' ImageUrl='../../images/icons/roch1.gif' NodeData='457' /><treenode text='用户测试量统计' tooltip='最高权限用户测试量统计' para='' SN='15140103' ImageUrl='../../images/icons/roch1.gif' NodeData='458' /></treenode><treenode text='软件开发管理' tooltip='最高权限软件开发管理' SN='151402' ImageUrl='../../images/icons/roch1.gif' NodeData='447' /><treenode text='客户管理' tooltip='最高权限客户管理' SN='151403' ImageUrl='../../images/icons/roch1.gif' NodeData='448' /><treenode text='销售管理' tooltip='最高权限销售管理' SN='151404' ImageUrl='../../images/icons/roch1.gif' NodeData='451' /><treenode text='售后服务' tooltip='最高权限售后服务' SN='151405' ImageUrl='../../images/icons/roch1.gif' NodeData='452' /><treenode text='服务报告书' tooltip='最高权限服务报告书' SN='151406' ImageUrl='../../images/icons/roch1.gif' NodeData='453' /><treenode text='零配件管理' tooltip='最高权限零配件管理' SN='151407' ImageUrl='../../images/icons/roch1.gif' NodeData='454' /><treenode text='代理店管理' tooltip='最高权限代理店管理' SN='151408' ImageUrl='../../images/icons/roch1.gif' NodeData='455' /></treenode><treenode text='考勤查询' tooltip='最高权限考勤查询' SN='1516' ImageUrl='../../images/icons/0004_b.gif' NodeData='493'><treenode text='考勤登记' tooltip='最高权限考勤登记' SN='151601' ImageUrl='../../images/icons/0029_b.gif' NodeData='494' /></treenode><treenode text='市场跟踪' tooltip='最高权限市场跟踪' SN='1517' ImageUrl='../../images/icons/0029_b.gif' NodeData='503'><treenode text='潜在用户登记' tooltip='最高权限潜在用户登记' SN='151701' ImageUrl='../../images/icons/0029_b.gif' NodeData='504' /><treenode text='潜在用户查询' tooltip='最高权限潜在用户查询' SN='151702' ImageUrl='../../images/icons/0029_b.gif' NodeData='505' /></treenode><treenode text='连接仪器查询' tooltip='最高权限连接仪器查询' SN='1518' ImageUrl='../../images/icons/zhifang2.gif' NodeData='521' /><treenode text='代理店管理' tooltip='最高权限代理店管理' SN='1519' ImageUrl='../../images/icons/zhifang2.gif' NodeData='522' /><treenode text='报告格式管理' tooltip='最高权限报告格式管理' SN='1520' ImageUrl='../../images/icons/report1.gif' NodeData='527'><treenode text='报告格式浏览' tooltip='最高权限报告格式浏览' SN='152001' ImageUrl='../../images/icons/report1.gif' NodeData='531' /></treenode><treenode text='血库系统' tooltip='最高权限血库系统' SN='1522' ImageUrl='../../images/icons/zhi2.gif' NodeData='542' /></treenode></TREENODES>"  target="MainList" HelperID="__TreeView2_State__" systemImagesPath="/webctrl_client/1_0/treeimages/" selectExpands="false" onexpand="javascript: if (this.clickedNodeIndex != null) this.queueEvent('onexpand', this.clickedNodeIndex)" oncollapse="javascript: if (this.clickedNodeIndex != null) this.queueEvent('oncollapse', this.clickedNodeIndex)" oncheck="javascript: if (this.clickedNodeIndex != null) this.queueEvent('oncheck', this.clickedNodeIndex)" onselectedindexchange="javascript: if (event.oldTreeNodeIndex != event.newTreeNodeIndex) this.queueEvent('onselectedindexchange', event.oldTreeNodeIndex + ',' + event.newTreeNodeIndex)" style="height:0px;width:0px;">
+				</tvns:treeview>
+			</P>	
+
+		</form>
+		
+	</body>
+</HTML>

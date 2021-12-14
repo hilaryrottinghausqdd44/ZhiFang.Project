@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="application/javascript">
+
+        //加载版本号
+        document.write(
+            "<script type='text/javascript' src='../../../config/version.js?t=" +
+                new Date().getTime() + "'><\/script>"
+        );
+    </script>
+
+    <script type="application/javascript">
+
+        //加载公众号Title
+        document.write(
+            "<title>"+JcallShell.System.SysHtmlTitle +"</title>"
+        );
+    </script>  
+</head>
+<body>
+    <div class="login-div" id="page">
+        <div class="login-head-div">
+            <div style="color:#169ada;"><b>医生账号绑定</b></div>
+            <img id="user-head-image" class="img-thumbnail" style="width:0;"/>
+            <div id="user-name" style="color:#169ada;"></div>
+        </div>
+        <div id="error" class="login-error-div" hidden="hidden"></div>
+        <div class="input-div login-account-div">
+            <input id="account" placeholder="请输入手机号 ">
+        </div>
+        <div class="input-div login-password-div">
+            <input id="password" type="password" placeholder="请输入密码 ">
+        </div>
+
+        <div class="button-div login-button-div">
+            <button id="submit">确定</button>
+        </div>
+        <!--<div class="alert alert-success" role="alert" style="text-align:center;">正在开发中...</div>-->
+
+        <div id="version" class="login-version-div"></div>
+    </div>
+    <div id="info" style="padding:150px 10px 10px 10px;text-align:center;color:#169ada;font-size:20px;font-weight:bold;" hidden="hidden"></div>
+    <!-- 模态框-加载中 -->
+    <style type='text/css'>.modal-backdrop.in {filter:alpha(opacity=1);opacity:1;}</style>
+    <div class="modal fade" id="loading-div" style="opacity:0.5;">
+        <div class="loading-div"></div>
+    </div>
+    
+    <script type="application/javascript"> 
+    	var css = [
+    		"../../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css",
+    		"../../../css/style.css",
+    		"../../../css/login.css"
+    	];
+    	var js = [
+    		"../../../../../web_src/jquery.min.js",
+    		"../../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js",
+    		"../../../util/JcallShell.js",
+    		"../../../localStorage/User.js",
+    		"../../../localStorage/Home.js",
+      		"index.js"
+    	];
+    	var files = [];
+    	for(var i in css){
+    		files.push('<link rel="stylesheet" href="' + 
+    			css[i] + '?v=' + JcallShell.System.CSS_VERSION + '"/>');
+    	}
+    	for(var i in js){
+    		files.push('<script type="text/javascript" charset="utf-8" src="' + 
+    			js[i] + '?v=' + JcallShell.System.JS_VERSION + '"><\/script>');
+    	}
+		document.write(files.join(""));
+	</script>
+</body>
+</html>

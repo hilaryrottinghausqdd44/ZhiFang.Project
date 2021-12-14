@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates how to use the Table object. Notes:&#13;&#10;&#13;&#10;- to set the number of columns and rows, use &quot;ColumnCount&quot; and &quot;RowCount&quot; properties. Also you may add new columns/rows from a column/row context menu;&#13;&#10;&#13;&#10;- to join/split cells, use context menu of the cell;&#13;&#10;&#13;&#10;- to set the column/row autosize, use context menu of the column/row. " ReportInfo.Created="01/17/2008 17:08:04" ReportInfo.Modified="11/17/2021 10:44:57" ReportInfo.CreatorVersion="1.3.15.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data"/>
+    <Style Name="Footer"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.ReagentSys.Client" ConnectionString="rijcmlqAFHGp6KQj27H4qUwAIR20hSnyrpNtgmeY+I5zyTmYE0HuZfX1hs9fAqnt4DRtzHmqi4Hqgr6pCX/W9Bnlc3X4+AAVAqal7ujm2u5GLGSlJS8z/Kbnccvo1GHvbgZTeFR69qXeixeYBqUZkDnVGhgRuYyGrGSj6GivhHmCs8Q3SXEcRpfLdVbWq6WztUdV0Gxgaj9oEs6xO1srK5UwaxFEoB2Opd3AFOtCMs3YlJngDk=">
+      <TableDataSource Name="Rea_BmsReqDtl" DataType="System.Int32" Enabled="true" TableName="Rea_BmsReqDtl">
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="ReqDtlID" DataType="System.Int64"/>
+        <Column Name="ReqDtlNo" DataType="System.String"/>
+        <Column Name="ReqDocID" DataType="System.Int64"/>
+        <Column Name="ReqDocNo" DataType="System.String"/>
+        <Column Name="GoodsCName" DataType="System.String"/>
+        <Column Name="GoodsUnitID" DataType="System.Int64"/>
+        <Column Name="GoodsID" DataType="System.Int64"/>
+        <Column Name="GoodsUnit" DataType="System.String"/>
+        <Column Name="GoodsQty" DataType="System.Double"/>
+        <Column Name="OrderFlag" DataType="System.Int32"/>
+        <Column Name="OrderDtlNo" DataType="System.String"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="OrgID" DataType="System.Int64"/>
+        <Column Name="OrgName" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CreaterID" DataType="System.Int64"/>
+        <Column Name="CreaterName" DataType="System.String"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" Enabled="false" DataType="System.DateTime"/>
+        <Column Name="DataTimeStamp" Enabled="false" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="OrderDtlID" DataType="System.Int64"/>
+        <Column Name="CompGoodsLinkID" DataType="System.Int64"/>
+        <Column Name="OrderStatus" DataType="System.Int64"/>
+        <Column Name="OrderCheckMemo" DataType="System.String"/>
+        <Column Name="ReaGoodsNo" DataType="System.String"/>
+        <Column Name="CenOrgGoodsNo" DataType="System.String"/>
+        <Column Name="ReqGoodsQty" DataType="System.Double"/>
+        <Column Name="ProdID" DataType="System.Int64"/>
+        <Column Name="ProdOrgName" DataType="System.String"/>
+        <Column Name="UnitMemo" DataType="System.String"/>
+        <Column Name="ArrivalTime" DataType="System.DateTime"/>
+        <Column Name="ExpectedStock" DataType="System.Double"/>
+        <Column Name="CurrentQty" DataType="System.Double"/>
+        <Column Name="MonthlyUsage" DataType="System.Double"/>
+        <Column Name="LastMonthlyUsage" DataType="System.Double"/>
+        <Column Name="GoodsSName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="Rea_ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Columns.Count="2" Columns.Width="95" Columns.Positions="0,95">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="43.85" CanBreak="true">
+      <TextObject Name="txtTitle" Left="238.8" Top="5.45" Width="236.25" Height="28.35" Text="检验试剂耗材申请表" HorzAlign="Center" VertAlign="Center" Font="宋体, 14pt, style=Bold"/>
+      <TextObject Name="Text1" Left="557.55" Top="15.9" Width="141.75" Height="18.9" Text="[Date]" Font="宋体, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="47.85" Width="718.2" Height="30.24">
+      <TextObject Name="Text3" Top="6.35" Width="37.8" Height="20.79" Text="行号" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="40.25" Top="5.9" Width="66.15" Height="20.79" Text="试剂名称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="154.2" Top="4.9" Width="47.25" Height="20.79" Text="数量" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text6" Left="204.9" Top="4.9" Width="47.25" Height="20.79" Text="单位" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="254.15" Top="5.9" Width="103.95" Height="20.79" Text="供应商" Font="宋体, 10pt, style=Bold"/>
+      <LineObject Name="Line4" Width="718.2"/>
+      <TextObject Name="Text8" Left="360.1" Top="6.45" Width="37.8" Height="20.79" Text="行号" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="400.8" Top="6" Width="103.95" Height="20.79" Text="试剂名称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text10" Left="506.75" Top="5" Width="47.25" Height="20.79" Text="数量" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="558.45" Top="5" Width="47.25" Height="20.79" Text="单位" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="609.7" Top="6" Width="103.95" Height="20.79" Text="供应商" Font="宋体, 10pt, style=Bold"/>
+      <LineObject Name="Line5" Top="28.35" Width="718.2"/>
+      <TextObject Name="Text14" Left="105.08" Top="6.05" Width="47.25" Height="20.79" Text="简称" Font="宋体, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="82.09" Width="359.1" Height="43.47" CanBreak="true" DataSource="Rea_BmsReqDtl" KeepDetail="true">
+      <TextObject Name="txtAbsRow" Left="3" Top="3.45" Width="30.24" Height="28.35" Text="[AbsRow#]" Font="宋体, 10pt"/>
+      <TextObject Name="txtGoodsCName" Left="30.9" Top="5.45" Width="75.6" Height="26.46" Text="[Rea_BmsReqDtl.GoodsCName]" Font="宋体, 10pt"/>
+      <TextObject Name="txtGoodsQty" Left="152.65" Top="4.45" Width="47.25" Height="28.35" Text="[Rea_BmsReqDtl.GoodsQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="txtGoodsUnit" Left="201.9" Top="4.45" Width="30.24" Height="28.35" Text="[Rea_BmsReqDtl.GoodsUnit]" Font="宋体, 10pt"/>
+      <TextObject Name="txtOrgName" Left="234.25" Top="5.45" Width="113.4" Height="26.46" Text="[Rea_BmsReqDtl.ReaCompanyName]" Font="宋体, 10pt"/>
+      <LineObject Name="lineTop" Left="3" Top="40.1" Width="349.65"/>
+      <TextObject Name="Text15" Left="105.08" Top="5.29" Width="47.25" Height="28.35" Text="[Rea_BmsReqDtl.GoodsSName]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="129.56" Width="718.2" Height="28.35">
+      <LineObject Name="Line3" Left="2" Top="0.55" Width="718.2"/>
+      <TextObject Name="Text2" Left="6.55" Top="5" Width="226.8" Height="18.9" Text="申请人:" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="236.05" Top="4.45" Width="189" Height="18.9" Text="批准人:" Font="宋体, 10pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

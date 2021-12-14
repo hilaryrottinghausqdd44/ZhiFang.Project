@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>智方Demo导航</title>
+<script src="js/jquery-1.7.2.min.js"></script>
+<style type='text/css'>
+	.page-button{
+		width:50px;
+		height:30px;
+		font-weight:bold;
+		cursor:pointer;
+	}
+	.page-button-checked{
+		background:orange;
+		color:white;
+	}
+	.fixed-div{
+		width:100%;
+		padding:5px;
+		position:fixed;
+		background:white;
+		z-index:9999
+	}
+	.page-iframe{
+		overflow:hidden;
+		overflow-x:hidden;
+		overflow-y:hidden;
+		height:100%;
+		width:100%;
+		position:absolute;
+		top:0px;
+		left:0px;
+		right:0px;
+		bottom:0px;
+		border:0;
+		display:none;
+	}
+</style>
+</head>
+<body style="margin:0;padding:0;">
+<div class="fixed-div"><img src="images/LOGO2.jpg"></div>
+
+<iframe class="page-iframe" id="page1" src="index1.html"></iframe>
+<iframe class="page-iframe" id="page2" src="index2.html"></iframe>
+<iframe class="page-iframe" id="page3" src="index3.html"></iframe>
+<iframe class="page-iframe" id="page4" src="index4.html"></iframe>
+<iframe class="page-iframe" id="page5" src="index5.html"></iframe>
+
+<div class="fixed-div" style="text-align:center;bottom:0;">
+	<button class="page-button" value="1">1</button>
+	<button class="page-button" value="2">2</button>
+	<button class="page-button" value="3">3</button>
+	<button class="page-button" value="4">4</button>
+	<button class="page-button" value="5">5</button>
+</div>
+
+<script>
+	(function(){
+	  	var showIframe = null;
+	  	var checkedPageButton = null;
+	  	
+	  	function show(iframe,btn){
+	  		if(showIframe){
+				checkedPageButton.removeClass('page-button-checked');
+				showIframe.hide();
+			}
+			checkedPageButton = btn;
+			showIframe = iframe;
+			checkedPageButton.addClass('page-button-checked');
+			showIframe.show();
+	  	}
+		$(".page-button").on("click",function(){
+			show($("#page" + this.value),$(this));
+		});
+		$(".page-button[value='1']").click();
+	})();
+</script>
+</body>
+</html>

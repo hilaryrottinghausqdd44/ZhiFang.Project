@@ -1,0 +1,1112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Businesses>
+  <!-- 和应用系统配置文件保存在同一个地方,如:D:\WebSite\QMSData\shared\Configuration\ConfigurationXml\1 -->
+  <Business name="werwer" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title />
+        <XAxisTitle />
+        <YAxisTitle />
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>0</Width>
+        <Height>0</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="周工作计划" ChartSort="">
+    <Table TableEName="WeekPlan" DatabaseName="WorkPlans">
+      <STAT>
+        <Title>周工作计划</Title>
+        <XAxisTitle>员工</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>800</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Name" CName="姓名" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="项目类别" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>项目类别</Title>
+        <XAxisTitle>项目类别</XAxisTitle>
+        <YAxisTitle>项目类别</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>500</Width>
+        <Height>500</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="werw按项目类别和关注程度统计222" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>sdfsd222222222</Title>
+        <XAxisTitle>fsdfsd222</XAxisTitle>
+        <YAxisTitle>fsdfsd222</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>False</ShowValue>
+        <Width>700</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="PayedMoney" CName="已付金额" type="Sum" />
+        <Field EName="Profit" CName="项目毛利" type="Sum" />
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+        <Field EName="LeftMoney" CName="剩余款项" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName2" CName="实施方" type="Varchar" />
+        <Field EName="LeftMoney" CName="剩余款项" type="Float" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按关注程度统计(数量)-饼图" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>2008年关注程度情况</Title>
+        <XAxisTitle>关注程度</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Pies</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName11" CName="实施进度表" type="Varchar" />
+        <Field EName="EName13" CName="计划进场时间" type="Date" />
+        <Field EName="EName12" CName="前期准备情况" type="Varchar" />
+        <Field EName="EName16" CName="计划验收时间" type="Date" />
+        <Field EName="EName34" CName="变更说明" type="Varchar" />
+        <Field EName="hasHIS" CName="是否有HIS接口" type="Varchar" />
+        <Field EName="EName40" CName="公司评价" type="Varchar" />
+        <Field EName="EName22" CName="定制需求说明" type="Varchar" />
+        <Field EName="RcvdRecord" CName="收款记录" type="Varchar" />
+        <Field EName="EName33" CName="合同有无变更" type="Varchar" />
+        <Field EName="AcceptDate" CName="验收时间" type="Date" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按关注程度统计-并土" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>2008年关注程度情况</Title>
+        <XAxisTitle>数量</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Pies</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="PayedMoney" CName="已付金额" type="Sum" />
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName11" CName="实施进度表" type="Varchar" />
+        <Field EName="EName13" CName="计划进场时间" type="Date" />
+        <Field EName="EName12" CName="前期准备情况" type="Varchar" />
+        <Field EName="EName16" CName="计划验收时间" type="Date" />
+        <Field EName="EName34" CName="变更说明" type="Varchar" />
+        <Field EName="hasHIS" CName="是否有HIS接口" type="Varchar" />
+        <Field EName="EName40" CName="公司评价" type="Varchar" />
+        <Field EName="EName22" CName="定制需求说明" type="Varchar" />
+        <Field EName="RcvdRecord" CName="收款记录" type="Varchar" />
+        <Field EName="EName33" CName="合同有无变更" type="Varchar" />
+        <Field EName="AcceptDate" CName="验收时间" type="Date" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按项目类别统计金额" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>按项目类别统计</Title>
+        <XAxisTitle>项目类别</XAxisTitle>
+        <YAxisTitle>金额</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>700</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Profit" CName="项目毛利" type="Sum" />
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+        <Field EName="LeftMoney" CName="剩余款项" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按项目类别统计数量" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>按项目类别统计</Title>
+        <XAxisTitle>项目类别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>700</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="付款类别" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>付款类别</Title>
+        <XAxisTitle>付款类别</XAxisTitle>
+        <YAxisTitle>金额</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>500</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="PayedMoney" CName="已付金额" type="Sum" />
+        <Field EName="LeftMoney" CName="剩余款项" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="PayType" CName="付款类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="销售员销售情况统计" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>2008年销售员销售情况统计</Title>
+        <XAxisTitle>销售员</XAxisTitle>
+        <YAxisTitle>合同总额</YAxisTitle>
+        <ChartType>ComboHorizontal</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+        <Field EName="Profit" CName="项目毛利" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Principal" CName="销售负责人" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按关注程度、项目类别统计" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>按关注程度、项目类别统计</Title>
+        <XAxisTitle>项目类别</XAxisTitle>
+        <YAxisTitle>合同总额</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>1000</Width>
+        <Height>700</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Attention" CName="关注程度" />
+        <Field EName="Content" CName="项目类别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按关注程度统计" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>2008年关注程度情况</Title>
+        <XAxisTitle>关注程度</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="FeeBefore" CName="售前费用" type="Sum" />
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+        <Field EName="PayedMoney" CName="已付金额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName11" CName="实施进度表" type="Varchar" />
+        <Field EName="EName13" CName="计划进场时间" type="Date" />
+        <Field EName="EName12" CName="前期准备情况" type="Varchar" />
+        <Field EName="EName16" CName="计划验收时间" type="Date" />
+        <Field EName="EName34" CName="变更说明" type="Varchar" />
+        <Field EName="hasHIS" CName="是否有HIS接口" type="Varchar" />
+        <Field EName="EName40" CName="公司评价" type="Varchar" />
+        <Field EName="EName22" CName="定制需求说明" type="Varchar" />
+        <Field EName="RcvdRecord" CName="收款记录" type="Varchar" />
+        <Field EName="EName33" CName="合同有无变更" type="Varchar" />
+        <Field EName="AcceptDate" CName="验收时间" type="Date" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按项目类别和关注程度统计" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM4COS">
+      <STAT>
+        <Title>按项目类别和关注程度统计</Title>
+        <XAxisTitle>关注程度</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>700</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="Content" CName="项目类别" />
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按级别统计" ChartSort="文件系统">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>按级别统计</Title>
+        <XAxisTitle>级别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName4" CName="级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按级别统计总页数" ChartSort="文件系统">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>按级别统计</Title>
+        <XAxisTitle>级别</XAxisTitle>
+        <YAxisTitle>总页数</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="EName14" CName="总页数" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName4" CName="级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="按文件状态统计" ChartSort="文件系统">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>按文件状态统计</Title>
+        <XAxisTitle>文件状态</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName17" CName="文件状态" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="起草员销售情况统计" ChartSort="未分类">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>2008年销售员销售情况统计</Title>
+        <XAxisTitle>起草员</XAxisTitle>
+        <YAxisTitle>金额</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName8" CName="起草人" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName8" CName="起草人" type="Varchar" />
+        <Field EName="EName9" CName="审核人" type="Varchar" />
+        <Field EName="EName10" CName="批准人" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="4" ChartSort="住房公积金">
+    <Table TableEName="" DatabaseName="CRM4COS">
+      <STAT>
+        <Title />
+        <XAxisTitle />
+        <YAxisTitle />
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>0</Width>
+        <Height>0</Height>
+      </STAT>
+      <DataSeries />
+      <GroupBy />
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="sasas" ChartSort="asasa">
+    <Table TableEName="PDocu" DatabaseName="文件系统">
+      <STAT>
+        <Title>asas</Title>
+        <XAxisTitle>as</XAxisTitle>
+        <YAxisTitle>asa</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>555</Width>
+        <Height>555</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName4" CName="级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="审核员" ChartSort="未分类">
+    <Table TableEName="Project" DatabaseName="CRM_Project">
+      <STAT>
+        <Title>审核员统计</Title>
+        <XAxisTitle>审核员</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>900</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="Amount" CName="合同总额" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="PayType" CName="付款类别" />
+        <Field EName="Attention" CName="关注程度" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室负责人毕业专业情况" ChartSort="人员情况">
+    <SaveAs>
+      <Save name="三级医院统计情况" memo="">(EName22='三甲' OR EName22='三乙' OR EName22='三级专科') AND (EName10='检验专业' OR EName10='医疗专业' OR EName10='其他医疗卫生专业' OR EName10='其他非医疗卫生专业')</Save>
+      <Save name="二甲以上医院统计情况" memo="">(EName22='三甲' OR EName22='三乙' OR EName22='二甲' OR EName22='三级专科') AND (EName10='检验专业' OR EName10='医疗专业' OR EName10='其他医疗卫生专业' OR EName10='其他非医疗卫生专业')</Save>
+      <Save name="二甲以下医院统计情况" memo="">(EName22='二乙' OR EName22='一甲' OR EName22='一乙' OR EName22='一级' OR EName22='二级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabLeaderRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室负责人毕业专业情况</Title>
+        <XAxisTitle>专业类别</XAxisTitle>
+        <YAxisTitle />
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName10" CName="毕业专业" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName10" CName="毕业专业" type="Varchar" />
+        <Field EName="EName22" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="11" ChartSort="">
+    <Table TableEName="LabIR" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>11</Title>
+        <XAxisTitle>11</XAxisTitle>
+        <YAxisTitle>11</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>800</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="LIR_BiduireagentConsumption" CName="年进行实验室比对_万元" type="Sum" />
+        <Field EName="LIR_IQCreagentConsumption" CName="年IQC消耗额_万元" type="Sum" />
+        <Field EName="LIR_RatioEQA_IQC_BdToYearreagentConsumption" CName="EQA/IQC/比对占年试剂消耗额百分比" type="Sum" />
+        <Field EName="LIR_EQAreagentConsumption" CName="年参加EQA_万元" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName3" CName="医院级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室IQC、EQA、室间比对年试剂消耗额情况及与总收入比例分析" ChartSort="基本信息">
+    <SaveAs>
+    </SaveAs>
+    <Table TableEName="LabIR" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室IQC、EQA、室间比对年试剂消耗额情况及与总收入比例分析</Title>
+        <XAxisTitle>医院级别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>350</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="LIR_IQCreagentConsumption#AVG" CName="年IQC消耗额_万元" type="AVG" />
+        <Field EName="LIR_YearreagentConsumption#AVG" CName="实验室年试剂消耗额_万元" type="AVG" />
+        <Field EName="LIR_BiduireagentConsumption#AVG" CName="年进行实验室比对_万元" type="AVG" />
+        <Field EName="LIR_HosBusinessIncome#AVG" CName="院年业务总收入_万元" type="AVG" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="HospitalLevel" CName="医院级别" />
+      </GroupBy>
+      <OPA />
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="天津室医院实验室负责人学历情况" ChartSort="人员情况">
+    <SaveAs>
+      <Save name="三级医院统计情况" memo="">(EName8='中专' OR EName8='专科' OR EName8='本科' OR EName8='硕士' OR EName8='博士' OR EName8='其他') AND (EName22='三甲' OR EName22='三乙' OR EName22='三级专科')</Save>
+      <Save name="二甲以上医院统计情况" memo="">(EName22='三甲' OR EName22='三乙' OR EName22='二甲' OR EName22='三级专科')</Save>
+      <Save name="二甲以下医院统计情况" memo="">(EName8='中专' OR EName8='专科' OR EName8='本科' OR EName8='硕士' OR EName8='博士') AND (EName22='二乙' OR EName22='一甲' OR EName22='一乙' OR EName22='一级' OR EName22='二级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabLeaderRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>天津室医院实验室负责人学历情况</Title>
+        <XAxisTitle>学历</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName8" CName="学历" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName8" CName="学历" type="Varchar" />
+        <Field EName="EName22" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="负责人技术水平情况" ChartSort="人员情况">
+    <SaveAs>
+      <Save name="副主任技师以上级别情况" memo="">(EName22='三甲' OR EName22='三乙' OR EName22='二甲' OR EName22='二乙' OR EName22='一甲' OR EName22='一乙' OR EName22='一级' OR EName22='三级专科' OR EName22='二级专科') AND (EName7='主任技师' OR EName7='副主任技师')</Save>
+      <Save name="主任技师、主任技师情况" memo="">(EName22='三甲' OR EName22='三乙' OR EName22='二甲' OR EName22='二乙' OR EName22='一甲' OR EName22='一乙' OR EName22='一级' OR EName22='三级专科' OR EName22='二级专科') AND (EName7='主任技师' OR EName7='主任医师')</Save>
+    </SaveAs>
+    <Table TableEName="LabLeaderRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>负责人技术水平情况</Title>
+        <XAxisTitle>医院级别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName22" CName="医院级别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName7" CName="职称" type="Varchar" />
+        <Field EName="EName22" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室负责人性别比例" ChartSort="人员情况">
+    <Table TableEName="LabLeaderRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室负责人男女比例</Title>
+        <XAxisTitle>性别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName3" CName="性别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName8" CName="学历" type="Varchar" />
+        <Field EName="EName22" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+    <SaveAs>
+      <Save name="三级医院统计情况" memo="">(EName22='三甲' OR EName22='三乙' OR EName22='三级专科')</Save>
+      <Save name="二甲以上医院统计情况" memo="">(EName22='三甲' OR EName22='三乙' OR EName22='二甲' OR EName22='三级专科')</Save>
+      <Save name="二甲以下医院统计情况" memo="">(EName22='二乙' OR EName22='一甲' OR EName22='一乙' OR EName22='一级' OR EName22='二级专科')</Save>
+    </SaveAs>
+  </Business>
+  <Business name="实验室负责人专兼职情况" ChartSort="人员情况">
+    <SaveAs>
+      <Save name="实验室负责人专兼职情况" memo="">(EName6='专职' OR EName6='兼职')</Save>
+      <Save name="三甲以上医院实验室负责人专兼职情况" memo="">(EName6='专职' OR EName6='兼职') AND (EName22='三甲' OR EName22='三乙' OR EName22='三级专科')</Save>
+      <Save name="二甲以上医院统计情况" memo="">(EName6='专职' OR EName6='兼职') AND (EName22='三甲' OR EName22='三乙' OR EName22='二甲' OR EName22='三级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabLeaderRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室负责人专兼职比较</Title>
+        <XAxisTitle>类别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName6" CName="专职或兼职" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName6" CName="专职或兼职" type="Varchar" />
+        <Field EName="EName8" CName="学历" type="Varchar" />
+        <Field EName="EName22" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="负责人从事本专业年限情况" ChartSort="人员情况">
+    <SaveAs>
+      <Save name="10年以下工作年限人员分析" memo="">(EName13&gt;='0') AND (EName13&lt;='10') AND (EName22='三甲' OR EName22='三乙' OR EName22='二甲' OR EName22='二乙' OR EName22='一甲' OR EName22='一乙' OR EName22='一级' OR EName22='三级专科' OR EName22='二级专科')</Save>
+      <Save name="10年以上工作年限人员分析" memo="">(EName13&gt;='10') AND (EName13&lt;='60') AND (EName22='三甲' OR EName22='三乙' OR EName22='二甲' OR EName22='三级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabLeaderRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>负责人从事本专业年限情况</Title>
+        <XAxisTitle>医院级别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Spline</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="EName13" CName="从事本专业年限_年" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName22" CName="医院级别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName13" CName="从事本专业年限_年" type="Float" />
+        <Field EName="EName22" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="天津市不同检验项目开展情况" ChartSort="项目情况">
+    <SaveAs>
+      <Save name="二甲以上医院统计情况" memo="">(EName10='三甲' OR EName10='三乙' OR EName10='二甲' OR EName10='三级专科')</Save>
+      <Save name="三级医院统计情况" memo="">(EName10='三甲' OR EName10='三乙' OR EName10='三级专科')</Save>
+      <Save name="二级以下医院统计情况" memo="">(EName10='二乙' OR EName10='一甲' OR EName10='一乙' OR EName10='一级' OR EName10='二级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabPracticeRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>天津市不同检验项目开展情况</Title>
+        <XAxisTitle>检验类别</XAxisTitle>
+        <YAxisTitle>项目数</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>False</ShowValue>
+        <Width>600</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="EName3" CName="检验项目数" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName2" CName="执业类别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName10" CName="医院级别" type="Varchar" />
+        <Field EName="EName2" CName="执业类别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="天津市不同检验项目自检项目情况" ChartSort="项目情况">
+    <SaveAs>
+      <Save name="二甲以上医院统计情况">(EName10='三甲' OR EName10='三乙' OR EName10='二甲' OR EName10='三级专科') AND (EName2='临床检验' OR EName2='临床化学检查' OR EName2='临床微生物学检查' OR EName2='临床免疫学检查' OR EName2='临床血液学检查' OR EName2='遗传病及其他疾病的分子生物学诊断' OR EName2='化学发光' OR EName2='其他')</Save>
+      <Save name="三级医院统计情况">(EName10='三甲' OR EName10='三乙' OR EName10='三级专科')</Save>
+      <Save name="二级以下医院统计情况">(EName10='二乙' OR EName10='一甲' OR EName10='一乙' OR EName10='一级' OR EName10='二级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabPracticeRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>天津市不同检验项目自检项目情况</Title>
+        <XAxisTitle>检验类别</XAxisTitle>
+        <YAxisTitle>项目数</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>400</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="EName4" CName="自检项目数" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName2" CName="执业类别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName10" CName="医院级别" type="Varchar" />
+        <Field EName="EName2" CName="执业类别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="天津市不同检验项目外包项目情况" ChartSort="项目情况">
+    <SaveAs>
+      <Save name="三级医院统计情况" memo="">(EName10='三甲' OR EName10='三乙' OR EName10='三级专科')</Save>
+      <Save name="二甲以上医院统计情况" memo="">(EName10='三甲' OR EName10='三乙' OR EName10='二甲' OR EName10='三级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabPracticeRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>天津市不同检验项目外包项目情况</Title>
+        <XAxisTitle>医院级别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="EName5" CName="外包项目数" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName10" CName="医院级别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName10" CName="医院级别" type="Varchar" />
+        <Field EName="EName2" CName="执业类别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="天津市不同等级医院实验室设备使用与业务收入情况" ChartSort="仪器情况">
+    <SaveAs>
+      <Save name="三级医院统计情况">(EName3='三甲' OR EName3='三乙' OR EName3='三级专科')</Save>
+      <Save name="二甲以上医院统计情况">(EName3='三甲' OR EName3='三乙' OR EName3='二甲' OR EName3='三级专科')</Save>
+      <Save name="二甲以下医院统计情况">(EName3='二乙' OR EName3='一甲' OR EName3='一乙' OR EName3='一级' OR EName3='二级专科')</Save>
+      <Save name="三甲医院统计情况">(EName3='三甲')</Save>
+    </SaveAs>
+    <Table TableEName="LabIR" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>天津市实验室设备使用与业务收入情况</Title>
+        <XAxisTitle>数量</XAxisTitle>
+        <YAxisTitle>医院等级</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="LIR_RatioLabEquipToHosEquip" CName="占院设备总额百分比" type="Sum" />
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="LIR_RatioLBItoHBI" CName="占院业务总收入百分比" type="Sum" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName3" CName="医院级别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="LIR_TotalAmountHosEquip" CName="院仪器设备总额_万元" type="Float" />
+        <Field EName="EName3" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室仪器设备厂商情况" ChartSort="仪器情况">
+    <SaveAs>
+      <Save name="三级医院统计情况" memo="">(EName11='三甲' OR EName11='三乙' OR EName11='三级专科')</Save>
+      <Save name="二甲以上医院统计情况" memo="">(EName11='三甲' OR EName11='三乙' OR EName11='二甲' OR EName11='三级专科')</Save>
+      <Save name="二甲以下医院统计情况" memo="">(EName11='一甲' OR EName11='一乙' OR EName11='一级' OR EName11='二级专科')</Save>
+      <Save name="所有级别医院统计" memo="" />
+    </SaveAs>
+    <Table TableEName="EquipmentRegistration" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室仪器设备厂商情况</Title>
+        <XAxisTitle>医院级别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName11" CName="医院级别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName6" CName="购置年月" type="Date" />
+        <Field EName="EName3" CName="生产厂家" type="Varchar" />
+        <Field EName="EName11" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室工作人员技术水平情况" ChartSort="工作人员情况">
+    <SaveAs>
+      <Save name="二甲以下医院实验室人员技术水平情况" memo="">(EName5='主任技师' OR EName5='副主任技师' OR EName5='主管技师' OR EName5='技师' OR EName5='技士' OR EName5='其他') AND (EName17='二乙' OR EName17='一甲' OR EName17='一乙' OR EName17='其他' OR EName17='一级' OR EName17='二级专科')</Save>
+      <Save name="二甲以上医院实验室人员职称情况" memo="">(EName5='主任技师' OR EName5='副主任技师' OR EName5='主管技师' OR EName5='技师' OR EName5='技士' OR EName5='主任医师' OR EName5='副主任医师' OR EName5='主治医师' OR EName5='医师') AND (EName17='三级特等' OR EName17='三级乙等' OR EName17='三级丙等' OR EName17='二级甲等')</Save>
+      <Save name="所有医院实验室人员职称情况" memo="">(EName5='主任技师' OR EName5='副主任技师' OR EName5='主管技师' OR EName5='技师' OR EName5='技士' OR EName5='主任医师' OR EName5='副主任医师' OR EName5='主治医师' OR EName5='医师') AND (EName17='三级特等' OR EName17='三级甲等' OR EName17='三级乙等' OR EName17='三级丙等' OR EName17='二级甲等' OR EName17='二级乙等' OR EName17='二级丙等' OR EName17='一级甲等' OR EName17='一级乙等' OR EName17='一级丙等')</Save>
+      <Save name="二甲以下医院工作人员职称情况" memo="">(EName5='主任技师' OR EName5='副主任技师' OR EName5='主管技师' OR EName5='技师' OR EName5='技士' OR EName5='主任医师' OR EName5='副主任医师' OR EName5='主治医师' OR EName5='医师') AND (EName17='二级乙等' OR EName17='二级丙等' OR EName17='一级甲等' OR EName17='一级乙等' OR EName17='一级丙等')</Save>
+    </SaveAs>
+    <Table TableEName="LabemployeesList" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室工作人员技术水平情况</Title>
+        <XAxisTitle>职称</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Pies</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName5" CName="职称" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName6" CName="学历" type="Varchar" />
+        <Field EName="EName17" CName="医院级别" type="Varchar" />
+        <Field EName="EName5" CName="职称" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室工作人员毕业专业情况" ChartSort="工作人员情况">
+    <SaveAs>
+      <Save name="所有级别医院实验室工作人员毕业专业情况" memo="">(EName8='检验专业' OR EName8='医疗专业' OR EName8='其他医疗卫生专业' OR EName8='其他非医疗卫生专业') AND (EName17='三级特等' OR EName17='三级甲等' OR EName17='三级乙等' OR EName17='三级丙等' OR EName17='二级甲等' OR EName17='二级乙等' OR EName17='二级丙等' OR EName17='一级甲等' OR EName17='一级乙等' OR EName17='一级丙等')</Save>
+      <Save name="二甲以上医院实验室工作人员毕业专业情况" memo="">(EName8='检验专业' OR EName8='医疗专业' OR EName8='其他医疗卫生专业' OR EName8='其他非医疗卫生专业') AND (EName17='三级特等' OR EName17='三级乙等' OR EName17='三级丙等' OR EName17='二级甲等')</Save>
+      <Save name="二甲以下医院实验室工作人员毕业专业情况" memo="">(EName8='检验专业' OR EName8='医疗专业' OR EName8='其他医疗卫生专业' OR EName8='其他非医疗卫生专业') AND (EName17='二级乙等' OR EName17='二级丙等' OR EName17='一级甲等' OR EName17='一级乙等' OR EName17='一级丙等')</Save>
+      <Save name="三级医院统计结果" memo="">(EName17='三级特等' OR EName17='三级乙等' OR EName17='三级丙等' OR EName17='二级甲等')</Save>
+    </SaveAs>
+    <Table TableEName="LabemployeesList" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室工作人员毕业专业情况</Title>
+        <XAxisTitle>专业类别</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>350</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName8" CName="所学专业" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName6" CName="学历" type="Varchar" />
+        <Field EName="EName8" CName="所学专业" type="Varchar" />
+        <Field EName="EName13" CName="人员分类" type="Varchar" />
+        <Field EName="EName17" CName="医院级别" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室工作人员学历情况" ChartSort="工作人员情况">
+    <SaveAs>
+      <Save name="所有级别医院情况" memo="">(EName6='博士研究生' OR EName6='硕士研究生' OR EName6='大学本科' OR EName6='大学专科' OR EName6='高中' OR EName6='职高' OR EName6='中专' OR EName6='技校' OR EName6='初中') AND (EName17='三级特等' OR EName17='三级甲等' OR EName17='三级乙等' OR EName17='三级丙等' OR EName17='二级甲等' OR EName17='二级乙等' OR EName17='二级丙等' OR EName17='一级甲等' OR EName17='一级乙等' OR EName17='一级丙等')</Save>
+      <Save name="测试" memo="" />
+    </SaveAs>
+    <Table TableEName="LabemployeesList" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室工作人员学历情况</Title>
+        <XAxisTitle>学历</XAxisTitle>
+        <YAxisTitle>数量</YAxisTitle>
+        <ChartType>Pies</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName6" CName="学历" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName6" CName="学历" type="Varchar" />
+        <Field EName="EName17" CName="医院级别" type="Varchar" />
+        <Field EName="EName5" CName="职称" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室工作人员性别比例情况" ChartSort="工作人员情况">
+    <SaveAs>
+      <Save name="所有医院性别比例情况" memo="">(EName3='男' OR EName3='女')</Save>
+      <Save name="三级医院实验室工作人员性别比例情况" memo="">(EName3='男' OR EName3='女') AND (EName17='三甲' OR EName17='三乙' OR EName17='三级专科')</Save>
+      <Save name="所有医院实验室工作人员性别比例情况" memo="">(EName3='男' OR EName3='女')</Save>
+      <Save name="二甲以上医院实验室工作人员性别比例情况" memo="">(EName3='男' OR EName3='女') AND (EName17='三甲' OR EName17='三乙' OR EName17='二甲' OR EName17='三级专科')</Save>
+      <Save name="二甲以下医院实验室工作人员性别比例情况" memo="">(EName3='男' OR EName3='女') AND (EName17='二乙' OR EName17='一甲' OR EName17='一乙' OR EName17='其他' OR EName17='一级' OR EName17='二级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabemployeesList" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室工作人员性别比例情况</Title>
+        <XAxisTitle>数量</XAxisTitle>
+        <YAxisTitle>性别</YAxisTitle>
+        <ChartType>Column</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>600</Width>
+        <Height>300</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName3" CName="性别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName6" CName="学历" type="Varchar" />
+        <Field EName="EName17" CName="医院级别" type="Varchar" />
+        <Field EName="EName3" CName="性别" type="Varchar" />
+        <Field EName="EName5" CName="职称" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="实验室工作人员年龄情况" ChartSort="工作人员情况">
+    <SaveAs>
+      <Save name="30-50岁人员情况" memo="">(EName4&gt;='1949-01-01') AND (EName4&lt;='1969-01-01') AND (EName17='三甲' OR EName17='三乙' OR EName17='二甲' OR EName17='二乙' OR EName17='一甲' OR EName17='一乙' OR EName17='其他' OR EName17='一级' OR EName17='三级专科' OR EName17='二级专科')</Save>
+      <Save name="50岁以上人员情况" memo="">(EName4&gt;='1930-01-01') AND (EName4&lt;='1949-01-01') AND (EName17='三甲' OR EName17='三乙' OR EName17='二甲' OR EName17='二乙' OR EName17='一甲' OR EName17='一乙' OR EName17='其他' OR EName17='一级' OR EName17='三级专科' OR EName17='二级专科')</Save>
+      <Save name="30岁以下人员情况" memo="">(EName4&gt;='1969-01-01') AND (EName4&lt;='2009-07-01') AND (EName17='三甲' OR EName17='三乙' OR EName17='二甲' OR EName17='二乙' OR EName17='一甲' OR EName17='一乙' OR EName17='其他' OR EName17='一级' OR EName17='三级专科' OR EName17='二级专科')</Save>
+    </SaveAs>
+    <Table TableEName="LabemployeesList" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title>实验室工作人员年龄情况</Title>
+        <XAxisTitle>医院级别</XAxisTitle>
+        <YAxisTitle />
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>700</Width>
+        <Height>350</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="记录数" CName="记录数" type="Count" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName17" CName="医院级别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName17" CName="医院级别" type="Varchar" />
+        <Field EName="EName4" CName="出生年月" type="Date" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+  <Business name="AAAA" ChartSort="AAAA">
+    <Table TableEName="LabIR" DatabaseName="实验室信息登记">
+      <STAT>
+        <Title />
+        <XAxisTitle />
+        <YAxisTitle />
+        <ChartType>Combo</ChartType>
+        <ChartShadingEffect>Three</ChartShadingEffect>
+        <ImageFormat>Pdf</ImageFormat>
+        <ShowValue>True</ShowValue>
+        <Width>800</Width>
+        <Height>600</Height>
+      </STAT>
+      <DataSeries>
+        <Field EName="LIR_TotalAmountHosEquip#SUM" CName="院仪器设备总额_万元" type="SUM" />
+        <Field EName="记录数" CName="记录数" type="Count" />
+        <Field EName="LIR_TotalAmountHosEquip#AVG" CName="院仪器设备总额_万元" type="AVG" />
+      </DataSeries>
+      <GroupBy>
+        <Field EName="EName3" CName="医院级别" />
+      </GroupBy>
+      <OPA>
+        <Field EName="EName1" CName="登记单位" type="Varchar" />
+        <Field EName="LIR_Code" CName="登记编号" type="Varchar" />
+      </OPA>
+      <DFD />
+    </Table>
+  </Business>
+</Businesses>

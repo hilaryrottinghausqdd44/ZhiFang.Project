@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    
+    <link rel="stylesheet" href="../../../../../web_src/jquery-weui/lib/weui.min.css" />
+    <link rel="stylesheet" href="../../../../../web_src/jquery-weui/css/jquery-weui.min.css" />
+    <link rel="stylesheet" href="../../../css/weui.css">
+    <link rel="stylesheet" href="../../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css" />
+	
+    <script type="text/javascript" charset="utf-8" src="../../../../../web_src/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../../web_src/jquery-weui/js/jquery-weui.min.js"></script>
+
+	<script type="application/javascript">
+        //加载版本号
+        document.write(
+            "<script type='text/javascript' src='../../../config/version.js?t=" +
+                new Date().getTime() + "'><\/script>"
+        );
+    </script>
+
+    <script type="application/javascript">
+        //加载公众号Title
+        document.write(
+            "<title>"+JcallShell.System.SysHtmlTitle +"</title>"
+        );
+    </script>
+    <style type="text/css">
+    	.weui-cells:before{border-top:0}
+    	.weui-cells:after{border-bottom:0}
+    </style>
+</head>
+<body style="padding-top: 50px;">
+    <!--顶部功能按钮栏-->
+    <nav id="navbar-top" class="navbar navbar-default navbar-fixed-top page-top" style="z-index:1;">
+        <div class="page-top-title">下医嘱单</div>
+        <div class="page-top-back">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            <span>返回</span>
+        </div>
+        <div class="page-top-home">
+            <span>主页</span>
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+        </div>
+    </nav>
+    <!--内容区域-->
+    <div class="container-fluid" style="margin-bottom: 52px;">
+    	<!--患者信息-->
+    	<div style="height:50px;margin:0 -10px;">
+			<div id="barcord-button" class="div-button" style="width:18%;padding:5px;float:left;">患者</div>
+			<div id="fixed-type-button" class="div-button" style="width:23%;padding:5px;float:right;background-color:orange;border-color:orange;">分类套餐</div>
+			<div id="fixed-button" class="div-button" style="width:23%;padding:5px;float:right;">固定套餐</div>
+			<div id="recommend-button" class="div-button" style="width:23%;padding:5px;float:right;background-color:#5cb85c;border-color:#5cb85c;">特推套餐</div>
+		</div>
+    	<div class="form-group" hidden="hidden">
+			<input type="text" class="form-control" id="barcord-value" placeholder="患者条码">
+			<span class="input-group-btn">  
+				<button type="button" class="btn btn-default" id="barcord-search" >查询</button>  
+			</span>  
+		</div>
+    	<div id="patient-div" style="margin:0 -10px;padding:10px 5px;
+    		border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;"></div>
+    	<div id="price-div" style="margin:0 -10px;padding:10px 5px;border-bottom:1px solid #e0e0e0;"></div>
+    	<!--套餐信息-->
+        <div class="row" id="list">
+			
+        </div>
+    </div>
+    <!--底部功能栏-->
+	<div id="submit-div" class="navbar navbar-default navbar-fixed-bottom" style="background-color:#ffffff;">
+		<div style="float:left;width:22%;background-color:#ffffff;color:#c0c0c0;border-color:#c0c0c0;" 
+			id="edit-button" class="div-button">编辑</div>
+		<div style="float:left;width:22%;background-color:#ffffff;color:#c0c0c0;border-color:#c0c0c0;" 
+			id="cancel-button" class="div-button">清理</div>
+		<div style="float:right;width:45%;" id="submit-button" class="div-button">生成医嘱单</div>
+	</div>
+	<div id="edit-div" class="navbar navbar-default navbar-fixed-bottom" style="background-color:#ffffff;" hidden="hidden">
+		<div style="float:left;width:45%;background-color:#ffffff;color:red;border-color:red;" 
+			id="del-button" class="div-button">删除</div>
+		<div style="float:right;width:45%;background-color:#ffffff;color:#c0c0c0;border-color:#c0c0c0;" 
+			id="ok-button" class="div-button">编辑确定</div>
+	</div>
+	
+    <!-- 模态框-加载中 -->
+    <style type='text/css'>.modal-backdrop.in {filter:alpha(opacity=1);opacity:1;}</style>
+    <div class="modal fade" id="loading-div" style="opacity:0.5;">
+        <div class="loading-div"></div>
+    </div>
+    <!-- 模态框-确定生成医嘱单 -->
+	<div class="modal fade" id="createDoctorOrderModal" tabindex="-1" role="dialog" 
+		aria-labelledby="createDoctorOrderModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title">确定信息</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-warning" role="alert" style="text-align:center;">
+						确定生成医嘱单吗？
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="createDoctorOrder-button">确定</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- 模态框-确定生成医嘱单 -->
+	<div class="modal fade" id="cancelDoctorOrderModal" tabindex="-1" role="dialog" 
+		aria-labelledby="cancelDoctorOrderModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title">确定信息</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-warning" role="alert" style="text-align:center;">
+						确定清理掉本医嘱单的所有信息吗？
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="cancelDoctorOrder-button">确定</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<!--微信功能-->
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script type="application/javascript">
+    	var css = [
+    		"../../../css/style.css"
+    	];
+    	var js = [
+    		"../../../util/JcallShell.js",
+    		"../../../util/WeiXin.js",
+    		"../../../localStorage/User.js",
+    		"../../../localStorage/Home.js",
+    		"../../../localStorage/DoctorOrder.js",
+    		"../Page.js",
+    		"create.js"
+    	];
+    	var files = [];
+    	for(var i in css){
+    		files.push('<link rel="stylesheet" href="' + 
+    			css[i] + '?v=' + JcallShell.System.CSS_VERSION + '"/>');
+    	}
+    	for(var i in js){
+    		files.push('<script type="text/javascript" charset="utf-8" src="' + 
+    			js[i] + '?v=' + JcallShell.System.JS_VERSION + '"><\/script>');
+    	}
+		document.write(files.join(""));
+	</script>
+</body>
+</html>

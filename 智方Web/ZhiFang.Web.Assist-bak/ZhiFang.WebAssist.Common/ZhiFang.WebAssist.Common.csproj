@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E57B020B-E404-4D4E-92A2-ABC517CE6BDD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.WebAssist.Common</RootNamespace>
+    <AssemblyName>ZhiFang.WebAssist.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\Lib\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\Lib\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="FastReport, Version=2013.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log">
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BarcodeRules.cs" />
+    <Compile Include="ClassMapperHelp.cs" />
+    <Compile Include="JSONConfigHelp.cs" />
+    <Compile Include="Cookie.cs" />
+    <Compile Include="DateTimeHelp.cs" />
+    <Compile Include="ExcelExtension.cs" />
+    <Compile Include="ExcelHelper.cs" />
+    <Compile Include="ExcelRuleInfoHelp.cs" />
+    <Compile Include="ExcelToPdfReportHelp.cs" />
+    <Compile Include="ExportDataToExcelHelp.cs" />
+    <Compile Include="ExportExcelCommand.cs" />
+    <Compile Include="FrxToImageReportHelp.cs" />
+    <Compile Include="FrxToPdfReportHelp.cs" />
+    <Compile Include="ExcelReportHelp.cs" />
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="SysRunHelp.cs" />
+    <Compile Include="LinqToExcelHelp.cs" />
+    <Compile Include="NpoiExtendOfPictures.cs" />
+    <Compile Include="ImageReportHelp.cs" />
+    <Compile Include="PdfReportHelp.cs" />
+    <Compile Include="ReportBTemplateHelp.cs" />
+    <Compile Include="FilesHelper.cs" />
+    <Compile Include="HttpProc.cs" />
+    <Compile Include="JsonSerializer.cs" />
+    <Compile Include="NPOIExcelToExporHelp.cs" />
+    <Compile Include="NPOIHelper.cs" />
+    <Compile Include="ObjectArrayToDataSet.cs" />
+    <Compile Include="PinYinConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseResultStream.cs" />
+    <Compile Include="SeasonHelp.cs" />
+    <Compile Include="SecurityHelp.cs" />
+    <Compile Include="TimerCheckOrderDoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebRequestHelp.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GKBarcode\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../../../../../src/layui/dist/css/layui.css" />
+  <title>血液分类</title>
+  <script src="../../../../../src/layui/src/layui.js"></script>
+  <script src="../../../../../../ui/layui/config/system.js"></script>
+  <script src="index.js"></script>
+  <style type="text/css">
+  	.layui-form>.layui-form-item input{
+  		width: 185px;
+  		height: 32px;
+  	}
+  	.layui-table-view{
+  		margin: 0;
+  	}
+  	
+  	.layui-panel{
+				border: 1px solid #E6E6E6;
+				background-color: #E6E6E6;
+				padding: 5px;
+				line-height: 50px;
+			}
+  </style>
+</head>
+
+<body>
+  <div class="layui-fluid">
+	  <div class="layui-row">
+	  	<div class="layui-col-md8">
+	  		<div class="layui-card" >
+	  			<fieldset class="layui-elem-field layui-field-title">
+						<legend>列表信息</legend>
+					</fieldset>
+	  		  <div class="layui-card-body">
+	  				<div class="layui-panel">
+  			    	<label>是否启用</label>
+	  					<select id="search_select_visible" class="layui-select" style="width: 120px;">
+		  					<option value="-1">全部</option>
+		  					<option value="1" selected="true">启用</option>
+		  					<option value="0">禁用</option>
+	  					</select>
+  						<input type="text" id="search_text" autocomplete="off" placeholder="编号/名称/简码"/ style="width: 230px;height: 33px;">
+			  			<div class="layui-btn-group">
+			  				<button id="btn_search" class="layui-btn" data-type = "search"><i class="layui-icon layui-icon-search"></i>检索</button>
+			  				<button id="btn_add" class="layui-btn" data-type = "add"><i class="layui-icon layui-icon-add-1"></i>新增</button>
+			  				<button id="btn_eidt" class="layui-btn" data-type = "edit"><i class="layui-icon layui-icon-edit"></i>修改</button>
+			  			</div>
+		  	    </div>	  		  	
+	  				<table id="bloodclass_table" class="layui-table" lay-filter="bloodclass_table_filter" style="margin: 0;"></table>
+	  		  </div>
+	  		</div>
+	  	</div>
+
+	  	<div class="layui-col-md4" >
+	  		<div class="layui-card">
+	  			<fieldset class="layui-elem-field layui-field-title">
+						<legend>表单信息</legend>
+					</fieldset>
+	  			<div class="layui-card-body">
+			  		<div class="layui-form" lay-filter = "bloodclass_form_filter">
+			  			<div class="layui-form-item layui-hide">
+			  				<label class="layui-form-label">编号</label>
+			  				<input type="text" name="BloodClass_Id" class="layui-input" autocomplete="off"/>
+			  			</div>
+			  			<div class="layui-form-item">
+			  				<label class="layui-form-label">名称</label>
+			  				<input type="text" name="BloodClass_CName" class="layui-input" autocomplete="off"/>
+			  			</div>
+				  		<div class="layui-form-item">
+			  				<label class="layui-form-label">代码</label>
+			  				<input type="text" name="BloodClass_BCCode" class="layui-input" autocomplete="off"/>
+			  			</div>  
+				  		<div class="layui-form-item">
+			  				<label class="layui-form-label">开单预警</label>
+			  					<div class="layui-input-inline">
+				  					<select class="layui-form-select" name="BloodClass_Iswarn">
+				  						<option value="1">是</option>
+				  						<option value="0">否</option>
+				  					</select>
+			  					</div>
+			  			</div> 
+				  		<div class="layui-form-item">
+			  				<label class="layui-form-label">计算用血</label>
+			  					<div class="layui-input-inline">
+				  					<select class="layui-form-select" name="BloodClass_IslargeUse">
+				  						<option value="1">是</option>
+				  						<option value="0">否</option>
+				  					</select>
+			  					</div>
+			  			</div> 
+				  		<div class="layui-form-item">
+			  				<label class="layui-form-label">是否启用</label>
+			  				<div class="layui-input-inline">
+			  					<select class="layui-form-select" name="BloodClass_Visible">
+			  						<option value="true">启用</option>
+			  						<option value="false">禁用</option>
+			  					</select>
+			  				</div>
+			  			</div> 
+				  		<div class="layui-form-item">
+			  				<label class="layui-form-label">简码</label>
+			  				<input type="text" name="BloodClass_ShortCode" class="layui-input" autocomplete="off"/>
+			  			</div> 
+			  			<div class="layui-form-item">
+								<label class="layui-form-label">显示次序</label>
+								<input type="text" name="BloodClass_DispOrder" class="layui-input" autocomplete="off" placeholder=""/>
+							</div>	
+			  			<div class="layui-form-item layui-layout-admin">
+									<div class="layui-input-block">
+							      <button id="bloodclass_form_submit" class="layui-btn" lay-submit lay-filter="bloodclass_form_submit_filter">提交</button>
+							      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						      </div>
+					    </div>
+			  		</div>		  				
+	  			</div>
+	  		</div>
+	  	</div>
+	  </div>
+  </div>
+
+</body>
+
+</html>

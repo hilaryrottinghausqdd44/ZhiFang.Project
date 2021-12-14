@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{286B724D-312B-4657-8E2B-2772B31FFA97}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IDAO.LabStar</RootNamespace>
+    <AssemblyName>ZhiFang.IDAO.LabStar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.LabStar.TechnicianStation\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDBModuleFormControlListDao.cs" />
+    <Compile Include="IDBModuleFormControlSetDao.cs" />
+    <Compile Include="IDBModuleFormListDao.cs" />
+    <Compile Include="IDBModuleGridControlListDao.cs" />
+    <Compile Include="IDBModuleGridControlSetDao.cs" />
+    <Compile Include="IDBModuleGridListDao.cs" />
+    <Compile Include="IDBPrintModelDao.cs" />
+    <Compile Include="IDLBChargeTypeDao.cs" />
+    <Compile Include="IDLBCollectPartDao.cs" />
+    <Compile Include="IDLBExpertRuleDao.cs" />
+    <Compile Include="IDLBExpertRuleListDao.cs" />
+    <Compile Include="IDLBItemExpDao.cs" />
+    <Compile Include="IDLBPhyPeriodDao.cs" />
+    <Compile Include="IDLisBarCodeRefuseRecordDao.cs" />
+    <Compile Include="IDLBTranRuleHostSectionDao.cs" />
+    <Compile Include="IDLisEquipComFileDao.cs" />
+    <Compile Include="IDLisEquipComLogDao.cs" />
+    <Compile Include="IDLBItemChargeDao.cs" />
+    <Compile Include="IDLBItemCodeLinkDao.cs" />
+    <Compile Include="IDLBDicCodeLinkDao.cs" />
+    <Compile Include="IDLBEquipSectionDao.cs" />
+    <Compile Include="IDLBOrderModelDao.cs" />
+    <Compile Include="IDLBOrderModelItemDao.cs" />
+    <Compile Include="IDLBTGetMaxNoDao.cs" />
+    <Compile Include="IDLBReportDateDescDao.cs" />
+    <Compile Include="IDLBRightDao.cs" />
+    <Compile Include="IDLBSectionHisCompDao.cs" />
+    <Compile Include="IDLBSectionPrintDao.cs" />
+    <Compile Include="IDBHostDao.cs" />
+    <Compile Include="IDBHostTypeUserDao.cs" />
+    <Compile Include="IDBHostTypeDao.cs" />
+    <Compile Include="IDBParaItemDao.cs" />
+    <Compile Include="IDBParaDao.cs" />
+    <Compile Include="IDLBQCItemRuleDao.cs" />
+    <Compile Include="IDLBQCRuleBaseDao.cs" />
+    <Compile Include="IDLBQCRuleDao.cs" />
+    <Compile Include="IDLBQCRulesConDao.cs" />
+    <Compile Include="IDLisQueueDao.cs" />
+    <Compile Include="IDLisTestFormMsgDao.cs" />
+    <Compile Include="IDLisTestFormMsgItemDao.cs" />
+    <Compile Include="IDLisTestItemReceiveDao.cs" />
+    <Compile Include="IDLisTestGraphDao.cs" />
+    <Compile Include="IDLisOperateAuthorizeDao.cs" />
+    <Compile Include="IDLisOperateDao.cs" />
+    <Compile Include="IDLisOperateASectionDao.cs" />
+    <Compile Include="IDLisEquipGraphDao.cs" />
+    <Compile Include="IDLBDictDao.cs" />
+    <Compile Include="IDLBEquipResultTHDao.cs" />
+    <Compile Include="IDLBReportDateDao.cs" />
+    <Compile Include="IDLBReportDateRuleDao.cs" />
+    <Compile Include="IDLBParItemSplitDao.cs" />
+    <Compile Include="IDLBPhrasesWatchClassDao.cs" />
+    <Compile Include="IDLBPhrasesWatchClassItemDao.cs" />
+    <Compile Include="IDLBPhrasesWatchDao.cs" />
+    <Compile Include="IDLBReportDateItemDao.cs" />
+    <Compile Include="IDLBSampleItemDao.cs" />
+    <Compile Include="IDLBSamplingChargeItemDao.cs" />
+    <Compile Include="IDLBSamplingGroupDao.cs" />
+    <Compile Include="IDLBSamplingItemDao.cs" />
+    <Compile Include="IDLBTcuveteDao.cs" />
+    <Compile Include="IDLBTranRuleDao.cs" />
+    <Compile Include="IDLBTranRuleItemDao.cs" />
+    <Compile Include="IDLBTranRuleTypeDao.cs" />
+    <Compile Include="IDLisCommonDao.cs" />
+    <Compile Include="IDLBDestinationDao.cs" />
+    <Compile Include="IDLBFolkDao.cs" />
+    <Compile Include="IDLBDiagDao.cs" />
+    <Compile Include="IDLBEquipDao.cs" />
+    <Compile Include="IDLBEquipItemDao.cs" />
+    <Compile Include="IDLBItemCalcDao.cs" />
+    <Compile Include="IDLBItemCalcFormulaDao.cs" />
+    <Compile Include="IDLBItemCompDao.cs" />
+    <Compile Include="IDLBItemDao.cs" />
+    <Compile Include="IDLBItemGroupDao.cs" />
+    <Compile Include="IDLBItemRangeDao.cs" />
+    <Compile Include="IDLBItemRangeExpDao.cs" />
+    <Compile Include="IDLBItemTimeWDao.cs" />
+    <Compile Include="IDLBPhraseDao.cs" />
+    <Compile Include="IDLBSampleTypeDao.cs" />
+    <Compile Include="IDLBSectionDao.cs" />
+    <Compile Include="IDLBSectionItemDao.cs" />
+    <Compile Include="IDLBSickTypeDao.cs" />
+    <Compile Include="IDLBSpecialtyDao.cs" />
+    <Compile Include="IDLisBarCodeFormDao.cs" />
+    <Compile Include="IDLisBarCodeItemDao.cs" />
+    <Compile Include="IDLisEquipFormDao.cs" />
+    <Compile Include="IDLisEquipItemDao.cs" />
+    <Compile Include="IDLisOrderFormDao.cs" />
+    <Compile Include="IDLisOrderItemDao.cs" />
+    <Compile Include="IDLisPatientDao.cs" />
+    <Compile Include="IDLisTestFormDao.cs" />
+    <Compile Include="IDLBQCMatTimeDao.cs" />
+    <Compile Include="IDLBQCMaterialDao.cs" />
+    <Compile Include="IDLBQCItemTimeDao.cs" />
+    <Compile Include="IDLBQCItemDao.cs" />
+    <Compile Include="IDLisQCDataDao.cs" />
+    <Compile Include="IDLisQCCommentsDao.cs" />
+    <Compile Include="IDLisTestItemDao.cs" />
+    <Compile Include="IDLBQCPrintTemplateDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.LabStar\ZhiFang.Entity.LabStar.csproj">
+      <Project>{50641dca-bffc-4818-9fef-d9338dbb2327}</Project>
+      <Name>ZhiFang.Entity.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

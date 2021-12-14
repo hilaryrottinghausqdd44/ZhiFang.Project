@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36917E28-CE6F-441F-8C2F-F9210AD56D31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Entity.WebAssist</RootNamespace>
+    <AssemblyName>ZhiFang.Entity.WebAssist</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel">
+      <HintPath>..\Lib\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonRS.cs" />
+    <Compile Include="EntityObject\Lis\SC_InterfaceMaping.cs" />
+    <Compile Include="EntityObject\Lis\AntiGroup.cs" />
+    <Compile Include="EntityObject\Lis\ChargeType.cs" />
+    <Compile Include="EntityObject\Lis\MD_MicroTestDevelop.cs" />
+    <Compile Include="EntityObject\Lis\MD_MicroTestValue.cs" />
+    <Compile Include="EntityObject\Lis\ME_EquipSampleForm.cs" />
+    <Compile Include="EntityObject\Lis\ME_EquipSampleItem.cs" />
+    <Compile Include="EntityObject\Lis\ME_GroupSampleForm.cs" />
+    <Compile Include="EntityObject\Lis\ME_GroupSampleItem.cs" />
+    <Compile Include="EntityObject\B_LodopTemplet.cs" />
+    <Compile Include="EntityObject\B_Template.cs" />
+    <Compile Include="EntityObject\GK\GK_DeptAutoCheckLink.cs" />
+    <Compile Include="EntityObject\GK\GK_SampleRequestForm.cs" />
+    <Compile Include="EntityObject\Lis\ME_MicroAppraisalValue.cs" />
+    <Compile Include="EntityObject\Lis\ME_MicroDSTValue.cs" />
+    <Compile Include="EntityObject\Lis\ME_MicroInoculant.cs" />
+    <Compile Include="EntityObject\Lis\NPUser.cs" />
+    <Compile Include="EntityObject\Lis\AgeUnit.cs" />
+    <Compile Include="EntityObject\B_UserUIConfig.cs" />
+    <Compile Include="EntityObject\CenOrg.cs" />
+    <Compile Include="EntityObject\CenOrgCondition.cs" />
+    <Compile Include="EntityObject\CenOrgType.cs" />
+    <Compile Include="EntityObject\B_Dict.cs" />
+    <Compile Include="EntityObject\B_DictType.cs" />
+    <Compile Include="EntityObject\B_DictTree.cs" />
+    <Compile Include="EntityObject\B_OperateObjectType.cs" />
+    <Compile Include="EntityObject\B_Parameter.cs" />
+    <Compile Include="EntityObject\B_ObjectOperate.cs" />
+    <Compile Include="EntityObject\B_ObjectOperateType.cs" />
+    <Compile Include="EntityObject\Lis\District.cs" />
+    <Compile Include="EntityObject\Lis\Employee.cs" />
+    <Compile Include="EntityObject\Lis\EquipItem.cs" />
+    <Compile Include="EntityObject\Lis\Equipment.cs" />
+    <Compile Include="EntityObject\Lis\FolkType.cs" />
+    <Compile Include="EntityObject\Lis\GenderType.cs" />
+    <Compile Include="EntityObject\Lis\GroupItem.cs" />
+    <Compile Include="EntityObject\Lis\ItemRange.cs" />
+    <Compile Include="EntityObject\Lis\ItemType.cs" />
+    <Compile Include="EntityObject\Lis\NRequestForm.cs" />
+    <Compile Include="EntityObject\Lis\NRequestItem.cs" />
+    <Compile Include="EntityObject\Lis\PGroup.cs" />
+    <Compile Include="EntityObject\Lis\SampleType.cs" />
+    <Compile Include="EntityObject\Lis\SamplingGroup.cs" />
+    <Compile Include="EntityObject\Lis\Samplingitem.cs" />
+    <Compile Include="EntityObject\Lis\SectionItem.cs" />
+    <Compile Include="EntityObject\Lis\StatusType.cs" />
+    <Compile Include="EntityObject\SC_Attachment.cs" />
+    <Compile Include="EntityObject\SC_BarCodeRules.cs" />
+    <Compile Include="EntityObject\SC_Interaction.cs" />
+    <Compile Include="EntityObject\SC_Operation.cs" />
+    <Compile Include="EntityObject\SC_RecordDtl.cs" />
+    <Compile Include="EntityObject\SC_RecordItemLink.cs" />
+    <Compile Include="EntityObject\SC_RecordPhrase.cs" />
+    <Compile Include="EntityObject\SC_RecordType.cs" />
+    <Compile Include="EntityObject\SC_RecordTypeItem.cs" />
+    <Compile Include="EntityObject\Lis\SickType.cs" />
+    <Compile Include="EntityObject\Lis\SuperGroup.cs" />
+    <Compile Include="EntityObject\Lis\TestEquip.cs" />
+    <Compile Include="EntityObject\Lis\TestItem.cs" />
+    <Compile Include="EntityObject\Lis\TestType.cs" />
+    <Compile Include="EntityObject\Lis\WardType.cs" />
+    <Compile Include="EnumType.cs" />
+    <Compile Include="GKBarcode\Department.cs" />
+    <Compile Include="GKBarcode\FeeSetUp.cs" />
+    <Compile Include="GKBarcode\GKBarRed.cs" />
+    <Compile Include="GKBarcode\LastBarcodeS.cs" />
+    <Compile Include="GKBarcode\OperateType.cs" />
+    <Compile Include="GKBarcode\PYZd.cs" />
+    <Compile Include="GKBarcode\TestType.cs" />
+    <Compile Include="GKBarcode\TestType_Info.cs" />
+    <Compile Include="GKBarcode\User.cs" />
+    <Compile Include="HisInterface\BSDeptUserVO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewObject\BDictMapingVO.cs" />
+    <Compile Include="ViewObject\BloodsConfig.cs" />
+    <Compile Include="ViewObject\Statistics\InfectionDocVO.cs" />
+    <Compile Include="ViewObject\Statistics\GKOfDeptEvaluation.cs" />
+    <Compile Include="ViewObject\Statistics\InfectionDtlVO.cs" />
+    <Compile Include="ViewObject\WarpAndDeptVO.cs" />
+    <Compile Include="ViewObject\HttpPostedFileVO.cs" />
+    <Compile Include="XMLConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BParameter.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SCAttachment.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SCInteraction.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SCOperation.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ZhiFang.WebAssist.Common\ZhiFang.WebAssist.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.WebAssist.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RBAC\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BOperateObjectType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BObjectOperate.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BObjectOperateType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BDictTree.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BDict.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\BDictType.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\CenOrg.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\CenOrgCondition.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\CenOrgType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BUserUIConfig.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis\AgeUnit.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\District.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\Employee.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\EquipItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\Equipment.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\Lis\FolkType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\GenderType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\GroupItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ItemRange.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ItemType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\PGroup.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\SampleType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\SickType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\SuperGroup.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\TestEquip.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\TestItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\TestType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\WardType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis\NRequestForm.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SYSCache\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis\NPUser.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BTemplate.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\GK\GK_SampleRequestForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_RecordDtl.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_RecordPhrase.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_RecordType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_RecordTypeItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_RecordItemLink.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_LodopTemplet.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_BarCodeRules.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\GK\GK_DeptAutoCheckLink.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\Lis\ME_GroupSampleForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ME_GroupSampleItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ME_EquipSampleForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ME_EquipSampleItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\AntiGroup.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ChargeType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\MD_MicroTestDevelop.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\MD_MicroTestValue.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ME_MicroAppraisalValue.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ME_MicroDSTValue.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\ME_MicroInoculant.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\NRequestItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\SamplingGroup.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\Samplingitem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\SectionItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\StatusType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis\SC_InterfaceMaping.hbm.xml" />
+    <Content Include="ReportMap\说明.txt" />
+    <Content Include="ReportObject\说明.txt" />
+    <EmbeddedResource Include="ViewMap\WarpAndDeptVO.hbm.xml" />
+    <Content Include="ViewMap\说明.txt" />
+    <Content Include="ViewObject\说明.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

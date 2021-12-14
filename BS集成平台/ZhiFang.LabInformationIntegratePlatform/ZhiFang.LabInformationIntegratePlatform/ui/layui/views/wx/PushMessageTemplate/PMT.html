@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>消息模板</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+    <link rel="stylesheet" href="../../../../src/layui/dist/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../../admin/layuiadmin/style/admin.css" media="all" />
+    <style>
+        .layui-form label {padding: 9px 0;width: 100px;}
+        .tableHeight {overflow: auto;}
+		.layui-table-tool-temp {padding-right: 30px;}
+        .layui-form label {padding: 9px 0;width: 50px;}
+        .layui-input-block {margin-left: 64px;min-height: 36px;}
+    </style>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space10">
+            <div class=" layui-col-md12 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="tableContainer">
+                            <table id="table" lay-filter="table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addModel" style="display:none">
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <form class="layui-form" id='layForm' lay-filter='layForm'>
+                    <div class="layui-row">
+                        <div class="layui-col-md12 layui-col-xs12 layui-hide">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">主键id</label>
+                                <div class="layui-input-block">
+                                    <input type="hidden" name='WXWeiXinPushMessageTemplate_Id' autocomplete="off" class="layui-input" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md12 layui-col-xs12">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name='WXWeiXinPushMessageTemplate_Name' id="Name" autocomplete="off" lay-verify='required' placeholder="必填项" class="layui-input" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md12 layui-col-xs12">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">简称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name='WXWeiXinPushMessageTemplate_SName' id="SName" autocomplete="off" class="layui-input" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md12 layui-col-xs12">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">简码</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name='WXWeiXinPushMessageTemplate_Shortcode' id="Shortcode" autocomplete="off" class="layui-input" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md12 layui-col-xs12">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">拼音</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name='WXWeiXinPushMessageTemplate_PinYinZiTou' id="PinYinZiTou" autocomplete="off" class="layui-input" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-col-md12 layui-col-xs12">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">备注</label>
+                                <div class="layui-input-block">
+                                    <input type="text"  name='WXWeiXinPushMessageTemplate_Comment' id="Comment" autocomplete="off" class="layui-input" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="toolbar">
+        <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+        <!--<button class="layui-btn layui-btn-sm layui-bg-blue" lay-event="edit">编辑</button>-->
+        <button class="layui-btn layui-btn-sm layui-bg-red" lay-event="del">删除</button>
+        <div class="layui-input-inline">
+            <input type="text" name='search' id="search" placeholder="名称/简称/拼音字头" autocomplete="off" class="layui-input" />
+        </div>
+        <button class="layui-btn layui-btn-sm" lay-event="search">查询</button>
+    </script>
+    <!--表格行工具 -->
+    <script type="text/html" id="tableOperation">
+        <a class="layui-btn layui-btn-xs layui-bg-red" lay-event="edit">编辑</a>
+    </script>
+    <script type="text/javascript" src="../../../../src/layui/dist/layui.js"></script>
+    <script type="text/javascript">
+        UIVersion.getJS('../../../config/system.js');
+        UIVersion.getJS('PMT.js');
+    </script>
+</body>
+</html>

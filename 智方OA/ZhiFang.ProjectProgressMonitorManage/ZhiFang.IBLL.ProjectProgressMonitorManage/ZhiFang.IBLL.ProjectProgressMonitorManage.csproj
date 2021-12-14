@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2FA3221-F587-4488-B441-7F38E9890A1E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IBLL.ProjectProgressMonitorManage</RootNamespace>
+    <AssemblyName>ZhiFang.IBLL.ProjectProgressMonitorManage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ProjectProgressMonitorManage\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IBBEquip.cs" />
+    <Compile Include="IBEParameter.cs" />
+    <Compile Include="IBBParameter.cs" />
+    <Compile Include="IBCUser.cs" />
+    <Compile Include="IBEEquip.cs" />
+    <Compile Include="IBEMaintenanceData.cs" />
+    <Compile Include="IBEReportData.cs" />
+    <Compile Include="IBEAttachment.cs" />
+    <Compile Include="IBETemplet.cs" />
+    <Compile Include="IBEResEmp.cs" />
+    <Compile Include="IBEResponsibility.cs" />
+    <Compile Include="IBETempletRes.cs" />
+    <Compile Include="IBETempletEmp.cs" />
+    <Compile Include="IBPContractFollow.cs" />
+    <Compile Include="IBPContractFollowInteraction.cs" />
+    <Compile Include="IBPCustomerService.cs" />
+    <Compile Include="IBPCustomerServiceOperation.cs" />
+    <Compile Include="IBPProjectDocument.cs" />
+    <Compile Include="IBPProjectTask.cs" />
+    <Compile Include="IBPProjectTaskProgress.cs" />
+    <Compile Include="IBPProject.cs" />
+    <Compile Include="IBPSalesManClientLink.cs" />
+    <Compile Include="IBPEmpFinanceAccount.cs" />
+    <Compile Include="IBPExpenseAccount.cs" />
+    <Compile Include="IBPLoanBill.cs" />
+    <Compile Include="IBPRepayment.cs" />
+    <Compile Include="IBPGMProgram.cs" />
+    <Compile Include="IBPCustomerServiceAttachment.cs" />
+    <Compile Include="IBPInvoice.cs" />
+    <Compile Include="IBPFinanceReceive.cs" />
+    <Compile Include="IBPReceivePlan.cs" />
+    <Compile Include="IBPReceive.cs" />
+    <Compile Include="IBPCustomerServiceOperationLog.cs" />
+    <Compile Include="IBPTaskTypeEmpLink.cs" />
+    <Compile Include="IBFFile.cs" />
+    <Compile Include="IBFFileAttachment.cs" />
+    <Compile Include="IBFFileCopyUser.cs" />
+    <Compile Include="IBFFileInteraction.cs" />
+    <Compile Include="IBFFileOperation.cs" />
+    <Compile Include="IBFFileReadingLog.cs" />
+    <Compile Include="IBFFileReadingUser.cs" />
+    <Compile Include="IBBDictTree.cs" />
+    <Compile Include="IBPDict.cs" />
+    <Compile Include="IBPDictType.cs" />
+    <Compile Include="IBPInteraction.cs" />
+    <Compile Include="IBPProjectAttachment.cs" />
+    <Compile Include="IBPTask.cs" />
+    <Compile Include="IBPTaskCopyFor.cs" />
+    <Compile Include="IBPWorkDayLog.cs" />
+    <Compile Include="IBPWorkLogCopyFor.cs" />
+    <Compile Include="IBPWorkLogInteraction.cs" />
+    <Compile Include="IBPWorkLogSendFor.cs" />
+    <Compile Include="IBPWorkMonthLog.cs" />
+    <Compile Include="IBSCAttachment.cs" />
+    <Compile Include="IBSCInteraction.cs" />
+    <Compile Include="IBSCOperation.cs" />
+    <Compile Include="IBStoredProcedure.cs" />
+    <Compile Include="IBPWorkWeekLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IBPClient.cs" />
+    <Compile Include="IBPClientLinker.cs" />
+    <Compile Include="IBPContract.cs" />
+    <Compile Include="IBPTaskOperLog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.ProjectProgressMonitorManage\ZhiFang.Entity.ProjectProgressMonitorManage.csproj">
+      <Project>{e3b08151-fbe9-4e8e-b390-11bd9f7def4a}</Project>
+      <Name>ZhiFang.Entity.ProjectProgressMonitorManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

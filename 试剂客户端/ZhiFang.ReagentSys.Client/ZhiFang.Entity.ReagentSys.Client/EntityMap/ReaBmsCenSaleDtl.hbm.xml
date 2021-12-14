@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaBmsCenSaleDtl" table="[dbo].[Rea_BmsCenSaleDtl]">
+    <id name="Id" column="[SaleDtlID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="SaleDtlNo" column="[SaleDtlNo]" type="String" not-null="false" length="50" />
+    <property name="SaleDocID" column="[SaleDocID]" type="Int64" not-null="false" length="8" />
+    <property name="SaleDocNo" column="[SaleDocNo]" type="String" not-null="false" length="50" />
+    <property name="ProdID" column="[ProdID]" type="Int64" not-null="false" length="8" />
+    <property name="ProdOrgName" column="[ProdOrgName]" type="String" not-null="false" length="100" />
+    <property name="ProdGoodsNo" column="[ProdGoodsNo]" type="String" not-null="false" length="50" />
+    <property name="GoodsID" column="[GoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsName" column="[GoodsName]" type="String" not-null="false" length="100" />
+    <property name="GoodsUnit" column="[GoodsUnit]" type="String" not-null="false" length="100" />
+    <property name="UnitMemo" column="[UnitMemo]" type="String" not-null="false" length="100" />
+    <property name="StorageType" column="[StorageType]" type="String" not-null="false" length="1000" />
+    <property name="TempRange" column="[TempRange]" type="String" not-null="false" length="100" />
+    <property name="GoodsQty" column="[GoodsQty]" type="Double" not-null="true" length="8" />
+    <property name="Price" column="[Price]" type="Double" not-null="true" length="8" />
+    <property name="SumTotal" column="[SumTotal]" type="Double" not-null="false" length="8" />
+    <property name="TaxRate" column="[TaxRate]" type="Double" not-null="false" length="8" />
+    <property name="LotNo" column="[LotNo]" type="String" not-null="false" length="100" />
+    <property name="ProdDate" column="[ProdDate]" type="DateTime" not-null="false" length="8" />
+    <property name="InvalidDate" column="[InvalidDate]" type="DateTime" not-null="false" length="8" />
+    <property name="BiddingNo" column="[BiddingNo]" type="String" not-null="false" length="100" />
+    <property name="ApproveDocNo" column="[ApproveDocNo]" type="String" not-null="false" length="200" />
+    <property name="IOFlag" column="[IOFlag]" type="Int32" not-null="false" length="4" />
+    <property name="GoodsSerial" column="[GoodsSerial]" type="String" not-null="false" length="100" />
+
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="100" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="100" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="100" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="100" />
+    <property name="ReaGoodsID" column="[ReaGoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="ReaGoodsName" column="[ReaGoodsName]" type="String" not-null="false" length="100" />
+    <property name="GoodsNo" column="[GoodsNo]" type="String" not-null="false" length="100" />
+    <property name="CompGoodsLinkID" column="[CompGoodsLinkID]" type="Int64" not-null="false" length="8" />
+    <property name="IOGoodsQty" column="[IOGoodsQty]" type="Double" not-null="false" length="8" />
+    <property name="DispOrder" column="[DispOrder]" type="Double" not-null="false" length="8" />
+    <property name="RegisterNo" column="[RegisterNo]" type="String" not-null="false" length="200" />
+    <property name="RegisterInvalidDate" column="[RegisterInvalidDate]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+    <property name="StatusName" column="[StatusName]" type="String" not-null="false" length="100" />
+    <property name="ReaCompID" column="[ReaCompID]" type="Int64" not-null="false" length="8" />
+    <property name="ReaCompanyName" column="[ReaCompanyName]" type="String" not-null="false" length="200" />
+    <property name="ReaServerCompCode" column="[ReaServerCompCode]" type="String" not-null="false" length="200" />
+    <property name="BarCodeType" column="[BarCodeType]" type="Int64" not-null="false" length="8" />
+    <property name="PrintCount" column="[PrintCount]" type="Int32" not-null="false" length="4" />
+    <property name="LabcGoodsLinkID" column="[LabcGoodsLinkID]" type="Int64" not-null="false" length="8" />
+    <property name="IsPrintBarCode" column="[IsPrintBarCode]" type="Int64" not-null="false" length="8" />
+    <property name="ProdOrgNo" column="[ProdOrgNo]" type="String" not-null="false" length="100" />
+    <property name="ReaGoodsNo" column="[ReaGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="CenOrgGoodsNo" column="[CenOrgGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="LotSerial" column="[LotSerial]" type="String" not-null="false" length="150" />
+    <property name="SysLotSerial" column="[SysLotSerial]" type="String" not-null="false" length="150" />
+    <property name="LotQRCode" column="[LotQRCode]" type="String" not-null="false" length="150" />
+    <!--<property name="ReaCompCode" column="[ReaCompCode]" type="String" not-null="false" length="200" />-->
+    <property name="GoodsSort" column="[GoodsSort]" type="Int32" not-null="false" length="4" />
+    <property name="LabOrderDtlID" column="[LabOrderDtlID]" type="Int64" not-null="false" length="8" />
+    <property name="OtherDtlNo" column="[OtherDtlNo]" type="String" not-null="false" length="100" />
+    <property name="GoodsLotID" column="[GoodsLotID]" type="Int64" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

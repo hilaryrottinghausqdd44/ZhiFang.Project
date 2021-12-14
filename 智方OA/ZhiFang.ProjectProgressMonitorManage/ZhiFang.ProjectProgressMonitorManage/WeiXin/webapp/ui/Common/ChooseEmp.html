@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>选择员工</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+    <link href="../src/select/css/bootstrap-select.css" rel="stylesheet" media="screen">
+
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../src/select/js/bootstrap-select.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="js/ChooseEmp.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        function setopenervalue() {
+            parent.document.getElementById("todaycontentmemo").value = '123';
+            //if (opener)
+            //{
+            //    alert('123123123');
+            //}
+            //opener.document.getElementById("todaycontentmemo").value = '123';
+            //history.back();
+        }
+    </script>
+</head>
+<body>
+    <div class="panel panel-default" style="margin:0px;">
+        <div id="panel-head" class="panel-heading text-center">选择员工</div>
+        <input type="button" onclick="setopenervalue()" value="选择" />
+    </div>
+</body>
+</html>

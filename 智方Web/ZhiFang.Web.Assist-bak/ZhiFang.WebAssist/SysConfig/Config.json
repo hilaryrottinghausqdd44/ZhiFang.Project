@@ -1,0 +1,37 @@
+﻿
+/* 系统配置文件 */
+{
+
+  /* HIS配置 */
+  "HISSYS": {
+    /* LIS同步HIS数据的配置项 */
+    /**
+    * BS:百色市人民医院
+    *
+    */
+    "LISSYNCHIS": "BSSYMYY"
+  },
+
+  /* LIS配置文件 */
+  "LISSYS": {
+    /* 院感申请的就诊类型对照码 */
+    "EECLabName": "百色市人民医院"
+  },
+
+  /* 院感系统的系统配置文件 */
+  "GKSYS": {
+    /*感控登记每天的初始条码号 */
+    "FristBarCode": "900000",
+
+    /* 院感申请的就诊类型对照码 */
+    "LISSickTypeCode": "Code_4",
+
+    /* LIS的默认核收小组编号 */
+    "LISSectionNo": "62",
+
+    /* LIS的默认核收检验者编号 */
+    "LISMainTesterNo": "26"
+
+  }
+
+}

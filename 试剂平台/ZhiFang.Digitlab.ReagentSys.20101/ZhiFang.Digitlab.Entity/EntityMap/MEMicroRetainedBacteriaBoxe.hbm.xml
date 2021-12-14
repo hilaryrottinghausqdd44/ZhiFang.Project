@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="MEMicroRetainedBacteriaBox" table="[dbo].[ME_MicroRetainedBacteriaBox]">
+		<id name="Id" column="[RBBoxID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="RBBoxNo" column="[RBBoxNo]" type="String" not-null="false" length="10" />
+		<property name="UnUsedPosition" column="[UnUsedPosition]" type="Int32" not-null="false" length="4" />
+		<property name="IsUsed" column="[IsUsed]" type="Boolean" not-null="false" length="1" />
+		<property name="Refrigerator" column="[Refrigerator]" type="Int64" not-null="false" length="8" />
+		<property name="Layer" column="[Layer]" type="Int64" not-null="false" length="8" />
+		<property name="EmpName" column="[EmpName]" type="String" not-null="false" length="60" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BRetainedBacteriaBoxType" class="BRetainedBacteriaBoxType" >
+			<column name="[RBBoxTypeID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="HREmployee" class="HREmployee" >
+			<column name="[EmpID]" not-null="false"/>
+		</many-to-one>
+		<bag name="MEMicroRetainedBacteriaList" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key>
+                <column name="[RBBoxID]" />
+            </key>
+			<one-to-many class="MEMicroRetainedBacteria"/>
+		</bag>
+	</class>
+</hibernate-mapping>

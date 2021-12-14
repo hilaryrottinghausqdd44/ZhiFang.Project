@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="PGroup" table="[dbo].[PGroup]">
+    <id name="Id" column="[SectionNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="SuperGroupNo" column="[SuperGroupNo]" type="Int32" not-null="false" length="4" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="40" />
+    <property name="ShortName" column="[ShortName]" type="String" not-null="false" length="10" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="10" />
+    <property name="SectionDesc" column="[SectionDesc]" type="String" not-null="false" length="250" />
+    <property name="SectionType" column="[SectionType]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Onlinetime" column="[onlinetime]" type="Int32" not-null="false" length="4" />
+    <property name="KeyDispOrder" column="[KeyDispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Dummygroup" column="[dummygroup]" type="Int32" not-null="false" length="4" />
+    <property name="Uniontype" column="[uniontype]" type="Int32" not-null="false" length="4" />
+    <property name="SectorTypeNo" column="[SectorTypeNo]" type="Int32" not-null="false" length="4" />
+    <property name="SampleNoType" column="[SampleNoType]" type="Int32" not-null="false" length="4" />
+    <property name="IsSendGroup" column="[IsSendGroup]" type="Int32" not-null="false" length="4" />
+    <property name="ReportSection" column="[ReportSection]" type="Int32" not-null="false" length="4" />
+    <property name="RePortToDept" column="[RePortToDept]" type="Int32" not-null="false" length="4" />
+    <property name="UseCode" column="[UseCode]" type="String" not-null="false" length="50" />
+    <property name="StandCode" column="[StandCode]" type="String" not-null="false" length="50" />
+    <property name="DeveCode" column="[DeveCode]" type="String" not-null="false" length="50" />
+    <property name="UserNo" column="[UserNo]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="IsImage" column="[IsImage]" type="Boolean" not-null="false" length="1" />
+    <property name="ProDLL" column="[ProDLL]" type="String" not-null="false" length="50" />
+    <property name="ExecDeptNo" column="[ExecDeptNo]" type="Int32" not-null="false" length="4" />
+    <property name="SectionResultType" column="[SectionResultType]" type="Int32" not-null="false" length="4" />
+    <property name="PrintCode" column="[PrintCode]" type="String" not-null="false" length="10" />
+    <property name="STestType" column="[STestType]" type="Int32" not-null="false" length="4" />
+    <property name="ClientNo" column="[ClientNo]" type="Int32" not-null="false" length="4" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="50" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

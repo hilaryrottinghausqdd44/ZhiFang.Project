@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ProjectProgressMonitorManage" assembly="ZhiFang.Entity.ProjectProgressMonitorManage">
+  <class name="EEquip" table="[dbo].[E_Equip]">
+    <id name="Id" column="[EquipID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="CName" column="[CName]" type="String" not-null="true" length="100" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="50" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="50" />
+    <property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="50" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="UseCode" column="[UseCode]" type="String" not-null="false" length="50" />
+    <property name="Comment" column="[Comment]" type="String" not-null="false" length="4000" />
+    <property name="SectionName" column="[SectionName]" type="String" not-null="false" length="100" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="EquipNo" column="[EquipNo]" type="String" not-null="false" length="200" />
+    <property name="FactoryName" column="[FactoryName]" type="String" not-null="false" length="200" />
+    <property name="FactoryOutNo" column="[FactoryOutNo]" type="String" not-null="false" length="200" />
+    <property name="StoreArea" column="[StoreArea]" type="String" not-null="false" length="200" />
+    <property name="EnableDate" column="[EnableDate]" type="DateTime" not-null="false" length="8" />
+    <property name="CalibrateDate" column="[CalibrateDate]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="EquipType" class="PDict" lazy="false">
+      <column name="[EquipTypeID]" not-null="false"/>
+    </many-to-one>
+    <bag name="ETempletList" inverse="true" cascade="save-update" lazy="true">
+      <key>
+        <column name="[EquipID]" />
+      </key>
+      <one-to-many class="ETemplet"/>
+    </bag>
+  </class>
+</hibernate-mapping>

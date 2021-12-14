@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    
+    <link rel="stylesheet" href="../../../../web_src/jquery-weui/lib/weui.min.css" />
+    <link rel="stylesheet" href="../../../../web_src/jquery-weui/css/jquery-weui.min.css" />
+    <link rel="stylesheet" href="../../css/weui.css">
+    <link rel="stylesheet" href="../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap-switch.min.css" />
+    <link rel="stylesheet" href="../../../../web_src/mobiscroll/mobiscroll.css">
+    <link rel="stylesheet" href="../../css/style.css?v=2">
+	
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/jquery-weui/js/jquery-weui.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/mobiscroll/mobiscroll_0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../../../web_src/mobiscroll/mobiscroll.min.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="../../util/JcallShell.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../util/Page.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../localStorage/Home.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../localStorage/User.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../localStorage/UserOrder.js"></script>
+    <script type="text/javascript" charset="utf-8" src="checkgoods.js?V=2"></script>
+	
+    <style type="text/css">
+    	.weui-cells:before{border-top:0}
+    	.weui-cells:after{border-bottom:0}
+    </style>
+</head>
+<body style="padding-top: 50px;">
+    <!--顶部功能按钮栏-->
+    <nav id="navbar-top" class="navbar navbar-default navbar-fixed-top page-top" style="z-index:1;">
+        <div class="page-top-title">货品选择</div>
+        <div class="page-top-back">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            <span>返回</span>
+        </div>
+        <div class="page-top-home">
+            <span>主页</span>
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+        </div>
+    </nav>
+    <!--内容区域-->
+    <div class="container-fluid" style="margin-bottom: 52px;">
+        <div class="row" id="list" style="padding:5px"></div>
+    </div>
+    <!--底部功能栏-->
+	<div id="submit-div" class="navbar navbar-default navbar-fixed-bottom" style="background-color:#ffffff;">
+		<div style="float:left;width:45%;padding:5px;margin:5px;">
+			<span>已选 <b id="total" style="color:#d9534f;">0</b> 种货品</span>
+		</div>
+		<div style="float:right;width:45%;" id="back-to-create-button" class="div-button">返回订单</div>
+	</div>
+</body>
+</html>

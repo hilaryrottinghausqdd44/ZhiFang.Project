@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css"/>
+    <script type="text/javascript" src="../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../easyui/easyloader.js"></script>
+
+    <script src="../easyui/jquery.easyui.min.js"></script>
+    <link href="../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../util/util.js"></script>
+    <style type="text/css">
+        #fm { margin: 0; padding: 10px 30px; }
+        .fTitle { font-size: 14px; font-weight: bold; padding: 5px 0; margin-bottom: 10px; border-bottom: 1px solid #cccccc;}
+        .fItem { margin-bottom: 15px; }
+        .fItem label {  display: inline-block;   width: 100px; }
+    </style>
+    <script language="JavaScript">
+        var errors = 0;
+        function dit(type)
+        {
+            var r = '';
+            r += '{"jsonentity":{';
+
+
+            var CheckStartDate = '2013-11-1';
+
+            if (CheckStartDate) {
+                r += '"Checkstartdate":"' + Shell.util.Date.toServerDate(CheckStartDate)  + '",';
+            }
+            var CheckEndDate = '2014-1-1';
+            if (CheckEndDate) {
+                r += '"Checkenddate":"' + Shell.util.Date.toServerDate(CheckEndDate) + '",';
+            }
+            var ClientNo = '1';
+            if (ClientNo) {
+                r += '"CLIENTNO":' + ClientNo + ',';
+            }
+            var TYPE = 'reporthtmlurl';
+            if (TYPE) {
+                r += '"TYPE":"' + TYPE + '",';
+            }
+            r += '}}';
+
+            if (errors > 0) {
+                $.messager.alert('提示', '请检查输入值的完整性', 'warning');
+                errors = 0;
+            } else {
+                switch (type)
+                {
+                    case 0:
+                    $.ajax({
+                        type: 'POST',
+                        contentType: 'application/json',
+                        url: Shell.util.Path.rootPath + '/ServiceWCF/ReportFromService.svc/GetReportItem',
+                        data: r,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.success == true) {
+                                //$("#ifdig").src(Shell.util.Path.rootPath+data.ResultDataValue);
+                                $("#ifdig").attr("src",Shell.util.Path.rootPath+data.ResultDataValue);
+                            } else {
+                                $.messager.alert('提示', '插入数据失败！失败信息:' + data.msg);
+                            }
+                        }
+                    })
+                    break;
+                    case 1:
+                    $.ajax({
+
+                        type: 'POST',
+                        contentType: 'application/json',
+                        url: Shell.util.Path.rootPath + '/ServiceWCF/ReportFromService.svc/DownLoadReportExcel',
+                        data: r,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.success == true) {
+                                $("#ifdigdown").attr("src",Shell.util.Path.rootPath+data.ResultDataValue);
+                                //window.open(Shell.util.Path.rootPath+data.ResultDataValue);
+                            } else {
+                                $.messager.alert('提示', '插入数据失败！失败信息:' + data.msg);
+                            }
+                        }
+                    })
+                    break;
+                }
+
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+<a href="javascript:void(0)" class="easyui-linkbutton" onclick="dit(0)" plain="true" data-options="iconCls:'icon-search'">查询</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" onclick="dit(1)" plain="true" data-options="iconCls:'icon-excel'">导出</a>
+<table id="dg" class="easyui-datagrid" title="结果导出"></table>
+<div id="dig"></div>
+<iframe id="ifdig" width="100%" height="500px"></iframe>
+<iframe id="ifdigdown" width="-1px" height="-1px"></iframe>
+</body>
+</html>

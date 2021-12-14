@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="NRequestItem" table="[dbo].[NRequestItem]">
+		<id name="Id" column="[NRequestItemNo]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="ItemSource" column="[ItemSource]" type="Int32" not-null="false" length="4" />
+		<property name="NRequestFormNo" column="[NRequestFormNo]" type="Int64" not-null="true" length="8" />
+		<property name="BarCodeFormNo" column="[BarCodeFormNo]" type="Int64" not-null="false" length="8" />
+		<property name="FormNo" column="[FormNo]" type="Int32" not-null="false" length="4" />
+		<property name="TollItemNo" column="[TollItemNo]" type="Int32" not-null="false" length="4" />
+		<property name="ParItemNo" column="[ParItemNo]" type="Int32" not-null="true" length="4" />
+		<property name="IsCheckFee" column="[IsCheckFee]" type="Int32" not-null="false" length="4" />
+		<property name="ReceiveFlag" column="[ReceiveFlag]" type="Int32" not-null="false" length="4" />
+		<property name="HISCharge" column="[HISCharge]" type="Decimal" not-null="false" length="8" />
+		<property name="ItemCharge" column="[ItemCharge]" type="Decimal" not-null="false" length="8" />
+		<property name="SampleTypeNo" column="[SampleTypeNo]" type="Int32" not-null="false" length="4" />
+		<property name="Zdy1" column="[zdy1]" type="String" not-null="false" length="80" />
+		<property name="Zdy2" column="[zdy2]" type="String" not-null="false" length="20" />
+		<property name="SerialNo" column="[SerialNo]" type="String" not-null="false" length="30" />
+		<property name="Zdy3" column="[zdy3]" type="String" not-null="false" length="20" />
+		<property name="Zdy4" column="[zdy4]" type="String" not-null="false" length="20" />
+		<property name="Zdy5" column="[zdy5]" type="String" not-null="false" length="20" />
+		<property name="DeleteFlag" column="[DeleteFlag]" type="Int32" not-null="false" length="4" />
+		<property name="OldSerialNo" column="[OldSerialNo]" type="String" not-null="false" length="60" />
+		<property name="CountNodesItemSource" column="[CountNodesItemSource]" type="String" not-null="false" length="1" />
+		<property name="ReportFlag" column="[ReportFlag]" type="Int32" not-null="false" length="4" />
+		<property name="PartFlag" column="[PartFlag]" type="Int32" not-null="false" length="4" />
+		<property name="WebLisOrgID" column="[WebLisOrgID]" type="String" not-null="false" length="50" />
+		<property name="WebLisSourceOrgID" column="[WebLisSourceOrgID]" type="String" not-null="false" length="50" />
+		<property name="WebLisSourceOrgName" column="[WebLisSourceOrgName]" type="String" not-null="false" length="300" />
+		<property name="ClientNo" column="[ClientNo]" type="String" not-null="false" length="50" />
+		<property name="ClientName" column="[ClientName]" type="String" not-null="false" length="300" />
+		<property name="LABNREQUESTFORMNO" column="[LABNREQUESTFORMNO]" type="String" not-null="false" length="50" />
+		<property name="ComboId" column="[ComboId]" type="Int32" not-null="false" length="4" />
+		<property name="ComboName" column="[ComboName]" type="String" not-null="false" length="50" />
+		<property name="ItemPrice" column="[ItemPrice]" type="String" not-null="false" length="50" />
+		<property name="ItemAgio" column="[ItemAgio]" type="String" not-null="false" length="50" />
+		<property name="ItemAgioPrice" column="[ItemAgioPrice]" type="String" not-null="false" length="50" />
+		<property name="TransitFlag" column="[TransitFlag]" type="Int32" not-null="false" length="4" />
+		<property name="ModifyFlag" column="[ModifyFlag]" type="Int32" not-null="false" length="4" />
+		<property name="ModifyDate" column="[ModifyDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ErrorFlag" column="[ErrorFlag]" type="Int32" not-null="false" length="4" />
+		<property name="IsFree" column="[IsFree]" type="Int32" not-null="false" length="4" />
+		<property name="IsFreeStatus" column="[IsFreeStatus]" type="Int32" not-null="false" length="4" />
+		<property name="IsLocked" column="[IsLocked]" type="Int32" not-null="false" length="4" />
+		<property name="IsLockedDate" column="[IsLockedDate]" type="DateTime" not-null="false" length="8" />
+		<property name="IsReportSend" column="[IsReportSend]" type="Int32" not-null="false" length="4" />
+		<property name="Jcfs" column="[Jcfs]" type="String" not-null="false" length="50" />
+		<property name="ItemNamecw" column="[ItemNamecw]" type="String" not-null="false" length="50" />
+		<property name="SenderTime1" column="[SenderTime1]" type="DateTime" not-null="false" length="8" />
+		<property name="SenderTime1er" column="[SenderTime1er]" type="String" not-null="false" length="50" />
+		<property name="SenderTime2er" column="[SenderTime2er]" type="String" not-null="false" length="50" />
+		<property name="CollectDate" column="[CollectDate]" type="DateTime" not-null="false" length="8" />
+		<property name="SectionNo1" column="[SectionNo1]" type="Int32" not-null="false" length="4" />
+		<property name="SectionName" column="[SectionName]" type="String" not-null="false" length="50" />
+		<property name="TestDater" column="[TestDater]" type="String" not-null="false" length="50" />
+		<property name="TestDate" column="[TestDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ItemType" column="[ItemType]" type="String" not-null="false" length="50" />
+		<property name="IsLocker" column="[IsLocker]" type="String" not-null="false" length="50" />
+		<property name="ReportSendDate" column="[ReportSendDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ReportPrintDate" column="[ReportPrintDate]" type="DateTime" not-null="false" length="8" />
+		<property name="CheckDate" column="[CheckDate]" type="DateTime" not-null="false" length="8" />
+		<property name="SenderTime2" column="[SenderTime2]" type="DateTime" not-null="false" length="8" />
+		<property name="Nisampletypename" column="[nisampletypename]" type="String" not-null="false" length="20" />
+		<property name="ReceiveSectionNo" column="[ReceiveSectionNo]" type="String" not-null="false" length="50" />
+		<property name="ReceiveSectionName" column="[ReceiveSectionName]" type="String" not-null="false" length="50" />
+		<property name="CheckDater" column="[CheckDater]" type="String" not-null="false" length="50" />
+		<property name="ReceiveDate" column="[ReceiveDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ReceiveDater" column="[ReceiveDater]" type="String" not-null="false" length="20" />
+		<property name="NEquipNo" column="[NEquipNo]" type="Int32" not-null="false" length="4" />
+		<property name="NEquipName" column="[NEquipName]" type="String" not-null="false" length="50" />
+		<property name="IsFreeType" column="[IsFreeType]" type="String" not-null="false" length="20" />
+		<property name="LABCENTERNO" column="[LABCENTERNO]" type="String" not-null="false" length="50" />
+		<property name="LABCLIENTNO" column="[LABCLIENTNO]" type="String" not-null="false" length="50" />
+		<property name="LABDONO" column="[LABDONO]" type="String" not-null="false" length="50" />
+		<property name="FlagDateDelete" column="[FlagDateDelete]" type="DateTime" not-null="false" length="8" />
+		<property name="CombiItemNo" column="[CombiItemNo]" type="Int32" not-null="false" length="4" />
+		<property name="CollectTime" column="[CollectTime]" type="DateTime" not-null="false" length="8" />
+		<property name="Collecter" column="[Collecter]" type="String" not-null="false" length="10" />
+		<property name="WebLisFlag" column="[WebLisFlag]" type="String" not-null="false" length="2" />
+		<property name="ParItemName" column="[ParItemName]" type="String" not-null="false" length="50" />
+		<property name="ParItemCode" column="[ParItemCode]" type="String" not-null="false" length="50" />
+		<property name="SampleType" column="[SampleType]" type="String" not-null="false" length="50" />
+		<property name="CheckType" column="[CheckType]" type="String" not-null="false" length="50" />
+		<property name="CheckTypeName" column="[CheckTypeName]" type="String" not-null="false" length="50" />
+		<property name="Price" column="[price]" type="Double" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

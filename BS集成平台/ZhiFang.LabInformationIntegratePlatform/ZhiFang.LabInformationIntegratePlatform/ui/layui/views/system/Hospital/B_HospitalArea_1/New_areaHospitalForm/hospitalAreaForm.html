@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>医院区域字典</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+    <link rel="stylesheet" href="../../../../../../src/layui/dist/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../../../../admin/layuiadmin/style/admin.css" media="all" />
+    <style>
+        .layui-form label {padding: 9px 0;width: 100px;}
+        .tableHeight {overflow: auto;}
+        .layui-table-tool-temp {padding-right: 30px;}
+    </style>
+</head>
+	<body>
+		<div class="layui-fluid">
+            <div class="layui-row">
+                <div class="layui-col-md6 layui-col-xs12">
+                    <div class="layui-card " style="padding-bottom: 0px;margin-bottom: 0px;">
+                        <div class="layui-card-body">
+                            <form class="layui-form" id='layForm' lay-filter='form'>
+                                <div class="layui-row">
+                                    <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">主键id</label>
+                                            <div class="layui-input-block">
+                                                <input type="hidden" name='BHospitalArea_Id' autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">医院区域名称</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_Name' id="CName" autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">医院区域简码</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_Code' autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12 layui-hide">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">区域中心医院ID</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_CenterHospitalID' id="CenterHospitalID" autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12 ">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">区域中心医院名</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_CenterHospitalName' id="CenterHospitalName" autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12  ">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">父区域</label>
+                                            <div class="layui-input-block">
+                                                <select name="BHospitalArea_PHospitalAreaID" id="PHospitalAreaID" lay-verify="" lay-filter='PHospitalAreaID'></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12 layui-hide">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">父区域</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_PHospitalAreaName' id="PHospitalAreaName" autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12 layui-hide">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">父区域简码</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_PHospitalAreaCode' id="PHospitalAreaCode" autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="layui-col-md12 layui-col-xs12">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">排列次序</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_DispOrder' id="DispOrder" lay-verify='number' autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">是否启用</label>
+                                            <div class="layui-input-block">
+                                                <input type="checkbox" id="isUse" name='BHospitalArea_IsUse' lay-skin='switch' checked lay-text="启用|禁用" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">备注</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_Comment' autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-col-md12 layui-col-xs12 ">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">部门选择</label>
+                                            <div class="layui-input-block">
+                                                <select name="BHospitalArea_DeptID" id="DeptID" lay-verify="" lay-filter='DeptID' lay-search></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-xs12 layui-hide">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">部门名称</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_DeptName' id="DeptName" autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-xs12">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">区域等级</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name='BHospitalArea_HospitalAreaLevelName' autocomplete="off" class="layui-input" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md10 layui-col-md-offset2 layui-col-xs12">
+                                        <div class="layui-form-item">
+                                            <div class="layui-input-block">
+                                                <button class="layui-btn " lay-submit id="save" lay-filter='save'>保存</button>
+                                                <button id='cancel' type="button" lay-filter='reset' class="layui-btn layui-btn-primary">重置</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class=" layui-col-md6 layui-col-xs12">
+                    <div class="layui-card " style="padding-bottom: 0px;margin-bottom: 0px;">
+                        <div class="layui-card-body">
+                            <table id="areaHospitalTable"  lay-filter="areaHospitalTable"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		
+		<script type="text/html" id="areaHospitalToolbar">
+			<button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+			<button class="layui-btn layui-btn-sm layui-bg-red" lay-event="del">删除</button>
+			<input type="checkbox" id="IsNode" name="IsNode" lay-filter="IsNode" lay-skin="switch"  lay-text="全节点|本节点">
+		</script>
+	    <script src="../../../../../../src/layui/dist/layui.js"></script>
+		<script type="text/javascript">
+			UIVersion.getJS('../../../../../config/system.js');
+			UIVersion.getJS('hospitalAreaForm.js');
+		</script>
+	</body>
+</html>

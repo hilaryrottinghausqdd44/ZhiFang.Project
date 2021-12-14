@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		
+		<title>用户注册</title>
+		<link rel="stylesheet" href="src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<script src="src/jquery.min.js"></script>
+		<script src="src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<script src="util/util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/component.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/register.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			.register_div{
+				margin:50px 20px;
+				text-align:center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="page_home" class="page_info home" style="background-color:#ffffff">
+			<div id="register_div" class="register_div" hidden="hidden">
+				<img id= "account_img" class="default_user_photo_div"/>
+				<div id="account_name" class="default_user_text_div"></div>
+			</div>
+			<!--手机号-->
+			<div id="page1" hidden="hidden">
+				<div class="shell_form_input_div" style="margin:20px;">
+					<input id="cellphone_number" type="text" placeholder="手机号"
+						style="background-image:url('img/icon/phone_small.png');
+							background-repeat:no-repeat;background-position:5px 5px;
+							padding:0 10px 0 40px;">
+				</div>
+				<div class="shell_form_button_div" style="margin:50px 20%;">
+					<button id="next_btn">注册</button>
+				</div>
+			</div>
+			<!--验证码-->
+			<div id="page2" hidden="hidden">
+				<div class="shell_form_input_div" style="margin:20px;">
+					<input id="captcha" type="text" placeholder="验证码"
+						style="background-image:url('img/icon/password_small.png');
+							background-repeat:no-repeat;background-position:5px 5px;
+							padding:0 10px 0 40px;">
+				</div>
+				<div id="reload_captcha_div" class="shell_form_button_div" style="margin:50px 20px;" 
+					hidden="hidden">
+					<button id="reload_captcha_btn" style="background-color:#4CAE4C">重新获取验证码</button>
+				</div>
+				<div class="shell_form_button_div" style="margin:50px 20%;">
+					<button id="submit_btn">确定</button>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

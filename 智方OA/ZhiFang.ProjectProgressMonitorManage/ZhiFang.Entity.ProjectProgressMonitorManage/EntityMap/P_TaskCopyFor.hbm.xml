@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ProjectProgressMonitorManage" assembly="ZhiFang.Entity.ProjectProgressMonitorManage">
+	<class name="PTaskCopyFor" table="[dbo].[P_TaskCopyFor]">
+		<id name="Id" column="[F_TaskCopyForID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="TaskName" column="[TaskName]" type="String" not-null="false" length="100" />
+		<property name="CopyForEmpID" column="[CopyForEmpID]" type="Int64" not-null="false" length="8" />
+		<property name="CopyForEmpName" column="[CopyForEmpName]" type="String" not-null="false" length="50" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="PublishEmpID" column="[PublishEmpID]" type="Int64" not-null="false" length="8" />
+		<property name="PublishEmpName" column="[PublishEmpName]" type="String" not-null="false" length="50" />
+		<many-to-one name="PTask" class="PTask" lazy="false">
+			<column name="[TaskID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

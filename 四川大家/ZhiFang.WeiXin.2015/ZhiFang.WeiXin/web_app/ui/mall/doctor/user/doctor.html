@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="application/javascript">
+
+        //加载版本号
+        document.write(
+            "<script type='text/javascript' src='../../../config/version.js?t=" +
+                new Date().getTime() + "'><\/script>"
+        );
+    </script>
+
+    <script type="application/javascript">
+
+        //加载公众号Title
+        document.write(
+            "<title>"+JcallShell.System.SysHtmlTitle +"</title>"
+        );
+    </script>  
+</head>
+<body style="padding-top: 50px;">
+    <!--顶部功能按钮栏-->
+    <nav id="navbar-top" class="navbar navbar-default navbar-fixed-top page-top">
+        <div class="page-top-title">医生信息</div>
+        <div class="page-top-back">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            <span>返回</span>
+        </div>
+    </nav>
+    <!--内容区域-->
+    <div class="container-fluid">
+    	<div id="show">
+    		
+    	</div>
+    	<div id="edit">
+    		
+    	</div>
+    	
+    	<div class="form-group">
+			<label for="exampleInputEmail1">医院</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="必填">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">医院工号</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="">
+		</div>
+        <div class="form-group">
+        	<label for="exampleInputEmail1">专业级别</label>
+			<input type="password" class="form-control" id="edit-password" placeholder="必填">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">医院科室</label>
+			<input type="password" class="form-control" id="edit-password2" placeholder="必填">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">联系电话</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="必填">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">咨询费比率</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">银行种类</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">银行地址</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">银行帐号</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="">
+		</div>
+		
+		<div class="form-group">
+			<label for="exampleInputEmail1">职业证书</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">职称专业级别</label>
+			<input type="password" class="form-control" id="edit-password3" placeholder="">
+		</div>
+		
+		<div class="alert alert-warning" role="alert" style="text-align:center;"
+			id="edit-password-error" hidden="hidden"></div>
+    </div>
+    
+
+	<script type="application/javascript"> 
+    	var css = [
+    		"../../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css",
+    		"../../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap-switch.min.css",
+    		"../../../css/style.css"
+    	];
+    	var js = [
+    		"../../../../../web_src/jquery.min.js",
+    		"../../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js",
+    		"../../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap-switch.min.js",
+    		"../../../../../web_src/JsBarcode.all.min.js",
+    		"../../../util/JcallShell.js",
+    		"../../../localStorage/User.js",
+    		"doctor.js"
+    	];
+    	var files = [];
+    	for(var i in css){
+    		files.push('<link rel="stylesheet" href="' + 
+    			css[i] + '?v=' + JcallShell.System.CSS_VERSION + '"/>');
+    	}
+    	for(var i in js){
+    		files.push('<script type="text/javascript" charset="utf-8" src="' + 
+    			js[i] + '?v=' + JcallShell.System.JS_VERSION + '"><\/script>');
+    	}
+		//加载版本号
+		document.write(files.join(""));
+	</script>
+</body>
+</html>

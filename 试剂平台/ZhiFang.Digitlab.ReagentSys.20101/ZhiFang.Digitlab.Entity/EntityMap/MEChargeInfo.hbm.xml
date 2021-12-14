@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="MEChargeInfo" table="[dbo].[ME_ChargeInfo]">
+    <id name="Id" column="[ChargeInfoID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="AmountReceivable" column="[AmountReceivable]" type="Decimal" not-null="false" length="9" />
+    <property name="RealAmount" column="[RealAmount]" type="Decimal" not-null="false" length="9" />
+    <property name="OperType" column="[OperType]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddUser" column="[DataAddUser]" type="String" not-null="false" length="50" />
+    <property name="DataAddUserID" column="[DataAddUserID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddComputer" column="[DataAddComputer]" type="String" not-null="false" length="40" />
+    <property name="RelateChargeInfoID" column="[RelateChargeInfoID]" type="Int64" not-null="false" length="8" />
+    <property name="OperResult" column="[OperResult]" type="Int32" not-null="false" length="4" />
+    <property name="OperErrInfo" column="[OperErrInfo]" type="String" not-null="false" length="300" />
+    <many-to-one name="BChargeItem" class="BChargeItem" lazy="false">
+      <column name="[ChargeItemID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEGroupSampleForm" class="MEGroupSampleForm" lazy="false">
+      <column name="[GroupSampleFormID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEPTOrderForm" class="MEPTOrderForm" lazy="false">
+      <column name="[OrderFormID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

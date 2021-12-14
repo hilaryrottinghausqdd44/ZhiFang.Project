@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+			
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		
+		<title>试剂平台-订货单信息</title>
+		<link rel="shortcut icon" href="../../img/logo-16.png">
+		<link rel="stylesheet" type="text/css" href="../../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../../src/bootstrap-3.3.2-dist/css/bootstrap-switch.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/css.css" />
+		<link rel="stylesheet" type="text/css" href="../../src/mobiscroll/mobiscroll.css">
+	</head>
+
+	<body hidden="hidden" class="body">
+		<!--标题-->
+		<nav id="navbar-top" class="navbar navbar-default navbar-fixed-top navbar-top">
+			<div class="navbar-top-title">订货单信息</div>
+			<div class="navbar-top-back">
+				<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+				<span>返回</span>
+			</div>
+			<div class="navbar-top-home">
+				<span>主页</span>
+				<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+			</div>
+		</nav>
+		<!--内容DIV-->
+		<div class="content-div" id="ContentDiv"></div>
+		<!--底部功能栏-->
+		<!--<div id="navbar-bottom" class="navbar navbar-default navbar-fixed-bottom navbar-bottom">
+			AAAA
+		</div>-->
+		<!-- 模态框-确定生成医嘱单 -->
+		<div class="modal fade" id="InfoModal" tabindex="-1" role="dialog" aria-labelledby="InfoModal" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title">确定信息</h4>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-warning" role="alert" style="text-align:center;">
+							确定进行操作吗？
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-primary" id="ok-button">确定</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<script type="text/javascript" charset="utf-8" src="../../src/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../util/util.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../config/els.js"></script>
+		<script type="text/javascript" src="../../src/mobiscroll/mobiscroll_0.js"></script>
+		<script type="text/javascript" src="../../src/mobiscroll/mobiscroll.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="edit.js?v=20170606"></script>
+	</body>
+
+</html>

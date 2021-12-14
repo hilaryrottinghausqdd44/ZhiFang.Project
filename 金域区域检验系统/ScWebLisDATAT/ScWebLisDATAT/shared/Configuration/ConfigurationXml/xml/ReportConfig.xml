@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tables>
+  <table maxid="29">
+    <tr reportid="6" reportname="日报表0121" reporttype="day" reportdate="2010-06-23">
+      <searchs>
+        <txtoperdateend cname="送检结束日期" type="textbox">2010-01-21</txtoperdateend>
+        <txtoperdatebegin cname="送检开始日期" type="textbox">2010-01-21</txtoperdatebegin>
+      </searchs>
+      <columns>
+        <chkclientnameissubtotal>True</chkclientnameissubtotal>
+        <chkitemnameisvisible>True</chkitemnameisvisible>
+        <chkbusinessnameissubtotal>True</chkbusinessnameissubtotal>
+        <chkitemnameissubtotal>False</chkitemnameissubtotal>
+        <chkbusinessnameisvisible>True</chkbusinessnameisvisible>
+        <chkclientnameisvisible>True</chkclientnameisvisible>
+      </columns>
+    </tr>
+    <tr reportid="9" reportname="项目明细2" reporttype="item" reportdate="2010-6-24">
+      <searchs>
+        <txtoperdateend cname="送检结束日期" type="textbox">2010-02-28</txtoperdateend>
+        <txtoperdatebegin cname="送检开始日期" type="textbox">2010-02-01</txtoperdatebegin>
+      </searchs>
+      <columns>
+        <itemname cname="项目名称" chkisvisible="True" chkissubtotal="True" />
+        <isfree cname="免单状况" chkisvisible="True" chkissubtotal="False" />
+        <itemcount cname="数量" chkisvisible="True" chkissubtotal="False" />
+        <jcfs cname="检测方式" chkisvisible="True" chkissubtotal="False" />
+        <businessname cname="销售员" chkisvisible="True" chkissubtotal="True" />
+        <sampletypename cname="标本" chkisvisible="True" chkissubtotal="False" />
+        <clientname cname="客户" chkisvisible="True" chkissubtotal="True" />
+        <operdate cname="送检日期" chkisvisible="True" chkissubtotal="False" />
+        <isreportsend cname="报告发送状况" chkisvisible="True" chkissubtotal="False" />
+        <islockeddate cname="财务审定日期" chkisvisible="True" chkissubtotal="False" />
+        <sendertime1 cname="一审日期" chkisvisible="True" chkissubtotal="False" />
+        <sendertime2 cname="二审日期" chkisvisible="True" chkissubtotal="False" />
+        <sumitemagioprice cname="收入" chkisvisible="True" chkissubtotal="False" />
+        <cname cname="病人姓名" chkisvisible="True" chkissubtotal="False" />
+      </columns>
+    </tr>
+    <tr reportid="12" reportname="日报表2" reporttype="day" reportdate="2010-07-11">
+      <searchs>
+        <txtoperdateend cname="送检结束日期" type="textbox">2010-02-28</txtoperdateend>
+        <txtoperdatebegin cname="送检开始日期" type="textbox">2010-02-08</txtoperdatebegin>
+      </searchs>
+      <columns>
+        <chkclientnameissubtotal>True</chkclientnameissubtotal>
+        <chkitemnameisvisible>True</chkitemnameisvisible>
+        <chkbusinessnameissubtotal>True</chkbusinessnameissubtotal>
+        <chkitemnameissubtotal>False</chkitemnameissubtotal>
+        <chkbusinessnameisvisible>True</chkbusinessnameisvisible>
+        <chkclientnameisvisible>True</chkclientnameisvisible>
+      </columns>
+    </tr>
+    <tr reportid="21" reportname="客户查询" reporttype="day" reportdate="2011-04-13">
+      <searchs />
+      <columns>
+        <drpitemnamesort type="dropdownlist">
+        </drpitemnamesort>
+        <chkparitemnoisvisible type="checkbox">False</chkparitemnoisvisible>
+        <txtbusinessnameorder type="textbox">1</txtbusinessnameorder>
+        <drpparitemnosort type="dropdownlist">
+        </drpparitemnosort>
+        <chkitemnameisvisible type="checkbox">False</chkitemnameisvisible>
+        <chkbusinessnameissubtotal type="checkbox">False</chkbusinessnameissubtotal>
+        <txtclientnameorder type="textbox">2</txtclientnameorder>
+        <chkitemnameissubtotal type="checkbox">False</chkitemnameissubtotal>
+        <txtparitemnoorder type="textbox">3</txtparitemnoorder>
+        <chkclientnameissubtotal type="checkbox">False</chkclientnameissubtotal>
+        <drpclientnamesort type="dropdownlist">nfclientname desc</drpclientnamesort>
+        <txtitemnameorder type="textbox">4</txtitemnameorder>
+        <chkbusinessnameisvisible type="checkbox">False</chkbusinessnameisvisible>
+        <chkclientnameisvisible type="checkbox">True</chkclientnameisvisible>
+        <drpbusinessnamesort type="dropdownlist">
+        </drpbusinessnamesort>
+      </columns>
+    </tr>
+    <tr reportid="26" reportname="项目周报表" reporttype="day" reportdate="2011-08-01">
+      <searchs />
+      <columns>
+        <chknfsicktypenameissubtotal type="checkbox">False</chknfsicktypenameissubtotal>
+        <txtnfsicktypenameorder type="textbox">
+        </txtnfsicktypenameorder>
+        <txtnequipnameorder type="textbox">
+        </txtnequipnameorder>
+        <chksecteionisvisible type="checkbox">True</chksecteionisvisible>
+        <drpparitemnosort type="dropdownlist">
+        </drpparitemnosort>
+        <chkparitemnoisvisible type="checkbox">False</chkparitemnoisvisible>
+        <chknfclienttypeisvisible type="checkbox">False</chknfclienttypeisvisible>
+        <chknfclientstyleisvisible type="checkbox">False</chknfclientstyleisvisible>
+        <txtparitemnoorder type="textbox">3</txtparitemnoorder>
+        <txtnfclienttypeorder type="textbox">
+        </txtnfclienttypeorder>
+        <txtsectionorder type="textbox">1</txtsectionorder>
+        <chknequipnameisvisible type="checkbox">False</chknequipnameisvisible>
+        <drpclientnamesort type="dropdownlist">nfclientname desc</drpclientnamesort>
+        <drpnfclienttypesort type="dropdownlist">
+        </drpnfclienttypesort>
+        <txtclientnameorder type="textbox">2</txtclientnameorder>
+        <drpnequipnamesort type="dropdownlist">
+        </drpnequipnamesort>
+        <drpnfclientareasort type="dropdownlist">
+        </drpnfclientareasort>
+        <drpsectionsort type="dropdownlist">receivesectionname asc</drpsectionsort>
+        <txtitemnameorder type="textbox">4</txtitemnameorder>
+        <txtnfclientstyleorder type="textbox">
+        </txtnfclientstyleorder>
+        <chkclientnameisvisible type="checkbox">False</chkclientnameisvisible>
+        <chknfclientareaissubtotal type="checkbox">False</chknfclientareaissubtotal>
+        <chknfclienttypeissubtotal type="checkbox">False</chknfclienttypeissubtotal>
+        <drpnfsicktypenamesort type="dropdownlist">
+        </drpnfsicktypenamesort>
+        <chknequipnameissubtotal type="checkbox">False</chknequipnameissubtotal>
+        <chkitemnameisvisible type="checkbox">True</chkitemnameisvisible>
+        <txtnfclientareaorder type="textbox">
+        </txtnfclientareaorder>
+        <drpitemnamesort type="dropdownlist">
+        </drpitemnamesort>
+        <chkbusinessnameissubtotal type="checkbox">False</chkbusinessnameissubtotal>
+        <chksectionissubtotal type="checkbox">True</chksectionissubtotal>
+        <chkclientnameissubtotal type="checkbox">False</chkclientnameissubtotal>
+        <chknfsicktypenameisvisible type="checkbox">False</chknfsicktypenameisvisible>
+        <chknfclientareaisvisible type="checkbox">False</chknfclientareaisvisible>
+        <chknfclientstyleissubtotal type="checkbox">False</chknfclientstyleissubtotal>
+        <chkbusinessnameisvisible type="checkbox">False</chkbusinessnameisvisible>
+        <drpnfclientstylesort type="dropdownlist">
+        </drpnfclientstylesort>
+        <chkitemnameissubtotal type="checkbox">False</chkitemnameissubtotal>
+        <txtbusinessnameorder type="textbox">1</txtbusinessnameorder>
+        <drpbusinessnamesort type="dropdownlist">
+        </drpbusinessnamesort>
+      </columns>
+    </tr>
+    <tr reportid="27" reportname="就诊类型" reporttype="item" reportdate="2013-09-16">
+      <searchs>
+        <txtoperdateend cname="送检结束日期" type="textbox">2013-08-31</txtoperdateend>
+        <txtBox cname="客户" type="textbox">崇州市锦江乡卫生院</txtBox>
+        <txtsendtime1end cname="一审结束日期" type="textbox">2013-08-20</txtsendtime1end>
+        <txtoperdatebegin cname="送检开始日期" type="textbox">2013-07-10</txtoperdatebegin>
+        <txtsendtime1begin cname="一审开始日期" type="textbox">2013-07-21</txtsendtime1begin>
+      </searchs>
+      <columns>
+        <itemcount cname="数量" chkisvisible="True" chkissubtotal="False" txtorder="5" drpsort="" />
+        <isfree cname="免单状况" chkisvisible="False" chkissubtotal="False" txtorder="11" drpsort="" />
+        <cname cname="病人姓名" chkisvisible="True" chkissubtotal="False" txtorder="3" drpsort="cname asc" />
+        <ItemAgioPrice cname="折后价格" chkisvisible="False" chkissubtotal="False" txtorder="5" drpsort="" />
+        <itemnamecw cname="项目名称" chkisvisible="True" chkissubtotal="False" txtorder="1" drpsort="" />
+        <jcfs cname="检测方式" chkisvisible="False" chkissubtotal="False" txtorder="6" drpsort="" />
+        <sendertime2 cname="二审日期" chkisvisible="False" chkissubtotal="False" txtorder="10" drpsort="" />
+        <receivesectionname cname="小组" chkisvisible="False" chkissubtotal="False" txtorder="2" drpsort="" />
+        <nfclientname cname="客户" chkisvisible="False" chkissubtotal="False" txtorder="1" drpsort="" />
+        <nfbusinessname cname="销售员" chkisvisible="False" chkissubtotal="False" txtorder="14" drpsort="" />
+        <nfsampletypename cname="标本" chkisvisible="False" chkissubtotal="False" txtorder="5" drpsort="" />
+        <MiniChargeUnit cname="最小收费单位" chkisvisible="False" chkissubtotal="False" txtorder="15" drpsort="" />
+        <nequipname cname="仪器名" chkisvisible="False" chkissubtotal="False" txtorder="1" drpsort="" />
+        <sumitemagioprice cname="收入" chkisvisible="True" chkissubtotal="False" txtorder="6" drpsort="" />
+        <isreportsend cname="报告发送状况" chkisvisible="False" chkissubtotal="False" txtorder="12" drpsort="" />
+        <sendertime1 cname="一审日期" chkisvisible="True" chkissubtotal="False" txtorder="1" drpsort="" />
+        <itemprice cname="套餐项目价格(折前价格)" chkisvisible="False" chkissubtotal="False" txtorder="5" drpsort="" />
+        <operdate cname="送检日期" chkisvisible="True" chkissubtotal="False" txtorder="1" drpsort="operdate asc" />
+        <CombiItemName cname="组套项目" chkisvisible="False" chkissubtotal="False" txtorder="15" drpsort="" />
+        <islockeddate cname="财务审定日期" chkisvisible="False" chkissubtotal="False" txtorder="13" drpsort="" />
+      </columns>
+    </tr>
+    <tr reportid="28" reportname="金沙洲结算清单" reporttype="item" reportdate="2016-07-08">
+      <searchs />
+      <columns>
+        <itemcount cname="数量" chkisvisible="True" chkissubtotal="False" txtorder="5" drpsort="" />
+        <sumitemagioprice cname="折后总价" chkisvisible="True" chkissubtotal="True" txtorder="6" drpsort="sumitemagioprice asc" />
+        <isfree cname="免单状况" chkisvisible="False" chkissubtotal="False" txtorder="11" drpsort="" />
+        <cname cname="病人姓名" chkisvisible="True" chkissubtotal="False" txtorder="3" drpsort="cname asc" />
+        <ItemAgioPrice cname="折后单价" chkisvisible="True" chkissubtotal="False" txtorder="5" drpsort="" />
+        <itemnamecw cname="项目名称" chkisvisible="True" chkissubtotal="False" txtorder="4" drpsort="" />
+        <SerialNo cname="条码号" chkisvisible="True" chkissubtotal="False" txtorder="2" drpsort="SerialNo asc" />
+        <receivesectionname cname="小组" chkisvisible="False" chkissubtotal="False" txtorder="2" drpsort="receivesectionname asc" />
+        <nfclientname cname="客户" chkisvisible="True" chkissubtotal="True" txtorder="1" drpsort="" />
+        <nfbusinessname cname="销售员" chkisvisible="False" chkissubtotal="False" txtorder="14" drpsort="" />
+        <nfsicktypename cname="就诊类型" chkisvisible="False" chkissubtotal="False" txtorder="5" drpsort="" />
+        <ItemAgio cname="扣率" chkisvisible="True" chkissubtotal="False" txtorder="5" drpsort="" />
+        <itemprice cname="医院单价" chkisvisible="True" chkissubtotal="False" txtorder="5" drpsort="" />
+        <zdy1 cname="HIS单据号" chkisvisible="True" chkissubtotal="False" txtorder="7" drpsort="" />
+        <islockeddate cname="财务审定日期" chkisvisible="False" chkissubtotal="False" txtorder="13" drpsort="" />
+        <operdate cname="开单日期" chkisvisible="True" chkissubtotal="False" txtorder="1" drpsort="operdate asc" />
+        <inceptdate cname="接收日期" chkisvisible="True" chkissubtotal="False" txtorder="1" drpsort="inceptdate asc" />
+      </columns>
+    </tr>
+  </table>
+</tables>

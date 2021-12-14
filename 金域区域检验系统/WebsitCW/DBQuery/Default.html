@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<title>Web Data Administrator - Database Properties</title>
+		<link rel="shortcut icon" href="favicon.ico">
+			<link rel="stylesheet" type="text/css" href="admin.css">
+	</HEAD>
+	<body bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0">
+		<form name="DatabaseProperties" method="post" action="DatabaseProperties.aspx?database=master"
+			id="DatabaseProperties">
+			<script language="javascript" src="Global.js"></script>
+			<TABLE width="100%" height="100%" cellSpacing="0" cellPadding="0" border="0" ID="Table1">
+				<!-- FIRST ROW: HEADER -->
+				<tr>
+					<td colspan="3" valign="bottom" align="left" width="100%" height="36" bgcolor="#c0c0c0">
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table2">
+							<tr>
+								<!--BEGIN ONE LINE-->
+								<td valign="bottom" width="308"><img src="images/logo_top.gif" width="308" height="36" alt="" border="0" id="IMG1"></td>
+								<!--END ONE LINE-->
+								<td valign="bottom" align="right" width="100%">
+									<table cellSpacing="0" cellPadding="0" border="0" ID="Table3">
+										<tr>
+											<td valign="bottom" align="left" width="16" height="36">
+												<a id="HelpLogout_HelpImageHyperLink" href="Help/databaseproperties.aspx" target="_blank">
+													<img src="images/help.gif" name="Help" width="16" height="16" alt="Help" border="0" style="CURSOR:hand"></a>
+											</td>
+											<td valign="bottom" align="left" width="8" height="36">
+												&nbsp;
+											</td>
+											<td valign="bottom" align="left" width="16" height="36">
+												<a id="HelpLogout_LogoutImageHyperLink" href="Logout.aspx"><img src="images/logout.gif" name="Logout" width="16" height="16" alt="Logout" border="0"
+														style="CURSOR:hand"></a>
+											</td>
+											<td valign="bottom" align="left" width="8" height="36">
+												&nbsp;
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<!-- FIRST ROW: HEADER -->
+				<!-- SECOND ROW: CRUMBS -->
+				<tr>
+					<!--BEGIN ONE LINE-->
+					<td align="left" bgcolor="#99ccff" background="images/blue_back.gif" width="285" height="26"><img src="images/logo_bottom.gif" width="172" height="26" alt="" border="0"></td>
+					<!--END ONE LINE-->
+					<td align="left" bgColor="#99ccff" background="images/blue_back.gif" width="100%" height="26">
+						<table width="100%" height="26" cellSpacing="0" cellPadding="0" border="0" style="TABLE-LAYOUT:fixed"
+							ID="Table4">
+							<tr>
+								<td width="12">
+									&nbsp;
+								</td>
+								<td valign="middle" align="left" width="100%" height="26">
+									<img align="absMiddle" src="images/server_ico.gif" alt="Server Running">
+									<SPAN class="currentHeader">Server:</SPAN>&nbsp;&nbsp;***&nbsp;&nbsp;&nbsp; <img src="images/db_ico.gif" alt="" align="absMiddle">
+									<SPAN class="currentHeader">Database:</SPAN>&nbsp;&nbsp;&nbsp; <a id="DatabaseLocation_DatabaseNameHyperLink" class="currentItem" href="Tables.aspx?database=master">
+										***</a>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<!--BEGIN ONE LINE-->
+					<td align="left" bgcolor="#99ccff" width="12" height="26"><img src="images/blue_back_right.gif" width="12" height="26" alt="" border="0"></td>
+					<!--END ONE LINE-->
+				</tr>
+				<!-- SECOND ROW: CRUMBS -->
+				<!-- THIRD ROW: BOTTOM SECTION -->
+				<tr>
+					<!-- START NAVIGATION SECTION -->
+					<td bgcolor="#6699ff" valign="top" align="center" width="285" height="100%">
+						<table cellSpacing="0" cellPadding="0" width="148" border="0" style="TABLE-LAYOUT: fixed"
+							ID="Table5">
+							<tr>
+								<td height="12">
+									&nbsp;
+								</td>
+							</tr>
+							<!-- SECTION HEADING: START -->
+							<tr>
+								<td class="menuHeader">
+									系统设置
+								</td>
+							</tr>
+							<!-- SECTION HEADING: END -->
+							<!-- SECTION ITEM: START -->
+							<tr>
+								<!--BEGIN ONE LINE-->
+								<td height="3" valign="middle"><img src="images/blue_dotted_line.gif" width="150" height="3" alt="" border="0"></td>
+								<!--END ONE LINE-->
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="ServerToolbar_DatabasesHyperLink" class="leftMenu" onMouseOver="this.style.color='#ffffff';"
+										onMouseOut="this.style.color='#000000';" href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;主任查询平台</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="A1" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;Databases</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="A2" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;售后服务查询</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="A3" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;设备管理</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="A4" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;耗材管理</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="A5" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;试剂管理</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="A6" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;样本管理</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="A7" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;药品管理</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="30">
+									<a id="A8" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;售后服务查询</a>
+								</td>
+							</tr>
+							<tr>
+								<td id="ServerToolbar_DatabasesTd" height="100">
+									<a id="A9" class="leftMenu" onMouseOver="this.style.color='#ffffff';" onMouseOut="this.style.color='#000000';"
+										href="databases.aspx"><IMG src="images/sproc_ico.gif" align="absMiddle" border="0">&nbsp;工作量统计 
+										收入统计 费用统计 项目统计 查询系统</a>
+								</td>
+							</tr>
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<!-- SECTION ITEM: END -->
+							<!-- SECTION ITEM: START -->
+							<!-- SECTION ITEM: END -->
+						</table>
+					</td>
+					<!-- END NAVIGATION SECTION -->
+					<!-- START CONTENT SECTION -->
+					<td valign="top" align="left">
+						<table cellSpacing="0" cellPadding="0" border="0" width="100%" ID="Table7">
+							<TBODY>
+								<tr>
+									<!--BEGIN ONE LINE-->
+									<td valign="bottom" colSpan="2" height="8" width="100%"><img src="images/spacer.gif" width="1" height="8" alt="" border="0"></td>
+									<!--END ONE LINE-->
+								</tr>
+								<tr>
+									<!--BEGIN ONE LINE-->
+									<td align="left" width="125"><img src="images/spacer.gif" width="12" height="1" alt="" border="0"></td>
+									<!--END ONE LINE-->
+									<td align="left" class="databaseListItem" width="100%">
+										<!-- PAGE CONTENT: START -->
+										<!-- SECTION HEADER: START -->
+										<table cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table8">
+											<tr>
+												<td class="databaseListHeader"><FONT size="4">数据库查询系统</FONT>
+												</td>
+											</tr>
+											<!-- SECTION HEADER: END -->
+											<!-- SECTION: START -->
+											<tr>
+												<!--BEGIN ONE LINE-->
+												<td height="3" valign="middle" background="images/blue_dotted_line.gif"><img src="images/blue_dotted_line.gif" width="150" height="3" alt="" border="0"></td>
+												<!--END ONE LINE-->
+											</tr>
+											<tr>
+												<!--BEGIN ONE LINE-->
+												<td height="4" valign="middle"><img src="images/spacer.gif" width="1" height="4" alt="" border="0"></td>
+												<!--END ONE LINE-->
+											</tr>
+											<!-- Section END -->
+											<!-- Section Footer START -->
+										</table>
+										<BR>
+										<!-- Section Footer END -->
+										<!-- Section Header START -->
+										<!-- Section Footer END -->
+										<!-- Section Header START -->
+										<TABLE cellSpacing="0" cellPadding="0" width="750" border="0" ID="Table11" height="340">
+											<!-- Section Header END -->
+											<!-- Section START -->
+											<TR>
+												<TD height="2" vAlign="top">
+													<P><FONT face="黑体" size="3">系统名称：<U>*********</U></FONT></P>
+													<P><FONT face="黑体" size="3">系统编号: <U>abcdefg</U> 唯一编号</FONT></P>
+													<P><FONT face="黑体" size="3">数据库类型: </FONT>
+														<SELECT id="Select1" name="Select1">
+															<OPTION selected></OPTION>
+														</SELECT><FONT face="黑体" size="3">&nbsp;有MS SqlServer, Oracle,Access,Excel,DB2</FONT></P>
+													<P><FONT face="黑体" size="3">用户名：</FONT></P>
+													<P><FONT face="黑体" size="3">密码：</FONT></P>
+													<P><FONT face="黑体" size="3">机器名：</FONT></P>
+													<P><FONT face="黑体" size="3">数据库：******** <INPUT id="Button1" type="button" value="选择库" name="Button1"></FONT></P>
+													<P><FONT face="黑体" size="3">提示连接字符串: provider=*;user=..................</FONT></P>
+													<P><FONT face="黑体" size="3"><INPUT id="Button2" type="button" value="保存" name="Button2"><FONT face="宋体">&nbsp;</FONT><INPUT id="Button3" type="button" value="修改" name="Button3"></FONT></P>
+												</TD>
+											</TR>
+											<!-- Section END -->
+											<!-- Section Footer START -->
+										</TABLE>
+										<BR>
+										<hr>
+										&nbsp;&nbsp;&nbsp;
+									</td>
+					</td>
+				</tr>
+				<!-- Section END -->
+				<!-- Section Footer START -->
+			</TABLE>
+			<br>
+			<!-- Section Footer END -->
+			<!-- Page content END --> </TD></TR></TBODY></TABLE></TD></TR> 
+			<!-- THIRD ROW: BOTTOM SECTION --> 
+			</TABLE>
+		</form>
+	</body>
+</HTML>

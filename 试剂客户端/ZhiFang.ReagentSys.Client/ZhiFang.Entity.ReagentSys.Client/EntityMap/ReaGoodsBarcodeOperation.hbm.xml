@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaGoodsBarcodeOperation" table="[dbo].[Rea_GoodsBarcodeOperation]">
+    <id name="Id" column="[ReaGBOID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="BDocNo" column="[BDocNo]" type="String" not-null="false" length="100" />
+    <property name="BDocID" column="[BDocID]" type="Int64" not-null="false" length="8" />
+    <property name="BDtlID" column="[BDtlID]" type="Int64" not-null="false" length="8" />
+    <property name="OperTypeID" column="[OperTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="OperTypeName" column="[OperTypeName]" type="String" not-null="false" length="50" />
+    <property name="SysPackSerial" column="[SysPackSerial]" type="String" not-null="false" length="150" />
+    <property name="OtherPackSerial" column="[OtherPackSerial]" type="String" not-null="false" length="150" />
+    <property name="UsePackSerial" column="[UsePackSerial]" type="String" not-null="false" length="150" />
+    <property name="LotNo" column="[LotNo]" type="String" not-null="false" length="100" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="CreaterID" column="[CreaterID]" type="Int64" not-null="false" length="8" />
+    <property name="CreaterName" column="[CreaterName]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="true" length="8" />
+    <property name="ReaCompanyID" column="[ReaCompanyID]" type="Int64" not-null="false" length="8" />
+    <property name="CompanyName" column="[CompanyName]" type="String" not-null="false" length="200" />
+    <property name="GoodsID" column="[GoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsCName" column="[GoodsCName]" type="String" not-null="true" length="200" />
+    <property name="GoodsUnitID" column="[GoodsUnitID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsUnit" column="[GoodsUnit]" type="String" not-null="false" length="100" />
+    <property name="IsOutFlag" column="[IsOutFlag]" type="Boolean" not-null="false" length="1" />
+    <property name="PUsePackSerial" column="[PUsePackSerial]" type="String" not-null="false" length="100" />
+    <property name="BarcodeCreatType" column="[BarcodeCreatType]" type="Int64" not-null="false" length="8" />
+    <property name="UnitMemo" column="[UnitMemo]" type="String" not-null="false" />
+    <property name="PrintCount" column="[PrintCount]" type="Int32" not-null="false" length="4" />
+    <property name="GoodsQty" column="[GoodsQty]" type="Double" not-null="false" length="8" />
+    <property name="ProdGoodsNo" column="[ProdGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="GoodsNo" column="[GoodsNo]" type="String" not-null="false" length="100" />
+    <property name="ReaGoodsNo" column="[ReaGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="CenOrgGoodsNo" column="[CenOrgGoodsNo]" type="String" not-null="false" length="100" />
+    <property name="UsePackQRCode" column="[UsePackQRCode]" type="String" not-null="false" length="150" />
+    <property name="ReaCompCode" column="[ReaCompCode]" type="String" not-null="false" length="200" />
+    <property name="GoodsSort" column="[GoodsSort]" type="Int32" not-null="false" length="4" />
+    <property name="BarCodeType" column="[BarCodeType]" type="Int32" not-null="false" length="4" />
+    <property name="CompGoodsLinkID" column="[CompGoodsLinkID]" type="Int64" not-null="false" length="8" />
+    <property name="QtyDtlID" column="[QtyDtlID]" type="Int64" not-null="false" length="8" />
+    <property name="ScanCodeQty" column="[ScanCodeQty]" type="Double" not-null="false" length="8" />
+    <property name="MinBarCodeQty" column="[MinBarCodeQty]" type="Double" not-null="false" length="8" />
+    <property name="StorageID" column="[StorageID]" type="Int64" not-null="false" length="8" />
+    <property name="PlaceID" column="[PlaceID]" type="Int64" not-null="false" length="8" />
+    <property name="ScanCodeGoodsUnit" column="[ScanCodeGoodsUnit]" type="String" not-null="false" length="50" />
+    <property name="OverageQty" column="[OverageQty]" type="Double" not-null="false" length="8" />
+    <property name="ScanCodeGoodsID" column="[ScanCodeGoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsLotID" column="[GoodsLotID]" type="Int64" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

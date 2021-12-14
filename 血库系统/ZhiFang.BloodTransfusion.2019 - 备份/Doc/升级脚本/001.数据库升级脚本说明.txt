@@ -1,0 +1,12 @@
+一.申请单号处理:
+1.需要打开数据库,手工调整申请主单 表(Blood_BReqForm)申请单号(BReqFormID)数据类型由原来的varchar(20)调整为nvarchar(40)
+其他业务表如果与申请主单表的申请单号(BReqFormID)作了外键强关联,会提示是否同时调整,选择是就会自动调整数据类型; 
+2.通过数据库升级脚本升级涉及的业务表有:
+(1)Blood_BOutForm的BReqFormID;
+(2)Blood_BPreForm的BReqFormID;
+(3)Blood_BPreItem的BReqFormID;
+(4)Blood_BagOperation的BReqFormID;
+(5)Blood_TransForm的BReqFormID;
+
+二.20200214_输血记录项字典升级脚本(手工).sql处理
+在执行完成1.0.0.31之前的所有升级脚本后,需要在数据库查询台手工执行<<20200214_输血记录项字典升级脚本(手工).sql>>

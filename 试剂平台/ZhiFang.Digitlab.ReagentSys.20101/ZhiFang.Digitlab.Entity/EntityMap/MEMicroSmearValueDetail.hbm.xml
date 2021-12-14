@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="MEMicroSmearValueDetail" table="[dbo].[ME_MicroSmearValueDetail]">
+		<id name="Id" column="[SmearValueDetailID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="EmpName" column="[EmpName]" type="String" not-null="false" length="50" />
+		<property name="DetailID" column="[DetailID]" type="Int64" not-null="false" length="8" />
+    <property name="DetailName" column="[DetailName]" type="String" not-null="false" length="200" />
+    <property name="DetailShortCode" column="[DetailShortCode]" type="String" not-null="false" length="200" />
+		<property name="SmearMemo" column="[SmearMemo]" type="String" not-null="false" length="500" />
+		<property name="IsReport" column="[isReport]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="EmpID" column="[EmpID]" type="Int64" not-null="false" length="8" />		
+		<many-to-one name="MEGroupSampleForm" class="MEGroupSampleForm" lazy="false">
+			<column name="[GroupSampleFormID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEGroupSampleItem" class="MEGroupSampleItem" lazy="false">
+			<column name="[ResultID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEMicroSmearValue" class="MEMicroSmearValue" lazy="false">
+			<column name="[SmearValueID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

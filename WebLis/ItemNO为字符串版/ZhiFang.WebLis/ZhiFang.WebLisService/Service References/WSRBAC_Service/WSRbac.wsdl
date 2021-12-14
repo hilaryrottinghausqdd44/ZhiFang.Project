@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserOrgInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserOrgInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserOrgInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="descr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissibilityRunModules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissibilityRunModulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPermissibilityRunModulesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissibilityRunModule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissibilityRunModuleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPermissibilityRunModuleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissibilityModuleButtons">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissibilityModuleButtonsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPermissibilityModuleButtonsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserInfoListByPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserInfoListByPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserInfoListByPostResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPostInfoListByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPostInfoListByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPostInfoListByUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePassWord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userpwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePassWordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePassWordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="getUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserOrgInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserOrgInfo" />
+  </wsdl:message>
+  <wsdl:message name="getUserOrgInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserOrgInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissibilityRunModulesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPermissibilityRunModules" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissibilityRunModulesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPermissibilityRunModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissibilityRunModuleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPermissibilityRunModule" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissibilityRunModuleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPermissibilityRunModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissibilityModuleButtonsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPermissibilityModuleButtons" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissibilityModuleButtonsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPermissibilityModuleButtonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserInfoListByPostSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserInfoListByPost" />
+  </wsdl:message>
+  <wsdl:message name="getUserInfoListByPostSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserInfoListByPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPostInfoListByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:getPostInfoListByUser" />
+  </wsdl:message>
+  <wsdl:message name="getPostInfoListByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:getPostInfoListByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePassWordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassWord" />
+  </wsdl:message>
+  <wsdl:message name="ChangePassWordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePassWordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSRbacSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回人员基本信息</wsdl:documentation>
+      <wsdl:input message="tns:getUserInfoSoapIn" />
+      <wsdl:output message="tns:getUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserOrgInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回人员组织机构信息</wsdl:documentation>
+      <wsdl:input message="tns:getUserOrgInfoSoapIn" />
+      <wsdl:output message="tns:getUserOrgInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">登录WEBSERVICE,输入用户名与密码登录</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityRunModules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取所有模块WebService,模块树XML</wsdl:documentation>
+      <wsdl:input message="tns:GetPermissibilityRunModulesSoapIn" />
+      <wsdl:output message="tns:GetPermissibilityRunModulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityRunModule">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取特定模块的运行权限,返回true或false</wsdl:documentation>
+      <wsdl:input message="tns:GetPermissibilityRunModuleSoapIn" />
+      <wsdl:output message="tns:GetPermissibilityRunModuleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityModuleButtons">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取特定模块的全部按钮权限 返回,|分隔格式 如 A按钮|0,B按钮|1, 代表A按钮无权限，B按钮有权限</wsdl:documentation>
+      <wsdl:input message="tns:GetPermissibilityModuleButtonsSoapIn" />
+      <wsdl:output message="tns:GetPermissibilityModuleButtonsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfoListByPost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回角色下的所有人员信息列表</wsdl:documentation>
+      <wsdl:input message="tns:getUserInfoListByPostSoapIn" />
+      <wsdl:output message="tns:getUserInfoListByPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPostInfoListByUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回人员所属角色列表</wsdl:documentation>
+      <wsdl:input message="tns:getPostInfoListByUserSoapIn" />
+      <wsdl:output message="tns:getPostInfoListByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassWord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改密码</wsdl:documentation>
+      <wsdl:input message="tns:ChangePassWordSoapIn" />
+      <wsdl:output message="tns:ChangePassWordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSRbacSoap" type="tns:WSRbacSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfo">
+      <soap:operation soapAction="http://tempuri.org/getUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserOrgInfo">
+      <soap:operation soapAction="http://tempuri.org/getUserOrgInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityRunModules">
+      <soap:operation soapAction="http://tempuri.org/GetPermissibilityRunModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityRunModule">
+      <soap:operation soapAction="http://tempuri.org/GetPermissibilityRunModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityModuleButtons">
+      <soap:operation soapAction="http://tempuri.org/GetPermissibilityModuleButtons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfoListByPost">
+      <soap:operation soapAction="http://tempuri.org/getUserInfoListByPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPostInfoListByUser">
+      <soap:operation soapAction="http://tempuri.org/getPostInfoListByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassWord">
+      <soap:operation soapAction="http://tempuri.org/ChangePassWord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSRbacSoap12" type="tns:WSRbacSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/getUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserOrgInfo">
+      <soap12:operation soapAction="http://tempuri.org/getUserOrgInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityRunModules">
+      <soap12:operation soapAction="http://tempuri.org/GetPermissibilityRunModules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityRunModule">
+      <soap12:operation soapAction="http://tempuri.org/GetPermissibilityRunModule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissibilityModuleButtons">
+      <soap12:operation soapAction="http://tempuri.org/GetPermissibilityModuleButtons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfoListByPost">
+      <soap12:operation soapAction="http://tempuri.org/getUserInfoListByPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPostInfoListByUser">
+      <soap12:operation soapAction="http://tempuri.org/getPostInfoListByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassWord">
+      <soap12:operation soapAction="http://tempuri.org/ChangePassWord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSRbac">
+    <wsdl:port name="WSRbacSoap" binding="tns:WSRbacSoap">
+      <soap:address location="http://localhost/RMS/WebService/WSRbac.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSRbacSoap12" binding="tns:WSRbacSoap12">
+      <soap12:address location="http://localhost/RMS/WebService/WSRbac.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

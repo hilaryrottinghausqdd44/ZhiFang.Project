@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>测试主页</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		<!--不缓存缓存页面-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+
+		<script>
+			//加载版本号
+			document.write(
+				"<script type='text/javascript' src='config/config_version.js?t=" +
+				new Date().getTime() + "'><\/script>"
+			);
+		</script>
+	</head>
+
+	<!--禁止在IE8中使用 F5 刷新-->
+	<body onkeydown="if(event.keyCode==116){event.keyCode=0;return false;}">
+		<!-- LODOP打印控件 -->
+		<object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+        	<embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="../../web_src/lodop/resources/install_lodop32.exe"></embed>
+    	</object>
+    	
+    	<link rel="stylesheet" type="text/css" href="../../web_src/extjs/resources/css/ext-all.css" />
+	    <script type="text/javascript" src="../../web_src/extjs/bootstrap.js"></script>
+	    
+	    <link href="../../web_src/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+	    <link rel="stylesheet" type="text/css" href="css/buttons2.css" />
+	    <link rel="stylesheet" type="text/css" href="css/files.css" />
+	    <link rel="stylesheet" type="text/css" href="css/sysbase.css" />
+	    <link rel="stylesheet" type="text/css" href="css/main.css" />
+	    <link rel="stylesheet" type="text/css" href="../../web_src/extjs/ux/css/CheckHeader.css" />
+	    
+	    <!--腾讯地图-->
+	    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+
+	    <!--LODOP打印控件-->
+	    <script type="text/javascript" src="../../web_src/lodop/LodopFuncs.js"></script>
+	    
+	    <script type="text/javascript" src="util/JcallShell.js"></script>
+	    <script type="text/javascript" src="els.js"></script> 
+		<script type="text/javascript" src="test.js"></script>
+
+		<!--在线编辑器-->
+	    <!--<link href="../ueditor/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="../ueditor/ueditor.config.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../ueditor/ueditor.all.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../ueditor/third-party/zeroclipboard/ZeroClipboard.js"></script>
+		<script type="text/javascript" src="../ueditor/lang/zh-cn/zh-cn.js"></script>-->
+		
+	    <style type='text/css'>
+	        .x-grid-row{vertical-align:middle;}
+	        .x-grid-row-over .x-grid-cell-inner{font-weight:bold;}
+	        .x-fieldset-header {border-bottom:0;margin-bottom:0;width:auto;}
+    	</style>
+	</body>
+
+</html>

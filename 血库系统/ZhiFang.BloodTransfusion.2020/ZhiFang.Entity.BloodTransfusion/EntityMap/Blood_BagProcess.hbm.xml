@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+	<class name="BloodBagProcess" table="[dbo].[Blood_BagProcess]">
+		<id name="Id" column="[BPID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="BPflag" column="[BPflag]" type="Int32" not-null="false" length="4" />
+		<property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BloodBagProcessType" class="BloodBagProcessType" >
+			<column name="[PTNo]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodBPreForm" class="BloodBPreForm" lazy="proxy" >
+			<column name="[BPreFormID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodBPreItem" class="BloodBPreItem" lazy="proxy" >
+			<column name="[BPreItemID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodQtyDtl" class="BloodQtyDtl" lazy="proxy" >
+			<column name="[QtyDtlID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

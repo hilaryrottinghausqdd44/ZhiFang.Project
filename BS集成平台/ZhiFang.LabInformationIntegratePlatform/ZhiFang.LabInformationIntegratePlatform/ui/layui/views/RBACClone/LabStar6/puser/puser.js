@@ -1,0 +1,373 @@
+/**
+ * 部门数据
+ * @author guohaixiang
+ * @version 2020-03-19
+ */
+
+layui.extend({
+    uxutil: 'ux/util'
+}).use(['uxutil', 'table', 'form', 'layer'], function () {
+	var layer = layui.layer,
+		uxutil = layui.uxutil,
+		$ = layui.jquery;
+	//表格	
+	var tableObj = {
+		table: layui.table,
+		form: layui.form,
+		fields:{
+			Id:"Id",
+			IsUse:'IsUse'
+        },
+        current: null,
+        delIndex: null,
+        addUrl: uxutil.path.ROOT +'/ServerWCF/Customization/RBACCloneService.svc/SYNCPUserByLabStar6',
+        selectUrl: uxutil.path.ROOT + '/ServerWCF/Customization/RBACCloneService.svc/CatchPuserDataListByLabStar6',
+        checkRowData: [], //选中数据
+        refresh: function () {
+            var searchText = $("#search")[0].value;
+            tableObj.table.reload('table', {
+                where: {
+                    time: new Date().getTime()
+                }
+            });
+            tableObj.checkRowData = [];
+            if (searchText != "") {
+                $("#search").val(searchText);
+            }
+        }
+	};
+	
+    init();
+    function init() {
+        $(".tableHeight").css("height", ($(window).height() - 30) + "px");//设置表单容器高度
+            tableRender();
+    }
+	//初始化表格
+    function tableRender() {
+        tableObj.table.render({
+            elem: '#table',
+            height: 'full-50',
+            size: 'sm', //小尺寸的表格
+            defaultToolbar: ['filter'],
+            toolbar: '#toolbar',
+            url: tableObj.selectUrl,
+            cols: [
+                [{
+                    type: 'numbers',title:'序号'
+                },
+                {
+                    field: tableObj.fields.Id,
+                    width: 60,
+                    title: '主键ID',
+                    hide: true
+                },
+                {
+                    field: 'Address',
+                    title: 'Address',
+                    minWidth: 130,
+                    edit: 'text'
+                },
+                {
+                    field: 'AwardandCertificates',
+                    title: 'AwardandCertificates',
+                    minWidth: 130,
+                    edit: 'text'
+                },
+                {
+                    field: 'CName',
+                    title: 'CName',
+                    minWidth: 130,
+                    edit: 'text'
+                },
+                {
+                    field: 'Comment',
+                    title: 'Comment',
+                    minWidth: 130,
+                    edit: 'text'
+                },
+                {
+                    field: 'ContinuingEducation',
+                    title: 'ContinuingEducation',
+                    minWidth: 130,
+                    edit: true
+                },
+                {
+                    field: 'DispOrder',
+                    title: 'DispOrder',
+                    minWidth: 130,
+                    edit: 'text'
+                },
+                {
+                    field: 'EName',
+                    title: 'EName',
+                    minWidth: 130,
+                    edit: 'text'
+                },
+                {
+                    field: 'EduBackground',
+                    title: 'EduBackground',
+                    minWidth: 130,
+                    edit: 'text'
+                },
+                {
+                    field: 'Email',
+                    title: 'Email',
+                    minWidth: 130,
+                    edit: 'text'
+                },
+                {
+                    field: 'ExtTel',
+                    title: 'ExtTel',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'Family',
+                    title: 'Family',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'GraduateSchool',
+                    title: 'GraduateSchool',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'HomeTel',
+                    title: 'HomeTel',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'IdNumber',
+                    title: 'IdNumber',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'JobDuty',
+                    title: 'JobDuty',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'JobResume',
+                    title: 'JobResume',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'LaborContract',
+                    title: 'LaborContract',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'MobileTel',
+                    title: 'MobileTel',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'NameF',
+                    title: 'NameF',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'NameL',
+                    title: 'NameL',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'OfficeTel',
+                    title: 'OfficeTel',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'PersonalHomePage',
+                    title: 'PersonalHomePage',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'PicFile',
+                    title: 'PicFile',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'PinYinZiTou',
+                    title: 'PinYinZiTou',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'ProfessionalQualifications',
+                    title: 'ProfessionalQualifications',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'SName',
+                    title: 'SName',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'Shortcode',
+                    title: 'Shortcode',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'SignatureImage',
+                    title: 'SignatureImage',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'StandCode',
+                    title: 'StandCode',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'Tel',
+                    title: 'Tel',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'Training',
+                    title: 'Training',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'UseCode',
+                    title: 'UseCode',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'WageChange',
+                    title: 'WageChange',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: 'ZipCode',
+                    title: 'ZipCode',
+                    minWidth: 130,
+                    //sort: true,
+                    edit: 'text'
+                },
+                {
+                    field: tableObj.fields.IsUse,
+                    title: '是否使用',
+                    minWidth: 100,
+                    templet: '#switchTp',
+                    unresize: true
+                }
+                ]
+            ],
+            page: true,
+            limit: 99999999,
+            limits: [50, 100, 200, 500, 1000],
+            autoSort: false, //禁用前端自动排序
+            done: function (res, curr, count) {
+                if (count > 0) {
+                    $("#table+div .layui-table-body table.layui-table tbody tr:first-child")[0].click();
+                }
+            },
+            response: function () {
+                return {
+                    statusCode: true, //成功状态码
+                    statusName: 'code', //code key
+                    msgName: 'msg ', //msg key
+                    dataName: 'data' //data key
+                }
+            },
+            parseData: function (res) {//res即为原始返回的数据
+                if (!res) return;
+                var data = res.ResultDataValue ? $.parseJSON(res.ResultDataValue) : {};
+                return {
+                    "code": res.success ? 0 : 1, //解析接口状态
+                    "msg": res.ErrorInfo, //解析提示文本
+                    "count": data.length || 0, //解析数据长度
+                    "data": data || []
+                };
+            },
+            text: {
+                none: '暂无相关数据'
+            }
+        });
+    };
+	
+	//table上面的工具栏
+	tableObj.table.on('toolbar(table)', function(obj) {
+		switch(obj.event) {
+            case 'add':
+                var tabledata = tableObj.table.cache.table;
+                $.each(tabledata, function (i, item) {
+                    item.Birthday = uxutil.date.toServerDate(item.Birthday);
+                });
+                var data = { entity: tabledata };
+                uxutil.server.ajax({
+                    url: tableObj.addUrl,
+                    type: "POST",
+                    data: JSON.stringify(data)
+                }, function (data) {
+                        if (data) {
+                            if (data.success) {
+                                layer.msg('同步成功！');
+                            } else {
+                                layer.msg(data.ErrorInfo, { icon: 5, anim: 6 });
+                            }
+                        } else {
+                            layer.msg('同步异常！');
+                        }
+                });
+				break;
+		};
+    });
+    //监听单元格编辑
+    tableObj.table.on('edit(table)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+        //console.log(obj.value); //得到修改后的值
+        //console.log(obj.field); //当前编辑的字段名
+        //console.log(obj.data); //所在行的所有相关数据  
+    });    
+    //监听浏览器窗口
+    window.onresize = function () {
+        $(".tableHeight").css("height", ($(window).height() - 30) + "px");//设置表单容器高度
+    };   
+    
+});

@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>样本分组统计</title>
+    <meta charset="utf-8" />
+    <link href="../easyui/demo/demo.css" rel="stylesheet" type="text/css" />
+    <link href="../easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../easyui/jquery-easyui-1.4/jquery-1.11.0-vsdoc.js" type="text/javascript"></script>
+    <script src="../easyui/jquery.min.js" type="text/javascript"></script>
+    <script src="../easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../util/util.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var datetimenow = new Date();
+            var datetimestrs = datetimenow.getFullYear() + "-" + (datetimenow.getMonth()) + "-" + datetimenow.getDate();
+            var datetimestre = datetimenow.getFullYear() + "-" + (datetimenow.getMonth() + 1) + "-" + datetimenow.getDate();
+            $('#OperateStartDateTime').datetimebox({ disabled: false, value: datetimestrs + " 00:00:00", showSeconds: false, required: true });
+            $('#OperateEndDateTime').datetimebox({ disabled: false, value: datetimestre + " 23:59:59", showSeconds: false, required: true });
+            $('#txtClientNo').combobox({
+                url: '../../ServiceWCF/DictionaryService.svc/GetClientListByRBAC?guid=' + generateMixed(10) + '&page=1&rows=1000&fields=CLIENTELE.CNAME,CLIENTELE.ClIENTNO&where=&sort=',
+                method: 'GET',
+                valueField: 'ClIENTNO',
+                textField: 'CNAME',
+                multiple: true,
+                loadFilter: function (data) {
+                    if (data.length > 0) {
+                        //data[0].selected = true;
+                    }
+                    return data;
+                },
+                onLoadSuccess: function () {
+                    //alert($('#txtClientNo').combobox('getValue'));
+
+                    //$('#btnsearch').click();
+                },
+                onChange: function (newValue, oldValue) {
+                    //$('#btnsearch').click();
+                }
+                //mode:'remote'//,
+                //                onSelect: function (Key) {
+                //                    var url = '../ServiceWCF/DictionaryService.svc/GetClientListByRBACAndInputKey?page=1&limit=10&fields=CLIENTELE.CNAME,CLIENTELE.ClIENTNO&where=&sort=&inputkey=' + Key;
+                //                    $('#txtClientNo').combobox('reload', url);
+                //                }
+            });
+            $('#btnStatistics').bind('click', function () {
+                var clientnos = $('#txtClientNo').combobox('getValues');
+                $('#ResutlList').datagrid({
+                    url: '../../ServiceWCF/StatisticsService.svc/StatisticsBarCodeCountGroupByClientNoAndReportDate?guid=' + generateMixed(10),
+                    queryParams: {
+                        StartDateTime: $('#OperateStartDateTime').datebox('getValue'),
+                        EndDateTime: $('#OperateEndDateTime').datebox('getValue'),
+                        ClientNoList: clientnos.join(','),
+                        DateType: 1
+                    }
+                });
+            });
+            $('#ResutlList').datagrid({
+                method: 'GET',
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                fitColumns: true,
+                checkOnSelect: false,
+                striped: true,
+                remoteSort: false,
+                sortName: 'StatisticsDate',
+                sortOrder:'asc',
+                pageSize: 1000,
+                pageList: [1000, 2000],
+                columns: [[
+                    { field: 'StatisticsDate', title: '日期', width: 100, sortable: true },
+                    { field: 'WebLisSourceOrgName', title: '单位名称', width: 200, sortable: true },
+                    { field: 'StatisticsCount', title: '样本数量', width: 100, align: 'center', sortable: true }
+                ]],
+                loadFilter: function (data) {
+                    if (data.rows) {
+                        return data;
+                    }
+                    else {
+                        var result = eval("(" + data.ResultDataValue + ")");
+                        return { total: result.length || 0, rows: result || [] };
+                    }
+                },
+                onLoadSuccess: function (data) {
+                    if (data) {
+                        var index = 0;
+                        var span = 0;
+                        var tmpStatisticsDate = "";
+                        var aindex = [];
+                        var aspan = [];
+                        for (var i = 0; i < data.rows.length; i++) {
+                            if (i == 0) {
+                                index = i;
+                                span = 1;
+                                tmpStatisticsDate = data.rows[i].StatisticsDate;
+                            }
+                            else {
+                                if (data.rows[i].StatisticsDate != tmpStatisticsDate) {
+                                    $('#ResutlList').datagrid('mergeCells', {
+                                        index: index,
+                                        field: 'StatisticsDate',
+                                        rowspan: span
+                                    });
+                                    index = i;
+                                    span = 1;
+                                    tmpStatisticsDate = data.rows[i].StatisticsDate;
+                                }
+                                else {
+                                    span++;
+                                }
+
+                                if (i == data.rows.length - 1) {
+                                    var aaa = 1;
+                                    $('#ResutlList').datagrid('mergeCells', {
+                                        index: index,
+                                        field: 'StatisticsDate',
+                                        rowspan: span + 1
+                                    });
+                                }
+                            }
+
+                        }
+                    }
+                }
+            });
+             $('#btnStatisticsPrint').bind('click', function () {
+                var clientnos = $('#txtClientNo').combobox('getValues');
+                $.ajax({
+                    url: '../../ServiceWCF/StatisticsService.svc/StatisticsBarCodeCountGroupByClientNoAndReportDate_Pdf?StartDateTime=' + $('#OperateStartDateTime').datebox('getValue') + '&EndDateTime=' + $('#OperateEndDateTime').datebox('getValue') + '&ClientNoList=' + clientnos.join(',') + '&DateType=1&guid=' + generateMixed(10),
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    method: 'GET',
+                    success: function (data) {
+                        if (data.success) {
+                            var url = data.ResultDataValue;
+                            parent.OpenWindowFuc('检验样本汇总报表', Math.floor(window.screen.width * 0.9), Math.floor(window.screen.height * 0.7), '../' + url, "");
+                        }
+                        else {
+                            Shell.util.Msg.showLog("检验样本汇总报表生成失败！错误信息：" + data.ErrorInfo);
+                        }
+                    },
+                    error: function (data) {
+                        Shell.util.Msg.showLog("检验样本汇总报表失败！错误信息：" + data.ErrorInfo);
+                    }
+                });
+            });
+            $('#btnStatisticsExport').bind('click', function () {
+                var clientnos = $('#txtClientNo').combobox('getValues');
+                $.ajax({
+                    url: '../../ServiceWCF/StatisticsService.svc/StatisticsBarCodeCountGroupByClientNoAndReportDate_Excel?StartDateTime=' + $('#OperateStartDateTime').datebox('getValue') + '&EndDateTime=' + $('#OperateEndDateTime').datebox('getValue') + '&ClientNoList=' + clientnos.join(',') + '&DateType=1&guid=' + generateMixed(10),
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    method: 'GET',
+                    success: function (data) {
+                        if (data.success) {
+                            var url = data.ResultDataValue;
+                            window.open('../../' + url);
+                            //parent.OpenWindowFuc('项目汇总报表', Math.floor(window.screen.width * 0.9), Math.floor(window.screen.height * 0.7), '../' + url, "");
+                        }
+                        else {
+                            Shell.util.Msg.showLog("检验样本汇总报表生成失败！错误信息：" + data.ErrorInfo);
+                        }
+                    },
+                    error: function (data) {
+                        Shell.util.Msg.showLog("检验样本汇总报表失败！错误信息：" + data.ErrorInfo);
+                    }
+                });
+            });
+        });
+        var chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+        function generateMixed(n) {
+            var res = "";
+            for (var i = 0; i < n; i++) {
+                var id = Math.ceil(Math.random() * 35);
+                res += chars[id];
+            }
+            return res;
+        }
+    </script>
+</head>
+<body class="easyui-layout" data-options="fit:true,width:'auto'">
+    <div data-options="region:'north',title:'统计条件',split:true" style="height:100px;">
+        <div style="float: left">
+            <div style="padding: 5px;">
+                送检单位：<input id="txtClientNo" class="easyui-combobox" style="width: 500px" />
+            </div>
+            <div style="padding: 5px;">
+                采样时间：<input id="OperateStartDateTime" style="width: 150px" />
+                --
+                <input id="OperateEndDateTime" style="width: 150px" />
+            </div>
+        </div>
+        <div style="float: left">
+            <div style="padding: 5px;">
+                <a id="btnStatistics" href="#" style="margin-left:25px" class="easyui-linkbutton" data-options="iconCls:'icon-search',size:'large'">统计</a>
+            </div>
+        </div>
+        <div style="float: left">
+            <div style="padding: 5px;">
+                <a id="btnStatisticsPrint" href="#" style="margin-left:25px" class="easyui-linkbutton" data-options="iconCls:'icon-print',size:'large'">打印</a>
+            </div>
+        </div>
+        <div style="float: left">
+            <div style="padding: 5px;">
+                <a id="btnStatisticsExport" href="#" style="margin-left:25px" class="easyui-linkbutton" data-options="iconCls:'icon-excel',size:'large'">导出</a>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center',title:'统计结果 '" style="padding:5px;background:#eee;">
+        <div id="ResutlList" class="easyui-datagrid" data-options="border:false,singleSelect:true,fit:true,fitColumns:true">
+        </div>
+    </div>
+
+</body>
+</html>

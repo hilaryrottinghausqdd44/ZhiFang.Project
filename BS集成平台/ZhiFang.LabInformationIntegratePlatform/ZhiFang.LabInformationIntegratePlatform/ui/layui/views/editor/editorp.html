@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文本编辑器扩展</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md12">
+				<div class="layui-card">
+					<div class="layui-card-header">tinymce文本编辑器</div>
+					<div class="layui-card-body">
+						<textarea id="editor-div3" hidden="hidden"></textarea>
+						<textarea id="editor-div3-code" hidden="hidden"></textarea>
+						<div style="text-align:right;margin-top:10px;">
+							<a id="show3" class="layui-btn">设计</a>
+							<a id="hide3" class="layui-btn">代码</a>
+							<a id="save3" class="layui-btn">保存结果</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-header">文本编辑器</div>
+					<div class="layui-card-body">
+						<div id="editor-div"></div>
+						<div style="text-align:right;margin-top:10px;">
+							<a id="save" class="layui-btn">保存结果</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-header">文本编辑器扩展</div>
+					<div class="layui-card-body">
+						<div id="editor-div2"></div>
+						<div style="text-align:right;margin-top:10px;">
+							<a id="save2" class="layui-btn">保存结果</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		//UIVersion.getCSS('../../css/editor.css')
+	</script>
+	<script>
+		layui.extend({
+			uxeditorp: 'ux/editorp',
+			uxeditor: 'ux/zf/editor/editor',
+			tinymce: 'ux/other/tinymce/tinymce'
+		}).use(['uxeditorp','layer','uxeditor','tinymce'],function(){
+			var $ = layui.$,
+				editor = layui.uxeditorp,
+				uxeditor = layui.uxeditor,
+				tinymce = layui.tinymce;
+				
+//			//构建一个默认的编辑器
+//			var index = editor.build('editor-div',{});
+//			$("#save").on("click",function(){
+//				var html = editor.getContent(index);
+//				layer.msg(html);
+//				console.log(html);
+//			});
+//			
+//			//构建一个扩展的编辑器1
+//			var index2 = uxeditor.build('editor-div2',{});
+//			$("#save2").on("click",function(){
+//				var html2 = uxeditor.getContent(index2);
+//				layer.msg(html3);
+//				console.log(html3);
+//			});
+			
+			//tinymce
+			var index3 = tinymce.render({
+				elem:"#editor-div3",
+				height:600
+			},(opt)=>{
+				//加载完成后回调
+			});
+			var index3Code = tinymce.render({
+				elem:"#editor-div3-code",
+				height:600
+			},(opt)=>{
+				//加载完成后回调
+			});
+			$("#show3").on("click",function(){
+				var content = tinyMCE.editors["editor-div3-code"].getContent();
+				tinyMCE.editors["editor-div3"].setContent(content);
+				tinyMCE.editors["editor-div3-code"].hide();
+				tinyMCE.editors["editor-div3"].show();
+			});
+			$("#hide3").on("click",function(){
+				var content = tinyMCE.editors["editor-div3"].getContent();
+				tinyMCE.editors["editor-div3-code"].setContent(content);
+				tinyMCE.editors["editor-div3"].hide();
+				tinyMCE.editors["editor-div3-code"].show();
+			});
+		});
+	</script>
+</body>
+</html>

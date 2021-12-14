@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Tables>
+  <Table TableCName="用户档案" EName="Customer" DisplayManner="1" InputCols="3" IsHiddenTopSearch="No" DisplayRows="30" InputColsRight="2" Buttons="|../image/middle/add.jpg|http://192.168.0.137/EIP/dbquery/image/middle/delete.jpg|../image/middle/copy.jpg|../image/middle/gai.jpg|../image/middle/save.jpg|../image/middle/cancel.jpg|../image/middle/export.jpg" SortMethod="0">
+    <tr>
+      <td ColumnCName="顺序号" ColumnEName="ID" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="自动编号()" ReadOnly="Yes" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+      </td>
+      <td ColumnCName="用户名称" ColumnEName="HospName" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="2" FunctionOnInput="">
+        </Input>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="Yes" />
+        <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="12" FunctionOnQuery="" DisplayInChild="Yes" AllowSum="No" />
+      </td>
+      <td ColumnCName="用户类别" ColumnEName="UserType" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="Fixed" DataSourceName="单机:网络" />
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" QueryDefault="网络" DisplayInSub="Yes" />
+      </td>
+      <td ColumnCName="行政区域" ColumnEName="Area" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Dictionary DataSource="Fixed" DataSourceName="华北:东北:西北:华东:华中:华南:西南" />
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="省份" ColumnEName="Province" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Dictionary DataSource="Local" DataSourceName="省份 " />
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+        <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="3" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" />
+      </td>
+      <td ColumnCName="市县" ColumnEName="City" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+      </td>
+      <td ColumnCName="医院等级" ColumnEName="HospClass" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Dictionary DataSource="Local" DataSourceName="医院等级 " />
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+        <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="2" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" />
+      </td>
+      <td ColumnCName="医院类别" ColumnEName="HospAttribute" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Dictionary DataSource="Local" DataSourceName="医院类别" />
+      </td>
+      <td ColumnCName="通讯地址" ColumnEName="HospAddress" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+      </td>
+      <td ColumnCName="邮编" ColumnEName="HospZip" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+      </td>
+      <td ColumnCName="总机" ColumnEName="HospTel" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+      </td>
+      <td ColumnCName="传真" ColumnEName="HospFax" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+      </td>
+      <td ColumnCName="Web地址" ColumnEName="WebSite" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="其它说明" ColumnEName="OtherNote" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="14" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="院长" ColumnEName="President" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="主管" ColumnEName="LabDirector" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="主管电话" ColumnEName="LabTel" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="操作员" ColumnEName="ITDirector" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="操作员电话" ColumnEName="ITTel" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="相关通讯录" ColumnEName="AddressBook" ColumnAbrvName="Abr" ColumnType="4" ColumnPrecision="0" ColumnDefault="联系方式" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="10" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="HIS厂商" ColumnEName="HISFactory" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="HIS建设情况" ColumnEName="HISNote" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="2" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="LIS厂商" ColumnEName="LISFactory" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="LIS建设时间" ColumnEName="LISDate" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="登记日期" ColumnEName="RegDate" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="当前日期()" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <Table TableCName="合同管理" EName="Project" DisplayRows="20" InputColsRight="2" DisplayManner="1" InputCols="3" IsHiddenTopSearch="No" Buttons="|../image/middle/add.jpg|http://192.168.0.137/EIP/dbquery/image/middle/delete.jpg|../image/middle/copy.jpg|../image/middle/gai.jpg|../image/middle/save.jpg|../image/middle/cancel.jpg|../image/middle/export.jpg">
+        <tr>
+          <td ColumnCName="顺序号" ColumnEName="ID" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="自动编号()" ReadOnly="No" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Input DisplayOnInput="Yes" ColumnHeight="" FunctionOnInput="" />
+          </td>
+          <td ColumnCName="合同编号" ColumnEName="EName1" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="项目类别" ColumnEName="Content" ColumnAbrvName="C" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="10" Index="No" AllowNull="Yes">
+            <Dictionary DataSource="Local" DataSourceName="收入类别 ">
+            </Dictionary>
+            <Input DisplayOnInput="Yes" ColumnHeight="1" OrderBy="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="Yes" DisplayLength="33">
+            </Brief>
+            <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="" FunctionOnQuery="" OrderBy="4" DisplayInChild="No" />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="4" DisplayMethod="下拉列表" DisplayInSub="Yes" />
+          </td>
+          <td ColumnCName="项目名称" ColumnEName="Name" ColumnAbrvName="N" ColumnType="0" ColumnPrecision="20" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Query DisplayOnQuery="Yes" ColumnHeight="5" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%" OrderBy="2" DisplayInChild="No">
+            </Query>
+            <Input DisplayOnInput="Yes" ColumnHeight="1" OrderBy="4" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="Yes" DisplayLength="33">
+            </Brief>
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="3" DisplayMethod="文本框" DisplayInSub="Yes" />
+            <InputAssociateChild Display="Yes" OrderBy="2" />
+          </td>
+          <td ColumnCName="签署日期" ColumnEName="SignDate" ColumnAbrvName="D" ColumnType="2" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="2" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" OrderBy="2" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="Yes" DisplayLength="33">
+            </Brief>
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="5" DisplayMethod="区间" DisplayInSub="Yes" />
+            <InputAssociateChild Display="Yes" OrderBy="1" />
+          </td>
+          <td ColumnCName="合同总额" ColumnEName="Amount" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="采购费用" ColumnEName="PurchaseFee" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="售前费用" ColumnEName="FeeBefore" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="实施费用" ColumnEName="FeeInCarrying" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="其它费用*" ColumnEName="MiddleFee" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="项目毛利" ColumnEName="Profit" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="销售负责人" ColumnEName="Principal" ColumnAbrvName="P" ColumnType="0" ColumnPrecision="10" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="5" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="Yes" DisplayLength="33">
+            </Brief>
+            <Input DisplayOnInput="Yes" ColumnHeight="" OrderBy="10" FunctionOnInput="" />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="2" DisplayMethod="下拉列表" DisplayInSub="Yes" />
+          </td>
+          <td ColumnCName="项目联系人" ColumnEName="LinkMan" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" OrderBy="14" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="合同文本" ColumnEName="Contract" ColumnAbrvName="C" ColumnType="3" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="7" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="Yes" DisplayLength="33">
+            </Brief>
+            <Input DisplayOnInput="Yes" ColumnHeight="" OrderBy="13" FunctionOnInput="" />
+          </td>
+          <td ColumnCName="关注程度" ColumnEName="Attention" ColumnAbrvName="A" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="4" Index="No" AllowNull="Yes">
+            <Dictionary DataSource="Fixed" DataSourceName="不用关注:需要关注:重点关注:严重关注:项目异常:项目预警">
+            </Dictionary>
+            <Brief DisplayOnBrief="Yes" DisplayLength="33">
+            </Brief>
+            <Input DisplayOnInput="Yes" ColumnHeight="" OrderBy="11" FunctionOnInput="" />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="2" DisplayMethod="下拉列表" DisplayInSub="No" />
+            <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="" FunctionOnQuery="" OrderBy="5" DisplayInChild="No" />
+          </td>
+          <td ColumnCName="付款单位" ColumnEName="PayType" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Dictionary DataSource="Local" DataSourceName="付款单位 " />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+          </td>
+          <td ColumnCName="已付金额" ColumnEName="PayedMoney" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="剩余款项" ColumnEName="LeftMoney" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="收款比例" ColumnEName="RcvedRatio" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="" FunctionOnQuery="" DisplayInChild="No" />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="区间" DisplayInSub="No" />
+          </td>
+          <td ColumnCName="收款记录" ColumnEName="RcvdRecord" ColumnAbrvName="Abr" ColumnType="4" ColumnPrecision="0" ColumnDefault="收款记录" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="仪器联机清单" ColumnEName="EName30" ColumnAbrvName="Abr" ColumnType="4" ColumnPrecision="0" ColumnDefault="联机仪器清单" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="是否有HIS接口" ColumnEName="hasHIS" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Dictionary DataSource="Fixed" DataSourceName="有:无" />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="8" DisplayMethod="下拉列表" DisplayInSub="No" />
+          </td>
+          <td ColumnCName="HIS接口要求" ColumnEName="HISDemand" ColumnAbrvName="Abr" ColumnType="3" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="特殊功能" ColumnEName="SpecialDemand" ColumnAbrvName="Abr" ColumnType="3" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="附加模块" ColumnEName="AttachModule" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="2" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="售前其它资料" ColumnEName="Information" ColumnAbrvName="I" ColumnType="3" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="8" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="Yes" DisplayLength="33">
+            </Brief>
+            <Input DisplayOnInput="Yes" ColumnHeight="" OrderBy="12" FunctionOnInput="" />
+          </td>
+          <td ColumnCName="工程注意事项" ColumnEName="NoteBfImpl" ColumnAbrvName="Abr" ColumnType="4" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Input DisplayOnInput="Yes" ColumnHeight="" FunctionOnInput="" />
+          </td>
+          <td ColumnCName="要求实施时间" ColumnEName="NeedStartDate" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="要求完成时间" ColumnEName="NeedEndDate" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="合同有无变更" ColumnEName="EName33" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Dictionary DataSource="Fixed" DataSourceName="有:无" />
+          </td>
+          <td ColumnCName="变更说明" ColumnEName="EName34" ColumnAbrvName="Abr" ColumnType="3" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="实施方" ColumnEName="EName2" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Dictionary DataSource="Fixed" DataSourceName="智方:HIS厂商:仪器厂商:医院:其它:" />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+          </td>
+          <td ColumnCName="实施负责人" ColumnEName="PManager" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="已完成进度" ColumnEName="EName10" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="当前实施阶段" ColumnEName="ImplStatus" ColumnAbrvName="I" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="6" Index="No" AllowNull="Yes">
+            <Dictionary DataSource="Fixed" DataSourceName="未实施:开始实施:科内完成:接口未实施:接口完成:等待验收:通过验收:免费服务期:有偿服务期">
+            </Dictionary>
+            <Input DisplayOnInput="Yes" ColumnHeight="1" OrderBy="3" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="Yes" DisplayLength="33">
+            </Brief>
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="4" DisplayMethod="下拉列表" DisplayInSub="Yes" />
+            <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="6" FunctionOnQuery="" OrderBy="3" DisplayInChild="No" />
+          </td>
+          <td ColumnCName="实施进度表" ColumnEName="EName11" ColumnAbrvName="Abr" ColumnType="4" ColumnPrecision="0" ColumnDefault="实施进度表" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="科内完成时间" ColumnEName="EName19" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Input DisplayOnInput="Yes" ColumnHeight="" FunctionOnInput="" />
+          </td>
+          <td ColumnCName="验收时间" ColumnEName="AcceptDate" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="区间" DisplayInSub="Yes" />
+          </td>
+          <td ColumnCName="验收报告" ColumnEName="EName36" ColumnAbrvName="Abr" ColumnType="3" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="遗留问题" ColumnEName="EName37" ColumnAbrvName="Abr" ColumnType="3" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+          </td>
+          <td ColumnCName="服务收费时间" ColumnEName="EName3" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="区间" DisplayInSub="Yes" />
+          </td>
+        </tr>
+      </Table>
+      <Table TableCName="仪器清单" EName="LISSite" DisplayManner="1" InputCols="3" IsHiddenTopSearch="No" DisplayRows="22" InputColsRight="1" SortMethod="0" Buttons="|../image/middle/add.jpg||../image/middle/copy.jpg|../image/middle/gai.jpg|../image/middle/save.jpg|../image/middle/cancel.jpg|../image/middle/export.jpg">
+        <tr>
+          <td ColumnCName="顺序号" ColumnEName="ID" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="自动编号()" ReadOnly="No" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+          </td>
+          <td ColumnCName="合同编号" ColumnEName="ContractNo" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+            <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="5" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" />
+          </td>
+          <td ColumnCName="购买方式" ColumnEName="OrderMode" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Dictionary DataSource="Fixed" DataSourceName="LIS:新连机:其他" />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+          </td>
+          <td ColumnCName="约定连机方式" ColumnEName="OnlineMode" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Dictionary DataSource="Fixed" DataSourceName="单向:双向:手工" />
+          </td>
+          <td ColumnCName="仪器类别" ColumnEName="EquipClass" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Dictionary DataSource="Local" DataSourceName="仪器大类 " />
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+            <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="7" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" />
+          </td>
+          <td ColumnCName="仪器小类" ColumnEName="EquipSubClass" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Dictionary DataSource="Local" DataSourceName="仪器小类 " />
+          </td>
+          <td ColumnCName="仪器型号" ColumnEName="EquipModel" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+            <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="7" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" />
+          </td>
+          <td ColumnCName="仪器厂商" ColumnEName="EquipFactory" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+          </td>
+          <td ColumnCName="使用部门" ColumnEName="UseDept" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+          </td>
+          <td ColumnCName="操作人" ColumnEName="Operator" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+          </td>
+          <td ColumnCName="实施单位" ColumnEName="TrainerOrg" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="下拉列表" DisplayInSub="No" />
+            <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="5" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" />
+          </td>
+          <td ColumnCName="实施人" ColumnEName="Trainer" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+          </td>
+          <td ColumnCName="实施开始时间" ColumnEName="TrainStart" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+          </td>
+          <td ColumnCName="实施完成时间" ColumnEName="TrainEnd" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+          </td>
+          <td ColumnCName="核实连机方式" ColumnEName="CheckOnline" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Dictionary DataSource="Fixed" DataSourceName="单向:双向:手工:不连" />
+          </td>
+          <td ColumnCName="仪器是否停用" ColumnEName="isStop" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+            <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+            </Input>
+            <Brief DisplayOnBrief="No" DisplayLength="33">
+            </Brief>
+            <Dictionary DataSource="Fixed" DataSourceName="是:否" />
+          </td>
+        </tr>
+      </Table>
+    </tr>
+  </Table>
+  <Table TableCName="tttt" EName="111">
+    <tr>
+    </tr>
+  </Table>
+</Tables>

@@ -1,0 +1,575 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="application/xml; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="ui/extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="ui/extjs/ext-all-debug.js"></script>
+    <script type="text/javascript" src="ui/extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.Ajax.defaultPostHeader = 'application/json';
+            //        var request = {
+            //            entity: { SectionNo: 3, TestTypeNo: 3, SampleNo: '3', Bed: '这是一个测试' }
+            //        };
+            //后台操作_数据测试
+
+            //var request = {aaa: {bbb: "简码"}}
+
+        })
+
+        function SearchByHQL() {
+            var request = {
+                //entity: { LabID: 1, UserID: 1, UserCode: 'a', Account: 'zhangsan11111', EnMPwd: true, PwdExprd: true, AccLock: true }
+                entity: { LabID: 1, UserID: 1 }
+            };
+            Ext.Ajax.request({
+                url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_SearchRBACUserByHQL',
+                params: Ext.JSON.encode(request),
+                method: 'POST',
+                //timeout:2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert(result.list.count + "，执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function SearchByCri() {
+            var request = {
+                entity: { LabID: 1, UserID: 1, UserCode: 'a', Account: 'zhangsan11111', EnMPwd: true, PwdExprd: true, AccLock: true }
+            };
+            Ext.Ajax.request({
+                url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_SearchRBACUser',
+                params: Ext.JSON.encode(request),
+                method: 'POST',
+                //timeout:2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert(result.list.count + "，执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function TestSearch() {
+            var request = {
+                entity: { LabID: 1, UserID: 1, UserCode: 'a', Account: 'zhangsan11111', EnMPwd: true, PwdExprd: true, AccLock: true }
+            };
+            Ext.Ajax.request({
+                url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_SearchHRDeptByHREmpID?longHREmpID=1',
+                //params: Ext.JSON.encode(request),
+                method: 'Get',
+                //timeout:2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert(result.list.count + "，执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function Add() {
+            var request = {
+                //entity: { LabID: 356, UserID: 356, UserCode: 'b', Account: 'lisi', EnMPwd: true, PwdExprd: true, AccLock: true }
+                //"entity":{"LabID":"0","ModeType":"1","Name":"1","Shortcode":"1","PinYinZiTou":"1","IsUse":"true"}
+                //"entity": { "Name": "11", "LabID": "0" }
+                //                "entity": { "SerialNo": "1", "PatientID": "1", "LabID": "1", "BSickType": { "Id": "3", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] }, "BPatientInfo": { "Id": "5174711122543134604", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] }, "MEPTOrderItemList": [
+                //                    {
+                //                        "LabID": "1",
+                //                        "ItemAllItem": { "Id": "1001", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] },
+                //                        "ItemCoefficient": "1"
+                //                    },
+                //                    {
+                //                        "LabID": "1",
+                //                        "ItemAllItem": { "Id": "1002", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] },
+                //                        "ItemCoefficient": "1"
+                //                    }
+                //                  ]
+                //                                }
+                //entity: { "LabID": 0, "Id": "-1", "BLaboratory": { "Id": "4857053940584342566", "DataTimeStamp": [0, 0, 0, 0, 0, 0, 8, 255] }, "ItemAllItem": { "Id": "601", "DataTimeStamp": [0, 0, 0, 0, 0, 1, 39, 42]} }
+                //entity:{"Id":"-1","LabID":"0","OperaterID":"4995112150440367218","Operater":"fff","OperateTime":"/Date(1392888600302+0800)/","OperateHost":"","OperateMemo":"","BOperateObjectType":{"Id":"2","DataTimeStamp":["0","0","0","0","0","1","205","14"]},"OperateType":{"Id":"4","DataTimeStamp":["0","0","0","0","0","1","204","253"]}},
+                //objectIDList:"4881317261940316061,4881317261940316062"
+                //"entity": { "LabID": 0, "Id": "-1", "DeliveryLab": { "Id": "3", "DataTimeStamp": [0, 0, 0, 0, 0, 2, 27, 22] }, "ItemAllItem": { "Id": "600", "DataTimeStamp": [0, 0, 0, 0, 0, 2, 12, 126]} }
+                //"entity": { "Id": -1, "LabID": 0, "ValueType": 0, "QCMat": { "Id": "6", "DataTimeStamp": [0,0,0,0,0,2,28,104] }, "ItemAllItem": { "Id": "2001", "DataTimeStamp": [0,0,0,0,0,2,14,117]} }
+                //"entity": { "SampleDeliveryID": "20140331105304", "SampleDeliveryNo": "", "SampleDeliveryDate": "/Date(1396234384000+0800)/", "SampleDeliveryMan": null, "DeliveryDeptID": "", "DeliveryLabID": { "id": "5172932070338067651", "DataTimeStamp": ["0", "0", "0", "0", "0", "2", "58", "81"] }, "PrintCount": 0 }
+                //"entity": { "Id": -1, "LabID": 0, "MEPTSampleDelivery": { "Id": "5411880832232091526", "DataTimeStamp": ["0", "0", "0", "0", "0", "2", "105", "90"]} },
+                //"meptSampleFormIDList": "4881317261940316061,4881317261940316062,4881317261940316063"
+                //"entity": { "Comment": "", "BOperateObjectType": { "Id": "2", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "205", "14"] }, "BSampleStatusType": { "Id": "5", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "220", "206"]} },
+                //"objectIDList": "4881317261940316061"
+                "entity": {
+                    "LadID": 0,
+                    "CName": "p1230",
+                    "Id": "5016709735223939808",
+                    "PatCardNo": "p1230",
+                    "InpatientNo": "p1230",
+                    "Age": 22.0,
+                    "Bed": "11",
+                    "Doctor": "",
+                    "HRDept": {
+                        "Id": 11,
+                        "DataTimeStamp": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+                    },
+                    "BSickType": {
+                        "Id": 1,
+                        "DataTimeStamp": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+                    },
+                    "BTestType": {
+                        "Id": 1,
+                        "DataTimeStamp": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+                    },
+                    "BAgeUnit": {
+                        "Id": 1,
+                        "DataTimeStamp": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+                    },
+                    "PatientID": "5711632151633972249",
+                    "MEPTOrderItemList": [
+                    //      {
+                    //          "ItemCoefficient": "1",
+                    //          "LabID": "1",
+                    //          "ItemAllItem": {
+                    //              "Id": "2055429",
+                    //              "DataTimeStamp": [
+                    //            "0",
+                    //            "0",
+                    //            "0",
+                    //            "0",
+                    //            "0",
+                    //            "57",
+                    //            "182",
+                    //            "153"
+                    //          ]
+                    //          }
+
+                                        {
+                                        "LabID": "1",
+                                        "ItemAllItem": { "Id": "1002", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] },
+                                        "ItemCoefficient": "1"
+                                    }
+    ]
+                },
+                "meGroupSampleFormID": "5615526664495930440",
+                "DelMEPTOrderItemIDList": "5076342906890517853",
+                "fields": "Id,PatCardNo,CName,InpatientNo,Age,Bed,Doctor,HRDept_Id,BSickType_Id,BTestType_Id,BAgeUnit_Id,PatientID"
+
+            };
+            Ext.Ajax.request({
+                //url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_AddRBACUser', 
+                //url: '/ZhiFang.Digitlab.Service/MEPTService.svc/MEPT_UDTO_AddMEPTDefaultItemMode', 
+                //url: '/ZhiFang.Digitlab.Service/MEPTService.svc/MEPT_UDTO_AddMEPTSampleDeliveryItem',   
+                //url: '/ZhiFang.Digitlab.Service/QCService.svc/QC_UDTO_AddQCItem',
+                //url: '/ZhiFang.Digitlab.Service/MEPTService.svc/MEPT_UDTO_AddBatchMEPTSampleDeliveryConditon', 
+                //url: '/LabStarLIMS/MEPTService.svc/MEPT_UDTO_AddMEPTSampleStatus', 
+                //url: '/LabStarLIMS/MEPTService.svc/MEPT_UDTO_PartitionMEPTOrderForm',  
+                url: '/LabStarLIMS//MEPTService.svc/MEPT_UDTO_UpdateMEPTOrderFormAndItemByGroupID',
+                params: Ext.JSON.encode(request),
+                method: 'POST',
+                //timeout:200,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert("执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function AddMEGroupSampleItem() {
+            var request = {
+                "entity": {
+                    "ItemAllItem": {
+                        "Id": "2003",
+                        "DataTimeStamp": ["0", "0", "0", "0", "0", "25", "10", "109"]
+                    },
+                    "MEGroupSampleForm": {
+                        "Id": "4789258449204205382",
+                        "DataTimeStamp": ["0", "0", "0", "0", "0", "20", "167", "192"]
+                    },
+                    "PItemAllItem": {
+                        "Id": "2003",
+                        "DataTimeStamp": ["0", "0", "0", "0", "0", "25", "10", "109"]
+                    }
+                }
+            };
+            Ext.Ajax.request({
+                url: '/ZhiFang.Digitlab.Service/MEService.svc/ME_UDTO_AddMEGroupSampleItem',
+                params: Ext.JSON.encode(request),
+                method: 'POST',
+                //timeout:200,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert("执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function Edit() {
+            var request = {
+                //entity: { LabID: 1, UserID: 2, Account: 'lisi2222', EnMPwd: true, PwdExprd: true, AccLock: true, DateTimeStamp:'AAAAAAAAj+U='}
+                //entity: { Id: 4877884802624953057, Name: '1122', SName: 'aaa', Shortcode: 'aa22', PinYinZiTou: 'aa', Comment: 'aa', IsUse: true, BCountry: { Id: 5361584863420736506} }
+                //"entity": { "Id": "4823222117786400792", "DiseaseRoom": { "Id": "2" }, "Age": "1", "BAgeUnit": { "Id": "2" }, "CName": "\u6d4b\u8bd5", "BTestType": { "Id": "2" }, "MEPTBSampleSource": { "Id": "4862652903793510785" }, "BSampleType": { "Id": "4" }, "MEPTBCharge": { "Id": "2" }, "HRDept": { "Id": "2" }, "BSickType": { "Id": "3" }, "SerialNo": "11", "PatientID": "11", "LabID": "0", "BPatientInfo": { "Id": "5174711122543134604"} }, "fields": "Id,DiseaseRoom_Id,Age,BAgeUnit_Id,CName,BTestType_Id,MEPTBSampleSource_Id,BSampleType_Id,MEPTBCharge_Id,HRDept_Id,BSickType_Id,SerialNo,PatientID,BPatientInfo_Id"
+                "entity": { "Id": "4994091074496006011", "DataTimeStamp": [0, 0, 0, 0, 0, 1, 190, 26], "SerialNo": "1", "PatientID": "1", "LabID": "1", "BSickType": { "Id": "3", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] }, "BPatientInfo": { "Id": "5174711122543134604", "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] }, "MEPTOrderItemList": [
+    {
+        "LabID": "1",
+        "ItemAllItem": { "Id": "1005", "MEPTOrderForm": { "Id": "4994091074496006011", "DataTimeStamp": [0, 0, 0, 0, 0, 1, 190, 26] }, "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] },
+        "ItemCoefficient": "1"
+    },
+    {
+        "LabID": "1",
+        "ItemAllItem": { "Id": "1006", "MEPTOrderForm": { "Id": "4994091074496006011", "DataTimeStamp": [0, 0, 0, 0, 0, 1, 190, 26] }, "DataTimeStamp": ["0", "0", "0", "0", "0", "1", "39", "113"] },
+        "ItemCoefficient": "1"
+    }
+  ]
+                }
+            };
+            Ext.Ajax.request({
+                //url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_UpdateRBACUser',
+                //url: '/ZhiFang.Digitlab.Service/SingleTableService.svc/ST_UDTO_UpdateBProvinceByField?fields=Id,Name,SName,Shortcode,PinYinZiTou,Comment,IsUse,BCountry',
+                url: '/ZhiFang.Digitlab.Service/MEPTService.svc/MEPT_UDTO_UpdateMEPTOrderForm',
+                params: Ext.JSON.encode(request),
+                method: 'POST',
+                //timeout:2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert("执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function Del() {
+            var request = {
+                entity: { LabID: 1, UserID: 2, Account: 'lisi2222', EnMPwd: true, PwdExprd: true, AccLock: true }
+            };
+            Ext.Ajax.request({
+                url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_DelRBACUser?longUserID=2',
+                //params: Ext.JSON.encode(request),
+                method: 'Get',
+                //timeout:2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert("执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function Button1_onclick() {
+            var request = {
+                entity: { LabID: 1, UserID: 2, Account: 'lisi2222', EnMPwd: true, PwdExprd: true, AccLock: true }
+            };
+            Ext.Ajax.request({
+                url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_BA_Login?strUserAccount=lisi&strPassWord=123',
+                //params: Ext.JSON.encode(request),
+                method: 'Get',
+                //timeout:2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert("执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function Button2_onclick() {
+            var request = {
+                entity: { LabID: 1, UserID: 2, Account: 'lisi2222', EnMPwd: true, PwdExprd: true, AccLock: true }
+            };
+            Ext.Ajax.request({
+                url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_BA_Logout?strUserAccount=zhangsan',
+                //params: Ext.JSON.encode(request),
+                method: 'Get',
+                //timeout:2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert("执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function TestQuery() {
+            Ext.Ajax.request({
+                //url: '/ZhiFang.Digitlab.Service/QCService.svc/QC_RJ_GetJudgeEquipMatItemTree',
+                //url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_SearchRBACModuleByHQL?isPlanish=true&fields=RBACModule_ModuleID,RBACModule_LabID,RBACModule_ParentID,RBACModule_LevelNum&where=&_dc=1367048379341&page=1&start=0&limit=5',
+                //url: '/ZhiFang.Digitlab.Service/ConstructionService.svc/CS_UDTO_GetBTDAppComponentsById?id=4905541070795107250&_dc=1376013716694',
+                //url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_GetRBACModuleById?isPlanish=true&id=3&_dc=1367142247454',
+                //url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_BA_Login?strUserAccount=lisi&strPassWord=123&_dc=1374142556840',
+                //url: '/ZhiFang.Digitlab.Service/MEPTService.svc/MEPT_UDTO_SearchModuleList?idType=1&id=-1&isPlanish=true&fields=', 
+                //url: '/ZhiFang.Digitlab.Service/MEPTService.svc/MEPT_UDTO_SearchMEPTOrderItemByHQL?page=1&limit=5&fields=MEPTOrderItem_Id,MEPTOrderItem_ItemAllItem_CName,MEPTOrderItem_ItemAllItem_SName,MEPTOrderItem_ItemAllItem_Id,MEPTOrderItem_ItemAllItem_EName&where=&isPlanish=true',
+                //url: '/ZhiFang.Digitlab.Service/SingleTableService.svc/ST_UDTO_SearchEPBEquipByHQL?isPlanish=true&&fields=EPBEquip_LabID,EPBEquip_Id,EPBEquip_UseCode,EPBEquip_StandCode,EPBEquip_DeveCode,EPBEquip_CName,EPBEquip_EName,EPBEquip_SName,EPBEquip_Shortcode,EPBEquip_PinYinZiTou,EPBEquip_Comment,EPBEquip_SectionID,EPBEquip_Computer,EPBEquip_ComProgram,EPBEquip_ComPort,EPBEquip_BaudRate,EPBEquip_Parity,EPBEquip_DataBits,EPBEquip_StopBits,EPBEquip_DoubleDir,EPBEquip_LicenceKey,EPBEquip_LicenceType,EPBEquip_SQH,EPBEquip_SNo,EPBEquip_LicenceDate,EPBEquip_SickType,EPBEquip_UseImmPlate,EPBEquip_ImmCalc,EPBEquip_CommPara,EPBEquip_ReagentPara,EPBEquip_IsUse,EPBEquip_DispOrder,EPBEquip_DataAddTime,EPBEquip_DataUpdateTime,EPBEquip_DataTimeStamp&_dc=1377065761229&page=2&start=5&limit=5',
+                //url: '/ZhiFang.Digitlab.Service/MEPTService.svc/MEPT_UDTO_SearchMEPTOrderItemByHQL?page=1&limit=5&fields=MEPTOrderItem_Id,MEPTOrderItem_ItemID,MEPTOrderItem_ZDY1&where=&isPlanish=true',
+                //url: '/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_RJ_GetHRDeptFrameListTree?id=0&fields=HRDept_CName,HRDept_Id',
+                //url: '/LabStarLIMS/MEPTService.svc/MEPT_UDTO_PartitionMEPTOrderForm?longSpecialTimeTypeID=4854051868078740363',
+                //url: '/LabStarLIMS/MEPTService.svc/MEPT_UDTO_DispenseMEPTSampleForm?where=meptsampleform.BarCode=\'414053000009\'&longDistributeRuleID=4955436732061821765',  
+                //url: '/LabStarLIMS/MEPTService.svc/MEPT_UDTO_PrintMEPTOrderFormList?MEPTOrderFormIDList=5243916285440542448,5256233462700562582,5486547196453452162', 
+                url: '/LabStarLIMS/MEPTService.svc/MEPT_UDTO_GetPrintBarCodeInformation?where=meptsampleform.Id in (4720508329024356364,5268638869372265884)',
+                method: 'Get',
+                //timeout:2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert(response.responseText);
+                    //alert(result.list.count + "，执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+        function TestUpdate() {
+            //服务地址
+            var url = '/ZhiFang.Digitlab.Service/ConstructionService.svc/CS_UDTO_UpdateBTDAppComponents';
+            //应用对象
+            var BTDAppComponents = {
+                AppComID: 4802913745242933307, //应用组件ID
+                CName: '更新测试', //名称
+                DataTimeStamp: [0, 0, 0, 0, 0, 0, 196, 148]//时间戳
+            };
+
+            Ext.Ajax.defaultPostHeader = 'application/json';
+            Ext.Ajax.request({
+                async: false, //非异步
+                url: url,
+                params: Ext.JSON.encode({ entity: BTDAppComponents }),
+                method: 'POST',
+                timeout: 2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    if (result.success) {
+                        Ext.Msg.alert('提示', '保存成功！');
+                    } else {
+                        Ext.Msg.alert('提示', '保存应用组件失败！错误信息【<b style="color:red">' + result.errorInfo + "</b>】");
+                    }
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '保存应用组件请求失败！');
+                }
+            });
+        }
+        function TestEditApp() {
+
+            var entity = {
+                //Id: 4802913745242933307, //应用组件ID
+                CName: '更新测试' //名称
+                //DataTimeStamp: [0, 0, 0, 0, 0, 0, 196, 148]//时间戳
+            };
+            Ext.Ajax.request({
+                async: false, //非异步
+                url: "http://localhost/ZhiFang.Digitlab.Service/ConstructionService.svc/CS_UDTO_AddBTDAppComponents",
+                params: entity,
+                method: 'POST',
+                timeout: 2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    if (result.success) {
+                        Ext.Msg.alert('提示', '保存成功！');
+                    } else {
+                        Ext.Msg.alert('提示', '保存应用组件失败！错误信息【<b style="color:red">' + result.errorInfo + "</b>】");
+                    }
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '保存应用组件请求失败！');
+                }
+            });
+        }
+
+        function TestPost() {
+
+            var params = Ext.JSON.encode({ "saleDocNo": "00092779" });
+            Ext.Ajax.request({
+                async: false, //非异步
+                url: "http://localhost/ZhiFang.Digitlab.ReagentSys/ReagentService.svc/WebRequestHttpPostWMS",
+                params: params,
+                method: 'POST',
+                timeout: 2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    if (result.success) {
+                        Ext.Msg.alert('提示', '成功！');
+                    } else {
+                        Ext.Msg.alert('提示', '失败！');
+                    }
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '失败11！');
+                }
+            });
+        }
+
+        function AddBmsCenSaleDocConfirm() {
+            var request = {
+                "listEntity": [
+                    {
+                        "Id": "0",
+                        "BmsCenSaleDtl":{"Id": "5119759277312494047","DataTimeStamp": ["0", "0", "0", "0", "0", "25", "10", "109"]},
+                        "AcceptCount": "2",
+                        "RefuseCount": "3",
+                        "AcceptMemo": "测试",
+                        "DataTimeStamp": ["0", "0", "0", "0", "0", "25", "10", "109"]
+                    },
+                     {
+                         "Id": "0",
+                         "BmsCenSaleDtl": { "Id": "4879150263363764358", "DataTimeStamp": ["0", "0", "0", "0", "0", "25", "10", "109"] },
+                         "AcceptCount": "1",
+                         "RefuseCount": "0",
+                         "AcceptMemo": "测试123123",
+                         "DataTimeStamp": ["0", "0", "0", "0", "0", "25", "10", "109"]
+                     }
+                     ,
+                     {
+                         "Id": "0",
+                         "BmsCenSaleDtl": { "Id": "4818532302885021252", "DataTimeStamp": ["0", "0", "0", "0", "0", "25", "10", "109"] },
+                         "AcceptCount": "1",
+                         "RefuseCount": "0",
+                         "AcceptMemo": "测试dsafsd",
+                         "DataTimeStamp": ["0", "0", "0", "0", "0", "25", "10", "109"]
+                     }
+                ]
+            };
+            Ext.Ajax.request({
+                url: 'http://localhost/ZhiFang.Digitlab.ReagentSys/ReagentService.svc/RS_UDTO_AddBmsCenSaleDocConfirm',
+                params: Ext.JSON.encode(request),
+                method: 'POST',
+                //timeout:200,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    alert("执行成功");
+                    // var grid = o.ownerCt.ownerCt;
+                    // grid.store.load();
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '执行失败！');
+                }
+            });
+        }
+
+
+        function TestEditEmp() {
+
+            var entity = {
+                Id: 1, //应用组件ID
+                CName: '1212' //名称
+                //DataTimeStamp: [0, 0, 0, 0, 0, 0, 196, 148]//时间戳
+            };
+            Ext.Ajax.request({
+                async: false, //非异步
+                url: "http://localhost/ZhiFang.Digitlab.Service/RBACService.svc/RBAC_UDTO_UpdateHREmployeeByField",
+                params: Ext.JSON.encode({ entity: entity, fields: 'Id,CName' }),
+                method: 'POST',
+                timeout: 2000,
+                success: function (response, opts) {
+                    var result = Ext.JSON.decode(response.responseText);
+                    if (result.success) {
+                        Ext.Msg.alert('提示', '保存成功！');
+                    } else {
+                        Ext.Msg.alert('提示', '保存应用组件失败！错误信息【<b style="color:red">' + result.ErrorInfo + "</b>】");
+                    }
+                },
+                failure: function (response, options) {
+                    Ext.Msg.alert('提示', '保存应用组件请求失败！');
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" onclick="SearchByHQL ();" value="HQL查询" />
+<input type="button" onclick="SearchByCri ();" value="条件查询" />
+<input type="button" onclick="TestSearch ();" value="查询" />
+<input type="button" onclick="Add ();" value="增加" />
+<input type="button" onclick="Edit ();" value="修改" />
+<input type="button" onclick="Del ();" value="删除"/>
+<input id="Button1" type="button" value="登录" onclick="Button1_onclick()" />
+    <input id="Button2" type="button" value="测试" 
+        onclick="return Button2_onclick()" />
+
+
+
+    <input type="button" onclick="TestQuery();" value="测试查询"/>
+    <input type="button" onclick="TestUpdate();" value="测试更新"/>
+
+    <input type="button" onclick="TestEditApp();" value="测试应用组件修改"/>
+    <input type="button" onclick="TestEditEmp();" value="测试员工修改"/>
+   <input type="button" onclick="AddMEGroupSampleItem();" value="测试添加小组样本项目"/> 
+   <input type="button" onclick="AddBmsCenSaleDocConfirm();" value="测试Post提交"/>
+   <div>
+    </div>
+</body>
+</html>

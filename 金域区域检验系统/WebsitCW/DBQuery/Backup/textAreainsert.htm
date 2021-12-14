@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+		<meta name="ProgId" content="VisualStudio.HTML">
+		<meta name="Originator" content="Microsoft Visual Studio .NET 7.1">
+	</head>
+	<body>
+		<script>   
+		function   insertAtCursor(myField,   myValue)   {   
+			if   (document.selection)   {   
+			myField.focus();   
+			sel   =   document.selection.createRange();   
+			sel.text   =   myValue;   
+			}   
+			else   if   (myField.selectionStart||   myField.selectionStart   ==   "0")   {   
+			var   startPos   =   myField.selectionStart;   
+			var   endPos   =   myField.selectionEnd;   
+			myField.value   =   myField.value.substring(0,   startPos)   
+			+   myValue   
+			+   myField.value.substring(endPos,   myField.value.length);   
+			}   else   {   
+			myField.value   +=   myValue;   
+			}   
+		}   
+  //   calling   the   function   
+  //insertAtCursor(document.formName.fieldName,   'this   value');   
+    
+		</script>
+		<form ID="Form1">
+			<textarea id="demo" NAME="demo">abcdef</textarea> <input type="button" onclick=insertAtCursor(document.getElementById('demo'),"1234") value="1"
+				ID="Button1" NAME="Button1"> <input type="button" onclick=insertAtCursor(document.getElementById('demo'),"1234") value="2"
+				ID="Button2" NAME="Button2">
+		</form>
+	</body>
+</html>

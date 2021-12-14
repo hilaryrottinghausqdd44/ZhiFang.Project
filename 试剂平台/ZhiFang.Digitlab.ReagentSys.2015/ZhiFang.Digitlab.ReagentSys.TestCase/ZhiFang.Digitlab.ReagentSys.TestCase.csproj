@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73E7F26F-7F95-44D0-AE4C-49710B8CE8EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Digitlab.ReagentSys.TestCase</RootNamespace>
+    <AssemblyName>ZhiFang.Digitlab.ReagentSys.TestCase</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="NHibernate">
+      <HintPath>..\ZhiFang.Digitlab.ReagentSys\bin\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\ZhiFang.Digitlab.ReagentSys\bin\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\ZhiFang.Digitlab.ReagentSys\bin\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\ZhiFang.Digitlab.ReagentSys\bin\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30">
+      <HintPath>..\ZhiFang.Digitlab.ReagentSys\bin\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Services">
+      <HintPath>..\ZhiFang.Digitlab.ReagentSys\bin\Spring.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestEntity\BBmsCenSaleDocTest.cs" />
+    <Compile Include="TestEntity\BGoodsTest.cs" />
+    <Compile Include="TestEntity\BDBStoredProcedureTest.cs" />
+    <Compile Include="TestEntity\BBmsCenOrderDocTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Dao.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\DaoBase.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Facade.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Service.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\ServiceBase.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Digitlab.BLL.ReagentSys\ZhiFang.Digitlab.BLL.ReagentSys.csproj">
+      <Project>{764B331A-E9B8-4562-8298-EB69E587EA19}</Project>
+      <Name>ZhiFang.Digitlab.BLL.ReagentSys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.DAO.NHB.ReagentSys\ZhiFang.Digitlab.DAO.NHB.ReagentSys.csproj">
+      <Project>{B250BD93-8B01-4BB7-897D-6DF8D57E2240}</Project>
+      <Name>ZhiFang.Digitlab.DAO.NHB.ReagentSys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity.ReagentSys\ZhiFang.Digitlab.Entity.ReagentSys.csproj">
+      <Project>{9C953320-BFFA-4FF3-A1EC-AD2B0836121C}</Project>
+      <Name>ZhiFang.Digitlab.Entity.ReagentSys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity\ZhiFang.Digitlab.Entity.csproj">
+      <Project>{D9AFA74E-62BF-474D-AC0D-FD04F361D0A4}</Project>
+      <Name>ZhiFang.Digitlab.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IBLL.ReagentSys\ZhiFang.Digitlab.IBLL.ReagentSys.csproj">
+      <Project>{D5AB9A35-AFE6-423C-9879-C9F2DA3985B4}</Project>
+      <Name>ZhiFang.Digitlab.IBLL.ReagentSys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IBLL\ZhiFang.Digitlab.IBLL.csproj">
+      <Project>{0B4C27E9-4484-4AD5-8591-5F20A7CAAEB1}</Project>
+      <Name>ZhiFang.Digitlab.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Digitlab.IDAO\ZhiFang.Digitlab.IDAO.csproj">
+      <Project>{963308BE-C1E7-430F-8E7F-D3C9033C3E29}</Project>
+      <Name>ZhiFang.Digitlab.IDAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

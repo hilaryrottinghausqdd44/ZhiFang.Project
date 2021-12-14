@@ -1,0 +1,99 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBPatientInfoByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBPatientInfoById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelBPatientInfo',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddBPatientInfo',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBPatientInfoByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBPatientInfo',
+
+    		//病人信息对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'BPatientInfo_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'BPatientInfo_Id',value:'病人主键ID'},						 
+						 		     
+				     												 
+						{ key:'BPatientInfo_PatientID',value:'病人ID'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_PatNo',value:'病历号'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_CName',value:'姓名'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_Birthday',value:'生日'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_SexID',value:'性别ID'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_NationalityID',value:'民族ID'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_Telephone',value:'电话'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_Address',value:'地址'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_ZipCode',value:'邮编'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_CertificateNo',value:'证件类型'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_CertificateNumber',value:'证件编号'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'BPatientInfo_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'BPatientInfo_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'病人信息',
+    		//主键字段
+    		key:'BPatientInfo_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

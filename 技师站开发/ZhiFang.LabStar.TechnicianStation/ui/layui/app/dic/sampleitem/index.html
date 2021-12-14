@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>项目样本类型维护</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		    //加载版本号文件
+			document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+		</script> 
+  <style>
+			.margin0:{
+				margin: 0px;
+			}
+		</style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding: 15px; 20px; 0px; margin: 0px;"> 
+   <div class="layui-row"> 
+    <!--左选择列表--> 
+    <div class="layui-col-md4 layui-col-lg4"> 
+     <!--设置选择"--> 
+     <div class="layui-row " lay-filter="div_filter_of_set"> 
+      <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+       <div class="layui-form"> 
+        <div class="layui-form-item" style="margin-bottom: 0px;"> 
+         <div class="layui-inline"> 
+          <input type="radio" lay-filter="form_left_of_set" name="filter_of_set" value="of_sampletype" title="按样本类型设置" checked="" /> 
+          <input type="radio" lay-filter="form_left_of_set" name="filter_of_set" value="of_testitem" title="按项目设置" /> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <!--按样本类型设置--> 
+     <div class="layui-row" lay-filter="filter_of_sampletype"> 
+      <div class="layui-col-md12"> 
+       <div class="layui-row" lay-filter="div_filter_of_sampletype"> 
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+         <div class="layui-form"> 
+          <div class="layui-form-item" style="margin-bottom: 2px;"> 
+           <input type="text" id="table_sampletype_like_search" placeholder="名称/简称" autocomplete="off" class="layui-input" /> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="layui-row margin0"> 
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+         <table id="table_sampletype" lay-filter="table_sampletype"> 
+         </table> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <!--按项目设置--> 
+     <div class="layui-row  layui-hide" lay-filter="filter_of_testitem"> 
+      <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+       <div class="layui-row" lay-filter="div_filter_of_testitem"> 
+        <div class="layui-form" lay-filter="form_testitem"> 
+         <div class="layui-form-item" style="margin-bottom: 2px;"> 
+          <select name="selectLBSection" placeholder="按检验小组过滤" lay-filter="select_section" lay-search=""> <option value="">选择检验小组</option> </select> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="layui-row"> 
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+         <table id="table_testitem" lay-filter="table_testitem"> 
+         </table> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <!--右项目样本类型关系列表--> 
+    <div class=" layui-col-md8 layui-col-lg8" style="padding-left: 5px;"> 
+     <div class="layui-row" lay-filter="div_choose_testitem"> 
+      <div class="layui-btn-group div_choose_testitem"> 
+       <button class="layui-btn layui-btn-xs" data-type="search_testitem"><i class="iconfont"></i>&nbsp;刷新</button> 
+       <button class="layui-btn layui-btn-xs" id="choose_testitem" data-type="choose_testitem"><i class="iconfont"></i>&nbsp;选择检验项目</button> 
+       <button class="layui-btn layui-btn-xs layui-bg-orange" data-type="delete"><i class="layui-icon"></i>删除</button> 
+      </div> 
+     </div> 
+     <div class="layui-row"> 
+      <div class="layui-col-sm12 layui-col-md12 layui-col-lg12"> 
+       <table id="table_sampleitem" lay-filter="table_sampleitem"> 
+       </table> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>   
+ </body>
+</html>

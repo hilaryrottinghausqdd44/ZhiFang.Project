@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="MEGroupSampleForm" table="[dbo].[ME_GroupSampleForm]">
+    <id name="Id" column="[GroupSampleFormID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="ESampleNo" column="[ESampleNo]" type="String" not-null="false" length="20" />
+    <property name="GTestDate" column="[GTestDate]" type="DateTime" not-null="false" length="8" />
+    <property name="GSampleNo" column="[GSampleNo]" type="String" not-null="false" length="20" />
+    <property name="GTestNo" column="[GTestNo]" type="Int32" not-null="false" length="4" />
+    <property name="GSampleTypeID" column="[GSampleTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="GSampleInfo" column="[GSampleInfo]" type="String" not-null="false" length="50" />
+    <property name="TestComment" column="[TestComment]" type="String" not-null="false" length="16" />
+    <property name="DistributeFlag" column="[DistributeFlag]" type="Int32" not-null="false" length="4" />
+    <property name="IsUpload" column="[IsUpload]" type="Int32" not-null="false" length="4" />
+    <property name="FormMemo" column="[FormMemo]" type="String" not-null="false" length="16" />
+    <property name="ZDY1" column="[ZDY1]" type="String" not-null="false" length="200" />
+    <property name="ZDY2" column="[ZDY2]" type="String" not-null="false" length="200" />
+    <property name="ZDY3" column="[ZDY3]" type="String" not-null="false" length="200" />
+    <property name="ZDY4" column="[ZDY4]" type="String" not-null="false" length="200" />
+    <property name="ZDY5" column="[ZDY5]" type="String" not-null="false" length="200" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <!--<property name="DeleteFlag" column="[DeleteFlag]" type="Boolean" not-null="false" length="1" />-->
+    <property name="GBarCode" column="[GBarCode]" type="String" not-null="false" length="20" />
+    <property name="MainTester" column="[MainTester]" type="String" not-null="false" length="200" />
+    <property name="OtherTester" column="[OtherTester]" type="String" not-null="false" length="200" />
+    <property name="ConfirmeDate" column="[ConfirmeDate]" type="DateTime" not-null="false" length="8" />
+    <property name="Examiner" column="[Examiner]" type="String" not-null="false" length="200" />
+    <property name="ExamineDate" column="[ExamineDate]" type="DateTime" not-null="false" length="8" />
+    <property name="ExaminerId" column="[ExaminerId]" type="Int64" not-null="false" length="8" />
+    <property name="MainTesterId" column="[MainTesterId]" type="Int64" not-null="false" length="8" />
+    <property name="Confirmer" column="[Confirmer]" type="String" not-null="false" length="200" />
+    <property name="ConfirmerId" column="[ConfirmerId]" type="Int64" not-null="false" length="8" />
+    <property name="MainState" column="[MainState]" type="Int32" not-null="false" length="4" />
+    <property name="IsHasNuclearAdmission" column="[IsHasNuclearAdmission]" type="Int32" not-null="false" length="4" />
+    <property name="IsCancelConfirmedOrAudited" column="[IsCancelConfirmedOrAudited]" type="Int32" not-null="false" length="4" />
+    <property name="CommState" column="[CommState]" type="Int32" not-null="false" length="4" />
+    <property name="PositiveFlag" column="[PositiveFlag]" type="Boolean" not-null="false" length="1"/>
+    <many-to-one name="BSampleStatus" class="BSampleStatus" >
+      <column name="[SampleStatusID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="GMGroup" class="GMGroup" >
+      <column name="[GroupID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEPTOrderForm" class="MEPTOrderForm" >
+      <column name="[OrderFormID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEPTSampleForm" class="MEPTSampleForm" >
+      <column name="[SampleFormID]" not-null="false"/>
+    </many-to-one>
+    <bag name="MEChargeInfoList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEChargeInfo"/>
+    </bag>
+    <bag name="MEGroupSampleItemList" inverse="true" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEGroupSampleItem"/>
+    </bag>
+    <bag name="MEGroupSampleReportPublicationList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEGroupSampleReportPublication"/>
+    </bag>
+    <bag name="MEGroupSampleReCheckFormList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEGroupSampleReCheckForm"/>
+    </bag>
+    <bag name="MEMicroAppraisalValueList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroAppraisalValue"/>
+    </bag>
+    <bag name="MEMicroCultureLogList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroCultureLog"/>
+    </bag>
+    <bag name="MEMicroCultureValueList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroCultureValue"/>
+    </bag>
+    <bag name="MEMicroDSTValueList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroDSTValue"/>
+    </bag>
+    <bag name="MEMicroInoculantList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroInoculant"/>
+    </bag>
+    <bag name="MEMicroRetainedBacteriaList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroRetainedBacteria"/>
+    </bag>
+    <bag name="MEMicroSmearValueList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroSmearValue"/>
+    </bag>
+    <bag name="MEMicroThreeReportList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroThreeReport"/>
+    </bag>
+    <bag name="MEMicroThreeReportDetailList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupSampleFormID]" />
+      </key>
+      <one-to-many class="MEMicroThreeReportDetail"/>
+    </bag>
+  </class>
+</hibernate-mapping>

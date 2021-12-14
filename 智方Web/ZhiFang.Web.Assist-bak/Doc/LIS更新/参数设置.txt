@@ -1,0 +1,24 @@
+
+按站点配置
+82036
+核收是否调用接口
+
+80033
+微生物返结果接口配置
+
+ isnull(@@zdy2@@,@@DefaultValue@@)
+
+82089
+常规检验审核调存储过程
+GK_UpDate_Result [groupsampleformid]
+
+
+80147
+微生物审核调存储过程
+BS_Micro_CountPrice [groupsampleformid]
+微生物审核调存储过程,不用写exec；多存储过程用竖杠|隔开，参数用中括号[]括起来；例：AAA [GroupSampleFormID]|BBB [SerialNo]
+
+GK_UpDate_Result
+
+DBCopy
+Dispense.JSN

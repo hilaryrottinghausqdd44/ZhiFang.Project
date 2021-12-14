@@ -1,0 +1,9 @@
+//高级表单查询--全部与查询条件配置:下拉列表数据对象字典model类
+Ext.define("ZhiFang.model.FormItemComboBoxModel",{
+	extend:'Ext.data.Model',
+    fields:[
+    	//{name:'id',type:'string'},//隐藏ID
+    	{name:'value',type:'string'},//显示名称
+    	{name:'text',type:'string'}//交互字段
+    ]
+})

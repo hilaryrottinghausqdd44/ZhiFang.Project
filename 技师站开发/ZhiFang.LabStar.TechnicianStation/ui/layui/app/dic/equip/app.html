@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>仪器</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+</head>
+<body>
+    <div class="layui-fluid myStyle">
+        <div class="layui-row layui-col-space5">
+            <div class=" layui-col-md6 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="layui-form" lay-filter='tableForm' id="searchTable">
+                            <div class="layui-row">
+                                <div class="layui-col-sm9 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">名称/简称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='fuzzyQuery' id="fuzzyQuery" autocomplete="off" placeholder="名称/简称/计算机站点/程序名" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm2 layui-col-xs4 switchStyle">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block" style="margin-left: 10px;">
+                                            <button class="layui-btn layui-btn-xs" id="search" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i>查询</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableContainer">
+                            <table id="table" lay-filter="table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6 layui-col-xs12">
+                <div class="layui-card tableHeight" id="card">
+                    <div class="layui-card-body">
+                        <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="tab" id="tab">
+                            <ul class="layui-tab-title childMar8">
+                                <li class="layui-this" data-index="0"><i class="layui-icon">&#xe63c;</i>&nbsp;仪器基本信息</li>
+                                <li data-index="1"><i class="iconfont">&#xe6fb;</i>&nbsp;仪器项目</li>
+                                <li data-index="2" class="layui-hide"><i class="layui-icon">&#xe620;</i>仪器通讯设置</li>
+                                <li data-index="3"><i class="iconfont">&#xe64c;</i>&nbsp;特殊结果替换</li>
+                                <li data-index="4"><i class="iconfont">&#xe764;</i>&nbsp;仪器特定小组</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show" data-index="0">
+                                    <span class="layui-badge" id="formType" style="position: absolute;left: 15px;">编辑</span>
+                                    <form class="layui-form" id="LBEquipForm" onkeydown="if(event.keyCode==13)return false;" lay-filter='LBEquipForm'>
+                                        <div class="container">
+                                            <div class="layui-row">
+                                                <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">主键id</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="hidden" name='LBEquip_Id' id="LBEquip_Id" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">仪器名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_CName' id="LBEquip_CName" autocomplete="off" lay-verify='required' placeholder="必填项" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">英文名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_EName' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">简称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_SName' id="LBEquip_SName" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">用户编码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_UseCode' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">快捷码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_Shortcode' id="LBEquip_Shortcode" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">标准编码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_DeveCode' id="LBEquip_DeveCode" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">拼音字头</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_PinYinZiTou' id="LBEquip_PinYinZiTou" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">所属小组</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBEquip_LBSection_Id" autocomplete="off" id="LBEquip_LBSection_Id" lay-verify='required' lay-filter="LBEquip_LBSection_Id"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">专业</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBEquip_SpecialtyID" autocomplete="off" id="LBEquip_SpecialtyID" lay-filter="LBEquip_SpecialtyID"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">计算机</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_Computer' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">程序名</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_ComProgram' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">仪器结果类型</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBEquip_EquipResultType" autocomplete="off" id="LBEquip_EquipResultType" lay-filter="LBEquip_EquipResultType">
+                                                                <option value="常规">常规</option>
+                                                                <option value="酶标仪">酶标仪</option>
+                                                                <option value="微生物培养">微生物培养</option>
+                                                                <option value="微生物药敏">微生物药敏</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否双向</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBEquip_DoubleFlag" autocomplete="off" id="LBEquip_DoubleFlag" lay-filter="LBEquip_DoubleFlag">
+                                                                <option value="0">否</option>
+                                                                <option value="1">双向</option>
+                                                                <option value="2">自动双向</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">通讯开始样本号</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_SampleNoStart' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">通讯截止样本号</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_SampleNoEnd' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">显示次序</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBEquip_DispOrder' id="LBEquip_DispOrder" lay-verify='number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否启用</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="LBEquip_IsUse" name='LBEquip_IsUse' lay-skin='switch' checked lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <blockquote class="layui-elem-quote">
+                                                        <div style="color:red;font-size:12px;">设置通讯自动核收的起止样本号</div>
+                                                        <div style="color:red;font-size:12px;">1：不设置，为空，采用通讯传输的号码（可能是条码号）。 </div>
+                                                        <div style="color:red;font-size:12px;">2：设置样本号，例如2000-3000。指定通讯自动核收的样本号从2000到3000 </div>
+                                                        <div style="color:red;font-size:12px;">3：设置为“分发规则”，根据分发规则计算样本号 </div>
+                                                    </blockquote>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">备注</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea name="LBEquip_Comment" placeholder="请输入内容" autocomplete="off" class="layui-textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-row">
+                                            <div class="layui-col-md12 layui-col-xs12" style="margin-top:10px;">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-btn-group">
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="add"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="edit"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                        <button class="layui-btn layui-btn-sm marR50" lay-submit id="save" lay-filter='save'><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                        <button class="layui-btn layui-btn-sm layui-btn-primary" type="button" id='reset' lay-filter='reset'><i class="iconfont">&#xe609;</i>&nbsp;重置</button>
+                                                        <button class="layui-btn layui-btn-sm " type="button" id="sort"><i class="iconfont">&#xe668;</i>&nbsp;排序</button>
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="commpara"><i class="iconfont">&#xe64b;</i>&nbsp;通讯控制参数</button>
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="import"><i class="iconfont">&#xe6a2;</i>&nbsp;导入</button>
+                                                        <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" id="del"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="layui-tab-item" data-index="1">
+                                    <div class="layui-btn-group">
+                                        <button class="layui-btn layui-btn-xs" type="button" id="addGroupItem"><i class="iconfont">&#xe6fb;</i>&nbsp;选择仪器项目</button>
+                                        <button class="layui-btn layui-btn-xs" type="button" id="copyOtherEquipItem"><i class="iconfont">&#xe685;</i>&nbsp;复制其他仪器项目</button>
+                                        <button class="layui-btn layui-btn-xs" type="button" id="equipItemQCSort"><i class="iconfont">&#xe668;</i>&nbsp;仪器项目质控排序</button>
+                                        <button class="layui-btn layui-btn-xs" type="button" id="equipItemCommSort"><i class="iconfont">&#xe650;</i>&nbsp;双向发送次序排序</button>
+                                        <button class="layui-btn layui-btn-xs" type="button" id="saveEquipItem"><i class="iconfont">&#xe713;</i>&nbsp;列表保存</button>
+                                    </div>
+                                    <table id="itemtable" lay-filter="itemtable"></table>
+                                    <!--备用通道-->
+                                    <script type="text/html" id="IsReserveTpl">
+                                        <input type="checkbox" name="IsReserve" title="" lay-skin="primary" lay-filter="IsReserve" {{ d.LBEquipItemVO_LBEquipItem_IsReserve == 'true' ? 'checked' : '' }}>
+                                    </script>
+                                    <!--缺省组合项目-->
+                                    <script type="text/html" id="groupItemTpl">
+                                        <select name='groupitem' lay-filter="groupitem"></select>
+                                    </script>
+                                    <!--特定小组-->
+                                    <script type="text/html" id="SectionIDTpl">
+                                        <select name='section' lay-filter='section'></select>
+                                    </script>
+                                </div>
+                                <div class="layui-tab-item" data-index="2">
+
+                                </div>
+                                <div class="layui-tab-item" data-index="3">
+                                    <div class="layui-btn-group">
+                                        <button class="layui-btn layui-btn-xs" type="button" id="addResultTH"><i class="layui-icon">&#xe654;</i>新增</button>
+                                        <button class="layui-btn layui-btn-xs" type="button" id="editResultTH"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                        <button class="layui-btn layui-btn-xs layui-btn-warm" type="button" id="delResultTH"><i class="layui-icon">&#xe640;</i>删除</button>
+                                    </div>
+                                    <table id="resultTable" lay-filter="resultTable"></table>
+                                </div>
+                                <div class="layui-tab-item" data-index="4">
+                                    <div class="layui-row">
+                                        <table id="equipsectiontable" lay-filter="equipsectiontable"></table>
+                                    </div>
+                                    <div class="layui-row">
+                                        <div class="layui-form" id="EquipSection" lay-filter="EquipSection" style="padding-top: 10px;padding-right: 15px;">
+                                            <div class="layui-row">
+                                                <div class="layui-col-xs6 ">
+                                                    <div class="layui-form-item layui-hide">
+                                                        <label class="layui-form-label">id</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBEquipSection_Id" id="LBEquipSection_Id" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">开始样本号</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBEquipSection_CompValue1" id="LBEquipSection_CompValue1" lay-verify="required" placeholder="必填项" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">截止样本号</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBEquipSection_CompValue2" id="LBEquipSection_CompValue2" lay-verify="required" placeholder="必填项" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">指定小组</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBEquipSection_LBSection_Id" autocomplete="off" id="LBEquipSection_LBSection_Id" lay-filter="LBEquipSection_LBSection_Id"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">指定项目</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBEquipSection_LBItem_Id" autocomplete="off" id="LBEquipSection_LBItem_Id" lay-filter="LBEquipSection_LBItem_Id"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">样本号标识</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LBEquipSection_SampleNoCode" id="LBEquipSection_SampleNoCode" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <div class="layui-input-block">
+                                                            <div class="layui-btn-group">
+                                                                <button class="layui-btn layui-btn-sm" type="button" id="addEquipSection"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                                <button class="layui-btn layui-btn-sm" type="button" id="editEquipSection"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                                <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" id="delEquipSection"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                                <button class="layui-btn layui-btn-sm" type="button" lay-submit="" lay-filter="saveEquipSection" id="saveEquipSection"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getCSS("../../../css/admin.css");
+        UIVersion.getCSS("../../../css/layui.form.sm.all.css");
+        UIVersion.getJS('app.js');
+    </script>
+    <style>
+        body>.layui-fluid { padding: 5px; }
+        .container{ overflow:auto;border-bottom: 1px solid #ccc; }
+        /**Tab页签调整**/
+        .myStyle .layui-tab-title .layui-this{ color:#009688!important; }
+        .myStyle .layui-tab-title .layui-this:after { height: 24px !important; }
+        .myStyle .layui-tab-title { height: 22px !important; }
+        .myStyle .layui-tab-title > li { line-height: 22px !important;padding:0 8px!important;font-size:12px!important;margin: 0!important; }
+        .layui-tab-title>li i{ font-size:12px; }
+        .myStyle .layui-tab-content { padding: 5px!important; }
+        /*label宽度*/
+        .myStyle .layui-form label { padding: 2px 0;width: 100px; }
+        .myStyle .layui-form .layui-input-block { margin-left: 110px; }
+        /*表格查询项*/
+        .myStyle #searchTable label { width: 60px; }
+        .myStyle #searchTable .layui-input-block { margin-left: 70px; }
+        .myStyle #searchTable .marL20 { margin-left: 20px; }
+        /*表格*/
+        .myStyle .layui-table-tool-temp { padding-right: 30px; }
+        .tableHeight { overflow: auto; }
+        /* 使得下拉框与单元格刚好合适      */
+        td .layui-form-select { margin-top: -10px;margin-left: -5px;margin-right: -5px; }
+        /*margin边距*/
+        .myStyle .marR50 { margin-right: 50px; }
+        .layui-form-select dl{ top:28px!important; }/*下拉框*/
+        .layui-form-selectup dl{ top:auto!important;bottom:28px; }
+        .layui-disabled, .layui-disabled:hover { color: #666 !important; }
+    </style>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>分配小组</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <style>
+        /*label宽度*/
+        .layui-form label {
+            padding: 9px 0;
+            width: 80px;
+        }
+        /*表格*/
+        .layui-table-tool-temp {
+            padding-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <div class="layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="layui-form">
+                            <div class="layui-row">
+                                <div class="layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">选择小组</label>
+                                        <div class="layui-input-block">
+                                            <select name="LBSectionItem_LBSection_Id" id="SectionID" lay-filter="SectionID"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">是否为缺省</label>
+                                        <div class="layui-input-block">
+                                            <input type="checkbox" checked name='LBSectionItem_IsDefault' id="IsDefault" lay-skin='switch' lay-text="是|否" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">缺省值</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSectionItem_DefultValue' id="DefultValue" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block" style="text-align:right;">
+                                            <button class="layui-btn layui-btn-sm" type="button" id="save"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('allotSection.js');
+    </script>
+</body>
+</html>

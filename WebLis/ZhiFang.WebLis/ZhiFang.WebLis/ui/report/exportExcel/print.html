@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <script src="../../util/common.js"></script>
+    <script src="print.js"></script>
+</head>
+<body class="easyui-layout">
+    <div id="toolbar_search" data-options="region:'north'" style="height:36px;background:#efefef;padding:0;margin:0">
+        <div style="float: left; display: inline;margin-top:3px;">
+            <a id="search-button-today" class="easyui-linkbutton" onclick="Today()" title="查询今天的数据"
+               data-options="plain:false">今天</a>
+            <a id="search-button-3days" class="easyui-linkbutton" onclick="tDay()" title="查询三天内的数据"
+               data-options="plain:false">三天</a>
+            <a id="search-button-7days" class="easyui-linkbutton" onclick="sDay()" title="查询七天内的数据"
+               data-options="plain:false">一周</a>
+             
+            <input id="starting-time" type="text" required=required name="star" data-options="width:95" class="easyui-datebox" /> -
+            <input id="final-time" type="text" required=required name="end" data-options="width:95" class="easyui-datetimebox" />
+            姓名:<input id="text-CNAME" data-options="prompt:'请输入姓名'," style="width:90px;" class=" easyui-textbox" />
+            <!--申请单号:<input id="text-SERIALNO" data-options="prompt:'请输入申请单号'," hidden="hidden" style="width:110px;" class="easyui-textbox" />-->
+            送检单位:<input id="cbCLIENTNO" style="width:120px;" class="easyui-combobox" />
+        </div>
+        <div style="float: right; display: inline; margin-top: 3px;">
+            <a id="btnexport" style="margin-right:2px;" onclick="doSearch()" data-options="iconCls:'icon-search'" class="easyui-linkbutton">查询</a>
+            <a id="btnload" style="margin-right: 2px;"onclick="btnexport()" >点击下载</a>
+        </div>    
+         
+    </div>
+    <div data-options="region:'center'" title="结果导出">
+        <iframe id="query" style="height:99%;width:100%;" frameborder="0"></iframe>
+        <iframe id="preview" style="height:-1px;width:-1px;" hidden="hidden" frameborder="0"></iframe>
+        
+    </div>
+
+</body>
+</html>

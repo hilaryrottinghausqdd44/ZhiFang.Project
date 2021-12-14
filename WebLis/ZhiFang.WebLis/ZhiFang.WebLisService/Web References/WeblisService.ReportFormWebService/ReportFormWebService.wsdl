@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SourceOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCodeNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReportResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeReportFormItem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileReport" type="tns:ArrayOfBase64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlWebLisOthers" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DownloadReportByBarcodeNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarcodeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportByBarcodeNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReportByBarcodeNoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebReportXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormIDListByBarcodeNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarcodeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormIDListByBarcodeNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReportFormIDListByBarcodeNoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormIDList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DownloadReportFormIDListByClientBarcodeNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarcodeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormIDListByClientBarcodeNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReportFormIDListByClientBarcodeNoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormIDList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportByReportFormID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportByReportFormIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReportByReportFormIDResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebReportXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportByPersonID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonID" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportByPersonIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReportByPersonIDResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebReportXML" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormImageList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportByBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCode" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportByBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReportByBarCodeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebReportXML" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormImageList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="retrieveDocumentViewInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="documentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="retrieveDocumentViewInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retrieveDocumentViewInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryReportsCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SourceOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DestiOrgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCodeNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryReportsCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryReportsCountResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="BarCodeCounts" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadReportFromBytes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata_td" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadReportFromBytesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpLoadReportFromBytesResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadReportFromStr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata_td" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadReportFromStrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpLoadReportFromStrResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadReportFromBytesNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata_td" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkclient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadReportFromBytesNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpLoadReportFromBytesNewResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUpLoadReportFromBytes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata_td" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkclient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUpLoadReportFromBytesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckUpLoadReportFromBytesResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadReportFromBytes_ImageList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdfdata_td" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImageNameList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImageByteList" type="tns:ArrayOfBase64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadReportFromBytes_ImageListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpLoadReportFromBytes_ImageListResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadReportFormID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HealthCardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadReportFormIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownLoadReportFormIDResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebReportXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportUri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormTitle" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportUriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportUriResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportUri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormColumn">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetReportFormColumnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportFormColumnResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadReportForm_PKI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadReportForm_PKIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownLoadReportForm_PKIResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportItemFull">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportMicroFull">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportMarrowFull">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pdfData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Changestatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangestatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangestatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryReport_PKI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebLisFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryReport_PKIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryReport_PKIResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormFull">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadReportFormPDFByAccountPassWord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadReportFormPDFByAccountPassWordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownLoadReportFormPDFByAccountPassWordResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="PDFDataCenter" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="PDFDataLab" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReport" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportByBarcodeNoSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportByBarcodeNo" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportByBarcodeNoSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportByBarcodeNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormIDListByBarcodeNoSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormIDListByBarcodeNo" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormIDListByBarcodeNoSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormIDListByBarcodeNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormIDListByClientBarcodeNoSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormIDListByClientBarcodeNo" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormIDListByClientBarcodeNoSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormIDListByClientBarcodeNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportByReportFormIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportByReportFormID" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportByReportFormIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportByReportFormIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportByPersonIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportByPersonID" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportByPersonIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportByPersonIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportByBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportByBarCode" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportByBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportByBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="retrieveDocumentViewInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:retrieveDocumentViewInfo" />
+  </wsdl:message>
+  <wsdl:message name="retrieveDocumentViewInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:retrieveDocumentViewInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryReportsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryReportsCount" />
+  </wsdl:message>
+  <wsdl:message name="QueryReportsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryReportsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpLoadReportFromBytes" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpLoadReportFromBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromStrSoapIn">
+    <wsdl:part name="parameters" element="tns:UpLoadReportFromStr" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromStrSoapOut">
+    <wsdl:part name="parameters" element="tns:UpLoadReportFromStrResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytesNewSoapIn">
+    <wsdl:part name="parameters" element="tns:UpLoadReportFromBytesNew" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytesNewSoapOut">
+    <wsdl:part name="parameters" element="tns:UpLoadReportFromBytesNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUpLoadReportFromBytesSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUpLoadReportFromBytes" />
+  </wsdl:message>
+  <wsdl:message name="CheckUpLoadReportFromBytesSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUpLoadReportFromBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytes_ImageListSoapIn">
+    <wsdl:part name="parameters" element="tns:UpLoadReportFromBytes_ImageList" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadReportFromBytes_ImageListSoapOut">
+    <wsdl:part name="parameters" element="tns:UpLoadReportFromBytes_ImageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadReportFormIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DownLoadReportFormID" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadReportFormIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DownLoadReportFormIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportUriSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportUri" />
+  </wsdl:message>
+  <wsdl:message name="GetReportUriSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportUriResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormColumnSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormColumn" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormColumnSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormColumnResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadReportForm_PKISoapIn">
+    <wsdl:part name="parameters" element="tns:DownLoadReportForm_PKI" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadReportForm_PKISoapOut">
+    <wsdl:part name="parameters" element="tns:DownLoadReportForm_PKIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangestatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Changestatus" />
+  </wsdl:message>
+  <wsdl:message name="ChangestatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangestatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryReport_PKISoapIn">
+    <wsdl:part name="parameters" element="tns:QueryReport_PKI" />
+  </wsdl:message>
+  <wsdl:message name="QueryReport_PKISoapOut">
+    <wsdl:part name="parameters" element="tns:QueryReport_PKIResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadReportFormPDFByAccountPassWordSoapIn">
+    <wsdl:part name="parameters" element="tns:DownLoadReportFormPDFByAccountPassWord" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadReportFormPDFByAccountPassWordSoapOut">
+    <wsdl:part name="parameters" element="tns:DownLoadReportFormPDFByAccountPassWordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportFormWebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">下载报告</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportSoapIn" />
+      <wsdl:output message="tns:DownloadReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByBarcodeNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">下载报告</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportByBarcodeNoSoapIn" />
+      <wsdl:output message="tns:DownloadReportByBarcodeNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormIDListByBarcodeNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">下载报告单ID列表</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportFormIDListByBarcodeNoSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormIDListByBarcodeNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormIDListByClientBarcodeNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">下载报告单ID列表</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportFormIDListByClientBarcodeNoSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormIDListByClientBarcodeNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByReportFormID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">下载报告单</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportByReportFormIDSoapIn" />
+      <wsdl:output message="tns:DownloadReportByReportFormIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByPersonID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">下载报告(博尔诚医学检验所)身份证号、病历号</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportByPersonIDSoapIn" />
+      <wsdl:output message="tns:DownloadReportByPersonIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByBarCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">下载报告(博尔诚医学检验所)条码号</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportByBarCodeSoapIn" />
+      <wsdl:output message="tns:DownloadReportByBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveDocumentViewInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">下载pdf报告芜湖定制serialno为唯一条码</wsdl:documentation>
+      <wsdl:input message="tns:retrieveDocumentViewInfoSoapIn" />
+      <wsdl:output message="tns:retrieveDocumentViewInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryReportsCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询同一条码多张报告的记录</wsdl:documentation>
+      <wsdl:input message="tns:QueryReportsCountSoapIn" />
+      <wsdl:output message="tns:QueryReportsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">上传检验报告（通用，此版本必须升级数据库到最新版本，3月27日添加了字段验证）</wsdl:documentation>
+      <wsdl:input message="tns:UpLoadReportFromBytesSoapIn" />
+      <wsdl:output message="tns:UpLoadReportFromBytesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromStr">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">上传检验报告（通用，此版本必须升级数据库到最新版本，3月27日添加了字段验证）</wsdl:documentation>
+      <wsdl:input message="tns:UpLoadReportFromStrSoapIn" />
+      <wsdl:output message="tns:UpLoadReportFromStrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytesNew">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">上传检验报告（传clientno）</wsdl:documentation>
+      <wsdl:input message="tns:UpLoadReportFromBytesNewSoapIn" />
+      <wsdl:output message="tns:UpLoadReportFromBytesNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUpLoadReportFromBytes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">上传检验报告(验证标准字段)</wsdl:documentation>
+      <wsdl:input message="tns:CheckUpLoadReportFromBytesSoapIn" />
+      <wsdl:output message="tns:CheckUpLoadReportFromBytesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes_ImageList">
+      <wsdl:input message="tns:UpLoadReportFromBytes_ImageListSoapIn" />
+      <wsdl:output message="tns:UpLoadReportFromBytes_ImageListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportFormID">
+      <wsdl:input message="tns:DownLoadReportFormIDSoapIn" />
+      <wsdl:output message="tns:DownLoadReportFormIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportUri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取PDF报告地址</wsdl:documentation>
+      <wsdl:input message="tns:GetReportUriSoapIn" />
+      <wsdl:output message="tns:GetReportUriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormColumn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PKI获取报告列</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormColumnSoapIn" />
+      <wsdl:output message="tns:GetReportFormColumnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportForm_PKI">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PKI定制报告下载服务</wsdl:documentation>
+      <wsdl:input message="tns:DownLoadReportForm_PKISoapIn" />
+      <wsdl:output message="tns:DownLoadReportForm_PKISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Changestatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PKI下载成功打标记</wsdl:documentation>
+      <wsdl:input message="tns:ChangestatusSoapIn" />
+      <wsdl:output message="tns:ChangestatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryReport_PKI">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PKI定制报告查询</wsdl:documentation>
+      <wsdl:input message="tns:QueryReport_PKISoapIn" />
+      <wsdl:output message="tns:QueryReport_PKISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportFormPDFByAccountPassWord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过ReportFormID下载PDF(中心+套打)文件(账户密码)</wsdl:documentation>
+      <wsdl:input message="tns:DownLoadReportFormPDFByAccountPassWordSoapIn" />
+      <wsdl:output message="tns:DownLoadReportFormPDFByAccountPassWordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportFormWebServiceSoap" type="tns:ReportFormWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReport">
+      <soap:operation soapAction="http://tempuri.org/DownloadReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByBarcodeNo">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportByBarcodeNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormIDListByBarcodeNo">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportFormIDListByBarcodeNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormIDListByClientBarcodeNo">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportFormIDListByClientBarcodeNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByReportFormID">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportByReportFormID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByPersonID">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportByPersonID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByBarCode">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportByBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveDocumentViewInfo">
+      <soap:operation soapAction="http://tempuri.org/retrieveDocumentViewInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryReportsCount">
+      <soap:operation soapAction="http://tempuri.org/QueryReportsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes">
+      <soap:operation soapAction="http://tempuri.org/UpLoadReportFromBytes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromStr">
+      <soap:operation soapAction="http://tempuri.org/UpLoadReportFromStr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytesNew">
+      <soap:operation soapAction="http://tempuri.org/UpLoadReportFromBytesNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUpLoadReportFromBytes">
+      <soap:operation soapAction="http://tempuri.org/CheckUpLoadReportFromBytes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes_ImageList">
+      <soap:operation soapAction="http://tempuri.org/UpLoadReportFromBytes_ImageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportFormID">
+      <soap:operation soapAction="http://tempuri.org/DownLoadReportFormID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportUri">
+      <soap:operation soapAction="http://tempuri.org/GetReportUri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormColumn">
+      <soap:operation soapAction="http://tempuri.org/GetReportFormColumn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportForm_PKI">
+      <soap:operation soapAction="http://tempuri.org/DownLoadReportForm_PKI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Changestatus">
+      <soap:operation soapAction="http://tempuri.org/Changestatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryReport_PKI">
+      <soap:operation soapAction="http://tempuri.org/QueryReport_PKI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportFormPDFByAccountPassWord">
+      <soap:operation soapAction="http://tempuri.org/DownLoadReportFormPDFByAccountPassWord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportFormWebServiceSoap12" type="tns:ReportFormWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReport">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByBarcodeNo">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportByBarcodeNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormIDListByBarcodeNo">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportFormIDListByBarcodeNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormIDListByClientBarcodeNo">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportFormIDListByClientBarcodeNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByReportFormID">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportByReportFormID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByPersonID">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportByPersonID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportByBarCode">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportByBarCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveDocumentViewInfo">
+      <soap12:operation soapAction="http://tempuri.org/retrieveDocumentViewInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryReportsCount">
+      <soap12:operation soapAction="http://tempuri.org/QueryReportsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes">
+      <soap12:operation soapAction="http://tempuri.org/UpLoadReportFromBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromStr">
+      <soap12:operation soapAction="http://tempuri.org/UpLoadReportFromStr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytesNew">
+      <soap12:operation soapAction="http://tempuri.org/UpLoadReportFromBytesNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUpLoadReportFromBytes">
+      <soap12:operation soapAction="http://tempuri.org/CheckUpLoadReportFromBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadReportFromBytes_ImageList">
+      <soap12:operation soapAction="http://tempuri.org/UpLoadReportFromBytes_ImageList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportFormID">
+      <soap12:operation soapAction="http://tempuri.org/DownLoadReportFormID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportUri">
+      <soap12:operation soapAction="http://tempuri.org/GetReportUri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormColumn">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFormColumn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportForm_PKI">
+      <soap12:operation soapAction="http://tempuri.org/DownLoadReportForm_PKI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Changestatus">
+      <soap12:operation soapAction="http://tempuri.org/Changestatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryReport_PKI">
+      <soap12:operation soapAction="http://tempuri.org/QueryReport_PKI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadReportFormPDFByAccountPassWord">
+      <soap12:operation soapAction="http://tempuri.org/DownLoadReportFormPDFByAccountPassWord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportFormWebService">
+    <wsdl:port name="ReportFormWebServiceSoap" binding="tns:ReportFormWebServiceSoap">
+      <soap:address location="http://localhost/WebLisService_2015/ReportFormWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportFormWebServiceSoap12" binding="tns:ReportFormWebServiceSoap12">
+      <soap12:address location="http://localhost/WebLisService_2015/ReportFormWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

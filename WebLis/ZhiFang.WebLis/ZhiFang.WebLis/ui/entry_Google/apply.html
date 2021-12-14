@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>申请录入</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--不缓存缓存页面-->
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src='http://localhost:8000/CLodopfuncs.js'></script>
+    <script src='http://localhost:18000/CLodopfuncs.js'></script>
+    <script src='http://127.0.0.1:8000/CLodopfuncs.js'></script>
+    <script src='http://127.0.0.1:18000/CLodopfuncs.js'></script>
+    <script src="../util/util.js?v20200810-1" type="text/javascript"></script>
+    <script src="../util/CLodop.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../util/common.js"  type="text/javascript"></script>
+    <script type="text/javascript" src="../BarPrintClass/barcode.js" type="text/javascript"></script>
+    <script type="text/javascript" src="apply.js?v1" type="text/javascript"></script>
+
+    <style type="text/css">
+        .datagrid-header {
+            position: absolute;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body class="easyui-layout" onkeydown="if(event.keyCode==116){event.keyCode=0;return false;}">
+    <!-- 网页打印 -->
+    <object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+        <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="/ui/util/print/resources/install_lodop32.exe" /></embed>
+    </object>
+    <!-- 申请录入 -->
+    <div id="info" class="easyui-panel" data-options="region:'north',title:''" style="height:125px;padding:4px">
+        <table width="100%">
+            <tr>
+                <td>送检单位:</td>
+                <td><select id="form_ClientNo" style="width:155px;"></select></td>
+                <td>姓名:</td>
+                <td><input id="form_CName" /></td>
+                <td>性别:</td>
+                <td><select id="form_GenderNo" style="width:155px;" class="easyui-combobox"></select></td>
+                <td>年龄:</td>
+                <td><input id="form_Age" style="width:95px;" /><select id="form_AgeUnitNo" style="width:60px;" class="easyui-combobox"></select></td>
+                <td>医生:</td>
+                <td>
+                    <select id="form_Doctor" style="width:120px;" class="easyui-combobox"></select>
+                    <a id="form_Doctor_Add" href="#" class="easyui-linkbutton"
+                       title="添加医生">添加</a>
+
+                    <div id="form_Doctor_Add_Win" class="easyui-dialog"
+                         style="width:260px;height:200px;padding:10px;" title="添加医生"
+                         data-options="modal:true,closed:true,iconCls:'icon-add',buttons:'#form_Doctor_Add_Win_Buttons'">
+                        <div style="padding:5px 0;">
+                            姓名：
+                            <input id="form_Doctor_Add_Name" class="easyui-textbox"
+                                   data-options="prompt:'必填',missingMessage:'必填',required:true,validType:['length[0,20]']" />
+                        </div>
+                        <div style="padding:5px 0;">
+                            编号：
+                            <input id="form_Doctor_Add_No" class="easyui-numberbox"
+                                   type="text" data-options="prompt:'必填',missingMessage:'必填',required:true,min:0,precision:0" />
+                        </div>
+                        <div style="padding:5px 0;">
+                            简称：
+                            <input id="form_Doctor_Add_ShortCode" class="easyui-textbox"
+                                   data-options="prompt:'必填',missingMessage:'必填',required:true,validType:['length[0,20]']" />
+                        </div>
+                    </div>
+                    <div id="form_Doctor_Add_Win_Buttons">
+                        <a id="form_Doctor_Add_Win_Buttons_Save" href="#" class="easyui-linkbutton"
+                           data-options="iconCls:'icon-save',plain:true">保存</a>
+                        <a id="form_Doctor_Add_Win_Buttons_Cancel" href="#" class="easyui-linkbutton">取消</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>就诊类型:</td>
+                <td><select id="form_jztype" style="width:155px;" class="easyui-combobox"></select></td>
+                <td>科室:</td>
+                <td><select id="form_DeptNo" style="width:155px;" class="easyui-combobox"></select></td>
+                <td>病历号:</td>
+                <td><input id="form_PatNo" class="easyui_searchbox" iconCls="" /></td>
+                <td>送检类型:</td>
+                <td><select id="form_TestTypeNo" style="width:155px;" class="easyui-combobox"></select></td>
+                <td>开单时间:</td>
+                <td><input id="form_OperDate" style="width:125px" /><a id="form_OperDate_clear">清空</a></td>
+            </tr>
+            <tr>
+                <td><a style="color:red;">申请号</a>:</td>
+                <td><input id="form_NRequestFormNo" style="width:155px" /></td>
+
+                <!--<td>医生:</td><td><select id="form_Doctor" style="width:155px;"></select></td>-->
+
+                <td>病区:</td>
+                <td><select id="form_DistrictNo" style="width:155px;"></select></td>
+                <td>病房:</td>
+                <td><input id="form_WardName" /></td>
+                <td>采样人:</td>
+                <td><input id="form_Operator" /></td>
+                <td>采样时间:</td>
+                <td><input id="form_CollectDate" /></td>
+            </tr>
+            <tr>
+                <td>民族:</td>
+                <td><select id="form_FolkNo" style="width:155px;"></select></td>
+                <td>收费:</td>
+                <td><input id="form_Charge" /></td>
+                <td>诊断结果:</td>
+                <td><input id="form_Diag" /></td>
+                <td>床位:</td>
+                <td><input id="form_Bed" /></td>
+                <td>身份证:</td>
+                <td><input Class="easyui-textbox" id="form_PersonID" />"X"需大写</td>
+                <td style="display:none">样本类型:</td>
+                <td style="display:none"><select id="form_SampleTypeNo" style="width:155px;"></select></td>
+            </tr>
+        </table>
+    </div>
+
+    <div data-options="region:'west',title:'项目类型',closed:true,split:true" style="width:200px;">
+        <table id="itemtype_grid"></table>
+    </div>
+    <div id="itemtype_toolbar">
+        <a id="itemtype_toolbar_reload" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true">刷新</a>
+    </div>
+
+    <div id="center" data-options="region:'center'" style="padding:1px">
+        <div class="easyui-layout" data-options="fit:true" style="border:0">
+            <div data-options="region:'center'" style="border:0">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div id="uncheck_grid_toolbar" data-options="region:'north'" style="height:28px;background:#efefef;padding:1px;">
+                        <div id="uncheck_grid_search"></div>
+                    </div>
+                    <div id="uncheck_grid" data-options="region:'center'"></div>
+                    <div id="uncheck_grid_pagination" data-options="region:'south'" style="height:32px;background:#efefef;"></div>
+                </div>
+            </div>
+            <!-- 已选组合项目 -->
+            <div id="checked" data-options="region:'east',title:''" style="width:200px;">
+                <table id="checked_grid"></table>
+            </div>
+            <div id="checked_grid_toolbar" style="padding:5.5px">
+                <a>已选项目</a>&nbsp;
+                <b id="checked_grid_toolbar_price" title="总价:￥0.00">总价:￥0.00</b>
+            </div>
+        </div>
+    </div>
+    <!-- 条码 -->
+    <div data-options="region:'east',title:'',split:true" style="width:300px;padding:1px;">
+        <table id="barcode_grid"></table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <!--<object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.RBACService" type="ZhiFang.LabStar.TechnicianStation.RBACService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <property name="IBImportFile" ref="BImportFile"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHRPosition" ref="BHRPosition"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <property name="IBSLog" ref="BSLog"/>
+    <property name="IBRBACPreconditions" ref="BRBACPreconditions"/>
+  </object>-->
+
+  <object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarBaseTableService" type="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarBaseTableService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+    <property name="IBBHost" ref="BBHost"/>
+    <property name="IBBHostType" ref="BBHostType"/>
+    <property name="IBBHostTypeUser" ref="BBHostTypeUser"/>
+    <property name="IBBPara" ref="BBPara"/>
+    <property name="IBBParaItem" ref="BBParaItem"/>
+    <property name="IBLBChargeType" ref="BLBChargeType"/>
+    <property name="IBLBCollectPart" ref="BLBCollectPart"/>
+    <property name="IBLBDestination" ref="BLBDestination"/>
+    <property name="IBLBDiag" ref="BLBDiag"/>
+    <property name="IBLBDict" ref="BLBDict"/>
+    <property name="IBLBEquip" ref="BLBEquip"/>
+    <property name="IBLBEquipItem" ref="BLBEquipItem"/>
+    <property name="IBLBEquipResultTH" ref="BLBEquipResultTH"/>   
+    <property name="IBLBEquipSection" ref="BLBEquipSection"/>   
+    <property name="IBLBFolk" ref="BLBFolk"/>        
+    <property name="IBLBExpertRule" ref="BLBExpertRule"/>        
+    <property name="IBLBExpertRuleList" ref="BLBExpertRuleList"/> 
+    <property name="IBLBItem" ref="BLBItem"/>
+    <property name="IBLBItemCharge" ref="BLBItemCharge"/>    
+    <property name="IBLBItemCalc" ref="BLBItemCalc"/>
+    <property name="IBLBItemCalcFormula" ref="BLBItemCalcFormula"/>
+    <property name="IBLBItemComp" ref="BLBItemComp"/>
+    <property name="IBLBItemGroup" ref="BLBItemGroup"/>
+    <property name="IBLBItemRange" ref="BLBItemRange"/>
+    <property name="IBLBItemRangeExp" ref="BLBItemRangeExp"/>
+    <property name="IBLBItemTimeW" ref="BLBItemTimeW"/>
+    <property name="IBLBItemExp" ref="BLBItemExp"/>    
+    <property name="IBLBPhrase" ref="BLBPhrase"/>
+    <property name="IBLBPhyPeriod" ref="BLBPhyPeriod"/>
+    <property name="IBLBSampleType" ref="BLBSampleType"/>
+    <property name="IBLBSection" ref="BLBSection"/>
+    <property name="IBLBSectionItem" ref="BLBSectionItem"/>
+    <property name="IBLBSectionPrint" ref="BLBSectionPrint"/> 
+    <property name="IBLBSectionHisComp" ref="BLBSectionHisComp"/>     
+    <property name="IBLBSickType" ref="BLBSickType"/>
+    <property name="IBLBSpecialty" ref="BLBSpecialty"/>
+    <property name="IBLBRight" ref="BLBRight"/>    
+    <property name="IBLBReportDate" ref="BLBReportDate"/>
+    <property name="IBLBReportDateItem" ref="BLBReportDateItem"/>
+    <property name="IBLBReportDateRule" ref="BLBReportDateRule"/>
+    <property name="IBLBParItemSplit" ref="BLBParItemSplit"/>
+    <property name="IBLBPhrasesWatch" ref="BLBPhrasesWatch"/>
+    <property name="IBLBPhrasesWatchClass" ref="BLBPhrasesWatchClass"/>
+    <property name="IBLBPhrasesWatchClassItem" ref="BLBPhrasesWatchClassItem"/>
+    <property name="IBLBOrderModel" ref="BLBOrderModel"/>    
+    <property name="IBLBOrderModelItem" ref="BLBOrderModelItem"/>        
+    <property name="IBLBSampleItem" ref="BLBSampleItem"/>
+    <property name="IBLBSamplingChargeItem" ref="BLBSamplingChargeItem"/>
+    <property name="IBLBSamplingGroup" ref="BLBSamplingGroup"/>
+    <property name="IBLBSamplingItem" ref="BLBSamplingItem"/>
+    <property name="IBLBTcuvete" ref="BLBTcuvete"/>
+    <property name="IBLBTranRule" ref="BLBTranRule"/>
+    <property name="IBLBTranRuleItem" ref="BLBTranRuleItem"/>
+    <property name="IBLBTranRuleType" ref="BLBTranRuleType"/>
+    <property name="IBLisCommon" ref="BLisCommon"/>
+	<property name="IBLBDicCodeLink" ref="BLBDicCodeLink"/>
+	<property name="IBLBItemCodeLink" ref="BLBItemCodeLink"/>
+	<property name="IBBPrintModel" ref="BBPrintModel"/>
+	<property name="IBLBReportDateDesc" ref="BLBReportDateDesc"/>
+	<property name="IBLBTGetMaxNo" ref="BLBTGetMaxNo"/>
+	<property name="IBLBTranRuleHostSection" ref="BLBTranRuleHostSection"/>
+    <property name="IBLisBarCodeRefuseRecord" ref="BLisBarCodeRefuseRecord"/>
+	<property name="IBLisQueue" ref="BLisQueue"/>
+  </object>
+
+  <object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarService" type="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+    <property name="IBLisBarCodeForm" ref="BLisBarCodeForm"/>
+    <property name="IBLisBarCodeItem" ref="BLisBarCodeItem"/>
+    <property name="IBLisEquipForm" ref="BLisEquipForm"/>
+    <property name="IBLisEquipItem" ref="BLisEquipItem"/>
+    <property name="IBLisOrderForm" ref="BLisOrderForm"/>
+    <property name="IBLisOrderItem" ref="BLisOrderItem"/>
+    <property name="IBLisPatient" ref="BLisPatient"/>
+    <property name="IBLisTestForm" ref="BLisTestForm"/>
+    <property name="IBLisTestItem" ref="BLisTestItem"/>
+    <property name="IBLisTestGraph" ref="BLisTestGraph"/>
+    <property name="IBLisOperateAuthorize" ref="BLisOperateAuthorize"/>
+    <property name="IBLisOperateASection" ref="BLisOperateASection"/>
+    <property name="IBLisOperate" ref="BLisOperate"/>
+    <property name="IBLisEquipGraph" ref="BLisEquipGraph"/>
+    <property name="IBLBItemRange" ref="BLBItemRange"/>
+    <property name="IBLisCommon" ref="BLisCommon"/>
+    <property name="IBLBItem" ref="BLBItem"/>
+    <property name="IBLisEquipComFile" ref="BLisEquipComFile"/>
+    <property name="IBLisEquipComLog" ref="BLisEquipComLog"/>
+
+    <property name="IBLisTestFormMsg" ref="BLisTestFormMsg"/>
+    <property name="IBLisTestFormMsgItem" ref="BLisTestFormMsgItem"/>
+    <property name="IBLisTestItemReceive" ref="BLisTestItemReceive"/>
+  </object>
+  
+  <object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarQCService" type="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarQCService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+    <property name="IBLBQCItem" ref="BLBQCItem"/>
+    <property name="IBLBQCItemTime" ref="BLBQCItemTime"/>
+    <property name="IBLBQCPrintTemplate" ref="BLBQCPrintTemplate"/>
+    <property name="IBLBQCMaterial" ref="BLBQCMaterial"/>
+    <property name="IBLBQCMatTime" ref="BLBQCMatTime"/>
+    <property name="IBLBQCItemRule" ref="BLBQCItemRule"/>
+    <property name="IBLBQCRule" ref="BLBQCRule"/>
+    <property name="IBLBQCRuleBase" ref="BLBQCRuleBase"/>
+    <property name="IBLBQCRulesCon" ref="BLBQCRulesCon"/>
+    <property name="IBLisTestItem" ref="BLisTestItem"/>
+    <property name="IBLisQCData" ref="BLisQCData"/>
+    <property name="IBLisQCComments" ref="BLisQCComments"/>
+    <property name="IBLisCommon" ref="BLisCommon"/>
+  </object>
+
+  <object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarPreService" type="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarPreService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+    <property name="IBLBSamplingItem" ref="BLBSamplingItem"/>
+    <property name="IBLBSamplingGroup" ref="BLBSamplingGroup"/>
+    <property name="IBLBReportDate" ref="BLBReportDate"/>
+    <property name="IBLBReportDateItem" ref="BLBReportDateItem"/>
+    <property name="IBLBReportDateRule" ref="BLBReportDateRule"/>
+    <property name="IBLisCommon" ref="BLisCommon"/>
+	<property name="IBLBItem" ref="BLBItem"/>
+	<property name="IBLisOrderForm" ref="BLisOrderForm"/>
+	<property name="IBLisPatient" ref="BLisPatient"/>
+    <property name="IBBParaItem" ref="BBParaItem"/>
+    <property name="IBBPara" ref="BBPara"/>
+	<property name="IBLisBarCodeForm" ref="BLisBarCodeForm"/>
+	<property name="IBLisBarCodeItem" ref="BLisBarCodeItem"/>
+    <property name="IBBHostType" ref="BBHostType"/>
+    <property name="IBLBOrderModel" ref="BLBOrderModel"/>    
+    <property name="IBLBOrderModelItem" ref="BLBOrderModelItem"/>
+	<property name="IBBHostTypeUser" ref="BBHostTypeUser"/>
+	<property name="IBLBDicCodeLink" ref="BLBDicCodeLink"/>
+	<property name="IBLBTranRule" ref="BLBTranRule"/>
+	<property name="IBLBTranRuleItem" ref="BLBTranRuleItem"/>
+	<property name="IBLBTranRuleHostSection" ref="BLBTranRuleHostSection"/>
+  </object>
+
+  <object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarCommonService" type="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarCommonService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+    <property name="IBLisCommon" ref="BLisCommon"/>
+  </object>
+
+  <object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.CommonService" type="ZhiFang.LabStar.TechnicianStation.ServerWCF.CommonService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+    <property name="IBBPara" ref="BBPara"/>
+  </object>
+
+  <object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarCommService" type="ZhiFang.LabStar.TechnicianStation.ServerWCF.LabStarCommService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+    <property name="IBLisCommon" ref="BLisCommon"/>
+    <property name="IBLisEquipForm" ref="BLisEquipForm"/>
+    <property name="IBLisEquipItem" ref="BLisEquipItem"/>
+    <property name="IBLBEquip" ref="BLBEquip"/>
+    <property name="IBLBEquipItem" ref="BLBEquipItem"/>
+    <property name="IBLBSampleType" ref="BLBSampleType"/>
+    <property name="IBLBQCItem" ref="BLBQCItem"/>
+    <property name="IBLBQCMaterial" ref="BLBQCMaterial"/>
+    <property name="IBLisEquipComFile" ref="BLisEquipComFile"/>
+    <property name="IBLisEquipComLog" ref="BLisEquipComLog"/>
+  </object>
+	<object id="ZhiFang.LabStar.TechnicianStation.ServerWCF.ModuleConfigService" type="ZhiFang.LabStar.TechnicianStation.ServerWCF.ModuleConfigService,ZhiFang.LabStar.TechnicianStation"  singleton="true">
+		<property name="IBBModuleGridList" ref="BBModuleGridList"/>
+		<property name="IBBModuleGridControlSet" ref="BBModuleGridControlSet"/>
+		<property name="IBBModuleGridControlList" ref="BBModuleGridControlList"/>
+		<property name="IBBModuleFormList" ref="BBModuleFormList"/>
+		<property name="IBBModuleFormControlSet" ref="BBModuleFormControlSet"/>
+		<property name="IBBModuleFormControlList" ref="BBModuleFormControlList"/>
+	</object>
+</objects>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>送检单位消息列表</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.layui-inline{
+			width:150px;
+			margin-bottom:5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-card" style="margin-bottom:0;">
+		<div class="layui-card-body">
+			<table class="layui-hide" id="table" lay-filter="table"></table>
+            <script type="text/html" id="table-toolbar-top">
+                <div class="layui-inline">
+                    <select name="DateTimeRangeType" id="DateTimeRangeType" lay-filter="DateTimeRangeType">
+                        <option value="3">3天</option>
+                        <option value="7">7天</option>
+                        <option value="30">30天</option>
+                    </select>
+                </div>
+                <div class="layui-inline" style="width:180px;">
+                    <input name="dates" id="dates" type="text" class="layui-input" placeholder=" - ">
+                </div>
+                <div class="layui-inline">
+                    <select name="status" id="status" lay-filter="status">
+                        <option value="">选择状态</option>
+                        <option value="3">已确认</option>
+                        <option value="4">待处理</option>
+                    </select>
+                </div>
+                <div class="layui-inline">
+                    <select name="system" id="system" lay-filter="system">
+                        <option value="">选择系统</option>
+                    </select>
+                </div>
+                <div class="layui-inline">
+                    <select name="msgType" id="msgType" lay-filter="msgType">
+                        <option value="">消息类型</option>
+                    </select>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn" lay-event="search">查询</button>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn" lay-event="confirmmsg">批量确认</button>
+                </div>
+            </script>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('listByLabCode.js');
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.SA" assembly="ZhiFang.Entity.SA">
+  <class name="LStatTotal" table="[dbo].[LStat_Total]">
+    <id name="Id" column="[StatTotalID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <!--<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />-->
+    
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="ClassificationId" column="[ClassificationId]" type="Int64" not-null="true" length="8" />
+    <property name="ClassificationName" column="[ClassificationName]" type="String" not-null="false" length="50" />
+    <property name="StatType" column="[StatType]" type="Int64" not-null="true" length="8" />
+    <property name="StatName" column="[StatName]" type="String" not-null="false" length="50" />
+    <property name="StatDName" column="[StatDName]" type="String" not-null="false" length="50" />
+    <property name="StatDValue" column="[StatDValue]" type="Int64" not-null="false" length="8" />
+    <property name="StatDValueDesc" column="[StatDValueDesc]" type="String" not-null="false" length="50" />
+    <property name="StatDValue2" column="[StatDValue2]" type="Int64" not-null="false" length="8" />
+    <property name="StatDValueDesc2" column="[StatDValueDesc2]" type="String" not-null="false" length="50" />
+    <property name="StatDateType" column="[StatDateType]" type="Int64" not-null="false" length="8" />
+    <property name="StatDateBegin" column="[StatDateBegin]" type="DateTime" not-null="false" length="8" />
+    <property name="StatDateEnd" column="[StatDateEnd]" type="DateTime" not-null="false" length="8" />
+    <property name="StatKey" column="[StatKey]" type="String" not-null="false" length="500" />
+    <property name="StatValue" column="[StatValue]" type="String" not-null="false" />
+ 
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

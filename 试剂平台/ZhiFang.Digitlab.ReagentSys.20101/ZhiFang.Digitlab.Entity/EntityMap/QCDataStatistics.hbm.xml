@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  
+  <class name="QCDataStatistics">
+    <id name="Id" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <!--<version name="DataTimeStamp"  type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID"  type="Int64" not-null="true" length="8" />
+    <property name="YearID" type="Int32" not-null="false" length="4" />
+    <property name="MonthID" type="Int32" not-null="false" length="4" />-->
+  </class>
+  
+</hibernate-mapping>

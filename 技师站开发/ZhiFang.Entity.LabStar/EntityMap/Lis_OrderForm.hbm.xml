@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisOrderForm" table="[dbo].[Lis_OrderForm]">
+    <id name="Id" column="[OrderFormID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="PartitionDate" column="[PartitionDate]" type="DateTime" not-null="false" length="8" />
+    <property name="OrderFormNo" column="[OrderFormNo]" type="String" not-null="false" length="100" />
+    <property name="OrderTypeID" column="[OrderTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="OrderTime" column="[OrderTime]" type="DateTime" not-null="false" length="8" />
+    <property name="OrderExecTime" column="[OrderExecTime]" type="DateTime" not-null="false" length="8" />
+    <property name="OrderExecFlag" column="[OrderExecFlag]" type="Int32" not-null="false" length="4" />
+    <property name="HospitalID" column="[HospitalID]" type="Int64" not-null="false" length="8" />
+    <property name="ExecDeptID" column="[ExecDeptID]" type="Int64" not-null="false" length="8" />
+    <property name="DestinationID" column="[DestinationID]" type="Int64" not-null="false" length="8" />
+    <property name="IsUrgent" column="[IsUrgent]" type="Int32" not-null="false" length="4" />
+    <property name="ClientID" column="[ClientID]" type="Int64" not-null="false" length="8" />
+    <property name="IsByHand" column="[IsByHand]" type="Int32" not-null="false" length="4" />
+    <property name="IsAffirm" column="[IsAffirm]" type="Int32" not-null="false" length="4" />
+    <property name="FormMemo" column="[FormMemo]" type="String" not-null="false" length="500" />
+    <property name="ChargeID" column="[ChargeID]" type="Int64" not-null="false" length="8" />
+    <property name="ChargeOrderName" column="[ChargeOrderName]" type="String" not-null="false" length="100" />
+    <property name="Charge" column="[Charge]" type="Double" not-null="false" length="8" />
+    <property name="IsCheckFee" column="[IsCheckFee]" type="Int32" not-null="false" length="4" />
+    <property name="Balance" column="[Balance]" type="Double" not-null="false" length="8" />
+    <property name="OperHost" column="[OperHost]" type="String" not-null="false" length="200" />
+    <property name="OperatorID" column="[OperatorID]" type="Int64" not-null="false" length="8" />
+    <property name="OperatorName" column="[OperatorName]" type="String" not-null="false" length="200" />
+    <property name="CheckerID" column="[CheckerID]" type="Int64" not-null="false" length="8" />
+    <property name="CheckerName" column="[CheckerName]" type="String" not-null="false" length="200" />
+    <property name="ParItemCName" column="[ParItemCName]" type="String" not-null="false" length="2000" />
+    <property name="PhotoURL" column="[PhotoURL]" type="String" not-null="false" length="200" />
+    <property name="RequestSource" column="[RequestSource]" type="String" not-null="false" length="200" />
+    <property name="PrintTimes" column="[PrintTimes]" type="Int32" not-null="false" length="4" />
+    <property name="HisHospitalNo" column="[HisHospitalNo]" type="String" not-null="false" length="200" />
+    <property name="HisDeptNo" column="[HisDeptNo]" type="String" not-null="false" length="200" />
+    <property name="HisDeptName" column="[HisDeptName]" type="String" not-null="false" length="200" />
+    <property name="HisDoctorNo" column="[HisDoctorNo]" type="String" not-null="false" length="200" />
+    <property name="HisDoctor" column="[HisDoctor]" type="String" not-null="false" length="200" />
+    <property name="HisDoctorPhoneCode" column="[HisDoctorPhoneCode]" type="String" not-null="false" length="200" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+	<property name="PatID" column="[PatID]" type="Int64" not-null="false" length="8" />
+	  <!--<many-to-one name="LisPatient" class="LisPatient" lazy="proxy">
+      <column name="[PatID]" not-null="false"/>
+    </many-to-one>-->
+  </class>
+</hibernate-mapping>

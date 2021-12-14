@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FB689A9-D6EB-4F2E-98B8-B8A8850E3A97}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.RBAC</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.RBAC</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReagentSys.OrderTrace\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Spring.Core">
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBCity.cs" />
+    <Compile Include="BBCountry.cs" />
+    <Compile Include="BBDegree.cs" />
+    <Compile Include="BBEducationLevel.cs" />
+    <Compile Include="BBHealthStatus.cs" />
+    <Compile Include="BBMaritalStatus.cs" />
+    <Compile Include="BBNationality.cs" />
+    <Compile Include="BBPoliticsStatus.cs" />
+    <Compile Include="BBProfessionalAbility.cs" />
+    <Compile Include="BBProvince.cs" />
+    <Compile Include="BBSex.cs" />
+    <Compile Include="BBTDAppComponents.cs" />
+    <Compile Include="BBTDAppComponentsOperate.cs" />
+    <Compile Include="BBTDAppComponentsRef.cs" />
+    <Compile Include="BBTDAppPicture.cs" />
+    <Compile Include="BBTDModuleType.cs" />
+    <Compile Include="BBTDPictureType.cs" />
+    <Compile Include="BBTDPictureTypeCon.cs" />
+    <Compile Include="BHRDept.cs" />
+    <Compile Include="BHRDeptEmp.cs" />
+    <Compile Include="BHRDeptIdentity.cs" />
+    <Compile Include="BHREmpIdentity.cs" />
+    <Compile Include="BHREmployee.cs" />
+    <Compile Include="BHRPosition.cs" />
+    <Compile Include="BImportFile.cs" />
+    <Compile Include="BRBACEmpOptions.cs" />
+    <Compile Include="BRBACEmpRoles.cs" />
+    <Compile Include="BRBACModule.cs" />
+    <Compile Include="BRBACModuleOper.cs" />
+    <Compile Include="BRBACPreconditions.cs" />
+    <Compile Include="BRBACRole.cs" />
+    <Compile Include="BRBACRoleModule.cs" />
+    <Compile Include="BRBACRoleRight.cs" />
+    <Compile Include="BRBACRowFilter.cs" />
+    <Compile Include="BRBACUser.cs" />
+    <Compile Include="BSLog.cs" />
+    <Compile Include="BSServiceClient.cs" />
+    <Compile Include="BSServiceClientlevel.cs" />
+    <Compile Include="BSType.cs" />
+    <Compile Include="BSTypeDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{37739231-3a7d-4f27-9af5-885c68680125}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{f1096968-0d4e-4fba-b427-45173b78f476}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{61f57d84-74d3-409f-aa8b-e4dcacf5438c}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{51894403-5fc4-4546-857e-dd4ba973819f}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{42c5aa48-ef31-4213-83a5-d24b19f00921}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{fb3a0086-df39-4d5a-a6e0-d8a1ff07c8ad}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{e1f06f19-6601-4b30-9a9f-e1e11c721441}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReagentSys.OrderTrace.Common\ZhiFang.ReagentSys.OrderTrace.Common.csproj">
+      <Project>{536aef06-970c-4012-aff4-2f6d858b5e02}</Project>
+      <Name>ZhiFang.ReagentSys.OrderTrace.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

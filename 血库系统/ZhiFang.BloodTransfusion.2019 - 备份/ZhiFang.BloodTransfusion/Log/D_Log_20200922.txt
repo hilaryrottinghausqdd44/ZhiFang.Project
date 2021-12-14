@@ -1,0 +1,54 @@
+2020-09-22 16:41:34,543 [41] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10115
+2020-09-22 16:41:35,194 [41] DEBUG : 按传入的HIS编码为:10115,获取PUser的hql(puser.Code1 = '10115' or  puser.Code2 = '10115' or puser.Code3= '10115' or puser.Code4= '10115' or puser.Code5= '10115')
+2020-09-22 16:41:35,227 [41] ERROR : 传入的HIS医生编码为:10115,在LIS获取PUser的编码为:20010!
+2020-09-22 16:41:35,232 [41] DEBUG : HIS传入的医生编码为:10115,获取到LIS医生编码为:10
+2020-09-22 16:41:35,279 [41] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-09-22 16:41:35,281 [41] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-22 16:41:35,283 [41] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-22 16:41:35,286 [41] DEBUG : 登录员工信息:PUser.Id:20010,PUser.CName:冯为盛
+2020-09-22 16:41:35,286 [41] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-09-22 16:41:35,286 [41] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-22 16:41:35,287 [41] DEBUG : 登录员工绑定医生信息:Doctor.Id:10,Doctor.CName:冯为盛
+2020-09-22 16:41:35,466 [41] DEBUG : HIS传入的医生编码为:10115,医生所属等级信息:申请医生,用血量权限范围:--600
+2020-09-22 16:41:35,722 [41] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-22 16:41:35,723 [41] DEBUG : objectID:1483204384
+2020-09-22 16:41:35,723 [41] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-22 16:41:35,898 [41] INFO  :  UPDATE [dbo].[Blood_docGrade] SET [BCount] =800,[LowLimit] =0,[UpperLimit] =800 WHERE [GradeName]='申请医生' and UpperLimit is null;
+2020-09-22 16:41:35,936 [41] INFO  :  IF COL_LENGTH('Blood_Patinfo', 'IsOrder') IS NULL ALTER TABLE Blood_Patinfo ADD IsOrder varchar(20); 
+2020-09-22 16:41:36,025 [41] INFO  :  IF COL_LENGTH('Blood_Patinfo', 'IsLabNoC') IS NULL ALTER TABLE Blood_Patinfo ADD IsLabNoC varchar(20); 
+2020-09-22 16:41:36,028 [41] INFO  :  update Blood_Patinfo set IsOrder='有' where  IsOrder is null; 
+2020-09-22 16:41:36,104 [41] INFO  :  update Blood_Patinfo set IsLabNoC='有' where  IsLabNoC is null; 
+2020-09-22 16:41:36,130 [41] INFO  :  update B_Parameter set ParaValue='1.0.0.46' where ParaType='SYS' and ParaNo='SYS_DBVersion'
+2020-09-22 16:41:36,161 [41] INFO  :   if not exists(select * from B_Parameter where ParameterID=4955399619796462166) INSERT [B_Parameter] ([LabID],[ParameterID],[Name],[SName],[ParaType],[ParaNo],[ParaValue],[ParaDesc],[Shortcode],[DispOrder],[PinYinZiTou],[IsUse],[IsUserSet],[DataAddTime],[ItemEditInfo]) VALUES ( 0,4955399619796462166,N'用血申请确认后是否自动完成审批',N'医生站',N'CONFIG',N'BL-BLCF-ISAC-0024',N'false',N'true:是;false:否;',N'5',5,N'5',1,0,N'2020-09-09 14:46:42',N'{"ItemXType":"radiogroup","ItemDefaultValue":"false","ItemUnit":"","ItemDataSet":"[{''true'':''是''},{''false'':''否''}]"}');
+2020-09-22 16:41:36,166 [41] INFO  :   update blood_breqform set tohisflag=0 where tohisflag is null;
+2020-09-22 16:41:36,202 [41] INFO  :  update B_Parameter set ParaValue='1.0.0.47' where ParaType='SYS' and ParaNo='SYS_DBVersion'
+2020-09-22 16:42:59,150 [41] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10115
+2020-09-22 16:42:59,151 [41] DEBUG : 按传入的HIS编码为:10115,获取PUser的hql(puser.Code1 = '10115' or  puser.Code2 = '10115' or puser.Code3= '10115' or puser.Code4= '10115' or puser.Code5= '10115')
+2020-09-22 16:42:59,154 [41] ERROR : 传入的HIS医生编码为:10115,在LIS获取PUser的编码为:20010!
+2020-09-22 16:42:59,155 [41] DEBUG : HIS传入的医生编码为:10115,获取到LIS医生编码为:10
+2020-09-22 16:42:59,157 [41] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-09-22 16:42:59,158 [41] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-22 16:42:59,159 [41] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-22 16:42:59,159 [41] DEBUG : 登录员工信息:PUser.Id:20010,PUser.CName:冯为盛
+2020-09-22 16:42:59,159 [41] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-09-22 16:42:59,159 [41] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-22 16:42:59,159 [41] DEBUG : 登录员工绑定医生信息:Doctor.Id:10,Doctor.CName:冯为盛
+2020-09-22 16:42:59,160 [41] DEBUG : HIS传入的医生编码为:10115,医生所属等级信息:申请医生,用血量权限范围:0--800
+2020-09-22 16:42:59,174 [41] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-22 16:42:59,174 [41] DEBUG : objectID:1483204384
+2020-09-22 16:42:59,174 [41] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-22 16:44:09,362 [41] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10115
+2020-09-22 16:44:09,362 [41] DEBUG : 按传入的HIS编码为:10115,获取PUser的hql(puser.Code1 = '10115' or  puser.Code2 = '10115' or puser.Code3= '10115' or puser.Code4= '10115' or puser.Code5= '10115')
+2020-09-22 16:44:09,366 [41] ERROR : 传入的HIS医生编码为:10115,在LIS获取PUser的编码为:20010!
+2020-09-22 16:44:09,367 [41] DEBUG : HIS传入的医生编码为:10115,获取到LIS医生编码为:10
+2020-09-22 16:44:09,368 [41] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-09-22 16:44:09,369 [41] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-22 16:44:09,369 [41] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-22 16:44:09,370 [41] DEBUG : 登录员工信息:PUser.Id:20010,PUser.CName:冯为盛
+2020-09-22 16:44:09,370 [41] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-09-22 16:44:09,370 [41] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-22 16:44:09,370 [41] DEBUG : 登录员工绑定医生信息:Doctor.Id:10,Doctor.CName:冯为盛
+2020-09-22 16:44:09,370 [41] DEBUG : HIS传入的医生编码为:10115,医生所属等级信息:申请医生,用血量权限范围:0--655
+2020-09-22 16:44:09,383 [41] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-22 16:44:09,383 [41] DEBUG : objectID:1483204384
+2020-09-22 16:44:09,383 [41] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'

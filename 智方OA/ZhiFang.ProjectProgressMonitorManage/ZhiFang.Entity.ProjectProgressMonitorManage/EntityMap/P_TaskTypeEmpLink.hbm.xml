@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ProjectProgressMonitorManage" assembly="ZhiFang.Entity.ProjectProgressMonitorManage">
+	<class name="PTaskTypeEmpLink" table="[dbo].[P_TaskTypeEmpLink]">
+		<id name="Id" column="[P_TaskTypeEmpLinkID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="TaskTypeID" column="[TaskTypeID]" type="Int64" not-null="true" length="8" />
+    <property name="TaskTypeName" column="[TaskTypeName]" type="String" not-null="false" />
+    <property name="EmpID" column="[EmpID]" type="Int64" not-null="true" length="8" />
+    <property name="EmpName" column="[EmpName]" type="String" not-null="false" />
+    <property name="TwoAudit" column="[TwoAudit]" type="Boolean" not-null="false" length="1" />
+    <property name="Publish" column="[Publish]" type="Boolean" not-null="false" length="1" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />		
+	</class>
+</hibernate-mapping>

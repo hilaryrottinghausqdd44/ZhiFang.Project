@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>微信用户组</title>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="WeiXinUserGroup.js"></script>
+</head>
+<body >
+<!--数据列表-->
+<table id="tbWeiXinUserGroup"></table>
+<div id="topBars" style="height:28px;width: 100%;background: #eeeeee ">
+    <div style="float: left;padding-top: 3px">
+
+        <a id="refresh" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-reload" plain="true">刷新</a>
+        <a id="addRow" href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+        <a id="deleteRow" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-remove" plain="true" >删除</a>
+    </div>
+    <div style="float: right;margin-right: 10px;padding-top: 3px;display: none;">
+        <input id="WeiXinUserGroup_search"  type="text" class="easyui-searchbox" data-options="prompt:'图标头像ID'" style="width: 160px;" ></div>
+</div>
+
+<!--新增，修改窗口-->
+<div id="dlg" class="easyui-dialog"  style="width:330px;height:auto;margin: auto;" closed="true" buttons="#dlgButtons">
+    <div id="frm" class="easyui-form" method="post">
+        <table style="margin: 0;padding: 10px 30px 10px 30px">
+            <tr>
+                <td> 微信用户组ID:</td>
+                <td ><input id="B_WeiXinUserGroupID" class="easyui-textbox" type="text" name="BWeiXinUserGroup_Id" data-options="required:true"></td>
+            </tr>
+            <tr>
+                <td >用户组名称:</td>
+                <td><input id="GroupName" class="easyui-textbox" type="text" name="BWeiXinUserGroup_GroupName"></td>
+            </tr>
+            <tr>
+                <td>用户组备注:</td>
+                <td ><input id="Comment" class="easyui-textbox" type="text" name="BWeiXinUserGroup_Comment" ></td>
+            </tr>
+            <tr>
+                <td>操作者ID:</td>
+                <td><input id="OperaterId" class="easyui-textbox" type="text" name="BWeiXinUserGroup_OperaterId" ></td>
+            </tr>
+            <tr>
+                <td>操作者姓名:</td>
+                <td ><input id="OperaterName" class="easyui-textbox" type="text" name="BWeiXinUserGroup_OperaterName"  ></td>
+            </tr>
+            <tr>
+                <td>组内用户数:</td>
+                <td ><input id="Count" class="easyui-textbox" type="text" name="BWeiXinUserGroup_Count"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="dlgButtons">
+    <a id="save" href="javascript:void(0)" class="easyui-linkbutton"   iconCls="icon-save">保存</a>
+    <a id="cancel" href="javascript:void (0)" class="easyui-linkbutton"  iconCls="icon-cancel">取消</a>
+</div>
+
+</body>
+</html>

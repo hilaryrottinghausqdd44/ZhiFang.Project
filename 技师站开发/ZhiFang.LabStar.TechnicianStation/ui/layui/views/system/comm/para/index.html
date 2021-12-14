@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>通讯控制参数</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+    	UIVersion.loadLayui();
+    	UIVersion.getCSS('../../../../css/layui.form.sm.all.css');
+        UIVersion.getCSS('../../../../css/admin.css');
+         UIVersion.getJS('../../../../config/system.js');
+        UIVersion.getJS('index.js');
+    </script>
+    <style>
+        /*通讯控制符页签lable长度*/
+        .ControlChar .layui-form-label {
+            position: relative;float: left;display: block;padding: 9px 15px;
+            width: 98px;font-weight: 400;line-height: 10px;text-align: right;
+        }
+        /*通讯校验页签lable长度*/
+        .CommCheck .layui-form-label {
+            position: relative;float: left;display: block;padding: 9px 15px;
+            width: 90px;font-weight: 400;line-height: 10px; text-align: right;
+        }
+        /*传输帧参数页签lable长度*/
+        .CommTransferFrame .layui-form-label {
+            position: relative;float: left;display: block; padding: 9px 15px;
+            width: 90px;font-weight: 400;line-height: 10px;text-align: right;
+        }
+        /*通讯时间间隔控制（双向)页签lable长度*/
+        .CommTimeInterval .layui-form-label {
+            position: relative;float: left;display: block;padding: 9px 15px;
+            width: 190px;font-weight: 400; line-height: 10px; text-align: right;
+        }
+        /*重置表单控件上下间距*/
+        .layui-form-item {margin-bottom: 5px;}
+        /*可输入的下拉样式*/
+        .inputSelect { position: absolute;z-index: 100;width: 80%;top: 1px; left: 1px;height: 20px;border: none;}
+
+        .tabHeight .layui-footer {position: fixed;left: 13px;right: 13px;bottom: 15px; height: 44px;background-color: #fff;}
+    </style>
+</head> 
+<body style="overflow-x:hidden;overflow-y:hidden;">
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-card ">
+                <div class="layui-card-body ">
+                    <div class="layui-tab layui-tab-brief cardHeight" lay-filter="comparatabs" style="overflow-x: hidden;overflow-y: auto;height: auto">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">通讯控制符</li>
+                            <li>通讯校验</li>
+                            <li>传输帧参数</li>
+                            <li>通讯时间间隔控制(双向)</li>
+                        </ul>
+                        <div class="layui-tab-content tabHeight">
+                            <div class="layui-tab-item layui-show" style="position:relative;">
+                                <div class="layui-form ControlChar" id="ControlChar" lay-filter="ControlChar" style="padding-top: 10px;padding-right: 15px;overflow-x: hidden;overflow-y: auto;min-height: 400px;">
+                                    <div class="layui-row">
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12 layui-hide">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">页签是否已切换,用于判断是否要重新赋值</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" id="IsLoad1" placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">ENQ</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="ENQ" data="{CName:'ENQ',Code:'',EName:'通讯询问',Explain:'获取通讯权利的询问',Memo:'有的通讯不需要询问，设置为空，没有询问符号的，通常也也诶么有结束符。默认为一直有通讯的权利'}" placeholder="" value="5'" autocomplete="off" class="layui-input" />
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux">
+                                                    通讯询问
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">STX</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="STX" data="{CName:'STX',Code:'02H',EName:'通讯内容开始符',Explain:'标注通讯内容的开始',Memo:'考虑可以设置2个开始符，适应性更强'}" placeholder="" value="2'" autocomplete="off" class="layui-input" />
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux">
+                                                    通讯内容开始符
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">STX2</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="STX2" data="{CName:'STX2',Code:'',EName:'',Explain:'',Memo:''}" placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">ETX</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="ETX" data="{CName:'ETX',Code:'03H',EName:'通讯内容结束符',Explain:'标注通讯内容的结束',Memo:'考虑可以设置2个结束符，适应性更强'}" placeholder="" value="3'" autocomplete="off" class="layui-input" />
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux">
+                                                    通讯内容结束符
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">ETX2</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="ETX2" data="{CName:'ETX2',Code:'',EName:'',Explain:'',Memo:''}" placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">ETB</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="ETB" data="{CName:'ETB',Code:'17H',EName:'通讯内容块结束符', Explain:'通讯内容下一帧的结束。一帧传输的字符有限，分多帧传输的情况下，一帧结束，未完全结束', Memo:'有的仪器没有ETB'}" placeholder="" value="23'" autocomplete="off" class="layui-input" />
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux">
+                                                    通讯内容块结束符
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">ACK</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="ACK" data="{CName:'ACK',Code:'05H', EName:'正常应答符', Explain:'',Memo:''}" placeholder="" value="6'" autocomplete="off" class="layui-input" />
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux">
+                                                    正常应答符
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">NAK</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="NAK" data="{CName:'NAK',Code:'15H',EName:'异常应答符',Explain:'当没有准备好接收数据，或者校验出错时采用',Memo:''}" placeholder="" value="21'" autocomplete="off" class="layui-input" />
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux">
+                                                    异常应答符
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">EOT</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="EOT" data="{CName:'EOT',Code:'04H', EName:'通讯结束符', Explain:'释放通讯权利，表示通讯结束', Memo:'收到通讯结束符，不需要应答'}" placeholder="" value="4'" autocomplete="off" class="layui-input" />
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux">
+                                                    通讯结束符
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">通讯启动符</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="通讯启动符" data="{CName:'通讯启动符',Code:'', EName:'通讯启动符',Explain:'特殊仪器，必须通讯传输启动符后，仪器才会吐数据',Memo:'一般情况下不用设置'}" placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux">
+                                                    通讯启动符
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">定时发送启动符</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="定时发送启动符" data="{CName:'定时发送启动符',Code:'', EName:'定时发送启动符',Explain:'例如设置为5秒，5秒没有收到数据，则发送启动符',Memo:'一般情况下不用设置'}" placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="layui-form CommCheck" id="CommCheck" lay-filter="CommCheck" style="padding-top: 10px;padding-right: 15px;">
+                                    <div class="layui-row">
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12 layui-hide">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">页签是否已切换,用于判断是否要重新赋值</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" id="IsLoad2" placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">是否校验</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="是" name="是否校验" data="{CName:'是否校验',Code:'',EName:'',CommonValue:'',Memo:'如果不知道检验的规则，可以不校验。双向的，必须知道校验规则，需要校验'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="是否校验_Filter"> <option value="是">是</option> <option value="否">否</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">校验位长度</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="2" name="校验位长度" data="{CName:'校验位长度',Code:'',EName:'',CommonValue:'1，2，4',Memo:'一帧数据AccII码累加，对256取余/取补1：一个字符标识0-255<br />2：两个字符标识0-255的16进制码<br />4：4个字符标识的0-256*256-1的16进制码'}"
+                                                           autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="校验位长度_Filter"> <option value="1">1</option> <option value="2">2</option> <option value="4">4</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">检验开始位置</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="1" name="检验开始位置" data="{CName:'检验开始位置',Code:'',EName:'',CommonValue:'0,1',Memo:'收到的一帧数据，减去第一个字符，通常是STX'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="检验开始位置_Filter"> <option value="0">0</option> <option value="1">1</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">校验截止位置</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="2" data="{CName:'校验截止位置',Code:'',EName:'',CommonValue:'1，2，4',Memo:'收到的一帧数据，减去后面后面几个字符，通常就是检验码本身'}" name="校验截止位置" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="校验截止位置_Filter"> <option value="1">1</option> <option value="2">2</option> <option value="4">4</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">校验方法</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="校验方法" data="{CName:'校验方法',Code:'',EName:'',CommonValue:'',Memo:'累加（取余，取补），异或'}"
+                                                           placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="layui-form CommTransferFrame" id="CommTransferFrame" lay-filter="CommTransferFrame" style="padding-top: 10px;padding-right: 15px;">
+                                    <div class="layui-row">
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12 layui-hide">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">页签是否已切换,用于判断是否要重新赋值</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" id="IsLoad3" placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">一帧长度</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="" name="一帧长度" data="{CName:'一帧长度',Code:'',EName:'',CommonValue:'256,512,1024,1280',IsTwoWayComm:'是',Memo:'一帧长度有限制，数据较长时，分多帧传输一帧长度为最大长度，包含开始符、结束符、校验码<br />默认值空，不设置长度<br />单向接收可以不考虑长度，双向时必须考虑长度'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="一帧长度_Filter"> <option value="256">256</option> <option value="512">512</option> <option value="1024">1024</option> <option value="1280">1280</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">帧间关系</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="帧间关系" data="{CName:'帧间关系',Code:'',EName:'',CommonValue:'',IsTwoWayComm:'',Memo:'强关联，需要合并解释<br />弱关联，可以独立解释'}" placeholder="" value="强关联" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">帧头标记位数</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="1" name="帧头标记位数" data="{CName:'帧头标记位数',Code:'',EName:'',CommonValue:'0，1，2',IsTwoWayComm:'',Memo:'0：没有指定顺序'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="帧头标记位数_Filter"> <option value="0">0</option> <option value="1">1</option> <option value="2">2</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">枕头首标记</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="1" name="枕头首标记" data="{CName:'枕头首标记',Code:'',EName:'',CommonValue:'1，01',IsTwoWayComm:'是',Memo:'1：1位数标记  1，2，3<br />2：两位数标记 01，02，03'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="枕头首标记_Filter"> <option value="1">1</option> <option value="01">01</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">帧头末标记</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="帧头末标记" data="{CName:'帧头末标记',Code:'',EName:'',CommonValue:'',IsTwoWayComm:'是',Memo:''}" placeholder="" value=":" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">循环标记</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="" name="循环标记" data="{CName:'循环标记',Code:'',EName:'',CommonValue:'1,2,3,4,5,6,7,0',IsTwoWayComm:'是',Memo:'循环从1到0'}"
+                                                           autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="循环标记_Filter"> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">6</option> <option value="7">7</option> <option value="0">0</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">帧尾标记位数</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="帧尾标记位数" data="{CName:'帧尾标记位数',Code:'',EName:'',CommonValue:'',IsTwoWayComm:'',Memo:''}"
+                                                           placeholder="" value="0" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="layui-form CommTimeInterval" id="CommTimeInterval" lay-filter="CommTimeInterval" style="padding-top: 10px;padding-right: 15px;">
+                                    <div class="layui-row">
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12 layui-hide">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">页签是否已切换,用于判断是否要重新赋值</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" id="IsLoad4" placeholder="" value="" autocomplete="off" class="layui-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">帧与帧之间发送间隔</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="40ms" name="帧与帧之间发送间隔" data="{CName:'帧与帧之间发送间隔' ,Code:'',EName:'',CommonValue:'40ms，100ms',CommType:'双向',Memo:'双向时需要考虑，发送一帧数据后，如果收到NAK，需要间隔至少这个时间间隔再发送数据。如果收到ACK，可以直接发送下一条数据。'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="帧与帧之间发送间隔_Filter"> <option value="40ms">40ms</option> <option value="100ms">100ms</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">一次传输与下次传输时间间隔</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="40ms" name="一次传输与下次传输时间间隔" data="{CName:'一次传输与下次传输时间间隔' ,Code:'',EName:'',CommonValue:'40ms，100ms',CommType:'双向',Memo:'发送EOT标志一次传输结束，接收方不用应答再发送时，需要时间间隔。'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="一次传输与下次传输时间间隔_Filter"> <option value="40ms">40ms</option> <option value="100ms">100ms</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">无应答时间间隔</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="8秒" name="无应答时间间隔" data="{CName:'无应答时间间隔' ,Code:'',EName:'',CommonValue:'8秒，10秒',CommType:'双向',Memo:'发送信息给仪器，一直未收到应答，等待的时间间隔。超时，判断为未收到应答'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="无应答时间间隔_Filter"> <option value="8秒">8秒</option> <option value="10秒">10秒</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">无应答后处理</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="重传" name="无应答后处理" data="{CName:'无应答后处理' ,Code:'',EName:'',CommonValue:'重传或者传送指定字符内容',CommType:'双向',Memo:''}"
+                                                           autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="无应答后处理_Filter"> <option value="重传">重传</option> <option value="或者传送指定字符内容">或者传送指定字符内容</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">无应答响应次数</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="3" name="无应答响应次数" data="{CName:'无应答响应次数' ,Code:'',EName:'',CommonValue:'3',CommType:'双向',Memo:'连续无应答有几次'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="无应答响应次数_Filter"> <option value="3">3</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">无应答最终处理</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" value="#4’" name="无应答最终处理" data="{CName:'无应答最终处理' ,Code:'',EName:'',CommonValue:'#4’ EOT',CommType:'双向',Memo:'通常处理为，发送EOT，取消通讯传输'}" autocomplete="off" class="layui-input inputSelect" />
+                                                    <select name="no" lay-filter="无应答最终处理_Filter"> <option value="#4’ EOT">#4’ EOT</option> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-footer" style="padding-left: 25px; padding-top: 30px;">
+                                <button id="save" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                <button id="export" class="layui-btn layui-btn-xs"><i class="layui-icon">&#xe67d;</i>&nbsp;导出</button>
+                                <button id="import" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe61f;</i>&nbsp;导入</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

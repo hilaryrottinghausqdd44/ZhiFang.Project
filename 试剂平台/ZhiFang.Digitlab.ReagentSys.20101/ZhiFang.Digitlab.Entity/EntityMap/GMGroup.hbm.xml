@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="GMGroup" table="[dbo].[GM_Group]">
+    <id name="Id" column="[GroupID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="Name" column="[Name]" type="String" not-null="false" length="40" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="40" />
+    <property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="20" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="IsVirtualGroup" column="[IsVirtualGroup]" type="Int32" not-null="false" length="4" />
+    <property name="FunctionalTypesOfGroup" column="[FunctionalTypesOfGroup]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Comment" column="[Comment]" type="String" not-null="false" length="8000" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="HRDept" class="HRDept" >
+      <column name="[DeptID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BSpecialty" class="BSpecialty" >
+      <column name="[SpecialtyID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="GMGroupType" class="GMGroupType" >
+      <column name="[GroupTypeID]" not-null="false"/>
+    </many-to-one>
+    <bag name="BSampleNumberBuildRuleConditionList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="BSampleNumberBuildRuleCondition"/>
+    </bag>
+    <bag name="EPEquipItemList" inverse="true"  lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="EPEquipItem"/>
+    </bag>
+    <bag name="GMGroupEquipList" inverse="true" lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="GMGroupEquip"/>
+    </bag>
+    <bag name="GMGroupItemList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="GMGroupItem"/>
+    </bag>
+    <bag name="ItemRefeRangeList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="ItemRefeRange"/>
+    </bag>
+    <bag name="ItemResultJudgeList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="ItemResultJudge"/>
+    </bag>
+    <bag name="MEGroupSampleFormList" inverse="true" lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="MEGroupSampleForm"/>
+    </bag>
+    <bag name="MEImmuneResultsList" inverse="true" lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="MEImmuneResults"/>
+    </bag>
+    <bag name="MEPTDistributeGroupList" inverse="true" lazy="true">
+      <key>
+        <column name="[GroupID]" />
+      </key>
+      <one-to-many class="MEPTDistributeGroup"/>
+    </bag>
+  </class>
+</hibernate-mapping>

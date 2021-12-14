@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		<!--不缓存缓存页面-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<title>消费采样</title>
+		<script src="../../util/common.js"></script>
+		<script src="grid.js?v=1.0.0.1"></script>
+	</head>
+
+	<body class="easyui-layout" data-options="fit:true,width:'auto'">
+		<div id="mainpanel" class="easyui-layout" dada-options="fit:true,border:false" style="200px;height:100%;">
+			<div data-options="region:'north',iconCls:'icon-search'" title="微信消费采样" style="height: 100px">
+				<div style="float: left; width: 129px; height: 100%; border-right: thin solid #0099CC">
+					<a id="btnaddnrequestform" href="#" style="margin-top: 10px; margin-bottom: 10px;
+                    margin-left: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-add',size:'large'">
+						新增采样</a>
+				</div>
+				<div style="float: left">
+					<div style="padding: 5px;">
+						采血站点：<input id="txtClientNo" class="easyui-combobox" style="width: 200px" /> 条 码：<input id="txtSerialno" class="easyui-textbox" style="width: 120px" /> 消费码：
+						<input id="txtZDY10" class="easyui-textbox" style="width: 120px" /> 姓 名：<input id="txtCName" class="easyui-textbox" style="width: 120px" />
+					</div>
+					<div style="padding: 5px;">
+						开单时间：<input id="OperateStartDateTime" class="easyui-datebox" editable='false' style="width: 100px" /> --
+						<input id="OperateEndDateTime" class="easyui-datebox" editable='false' style="width: 100px" /> 采样时间：
+						<input id="txtCollectStartDate" class="easyui-datebox" editable='false' style="width: 100px" /> --
+						<input id="txtCollectEndDate" class="easyui-datebox" editable='false' style="width: 100px" />
+					</div>
+				</div> 
+
+				<div style="float: right; vertical-align: middle; border: 1px; border-color: Black;
+                height: 100%">
+					<a id="btnsearch" href="#" style="margin-top: 10px; margin-bottom: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-search',size:'large'">查询</a>
+					<a id="btnprint" href="#" style="margin-top: 10px; margin-bottom: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-print',size:'large'">打印外送清单</a>
+				</div>
+			</div>
+			<div data-options="region:'center',title:'申请列表',iconCls:'icon-app-grid-16',tools:'#ToolsPanel'">
+				<div id="NRequestFormList" class="easyui-datagrid" data-options="border:false,singleSelect:true,fit:true,fitColumns:true">
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

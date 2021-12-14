@@ -1,0 +1,429 @@
+2020-09-30 09:45:57,380 [8] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-09-30 09:45:58,398 [8] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-09-30 09:45:58,828 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-09-30 09:45:58,834 [8] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-09-30 09:45:58,834 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!重新获取医生等级信息
+2020-09-30 09:45:58,836 [8] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-09-30 09:45:59,021 [8] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-09-30 09:45:59,165 [8] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 09:45:59,168 [8] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 09:45:59,175 [8] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-09-30 09:45:59,175 [8] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-09-30 09:45:59,175 [8] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 09:45:59,175 [8] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-09-30 09:45:59,178 [8] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息.GetCurUserInfo.Doctor3
+2020-09-30 09:45:59,405 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 09:45:59,437 [8] DEBUG : objectID:1483204384
+2020-09-30 09:45:59,438 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 09:46:01,096 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 09:46:01,097 [8] DEBUG : objectID:1483204384
+2020-09-30 09:46:01,097 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 09:46:29,757 [8] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-09-30 09:46:29,757 [8] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-09-30 09:46:29,760 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-09-30 09:46:29,761 [8] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-09-30 09:46:29,761 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!重新获取医生等级信息
+2020-09-30 09:46:29,761 [8] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-09-30 09:46:29,762 [8] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-09-30 09:46:29,762 [8] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 09:46:29,763 [8] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 09:46:29,763 [8] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-09-30 09:46:29,763 [8] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-09-30 09:46:29,763 [8] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 09:46:29,763 [8] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-09-30 09:46:29,763 [8] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息.GetCurUserInfo.Doctor3
+2020-09-30 09:46:29,777 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 09:46:29,777 [8] DEBUG : objectID:1483204384
+2020-09-30 09:46:29,777 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 09:46:31,307 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 09:46:31,307 [8] DEBUG : objectID:1483204384
+2020-09-30 09:46:31,307 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 09:48:17,948 [8] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-09-30 09:48:17,948 [8] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-09-30 09:48:17,951 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-09-30 09:48:17,951 [8] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-09-30 09:48:17,951 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!重新获取医生等级信息
+2020-09-30 09:48:17,952 [8] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-09-30 09:48:17,953 [8] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-09-30 09:48:17,953 [8] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 09:48:17,954 [8] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 09:48:17,955 [8] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-09-30 09:48:17,955 [8] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-09-30 09:48:17,955 [8] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 09:48:17,955 [8] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-09-30 09:48:17,955 [8] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息.GetCurUserInfo.Doctor3
+2020-09-30 09:48:17,965 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 09:48:17,965 [8] DEBUG : objectID:1483204384
+2020-09-30 09:48:17,965 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 09:48:19,514 [8] DEBUG : BT_UDTO_SearchBloodBOutItemOfRecycleByHQL.where:(bloodboutitem.BloodBOutForm.RecoverCompletion != 3 and bloodboutitem.BloodBOutForm.BloodBReqForm.AdmID ='5926539')
+2020-09-30 09:48:39,779 [8] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:32,hisDeptCode:82,hisDoctorCode:10002
+2020-09-30 09:48:39,779 [8] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-09-30 09:48:39,789 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-09-30 09:48:39,791 [8] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-09-30 09:48:39,791 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!重新获取医生等级信息
+2020-09-30 09:48:39,791 [8] DEBUG : 按传入HIS病区编码为:32,获取Department的hql: department.Visible=1 and (department.Code1='32' or department.Code2='32' or department.Code3='32' or department.Code4='32' or department.Code5='32')
+2020-09-30 09:48:39,794 [8] ERROR : 传入的HIS病区编码为:32,在LIS获取到病区编码为:236!
+2020-09-30 09:48:39,796 [8] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 09:48:39,798 [8] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 09:48:39,799 [8] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-09-30 09:48:39,799 [8] DEBUG : 登录所属病区信息:Ward.Id:236,Ward.CName:三病区
+2020-09-30 09:48:39,799 [8] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 09:48:39,799 [8] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-09-30 09:48:39,799 [8] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息.GetCurUserInfo.Doctor3
+2020-09-30 09:48:39,812 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 09:48:39,812 [8] DEBUG : objectID:1483204384
+2020-09-30 09:48:39,812 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 09:48:41,192 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 09:48:41,193 [8] DEBUG : objectID:1483204384
+2020-09-30 09:48:41,193 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 09:48:44,357 [8] INFO  : 输血申请综合查询.血袋扫码识别字段：B3Code,传入值为:
+2020-09-30 10:14:15,479 [39] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10115
+2020-09-30 10:14:15,479 [39] DEBUG : 按传入的HIS编码为:10115,获取PUser的hql(puser.Code1 = '10115' or  puser.Code2 = '10115' or puser.Code3= '10115' or puser.Code4= '10115' or puser.Code5= '10115')
+2020-09-30 10:14:15,491 [39] ERROR : 传入的HIS医生编码为:10115,在LIS获取PUser的编码为:20010!
+2020-09-30 10:14:15,492 [39] DEBUG : HIS传入的医生编码为:10115,获取到LIS医生编码为:10
+2020-09-30 10:14:15,496 [39] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-09-30 10:14:15,497 [39] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 10:14:15,499 [39] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 10:14:15,499 [39] DEBUG : 登录员工信息:PUser.Id:20010,PUser.CName:冯为盛
+2020-09-30 10:14:15,499 [39] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-09-30 10:14:15,499 [39] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 10:14:15,500 [39] DEBUG : 登录员工绑定医生信息:Doctor.Id:10,Doctor.CName:冯为盛
+2020-09-30 10:14:15,573 [39] DEBUG : HIS传入的医生编码为:10115,医生所属等级信息:申请医生,用血量权限范围:0--800
+2020-09-30 10:14:15,612 [39] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 10:14:15,613 [39] DEBUG : objectID:1483204384
+2020-09-30 10:14:15,613 [39] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 10:14:58,863 [39] INFO  : 获取医嘱申请的检验结果条件为:((vbloodlisresult.PatNo='2006482' or vbloodlisresult.PatNo='0000822217') and vbloodlisresult.CheckDateTime>='2020-09-23 00:00:00' and vbloodlisresult.CheckDateTime<='2020-09-30 23:59:59') and vbloodlisresult.ItemNo in (101001,101003,200223,200224,200225,300052,403002,499995,499996,499997,499998,499999,501008,502104,502108,502111,502112,502115,502120,600399,600463,600465,2100001253,2100001255)
+2020-09-30 10:14:59,386 [39] INFO  : 获取医嘱申请的检验结果条件为:((vbloodlisresult.PatNo='2006482' or vbloodlisresult.PatNo='0000822217') and vbloodlisresult.CheckDateTime>='2020-09-23 00:00:00' and vbloodlisresult.CheckDateTime<='2020-09-30 23:59:59') and vbloodlisresult.ItemNo in (101001,101003,200223,200224,200225,300052,403002,499995,499996,499997,499998,499999,501008,502104,502108,502111,502112,502115,502120,600399,600463,600465,2100001253,2100001255)
+2020-09-30 10:17:34,101 [43] DEBUG : 用血申请单号为:5739976819371616196,新增保存(总)处理开始!
+2020-09-30 10:17:34,101 [43] INFO  : 系统运行参数为:用血申请确认后是否自动完成审批-当前配置值为:False
+2020-09-30 10:17:34,101 [43] DEBUG : 用血申请单号为:5739976819371616196,新增保存到血库数据库开始!
+2020-09-30 10:17:34,120 [43] INFO  : 申请单号为:202009300001,新增保存处理开始!
+2020-09-30 10:17:34,140 [43] INFO  : 用血申请单号为:202009300001,用血申请明细Id为:5232998046253900622,血制品名称为:悬浮红细胞,用血申请量为:3,所属血液分类编码为:2,判断血制品是否参与大量用血计算:
+2020-09-30 10:17:34,140 [43] INFO  : 血制品名称为:悬浮红细胞,用血申请量为:3,换算系数为:200,参与大量用血计算,换算后用血量为:600
+2020-09-30 10:17:34,141 [43] DEBUG : 申请单号为:202009300001,包含有参与大量用血计算的血制品,申请单当次用血申请总量:600
+2020-09-30 10:17:34,142 [43] DEBUG : 申请单号为:202009300001;获取患者24小时内用血申请信息的查询条件为: bloodbreqform.Visible=1 and bloodbreqform.PatNo='2006482' and bloodbreqform.CName='毛善福' and bloodbreqform.ApplyTime>='2020-09-29 10:17:34' and bloodbreqform.ApplyTime<='2020-09-30 10:17:34' and bloodbreqform.BreqStatusID not in (1,2,4,10) and bloodbreqform.Id!='202009300001'
+2020-09-30 10:17:34,182 [43] DEBUG : 申请单号为:202009300001,用血申请总量:600
+2020-09-30 10:17:38,808 [43] INFO  : 申请单号为:202009300001,大量用血审核提示信息:24小时累计血量为:600ml,需要[上级医生]进行审批!请提醒相关人员进行审批!
+2020-09-30 10:17:38,831 [43] INFO  : 申请单号为:202009300001,新增保存处理结束,处理结果为:True!
+2020-09-30 10:17:39,097 [43] DEBUG : 用血申请单号为:202009300001,新增保存到血库数据库结束,处理结果为:24小时累计血量为:600ml,需要[上级医生]进行审批!请提醒相关人员进行审批!
+2020-09-30 10:17:39,106 [43] DEBUG : 用血申请单号为:202009300001,是否审批完成:False,审批完成后是否自动上传HIS:True,HIS数据标志:0
+2020-09-30 10:17:39,106 [43] DEBUG : 用血申请单号为:202009300001,新增保存(总)处理结束!
+2020-09-30 10:17:42,207 [39] DEBUG : fields:BloodBReqForm_Id,BloodBReqForm_ReqTotal,BloodBReqForm_BreqStatusID,BloodBReqForm_BreqStatusName,BloodBReqForm_PrintTotal,BloodBReqForm_ToHisFlag,BloodBReqForm_BReqFormFlag,BloodBReqForm_BReqTypeID,BloodBReqForm_BReqTypeCName,BloodBReqForm_UseTypeID,BloodBReqForm_UseTypeCName,BloodBReqForm_ReqTime,BloodBReqForm_PatID,BloodBReqForm_AdmID,BloodBReqForm_PatNo,BloodBReqForm_CName,BloodBReqForm_Sex,BloodBReqForm_Birthday,BloodBReqForm_HisABOCode,BloodBReqForm_HisrhCode,BloodBReqForm_WristBandNo,BloodBReqForm_UseTime,BloodBReqForm_HisDeptID,BloodBReqForm_DeptNo,BloodBReqForm_DeptCName,BloodBReqForm_HisDoctorId,BloodBReqForm_DoctorNo,BloodBReqForm_DoctorCName,BloodBReqForm_BUseTimeTypeID,BloodBReqForm_ApplyName,BloodBReqForm_ApplyTime,BloodBReqForm_CheckCompleteFlag,BloodBReqForm_CheckCompleteTime,BloodBReqForm_SeniorName,BloodBReqForm_SeniorTime,BloodBReqForm_SeniorMemo,BloodBReqForm_DirectorName,BloodBReqForm_DirectorTime,BloodBReqForm_DirectorMemo,BloodBReqForm_MedicalName,BloodBReqForm_MedicalTime,BloodBReqForm_MedicalMemo,BloodBReqForm_ObsoleteName,BloodBReqForm_ObsoleteTime,BloodBReqForm_ObsoleteMemo
+2020-09-30 10:17:42,208 [39] DEBUG : ResultDataValue:{"BloodBReqForm_Id":"202009300001","BloodBReqForm_ReqTotal":"600","BloodBReqForm_BreqStatusID":"2","BloodBReqForm_BreqStatusName":"提交申请","BloodBReqForm_PrintTotal":"0","BloodBReqForm_ToHisFlag":"0","BloodBReqForm_BReqFormFlag":"0","BloodBReqForm_BReqTypeID":"2","BloodBReqForm_BReqTypeCName":"","BloodBReqForm_UseTypeID":"1","BloodBReqForm_UseTypeCName":"","BloodBReqForm_ReqTime":"2020/09/30 10:17:34","BloodBReqForm_PatID":"0000822217","BloodBReqForm_AdmID":"5926539","BloodBReqForm_PatNo":"2006482","BloodBReqForm_CName":"毛善福","BloodBReqForm_Sex":"男","BloodBReqForm_Birthday":"1946/12/13 00:00:00","BloodBReqForm_HisABOCode":"AB","BloodBReqForm_HisrhCode":"阴性","BloodBReqForm_WristBandNo":"0000822217","BloodBReqForm_UseTime":"2020/09/30 00:00:00","BloodBReqForm_HisDeptID":"82","BloodBReqForm_DeptNo":"758","BloodBReqForm_DeptCName":"","BloodBReqForm_HisDoctorId":"10115","BloodBReqForm_DoctorNo":"10","BloodBReqForm_DoctorCName":"","BloodBReqForm_BUseTimeTypeID":"0","BloodBReqForm_ApplyName":"冯为盛","BloodBReqForm_ApplyTime":"2020/09/30 10:17:34","BloodBReqForm_CheckCompleteFlag":"false","BloodBReqForm_CheckCompleteTime":"","BloodBReqForm_SeniorName":"","BloodBReqForm_SeniorTime":"","BloodBReqForm_SeniorMemo":"","BloodBReqForm_DirectorName":"","BloodBReqForm_DirectorTime":"","BloodBReqForm_DirectorMemo":"","BloodBReqForm_MedicalName":"","BloodBReqForm_MedicalTime":"","BloodBReqForm_MedicalMemo":"","BloodBReqForm_ObsoleteName":"","BloodBReqForm_ObsoleteTime":"","BloodBReqForm_ObsoleteMemo":""}
+2020-09-30 10:17:49,047 [39] ERROR : 提示信息：登录帐号为:555,获取用户帐号信息为空!
+2020-09-30 10:18:50,575 [39] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 10:18:50,577 [39] DEBUG : objectID:1483204384
+2020-09-30 10:18:50,577 [39] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 10:18:58,028 [39] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 10:18:58,029 [39] DEBUG : objectID:1483204384
+2020-09-30 10:18:58,029 [39] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 14:25:40,701 [7] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10115
+2020-09-30 14:25:41,528 [7] DEBUG : 按传入的HIS编码为:10115,获取PUser的hql(puser.Code1 = '10115' or  puser.Code2 = '10115' or puser.Code3= '10115' or puser.Code4= '10115' or puser.Code5= '10115')
+2020-09-30 14:25:41,892 [7] ERROR : 传入的HIS医生编码为:10115,在LIS获取PUser的编码为:20010!
+2020-09-30 14:25:41,904 [7] DEBUG : HIS传入的医生编码为:10115,获取到LIS医生编码为:10
+2020-09-30 14:25:42,074 [7] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-09-30 14:25:42,118 [7] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 14:25:42,143 [7] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 14:25:42,151 [7] DEBUG : 登录员工信息:PUser.Id:20010,PUser.CName:冯为盛
+2020-09-30 14:25:42,152 [7] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-09-30 14:25:42,152 [7] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 14:25:42,153 [7] DEBUG : 登录员工绑定医生信息:Doctor.Id:10,Doctor.CName:冯为盛
+2020-09-30 14:25:42,221 [7] DEBUG : HIS传入的医生编码为:10115,医生所属等级信息:申请医生,用血量权限范围:0--800
+2020-09-30 14:25:42,489 [7] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 14:25:42,508 [7] DEBUG : objectID:1483204384
+2020-09-30 14:25:42,509 [7] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 14:33:24,748 [7] INFO  : 获取医嘱申请的检验结果条件为:((vbloodlisresult.PatNo='2006482' or vbloodlisresult.PatNo='0000822217') and vbloodlisresult.CheckDateTime>='2020-09-23 00:00:00' and vbloodlisresult.CheckDateTime<='2020-09-30 23:59:59') and vbloodlisresult.ItemNo in (101001,101003,200223,200224,200225,300052,403002,499995,499996,499997,499998,499999,501008,502104,502108,502111,502112,502115,502120,600399,600463,600465,2100001253,2100001255)
+2020-09-30 14:33:25,230 [7] INFO  : 获取医嘱申请的检验结果条件为:((vbloodlisresult.PatNo='2006482' or vbloodlisresult.PatNo='0000822217') and vbloodlisresult.CheckDateTime>='2020-09-23 00:00:00' and vbloodlisresult.CheckDateTime<='2020-09-30 23:59:59') and vbloodlisresult.ItemNo in (101001,101003,200223,200224,200225,300052,403002,499995,499996,499997,499998,499999,501008,502104,502108,502111,502112,502115,502120,600399,600463,600465,2100001253,2100001255)
+2020-09-30 14:38:51,997 [38] DEBUG : 用血申请单号为:5290905613340626996,新增保存(总)处理开始!
+2020-09-30 14:38:51,997 [38] INFO  : 系统运行参数为:用血申请确认后是否自动完成审批-当前配置值为:False
+2020-09-30 14:38:51,997 [38] DEBUG : 用血申请单号为:5290905613340626996,新增保存到血库数据库开始!
+2020-09-30 14:38:52,019 [38] INFO  : 申请单号为:202009300002,新增保存处理开始!
+2020-09-30 14:38:52,047 [38] INFO  : 用血申请单号为:202009300002,用血申请明细Id为:4717359098565405569,血制品名称为:去白细胞悬浮红细胞,用血申请量为:2,所属血液分类编码为:2,判断血制品是否参与大量用血计算:
+2020-09-30 14:38:52,047 [38] INFO  : 血制品名称为:去白细胞悬浮红细胞,用血申请量为:2,换算系数为:200,参与大量用血计算,换算后用血量为:400
+2020-09-30 14:38:52,047 [38] INFO  : 用血申请单号为:202009300002,用血申请明细Id为:5729287114167534553,血制品名称为:悬浮红细胞,用血申请量为:2,所属血液分类编码为:2,判断血制品是否参与大量用血计算:
+2020-09-30 14:38:52,047 [38] INFO  : 血制品名称为:悬浮红细胞,用血申请量为:2,换算系数为:200,参与大量用血计算,换算后用血量为:400
+2020-09-30 14:38:52,047 [38] INFO  : 用血申请单号为:202009300002,用血申请明细Id为:4750625984778319981,血制品名称为:辐照悬浮红细胞,用血申请量为:2,所属血液分类编码为:2,判断血制品是否参与大量用血计算:
+2020-09-30 14:38:52,047 [38] INFO  : 血制品名称为:辐照悬浮红细胞,用血申请量为:2,换算系数为:200,参与大量用血计算,换算后用血量为:400
+2020-09-30 14:38:52,048 [38] DEBUG : 申请单号为:202009300002,包含有参与大量用血计算的血制品,申请单当次用血申请总量:1200
+2020-09-30 14:38:52,048 [38] DEBUG : 申请单号为:202009300002;获取患者24小时内用血申请信息的查询条件为: bloodbreqform.Visible=1 and bloodbreqform.PatNo='2006482' and bloodbreqform.CName='毛善福' and bloodbreqform.ApplyTime>='2020-09-29 14:38:52' and bloodbreqform.ApplyTime<='2020-09-30 14:38:52' and bloodbreqform.BreqStatusID not in (1,2,4,10) and bloodbreqform.Id!='202009300002'
+2020-09-30 14:38:52,069 [38] DEBUG : 申请单号为:202009300002,用血申请总量:1200
+2020-09-30 14:38:56,132 [38] INFO  : 申请单号为:202009300002,大量用血审核提示信息:24小时累计血量为:1200ml,需要[上级医生][科主任]进行审批!请提醒相关人员进行审批!
+2020-09-30 14:38:56,169 [38] INFO  : 申请单号为:202009300002,新增保存处理结束,处理结果为:True!
+2020-09-30 14:38:56,331 [38] DEBUG : 用血申请单号为:202009300002,新增保存到血库数据库结束,处理结果为:24小时累计血量为:1200ml,需要[上级医生][科主任]进行审批!请提醒相关人员进行审批!
+2020-09-30 14:38:56,334 [38] DEBUG : 用血申请单号为:202009300002,是否审批完成:False,审批完成后是否自动上传HIS:True,HIS数据标志:0
+2020-09-30 14:38:56,334 [38] DEBUG : 用血申请单号为:202009300002,新增保存(总)处理结束!
+2020-09-30 14:39:19,281 [7] DEBUG : fields:BloodBReqForm_Id,BloodBReqForm_ReqTotal,BloodBReqForm_BreqStatusID,BloodBReqForm_BreqStatusName,BloodBReqForm_PrintTotal,BloodBReqForm_ToHisFlag,BloodBReqForm_BReqFormFlag,BloodBReqForm_BReqTypeID,BloodBReqForm_BReqTypeCName,BloodBReqForm_UseTypeID,BloodBReqForm_UseTypeCName,BloodBReqForm_ReqTime,BloodBReqForm_PatID,BloodBReqForm_AdmID,BloodBReqForm_PatNo,BloodBReqForm_CName,BloodBReqForm_Sex,BloodBReqForm_Birthday,BloodBReqForm_HisABOCode,BloodBReqForm_HisrhCode,BloodBReqForm_WristBandNo,BloodBReqForm_UseTime,BloodBReqForm_HisDeptID,BloodBReqForm_DeptNo,BloodBReqForm_DeptCName,BloodBReqForm_HisDoctorId,BloodBReqForm_DoctorNo,BloodBReqForm_DoctorCName,BloodBReqForm_BUseTimeTypeID,BloodBReqForm_ApplyName,BloodBReqForm_ApplyTime,BloodBReqForm_CheckCompleteFlag,BloodBReqForm_CheckCompleteTime,BloodBReqForm_SeniorName,BloodBReqForm_SeniorTime,BloodBReqForm_SeniorMemo,BloodBReqForm_DirectorName,BloodBReqForm_DirectorTime,BloodBReqForm_DirectorMemo,BloodBReqForm_MedicalName,BloodBReqForm_MedicalTime,BloodBReqForm_MedicalMemo,BloodBReqForm_ObsoleteName,BloodBReqForm_ObsoleteTime,BloodBReqForm_ObsoleteMemo
+2020-09-30 14:39:19,281 [7] DEBUG : ResultDataValue:{"BloodBReqForm_Id":"202009300002","BloodBReqForm_ReqTotal":"1200","BloodBReqForm_BreqStatusID":"2","BloodBReqForm_BreqStatusName":"提交申请","BloodBReqForm_PrintTotal":"0","BloodBReqForm_ToHisFlag":"0","BloodBReqForm_BReqFormFlag":"0","BloodBReqForm_BReqTypeID":"2","BloodBReqForm_BReqTypeCName":"","BloodBReqForm_UseTypeID":"1","BloodBReqForm_UseTypeCName":"","BloodBReqForm_ReqTime":"2020/09/30 14:38:52","BloodBReqForm_PatID":"0000822217","BloodBReqForm_AdmID":"5926539","BloodBReqForm_PatNo":"2006482","BloodBReqForm_CName":"毛善福","BloodBReqForm_Sex":"男","BloodBReqForm_Birthday":"1946/12/13 00:00:00","BloodBReqForm_HisABOCode":"B","BloodBReqForm_HisrhCode":"阴性","BloodBReqForm_WristBandNo":"0000822217","BloodBReqForm_UseTime":"2020/09/30 00:00:00","BloodBReqForm_HisDeptID":"82","BloodBReqForm_DeptNo":"758","BloodBReqForm_DeptCName":"","BloodBReqForm_HisDoctorId":"10115","BloodBReqForm_DoctorNo":"10","BloodBReqForm_DoctorCName":"","BloodBReqForm_BUseTimeTypeID":"0","BloodBReqForm_ApplyName":"冯为盛","BloodBReqForm_ApplyTime":"2020/09/30 14:38:52","BloodBReqForm_CheckCompleteFlag":"false","BloodBReqForm_CheckCompleteTime":"","BloodBReqForm_SeniorName":"","BloodBReqForm_SeniorTime":"","BloodBReqForm_SeniorMemo":"","BloodBReqForm_DirectorName":"","BloodBReqForm_DirectorTime":"","BloodBReqForm_DirectorMemo":"","BloodBReqForm_MedicalName":"","BloodBReqForm_MedicalTime":"","BloodBReqForm_MedicalMemo":"","BloodBReqForm_ObsoleteName":"","BloodBReqForm_ObsoleteTime":"","BloodBReqForm_ObsoleteMemo":""}
+2020-09-30 14:39:38,389 [7] DEBUG : 按puser的Code1--Code5获取查询doctor信息hql: doctor.Visible=1 and (doctor.Code1 ='' or  doctor.Code2 ='' or doctor.Code3='' or doctor.Code4='' or doctor.Code5='20110101')
+2020-09-30 14:39:38,411 [7] ERROR : 提示信息：登录帐号为:20110101,获取医生信息为空!
+2020-09-30 14:39:38,455 [7] DEBUG : fields:BloodBReqForm_Id,BloodBReqForm_ReqTotal,BloodBReqForm_BreqStatusID,BloodBReqForm_BreqStatusName,BloodBReqForm_PrintTotal,BloodBReqForm_ToHisFlag,BloodBReqForm_BReqFormFlag,BloodBReqForm_BReqTypeID,BloodBReqForm_BReqTypeCName,BloodBReqForm_UseTypeID,BloodBReqForm_UseTypeCName,BloodBReqForm_ReqTime,BloodBReqForm_PatID,BloodBReqForm_AdmID,BloodBReqForm_PatNo,BloodBReqForm_CName,BloodBReqForm_Sex,BloodBReqForm_Birthday,BloodBReqForm_HisABOCode,BloodBReqForm_HisrhCode,BloodBReqForm_WristBandNo,BloodBReqForm_UseTime,BloodBReqForm_HisDeptID,BloodBReqForm_DeptNo,BloodBReqForm_DeptCName,BloodBReqForm_HisDoctorId,BloodBReqForm_DoctorNo,BloodBReqForm_DoctorCName,BloodBReqForm_BUseTimeTypeID,BloodBReqForm_ApplyName,BloodBReqForm_ApplyTime,BloodBReqForm_CheckCompleteFlag,BloodBReqForm_CheckCompleteTime,BloodBReqForm_SeniorName,BloodBReqForm_SeniorTime,BloodBReqForm_SeniorMemo,BloodBReqForm_DirectorName,BloodBReqForm_DirectorTime,BloodBReqForm_DirectorMemo,BloodBReqForm_MedicalName,BloodBReqForm_MedicalTime,BloodBReqForm_MedicalMemo,BloodBReqForm_ObsoleteName,BloodBReqForm_ObsoleteTime,BloodBReqForm_ObsoleteMemo
+2020-09-30 14:39:38,455 [7] DEBUG : ResultDataValue:{"BloodBReqForm_Id":"202009300002","BloodBReqForm_ReqTotal":"1200","BloodBReqForm_BreqStatusID":"2","BloodBReqForm_BreqStatusName":"提交申请","BloodBReqForm_PrintTotal":"0","BloodBReqForm_ToHisFlag":"0","BloodBReqForm_BReqFormFlag":"0","BloodBReqForm_BReqTypeID":"2","BloodBReqForm_BReqTypeCName":"","BloodBReqForm_UseTypeID":"1","BloodBReqForm_UseTypeCName":"","BloodBReqForm_ReqTime":"2020/09/30 14:38:52","BloodBReqForm_PatID":"0000822217","BloodBReqForm_AdmID":"5926539","BloodBReqForm_PatNo":"2006482","BloodBReqForm_CName":"毛善福","BloodBReqForm_Sex":"男","BloodBReqForm_Birthday":"1946/12/13 00:00:00","BloodBReqForm_HisABOCode":"B","BloodBReqForm_HisrhCode":"阴性","BloodBReqForm_WristBandNo":"0000822217","BloodBReqForm_UseTime":"2020/09/30 00:00:00","BloodBReqForm_HisDeptID":"82","BloodBReqForm_DeptNo":"758","BloodBReqForm_DeptCName":"","BloodBReqForm_HisDoctorId":"10115","BloodBReqForm_DoctorNo":"10","BloodBReqForm_DoctorCName":"","BloodBReqForm_BUseTimeTypeID":"0","BloodBReqForm_ApplyName":"冯为盛","BloodBReqForm_ApplyTime":"2020/09/30 14:38:52","BloodBReqForm_CheckCompleteFlag":"false","BloodBReqForm_CheckCompleteTime":"","BloodBReqForm_SeniorName":"","BloodBReqForm_SeniorTime":"","BloodBReqForm_SeniorMemo":"","BloodBReqForm_DirectorName":"","BloodBReqForm_DirectorTime":"","BloodBReqForm_DirectorMemo":"","BloodBReqForm_MedicalName":"","BloodBReqForm_MedicalTime":"","BloodBReqForm_MedicalMemo":"","BloodBReqForm_ObsoleteName":"","BloodBReqForm_ObsoleteTime":"","BloodBReqForm_ObsoleteMemo":""}
+2020-09-30 14:40:21,722 [7] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 14:40:21,723 [7] DEBUG : objectID:1483204384
+2020-09-30 14:40:21,723 [7] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 14:40:34,889 [7] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 14:40:34,890 [7] DEBUG : objectID:1483204384
+2020-09-30 14:40:34,890 [7] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 14:42:24,852 [50] DEBUG : 按puser的Code1--Code5获取查询doctor信息hql: doctor.Visible=1 and (doctor.Code1 ='' or  doctor.Code2 ='' or doctor.Code3='' or doctor.Code4='' or doctor.Code5='20110101')
+2020-09-30 14:42:24,854 [50] ERROR : 提示信息：登录帐号为:20110101,获取医生信息为空!
+2020-09-30 14:42:24,944 [50] DEBUG : fields:BloodBReqForm_Id,BloodBReqForm_ReqTotal,BloodBReqForm_BreqStatusID,BloodBReqForm_BreqStatusName,BloodBReqForm_PrintTotal,BloodBReqForm_ToHisFlag,BloodBReqForm_BReqFormFlag,BloodBReqForm_BReqTypeID,BloodBReqForm_BReqTypeCName,BloodBReqForm_UseTypeID,BloodBReqForm_UseTypeCName,BloodBReqForm_ReqTime,BloodBReqForm_PatID,BloodBReqForm_AdmID,BloodBReqForm_PatNo,BloodBReqForm_CName,BloodBReqForm_Sex,BloodBReqForm_Birthday,BloodBReqForm_HisABOCode,BloodBReqForm_HisrhCode,BloodBReqForm_WristBandNo,BloodBReqForm_UseTime,BloodBReqForm_HisDeptID,BloodBReqForm_DeptNo,BloodBReqForm_DeptCName,BloodBReqForm_HisDoctorId,BloodBReqForm_DoctorNo,BloodBReqForm_DoctorCName,BloodBReqForm_BUseTimeTypeID,BloodBReqForm_ApplyName,BloodBReqForm_ApplyTime,BloodBReqForm_CheckCompleteFlag,BloodBReqForm_CheckCompleteTime,BloodBReqForm_SeniorName,BloodBReqForm_SeniorTime,BloodBReqForm_SeniorMemo,BloodBReqForm_DirectorName,BloodBReqForm_DirectorTime,BloodBReqForm_DirectorMemo,BloodBReqForm_MedicalName,BloodBReqForm_MedicalTime,BloodBReqForm_MedicalMemo,BloodBReqForm_ObsoleteName,BloodBReqForm_ObsoleteTime,BloodBReqForm_ObsoleteMemo
+2020-09-30 14:42:24,944 [50] DEBUG : ResultDataValue:{"BloodBReqForm_Id":"202009300002","BloodBReqForm_ReqTotal":"1200","BloodBReqForm_BreqStatusID":"2","BloodBReqForm_BreqStatusName":"提交申请","BloodBReqForm_PrintTotal":"0","BloodBReqForm_ToHisFlag":"0","BloodBReqForm_BReqFormFlag":"0","BloodBReqForm_BReqTypeID":"2","BloodBReqForm_BReqTypeCName":"","BloodBReqForm_UseTypeID":"1","BloodBReqForm_UseTypeCName":"","BloodBReqForm_ReqTime":"2020/09/30 14:38:52","BloodBReqForm_PatID":"0000822217","BloodBReqForm_AdmID":"5926539","BloodBReqForm_PatNo":"2006482","BloodBReqForm_CName":"毛善福","BloodBReqForm_Sex":"男","BloodBReqForm_Birthday":"1946/12/13 00:00:00","BloodBReqForm_HisABOCode":"B","BloodBReqForm_HisrhCode":"阴性","BloodBReqForm_WristBandNo":"0000822217","BloodBReqForm_UseTime":"2020/09/30 00:00:00","BloodBReqForm_HisDeptID":"82","BloodBReqForm_DeptNo":"758","BloodBReqForm_DeptCName":"","BloodBReqForm_HisDoctorId":"10115","BloodBReqForm_DoctorNo":"10","BloodBReqForm_DoctorCName":"","BloodBReqForm_BUseTimeTypeID":"0","BloodBReqForm_ApplyName":"冯为盛","BloodBReqForm_ApplyTime":"2020/09/30 14:38:52","BloodBReqForm_CheckCompleteFlag":"false","BloodBReqForm_CheckCompleteTime":"","BloodBReqForm_SeniorName":"","BloodBReqForm_SeniorTime":"","BloodBReqForm_SeniorMemo":"","BloodBReqForm_DirectorName":"","BloodBReqForm_DirectorTime":"","BloodBReqForm_DirectorMemo":"","BloodBReqForm_MedicalName":"","BloodBReqForm_MedicalTime":"","BloodBReqForm_MedicalMemo":"","BloodBReqForm_ObsoleteName":"","BloodBReqForm_ObsoleteTime":"","BloodBReqForm_ObsoleteMemo":""}
+2020-09-30 14:43:30,140 [51] DEBUG : 按puser的Code1--Code5获取查询doctor信息hql: doctor.Visible=1 and (doctor.Code1 ='' or  doctor.Code2 ='' or doctor.Code3='' or doctor.Code4='' or doctor.Code5='20110101')
+2020-09-30 14:43:30,141 [51] ERROR : 提示信息：登录帐号为:20110101,获取医生信息为空!
+2020-09-30 14:43:30,227 [51] DEBUG : fields:BloodBReqForm_Id,BloodBReqForm_ReqTotal,BloodBReqForm_BreqStatusID,BloodBReqForm_BreqStatusName,BloodBReqForm_PrintTotal,BloodBReqForm_ToHisFlag,BloodBReqForm_BReqFormFlag,BloodBReqForm_BReqTypeID,BloodBReqForm_BReqTypeCName,BloodBReqForm_UseTypeID,BloodBReqForm_UseTypeCName,BloodBReqForm_ReqTime,BloodBReqForm_PatID,BloodBReqForm_AdmID,BloodBReqForm_PatNo,BloodBReqForm_CName,BloodBReqForm_Sex,BloodBReqForm_Birthday,BloodBReqForm_HisABOCode,BloodBReqForm_HisrhCode,BloodBReqForm_WristBandNo,BloodBReqForm_UseTime,BloodBReqForm_HisDeptID,BloodBReqForm_DeptNo,BloodBReqForm_DeptCName,BloodBReqForm_HisDoctorId,BloodBReqForm_DoctorNo,BloodBReqForm_DoctorCName,BloodBReqForm_BUseTimeTypeID,BloodBReqForm_ApplyName,BloodBReqForm_ApplyTime,BloodBReqForm_CheckCompleteFlag,BloodBReqForm_CheckCompleteTime,BloodBReqForm_SeniorName,BloodBReqForm_SeniorTime,BloodBReqForm_SeniorMemo,BloodBReqForm_DirectorName,BloodBReqForm_DirectorTime,BloodBReqForm_DirectorMemo,BloodBReqForm_MedicalName,BloodBReqForm_MedicalTime,BloodBReqForm_MedicalMemo,BloodBReqForm_ObsoleteName,BloodBReqForm_ObsoleteTime,BloodBReqForm_ObsoleteMemo
+2020-09-30 14:43:30,227 [51] DEBUG : ResultDataValue:{"BloodBReqForm_Id":"202009300002","BloodBReqForm_ReqTotal":"1200","BloodBReqForm_BreqStatusID":"2","BloodBReqForm_BreqStatusName":"提交申请","BloodBReqForm_PrintTotal":"0","BloodBReqForm_ToHisFlag":"0","BloodBReqForm_BReqFormFlag":"0","BloodBReqForm_BReqTypeID":"2","BloodBReqForm_BReqTypeCName":"","BloodBReqForm_UseTypeID":"1","BloodBReqForm_UseTypeCName":"","BloodBReqForm_ReqTime":"2020/09/30 14:38:52","BloodBReqForm_PatID":"0000822217","BloodBReqForm_AdmID":"5926539","BloodBReqForm_PatNo":"2006482","BloodBReqForm_CName":"毛善福","BloodBReqForm_Sex":"男","BloodBReqForm_Birthday":"1946/12/13 00:00:00","BloodBReqForm_HisABOCode":"B","BloodBReqForm_HisrhCode":"阴性","BloodBReqForm_WristBandNo":"0000822217","BloodBReqForm_UseTime":"2020/09/30 00:00:00","BloodBReqForm_HisDeptID":"82","BloodBReqForm_DeptNo":"758","BloodBReqForm_DeptCName":"","BloodBReqForm_HisDoctorId":"10115","BloodBReqForm_DoctorNo":"10","BloodBReqForm_DoctorCName":"","BloodBReqForm_BUseTimeTypeID":"0","BloodBReqForm_ApplyName":"冯为盛","BloodBReqForm_ApplyTime":"2020/09/30 14:38:52","BloodBReqForm_CheckCompleteFlag":"false","BloodBReqForm_CheckCompleteTime":"","BloodBReqForm_SeniorName":"","BloodBReqForm_SeniorTime":"","BloodBReqForm_SeniorMemo":"","BloodBReqForm_DirectorName":"","BloodBReqForm_DirectorTime":"","BloodBReqForm_DirectorMemo":"","BloodBReqForm_MedicalName":"","BloodBReqForm_MedicalTime":"","BloodBReqForm_MedicalMemo":"","BloodBReqForm_ObsoleteName":"","BloodBReqForm_ObsoleteTime":"","BloodBReqForm_ObsoleteMemo":""}
+2020-09-30 14:44:00,918 [51] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10115
+2020-09-30 14:44:00,918 [51] DEBUG : 按传入的HIS编码为:10115,获取PUser的hql(puser.Code1 = '10115' or  puser.Code2 = '10115' or puser.Code3= '10115' or puser.Code4= '10115' or puser.Code5= '10115')
+2020-09-30 14:44:00,946 [51] ERROR : 传入的HIS医生编码为:10115,在LIS获取PUser的编码为:20010!
+2020-09-30 14:44:00,947 [51] DEBUG : HIS传入的医生编码为:10115,获取到LIS医生编码为:10
+2020-09-30 14:44:00,958 [51] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-09-30 14:44:00,959 [51] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 14:44:00,963 [51] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 14:44:00,982 [51] DEBUG : 登录员工信息:PUser.Id:20010,PUser.CName:冯为盛
+2020-09-30 14:44:00,983 [51] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-09-30 14:44:00,983 [51] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 14:44:00,983 [51] DEBUG : 登录员工绑定医生信息:Doctor.Id:10,Doctor.CName:冯为盛
+2020-09-30 14:44:00,996 [51] DEBUG : HIS传入的医生编码为:10115,医生所属等级信息:申请医生,用血量权限范围:0--800
+2020-09-30 14:44:01,076 [51] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 14:44:01,079 [51] DEBUG : objectID:1483204384
+2020-09-30 14:44:01,079 [51] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 14:44:36,428 [51] DEBUG : 按puser的Code1--Code5获取查询doctor信息hql: doctor.Visible=1 and (doctor.Code1 ='' or  doctor.Code2 ='' or doctor.Code3='' or doctor.Code4='' or doctor.Code5='20110101')
+2020-09-30 14:44:36,429 [51] ERROR : 提示信息：登录帐号为:20110101,获取医生信息为空!
+2020-09-30 14:44:36,554 [51] DEBUG : fields:BloodBReqForm_Id,BloodBReqForm_ReqTotal,BloodBReqForm_BreqStatusID,BloodBReqForm_BreqStatusName,BloodBReqForm_PrintTotal,BloodBReqForm_ToHisFlag,BloodBReqForm_BReqFormFlag,BloodBReqForm_BReqTypeID,BloodBReqForm_BReqTypeCName,BloodBReqForm_UseTypeID,BloodBReqForm_UseTypeCName,BloodBReqForm_ReqTime,BloodBReqForm_PatID,BloodBReqForm_AdmID,BloodBReqForm_PatNo,BloodBReqForm_CName,BloodBReqForm_Sex,BloodBReqForm_Birthday,BloodBReqForm_HisABOCode,BloodBReqForm_HisrhCode,BloodBReqForm_WristBandNo,BloodBReqForm_UseTime,BloodBReqForm_HisDeptID,BloodBReqForm_DeptNo,BloodBReqForm_DeptCName,BloodBReqForm_HisDoctorId,BloodBReqForm_DoctorNo,BloodBReqForm_DoctorCName,BloodBReqForm_BUseTimeTypeID,BloodBReqForm_ApplyName,BloodBReqForm_ApplyTime,BloodBReqForm_CheckCompleteFlag,BloodBReqForm_CheckCompleteTime,BloodBReqForm_SeniorName,BloodBReqForm_SeniorTime,BloodBReqForm_SeniorMemo,BloodBReqForm_DirectorName,BloodBReqForm_DirectorTime,BloodBReqForm_DirectorMemo,BloodBReqForm_MedicalName,BloodBReqForm_MedicalTime,BloodBReqForm_MedicalMemo,BloodBReqForm_ObsoleteName,BloodBReqForm_ObsoleteTime,BloodBReqForm_ObsoleteMemo
+2020-09-30 14:44:36,554 [51] DEBUG : ResultDataValue:{"BloodBReqForm_Id":"202009300002","BloodBReqForm_ReqTotal":"1200","BloodBReqForm_BreqStatusID":"2","BloodBReqForm_BreqStatusName":"提交申请","BloodBReqForm_PrintTotal":"0","BloodBReqForm_ToHisFlag":"0","BloodBReqForm_BReqFormFlag":"0","BloodBReqForm_BReqTypeID":"2","BloodBReqForm_BReqTypeCName":"","BloodBReqForm_UseTypeID":"1","BloodBReqForm_UseTypeCName":"","BloodBReqForm_ReqTime":"2020/09/30 14:38:52","BloodBReqForm_PatID":"0000822217","BloodBReqForm_AdmID":"5926539","BloodBReqForm_PatNo":"2006482","BloodBReqForm_CName":"毛善福","BloodBReqForm_Sex":"男","BloodBReqForm_Birthday":"1946/12/13 00:00:00","BloodBReqForm_HisABOCode":"B","BloodBReqForm_HisrhCode":"阴性","BloodBReqForm_WristBandNo":"0000822217","BloodBReqForm_UseTime":"2020/09/30 00:00:00","BloodBReqForm_HisDeptID":"82","BloodBReqForm_DeptNo":"758","BloodBReqForm_DeptCName":"","BloodBReqForm_HisDoctorId":"10115","BloodBReqForm_DoctorNo":"10","BloodBReqForm_DoctorCName":"","BloodBReqForm_BUseTimeTypeID":"0","BloodBReqForm_ApplyName":"冯为盛","BloodBReqForm_ApplyTime":"2020/09/30 14:38:52","BloodBReqForm_CheckCompleteFlag":"false","BloodBReqForm_CheckCompleteTime":"","BloodBReqForm_SeniorName":"","BloodBReqForm_SeniorTime":"","BloodBReqForm_SeniorMemo":"","BloodBReqForm_DirectorName":"","BloodBReqForm_DirectorTime":"","BloodBReqForm_DirectorMemo":"","BloodBReqForm_MedicalName":"","BloodBReqForm_MedicalTime":"","BloodBReqForm_MedicalMemo":"","BloodBReqForm_ObsoleteName":"","BloodBReqForm_ObsoleteTime":"","BloodBReqForm_ObsoleteMemo":""}
+2020-09-30 14:46:31,739 [49] DEBUG : 按puser的Code1--Code5获取查询doctor信息hql: doctor.Visible=1 and (doctor.Code1 ='20110101' or  doctor.Code2 ='20110101' or doctor.Code3='20110101' or doctor.Code4='20110101' or doctor.Code5='20110101')
+2020-09-30 14:46:31,748 [49] DEBUG : HIS传入的医生编码为:20110101,医生所属等级信息:科主任,用血量权限范围:801--1600
+2020-09-30 14:46:31,799 [37] DEBUG : 用血申请单号为:202009300002,编辑保存(总)处理开始!
+2020-09-30 14:46:31,799 [37] INFO  : 系统运行参数为:用血申请确认后是否自动完成审批-当前配置值为:False
+2020-09-30 14:46:31,799 [37] DEBUG : 用血申请单号为:202009300002,编辑保存到血库数据库开始!
+2020-09-30 14:46:31,817 [37] INFO  : 申请单号为:202009300002,编辑保存处理开始!
+2020-09-30 14:46:31,865 [37] INFO  : 申请单号为:202009300002,编辑保存处理结束,处理结果为:True!
+2020-09-30 14:46:31,868 [37] DEBUG : 用血申请单号为:202009300002,编辑保存到血库数据库结束!
+2020-09-30 14:46:31,873 [37] DEBUG : 用血申请单号为:202009300002,是否审批完成:False,审批完成后是否自动上传HIS:True,HIS数据标志:
+2020-09-30 14:46:31,873 [37] DEBUG : 用血申请单号为:202009300002,编辑保存(总)处理结束!
+2020-09-30 14:46:31,899 [44] DEBUG : fields:BloodBReqForm_Id,BloodBReqForm_ReqTotal,BloodBReqForm_BreqStatusID,BloodBReqForm_BreqStatusName,BloodBReqForm_PrintTotal,BloodBReqForm_ToHisFlag,BloodBReqForm_BReqFormFlag,BloodBReqForm_BReqTypeID,BloodBReqForm_BReqTypeCName,BloodBReqForm_UseTypeID,BloodBReqForm_UseTypeCName,BloodBReqForm_ReqTime,BloodBReqForm_PatID,BloodBReqForm_AdmID,BloodBReqForm_PatNo,BloodBReqForm_CName,BloodBReqForm_Sex,BloodBReqForm_Birthday,BloodBReqForm_HisABOCode,BloodBReqForm_HisrhCode,BloodBReqForm_WristBandNo,BloodBReqForm_UseTime,BloodBReqForm_HisDeptID,BloodBReqForm_DeptNo,BloodBReqForm_DeptCName,BloodBReqForm_HisDoctorId,BloodBReqForm_DoctorNo,BloodBReqForm_DoctorCName,BloodBReqForm_BUseTimeTypeID,BloodBReqForm_ApplyName,BloodBReqForm_ApplyTime,BloodBReqForm_CheckCompleteFlag,BloodBReqForm_CheckCompleteTime,BloodBReqForm_SeniorName,BloodBReqForm_SeniorTime,BloodBReqForm_SeniorMemo,BloodBReqForm_DirectorName,BloodBReqForm_DirectorTime,BloodBReqForm_DirectorMemo,BloodBReqForm_MedicalName,BloodBReqForm_MedicalTime,BloodBReqForm_MedicalMemo,BloodBReqForm_ObsoleteName,BloodBReqForm_ObsoleteTime,BloodBReqForm_ObsoleteMemo
+2020-09-30 14:46:31,899 [44] DEBUG : ResultDataValue:{"BloodBReqForm_Id":"202009300002","BloodBReqForm_ReqTotal":"1200","BloodBReqForm_BreqStatusID":"3","BloodBReqForm_BreqStatusName":"上级审核通过","BloodBReqForm_PrintTotal":"0","BloodBReqForm_ToHisFlag":"0","BloodBReqForm_BReqFormFlag":"0","BloodBReqForm_BReqTypeID":"2","BloodBReqForm_BReqTypeCName":"","BloodBReqForm_UseTypeID":"1","BloodBReqForm_UseTypeCName":"","BloodBReqForm_ReqTime":"2020/09/30 14:38:52","BloodBReqForm_PatID":"0000822217","BloodBReqForm_AdmID":"5926539","BloodBReqForm_PatNo":"2006482","BloodBReqForm_CName":"毛善福","BloodBReqForm_Sex":"男","BloodBReqForm_Birthday":"1946/12/13 00:00:00","BloodBReqForm_HisABOCode":"B","BloodBReqForm_HisrhCode":"阴性","BloodBReqForm_WristBandNo":"0000822217","BloodBReqForm_UseTime":"2020/09/30 00:00:00","BloodBReqForm_HisDeptID":"82","BloodBReqForm_DeptNo":"758","BloodBReqForm_DeptCName":"","BloodBReqForm_HisDoctorId":"10115","BloodBReqForm_DoctorNo":"10","BloodBReqForm_DoctorCName":"","BloodBReqForm_BUseTimeTypeID":"0","BloodBReqForm_ApplyName":"冯为盛","BloodBReqForm_ApplyTime":"2020/09/30 14:38:52","BloodBReqForm_CheckCompleteFlag":"false","BloodBReqForm_CheckCompleteTime":"","BloodBReqForm_SeniorName":"智方检验测试用户","BloodBReqForm_SeniorTime":"2020/09/30 14:46:31","BloodBReqForm_SeniorMemo":"同意","BloodBReqForm_DirectorName":"","BloodBReqForm_DirectorTime":"","BloodBReqForm_DirectorMemo":"","BloodBReqForm_MedicalName":"","BloodBReqForm_MedicalTime":"","BloodBReqForm_MedicalMemo":"","BloodBReqForm_ObsoleteName":"","BloodBReqForm_ObsoleteTime":"","BloodBReqForm_ObsoleteMemo":""}
+2020-09-30 14:46:46,289 [44] DEBUG : 按puser的Code1--Code5获取查询doctor信息hql: doctor.Visible=1 and (doctor.Code1 ='20110101' or  doctor.Code2 ='20110101' or doctor.Code3='20110101' or doctor.Code4='20110101' or doctor.Code5='20110101')
+2020-09-30 14:46:46,291 [44] DEBUG : HIS传入的医生编码为:20110101,医生所属等级信息:科主任,用血量权限范围:801--1600
+2020-09-30 14:46:46,363 [36] DEBUG : 用血申请单号为:202009300002,编辑保存(总)处理开始!
+2020-09-30 14:46:46,363 [36] INFO  : 系统运行参数为:用血申请确认后是否自动完成审批-当前配置值为:False
+2020-09-30 14:46:46,363 [36] DEBUG : 用血申请单号为:202009300002,编辑保存到血库数据库开始!
+2020-09-30 14:46:46,367 [36] INFO  : 申请单号为:202009300002,编辑保存处理开始!
+2020-09-30 14:46:46,377 [36] INFO  : 申请单号为:202009300002,编辑保存处理结束,处理结果为:True!
+2020-09-30 14:46:46,378 [36] DEBUG : 用血申请单号为:202009300002,编辑保存到血库数据库结束!
+2020-09-30 14:46:46,379 [36] DEBUG : 用血申请单号为:202009300002,是否审批完成:True,审批完成后是否自动上传HIS:True,HIS数据标志:
+2020-09-30 14:46:46,381 [36] DEBUG : 用血申请单号为:202009300002,上传HIS调用开始!
+2020-09-30 14:46:46,472 [36] DEBUG : WebRequestHelp.Get.url:http://localhost/ilabstar/_30_BI_BloodInterfaceService/BloodInterfaceService.BreqToHis?sBreqFormID=202009300002
+2020-09-30 14:47:07,765 [36] DEBUG : 返回结果为:{"success":false,"ErrorInfo":"失败,异常:XML 文档必须包含一个顶层元素。\r\n\r\nLine: 0\r\n"}
+2020-09-30 14:47:07,765 [36] DEBUG : 用血申请单号为:202009300002,上传HIS调用结束!
+2020-09-30 14:47:07,765 [36] DEBUG : 用血申请单号为:202009300002,编辑保存(总)处理结束!
+2020-09-30 14:51:18,605 [42] DEBUG : 用血申请单号为:202009300002,上传HIS(总)处理开始!
+2020-09-30 14:51:18,605 [42] INFO  : 系统运行参数为:医嘱申请单在审核完成后是否返回给HIS-当前配置值为:True
+2020-09-30 14:51:18,608 [42] DEBUG : 用血申请单号为:202009300002,是否审批完成:True,审批完成后是否自动上传HIS:True,HIS数据标志:0
+2020-09-30 14:51:18,608 [42] DEBUG : 用血申请单号为:202009300002,上传HIS调用开始!
+2020-09-30 14:51:18,660 [42] DEBUG : WebRequestHelp.Get.url:http://localhost/ilabstar/_30_BI_BloodInterfaceService/BloodInterfaceService.BreqToHis?sBreqFormID=202009300002
+2020-09-30 14:51:39,697 [42] DEBUG : 返回结果为:{"success":false,"ErrorInfo":"失败,异常:XML 文档必须包含一个顶层元素。\r\n\r\nLine: 0\r\n"}
+2020-09-30 14:51:39,697 [42] DEBUG : 用血申请单号为:202009300002,上传HIS调用结束!
+2020-09-30 14:51:39,697 [42] DEBUG : 用血申请单号为:202009300002,上传HIS(总)处理结束!
+2020-09-30 14:51:55,794 [9] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10443
+2020-09-30 14:51:55,794 [9] DEBUG : 按传入的HIS编码为:10443,获取PUser的hql(puser.Code1 = '10443' or  puser.Code2 = '10443' or puser.Code3= '10443' or puser.Code4= '10443' or puser.Code5= '10443')
+2020-09-30 14:51:55,801 [9] ERROR : 传入的HIS医生编码为:10443,在LIS获取PUser的编码为:20310!
+2020-09-30 14:51:55,803 [9] DEBUG : HIS传入的医生编码为:10443,获取到LIS医生编码为:310
+2020-09-30 14:51:55,811 [9] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-09-30 14:51:55,813 [9] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 14:51:55,814 [9] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 14:51:55,815 [9] DEBUG : 登录员工信息:PUser.Id:20310,PUser.CName:施世军
+2020-09-30 14:51:55,815 [9] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-09-30 14:51:55,815 [9] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 14:51:55,815 [9] DEBUG : 登录员工绑定医生信息:Doctor.Id:310,Doctor.CName:施世军
+2020-09-30 14:51:55,816 [9] DEBUG : HIS传入的医生编码为:10443,医生所属等级信息:科主任,用血量权限范围:801--1600
+2020-09-30 14:51:55,831 [9] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 14:51:55,831 [9] DEBUG : objectID:1483204384
+2020-09-30 14:51:55,831 [9] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 14:53:09,153 [10] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:,hisDeptCode:82,hisDoctorCode:10443
+2020-09-30 14:53:09,153 [10] DEBUG : 按传入的HIS编码为:10443,获取PUser的hql(puser.Code1 = '10443' or  puser.Code2 = '10443' or puser.Code3= '10443' or puser.Code4= '10443' or puser.Code5= '10443')
+2020-09-30 14:53:09,160 [10] ERROR : 传入的HIS医生编码为:10443,在LIS获取PUser的编码为:20310!
+2020-09-30 14:53:09,162 [10] DEBUG : HIS传入的医生编码为:10443,获取到LIS医生编码为:310
+2020-09-30 14:53:09,163 [10] ERROR : 传入的HIS病区编码为:,在LIS获取到病区编码为:758!
+2020-09-30 14:53:09,163 [10] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 14:53:09,164 [10] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 14:53:09,165 [10] DEBUG : 登录员工信息:PUser.Id:20310,PUser.CName:施世军
+2020-09-30 14:53:09,165 [10] DEBUG : 登录所属病区信息:Ward.Id:758,Ward.CName:血液科二住院
+2020-09-30 14:53:09,165 [10] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 14:53:09,165 [10] DEBUG : 登录员工绑定医生信息:Doctor.Id:310,Doctor.CName:施世军
+2020-09-30 14:53:09,169 [10] DEBUG : HIS传入的医生编码为:10443,医生所属等级信息:医务科,用血量权限范围:1600--100000000
+2020-09-30 14:53:09,180 [10] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 14:53:09,182 [10] DEBUG : objectID:1483204384
+2020-09-30 14:53:09,182 [10] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 14:54:44,898 [11] DEBUG : 用血申请单号为:202002070003,编辑保存(总)处理开始!
+2020-09-30 14:54:44,898 [11] INFO  : 系统运行参数为:用血申请确认后是否自动完成审批-当前配置值为:False
+2020-09-30 14:54:44,898 [11] DEBUG : 用血申请单号为:202002070003,编辑保存到血库数据库开始!
+2020-09-30 14:54:44,902 [11] INFO  : 申请单号为:202002070003,编辑保存处理开始!
+2020-09-30 14:54:44,910 [11] INFO  : 申请单号为:202002070003,编辑保存处理结束,处理结果为:True!
+2020-09-30 14:54:44,912 [11] DEBUG : 用血申请单号为:202002070003,编辑保存到血库数据库结束!
+2020-09-30 14:54:44,914 [11] DEBUG : 用血申请单号为:202002070003,是否审批完成:True,审批完成后是否自动上传HIS:True,HIS数据标志:
+2020-09-30 14:54:44,914 [11] DEBUG : 用血申请单号为:202002070003,上传HIS调用开始!
+2020-09-30 14:54:44,979 [11] DEBUG : WebRequestHelp.Get.url:http://localhost/ilabstar/_30_BI_BloodInterfaceService/BloodInterfaceService.BreqToHis?sBreqFormID=202002070003
+2020-09-30 14:55:06,024 [11] DEBUG : 返回结果为:{"success":false,"ErrorInfo":"失败,异常:XML 文档必须包含一个顶层元素。\r\n\r\nLine: 0\r\n"}
+2020-09-30 14:55:06,024 [11] DEBUG : 用血申请单号为:202002070003,上传HIS调用结束!
+2020-09-30 14:55:06,024 [11] DEBUG : 用血申请单号为:202002070003,编辑保存(总)处理结束!
+2020-09-30 15:29:22,334 [35] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-09-30 15:29:22,335 [35] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-09-30 15:29:22,346 [35] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-09-30 15:29:22,348 [35] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-09-30 15:29:22,348 [35] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!重新获取医生等级信息
+2020-09-30 15:29:22,348 [35] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-09-30 15:29:22,352 [35] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-09-30 15:29:22,353 [35] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 15:29:22,356 [35] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 15:29:22,357 [35] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-09-30 15:29:22,357 [35] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-09-30 15:29:22,357 [35] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 15:29:22,357 [35] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-09-30 15:29:22,357 [35] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息.GetCurUserInfo.Doctor3
+2020-09-30 15:29:22,383 [35] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 15:29:22,384 [35] DEBUG : objectID:1483204384
+2020-09-30 15:29:22,384 [35] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 15:29:23,662 [35] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 15:29:23,663 [35] DEBUG : objectID:1483204384
+2020-09-30 15:29:23,663 [35] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 15:31:35,553 [33] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-09-30 15:31:35,553 [33] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-09-30 15:31:35,557 [33] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-09-30 15:31:35,557 [33] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-09-30 15:31:35,557 [33] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!重新获取医生等级信息
+2020-09-30 15:31:35,557 [33] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-09-30 15:31:35,558 [33] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-09-30 15:31:35,558 [33] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-09-30 15:31:35,560 [33] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-09-30 15:31:35,561 [33] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-09-30 15:31:35,561 [33] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-09-30 15:31:35,561 [33] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-09-30 15:31:35,561 [33] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-09-30 15:31:35,561 [33] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息.GetCurUserInfo.Doctor3
+2020-09-30 15:31:35,583 [33] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 15:31:35,583 [33] DEBUG : objectID:1483204384
+2020-09-30 15:31:35,584 [33] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 15:31:36,795 [33] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-09-30 15:31:36,795 [33] DEBUG : objectID:1483204384
+2020-09-30 15:31:36,796 [33] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-09-30 15:33:42,426 [30] DEBUG : 发血单号为：BI99992003270053,的临床处理结果保存返回值为：True
+2020-09-30 15:33:42,433 [30] DEBUG : 发血单号为：BI99992003270053,的临床处理结果保存返回值为：True,编辑值：333
+2020-09-30 15:33:42,435 [30] INFO  : 发血血袋明细单号为:BI99992003270053,的病人体征记录项存在为空的结果,总数为:22!
+2020-09-30 15:33:52,175 [33] DEBUG : (批量修改录入)获取输血过程记录项基本信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:33:52,178 [33] DEBUG : SearchBloodTransFormByOutDtlIdStr.HQL: 1=1  and  ( bloodtransform.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransform.BloodBOutItem.Id ='BI99992003270052' ) 
+2020-09-30 15:33:52,182 [33] DEBUG : (批量修改录入)获取输血过程记录项基本信息结束!
+2020-09-30 15:33:52,239 [33] DEBUG : (批量修改录入)获取不良反应症状记录项信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:33:52,243 [33] DEBUG : SearchAdverseReactionOptionsByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =4 and bloodtransitem.BloodTransRecordType.Id =20002  and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' )  and ((bloodtransitem.ContentTypeID=4) and ( bloodtransitem.BloodTransRecordType.Id=20002)) 
+2020-09-30 15:33:52,246 [33] INFO  : (批量修改录入)当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的不良反应症状记录为:0!
+2020-09-30 15:33:52,246 [33] INFO  : (批量修改录入)当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的不良反应症状记录为空!
+2020-09-30 15:33:52,246 [33] DEBUG : (批量修改录入)获取不良反应症状记录项信息结束！
+2020-09-30 15:33:52,261 [33] DEBUG : (批量修改录入)获取临床处理措施记录项信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:33:52,264 [33] DEBUG : SearchClinicalMeasuresByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =3 and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' )  and ((bloodtransitem.ContentTypeID=3)) 
+2020-09-30 15:33:52,268 [33] INFO  : (批量修改录入)当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的临床处理措施记录为:0!
+2020-09-30 15:33:52,268 [33] INFO  : (批量修改录入)当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的临床处理措施记录为空!
+2020-09-30 15:33:52,268 [33] DEBUG : (批量修改录入)获取临床处理措施记录项信息结束!
+2020-09-30 15:33:52,715 [33] DEBUG : (批量修改录入)获取病人体征记录项信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:33:52,718 [33] DEBUG : SearchPatientSignsByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =1 and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' ) 
+2020-09-30 15:33:52,728 [33] INFO  : (批量修改录入)获取病人体征记录项--已登记的发血血袋明细的分组数:1,不等于当前选择的发血血袋明细数:2,属于部分已登记但部分完全未登记情况,结果值全部为空!
+2020-09-30 15:33:52,730 [33] INFO  : (批量修改录入)获取病人体征记录项--属于部分已登记但部分完全未登记情况!
+2020-09-30 15:33:52,735 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--患者一般情况,结果值全部为空!
+2020-09-30 15:33:52,737 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--体温,结果值全部为空!
+2020-09-30 15:33:52,739 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--脉博,结果值全部为空!
+2020-09-30 15:33:52,740 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--患者一般情况,结果值全部为空!
+2020-09-30 15:33:52,741 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--脉博,结果值全部为空!
+2020-09-30 15:33:52,741 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--滴速,结果值全部为空!
+2020-09-30 15:33:52,745 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血前--脉博,结果值全部相同!
+2020-09-30 15:33:52,747 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--体温,结果值全部为空!
+2020-09-30 15:33:52,747 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血前--患者一般情况,结果值全部相同!
+2020-09-30 15:33:52,748 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--患者一般情况,结果值全部为空!
+2020-09-30 15:33:52,749 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血前--体温,结果值全部相同!
+2020-09-30 15:33:52,750 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血前--血压,结果值全部相同!
+2020-09-30 15:33:52,750 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--血压,结果值全部为空!
+2020-09-30 15:33:52,751 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--体温,结果值全部为空!
+2020-09-30 15:33:52,752 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--滴速,结果值全部为空!
+2020-09-30 15:33:52,753 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--血压,结果值全部为空!
+2020-09-30 15:33:52,753 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--血压,结果值全部为空!
+2020-09-30 15:33:52,754 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--脉博,结果值全部为空!
+2020-09-30 15:33:52,755 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--脉博,结果值全部为空!
+2020-09-30 15:33:52,756 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--滴速,结果值全部为空!
+2020-09-30 15:33:52,757 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--患者一般情况,结果值全部为空!
+2020-09-30 15:33:52,758 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--体温,结果值全部为空!
+2020-09-30 15:33:52,759 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--其他,结果值全部为空!
+2020-09-30 15:33:52,760 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--血压,结果值全部为空!
+2020-09-30 15:33:52,761 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--滴速,结果值全部为空!
+2020-09-30 15:33:52,762 [33] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--呼吸,结果值全部为空!
+2020-09-30 15:33:52,763 [33] DEBUG : (批量修改录入)获取病人体征记录项信息结束!
+2020-09-30 15:33:52,773 [33] DEBUG : (批量修改录入)获取临床处理结果描述信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:33:52,776 [33] DEBUG : SearchClinicalResultsDescByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =6 and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' ) 
+2020-09-30 15:33:52,781 [33] INFO  : (批量修改录入)获取临床处理结果描述--已登记的发血血袋明细的分组数:1,当前选择的发血血袋明细数:2,属于部分已登记但部分完全未登记情况,结果值全部为空!
+2020-09-30 15:33:52,782 [33] DEBUG : (批量修改录入)获取临床处理结果描述信息结束!
+2020-09-30 15:33:53,287 [33] DEBUG : (批量修改录入)获取临床处理结果信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:33:53,290 [33] DEBUG : SearchClinicalResultsByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =5 and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' ) 
+2020-09-30 15:33:53,294 [33] INFO  : (批量修改录入)获取临床处理结果--当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的临床处理结果记录为:1!
+2020-09-30 15:33:53,295 [33] INFO  : (批量修改录入)获取临床处理结果--已登记的发血血袋明细的分组数:1,当前选择的发血血袋明细数:2,属于部分已登记但部分完全未登记情况,结果值全部为空!
+2020-09-30 15:33:53,295 [33] DEBUG : (批量修改录入)获取临床处理结果信息结束!
+2020-09-30 15:34:08,476 [41] DEBUG : 输血过程记录批量修改录入保存开始!
+2020-09-30 15:34:08,535 [41] DEBUG : 发血单号为：BI99992003270052,的临床处理结果保存返回值为：True
+2020-09-30 15:34:08,542 [41] DEBUG : 发血单号为：BI99992003270052,的临床处理结果保存返回值为：True,编辑值：
+2020-09-30 15:34:08,542 [41] INFO  : 发血血袋明细单号为:BI99992003270052,的病人体征记录项存在为空的结果,总数为:22!
+2020-09-30 15:34:08,548 [41] INFO  : 发血明细单号:BI99992003270053,【输血前-血压】由原来:60,修改为:66;
+2020-09-30 15:34:08,548 [41] INFO  : 发血明细单号:BI99992003270053,【输血前-脉博】由原来:60,修改为:78;
+2020-09-30 15:34:08,549 [41] INFO  : 发血明细单号:BI99992003270053,【输血前-患者一般情况】由原来:清醒,修改为:嗜睡;
+2020-09-30 15:34:08,556 [41] INFO  : 发血明细单号:BI99992003270053【临床处理结果描述】由原来:333,修改为:;
+2020-09-30 15:34:08,556 [41] INFO  : 发血血袋明细单号为:BI99992003270053,的病人体征记录项存在为空的结果,总数为:22!
+2020-09-30 15:34:08,647 [41] DEBUG : 输血过程记录批量修改录入保存结束!
+2020-09-30 15:35:16,628 [31] DEBUG : (批量修改录入)获取输血过程记录项基本信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:35:16,628 [31] DEBUG : SearchBloodTransFormByOutDtlIdStr.HQL: 1=1  and  ( bloodtransform.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransform.BloodBOutItem.Id ='BI99992003270052' ) 
+2020-09-30 15:35:16,629 [31] DEBUG : (批量修改录入)获取输血过程记录项基本信息结束!
+2020-09-30 15:35:16,655 [31] DEBUG : (批量修改录入)获取病人体征记录项信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:35:16,655 [31] DEBUG : SearchPatientSignsByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =1 and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' ) 
+2020-09-30 15:35:16,659 [31] INFO  : (批量修改录入)获取病人体征记录项--已登记的发血血袋明细的分组数:2,等于当前选择的发血血袋明细数:2!
+2020-09-30 15:35:16,664 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--患者一般情况,结果值全部为空!
+2020-09-30 15:35:16,664 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--脉博,结果值全部为空!
+2020-09-30 15:35:16,665 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--患者一般情况,结果值全部为空!
+2020-09-30 15:35:16,666 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--体温,结果值全部为空!
+2020-09-30 15:35:16,666 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血前--体温,结果值全部相同!
+2020-09-30 15:35:16,667 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--脉博,结果值全部为空!
+2020-09-30 15:35:16,668 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--脉博,结果值全部为空!
+2020-09-30 15:35:16,668 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--血压,结果值全部为空!
+2020-09-30 15:35:16,669 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束15分钟--滴速,结果值全部为空!
+2020-09-30 15:35:16,669 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--体温,结果值全部为空!
+2020-09-30 15:35:16,670 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血前--脉博,结果值全部相同!
+2020-09-30 15:35:16,671 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血前--血压,结果值全部相同!
+2020-09-30 15:35:16,671 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--血压,结果值全部为空!
+2020-09-30 15:35:16,672 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--脉博,结果值全部为空!
+2020-09-30 15:35:16,673 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--呼吸,结果值全部为空!
+2020-09-30 15:35:16,673 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血前--患者一般情况,结果值全部相同!
+2020-09-30 15:35:16,674 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--滴速,结果值全部为空!
+2020-09-30 15:35:16,674 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--患者一般情况,结果值全部为空!
+2020-09-30 15:35:16,675 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--血压,结果值全部为空!
+2020-09-30 15:35:16,676 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--血压,结果值全部为空!
+2020-09-30 15:35:16,676 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--体温,结果值全部为空!
+2020-09-30 15:35:16,678 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--滴速,结果值全部为空!
+2020-09-30 15:35:16,679 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--滴速,结果值全部为空!
+2020-09-30 15:35:16,679 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血15分钟--患者一般情况,结果值全部为空!
+2020-09-30 15:35:16,680 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束--其他,结果值全部为空!
+2020-09-30 15:35:16,681 [31] DEBUG : (批量修改录入)获取病人体征记录项:输血结束4小时--体温,结果值全部为空!
+2020-09-30 15:35:16,682 [31] DEBUG : (批量修改录入)获取病人体征记录项信息结束!
+2020-09-30 15:35:16,702 [31] DEBUG : (批量修改录入)获取临床处理措施记录项信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:35:16,702 [31] DEBUG : SearchClinicalMeasuresByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =3 and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' )  and ((bloodtransitem.ContentTypeID=3)) 
+2020-09-30 15:35:16,703 [31] INFO  : (批量修改录入)当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的临床处理措施记录为:0!
+2020-09-30 15:35:16,703 [31] INFO  : (批量修改录入)当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的临床处理措施记录为空!
+2020-09-30 15:35:16,703 [31] DEBUG : (批量修改录入)获取临床处理措施记录项信息结束!
+2020-09-30 15:35:16,705 [31] DEBUG : (批量修改录入)获取临床处理结果信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:35:16,705 [31] DEBUG : SearchClinicalResultsByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =5 and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' ) 
+2020-09-30 15:35:16,705 [31] INFO  : (批量修改录入)获取临床处理结果--当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的临床处理结果记录为:2!
+2020-09-30 15:35:16,706 [31] INFO  : (批量修改录入)获取临床处理结果--已登记的发血血袋明细的分组数:2,当前选择的发血血袋明细数:2!
+2020-09-30 15:35:16,708 [31] DEBUG : (批量修改录入)获取临床处理结果:BI99992003270053,BI99992003270052,结果值不完成一致!
+2020-09-30 15:35:16,708 [31] DEBUG : (批量修改录入)获取临床处理结果信息结束!
+2020-09-30 15:35:17,178 [31] DEBUG : (批量修改录入)获取不良反应症状记录项信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:35:17,178 [31] DEBUG : SearchAdverseReactionOptionsByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =4 and bloodtransitem.BloodTransRecordType.Id =20002  and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' )  and ((bloodtransitem.ContentTypeID=4) and ( bloodtransitem.BloodTransRecordType.Id=20002)) 
+2020-09-30 15:35:17,179 [31] INFO  : (批量修改录入)当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的不良反应症状记录为:0!
+2020-09-30 15:35:17,179 [31] INFO  : (批量修改录入)当前选择的发血血袋明细:BI99992003270053,BI99992003270052,的不良反应症状记录为空!
+2020-09-30 15:35:17,179 [31] DEBUG : (批量修改录入)获取不良反应症状记录项信息结束！
+2020-09-30 15:35:17,209 [31] DEBUG : (批量修改录入)获取临床处理结果描述信息开始:outDtlIdStr:BI99992003270053,BI99992003270052
+2020-09-30 15:35:17,210 [31] DEBUG : SearchClinicalResultsDescByOutDtlIdStr.HQL: 1=1  and bloodtransitem.ContentTypeID =6 and  ( bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270053'  or  bloodtransitem.BloodTransForm.BloodBOutItem.Id ='BI99992003270052' ) 
+2020-09-30 15:35:17,213 [31] INFO  : (批量修改录入)获取临床处理结果描述--已登记的发血血袋明细的分组数:2,当前选择的发血血袋明细数:2!
+2020-09-30 15:35:17,216 [31] DEBUG : (批量修改录入)获取临床处理结果描述:BI99992003270053,BI99992003270052,结果值全部为空!
+2020-09-30 15:35:17,217 [31] DEBUG : (批量修改录入)获取临床处理结果描述信息结束!

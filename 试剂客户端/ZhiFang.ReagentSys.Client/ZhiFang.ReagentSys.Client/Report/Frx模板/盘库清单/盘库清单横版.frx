@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/30/2018 16:54:27" ReportInfo.Modified="09/03/2019 14:44:28" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {              
+
+    private void CheckQty_AfterData(object sender, EventArgs e)
+    {
+      string checkQty=CheckQty.Text;
+      if(!string.IsNullOrEmpty(checkQty)&amp;&amp;double.Parse(checkQty)&lt;=0)CheckQty.Text=&quot;&quot;;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.ReagentSys.Client" ConnectionString="rijcmlqAFHGp6KQj27H4qUwAIR20hSnyrpNtgmeY+I5zyTmYE0HuZfX1hs9fAqnt4DRtzHmqi4Hqgr6pCX/W9Bnlc3X4+AAVAqal7ujm2u5GLGSlJS8z/Kbnccvo1GHvbgZTeFR69qXeixeYBqUZkDnVGhgRuYyGrGSj6GivhHmCs8Q3SXEcRpfLdVbWq6WztUdV0Gxgaj9oEs6xO1srK5UwaxFEhfzsbEgXqc+5pz8SjBkAY0=">
+      <TableDataSource Name="Rea_BmsCheckDoc" Alias="ReaBmsCheckDoc" DataType="System.Int32" Enabled="true" TableName="Rea_BmsCheckDoc">
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="CheckDocID" DataType="System.Int64"/>
+        <Column Name="CheckDocNo" DataType="System.String"/>
+        <Column Name="ReaCompanyID" DataType="System.Int64"/>
+        <Column Name="CompanyName" DataType="System.String"/>
+        <Column Name="StorageID" DataType="System.Int64"/>
+        <Column Name="PlaceID" DataType="System.Int64"/>
+        <Column Name="StorageName" DataType="System.String"/>
+        <Column Name="PlaceName" DataType="System.String"/>
+        <Column Name="ReaServerCompCode" DataType="System.String"/>
+        <Column Name="Status" DataType="System.Int32"/>
+        <Column Name="StatusName" DataType="System.String"/>
+        <Column Name="IsLock" DataType="System.Int32"/>
+        <Column Name="IsException" DataType="System.Int32"/>
+        <Column Name="IsHandleException" DataType="System.Int32"/>
+        <Column Name="CheckerID" DataType="System.Int64"/>
+        <Column Name="CheckerName" DataType="System.String"/>
+        <Column Name="CheckDateTime" DataType="System.DateTime"/>
+        <Column Name="ExaminerID" DataType="System.Int64"/>
+        <Column Name="ExaminerName" DataType="System.String"/>
+        <Column Name="ExaminerDateTime" DataType="System.DateTime"/>
+        <Column Name="ExaminerMemo" DataType="System.String"/>
+        <Column Name="OperDate" DataType="System.DateTime"/>
+        <Column Name="PrintTimes" DataType="System.Int32"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CreaterID" DataType="System.Int64"/>
+        <Column Name="CreaterName" DataType="System.String"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" DataType="System.DateTime"/>
+        <Column Name="IsCompFlag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="BmsCheckResult" DataType="System.Int64"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_BmsCheckDtl" Alias="ReaBmsCheckDtlList" DataType="System.Int32" Enabled="true" TableName="Rea_BmsCheckDtl">
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="CheckDtlID" DataType="System.Int64"/>
+        <Column Name="CompanyName" DataType="System.String"/>
+        <Column Name="StorageName" DataType="System.String"/>
+        <Column Name="PlaceName" DataType="System.String"/>
+        <Column Name="ReaServerCompCode" DataType="System.String"/>
+        <Column Name="GoodsID" DataType="System.Int64"/>
+        <Column Name="GoodsName" DataType="System.String"/>
+        <Column Name="LotNo" DataType="System.String"/>
+        <Column Name="GoodsUnitID" DataType="System.Int64"/>
+        <Column Name="GoodsUnit" DataType="System.String"/>
+        <Column Name="UnitMemo" DataType="System.String"/>
+        <Column Name="GoodsQty" DataType="System.Double"/>
+        <Column Name="CheckQty" DataType="System.Double"/>
+        <Column Name="Price" DataType="System.Double"/>
+        <Column Name="SumTotal" DataType="System.Double"/>
+        <Column Name="IsException" DataType="System.Int32"/>
+        <Column Name="IsHandleException" DataType="System.Int32"/>
+        <Column Name="OperDate" DataType="System.DateTime"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="GoodsSort" DataType="System.Int32"/>
+        <Column Name="CreaterName" DataType="System.String"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataUpdateTime" DataType="System.DateTime"/>
+        <Column Name="SysLotSerial" DataType="System.String"/>
+        <Column Name="LotSerial" DataType="System.String"/>
+        <Column Name="GoodsNo" DataType="System.String"/>
+        <Column Name="ProdDate" DataType="System.DateTime"/>
+        <Column Name="InvalidDate" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="Rea_ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <PageHeaderBand Name="PageHeader1" Width="1047.06" Height="97.95">
+      <TextObject Name="lblStorageName" Left="54" Top="74.6" Width="113.4" Height="18.9" Text="库房" Font="新宋体, 10pt"/>
+      <LineObject Name="Line1" Left="3" Top="66.15" Width="1039.5"/>
+      <TextObject Name="lblCheckQty" Left="800.7" Top="74.6" Width="85.05" Height="18.9" Text="实盘数" Font="新宋体, 10pt"/>
+      <TextObject Name="lblGoodsName" Left="251.45" Top="75.6" Width="160.65" Height="18.9" Text="试剂名称" Font="新宋体, 10pt"/>
+      <LineObject Name="Line2" Left="6.25" Top="97.95" Width="1030.05"/>
+      <TextObject Name="lblPlaceName" Left="170.4" Top="75.6" Width="66.15" Height="18.9" Text="货架" Font="新宋体, 10pt"/>
+      <TextObject Name="lblGoodsQty" Left="720" Top="75.6" Width="56.7" Height="18.9" Text="库存数" Font="新宋体, 10pt"/>
+      <TextObject Name="lblTitle" Left="406.35" Top="9.45" Width="198.45" Height="18.9" Text="医院试剂库存盘点单" HorzAlign="Center" WordWrap="false" Font="新宋体, 14pt, style=Bold"/>
+      <TextObject Name="lblLotNo" Left="574.25" Top="75.6" Width="141.75" Height="18.9" Text="批号" Font="新宋体, 10pt"/>
+      <TextObject Name="CheckDateTime" Top="47.25" Width="189" Height="18.9" Text="盘点日期:[ReaBmsCheckDoc.CheckDateTime]" Format="Date" Format.Format="d" WordWrap="false" Font="新宋体, 10pt"/>
+      <TextObject Name="CheckerName" Left="198.45" Top="47.25" Width="189" Height="18.9" CanGrow="true" Text="盘点人:[ReaBmsCheckDoc.CheckerName]" WordWrap="false" Font="新宋体, 10pt"/>
+      <TextObject Name="lblGoodsUnit" Left="522.55" Top="75.6" Width="47.25" Height="18.9" Text="单位" Font="新宋体, 10pt"/>
+      <TextObject Name="Text2" Left="417.35" Top="75.6" Width="66.15" Height="18.9" Text="规格" Font="新宋体, 10pt"/>
+      <TextObject Name="Text5" Left="889.95" Top="75.6" Width="151.2" Height="18.9" Text="备注" Font="新宋体, 10pt"/>
+      <TextObject Name="Text8" Left="3" Top="75.6" Width="47.25" Height="18.9" Text="次序" Font="新宋体, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="101.95" Width="1047.06" Guides="9.45" DataSource="Rea_BmsCheckDoc" KeepDetail="true">
+      <DataBand Name="DtlData" Top="105.95" Width="1047.06" Height="34.8" DataSource="Rea_BmsCheckDtl">
+        <TextObject Name="StorageName" Left="50.55" Top="5.45" Width="113.4" Height="28.35" Text="[ReaBmsCheckDtlList.StorageName]" Font="新宋体, 10pt"/>
+        <TextObject Name="PlaceName" Left="163.95" Top="3.45" Width="85.05" Height="28.35" Text="[ReaBmsCheckDtlList.PlaceName]" Font="新宋体, 10pt"/>
+        <TextObject Name="GoodsName" Left="251" Top="5.45" Width="160.65" Height="28.35" Text="[ReaBmsCheckDtlList.GoodsName]" Font="新宋体, 10pt"/>
+        <TextObject Name="GoodsUnit" Left="522.55" Top="4.45" Width="47.25" Height="28.35" Text="[ReaBmsCheckDtlList.GoodsUnit]" WordWrap="false" Font="新宋体, 10pt"/>
+        <TextObject Name="LotNo" Left="573.25" Top="3.45" Width="141.75" Height="28.35" Text="[ReaBmsCheckDtlList.LotNo]" AutoWidth="true" WordWrap="false" Font="新宋体, 10pt"/>
+        <TextObject Name="GoodsQty" Left="718.1" Top="2.45" Width="75.6" Height="28.35" Text="[ReaBmsCheckDtlList.GoodsQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="新宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="CheckQty" Left="798.7" Top="1.45" Width="85.05" Height="28.35" AfterDataEvent="CheckQty_AfterData" Text="[ReaBmsCheckDtlList.CheckQty]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="新宋体, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text1" Left="415.8" Top="5.45" Width="103.95" Height="28.35" Text="[ReaBmsCheckDtlList.UnitMemo]" AutoWidth="true" Font="宋体, 10pt"/>
+        <TextObject Name="Text3" Left="888.85" Top="2.45" Width="151.2" Height="28.35" Text="[ReaBmsCheckDtlList.Memo]" AutoWidth="true" Font="宋体, 10pt"/>
+        <TextObject Name="Text6" Left="2" Top="3.45" Width="47.25" Height="28.35" Text="[ReaBmsCheckDtlList.DispOrder]" Font="宋体, 10pt"/>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="144.75" Width="1047.06" Height="28.35">
+      <LineObject Name="Line3" Left="3.1" Width="1039.5"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

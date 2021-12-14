@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="ZhiFang.RBACService" type="ZhiFang.RBACService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <property name="IBImportFile" ref="BImportFile"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHRPosition" ref="BHRPosition"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <property name="IBSLog" ref="BSLog"/>
+    <property name="IBCVCriticalValueEmpIdDeptLink" ref="BCVCriticalValueEmpIdDeptLink"/>
+    <property name="IBBHospitalEmpLink" ref="BBHospitalEmpLink"/>
+  </object>
+
+  <object id="ZhiFang.SingleTableService" type="ZhiFang.SingleTableService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <!--<property name="IBBLaboratory" ref="BBLaboratory"/>-->
+    <!--<property name="IBBConstellation" ref="BBConstellation"/>-->
+    <!--<property name="IBBEducationLevel" ref="BBEducationLevel"/>-->
+    <!--<property name="IBGenePoolingTaskValueFormulaDic" ref="BGenePoolingTaskValueFormulaDic"/>
+    <property name="IBGenePoolingTaskValueJudgmentFormulaDic" ref="BGenePoolingTaskValueJudgmentFormulaDic"/>-->
+    <property name="IBBHealthStatus" ref="BBHealthStatus"/>
+    <!--<property name="IBBProjectType" ref="BBProjectType"/>
+		<property name="IBBLeaveType" ref="BBLeaveType"/>
+		<property name="IBBLevel" ref="BBLevel"/>-->
+    <!--<property name="IBItemRange" ref="BItemRange"/>-->
+    <property name="IBBMaritalStatus" ref="BBMaritalStatus"/>
+    <property name="IBBNationality" ref="BBNationality"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+    <property name="IBBProvince" ref="BBProvince"/>
+    <property name="IBBSex" ref="BBSex"/>
+    <property name="IBSTypeDetail" ref="BSTypeDetail"/>
+    <property name="IBSType" ref="BSType"/>
+    <property name="IBBCountry" ref="BBCountry"/>
+    <property name="IBBPoliticsStatus" ref="BBPoliticsStatus"/>
+    <property name="IBBDegree" ref="BBDegree"/>
+    <property name="IBBCity" ref="BBCity"/>
+    <property name="IBBProfessionalAbility" ref="BBProfessionalAbility"/>
+    <property name="IBBDict" ref="BBDict"/>
+    <property name="IBBDictType" ref="BBDictType"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+	<property name="IBBCounty" ref="BBCounty"/>
+  </object>
+  
+  <object id="ZhiFang.CommonService" type="ZhiFang.CommonService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBFFile" ref="BFFile"/>
+    <property name="IBFFileAttachment" ref="BFFileAttachment"/>
+    <property name="IBFFileCopyUser" ref="BFFileCopyUser"/>
+    <property name="IBFFileInteraction" ref="BFFileInteraction"/>
+    <property name="IBFFileOperation" ref="BFFileOperation"/>
+    <property name="IBFFileReadingLog" ref="BFFileReadingLog"/>
+    <property name="IBFFileReadingUser" ref="BFFileReadingUser"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+    <property name="IBSCOperation" ref="BSCOperation"/>
+  </object>
+  
+  <object id="ZhiFang.LabInformationIntegratePlatform.ServerWCF.IMService" type="ZhiFang.LabInformationIntegratePlatform.ServerWCF.IMService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBSCIMInfomationContent" ref="BSCIMInfomationContent"/>
+    <property name="IBSCMsg" ref="BSCMsg"/>
+    <property name="IBSCMsgHandle" ref="BSCMsgHandle"/>
+    <property name="IBSCMsgPhraseDic" ref="BSCMsgPhraseDic"/>
+    <property name="IBSCMsgType" ref="BSCMsgType"/>
+    <property name="IBCVCriticalValueEmpIdDeptLink" ref="BCVCriticalValueEmpIdDeptLink"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+  </object>
+
+  <object id="ZhiFang.LabInformationIntegratePlatform.ServerWCF.LIIPService" type="ZhiFang.LabInformationIntegratePlatform.ServerWCF.LIIPService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBIntergrateSystemSet" ref="BIntergrateSystemSet"/>
+  </object>
+
+  <object id="ZhiFang.LabInformationIntegratePlatform.ServerWCF.LIIPCommonService" type="ZhiFang.LabInformationIntegratePlatform.ServerWCF.LIIPCommonService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBBHospital" ref="BBHospital"/>
+    <property name="IBBHospitalArea" ref="BBHospitalArea"/>
+	  <property name="IBSLog" ref="BSLog"/>
+	  <property name="IBBHospitalDept" ref="BBHospitalDept"/>
+    <property name="IBBHospitalLevel" ref="BBHospitalLevel"/>
+    <property name="IBBHospitalType" ref="BBHospitalType"/>
+    <property name="IBBHospitalTypeLink" ref="BBHospitalTypeLink"/>
+    <property name="IBBHospitalEmpLink" ref="BBHospitalEmpLink"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+    <property name="IBSAccountRegister" ref="BSAccountRegister"/>
+	<property name="IBRBACUser" ref="BRBACUser"/>
+  </object>
+
+  <object id="ZhiFang.LabInformationIntegratePlatform.LISCommonWCF.MsgCommonService.MsgCommonService" type="ZhiFang.LabInformationIntegratePlatform.LISCommonWCF.MsgCommonService.MsgCommonService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBSCMsg" ref="BSCMsg"/>
+    <property name="IBSCMsgHandle" ref="BSCMsgHandle"/>
+  </object>
+
+  <object id="ZhiFang.LabInformationIntegratePlatform.ServerWCF.WXService" type="ZhiFang.LabInformationIntegratePlatform.ServerWCF.WXService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBWXAccountType" ref="BWXAccountType"/>
+    <property name="IBWXIcons" ref="BWXIcons"/>
+    <property name="IBWXMessageSendTask" ref="BWXMessageSendTask"/>
+    <property name="IBWXMsgSendLog" ref="BWXMsgSendLog"/>
+    <property name="IBWXWeiXinEmpLink" ref="BWXWeiXinEmpLink"/>
+    <property name="IBWXWeiXinPushMessageTemplate" ref="BWXWeiXinPushMessageTemplate"/>
+    <property name="IBWXWeiXinAccount" ref="BWXWeiXinAccount"/>
+    <property name="IBWXWeiXinUserGroup" ref="BWXWeiXinUserGroup"/>
+
+  </object>
+
+  <object id="ZhiFang.LabInformationIntegratePlatform.ServerWCF.Customization.DicReceiveService" type="ZhiFang.LabInformationIntegratePlatform.ServerWCF.Customization.DicReceiveService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBBHospital" ref="BBHospital"/>
+    <property name="IBBHospitalArea" ref="BBHospitalArea"/>
+  </object>
+  
+  <object id="ZhiFang.LabInformationIntegratePlatform.ServerWCF.WXMiniService" type="ZhiFang.LabInformationIntegratePlatform.ServerWCF.WXMiniService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <property name="IBImportFile" ref="BImportFile"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHRPosition" ref="BHRPosition"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <property name="IBSLog" ref="BSLog"/>
+    <property name="IBCVCriticalValueEmpIdDeptLink" ref="BCVCriticalValueEmpIdDeptLink"/>
+    <property name="IBBHospitalEmpLink" ref="BBHospitalEmpLink"/>
+    <property name="IBWXWeiXinAccount" ref="BWXWeiXinAccount"/>
+    <property name="IBSAccountRegister" ref="BSAccountRegister"/>
+    <property name="IBBHospital" ref="BBHospital"/>
+  </object>
+
+  <object id="ZhiFang.LabInformationIntegratePlatform.ServerWCF.LIIPStaticService" type="ZhiFang.LabInformationIntegratePlatform.ServerWCF.LIIPStaticService,ZhiFang.LabInformationIntegratePlatform"  singleton="true">
+    <property name="IDSCMsgStaticDao" ref="SCMsgStaticDao"/>
+  </object>
+    <!--在线人员列表-->
+  <!--<object id="SignaIRClientList" type="ZhiFang.LabInformationIntegratePlatform.MessageHub.SignaIRClientList,ZhiFang.LabInformationIntegratePlatform" singleton="true"></object>-->
+  <!--在线人员列表-->
+</objects>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="application/javascript">
+
+        //加载版本号
+        document.write(
+            "<script type='text/javascript' src='../../../config/version.js?t=" +
+                new Date().getTime() + "'><\/script>"
+        );
+    </script>
+
+    <script type="application/javascript">
+
+        //加载公众号Title
+        document.write(
+            "<title>"+JcallShell.System.SysHtmlTitle +"</title>"
+        );
+    </script>  
+	<style type="text/css">
+		.msg_div_uncheck{float:left;width:45%;height:44px;margin:5px;border-radius:2px;text-align:center;padding:10px;border:1px solid #169ada;color:#169ada;background_color:#ffffff;}
+		.msg_div_checked{border:1px solid #169ada;color:#ffffff;background-color:#169ada;}
+	</style>
+</head>
+<body style="padding-top: 55px;">
+    <!--顶部功能按钮栏-->
+    <nav id="navbar-top" class="navbar navbar-default navbar-fixed-top page-top">
+        <div class="page-top-title">退费</div>
+        <div class="page-top-back">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            <span>返回</span>
+        </div>
+        <div class="page-top-home">
+            <span>主页</span>
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+        </div>
+    </nav>
+    <!--内容区域-->
+    <div class="container-fluid">
+        <div id="info"></div>
+    </div>
+    <!--底部功能栏-->
+	<div id="submit-div" class="navbar navbar-default navbar-fixed-bottom" 
+		style="background-color:#ffffff;" hidden="hidden">
+		<div style="float:right;width:45%;" id="submit-button" class="div-button">提交</div>
+	</div>
+    <!-- 模态框-加载中 -->
+    <style type='text/css'>.modal-backdrop.in {filter:alpha(opacity=1);opacity:1;}</style>
+    <div class="modal fade" id="loading-div" style="opacity:0.5;">
+        <div class="loading-div"></div>
+    </div>
+    <script type="application/javascript"> 
+    	var css = [
+    		"../../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css",
+    		"../../../css/style.css"
+    	];
+    	var js = [
+    		"../../../../../web_src/jquery.min.js",
+    		"../../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js",
+    		"../../../../../web_src/JsBarcode.all.min.js",
+    		"../../../util/JcallShell.js",
+    		"../../../localStorage/User.js",
+    		"../../../localStorage/Enum.js",
+    		"../Page.js",
+    		"refund.js"
+    	];
+    	var files = [];
+    	for(var i in css){
+    		files.push('<link rel="stylesheet" href="' + 
+    			css[i] + '?v=' + JcallShell.System.CSS_VERSION + '"/>');
+    	}
+    	for(var i in js){
+    		files.push('<script type="text/javascript" charset="utf-8" src="' + 
+    			js[i] + '?v=' + JcallShell.System.JS_VERSION + '"><\/script>');
+    	}
+		document.write(files.join(""));
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.SA" assembly="ZhiFang.Entity.SA">
+  <class name="TestItem" table="[dbo].[TestItem]">
+    <id name="Id" column="[ItemNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <!--<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />-->
+    <property name="CName" column="[CName]" type="String" not-null="false" length="100" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="40" />
+    <property name="ShortName" column="[ShortName]" type="String" not-null="false" length="40" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="40" />
+    <property name="DiagMethod" column="[DiagMethod]" type="String" not-null="false" length="40" />
+    <property name="Unit" column="[Unit]" type="String" not-null="false" length="10" />
+    <property name="IsCalc" column="[IsCalc]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Prec" column="[Prec]" type="Int32" not-null="false" length="4" />
+    <property name="IsProfile" column="[IsProfile]" type="Int32" not-null="false" length="4" />
+    <property name="OrderNo" column="[OrderNo]" type="String" not-null="false" length="20" />
+    <property name="StandardCode" column="[StandardCode]" type="String" not-null="false" length="20" />
+    <property name="ItemDesc" column="[ItemDesc]" type="String" not-null="false" length="1024" />
+    <property name="DefaultSType" column="[DefaultSType]" type="Int32" not-null="false" length="4" />
+    <property name="SpecName" column="[SpecName]" type="String" not-null="false" length="20" />
+    <property name="Zdy1" column="[zdy1]" type="String" not-null="false" length="20" />
+    <property name="Zdy2" column="[zdy2]" type="String" not-null="false" length="20" />
+    <property name="FWorkLoad" column="[FWorkLoad]" type="Double" not-null="false" length="8" />
+    <property name="Secretgrade" column="[Secretgrade]" type="Int32" not-null="false" length="4" />
+    <property name="Cuegrade" column="[Cuegrade]" type="Int32" not-null="false" length="4" />
+    <property name="IsDoctorItem" column="[IsDoctorItem]" type="Int32" not-null="false" length="4" />
+    <property name="IsNurseItem" column="[IsNurseItem]" type="String" not-null="false" length="10" />
+    <property name="IschargeItem" column="[IschargeItem]" type="Int32" not-null="false" length="4" />
+    <property name="HisDispOrder" column="[HisDispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Code1" column="[code_1]" type="String" not-null="false" length="50" />
+    <property name="Code2" column="[code_2]" type="String" not-null="false" length="50" />
+    <property name="Code3" column="[code_3]" type="String" not-null="false" length="50" />
+    <property name="Code4" column="[code_4]" type="String" not-null="false" length="50" />
+    <property name="Code5" column="[code_5]" type="String" not-null="false" length="50" />
+    <property name="BItemAbnormal" column="[bItemAbnormal]" type="Boolean" not-null="true" length="1" />
+    <property name="ItemAbnormalInfo" column="[ItemAbnormalInfo]" type="String" not-null="false" length="80" />
+    <property name="DefaultReagent" column="[DefaultReagent]" type="String" not-null="false" length="40" />
+    <property name="UseCode" column="[UseCode]" type="String" not-null="false" length="50" />
+    <property name="StandCode" column="[StandCode]" type="String" not-null="false" length="50" />
+    <property name="DeveCode" column="[DeveCode]" type="String" not-null="false" length="50" />
+    <property name="UserNo" column="[UserNo]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Code6" column="[code_6]" type="String" not-null="false" length="50" />
+    <property name="Code7" column="[code_7]" type="String" not-null="false" length="50" />
+    <property name="Code8" column="[code_8]" type="String" not-null="false" length="50" />
+    <property name="Code9" column="[code_9]" type="String" not-null="false" length="50" />
+    <property name="Code10" column="[code_10]" type="String" not-null="false" length="50" />
+    <property name="IsUnion" column="[IsUnion]" type="Int32" not-null="false" length="4" />
+    <property name="SectorTypeNo" column="[SectorTypeNo]" type="Int32" not-null="false" length="4" />
+    <property name="IsPrint" column="[IsPrint]" type="Int32" not-null="false" length="4" />
+  </class>
+</hibernate-mapping>

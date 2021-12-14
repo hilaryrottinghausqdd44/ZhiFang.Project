@@ -1,0 +1,90 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchSTypeByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchSTypeById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelSType',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddSType',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateSTypeByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateSType',
+
+    		//系统类型表   主要定义系统必用的，并且不会发生大的变化的类型的类型名称   例如包括   1: 员工身份   2: 部分身份   3: 项目身份   4: 检测类型   5: 年龄单位类型   6: 性别类型                这个表所有的用户系统内容都一样 ，只是快捷码，名称，显示次次序上允许用户自定义对象所有的字段
+    		fields:[
+    		         												{ key:'SType_Id',value:'类型ID   这个值是由公司管理的，不能随便更改'},						 
+						 		     
+				     												 
+						{ key:'SType_DeveCode',value:'开发商标准代码   不能改变。   例如 性别，就叫SexType'}, 
+						 		     
+				     												 
+						{ key:'SType_CName',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'SType_EName',value:'英文名称'}, 
+						 		     
+				     												 
+						{ key:'SType_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'SType_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'SType_PinYinZiTou',value:'汉字拼音字头   主要用于录入方便'}, 
+						 		     
+				     												 
+						{ key:'SType_Comment',value:'描述'}, 
+						 		     
+				     												 
+						{ key:'SType_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'SType_DispOrder',value:'显示次序'}, 
+						 		     
+				     												 
+						{ key:'SType_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'SType_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'SType_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'系统类型表   主要定义系统必用的，并且不会发生大的变化的类型的类型名称   例如包括   1: 员工身份   2: 部分身份   3: 项目身份   4: 检测类型   5: 年龄单位类型   6: 性别类型                这个表所有的用户系统内容都一样 ，只是快捷码，名称，显示次次序上允许用户自定义',
+    		//主键字段
+    		key:'SType_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTOrderItemByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTOrderItemById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelMEPTOrderItem',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddMEPTOrderItem',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTOrderItemByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTOrderItem',
+
+    		//医嘱单项目对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'MEPTOrderItem_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'MEPTOrderItem_Id',value:'医嘱单项目ID'},						 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_OrderFormID',value:'申请单ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ItemID',value:'项目ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ItemCoefficient',value:'项目系数   特殊项目的数量（环境监测项目）'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ItemSource',value:'项目来源   1：接口数据获取   2：医嘱录入   3：项目拆分    4：检验科增项'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_SampleTypeID',value:'样本类型ID   外键，SampleType表'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_Charge',value:'费用'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_SamplingFlag',value:'采样标志   默认为0，1为采样'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ZDY1',value:'自定义1'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ZDY2',value:'自定义2'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ZDY3',value:'自定义3'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ZDY4',value:'自定义4'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ZDY5',value:'自定义5'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_DispOrder',value:'显示次序'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_DeleteFlag',value:'删除标志   默认为0，1为删除'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_TransitFlag',value:'迁移标志'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_ErrorFlag',value:'错误标志'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'MEPTOrderItem_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'MEPTOrderItem_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'医嘱单项目',
+    		//主键字段
+    		key:'MEPTOrderItem_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

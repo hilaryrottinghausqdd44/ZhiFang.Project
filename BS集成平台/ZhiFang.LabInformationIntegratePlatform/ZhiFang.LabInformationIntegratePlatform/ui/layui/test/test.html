@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>功能测试</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../src/layui/src/css/layui.css" media="all">
+	<link rel="shortcut icon" href="../../../logo-16.png">
+</head>
+<body class="layui-layout-body">
+	<div class="layui-fluid">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				注册测试
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-btn-container">
+					<button id="AddDoctorOrNurse1" class="layui-btn">已存在用户</button>
+					<button id="AddDoctorOrNurse2" class="layui-btn">已存在用户+密码错误</button>
+					<button id="AddDoctorOrNurse3" class="layui-btn">不存在用户+机构存在</button>
+					<button id="AddDoctorOrNurse4" class="layui-btn">不存在用户+机构不存在</button>
+					
+					<button id="AddMsg" class="layui-btn">新增消息模拟</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../src/layui/src/layui.js"></script>
+	<script type="text/javascript" src="../config/system.js"></script>
+	<script>
+		layui.extend({
+			uxutil:'ux/util'
+		}).use(['uxutil','layer'],function(){
+			var $=layui.$,
+				uxutil = layui.uxutil;
+			
+			$("#AddDoctorOrNurse1").on("click",function(){
+				toServer(uxutil.path.ROOT+"/ServerWCF/RBACService.svc/CV_AddDoctorOrNurse",{
+					"entity":{
+						"Account":"hujie",
+						"PWD":"123456",
+						"Name":"hujie",
+						"Sex":"男",
+						"DeptName":"前处理组",
+						"DeptHISCode":"1",
+						"Phone":"13012345678"
+					}
+				});
+			});
+			$("#AddDoctorOrNurse2").on("click",function(){
+				toServer(uxutil.path.ROOT+"/ServerWCF/RBACService.svc/CV_AddDoctorOrNurse",{
+					"entity":{
+						"Account":"hujie",
+						"PWD":"1234567",
+						"Name":"hujie",
+						"Sex":"男",
+						"DeptName":"前处理组",
+						"DeptHISCode":"1",
+						"Phone":"13012345678"
+					}
+				});
+			});
+			$("#AddDoctorOrNurse3").on("click",function(){
+				toServer(uxutil.path.ROOT+"/ServerWCF/RBACService.svc/CV_AddDoctorOrNurse",{
+					"entity":{
+						"Account":"hujie55",
+						"PWD":"123456",
+						"Name":"hujie55",
+						"Sex":"男",
+						"DeptName":"前处理组",
+						"DeptHISCode":"1",
+						"Phone":"13012345678"
+					}
+				});
+			});
+			$("#AddDoctorOrNurse4").on("click",function(){
+				toServer(uxutil.path.ROOT+"/ServerWCF/RBACService.svc/CV_AddDoctorOrNurse",{
+					"entity":{
+						"Account":"hujie66",
+						"PWD":"123456",
+						"Name":"hujie66",
+						"Sex":"男",
+						"DeptName":"前处理组2",
+						"DeptHISCode":"2",
+						"Phone":"13012345678"
+					}
+				});
+			});
+			$("#AddMsg").on("click",function(){
+				toServer(uxutil.path.LIIP_ROOT+"/ServerWCF/IMService.svc/ST_UDTO_AddSCMsg",{
+					"entity": {
+						"IsUse": true,
+						"MsgTypeCode": "ZF_PRE_REJECTION",
+						"MsgContent": "测试",
+						"DataUpdateTime": "\/Date(1564368890947+0800)\/",
+						"RequireConfirmTime": "\/Date(1564369490947+0800)\/",
+						"SendIPAddress": "192.168.0.105",
+						"SenderName": "",
+						"SenderID": "0",
+						"SendSectionName": "生化一组",
+						"SendSectionID": 23,
+						"RecSickTypeName": "门诊",
+						"RecSickTypeID": "2",
+						"RecDeptName": "中医外科",
+						"RecDeptID": "459",
+						"RecDeptCode": "ZYWK",
+						"RecDeptCodeHIS": "",
+						"RecDistrictName": "",
+						"RecDistrictID": "0",
+						"RecDoctorName": "邹铭西",
+						"RecDoctorID": "344002",
+						"RecDoctorCode": "0726",
+						"RecDoctorCodeHIS": "344002"
+					}
+				});
+			});
+			
+			function toServer(url,data){
+				uxutil.server.ajax({
+					url:url,
+					type:'post',
+					data:JSON.stringify(data)
+				},function(data){
+					if(data.success && !data.msg){
+						layer.msg('保存成功');
+					}else{
+						layer.msg(data.msg || "密码错误");
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>

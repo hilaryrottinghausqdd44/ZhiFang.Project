@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="A.asmx.cs" Class="ZhiFang.WebLisService.WebService.A" %>

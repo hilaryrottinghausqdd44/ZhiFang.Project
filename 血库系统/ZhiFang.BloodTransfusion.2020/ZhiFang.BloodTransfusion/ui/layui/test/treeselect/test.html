@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" type="text/css" href="../../../../ui/src/layui/dist/css/layui.css" />
+	</head>
+
+	<body style="padding: 25px;">
+		<div class="layui-container layui-form">
+			<div class="layui-form-item">
+				<label for="" class="layui-form-label">测试</label>
+				<div class="layui-input-block">
+					<input type="text" id="tree" lay-filter="tree" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="" class="layui-form-label">测试2</label>
+				<div class="layui-input-block">
+					<input type="text" id="tree2" lay-filter="tree2" class="layui-input">
+				</div>
+			</div>
+		</div>
+
+
+<div class="layui-layer layui-layer-page layui-layer-dir" id="layui-layer1" type="page" times="1" showtime="0" contype="object"
+ style="z-index: 19891015; top: 145px; left: 713px; margin-left: -15px;">
+	<div class="layui-layer-title" style="cursor: move;">目录</div>
+	<div id="" class="layui-layer-content" style="height: 573px;">
+		<ul class="site-dir layui-layer-wrap" style="display: block;">
+			<li><a href="#use"><cite>快速使用</cite></a></li>
+
+			<li><a href="#init"><cite>渲染方式</cite></a></li>
+			<ul style="margin-left: 15px;">
+				<li><a href="#methodRender">方法渲染</a></li>
+				<li><a href="#autoRender">自动渲染</a></li>
+				<li><a href="#parseTable">转换静态表格</a></li>
+			</ul>
+
+			<li><a href="#options"><cite>基础参数一览表</cite> <span class="layui-badge-dot"></span></a></li>
+			<li><a href="#cols"><cite>表头参数一览表</cite> <span class="layui-badge-dot"></span></a></li>
+
+			<li><a href="#async"><cite>异步数据接口</cite> <span class="layui-badge-dot"></span></a></li>
+			<li><a href="#templet"><cite>自定义模板</cite> <span class="layui-badge-dot"></span></a></li>
+			<li><a href="#toolbar"><cite>绑定列工具条</cite> <span class="layui-badge-dot"></span></a></li>
+
+			<li><a href="#method"><cite>基础方法</cite></a></li>
+			<ul style="margin-left: 15px;">
+				<li><a href="#checkStatus">获取选中行</a></li>
+				<li><a href="#ontoolCallback"><cite>删除/修改行</cite></a></li>
+				<li><a href="#reload"><cite>表格重载</cite></a></li>
+				<li><a href="#method-resize"><cite>重置表格尺寸结构</cite></a></li>
+				<li><a href="#export"><cite>导出任意数据</cite></a></li>
+				<li><a href="#method">其它方法</a></li>
+			</ul>
+			<li><a href="#on"><cite>事件监听</cite></a></li>
+			<ul style="margin-left: 15px;">
+				<li><a href="#ontoolbar">监听头工具栏事件 <span class="layui-badge-dot"></span></a></li>
+				<li><a href="#oncheckbox">监听复选框选择</a></li>
+				<li><a href="#onedit">监听单元格编辑</a></li>
+				<li><a href="#onrow">监听行单双击事件 <span class="layui-badge-dot"></span></a></li>
+				<li><a href="#ontool">监听行工具事件</a></li>
+				<li><a href="#onsort">监听排序切换</a></li>
+			</ul>
+		</ul>
+	</div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a></span><span
+	 class="layui-layer-resize"></span>
+</div>
+
+	</body>
+</html>
+<script src="../../../../ui/src/layui/dist/layui.js"></script>
+<script src="../../../../ui/layui/config/system.js"></script>
+<script type="text/javascript">
+	layui.extend({
+		treeSelect: 'src/treeSelect'
+	}).use(["form", 'treeSelect'], function() {
+		var $ = layui.jquery;
+		var form = layui.form;
+		var treeSelect = layui.treeSelect;
+
+		treeSelect.render({
+			// 选择器
+			elem: '#tree',
+			// 数据
+			data: 'data3.json',
+			// 异步加载方式：get/post，默认get
+			type: 'get',
+			// 占位符
+			placeholder: '修改默认提示信息',
+			// 是否开启搜索功能：true/false，默认false
+			search: true,
+			// 点击回调
+			click: function(d) {
+				console.log(d);
+			},
+			// 加载完成后的回调函数
+			success: function(d) {
+				console.log(d);
+			}
+		});
+
+		treeSelect.render({
+			// 选择器
+			elem: '#tree2',
+			// 数据
+			data: 'data3.json',
+			// 异步加载方式：get/post，默认get
+			type: 'get',
+			// 占位符
+			placeholder: '占位符',
+			// 是否开启搜索功能：true/false，默认false
+			search: true,
+			// 点击回调
+			click: function(d) {
+				console.log(d);
+			},
+			// 加载完成后的回调函数
+			success: function(d) {
+				console.log(d);
+			}
+		});
+	});
+</script>

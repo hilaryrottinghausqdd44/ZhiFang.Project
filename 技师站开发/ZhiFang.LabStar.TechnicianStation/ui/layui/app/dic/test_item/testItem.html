@@ -1,0 +1,1914 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>检验项目</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="../../../../src/layui/dist/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../../css/admin.css" media="all" />
+    <link rel="stylesheet" href="../../../css/layui.form.sm.all.css" media="all" />
+    <link rel="stylesheet" href="../../../css/layuicommon.css" media="all" />
+    <link rel="stylesheet" href="../../../font/iconfont.css" media="all" />
+    <style>
+        body>.layui-fluid { padding: 5px; }
+        .container,.container2,.container3{ overflow:auto;border-bottom: 1px solid #ccc; }
+        /*label宽度*/
+        .myStyle .layui-form label { padding: 0; width: 100px; }
+        .myStyle .layui-form .layui-input-block { margin-left:110px; }
+        /*表格*/
+        .myStyle #searchTable label { width: 80px; line-height:1.8; }
+        .myStyle #searchTable .layui-input-block { margin-left: 90px; }
+        .myStyle #searchTable .marL20 { margin-left: 20px; }
+        .myStyle .layui-table-tool-temp { padding-right: 30px; }
+        /*单选框处理 -- layui.form.sm.all.css之上处理*/
+        .myStyle .layui-form-radio { padding-right:0; }
+        /*选项卡处理*/
+        .layui-tab-title { height: 22px!important;line-height:22px; }
+        .layui-tab-title>li{ line-height:22px!important;font-size:12px!important;padding:0 8px!important;margin:0!important; }
+        .layui-tab-title>li i{ font-size:12px; }
+        .layui-tab-title .layui-this:after{ height:24px!important; }
+        .layui-tab-title .layui-tab-bar { width: 24px;height: 20px;line-height: 20px; }
+        .my-tab-brief>.layui-tab-title .layui-this{ color:#009688!important; }
+        .layui-tab[overflow]>.layui-tab-title { overflow:inherit; }
+        .myStyle .layui-tab-brief .layui-tab-content { padding: 5px; }
+        /*高度处理*/
+        .tableHeight { overflow: auto; }
+        /*文本域处理*/
+        .myStyle textarea { min-height: 40px; }
+        /*可输入的下拉样式*/
+        .myStyle .inputSelect { position: absolute;z-index: 100;width: 80%;top: 1px;left: 1px;height: 23px;border: none; }
+        /*margin边距*/
+        .myStyle .marR50 { margin-right: 50px; }
+        /*参考值年龄输入框*/
+        .myStyle .ageInput { display: inline-block;width: 20%; }
+        .myStyle .AgeUnitID { position: absolute;top: 0px;right: 0px; }
+        /*表格上的工具栏处理*/
+        .layui-table-tool{ padding:3px 15px;min-height:30px; }
+        /*开关处理 -- layui.form.sm.all.css之上处理*/
+        .myStyle .layui-form-switch { height:21px;line-height:21px; }
+        /*颜色选择器*/
+        .colorpickerStyle { position: relative; }
+        .colorpickerStyle .myColorpicker { position: absolute;top: 0px;right: -10px; }
+        /*计算项目中外边距Class处理*/
+        #phraseTableBox .marT15 { margin-top: 15px; }
+        #phraseTableBox .marT15:first-child { margin-top: 10px; }
+        /*小表单下拉框处理*/
+        .myStyle .layui-form-select dl{ top:28px; }
+        .myStyle .layui-form-selectup dl { top: auto; bottom: 28px; }
+        /*小表单颜色选择器处理*/
+        .myStyle .layui-colorpicker { width: 14px;height: 14px; }
+        .myStyle .layui-colorpicker-trigger-i { position: relative;top: -6px; }
+        /*禁用样式*/
+        .layui-disabled, .layui-disabled:hover { color: #666 !important; }
+        .layui-radio-disbaled > i{ color:#5FB878!important; }
+		/*使得下拉框与单元格刚好合适*/
+        td .layui-form-select { margin-top: -10px;margin-left: -5px;margin-right: -5px; }
+    </style>
+</head>
+<body>
+    <div class="layui-fluid myStyle">
+        <div class="layui-row layui-col-space5">
+            <div class=" layui-col-md6 layui-col-xs12">
+                <div class="layui-card" id="tableCard">
+                    <div class="layui-card-body">
+                        <div class="layui-form" lay-filter='tableForm' id="searchTable">
+                            <div class="layui-row">
+                                <div class="layui-col-sm6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">名称/简称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='nameOrotherName' id="nameOrotherName" autocomplete="off" placeholder="名称/英文名/简称/快捷码" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">小组</label>
+                                        <div class="layui-input-block">
+                                            <select name="SectionID" id="SectionID" lay-filter='SectionID'>
+                                                <option value='-1'>不属于任何小组</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="layui-col-sm6 layui-col-xs12">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">组合类型</label>
+                                            <div class="layui-input-block">
+                                                <select name="GroupType" id="GroupType" value="0" lay-filter='GroupType'>
+                                                    <option value="0">单项</option>
+                                                    <option value="1">组合</option>
+                                                    <option value="2">套餐</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                            </div>
+                            <!--<div class="layui-row">
+                                <div class="layui-col-sm6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">仪器</label>
+                                        <div class="layui-input-block">
+                                            <select name="EquipID" id="EquipID" lay-filter='EquipID'>
+                                                <option value='-1'>不属于任何仪器</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">小组</label>
+                                        <div class="layui-input-block">
+                                            <select name="SectionID" id="SectionID" lay-filter='SectionID'>
+                                                <option value='-1'>不属于任何小组</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="layui-row">
+                                <div class="layui-col-sm10 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block marL20">
+                                            <input type="radio" name="radio" lay-filter="radio" value="" title="全部" checked>
+                                            <input type="radio" name="radio" lay-filter="radio" value="0" title="单项">
+                                            <input type="radio" name="radio" lay-filter="radio" value="1" title="组合">
+                                            <input type="radio" name="radio" lay-filter="radio" value="2" title="套餐">
+                                            <input type="radio" name="radio" lay-filter="radio" value="3" title="医嘱">
+                                            <input type="radio" name="radio" lay-filter="radio" value="4" title="计算">
+                                            <input type="radio" name="radio" lay-filter="radio" value="5" title="计费">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm2 layui-col-xs4 switchStyle">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block" style="margin-left:0px;">
+                                            <button class="layui-btn layui-btn-xs" type="button" id="search" lay-submit lay-filter="search">
+                                                <i class="layui-icon">&#xe615;</i>查询
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableContainer">
+                            <table id="table" lay-filter="table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6 layui-col-xs12">
+                <div class="layui-card tableHeight" id="card">
+                    <div class="layui-card-body">
+                        <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="tab" id="tab">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this" data-index="0"><i class="layui-icon">&#xe63c;</i>项目信息</li>
+                                <li data-index="1"><i class="iconfont">&#xe607;</i>&nbsp;小组仪器分配</li>
+                                <li data-index="2"><i class="iconfont">&#xe63c;</i>&nbsp;组合项目</li>
+                                <li data-index="3"><i class="layui-icon">&#xe62c;</i>项目参考值</li>
+                                <li data-index="4"><i class="iconfont">&#xe643;</i>&nbsp;项目对照</li>
+                                <li data-index="5"><i class="iconfont">&#xe643;</i>&nbsp;计算项目</li>
+                                <li data-index="6"><i class="layui-icon">&#xe60a;</i>项目短语</li>
+                                <li data-index="7"><i class="layui-icon">&#xe620;</i>超时警告设置</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show" data-index="0">
+                                    <span class="layui-badge layui-hide" id="formType" style="position: absolute;left: 15px;">编辑</span>
+                                    <form class="layui-form" id="formInfo" onkeydown="if(event.keyCode==13)return false;" lay-filter='form'>
+                                        <div class="container">
+                                            <div class="layui-row">
+                                                <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">主键id</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="hidden" name='LBItem_Id' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">项目名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_CName' id="CName" autocomplete="off" lay-verify='required' placeholder="必填项" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">英文名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_EName' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">简称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_SName' id="SName" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">用户编码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_UseCode' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">标准编码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_StandCode' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">开发商标准码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_DeveCode' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">快捷码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_Shortcode' id="Shortcode" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">拼音字头</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_PinYinZiTou' id="PinYinZiTou" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">显示次序</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_DispOrder' id="DispOrder" lay-verify='number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否启用</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="IsUse" name='LBItem_IsUse' lay-skin='switch' checked lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">备注</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea name="LBItem_Comment" placeholder="请输入内容" autocomplete="off" class="layui-textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr class="layui-bg-green">
+
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">组合类型</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="radio" name="LBItem_GroupType" lay-filter="GroupType" value="0" title="单项" checked>
+                                                            <input type="radio" name="LBItem_GroupType" lay-filter="GroupType" value="1" title="组合">
+                                                            <input type="radio" name="LBItem_GroupType" lay-filter="GroupType" value="2" title="套餐">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否医嘱项目</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="IsOrderItem" checked name='LBItem_IsOrderItem' lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否采样项目</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="IsSampleItem" checked name='LBItem_IsSampleItem' lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否计算项目</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="IsCalcItem" name='LBItem_IsCalcItem' lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否收费项目</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="IsChargeItem" checked name='LBItem_IsChargeItem' lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否报告项目</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="IsPrint" checked name='LBItem_IsPrint' lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否合并项目</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="IsUnionItem" name='LBItem_IsUnionItem' lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否辅助项目</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" id="IsPartItem" name='LBItem_IsPartItem' lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <blockquote class="layui-elem-quote">
+                                                        <div style="color:red;font-size:12px;">合并项目: 类型糖耐量,可以进行合并操作 </div>
+                                                        <div style="color:red;font-size:12px;">辅助项目: 组合项目中的辅助子项,结果空或者缺失不影响发报告 </div>
+                                                    </blockquote>
+                                                </div>
+                                                <hr class="layui-bg-green">
+
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">专业</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBItem_SpecialtyID" id="SpecialtyID" lay-filter='SpecialtyID'></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">专业功能类型</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBItem_SectionFun" id="SectionFun" lay-filter='SectionFun' lay-verify='required'></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">结果类型</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBItem_ValueType" id="ValueType" lay-filter='ValueType' lay-verify='required'></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">默认结果单位</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_Unit' id="InputUnit" autocomplete="off" class="layui-input inputSelect" />
+                                                            <select name="no" lay-filter='Unit'>
+                                                                <option value="U/L">U/L</option>
+                                                                <option value="g/L">g/L</option>
+                                                                <option value="/ul">/ul</option>
+                                                                <option value="μg/ml">μg/ml</option>
+                                                                <option value="μmo/L">μmo/L</option>
+                                                                <option value="μmol/L'">μmol/L'</option>
+                                                                <option value="μmol/Ll">μmol/Ll</option>
+                                                                <option value="*10^12/L">*10^12/L</option>
+                                                                <option value="*10^9/L">*10^9/L</option>
+                                                                <option value="*10^6/L">*10^6/L</option>
+                                                                <option value="mg/24hr">mg/24hr</option>
+                                                                <option value="%">%</option>
+                                                                <option value="*10^4/12hr">*10^4/12hr</option>
+                                                                <option value="/100WBC'">/100WBC'</option>
+                                                                <option value="/12hr">/12hr</option>
+                                                                <option value="/HP">/HP</option>
+                                                                <option value="/LP">/LP</option>
+                                                                <option value="/mm^3">/mm^3</option>
+                                                                <option value="分">分</option>
+                                                                <option value="秒">秒</option>
+                                                                <option value="fL">fL</option>
+                                                                <option value="g/24h">g/24h</option>
+                                                                <option value="IU/ml">IU/ml</option>
+                                                                <option value="mg/24h">mg/24h</option>
+                                                                <option value="mg/24hr">mg/24hr</option>
+                                                                <option value="mg/dl">mg/dl</option>
+                                                                <option value="mg/L">mg/L</option>
+                                                                <option value="ml">ml</option>
+                                                                <option value="ml/min">ml/min</option>
+                                                                <option value="mm/hr">mm/hr</option>
+                                                                <option value="mmol/24h">mmol/24h</option>
+                                                                <option value="mmol/24hrl">mmol/24hrl</option>
+                                                                <option value="mmol/l">mmol/l</option>
+                                                                <option value="mOsm/L">mOsm/L</option>
+                                                                <option value="mpa.s">mpa.s</option>
+                                                                <option value="ng/10^7PLT">ng/10^7PLT</option>
+                                                                <option value="ng/ml">ng/ml</option>
+                                                                <option value="nmol/l">nmol/l</option>
+                                                                <option value="nmol/mmol">nmol/mmol</option>
+                                                                <option value="pg">pg</option>
+                                                                <option value="U/ml">U/ml</option>
+                                                                <option value="ug/ml">ug/ml</option>
+                                                                <option value="umol/L">umol/L</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">项目特殊属性</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBItem_SpecialType" id="LBItem_SpecialType"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">精度</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_Prec' value="2" lay-verify='number|ZDY_Prec' placeholder="请输入0-6之间的数字" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">项目价格</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_ItemCharge' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">采样要求</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_SamplingRequire' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">工作量参数</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_FWorkLoad' value="1" lay-verify='number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">采样次序</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_CollectSort' id="LBItem_CollectSort" lay-verify='number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">默认检验方法</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItem_DiagMethod' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="layui-col-sm6 layui-col-xs12">
+        <div class="layui-form-item">
+            <label class="layui-form-label">保密标志</label>
+            <div class="layui-input-block">
+                <input type="text" name='LBItem_SecretFlag' lay-verify='number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+    </div>-->
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">临床意义</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea name="LBItem_ClinicalInfo" placeholder="请输入内容" autocomplete="off" class="layui-textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="layui-col-sm6 layui-col-xs12">
+        <div class="layui-form-item">
+            <label class="layui-form-label">提示标志</label>
+            <div class="layui-input-block">
+                <select name="LBItem_HintFlag" id="HintFlag" lay-filter='SectionID' lay-verify='required'>
+                    <option value="0">普通</option>
+                    <option value="1">特殊</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-xs12">
+        <div class="layui-form-item">
+            <label class="layui-form-label">历史对比类型</label>
+            <div class="layui-input-block">
+                <select name="LBItem_HisCompType" id="HisCompType" lay-filter='SectionID' lay-verify='required'>
+                    <option value="0">百分比对比</option>
+                    <option value="1">数值对比</option>
+                    <option value="2">定性对比</option>
+                    <option value="3">不对比</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-xs12">
+        <div class="layui-form-item">
+            <label class="layui-form-label">历史对比状态警告</label>
+            <div class="layui-input-block">
+                <input type="text" name='LBItem_HisCompH' lay-verify='number' placeholder="百分比(小数)" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-xs12">
+        <div class="layui-form-item">
+            <label class="layui-form-label">历史对比状态严重警告</label>
+            <div class="layui-input-block">
+                <input type="text" name='LBItem_HisCompHH' lay-verify='number' placeholder="百分比(小数)" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+    </div>-->
+                                            </div>
+
+                                        </div>
+                                        <div class="layui-row" style="margin-top:10px;">
+                                            <div class="layui-col-md12 layui-col-xs12">
+                                                <div class="layui-form-item" style="text-align:center;">
+                                                    <div class="layui-btn-group">
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="add"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="edit"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                        <button class="layui-btn layui-btn-sm marR50" lay-submit id="save" lay-filter='save'><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                        <button class="layui-btn layui-btn-sm layui-btn-primary" type="button" id='cancel' lay-filter='reset'><i class="iconfont">&#xe609;</i>&nbsp;重置</button>
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="sort"><i class="iconfont">&#xe668;</i>&nbsp;项目排序</button>
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="collectSortAdjust"><i class="iconfont">&#xe668;</i>&nbsp;采样排序</button>
+                                                        <button class="layui-btn layui-btn-sm" type="button" id="import"><i class="iconfont">&#xe6a2;</i>&nbsp;导入</button>
+                                                        <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" id="del"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="layui-tab-item" data-index="1">
+                                    <blockquote class="layui-elem-quote" style="padding:8px;margin-bottom:5px;">
+                                        项目：<span class="itemName" style="color:orange;"></span>
+                                    </blockquote>
+                                    <table id="sectionItemTable" lay-filter="sectionItemTable"></table>
+                                    <hr class="layui-bg-green">
+                                    <div id="equipTableBox">
+                                        <table id="equipItemTable" lay-filter="equipItemTable"></table>
+                                    </div>
+                                </div>
+                                <div class="layui-tab-item" data-index="2">
+                                    <blockquote class="layui-elem-quote" style="padding:8px;margin-bottom:5px;">
+                                        项目：<span class="itemName" style="color:orange;"></span>
+                                    </blockquote>
+                                    <table id="comboItemTable" lay-filter="comboItemTable"></table>
+                                </div>
+                                <div class="layui-tab-item" data-index="3">
+                                    <!--<blockquote class="layui-elem-quote" style="padding:8px;margin-bottom:5px;">
+                                        项目：<span class="itemName" style="color:orange;"></span>
+                                    </blockquote>-->
+                                    <div class="layui-tab layui-tab-brief my-tab-brief2" lay-filter="itemRangeTab" id="itemRangeTab">
+                                        <ul class="layui-tab-title">
+                                            <li class="layui-this"><i class="iconfont">&#xe74c;</i>&nbsp;参考范围</li>
+                                            <li><i class="iconfont">&#xe644;</i>&nbsp;参考范围后处理</li>
+                                            <li><i class="iconfont">&#xe613;</i>&nbsp;描述结果判断</li>
+                                        </ul>
+                                        <div class="layui-tab-content" style="padding:5px 0;">
+                                            <div class="layui-tab-item layui-show">
+                                                <table id="itemRangeTable" lay-filter="itemRangeTable"></table>
+                                                <form class="layui-form" id="itemRangeForm" lay-filter="itemRangeForm">
+                                                    <div class="container2">
+                                                        <div class="layui-row">
+                                                            <hr class="layui-bg-green">
+                                                            <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">主键id</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="hidden" name='LBItemRange_Id' autocomplete="off" class="layui-input" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">是否为缺省</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="checkbox" checked name='LBItemRange_IsDefault' id="IsDefault" lay-skin='switch' lay-text="是|否" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">判定次序</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="text" name='LBItemRange_DispOrder' id="itemRangeDispOrder" lay-verify='number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">结果单位</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="text" name='LBItemRange_Unit' id="ItemRangeUnitInput" autocomplete="off" class="layui-input inputSelect" />
+                                                                        <select name="no" lay-filter='ItemRangeUnitSelect'>
+                                                                            <option value="U/L">U/L</option>
+                                                                            <option value="g/L">g/L</option>
+                                                                            <option value="/ul">/ul</option>
+                                                                            <option value="μg/ml">μg/ml</option>
+                                                                            <option value="μmo/L">μmo/L</option>
+                                                                            <option value="μmol/L'">μmol/L'</option>
+                                                                            <option value="μmol/Ll">μmol/Ll</option>
+                                                                            <option value="*10^12/L">*10^12/L</option>
+                                                                            <option value="*10^9/L">*10^9/L</option>
+                                                                            <option value="*10^6/L">*10^6/L</option>
+                                                                            <option value="mg/24hr">mg/24hr</option>
+                                                                            <option value="%">%</option>
+                                                                            <option value="*10^4/12hr">*10^4/12hr</option>
+                                                                            <option value="/100WBC'">/100WBC'</option>
+                                                                            <option value="/12hr">/12hr</option>
+                                                                            <option value="/HP">/HP</option>
+                                                                            <option value="/LP">/LP</option>
+                                                                            <option value="/mm^3">/mm^3</option>
+                                                                            <option value="分">分</option>
+                                                                            <option value="秒">秒</option>
+                                                                            <option value="fL">fL</option>
+                                                                            <option value="g/24h">g/24h</option>
+                                                                            <option value="IU/ml">IU/ml</option>
+                                                                            <option value="mg/24h">mg/24h</option>
+                                                                            <option value="mg/24hr">mg/24hr</option>
+                                                                            <option value="mg/dl">mg/dl</option>
+                                                                            <option value="mg/L">mg/L</option>
+                                                                            <option value="ml">ml</option>
+                                                                            <option value="ml/min">ml/min</option>
+                                                                            <option value="mm/hr">mm/hr</option>
+                                                                            <option value="mmol/24h">mmol/24h</option>
+                                                                            <option value="mmol/24hrl">mmol/24hrl</option>
+                                                                            <option value="mmol/l">mmol/l</option>
+                                                                            <option value="mOsm/L">mOsm/L</option>
+                                                                            <option value="mpa.s">mpa.s</option>
+                                                                            <option value="ng/10^7PLT">ng/10^7PLT</option>
+                                                                            <option value="ng/ml">ng/ml</option>
+                                                                            <option value="nmol/l">nmol/l</option>
+                                                                            <option value="nmol/mmol">nmol/mmol</option>
+                                                                            <option value="pg">pg</option>
+                                                                            <option value="U/ml">U/ml</option>
+                                                                            <option value="ug/ml">ug/ml</option>
+                                                                            <option value="umol/L">umol/L</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">检验方法</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="text" name='LBItemRange_DiagMethod' autocomplete="off" class="layui-input" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="layui-bg-green">
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">检验小组</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select name="LBItemRange_SectionID" id="itemRangeSectionID" lay-filter="itemRangeSectionID"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">检验仪器</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select name="LBItemRange_EquipID" id="itemRangeEquipID" lay-filter="itemRangeEquipID"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">送检科室</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select name="LBItemRange_DeptID" id="itemRangeDeptID" lay-filter="itemRangeDeptID"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">样本类型</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select name="LBItemRange_SampleTypeID" id="itemRangeSampleTypeID" lay-filter="itemRangeSampleTypeID"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">性别</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select name="LBItemRange_GenderID" id="itemRangeGenderID" lay-filter="itemRangeGenderID"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">临床诊断</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select name="LBItemRange_DiagID" id="itemRangeDiagID" lay-filter="itemRangeDiagID"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">采样部位</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select name="LBItemRange_CollectPartID" id="itemRangeCollectPartID" lay-filter="itemRangeCollectPartID"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">生理期</label>
+                                                                    <div class="layui-input-block">
+                                                                        <select name="LBItemRange_PhyPeriodID" id="itemRangePhyPeriodID" lay-filter="itemRangePhyPeriodID"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">采样开始时间</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="text" name="LBItemRange_BCollectTime" id="BCollectTime" placeholder="请选择时间" class="layui-input" autocomplete="off" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">采样截止时间</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="text" name="LBItemRange_ECollectTime" id="ECollectTime" placeholder="请选择时间" class="layui-input" autocomplete="off" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">年龄</label>
+                                                                    <div class="layui-input-block" style="position:relative;">
+                                                                        <div class="layui-col-xs2">
+                                                                            <input type="text" name="LBItemRange_LowAge" id="ItemRangeLowAge" class="layui-input" autocomplete="off" />
+                                                                        </div>
+                                                                        <div class="layui-col-xs1" style="text-align:center;">
+                                                                            -
+                                                                        </div>
+                                                                        <div class="layui-col-xs2">
+                                                                            <input type="text" name="LBItemRange_HighAge" id="ItemRangeHighAge" class="layui-input" autocomplete="off" />
+                                                                        </div>
+                                                                        <div class="layui-col-xs7">
+                                                                            <select name="LBItemRange_AgeUnitID" id="itemRangeAgeUnitID" lay-filter="itemRangeAgeUnitID"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="layui-bg-green">
+
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">基本状态判断</label>
+                                                                    <div class="layui-input-block" style="position:relative;">
+                                                                        <div class="layui-col-xs5">
+                                                                            <div class="layui-col-xs4">
+                                                                                <div style="width:100%;height:100%;border-radius: 3px;background-color:#2B78E4;color:#FFF;line-height:25px;text-align:center;">
+                                                                                    L 偏低↓
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4" style="padding-left:5px;">
+                                                                                <select name="LBItemRange_LValueComp" id="ItemRangeLValueComp" lay-filter="LValueComp">
+                                                                                    <option value="<"><</option>
+                                                                                    <option value="<="><=</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <input type="text" name="LBItemRange_LValue" id="ItemRangeLValue" placeholder="低值" class="layui-input" autocomplete="off" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="layui-col-xs1" style="text-align:center;line-height:25px;">
+                                                                            -
+                                                                        </div>
+                                                                        <div class="layui-col-xs5">
+                                                                            <div class="layui-col-xs4">
+                                                                                <input type="text" name="LBItemRange_HValue" id="ItemRangeHValue" placeholder="高值" class="layui-input" autocomplete="off" />
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <select name="LBItemRange_HValueComp" id="ItemRangeHValueComp" lay-filter="HValueComp">
+                                                                                    <option value=">"><</option>
+                                                                                    <option value=">="><=</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <div style="width:100%;height:100%;border-radius: 3px;background-color:#CC0000;color:#FFF;margin-left:5px;line-height:25px;text-align:center;">
+                                                                                    H 偏高↑
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <div class="layui-input-block">
+                                                                        <input type="text" id="ItemRangeRefRange" name="LBItemRange_RefRange" placeholder="参考范围" readonly class="layui-input" autocomplete="off" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">异常值判断</label>
+                                                                    <div class="layui-input-block" style="position:relative;">
+                                                                        <div class="layui-col-xs5">
+                                                                            <div class="layui-col-xs4">
+                                                                                <div style="width:100%;height:100%;border-radius: 3px;background-color:#FF00FF;color:#FFF;line-height:25px;text-align:center;">
+                                                                                    LL ↓↓
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4" style="padding-left:5px;">
+                                                                                <select name="LBItemRange_LLValueComp">
+                                                                                    <option value="<"><</option>
+                                                                                    <option value="<="><=</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <input type="text" name="LBItemRange_LLValue" placeholder="低值" class="layui-input" autocomplete="off" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="layui-col-xs1" style="text-align:center;line-height:25px;">
+                                                                            -
+                                                                        </div>
+                                                                        <div class="layui-col-xs5">
+                                                                            <div class="layui-col-xs4">
+                                                                                <input type="text" name="LBItemRange_HHValue" placeholder="高值" class="layui-input" autocomplete="off" />
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <select name="LBItemRange_HHValueComp">
+                                                                                    <option value=">"><</option>
+                                                                                    <option value=">="><=</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <div style="width:100%;height:100%;border-radius: 3px;background-color:#FF00FF;color:#FFF;margin-left:5px;line-height:25px;text-align:center;">
+                                                                                    HH ↑↑
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="layui-form-item">
+                                                                    <div class="layui-input-block">
+                                                                        <input type="checkbox" name="LBItemRange_BCritical" id="BCritical" lay-filter="BCritical" title="生成危急值" lay-skin="primary">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">无效结果</label>
+                                                                    <div class="layui-input-block" style="position:relative;">
+                                                                        <div class="layui-col-xs5">
+                                                                            <div class="layui-col-xs4">
+                                                                                <div style="width:100%;height:100%;border-radius: 3px;background-color:#674EA7;color:#FFF;line-height:25px;text-align:center;">
+                                                                                    无效
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4" style="padding-left:5px;">
+                                                                                <select name="LBItemRange_InvalidLValueComp">
+                                                                                    <option value="<"><</option>
+                                                                                    <option value="<="><=</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <input type="text" name="LBItemRange_InvalidLValue" placeholder="低值" class="layui-input" autocomplete="off" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="layui-col-xs1" style="text-align:center;line-height:25px;">
+                                                                            -
+                                                                        </div>
+                                                                        <div class="layui-col-xs5">
+                                                                            <div class="layui-col-xs4">
+                                                                                <input type="text" name="LBItemRange_InvalidHValue" placeholder="高值" class="layui-input" autocomplete="off" />
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <select name="LBItemRange_InvalidHValueComp">
+                                                                                    <option value=">"><</option>
+                                                                                    <option value=">="><=</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <div style="width:100%;height:100%;border-radius: 3px;background-color:#674EA7;color:#FFF;margin-left:5px;line-height:25px;text-align:center;">
+                                                                                    无效
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <div class="layui-input-block" style="color:#674EA7;font-size:12px;">
+                                                                        例如：有的结果不能小于0，为负值时，无效
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-col-xs12">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">建议复检判断</label>
+                                                                    <div class="layui-input-block" style="position:relative;">
+                                                                        <div class="layui-col-xs5">
+                                                                            <div class="layui-col-xs4">
+                                                                                <div style="width:100%;height:100%;border-radius: 3px;color:#E69139;line-height:25px;text-align:center;">
+                                                                                    <i class="layui-icon">&#xe666;</i>复检
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4" style="padding-left:5px;">
+                                                                                <select name="LBItemRange_RedoLValueComp">
+                                                                                    <option value="<"><</option>
+                                                                                    <option value="<="><=</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <input type="text" name="LBItemRange_RedoLValue" placeholder="低值" class="layui-input" autocomplete="off" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="layui-col-xs1" style="text-align:center;line-height:25px;">
+                                                                            -
+                                                                        </div>
+                                                                        <div class="layui-col-xs5">
+                                                                            <div class="layui-col-xs4">
+                                                                                <input type="text" name="LBItemRange_RedoHValue" placeholder="高值" class="layui-input" autocomplete="off" />
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <select name="LBItemRange_RedoHValueComp">
+                                                                                    <option value=">"><</option>
+                                                                                    <option value=">="><=</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="layui-col-xs4">
+                                                                                <div style="width:100%;height:100%;border-radius: 3px;color:#E69139;margin-left:5px;line-height:25px;text-align:center;">
+                                                                                    <i class="layui-icon">&#xe666;</i>复检
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-row">
+                                                        <div class="layui-col-md12 layui-col-xs12" style="margin-top:10px;">
+                                                            <div class="layui-form-item">
+                                                                <div class="layui-input-block">
+                                                                    <div class="layui-btn-group">
+                                                                        <button class="layui-btn layui-btn-sm" type="button" id="addItemRange"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                                        <button class="layui-btn layui-btn-sm" type="button" id="editItemRange"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                                        <button class="layui-btn layui-btn-sm" type="button" id="saveItemRange" lay-submit lay-filter="saveItemRange"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                                        <button class="layui-btn layui-btn-sm layui-btn-primary" type="button" id="resetItemRange"><i class="iconfont">&#xe609;</i>&nbsp;重置</button>
+                                                                        <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" id="delItemRange"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="layui-tab-item" id="rangeAfter">
+                                                <div class="layui-form" id="IsAddReportForm">
+                                                    <div class="layui-row">
+                                                        <div class="layui-col-sm12 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <div class="layui-input-block" id="IsAddReportForAfter">
+                                                                    <input type="radio" name="IsAddReport" lay-filter="IsAddReport" value="0" title="替换报告值" checked>
+                                                                    <input type="radio" name="IsAddReport" lay-filter="IsAddReport" value="1" title="追加报告值">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr class="layui-bg-green">
+                                                <form class="layui-form" id="LBItemRangeExpForm1" data-type="N" lay-filter="LBItemRangeExpForm1">
+                                                    <div class="layui-row">
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">主键id</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="hidden" name='LBItemRangeExp_Id' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">判定值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_JudgeValue' value="N" autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">正常时状态为</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_ResultStatus" id="itemRangeExpResultStatus1" lay-filter="itemRangeExpResultStatus1"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">报告值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultReport' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">警示级别</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_AlarmLevel" lay-filter="LBItemRangeExp_AlarmLevel"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">特别提示色</label>
+                                                                <div class="layui-input-block colorpickerStyle">
+                                                                    <input type="text" value="" name="LBItemRangeExp_AlarmColor" readonly placeholder="请选择颜色" class="layui-input" id="AlarmColor1">
+                                                                    <div id="colorpicker_AlarmColor1" class="myColorpicker"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">采用特殊提示色</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="checkbox" name='LBItemRangeExp_BAlarmColor' id="BAlarmColor1" lay-skin='switch' lay-text="是|否" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">结果说明</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultComment' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <hr class="layui-bg-green">
+                                                <form class="layui-form" id="LBItemRangeExpForm2" data-type="L" lay-filter="LBItemRangeExpForm2">
+                                                    <div class="layui-row">
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">主键id</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="hidden" name='LBItemRangeExp_Id' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">判定值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_JudgeValue' value="L" autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">偏低时状态为</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_ResultStatus" id="itemRangeExpResultStatus2" lay-filter="itemRangeExpResultStatus2"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">报告值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultReport' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">警示级别</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_AlarmLevel" lay-filter="LBItemRangeExp_AlarmLevel"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">特别提示色</label>
+                                                                <div class="layui-input-block colorpickerStyle">
+                                                                    <input type="text" value="" name="LBItemRangeExp_AlarmColor" readonly placeholder="请选择颜色" class="layui-input" id="AlarmColor2">
+                                                                    <div id="colorpicker_AlarmColor2" class="myColorpicker"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">采用特殊提示色</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="checkbox" name='LBItemRangeExp_BAlarmColor' id="BAlarmColor2" lay-skin='switch' lay-text="是|否" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">结果说明</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultComment' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <hr class="layui-bg-green">
+                                                <form class="layui-form" id="LBItemRangeExpForm3" data-type="H" lay-filter="LBItemRangeExpForm3">
+                                                    <div class="layui-row">
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">主键id</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="hidden" name='LBItemRangeExp_Id' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">判定值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_JudgeValue' value="H" autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">偏高时状态为</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_ResultStatus" id="itemRangeExpResultStatus3" lay-filter="itemRangeExpResultStatus3"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">报告值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultReport' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">警示级别</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_AlarmLevel" lay-filter="LBItemRangeExp_AlarmLevel"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">特别提示色</label>
+                                                                <div class="layui-input-block colorpickerStyle">
+                                                                    <input type="text" value="" name="LBItemRangeExp_AlarmColor" readonly placeholder="请选择颜色" class="layui-input" id="AlarmColor3">
+                                                                    <div id="colorpicker_AlarmColor3" class="myColorpicker"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">采用特殊提示色</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="checkbox" name='LBItemRangeExp_BAlarmColor' id="BAlarmColor3" lay-skin='switch' lay-text="是|否" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">结果说明</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultComment' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <hr class="layui-bg-green">
+                                                <form class="layui-form" id="LBItemRangeExpForm4" data-type="LL" lay-filter="LBItemRangeExpForm4">
+                                                    <div class="layui-row">
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">主键id</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="hidden" name='LBItemRangeExp_Id' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">判定值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_JudgeValue' value="LL" autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">异常低时状态为</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_ResultStatus" id="itemRangeExpResultStatus4" lay-filter="itemRangeExpResultStatus4"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">报告值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultReport' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">警示级别</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_AlarmLevel" lay-filter="LBItemRangeExp_AlarmLevel"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">特别提示色</label>
+                                                                <div class="layui-input-block colorpickerStyle">
+                                                                    <input type="text" value="" name="LBItemRangeExp_AlarmColor" readonly placeholder="请选择颜色" class="layui-input" id="AlarmColor4">
+                                                                    <div id="colorpicker_AlarmColor4" class="myColorpicker"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">采用特殊提示色</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="checkbox" name='LBItemRangeExp_BAlarmColor' id="BAlarmColor4" lay-skin='switch' lay-text="是|否" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">结果说明</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultComment' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <hr class="layui-bg-green">
+                                                <form class="layui-form" id="LBItemRangeExpForm5" data-type="HH" lay-filter="LBItemRangeExpForm5">
+                                                    <div class="layui-row">
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">主键id</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="hidden" name='LBItemRangeExp_Id' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">判定值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_JudgeValue' value="HH" autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">异常高时状态为</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_ResultStatus" id="itemRangeExpResultStatus5" lay-filter="itemRangeExpResultStatus5"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">报告值</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultReport' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">警示级别</label>
+                                                                <div class="layui-input-block">
+                                                                    <select name="LBItemRangeExp_AlarmLevel" lay-filter="LBItemRangeExp_AlarmLevel"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">特别提示色</label>
+                                                                <div class="layui-input-block colorpickerStyle">
+                                                                    <input type="text" value="" name="LBItemRangeExp_AlarmColor" readonly placeholder="请选择颜色" class="layui-input" id="AlarmColor5">
+                                                                    <div id="colorpicker_AlarmColor5" class="myColorpicker"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">采用特殊提示色</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="checkbox" name='LBItemRangeExp_BAlarmColor' id="BAlarmColor5" lay-skin='switch' lay-text="是|否" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-sm6 layui-col-xs12">
+                                                            <div class="layui-form-item">
+                                                                <label class="layui-form-label">结果说明</label>
+                                                                <div class="layui-input-block">
+                                                                    <input type="text" name='LBItemRangeExp_ResultComment' autocomplete="off" class="layui-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div class="layui-row">
+                                                    <div class="layui-col-md12 layui-col-xs12">
+                                                        <div class="layui-form-item" style="text-align:center;">
+                                                            <button class="layui-btn layui-btn-sm" id="itemRangeAfterSave"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-tab-item">
+                                                <div class="layui-tab layui-tab-brief" lay-filter="resultJudgTab" id="resultJudgTab">
+                                                    <ul class="layui-tab-title">
+                                                        <li class="layui-this">项目描述结果判断</li>
+                                                        <li>默认描述结果判断</li>
+                                                    </ul>
+                                                    <div class="layui-tab-content" style="padding:5px 0;">
+                                                        <div class="layui-tab-item layui-show">
+                                                            <blockquote class="layui-elem-quote" style="padding:5px;">
+                                                                <div style="color:red;font-size:12px;">判断说明: ";"进行分割。带%表示包含。例如："+;%++",表示包含两个+或者等于一个+时，符合条件 </div>
+                                                            </blockquote>
+                                                            <table id="itemRangeResultTable" lay-filter="itemRangeResultTable"></table>
+                                                            <form class="layui-form" style="margin-top:20px;" id="ItemRangeExpResult" lay-filter="ItemRangeExpResult">
+                                                                <div class="layui-row">
+                                                                    <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">主键id</label>
+                                                                            <div class="layui-input-block">
+                                                                                <input type="hidden" name='LBItemRangeExp_Id' autocomplete="off" class="layui-input" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">报告值是否替换</label>
+                                                                            <div class="layui-input-block" id="IsAddReportForResult">
+                                                                                <input type="radio" name="LBItemRangeExp_IsAddReport" value="0" title="替换报告值" checked>
+                                                                                <input type="radio" name="LBItemRangeExp_IsAddReport" value="1" title="追加报告值">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-sm6 layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">判定值</label>
+                                                                            <div class="layui-input-block">
+                                                                                <input type="text" name='LBItemRangeExp_JudgeValue' lay-verify='ZDY_required' autocomplete="off" class="layui-input" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-sm6 layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">结果状态</label>
+                                                                            <div class="layui-input-block">
+                                                                                <select name="LBItemRangeExp_ResultStatus" id="itemRangeExpResultStatus6" lay-verify='ZDY_required' lay-filter="itemRangeExpResultStatus6"></select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-sm6 layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">报告值</label>
+                                                                            <div class="layui-input-block">
+                                                                                <input type="text" name='LBItemRangeExp_ResultReport' autocomplete="off" class="layui-input" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-sm6 layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">判定次序</label>
+                                                                            <div class="layui-input-block">
+                                                                                <input type="text" name='LBItemRangeExp_DispOrder' id="ItemRangeExpResultDispOrder" lay-verify='ZDY_required|ZDY_number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-sm6 layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">警示级别</label>
+                                                                            <div class="layui-input-block">
+                                                                                <select name="LBItemRangeExp_AlarmLevel" id="ItemRangeExpResultAlarmLevel" lay-filter="ItemRangeExpResultAlarmLevel"></select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">特别提示色</label>
+                                                                            <div class="layui-input-block colorpickerStyle">
+                                                                                <input type="text" value="" name="LBItemRangeExp_AlarmColor" readonly placeholder="请选择颜色" class="layui-input" id="AlarmColor6">
+                                                                                <div id="colorpicker_AlarmColor6" class="myColorpicker"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">采用特殊提示色</label>
+                                                                            <div class="layui-input-block">
+                                                                                <input type="checkbox" name='LBItemRangeExp_BAlarmColor' id="BAlarmColor6" lay-skin='switch' lay-text="是|否" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-sm6 layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <label class="layui-form-label">结果说明</label>
+                                                                            <div class="layui-input-block">
+                                                                                <input type="text" name='LBItemRangeExp_ResultComment' autocomplete="off" class="layui-input" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="layui-row">
+                                                                    <div class="layui-col-md12 layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <div class="layui-input-block">
+                                                                                <div class="layui-btn-group">
+                                                                                    <button class="layui-btn layui-btn-sm" type="button" id="addItemRangeExpResult"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                                                    <button class="layui-btn layui-btn-sm" type="button" id="editItemRangeExpResult"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                                                    <button class="layui-btn layui-btn-sm marR50" type="button" id="saveItemRangeExpResult" lay-submit lay-filter="saveItemRangeExpResult"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                                                    <button class="layui-btn layui-btn-sm layui-btn-primary" type="button" id="resetItemRangeExpResult"><i class="iconfont">&#xe609;</i>&nbsp;重置</button>
+                                                                                    <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" id="delItemRangeExpResult"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-tab-item" data-index="4">
+                                    <blockquote class="layui-elem-quote" style="padding:8px;margin-bottom:5px;">
+                                        项目：<span class="itemName" style="color:orange;"></span>
+                                    </blockquote>
+                                    <table id="itemContrastTable" lay-filter="itemContrastTable"></table>
+                                </div>
+                                <div class="layui-tab-item" data-index="5" style="padding-bottom:43px;">
+                                    <!--<blockquote class="layui-elem-quote" style="padding:8px;margin-bottom:5px;">
+                                        项目：<span class="itemName" style="color:orange;"></span>
+                                    </blockquote>-->
+                                    <table id="itemCalcFormulaTable" lay-filter="itemCalcFormulaTable"></table>
+                                    <form class="layui-form" id="itemCalcFormulaForm" lay-filter="itemCalcFormulaForm" style="margin-top:10px;">
+                                        <span class="layui-badge" id="itemCalcType" style="position: absolute;left: 20px;">编辑</span>
+                                        <div class="container3">
+                                            <div class="layui-row">
+                                                <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">主键id</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="hidden" name='LBItemCalcFormula_Id' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">默认公式</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" checked name='LBItemCalcFormula_IsDefault' id="itemCalcFormulaIsDefault" lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">无效结果保留</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" checked name='LBItemCalcFormula_IsKeepInvalid' id="itemCalcFormulaIsKeepInvalid" lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否使用</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="checkbox" checked name='LBItemCalcFormula_IsUse' id="itemCalcFormulaIsUse" lay-skin='switch' lay-text="是|否" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">显示次序</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItemCalcFormula_DispOrder' id="itemCalcFormulaDispOrder" lay-verify='number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">样本类型</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBItemCalcFormula_SampleTypeID" id="itemCalcFormulaSampleTypeID" lay-filter="itemCalcFormulaSampleTypeID"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">检验小组</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBItemCalcFormula_SectionID" id="itemCalcFormulaSectionID" lay-filter="itemCalcFormulaSectionID"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">性别</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBItemCalcFormula_GenderID" id="itemCalcFormulaGenderID" lay-filter="itemCalcFormulaGenderID"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">计算类型</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="LBItemCalcFormula_CalcType" lay-verify='required' lay-filter="LBItemCalcFormula_CalcType">
+                                                                <option value="0">数值计算</option>
+                                                                <option value="1">仅替换结果得到报告值</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">年龄</label>
+                                                        <div class="layui-input-block" style="position:relative;">
+                                                            <div class="layui-col-xs2">
+                                                                <input type="text" name="LBItemCalcFormula_LAge" class="layui-input" autocomplete="off" />
+                                                            </div>
+                                                            <div class="layui-col-xs1" style="text-align:center;">
+                                                                -
+                                                            </div>
+                                                            <div class="layui-col-xs2">
+                                                                <input type="text" name="LBItemCalcFormula_HAge" class="layui-input" autocomplete="off" />
+                                                            </div>
+                                                            <div class="layui-col-xs7">
+                                                                <select name="LBItemCalcFormula_AgeUnitID" id="itemCalcFormulaAgeUnitID" lay-filter="itemCalcFormulaAgeUnitID" class="AgeUnitID"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">体重下限</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItemCalcFormula_LWeight' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm6 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">体重上限</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItemCalcFormula_UWeight' autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm12 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">计算公式条件</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name='LBItemCalcFormula_FormulaConditionInfo' id="FormulaConditionInfo" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm12 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">计算公式条件</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="hidden" name='LBItemCalcFormula_FormulaCondition' id="FormulaCondition" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm12 layui-col-xs12">
+                                                    <div class="layui-input-block">
+                                                        <blockquote class="layui-elem-quote" style="padding:3px 8px;margin-bottom:5px;">
+                                                            <div style="font-size:12px;">如果[项目1]>100,按100计算  </div>
+                                                            <div style="font-size:12px;">条件：[项目1]>100 计算公式1：[项目2]/100;计算公式2：[项目2]/[项目1]</div>
+                                                        </blockquote>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm12 layui-col-xs12">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">计算公式</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea name="LBItemCalcFormula_CalcFormulaInfo" id="CalcFormulaInfo" placeholder="请输入计算公式" autocomplete="off" class="layui-textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm12 layui-col-xs12 layui-hide">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">计算公式</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="hidden" name='LBItemCalcFormula_CalcFormula' id="CalcFormula" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm12 layui-col-xs12">
+                                                    <div class="layui-input-block">
+                                                        <blockquote class="layui-elem-quote" style="padding: 3px 8px; margin-bottom: 5px; ">
+                                                            <div style="color:red;font-size:12px;">注：计算公式为空，表示不计算</div>
+                                                        </blockquote>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-row">
+                                            <div class="layui-col-md12 layui-col-xs12" style="margin-top:5px;">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-input-block">
+                                                        <div class="layui-btn-group">
+                                                            <button class="layui-btn layui-btn-sm" type="button" id="addItemCalcFormula"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                            <button class="layui-btn layui-btn-sm" type="button" id="editItemCalcFormula"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                            <button class="layui-btn layui-btn-sm marR50" type="button" lay-submit id="saveItemCalcFormula" lay-filter="saveItemCalcFormula"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                            <button class="layui-btn layui-btn-sm layui-btn-primary" type="button" id="resetItemCalcFormula"><i class="iconfont">&#xe609;</i>&nbsp;重置</button>
+                                                            <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" id="delItemCalcFormula"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <table id="itemCalcTable" lay-filter="itemCalcTable"></table>
+                                    <div class="layui-collapse">
+                                        <div class="layui-colla-item">
+                                            <h2 class="layui-colla-title">计算公式格式说明</h2>
+                                            <div class="layui-colla-content">
+                                                1.参与计算的项目用中括号将该项目的项目索引括起表示<br />
+                                                2.加减乘除分别用+ - * / 表示<br />
+                                                3.年龄参与计算时，用[年龄]计入公式；身高参与计算时，用[身高]计入公式；<br />
+                                                体重参与计算时，用[体重]计入公式<br />
+                                                4.ABS：返回给定数字表达式的绝对值 例如，ABS(-1.0)＝1, ABS(1.0) ＝1<br />
+                                                5.EXP：返回所给的 float 表达式的指数值<br />
+                                                例如，EXP (3.1) = 22.198, EXP (1) = 2.718<br />
+                                                6.Ln：返回给定 float 表达式的自然对数<br />
+                                                例如，ln(2.718) = 1, ln(11) = 2.4<br />
+                                                7.Log10：返回给定 float 表达式的以 10 为底的对数。<br />
+                                                例如，Log10(100) = 2    Log10(145.17) = 2.16<br />
+                                                8.LogN：返回给定 float 表达式的以 N为底的对数。<br />
+                                                例如，LogN(2,8) = 3   LogN(2,16) = 4<br />
+                                                9.Sqrt：返回给定表达式的平方根,例如，Sqrt(4) = 2, Sqrt(9) = 3<br />
+                                                10.Sqr：返回给定表达式的平方,例如，Sqr(4) = 16, Sqr(3) = 9<br />
+                                                11.Power：返回给定表达式乘指定次方的值<br />
+                                                例如，Power(2,3) = 8, Power(4,3) = 64, Power(4,0.5) = 2, Power(64,(1/3)) = 4, Power(4,-1)=0.25<br />
+                                                12.Min：返回两个比较值中最小的值, 例如，Min(1,2)=1<br />
+                                                13.Max：返回两个比较值中最大的值 ,例如，Max(1,2)=1<br />
+                                                14.如果以上函数中的某个计算项为公式，请用()将该公式括起来<br />
+                                                例如，141*(Power((Min(([100010]/0.7),1)),-0.329))*(Power((Max(([100010]/0.7),1)),-<br />
+                                                1.209))*(Power(0.993,[年龄]))*1.018<br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-tab-item" data-index="6">
+                                    <blockquote class="layui-elem-quote" style="padding:8px;margin-bottom:5px;">
+                                        项目：<span class="itemName" style="color:orange;"></span>
+                                    </blockquote>
+                                    <div id="phraseTableBox"></div>
+                                </div>
+                                <div class="layui-tab-item" data-index="7">
+                                    <blockquote class="layui-elem-quote" style="padding:8px;margin-bottom:5px;">
+                                        项目：<span class="itemName" style="color:orange;"></span>
+                                    </blockquote>
+                                    <table id="itemTimeWTable" lay-filter="itemTimeWTable"></table>
+                                    <form class="layui-form" style="margin-top:10px;" id="itemTimeWForm" lay-filter="itemTimeWForm">
+                                        <span class="layui-badge" id="itemTimeWType" style="position: absolute;left: 20px;">编辑</span>
+                                        <div class="layui-row">
+                                            <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">主键id</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="hidden" name='LBItemTimeW_Id' autocomplete="off" class="layui-input" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">超时类型</label>
+                                                    <div class="layui-input-block">
+                                                        <select name="LBItemTimeW_TimeWType" id="itemTimeWTimeWType" lay-verify='required' lay-filter="itemTimeWTimeWType"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">样本类型</label>
+                                                    <div class="layui-input-block">
+                                                        <select name="LBItemTimeW_SampleTypeID" id="itemTimeWSampleTypeID" lay-filter="itemTimeWSampleTypeID"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">就诊类型</label>
+                                                    <div class="layui-input-block">
+                                                        <select name="LBItemTimeW_SickTypeID" id="itemTimeWSickTypeID" lay-filter="itemTimeWSickTypeID"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">检验小组</label>
+                                                    <div class="layui-input-block">
+                                                        <select name="LBItemTimeW_SectionID" id="itemTimeWSectionID" lay-filter="itemTimeWSectionID"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">超时时间</label>
+                                                    <div class="layui-input-block">
+                                                        <div class="layui-col-xs3">
+                                                            <input type="text" id="itemTimeWDay" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                        <div class="layui-col-xs1">
+                                                            <div style="width:100%;height:100%;line-height:38px;text-align:center;">
+                                                                天
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-xs3">
+                                                            <input type="text" id="itemTimeWHour" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                        <div class="layui-col-xs1">
+                                                            <div style="width:100%;height:100%;line-height:38px;text-align:center;">
+                                                                小时
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-xs3">
+                                                            <input type="text" id="itemTimeWMinute" autocomplete="off" class="layui-input" />
+                                                        </div>
+                                                        <div class="layui-col-xs1">
+                                                            <div style="width:100%;height:100%;line-height:38px;text-align:center;">
+                                                                分钟
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">是否使用</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="checkbox" checked name='LBItemTimeW_IsUse' id="itemTimeWIsUse" lay-skin='switch' lay-text="是|否" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-sm6 layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">显示次序</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="text" name='LBItemTimeW_DispOrder' id="itemTimeWDispOrder" lay-verify='number' placeholder="请输入数字" autocomplete="off" class="layui-input" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">备注</label>
+                                                    <div class="layui-input-block">
+                                                        <textarea name="LBItemTimeW_Comment" placeholder="请输入内容" autocomplete="off" class="layui-textarea"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-row">
+                                            <div class="layui-col-md12 layui-col-xs12">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-input-block">
+                                                        <div class="layui-btn-group">
+                                                            <button class="layui-btn layui-btn-sm" type="button" id="addItemTimeW"><i class="layui-icon">&#xe654;</i>新增</button>
+                                                            <button class="layui-btn layui-btn-sm" type="button" id="editItemTimeW"><i class="layui-icon">&#xe642;</i>编辑</button>
+                                                            <button class="layui-btn layui-btn-sm marR50" type="button" lay-submit lay-filter="saveItemTimeW" id="saveItemTimeW"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                            <button class="layui-btn layui-btn-sm layui-btn-primary" type="button" id="resetItemTimeW"><i class="iconfont">&#xe609;</i>&nbsp;重置</button>
+                                                            <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" id="delItemTimeW"><i class="layui-icon">&#xe640;</i>删除</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--复制其它组合项目-->
+    <div id="copyItemModal" style="display:none;padding:20px;">
+        <div class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width:70px;">选择项目</label>
+                <div class="layui-input-block" style="margin-left:100px;">
+                    <select name="item" id="item" lay-filter="item"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--小组分配-->
+    <script type="text/html" id="toolbarItemSection">
+        <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="add"><i class="layui-icon">&#xe654;</i>分配小组</button>
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="del"><i class="iconfont">&#xe609;</i>&nbsp;取消小组分配</button>
+        </div>
+    </script>
+    <!--仪器分配-->
+    <script type="text/html" id="toolbarItemEquip">
+        <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="add"><i class="layui-icon">&#xe654;</i>分配仪器</button>
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="del"><i class="iconfont">&#xe609;</i>&nbsp;取消仪器分配</button>
+        </div>
+        <span>注：可点击通道号单元格进行编辑</span>
+    </script>
+    <!--组合项目-->
+    <script type="text/html" id="toolbarComboItem">
+        <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="edit"><i class="layui-icon">&#xe654;</i>选择子项</button>
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="copy"><i class="iconfont">&#xe685;</i>&nbsp;复制其它组合项目</button>
+            <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</button>
+        </div>
+    </script>
+    <!--计算项目-->
+    <script type="text/html" id="toolbarItemCalc">
+        <button class="layui-btn layui-btn-sm" type="button" lay-event="add"><i class="layui-icon">&#xe654;</i>新增参与计算检验项</button>
+        <span>注：双击项目，项目简称会写入计算公式</span>
+    </script>
+    <!--计算项目-->
+    <script type="text/html" id="itemCalcTableOperation">
+        <a class="layui-btn layui-btn-xs layui-bg-blue" lay-event="write">写入计算公式条件</a>
+    </script>
+    <!--项目短语-->
+    <script type="text/html" id="itemPhraseTableOperation">
+        <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="add"><i class="layui-icon">&#xe654;</i>新增</button>
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</button>
+            <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</button>
+        </div>
+    </script>
+    <!--项目对照-->
+    <script type="text/html" id="itemContrastTableOperation">
+        <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="add"><i class="layui-icon">&#xe654;</i>追加</button>
+            <button class="layui-btn layui-btn-sm" type="button" lay-event="save"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+            <button class="layui-btn layui-btn-sm layui-btn-warm" type="button" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</button>
+        </div>
+    </script>
+    <!--项目对照类型-->
+    <script type="text/html" id="TransTypeIDTool">
+        <select name="TransTypeID" lay-filter="TransTypeID">
+            <option value="0">进出</option>
+            <option value="1">进</option>
+            <option value="2">出</option>
+        </select>
+    </script>
+    <script src="../../../../src/layui/dist/layui.all.js"></script>
+    <script src="../../../../layui/ux/util.js"></script>
+    <script src="testItem.js"></script>
+    <script src="itemRange.js"></script>
+    <script src="ItemCalc.js"></script>
+    <script src="sectionAndEquipAllot.js"></script>
+    <script src="itemPhrase.js"></script>
+    <script src="itemTimeW.js"></script>
+    <script src="itemContrast.js"></script>
+</body>
+</html>

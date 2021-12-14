@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+
+		<title>东亿健康</title>
+		<link rel="stylesheet" href="src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/ace.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		
+		<script src="src/jquery.min.js"></script>
+		<script src="src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="util/util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/component.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!--覆盖整个页面,用于显示信息-->
+		<div id="page_home" class="page_info home"></div>
+		<!--覆盖整个页面,用于显示第一层信息-->
+		<div id="page_info_1" class="page_info" hidden="hidden"></div>
+		<!--覆盖整个页面,用于显示第二层 信息-->
+		<div id="page_info_2" class="page_info" hidden="hidden"></div>
+		<!--覆盖整个页面,用于显示第三层信息-->
+		<div id="page_info_3" class="page_info" hidden="hidden"></div>
+	</body>
+
+</html>

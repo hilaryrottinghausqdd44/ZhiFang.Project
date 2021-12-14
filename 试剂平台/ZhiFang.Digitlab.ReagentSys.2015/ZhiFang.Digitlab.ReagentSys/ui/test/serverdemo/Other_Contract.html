@@ -1,0 +1,180 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherContractByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherContractById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherContract',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherContract',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherContractByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherContract',
+
+    		//合同管理对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherContract_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherContract_Id',value:'合同ID'},						 
+						 		     
+				     												 
+						{ key:'OtherContract_OrderNo',value:'顺序号'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_Name',value:'合同名称'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ClientID',value:'客户编号'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ClientNane',value:'客户名称'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_PaymentCompany',value:'付款单位'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_PaymentTypeID',value:'收支类型'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_BusinessTypeID',value:'业务类型'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ItemTypeID',value:'项目类别'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_Amount',value:'合同金额'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_HardwareAmount',value:'硬件金额'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_PurchasesBudget',value:'采购预算'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_IntermediaryCosts',value:'中介费用'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_SigningTime',value:'签约时间'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_AdvancePaymentProportion',value:'预付款比例'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_AcceptancePaymentProportion',value:'验收付款比例'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_BalanceDueProportion',value:'尾款比例'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ServiceFeeProportion',value:'服务费比例'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_Deposit',value:'合同保证金'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_SingleCharges',value:'仪器单项收费'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_DoubleCharges',value:'仪器双向收费'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_EndTime',value:'结束时间'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_Contents',value:'合同内容'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_IsHasAttachment',value:'是否有附件   附件在附件系统中'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ReceivablesProportion',value:'收款比例'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ExecutionStateID',value:'执行状态'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_BackSectionStateID',value:'回款状况'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_SignedDepartment',value:'签署部门'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_SalesMan',value:'销售人员'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_Comment',value:'备注'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_CreatorID',value:'创建人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_Creator',value:'申请者'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_DataAddTime',value:'申请时间'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_Checker',value:'审核人'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_CheckerID',value:'审核者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_CheckTime',value:'审核时间'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_CheckOpinion',value:'审核意见'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ApproverID',value:'审批人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_Approver',value:'审批人'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ApprovalTime',value:'审批时间'}, 
+						 		     
+				     												 
+						{ key:'OtherContract_ApprovalOpinion',value:'审批意见'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherContract_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'合同管理',
+    		//主键字段
+    		key:'OtherContract_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

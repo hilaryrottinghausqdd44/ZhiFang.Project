@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>查看PDF</title>
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<link rel="stylesheet" href="../../../../../src/layui/dist/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../../../admin/layuiadmin/style/admin.css" media="all" />
+		<style type="text/css">
+			/* body .layer-ext-myskin .layui-layer-content {
+				overflow: visible;
+			}
+
+			body .to-fix-select .layui-layer-content {
+				overflow: visible;
+			}
+ */
+			#div_content {
+				height: 97%;
+				position: fixed;
+				width: 100%;
+				z-index: 0;
+			}
+
+			.layui-form-select dl {
+				z-index: 9999;
+			}
+
+			.layui-form-select dl dd {
+				z-index: 9999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="layui-fluid" style="padding:2px;">
+			<div class="layui-card">
+				<div class="layui-card-body">
+					<div class="layui-row layui-col-space2">
+						<!--PDF style="display:none"-->
+						<div class="layui-col-md12">
+							<div class="layui-row layui-col-space5">
+								<div class="layui-card">
+									<div class="layui-card-body">
+										<div class="layui-row">
+											<div class="layui-form" style="margin-bottom:0px;">
+												<div class="layui-form-item" style="margin-bottom:2px;padding:0px;">
+													<div class="layui-inline" style="width: 360px;">
+														<select name="select_blood" lay-filter="select_blood" placeholder="请选择">
+															<option value="">请选择</option>
+														</select>
+													</div>
+													<div class="layui-inline">
+														<button class="layui-btn" data-type="refresh"><i class="layui-icon layui-icon-refresh"></i></button>
+													</div>
+													<div class="layui-inline">
+														<button class="layui-btn layui-btn-danger" data-type="close"><i class="layui-icon layui-icon-close"></i></button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="layui-row">
+											<!---->
+											<fieldset class="layui-elem-field layui-field-title" style="margin: 2px;">
+												<legend>PDF查看</legend>
+											</fieldset>
+											<div id="div_content">
+												<iframe name="iframe_pdf_preview" id="iframe_pdf_preview" width="100%" height="100%" style="z-index: 0;">
+
+												</iframe>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../../../src/layui/src/layui.js"></script>
+		<script src="../../../../../../ui/layui/config/system.js"></script>
+		<script type="text/javascript" src="index.js?v=2020090401"></script>
+	</body>
+
+</html>

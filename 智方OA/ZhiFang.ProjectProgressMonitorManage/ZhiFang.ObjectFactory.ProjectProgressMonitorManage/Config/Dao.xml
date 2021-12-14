@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--组织机构权限-->
+  <object id="HRDeptDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACUserDao" type="ZhiFang.DAO.NHB.RBAC.RBACUserDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRDeptEmpDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptEmpDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRDeptIdentityDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptIdentityDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HREmpIdentityDao" type="ZhiFang.DAO.NHB.RBAC.HREmpIdentityDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HREmployeeDao" type="ZhiFang.DAO.NHB.RBAC.HREmployeeDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRPositionDao" type="ZhiFang.DAO.NHB.RBAC.HRPositionDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACEmpRolesDao" type="ZhiFang.DAO.NHB.RBAC.RBACEmpRolesDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACModuleDao" type="ZhiFang.DAO.NHB.RBAC.RBACModuleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACModuleOperDao" type="ZhiFang.DAO.NHB.RBAC.RBACModuleOperDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleModuleDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleModuleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleRightDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleRightDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRowFilterDao" type="ZhiFang.DAO.NHB.RBAC.RBACRowFilterDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACEmpOptionsDao" type="ZhiFang.DAO.NHB.RBAC.RBACEmpOptionsDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACPreconditionsDao" type="ZhiFang.DAO.NHB.RBAC.RBACPreconditionsDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--组织机构权限-->
+
+  <!--构建工具相关-->
+  <object id="BTDAppComponentsDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDModuleTypeDao" type="ZhiFang.DAO.NHB.RBAC.BTDModuleTypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDAppPictureDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppPictureDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDAppComponentsOperateDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsOperateDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDPictureTypeConDao" type="ZhiFang.DAO.NHB.RBAC.BTDPictureTypeConDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDPictureTypeDao" type="ZhiFang.DAO.NHB.RBAC.BTDPictureTypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDMacroCommandDao" type="ZhiFang.DAO.NHB.RBAC.BTDMacroCommandDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDAppComponentsRefDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsRefDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--构建工具相关-->
+
+  <!--单表相关-->
+  <object id="BProvinceDao" type="ZhiFang.DAO.NHB.RBAC.BProvinceDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BSexDao" type="ZhiFang.DAO.NHB.RBAC.BSexDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BMaritalStatusDao" type="ZhiFang.DAO.NHB.RBAC.BMaritalStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BNationalityDao" type="ZhiFang.DAO.NHB.RBAC.BNationalityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BEducationLevelDao" type="ZhiFang.DAO.NHB.RBAC.BEducationLevelDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHealthStatusDao" type="ZhiFang.DAO.NHB.RBAC.BHealthStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BCityDao" type="ZhiFang.DAO.NHB.RBAC.BCityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BCountryDao" type="ZhiFang.DAO.NHB.RBAC.BCountryDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDegreeDao" type="ZhiFang.DAO.NHB.RBAC.BDegreeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BPoliticsStatusDao" type="ZhiFang.DAO.NHB.RBAC.BPoliticsStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BProfessionalAbilityDao" type="ZhiFang.DAO.NHB.RBAC.BProfessionalAbilityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BEquipDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.BEquipDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BParameterDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.BParameterDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
+  <!--单表相关-->
+
+  <!--全局-->
+  <object id="SLogDao" type="ZhiFang.DAO.NHB.RBAC.SLogDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="DataRowRoleHQL" type="ZhiFang.Entity.RBAC.DataRowRoleHQL,ZhiFang.Entity.RBAC" singleton="false">
+  </object>
+  <object id="STypeDao" type="ZhiFang.DAO.NHB.RBAC.STypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="STypeDetailDao" type="ZhiFang.DAO.NHB.RBAC.STypeDetailDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--全局-->
+  <!--项目监控管理-->
+  <object id="PDictDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PDictDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PDictTypeDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PDictTypeDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PInteractionDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PInteractionDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="PProjectAttachmentDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PProjectAttachmentDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PTaskDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PTaskDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PTaskCopyForDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PTaskCopyForDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PTaskOperLogDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PTaskOperLogDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PWorkDayLogDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PWorkDayLogDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PWorkLogCopyForDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PWorkLogCopyForDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PWorkLogSendForDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PWorkLogSendForDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PWorkMonthLogDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PWorkMonthLogDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--<object id="PWorkTaskLogDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PWorkTaskLogDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>-->
+  <object id="PWorkWeekLogDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PWorkWeekLogDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PWorkLogInteractionDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PWorkLogInteractionDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="PContractDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PContractDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PContractFollowDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PContractFollowDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PContractFollowInteractionDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PContractFollowInteractionDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PClientLinkerDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PClientLinkerDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PClientDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PClientDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PTaskTypeEmpLinkDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PTaskTypeEmpLinkDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PInvoiceDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PInvoiceDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PFinanceReceiveDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PFinanceReceiveDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PReceiveDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PReceiveDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PReceivePlanDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PReceivePlanDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PCustomerServiceAttachmentDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PCustomerServiceAttachmentDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PCustomerServiceDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PCustomerServiceDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PCustomerServiceOperationDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PCustomerServiceOperationDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PEmpFinanceAccountDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PEmpFinanceAccountDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PExpenseAccountDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PExpenseAccountDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PLoanBillDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PLoanBillDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PRepaymentDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PRepaymentDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PCustomerServiceOperationLogDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PCustomerServiceOperationLogDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PSalesManClientLinkDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PSalesManClientLinkDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="CUserDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.CUserDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--项目监控管理-->
+  <!--OA-->
+  <object id="BIconsDao" type="ZhiFang.DAO.NHB.OA.BIconsDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BWeiXinEmpLinkDao" type="ZhiFang.DAO.NHB.OA.BWeiXinEmpLinkDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BWeiXinAccountDao" type="ZhiFang.DAO.NHB.OA.BWeiXinAccountDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BWeiXinUserGroupDao" type="ZhiFang.DAO.NHB.OA.BWeiXinUserGroupDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BWeiXinPushMessageTemplateDao" type="ZhiFang.DAO.NHB.OA.BWeiXinPushMessageTemplateDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ATApproveStatusDao" type="ZhiFang.DAO.NHB.OA.ATApproveStatusDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ATAttendanceEventTypeDao" type="ZhiFang.DAO.NHB.OA.ATAttendanceEventTypeDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ATEmpAttendanceEventLogDao" type="ZhiFang.DAO.NHB.OA.ATEmpAttendanceEventLogDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ATEmpAttendanceEventParaSettingsDao" type="ZhiFang.DAO.NHB.OA.ATEmpAttendanceEventParaSettingsDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ATTransportationDao" type="ZhiFang.DAO.NHB.OA.ATTransportationDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BAccountTypeDao" type="ZhiFang.DAO.NHB.OA.BAccountTypeDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SServiceClientlevelDao" type="ZhiFang.DAO.NHB.OA.SServiceClientlevelDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SServiceClientDao" type="ZhiFang.DAO.NHB.OA.SServiceClientDao,ZhiFang.DAO.NHB.OA    ">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ATHolidaySettingDao" type="ZhiFang.DAO.NHB.OA.ATHolidaySettingDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PProjectDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PProjectDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PProjectTaskDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PProjectTaskDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PProjectTaskProgressDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PProjectTaskProgressDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PProjectDocumentDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PProjectDocumentDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>  
+  <!--OA-->
+  <!--项目监控管理-->
+  <!--QMS_质量管理体系-->
+  <object id="FFileDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.FFileDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+    <property name="IDHRDeptDao" ref="HRDeptDao" />
+    <property name="IDRBACRoleDao" ref="RBACRoleDao" />
+    <property name="IDHREmployeeDao" ref="HREmployeeDao" />
+    <property name="IDEParameterDao" ref="EParameterDao" />
+  </object>
+  <object id="FFileAttachmentDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.FFileAttachmentDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileCopyUserDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.FFileCopyUserDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileInteractionDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.FFileInteractionDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileOperationDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.FFileOperationDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileReadingLogDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.FFileReadingLogDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileReadingUserDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.FFileReadingUserDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDictTreeDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.BDictTreeDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--QMS_质量管理体系-->
+  <!--QMS_质量管理报表-->
+  <object id="EAttachmentDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.EAttachmentDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="EEquipDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.EEquipDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="EParameterDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.EParameterDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>  
+  <object id="EMaintenanceDataDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.EMaintenanceDataDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="EReportDataDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.EReportDataDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ETempletDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.ETempletDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ETempletEmpDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.ETempletEmpDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="EResEmpDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.EResEmpDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="EResponsibilityDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.EResponsibilityDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ETempletResDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.ETempletResDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--QMS_质量管理报表-->
+  <object id="StoredProcedureDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.StoredProcedureDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--程序发布-->
+  <object id="PGMProgramDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.PGMProgramDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--系统公用-->
+  <object id="SCAttachmentDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.SCAttachmentDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SCInteractionDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.SCInteractionDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>  
+  <object id="SCOperationDao" type="ZhiFang.DAO.NHB.ProjectProgressMonitorManage.SCOperationDao,ZhiFang.DAO.NHB.ProjectProgressMonitorManage">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--授权-->
+  <object id="AHOperationDao" type="ZhiFang.DAO.NHB.OA.AHOperationDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="AHServerEquipLicenceDao" type="ZhiFang.DAO.NHB.OA.AHServerEquipLicenceDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="AHServerLicenceDao" type="ZhiFang.DAO.NHB.OA.AHServerLicenceDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="AHServerProgramLicenceDao" type="ZhiFang.DAO.NHB.OA.AHServerProgramLicenceDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="AHSingleLicenceDao" type="ZhiFang.DAO.NHB.OA.AHSingleLicenceDao,ZhiFang.DAO.NHB.OA">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+</objects>
+

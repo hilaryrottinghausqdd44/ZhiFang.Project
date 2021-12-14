@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <link rel="stylesheet" href="../../../web_src/jquery-weui/lib/weui.min.css" />
+    <link rel="stylesheet" href="../../../web_src/jquery-weui/css/jquery-weui.min.css" />
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/home.css">
+	
+    <script type="text/javascript" charset="utf-8" src="../../../web_src/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../web_src/jquery-weui/js/jquery-weui.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../web_src/jquery-weui/js/swiper.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="../util/JcallShell.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../localStorage/Home.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../localStorage/User.js"></script>
+    <script type="text/javascript" charset="utf-8" src="index.js"></script>
+    <style>
+		.weui-grid__label {font-size: 11px;}
+		.weui-grid {padding: 10px;width: 25%;}
+		.weui-grid:after, .weui-grid:before {border: 0;}
+		.swiper-container {}
+		.swiper-container img {display: block;width: 100%;}
+		.div-margin {margin: 5px;}
+		.weui-switch-cp__box:after, .weui-switch-cp__box:before {height: 23px;}
+		.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label { color: #37c3bc;}
+		.img-circle { border-radius: 50%;}
+		.img-row{width:20px;height:25px;float:left;margin-top: 2px;}
+    </style>
+</head>
+<body style="padding-bottom:0;">
+    <div class="weui-tab">
+        <!--功能页签-->
+        <div class="weui-tab__bd" style="padding-bottom:53px;">
+            <!--第一个页面-->
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <!--搜索框-->
+                <div class="weui-search-bar" id="searchBar">
+                    <!--<img style="height:26px;margin-right:5px;margin-left:-5px;" src="../images/logo-16.png" />-->
+                    <form class="weui-search-bar__form">
+                        <div class="weui-search-bar__box">
+                            <i class="weui-icon-search"></i>
+                            <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+                            <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                        </div>
+                        <label class="weui-search-bar__label" id="searchText">
+                            <i class="weui-icon-search"></i>
+                            <span>搜索</span>
+                        </label>
+                    </form>
+                    <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+                </div>
+                <!--轮询广告图-->
+                <div class="swiper-container div-margin">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper" id="topSwiper">
+                        <!-- Slides -->
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!--功能按钮区域-->
+                <div class="weui-grids" id="card">
+					
+                </div>
+            </div>
+            <!--第二个页面-->
+            <!--<div id="tab2" class="weui-tab__bd-item">
+                <div class="weui-msg" style="padding-top:200px;">
+                    <div class="weui-msg__icon-area"><i class="weui-icon-waiting weui-icon_msg"></i></div>
+                    <div class="weui-msg__text-area">
+                        <h2 class="weui-msg__title">开发中</h2>
+                    </div>
+                </div>
+            </div>-->
+            <!--第三个页面-->
+            <!--<div id="tab3" class="weui-tab__bd-item">
+                <div class="weui-msg" style="padding-top:200px;">
+                    <div class="weui-msg__icon-area"><i class="weui-icon-waiting weui-icon_msg"></i></div>
+                    <div class="weui-msg__text-area">
+                        <h2 class="weui-msg__title">开发中</h2>
+                    </div>
+                </div>
+            </div>-->
+            <!--第四个页面-->
+            <div id="tab4" class="weui-tab__bd-item" style="background-color: #f8f8f8;">
+                <!--用户头像-->
+                <div class="home-user-info-div">
+                    <div class="home-user-info-div-head" style="float:left;line-height:1;">
+                        <img id="AccountHeadImg" class="img-circle" style="width:0;">
+                        <span id="AccountName"></span>
+                    </div>
+                    <img id="barcodeButton" style="float:right;margin:44px 30px;font-size:32px"
+                         src="../images/icon/barcode_32.png">
+                </div>
+                <div class="bd">
+                    <div class="page__bd">
+                        <div class="weui-cells" style="margin:0;">
+                            <a id="userInfo" class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <img class="img-row" src="../images/Info/info.png" /><p style="float:left;margin-left:20px">详细信息</p>
+                                </div>
+                                <div class="weui-cell__ft"></div>
+                            </a>
+                            <a id="userBarcode" class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <img class="img-row" src="../images/Info/userbarcode.png" /><p style="float:left;margin-left:20px">账户条码</p>
+                                </div>
+                                <div class="weui-cell__ft"></div>
+                            </a>
+                            <a id="editPassword" class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__bd" style="color:lightgray">
+                                    <img class="img-row" src="../images/Info/setpwd.png" /><p style="float:left;margin-left:20px">修改密码</p>
+                                </div>
+                                <div class="weui-cell__ft"></div>
+                            </a>
+                            <a id="toLogin" class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <img class="img-row" src="../images/Info/Login.png" /><p style="float:left;margin-left:20px">转至登录</p>
+                                </div>
+                                <div class="weui-cell__ft"></div>
+                            </a>
+                        </div>
+
+                        <div class="weui-cells">
+                            <a id="close" class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__bd" style="color:lightgray">
+                                    <img class="img-row" src="../images/Info/exit.png" /><p style="float:left;margin-left:20px">安全退出</p>
+                                </div>
+                                <div class="weui-cell__ft"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--底部按钮-->
+        <div id="bottomTabbar" class="weui-tabbar">
+            <a id="BuyTest" index="1" href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+                <div class="weui-tabbar__icon">
+                    <img id="BuyTesti" src="../images/Home/BuyTest1.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">首页</p>
+            </a>
+            <!--<a id="News" index="2" href="#tab2" class="weui-tabbar__item ">
+                <div class="weui-tabbar__icon">
+                    <img id="Newsi" src="../images/Home/News1.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">新闻资讯</p>
+            </a>
+            <a id="ShopCart" index="3" href="#tab3" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img id="ShopCarti" src="../images/Home/ShopCart1.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">购物车</p>
+            </a>-->
+            <a id="UserCenter" index="4" href="#tab4" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img id="UserCenteri" src="../images/Home/UserCenter1.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">个人中心</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

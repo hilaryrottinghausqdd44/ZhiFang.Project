@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>我的申请记录</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/pullToRefresh.css" />
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Common/ATCommon.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/EmpATMyApplyLog.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="../util/iscroll.js"></script>
+    <script src="../util/pullToRefresh.js"></script>
+    <style type="text/css" media="all">
+        .scroller li {
+            background-color: #fff;
+        }
+
+        .game-info {
+            padding: 2px 2px;
+            line-height: 30px;
+            color: #333;
+        }
+
+            .game-info p {
+                color: #999;
+            }
+    </style>
+    <script>
+        function changdiv()
+        {
+            //alert(document.body.clientHeight);
+            //alert($("#panel-head").outerHeight(true));
+            //alert($("#tabs").outerHeight(true));
+            var h = document.body.clientHeight - $("#panel-head").outerHeight(true)-1 - $("#tabs").outerHeight(true)-1;
+            //$("#div_content").height(h);
+            $("#iframe_content").height(h-5);
+        }
+    </script>
+</head>
+<body onload="changdiv();" onresize="changdiv();" >
+    <div class="panel panel-default" style="margin:0px;" >
+        <div id="panel-head" class="panel-heading text-center">我的申请</div>
+        <ul id="tabs" class="nav nav-tabs">
+            <li id="alll" role="presentation" class="active"><a href="#" id="all">全部</a></li>
+            <li id="leavel" role="presentation"><a href="#" id="leave" >请假</a></li>
+            <li id="egressl" role="presentation"><a href="#" id="egress">外出</a></li>
+            <li id="tripl" role="presentation"><a href="#" id="trip">出差</a></li>
+            <li id="overtimel" role="presentation"><a href="#" id="overtime">加班</a></li>
+        </ul>
+            <iframe id="iframe_content"  src="EmpATMyApplyAllLog.html" class="embed-responsive-item" frameborder="0" scrolling="no" style="width:100%;margin:0px"></iframe>
+    </div>
+</body>
+</html>
+

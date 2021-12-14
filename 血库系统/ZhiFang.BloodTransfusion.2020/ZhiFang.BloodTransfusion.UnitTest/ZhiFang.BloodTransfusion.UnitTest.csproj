@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24A76A5D-E816-4D8F-BEBD-D24A4E72B2EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BloodTransfusion.UnitTest</RootNamespace>
+    <AssemblyName>ZhiFang.BloodTransfusion.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\Lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30">
+      <HintPath>..\Lib\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Services">
+      <HintPath>..\Lib\Spring.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="BagChargeLinkDaoTest.cs" />
+    <Compile Include="BDictDaoTest.cs" />
+    <Compile Include="BDictTypeDaoTest.cs" />
+    <Compile Include="BloodABODaoTest.cs" />
+    <Compile Include="BloodAggluItemDaoTest.cs" />
+    <Compile Include="BloodBagHandoverOperDaoTest.cs" />
+    <Compile Include="BloodBagProcessDaoTest.cs" />
+    <Compile Include="BloodBagProcessTypeDaoTest.cs" />
+    <Compile Include="BloodBagProcessTypeQryDaoTest.cs" />
+    <Compile Include="BloodBagRecordDtlDaoTest.cs" />
+    <Compile Include="BloodBagRecordItemDaoTest.cs" />
+    <Compile Include="BloodBagRecordTypeDaoTest.cs" />
+    <Compile Include="BloodBInFormDaoTest.cs" />
+    <Compile Include="BloodBInItemDaoTest.cs" />
+    <Compile Include="BloodBOutFormDaoTest.cs" />
+    <Compile Include="BloodBOutItemDaoTest.cs" />
+    <Compile Include="BloodBPreFormDaoTest.cs" />
+    <Compile Include="BloodBPreItemDaoTest.cs" />
+    <Compile Include="BloodBReqFormDaoTest.cs" />
+    <Compile Include="BloodBReqFormResultDaoTest.cs" />
+    <Compile Include="BloodBReqItemDaoTest.cs" />
+    <Compile Include="BloodBTestItemDaoTest.cs" />
+    <Compile Include="BloodBUnitDaoTest.cs" />
+    <Compile Include="BloodChargeGroupItemDaoTest.cs" />
+    <Compile Include="BloodChargeItemDaoTest.cs" />
+    <Compile Include="BloodChargeItemLinkDaoTest.cs" />
+    <Compile Include="BloodChargeItemTypeDaoTest.cs" />
+    <Compile Include="BloodChargeMoneyDaoTest.cs" />
+    <Compile Include="BloodClassDaoTest.cs" />
+    <Compile Include="BloodClassUnitLinkDaoTest.cs" />
+    <Compile Include="BlooddocGradeDaoTest.cs" />
+    <Compile Include="BloodInCheckedCurrentDaoTest.cs" />
+    <Compile Include="BloodInCheckedDaoTest.cs" />
+    <Compile Include="BloodInCheckedItemDaoTest.cs" />
+    <Compile Include="BloodInLoadfatDaoTest.cs" />
+    <Compile Include="BloodInterfaceMapingDaoTest.cs" />
+    <Compile Include="BloodInterfaceTransportDaoTest.cs" />
+    <Compile Include="BloodLargeUseItemDaoTest.cs" />
+    <Compile Include="BloodLisResultDaoTest.cs" />
+    <Compile Include="BloodPatinfoDaoTest.cs" />
+    <Compile Include="BloodQtyDtlDaoTest.cs" />
+    <Compile Include="BloodReceiDaoTest.cs" />
+    <Compile Include="BloodReceiItemDaoTest.cs" />
+    <Compile Include="BloodSelfBloodDaoTest.cs" />
+    <Compile Include="BloodSetQtyAlertColorDaoTest.cs" />
+    <Compile Include="BloodSetQtyAlertInfoDaoTest.cs" />
+    <Compile Include="BloodStyleDaoTest.cs" />
+    <Compile Include="BloodTransFormDaoTest.cs" />
+    <Compile Include="BloodTransItemDaoTest.cs" />
+    <Compile Include="BloodUnitDaoTest.cs" />
+    <Compile Include="BParameterDaoTest.cs" />
+    <Compile Include="BTemplateDaoTest.cs" />
+    <Compile Include="BUserUIConfigDaoTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SCBagOperationDaoTest.cs" />
+    <Compile Include="SCOperationDaoTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.BLL.Common\ZhiFang.BLL.Common.csproj">
+      <Project>{e98dec9d-20d1-4f65-a746-f2808b73f61a}</Project>
+      <Name>ZhiFang.BLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.BLL.WeiXin\ZhiFang.BLL.WeiXin.csproj">
+      <Project>{e9eae633-430d-4b9c-a107-fcc58e3b4048}</Project>
+      <Name>ZhiFang.BLL.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.Common\ZhiFang.DAO.NHB.Common.csproj">
+      <Project>{a5eaf546-29a6-4581-83b3-1bab4b9b2456}</Project>
+      <Name>ZhiFang.DAO.NHB.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{1cfa6885-ebbe-489e-9373-b672e8dad7e7}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.RBAC\ZhiFang.DAO.NHB.RBAC.csproj">
+      <Project>{97ee1806-fbd2-4305-858f-f2572e80a4de}</Project>
+      <Name>ZhiFang.DAO.NHB.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.BloodTransfusion\ZhiFang.Entity.BloodTransfusion.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Common\ZhiFang.Entity.Common.csproj">
+      <Project>{81e083dc-bde0-4742-aec7-cf36768f6bfd}</Project>
+      <Name>ZhiFang.Entity.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WeiXin\ZhiFang.Entity.WeiXin.csproj">
+      <Project>{c867875c-5404-480d-89e4-9cc67c66d963}</Project>
+      <Name>ZhiFang.Entity.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Common\ZhiFang.IBLL.Common.csproj">
+      <Project>{f55ad050-b25c-42af-9d13-9ce1b8f27701}</Project>
+      <Name>ZhiFang.IBLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{f5a15ed6-4eb8-4e39-8b19-357b799a1f10}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Common\ZhiFang.IDAO.Common.csproj">
+      <Project>{8a0fdb29-76a4-4fe5-8652-93fcaaf50772}</Project>
+      <Name>ZhiFang.IDAO.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.NHB.BloodTransfusion\ZhiFang.IDAO.NHB.BloodTransfusion.csproj">
+      <Project>{DD7E515A-52CF-41A2-8325-8704EB187053}</Project>
+      <Name>ZhiFang.IDAO.NHB.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.WeiXin\ZhiFang.IDAO.WeiXin.csproj">
+      <Project>{ff61e24b-369f-490e-bad8-607948e35e8f}</Project>
+      <Name>ZhiFang.IDAO.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550f2-bf83-4c13-9386-9acf6e2ae591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

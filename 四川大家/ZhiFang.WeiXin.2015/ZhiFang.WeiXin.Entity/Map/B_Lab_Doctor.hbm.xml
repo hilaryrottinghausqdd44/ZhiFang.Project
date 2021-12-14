@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BLabDoctor" table="[dbo].[B_Lab_Doctor]">
+		<id name="Id" column="[DoctorID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DTimeStampe]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabCode" column="[LabCode]" type="String" not-null="false" length="50" />
+    <property name="LabDoctorNo" column="[LabDoctorNo]" type="Int64" not-null="true" length="8" />
+		<property name="CName" column="[CName]" type="String" not-null="false" length="50" />
+		<property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="10" />
+		<property name="HisOrderCode" column="[HisOrderCode]" type="String" not-null="false" length="20" />
+		<property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[AddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="StandCode" column="[StandCode]" type="String" not-null="false" length="50" />
+		<property name="ZFStandCode" column="[ZFStandCode]" type="String" not-null="false" length="50" />
+		<property name="UseFlag" column="[UseFlag]" type="Int32" not-null="false" length="4" />
+    <!--<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />-->
+	</class>
+</hibernate-mapping>

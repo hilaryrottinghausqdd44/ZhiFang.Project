@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HisLisInerface hospital="中关村医院">
+  <!--HisInterfaceInfo his开发商 
+	@developer=开发商名称 
+	@hideInterface 是否自动隐藏,或自动判断核收类别
+		如1开头为住院，2开头为门诊
+		满足hideInterface="true"的条件是：//./././HisMeta/Input/datafield[@InputRule="可验证规则"]
+		
+		/正则表达式/=true 满足时为住院，门诊或体检的选择，取决于每个如下规则
+		./HisMeta/Input/datafield[@AutoHideRule="/1ddddd/"]
+		-->
+  <HisInterfaceInfo developer="上海金仕达" hideInterface="false">
+    <!--核收分类 Interface 住院
+		@name  核收分类名称
+		@datasource 使用的数据源
+		@hisSendData ="true"  时是HIS往NRequestXXXX中写申请信息 
+					 ="false" 时是默认设置，LIS主动获取数据
+    -->
+    <Interface hidden="false" name="住院" datasource="hisdb2" hisSendData="false">
+      <HisMeta>
+        <Forms type="DLL" name="ZGC.ZGCYY">
+          <datafield ename="Sendno" cname="申请单号" needConvert="False" storedProcedure="true" outStoredProcedure="false" argsOrder="1" argsRule="" />
+          <datafield ename="Patientid" cname="病历号" needConvert="False" storedProcedure="false" outStoredProcedure="false" argsOrder="" argsRule="" />
+          <datafield ename="Patname" cname="姓名" needConvert="False" />
+          <datafield ename="Hospno" cname="门诊号" needConvert="False" />
+          <datafield ename="ApplyDept" cname="科室" needConvert="True" />
+          <datafield ename="Sex" cname="性别" needConvert="True" />
+          <datafield ename="ApplyDoctor" cname="医生" needConvert="True" />
+          <datafield ename="Age" cname="年龄" needConvert="False" />
+          <datafield ename="Bedno" cname="病床" needConvert="False" />
+        </Forms>
+        <ContrastForm rule="">
+          <datafield LisEName="SerialNo" HisEName="Sendno" />
+          <datafield LisEName="PatNo" HisEName="Patientid" />
+          <datafield LisEName="CName" HisEName="Patname" />
+          <datafield LisEName="DeptNo" HisEName="ApplyDept" />
+          <datafield LisEName="GenderNo" HisEName="Sex" />
+          <datafield LisEName="Doctor" HisEName="ApplyDoctor" />
+          <datafield LisEName="Age" HisEName="Age" />
+          <datafield LisEName="zdy1" HisEName="Hospno" />
+          <datafield LisEName="Bed" HisEName="Bedno" />
+        </ContrastForm>
+        <Items type="DLL" name="ZGC.ZGCYY">
+          <datafield ename="Sendno" cname="申请单号" needConvert="False" Index="true" />
+          <datafield ename="itemcode" cname="组合项目索引" needConvert="False" Index="false" />
+          <datafield ename="syxh" cname="zdy1" needConvert="False" Index="false" />
+          <datafield ename="qqmxxh" cname="zdy2" needConvert="False" Index="false" />
+          <datafield ename="itemname" cname="zdy3" needConvert="False" Index="false" />
+          <datafield ename="price" cname="zdy4" needConvert="False" Index="false" />
+          <datafield ename="Itemqty" cname="zdy5" needConvert="False" Index="false" />
+          <datafield ename="itemtype" cname="zdy6" needConvert="False" Index="false" />
+        </Items>
+        <List>
+          <datafield lisEName="ReceiveFlag" lisCName="核收标志" displaylength="" />
+          <datafield lisEName="SerialNo" lisCName="申请单号" displaylength="" />
+          <datafield lisEName="PatNo" lisCName="病历号" displaylength="" />
+        </List>
+        <ContrastItem rule="">
+          <datafield LisEName="SerialNo" HisEName="Sendno" />
+          <datafield LisEName="ParItemNo" HisEName="itemcode" />
+          <datafield LisEName="zdy1" HisEName="syxh" />
+          <datafield LisEName="zdy5" HisEName="Itemqty" />
+          <datafield LisEName="zdy3" HisEName="itemname" />
+          <datafield LisEName="zdy4" HisEName="price" />
+          <datafield LisEName="zdy2" HisEName="qqmxxh" />
+          <datafield LisEName="zdy6" HisEName="itemtype" />
+        </ContrastItem>
+        <Input>
+          <datafield ename="SerialNo" cname="申请单号" displayInputLength="" InputRule="" isBatch="false" inputType="String" DefaultRule="" />
+        </Input>
+        <DisplayInfo colsNum="2">
+          <datafield ename="SerialNo" cname="申请单号" displayColsNum="1" defaultValue="" readOnly="false" displayType="TextBox" />
+          <datafield ename="PatNo" cname="病历号" displayColsNum="1" defaultValue="" readOnly="false" displayType="TextBox" />
+          <datafield ename="CName" cname="姓名" displayColsNum="1" defaultValue="" readOnly="false" displayType="TextBox" />
+          <datafield ename="SampleTypeNo" cname="样本类型" displayColsNum="1" defaultValue="" readOnly="false" displayType="DropDownList" />
+        </DisplayInfo>
+        <DisplayItem colsNum="1">
+          <datafield ename="CName" cname="项目名称" Length="" />
+          <datafield ename="ItemNo" cname="项目代码" Length="" />
+          <datafield ename="EName" cname="项目英文名称" Length="" />
+        </DisplayItem>
+        <ReturnForms type="DLL" name="ZGC.ZGCYY">
+        </ReturnForms>
+        <ReturnItems type="DLL" name="LAB_RESULT">
+        </ReturnItems>
+        <ContrastReturnForm rule="UPDATE=TEST_NO">
+        </ContrastReturnForm>
+        <ContrastReturnItem rule="INSERT=TEST_NO,ITEM_NO,PRINT_ORDER;ID=ITEM_NO,PRINT_ORDER">
+        </ContrastReturnItem>
+        <ReturnReportMicros type="视图" name="">
+        </ReturnReportMicros>
+        <ContrastReturnReportMicro rule="">
+          <datafield LisEName="SerialNo" HisEName="EName1" />
+        </ContrastReturnReportMicro>
+        <ReturnMicros type="视图" name="">
+          <datafield ename="EName1" cname="字段1" needConvert="false" />
+        </ReturnMicros>
+        <ContrastReturnMicro rule="INSERT=TEST_NO,PRINT_ORDER;ID=PRINT_ORDER">
+        </ContrastReturnMicro>
+        <Patients type="视图" name="">
+        </Patients>
+        <ContrastPatient>
+          <datafield LisEName="SerialNo" HisEName="TEST_NO" />
+          <datafield LisEName="CName" HisEName="NAME" />
+        </ContrastPatient>
+      </HisMeta>
+      <Functions>
+        <Function cName="计费" type="" display="true" Form="False" Item="True">
+          <Form WhenExec="1" FromType="DLL" DBTableName="LAB_TEST_MASTER">
+            <SetFlag>
+              <datafield hisname="RESULT_STATUS" hisvalue="'1'" />
+            </SetFlag>
+            <Where>
+              <datafield hisname="TEST_NO" hisvalue="[SerialNo]" />
+            </Where>
+          </Form>
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY">
+            <SetFlag>
+            </SetFlag>
+            <Where>
+            </Where>
+          </Item>
+        </Function>
+        <Function cName="追加费用" type="" display="false" />
+        <Function cName="退费" type="" display="false" Form="False" Item="True">
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+        </Function>
+        <Function cName="减费" type="" display="false" Form="False" Item="True">
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+        </Function>
+        <Function cName="拒绝样本" type="" display="false" />
+        <Function cName="返回检验结果" type="" display="true" Form="False" Item="False">
+          <Form WhenExec="7" FromType="Table" DBTableName="LAB_TEST_MASTER">
+            <SetFlag>
+            </SetFlag>
+            <Where>
+            </Where>
+          </Form>
+          <Item>
+            <SetFlag>
+              <datafield hisname="" hisvalue="" />
+            </SetFlag>
+          </Item>
+        </Function>
+        <Function cName="反审后取消结果" type="" display="false" />
+        <Function cName="核收标志" type="" display="false" Form="True" Item="False">
+          <Form WhenExec="1" FromType="Table" DBTableName="lab_test_master">
+            <SetFlag>
+              <datafield hisname="Result_status" hisvalue="'1'" />
+            </SetFlag>
+            <Where>
+              <datafield hisname="TEST_NO" hisvalue="[TEST_NO]" />
+            </Where>
+          </Form>
+          <Item WhenExec="1" FromType="Table" DBTableName="lab_test_items">
+            <SetFlag>
+              <datafield hisname="Result_status" hisvalue="'1'" />
+            </SetFlag>
+            <Where>
+              <datafield hisname="TEST_NO" hisvalue="[TEST_NO]" />
+              <datafield hisname="item_code" hisvalue="[parItemNo]" />
+            </Where>
+          </Item>
+        </Function>
+        <Function cName="取消核收标志" type="" display="false" />
+        <Function cName="重审后返回检验结果" type="" display="false" />
+        <Function cName="护士站确认医嘱" type="" display="false" />
+        <Function cName="护士站取消医嘱确认" type="" display="false" />
+      </Functions>
+    </Interface>
+    <!--核收分类 Interface 门诊-->
+    <Interface hidden="false" name="门诊" datasource="hisdb1">
+      <HisMeta>
+        <Forms type="DLL" name="ZGC.ZGCYY">
+          <datafield ename="Sendno" cname="申请单号" needConvert="False" />
+          <datafield ename="Patientid" cname="病历号" needConvert="False" />
+          <datafield ename="Patname" cname="姓名" needConvert="False" />
+          <datafield ename="Hospno" cname="门诊号" needConvert="False" />
+          <datafield ename="ApplyDept" cname="科室" needConvert="True" />
+          <datafield ename="Sex" cname="性别" needConvert="True" />
+          <datafield ename="ApplyDoctor" cname="医生" needConvert="True" />
+          <datafield ename="Age" cname="年龄" needConvert="False" />
+        </Forms>
+        <Input>
+          <datafield ename="SerialNo" cname="申请单号" displayInputLength="" InputRule="" isBatch="false" inputType="String" DefaultRule="" />
+        </Input>
+        <List>
+          <datafield lisEName="SerialNo" lisCName="申请单号" displaylength="" />
+          <datafield lisEName="PatNo" lisCName="病历号" displaylength="" />
+        </List>
+        <Items type="DLL" name="ZGC.ZGCYY">
+          <datafield ename="Sendno" cname="申请单号" needConvert="False" Index="true" />
+          <datafield ename="itemcode" cname="组合项目索引" needConvert="False" Index="false" />
+          <datafield ename="syxh" cname="zdy1" needConvert="False" Index="false" />
+          <datafield ename="qqmxxh" cname="zdy2" needConvert="False" Index="false" />
+          <datafield ename="itemname" cname="zdy3" needConvert="False" Index="false" />
+          <datafield ename="price" cname="zdy4" needConvert="False" Index="false" />
+          <datafield ename="Itemqty" cname="zdy5" needConvert="False" Index="false" />
+          <datafield ename="itemtype" cname="zdy6" needConvert="False" Index="false" />
+        </Items>
+        <ContrastForm>
+          <datafield LisEName="SerialNo" HisEName="Sendno" />
+          <datafield LisEName="PatNo" HisEName="Patientid" />
+          <datafield LisEName="CName" HisEName="Patname" />
+          <datafield LisEName="DeptNo" HisEName="ApplyDept" />
+          <datafield LisEName="GenderNo" HisEName="Sex" />
+          <datafield LisEName="Doctor" HisEName="ApplyDoctor" />
+          <datafield LisEName="Age" HisEName="Age" />
+          <datafield LisEName="zdy1" HisEName="Hospno" />
+        </ContrastForm>
+        <ContrastItem>
+          <datafield LisEName="SerialNo" HisEName="Sendno" />
+          <datafield LisEName="ParItemNo" HisEName="itemcode" />
+          <datafield LisEName="zdy1" HisEName="syxh" />
+          <datafield LisEName="zdy5" HisEName="Itemqty" />
+          <datafield LisEName="zdy3" HisEName="itemname" />
+          <datafield LisEName="zdy4" HisEName="price" />
+          <datafield LisEName="zdy2" HisEName="qqmxxh" />
+          <datafield LisEName="zdy6" HisEName="itemtype" />
+        </ContrastItem>
+        <DisplayInfo colsNum="1">
+          <datafield ename="SerialNo" cname="申请单号" displayColsNum="1" defaultValue="" readOnly="false" displayType="TextBox" />
+          <datafield ename="PatNo" cname="病历号" displayColsNum="1" defaultValue="" readOnly="false" displayType="TextBox" />
+          <datafield ename="CName" cname="姓名" displayColsNum="1" defaultValue="" readOnly="false" displayType="TextBox" />
+          <datafield ename="SampleTypeNo" cname="样本类型" displayColsNum="1" defaultValue="" readOnly="false" displayType="DropDownList" />
+        </DisplayInfo>
+        <DisplayItem colsNum="1">
+          <datafield ename="CName" cname="项目名称" Length="" />
+          <datafield ename="ItemNo" cname="项目代码" Length="" />
+          <datafield ename="EName" cname="项目英文名称" Length="" />
+        </DisplayItem>
+        <ReturnForms type="DLL" name="ZGC.ZGCYY">
+        </ReturnForms>
+        <ReturnItems type="DLL" name="ZGC.ZGCYY">
+        </ReturnItems>
+        <ContrastReturnForm>
+        </ContrastReturnForm>
+        <ContrastReturnItem>
+        </ContrastReturnItem>
+      </HisMeta>
+      <Functions>
+        <Function cName="核收标志" type="" display="false" />
+        <Function cName="取消核收标志" type="" display="false" />
+        <Function cName="计费" type="" display="true" Form="False" Item="True">
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+          <Form WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+        </Function>
+        <Function cName="追加费用" type="" display="false" />
+        <Function cName="退费" type="" display="false" Form="False" Item="True">
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+        </Function>
+        <Function cName="减费" type="" display="false" Form="False" Item="True">
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+        </Function>
+        <Function cName="拒绝样本" type="" display="false" />
+        <Function cName="返回检验结果" type="" display="true" Form="False" Item="False" />
+        <Function cName="反审后取消结果" type="" display="false" />
+        <Function cName="重审后返回检验结果" type="" display="false" />
+        <Function cName="护士站确认医嘱" type="" display="false" />
+        <Function cName="护士站取消医嘱确认" type="" display="false" />
+      </Functions>
+    </Interface>
+    <Interface hidden="false" name="体检" datasource="hisdb3">
+      <HisMeta>
+        <Input>
+          <datafield ename="PatNo" cname="病历号" displayInputLength="" InputRule="" isBatch="false" inputType="String" DefaultRule="" />
+        </Input>
+        <List>
+          <datafield lisEName="PatNo" lisCName="病历号" displaylength="" />
+        </List>
+        <DisplayInfo colsNum="1">
+          <datafield ename="PatNo" cname="病历号" displayColsNum="1" defaultValue="" readOnly="false" displayType="TextBox" />
+          <datafield ename="CName" cname="姓名" displayColsNum="1" defaultValue="" readOnly="false" displayType="TextBox" />
+          <datafield ename="SampleTypeNo" cname="样本类型" displayColsNum="1" defaultValue="" readOnly="false" displayType="DropDownList" />
+        </DisplayInfo>
+        <DisplayItem colsNum="1">
+          <datafield ename="CName" cname="项目名称" Length="" />
+          <datafield ename="ItemNo" cname="项目代码" Length="" />
+          <datafield ename="EName" cname="项目英文名称" Length="" />
+        </DisplayItem>
+        <Forms type="DLL" name="ZGC.ZGCYY">
+          <datafield ename="cardno" cname="病历号" needConvert="False" />
+          <datafield ename="Patname" cname="姓名" needConvert="False" />
+          <datafield ename="Age" cname="年龄" needConvert="False" />
+          <datafield ename="brlb" cname="就诊类型" needConvert="True" />
+          <datafield ename="Sex" cname="性别" needConvert="True" />
+        </Forms>
+        <Items type="DLL" name="ZGC.ZGCYY">
+          <datafield ename="itemcode" cname="组合项目索引" needConvert="False" Index="false" />
+          <datafield ename="qqmxxh" cname="zdy2" needConvert="False" Index="false" />
+          <datafield ename="itemname" cname="zdy3" needConvert="False" Index="false" />
+          <datafield ename="price" cname="zdy4" needConvert="False" Index="false" />
+          <datafield ename="Itemqty" cname="zdy5" needConvert="False" Index="false" />
+          <datafield ename="xh" cname="zdy1" needConvert="False" Index="false" />
+          <datafield ename="itemtype" cname="zdy6" needConvert="False" Index="false" />
+        </Items>
+        <ContrastForm rule="cardno+ SN8">
+          <datafield LisEName="PatNo" HisEName="cardno" />
+          <datafield LisEName="CName" HisEName="Patname" />
+          <datafield LisEName="GenderNo" HisEName="Sex" />
+          <datafield LisEName="JZType" HisEName="brlb" />
+          <datafield LisEName="Age" HisEName="Age" />
+        </ContrastForm>
+        <ContrastItem>
+          <datafield LisEName="ParItemNo" HisEName="itemcode" />
+          <datafield LisEName="zdy1" HisEName="xh" />
+          <datafield LisEName="zdy5" HisEName="Itemqty" />
+          <datafield LisEName="zdy3" HisEName="itemname" />
+          <datafield LisEName="zdy4" HisEName="price" />
+          <datafield LisEName="zdy2" HisEName="qqmxxh" />
+          <datafield LisEName="zdy6" HisEName="itemtype" />
+        </ContrastItem>
+        <ReturnForms type="DLL" name="ZGC.ZGCYY">
+        </ReturnForms>
+        <ReturnItems type="DLL" name="ZGC.ZGCYY">
+        </ReturnItems>
+        <ContrastReturnForm rule="insert = xh">
+        </ContrastReturnForm>
+        <ContrastReturnItem rule="INSERT=xh,xmdm,dyxh">
+        </ContrastReturnItem>
+        <ContrastReturnMicro />
+      </HisMeta>
+      <Functions>
+        <Function cName="核收标志" type="" display="false" />
+        <Function cName="取消核收标志" type="" display="false" />
+        <Function cName="计费" type="" display="true" Form="False" Item="True">
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+        </Function>
+        <Function cName="追加费用" type="" display="false" />
+        <Function cName="退费" type="" display="false" Form="False" Item="True">
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+        </Function>
+        <Function cName="减费" type="" display="false" Form="False" Item="True">
+          <Item WhenExec="1" FromType="DLL" DBTableName="ZGC.ZGCYY" />
+        </Function>
+        <Function cName="拒绝样本" type="" display="false" />
+        <Function cName="返回检验结果" type="" display="true" Form="False" Item="False">
+          <Form WhenExec="7" FromType="Table" DBTableName="SF_YJJGK">
+            <Where>
+            </Where>
+            <SetFlag>
+            </SetFlag>
+          </Form>
+          <Item WhenExec="7" FromType="Table" DBTableName="SF_YJJGK">
+            <SetFlag>
+            </SetFlag>
+            <Where>
+            </Where>
+          </Item>
+        </Function>
+        <Function cName="反审后取消结果" type="" display="false" />
+        <Function cName="重审后返回检验结果" type="" display="false" />
+        <Function cName="护士站确认医嘱" type="" display="false" />
+        <Function cName="护士站取消医嘱确认" type="" display="false" />
+      </Functions>
+    </Interface>
+  </HisInterfaceInfo>
+  <LisInterfaceInfo>
+    <LisNRequest>
+      <databaseTable type="NRequestForm">
+        <datafield ename="SerialNo" cname="申请单号" info="" convertrule="" displayrule="" source="" need="true" transform="false" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="PatNo" cname="病历号" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="CName" cname="姓名" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="DeptNo" cname="科室" info="" need="true" transform="true" convertrule="department,deptno,cname,科室" displayColsNum="1" defaultValue="" displayType="DropDownList" />
+        <datafield ename="SampleTypeNo" cname="样本类型" info="" need="true" transform="true" convertrule="sampletype,SampleTypeNo,cname,样本类型" displayColsNum="1" defaultValue="" displayType="DropDownList" />
+        <datafield ename="GenderNo" cname="性别" info="" need="true" transform="true" convertrule="GenderType,GenderNo,CName,性别" displayColsNum="1" defaultValue="" displayType="DropDownList" />
+        <datafield ename="Birthday" cname="出生日期" info="" displayrule="yyyy-MM-dd" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="FolkNo" cname="民族代码" info="" need="true" transform="true" convertrule="FolkType,FolkNo,CName,民族" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="WardNo" cname="病房" info="" need="true" transform="true" convertrule="WardType,WardNo,CName,病房" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="Doctor" cname="医生" info="" need="true" transform="true" convertrule="Doctor,doctorNo,CName,医生" displayColsNum="1" defaultValue="" displayType="DropDownList" />
+        <datafield ename="ChargeNo" cname="计费编号" info="" need="true" transform="true" convertrule="ChargeType,ChargeNo,CName,收费类型" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="Charge" cname="计费" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="Collecter" cname="采样人" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="CollectDate" cname="采样日期" info="" displayrule="yyyy-MM-dd" need="true" transform="false" convertrule="Date=yyyy-MM-dd" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="CollectTime" cname="采样时间" info="" displayrule="T" need="true" transform="false" convertrule="Date=T" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="Operator" cname="检验技师" info="" need="true" transform="true" convertrule="PUser,UserNo,CName,检验技师" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="Artificerorder" cname="技师" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="Chargeflag" cname="计费标志" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="JZType" cname="就诊类型" info="" need="true" transform="true" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="Age" cname="年龄" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="AgeUnitNo" cname="年龄类型" info="" need="true" transform="true" convertrule="AgeUnit,AgeUnitNo,CName,年龄单位" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="RequestSource" cname="来源" info="" need="false" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="zdy1" cname="门诊号" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="zdy2" cname="住院号" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="zdy3" cname="磁卡号" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="zdy4" cname="执行科室" info="" need="true" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="zdy5" cname="自定义5" info="" need="false" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="Testtype" cname="检验类型" info="" need="false" transform="true" convertrule="testType,testtypeno,cname,检验类型" displayColsNum="1" defaultValue="" displayType="TextBox" />
+        <datafield ename="diagno" cname="临床诊断" info="" need="false" transform="true" convertrule="Diagnosis,DiagNo,CName,诊断类型" displayColsNum="1" defaultValue="" displayType="DropDownList" />
+        <datafield ename="Bed" cname="病床" info="" need="false" transform="false" convertrule="" displayColsNum="1" defaultValue="" displayType="TextBox" />
+      </databaseTable>
+      <databaseTable type="NRequestItem">
+        <datafield ename="SerialNo" cname="申请单号" info="" convertrule="" displayrule="" source="" need="true" transform="false" />
+        <datafield ename="ParItemNo" cname="组合项目索引" info="" convertrule="xml,项目" displayrule="" source="" need="true" transform="true" />
+        <datafield ename="OrderNo" cname="相应医嘱信息" info="" convertrule="" displayrule="" source="" need="false" transform="false" />
+        <datafield ename="sampletypeno" cname="样本类型" info="" convertrule="" displayrule="" source="" need="false" transform="false" />
+        <datafield ename="barcode" cname="申请单条码号" info="" convertrule="" displayrule="" source="" need="false" transform="false" />
+        <datafield ename="zdy1" cname="zdy1" info="" need="true" transform="false" convertrule="" />
+        <datafield ename="zdy5" cname="zdy5" info="" need="true" transform="false" convertrule="" />
+        <datafield ename="zdy3" cname="zdy3" info="" need="true" transform="false" convertrule="" />
+        <datafield ename="zdy4" cname="zdy4" info="" need="true" transform="false" convertrule="" />
+        <datafield ename="zdy2" cname="zdy2" info="" need="true" transform="false" convertrule="" />
+        <datafield ename="zdy6" cname="zdy6" info="" need="true" transform="false" convertrule="" />
+      </databaseTable>
+      <databaseTable type="ReportForm">
+        <datafield ename="SerialNo" cname="申请单号" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="Receivedate" cname="核收日期" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="TestTypeNo" cname="检验类型" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="SampleNo" cname="样本编号" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="PatNo" cname="病历号" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="Technician" cname="检验者" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="operator" cname="检验技师" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="zdy2" cname="处方序号" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="checkdate" cname="检验时间" info="" need="false" transform="false" convertrule="" />
+      </databaseTable>
+      <databaseTable type="ReportItem">
+        <datafield ename="SerialNo" cname="申请单号" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="SectionNo" cname="小组编号" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="TestTypeNo" cname="检验类型" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="SampleNo" cname="样本编号" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ItemNo" cname="项目代码" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ParItemNo" cname="组合项目代码" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ReportValue" cname="结果" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ResultStatus" cname="异常描述" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="RefRange" cname="参考范围" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="Unit" cname="单位" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="disporder" cname="顺序" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ItemDate" cname="检验日期" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ItemTime" cname="检验时间" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ItemOrder" cname="项目顺序" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="TestItemName" cname="项目名称" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="TestItemSName" cname="项目名称缩写" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ParItemName" cname="组合收费项目名称" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="TestItemDateTime" cname="检验日期时间" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ReportValueAll" cname="检验结果" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="HisOrderNo" cname="HIS医嘱码" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="zdy1" cname="zdy1" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="zdy2" cname="zdy2" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="sicktype" cname="就诊类型" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="operator" cname="检验技师" info="" need="false" transform="false" convertrule="" />
+      </databaseTable>
+      <databaseTable type="ReportMicro">
+        <datafield ename="Serialno" cname="申请单号" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="resultno" cname="顺序" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="DescNo" cname="细菌培养描述索引" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="MicroNo" cname="细菌索引" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="AntiNo" cname="抗生素索引" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="Itemname" cname="项目名称" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="Descname" cname="细菌培养描述名称" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="Microname" cname="细菌名" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="Antiname" cname="抗生素名称" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="SusDesc" cname="药敏抗生素描述值" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="SusQuan" cname="药敏数量" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="Suscept" cname="药敏结果" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="RefRange" cname="参考值范围" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="ReceiveDate" cname="核收日期" info="" need="false" transform="false" convertrule="" />
+        <datafield ename="SampleNo" cname="样本编码" info="" need="false" transform="false" convertrule="" />
+      </databaseTable>
+    </LisNRequest>
+  </LisInterfaceInfo>
+</HisLisInerface>

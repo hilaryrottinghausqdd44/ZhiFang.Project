@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="OSRecommendationItemProduct" table="[dbo].[OS_RecommendationItemProduct]">
+		<id name="Id" column="[RecommendationItemProductID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="AreaID" column="[AreaID]" type="Int64" not-null="true" length="8" />
+		<property name="ItemID" column="[ItemID]" type="Int64" not-null="false" length="8" />
+    <property name="ItemNo" column="[ItemNo]" type="String" not-null="false" length="50" />
+		<property name="CName" column="[CName]" type="String" not-null="true" length="100" />
+		<property name="SName" column="[SName]" type="String" not-null="false" length="40" />
+		<property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="20" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+		<property name="CreatorID" column="[CreatorID]" type="Int64" not-null="false" length="8" />
+		<property name="CreatorName" column="[CreatorName]" type="String" not-null="false" length="50" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="CheckerID" column="[CheckerID]" type="Int64" not-null="false" length="8" />
+		<property name="CheckerName" column="[CheckerName]" type="String" not-null="false" length="50" />
+		<property name="ApprovalID" column="[ApprovalID]" type="Int64" not-null="false" length="8" />
+		<property name="ApprovalName" column="[ApprovalName]" type="String" not-null="false" length="50" />
+		<property name="PublisherID" column="[PublisherID]" type="Int64" not-null="false" length="8" />
+		<property name="PublisherName" column="[PublisherName]" type="String" not-null="false" length="50" />
+		<property name="DrafterId" column="[DrafterId]" type="Int64" not-null="false" length="8" />
+		<property name="DrafterCName" column="[DrafterCName]" type="String" not-null="false" length="50" />
+		<property name="OffShelveManID" column="[OffShelveManID]" type="Int64" not-null="false" length="8" />
+		<property name="OffShelveManName" column="[OffShelveManName]" type="String" not-null="false" length="50" />
+		<property name="IsTop" column="[IsTop]" type="Boolean" not-null="false" length="1" />
+		<property name="DrafterDateTime" column="[DrafterDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="CheckerDateTime" column="[CheckerDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="StartDateTime" column="[StartDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="EndDateTime" column="[EndDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ApprovalDateTime" column="[ApprovalDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="PublisherDateTime" column="[PublisherDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="Counts" column="[Counts]" type="Int32" not-null="false" length="4" />
+		<property name="IsDiscuss" column="[IsDiscuss]" type="Boolean" not-null="false" length="1" />
+		<property name="MarketPrice" column="[MarketPrice]" type="Double" not-null="false" length="8" />
+		<property name="GreatMasterPrice" column="[GreatMasterPrice]" type="Double" not-null="false" length="8" />
+		<property name="DiscountPrice" column="[DiscountPrice]" type="Double" not-null="false" length="8" />
+		<property name="Discount" column="[Discount]" type="Double" not-null="false" length="8" />
+		<property name="Image" column="[Image]" type="String" not-null="false" length="100" />
+    <property name="BonusPercent" column="[BonusPercent]" type="Double" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

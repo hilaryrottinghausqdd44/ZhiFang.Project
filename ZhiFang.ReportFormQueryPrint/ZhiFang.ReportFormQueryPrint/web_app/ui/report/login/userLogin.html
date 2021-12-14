@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+
+		<title>报告查询</title>
+		<script type="application/javascript">
+			//加载版本号
+			document.write("<script type='text/javascript' src='../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+		</script>
+		<style type="text/css">
+			.content {
+				text-align: center;
+				margin: 0 auto;
+				margin-top: 100px;
+				width: 240px;
+			}
+			
+			.login-title {
+				color: #FFFFFF;
+				font-size: 60px;
+			}
+			
+			.login-input-border-patno {
+				height: 30px;
+				border: 2px solid #FFFFFF;
+				display: inline-block;
+				width: 100%;
+				background-color: transparent;
+				padding-left: 30px;
+				color: #FFF;
+				outline: none;
+			}
+			
+			.login-input-border-username {
+				height: 30px;
+				border: 2px solid #FFFFFF;
+				display: inline-block;
+				width: 100%;
+				background-color: transparent;
+				padding-left: 30px;
+				color: #FFF;
+				outline: none;
+			}
+			
+			.login-input-border-top>.login-Icon-phone {
+				position: absolute;
+				top: 8px;
+				left: 10px;
+				color: #FFF;
+			}
+			
+			.login-input-border-bom>.login-Icon-user {
+				position: absolute;
+				top: 8px;
+				left: 10px;
+				color: #FFF;
+			}
+			
+			#login {
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+		</style>
+	</head>
+
+	<body style="margin:0;padding:0;background-image: url(../../img/loginbg.jpg);background-repeat: no-repeat;background-size: cover;">
+		<div class="content">
+			<div class="login-title">报告查询</div>
+			<div style="position: relative;margin-top: 50px;" class="login-input-border-top">				
+				<span class="login-Icon-phone glyphicon glyphicon-user" aria-hidden="true"></span>
+				<input id="username" class="login-input-border-patno" placeholder="请输入姓名"></input>
+			</div>
+			<div style="position: relative;margin-top: 30px;" class="login-input-border-bom">
+				<span class="login-Icon-user glyphicon glyphicon-phone" aria-hidden="true"></span>
+				<input id="patno" class="login-input-border-username" placeholder="请输入病历号"></input>
+			</div>
+			<div id="loginbg" style="margin-top:30px;border:0;border-radius:15px;background-image: url(../../img/loginbt.png) ;background-size:cover;height: 60px;">
+				<div id="login" style="padding-top: 21px;color: #FFF;">
+					查询
+				</div>
+			</div>
+			<div id="errorinfowarning" style="color: red; margin-top:10px;font-size: 25px;"></div>
+		</div>
+
+		<script type="application/javascript">
+			var css = [
+				"../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css"
+			];
+			var js = [
+				"../../../../web_src/jquery.min.js",
+				"../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js",
+				"../../util/JcallShell.js",
+				"../../util/Date.js",
+				"../../util/component.js"
+			];
+
+			var files = [];
+			for(var i in css) {
+				files.push('<link rel="stylesheet" href="' +
+					css[i] + '?v=' + JcallShell.System.CSS_VERSION + '"/>');
+			}
+			for(var i in js) {
+				files.push('<script type="text/javascript" charset="utf-8" src="' +
+					js[i] + '?v=' + JcallShell.System.JS_VERSION + '"><\/script>');
+			}
+			document.write(files.join(""));
+		</script>
+		<script type="application/javascript">
+			$("#login").click(function() {
+				var patnoval = $("#patno").val();
+				var usernameval = $("#username").val();
+				if(patnoval == "" || patnoval == null) {
+					$("#errorinfowarning").html("请输入病历号");
+					setTimeout(function() {
+						$("#errorinfowarning").html("");
+					}, 3000);
+					return;
+				}
+				if(usernameval == "" || usernameval == null) {
+					$("#errorinfowarning").html("请输入姓名");
+					setTimeout(function() {
+						$("#errorinfowarning").html("");
+					}, 3000);
+					return;
+				}
+				var dateEnd =JcallShell.Date.toString(new Date()).split(" ")[0],
+					dateStart = JcallShell.Date.getNextDate(dateEnd, -90), // 时间范围
+					dateStart = JcallShell.Date.toString(dateStart).split(" ")[0];
+				var where = "PATNO= '" + patnoval + "' and CNAME = '" + usernameval + "' and RECEIVEDATE >= '"+dateStart+"' and RECEIVEDATE <= '"+dateEnd+"'";
+				//验证是否存在此用户				
+				JcallShell.Server.ajax({
+					url: JcallShell.System.Path.ROOT + "/ServiceWCF/ReportFormService.svc/SelectReport?fields=ReportFormID&page=1&limit=10&where=" + where,
+					async: false
+				}, function(data) {
+					if(data.success == true) {
+						//更改列表内容
+						var list = data.value ? (data.value.rows || []) : [];
+						if(list.length == 0) {
+							$("#errorinfowarning").html("未查到报告请核对信息");
+							setTimeout(function() {
+								$("#errorinfowarning").html("");
+							}, 3000);
+							return;
+						} else {
+							JcallShell.Cookie.set("userpatno",patnoval);
+							var originalWhere = 'PATNO='+patnoval+'&CNAME='+usernameval+'&DATEFIELD=RECEIVEDATE&START='+dateStart+'&END='+dateEnd;	
+							var encryptionWhere =  window.btoa(window.encodeURIComponent(originalWhere));//加密url
+							//window.location.href = JcallShell.System.Path.UI + '/report/show/list.html?PATNO='+patnoval+'&CNAME='+usernameval+'&DATEFIELD=RECEIVEDATE&START='+dateStart+'&END='+dateEnd;
+							window.location.href = JcallShell.System.Path.UI + '/report/show/list.html?'+encryptionWhere;
+						}
+					} else {
+						$("#errorinfowarning").html("查询错误请重新输入");
+						setTimeout(function() {
+							$("#errorinfowarning").html("");
+						}, 3000);
+						return;
+					}
+					console.log(data);
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

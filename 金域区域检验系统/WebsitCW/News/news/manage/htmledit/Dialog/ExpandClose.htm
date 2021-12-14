@@ -1,0 +1,252 @@
+<HTML><HEAD>
+
+
+
+<title>javascript动作属性(展开折叠)</title>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<style type=text/css> body, a, table, div, span, td, th, input, select{font:9pt;font-family: "宋体", Verdana, Arial, Helvetica, sans-serif;}
+	body {padding:5px}
+	</style>
+
+<SCRIPT language=JavaScript src="dialog.js"></SCRIPT>
+
+<SCRIPT language=JavaScript>
+var sAction = URLParams['action'];
+var sTitle = "插入";
+
+var objWindow;
+
+var oRange;
+var sType;
+var oSel;
+
+var sUrl = "http://";
+var sProtocol = "http://";
+var sTarget = "";
+
+var sPositionSize="中,中,80%,80%";
+
+
+
+switch (sAction){
+case "other":
+	sUrl = dialogArguments.objLink.onclick;
+	sTarget = dialogArguments.objLink.tag;
+	sProtocol = getProtocol(sUrl);
+	objWindow = dialogArguments.opener;
+	
+	break;
+default:
+	oRange = dialogArguments.eWebEditor.document.selection.createRange();
+	sType = dialogArguments.eWebEditor.document.selection.type;
+	
+	if (sType == "Control") {
+		oSel = oRange(0).parentNode;
+	}else{
+		oSel = oRange.parentElement();
+	}
+	
+	while(oSel.tagName.toUpperCase() != "A" && oSel.tagName.toUpperCase() != "BODY")
+	{
+		oSel = oSel.parentNode;
+	}
+
+	if (oSel.tagName.toUpperCase() == "A"){
+		sTarget = oSel.tag;
+		sUrl = oSel.getAttribute("onclick",2);
+		sProtocol = getProtocol(sUrl);
+	}
+	objWindow = dialogArguments;
+	break;
+}
+
+
+if (sTarget == null)
+    sTarget = "";
+
+
+
+
+// 初始值
+function InitDocument(){
+	var allFrame = objWindow.eWebEditor.document.body.getElementsByTagName("TABLE");
+	for (i=0; i < allFrame.length; i++)
+	{
+	    d_target.options[d_target.options.length] = new Option(allFrame[i].id, allFrame[i].id);
+	    //if (allFrame[i].id == sTarget)
+	    //    d_target.options[d_target.options.length].selected = true;
+	}
+	d_targetText.value = sTarget;
+	
+	for (i = 0; i < d_target.options.length; i++) {
+	    if (d_target.options[i].value == sTarget)
+	        d_target.options[i].selected = true;
+	}
+	//alert(allFrame.length);
+	
+	
+	SearchSelectValue(d_target, sTarget.toLowerCase());
+
+	
+	d_url.innerHTML = sUrl;
+
+}
+
+function changeTarget(obj) {
+    d_targetText.value=obj.options[obj.selectedIndex].value
+}
+
+// 从地址取协议
+function getProtocol(url) {
+    var re = /(.+:\/*)(.*)/gi;
+    return url.replace(re, "$1");
+}
+
+// 改变协议
+function changeProtocol(index) {
+    sProtocol = d_protocol.options[index].value;
+    sUrl = d_url.innerHTML;
+    var re = /(.+:\/*)/gi;
+    sUrl = sUrl.replace(re, "");
+    d_url.innerHTML = sProtocol + sUrl;
+
+}
+</SCRIPT>
+
+<SCRIPT language=JavaScript event=onclick for=Ok>
+    
+    sTarget = d_targetText.value;
+
+   
+    var sShowMSG="";
+    var sHideMSG="none";
+    if(d_anchor.selectedIndex=="0"){
+        sShowMSG="none";
+        sHideMSG="";
+    }
+     var sJs="javascript:if(document.getElementById('" + sTarget 
+        + "').style.display=='"+sShowMSG+"') {document.getElementById('" + sTarget 
+        + "').style.display='"+sHideMSG+"';}else {document.getElementById('" + sTarget 
+        + "').style.display='"+sShowMSG+"';};";
+        
+    d_url.innerHTML=sJs;
+	sUrl = d_url.innerHTML;
+	
+	if (sUrl != ""&&(sUrl.indexOf("javascript:")==0||sUrl.indexOf("http://")==0)||sUrl.indexOf("/")==0){
+	    sUrl=sUrl.replace(/&amp;/g,'&');
+		switch (sAction){
+		case "other":
+			var arr = new Array();
+			arr[0] = sUrl;
+			arr[1] = sTarget;
+			window.returnValue = arr;
+			break;
+		default:
+		
+				
+				oRange.execCommand("CreateLink",false,sUrl);    //修改连接地址
+
+				oRange = dialogArguments.eWebEditor.document.selection.createRange();
+				sType = dialogArguments.eWebEditor.document.selection.type;
+
+				if (sType == "Control") {
+					oSel = oRange(0).parentNode;
+				}else{
+					oSel = oRange.parentElement();
+				}
+				
+	
+				while(oSel.tagName.toUpperCase() != "A" && oSel.tagName.toUpperCase() != "BODY")
+				{
+					oSel = oSel.parentNode;
+				}
+				oSel.tag=d_targetText.value;
+				oSel.onclick=oSel.href;
+				oSel.href="javascript:return;";
+				
+				oSel.removeAttribute("target");
+				
+				//alert('a');
+				var objTarget=dialogArguments.eWebEditor.document.body.all[d_targetText.value];
+				//debugger;
+				//alert(objTarget);
+				if(objTarget)
+				{
+				     objTarget.style.display= sShowMSG;
+//				    if(objTarget.style&&objTarget.style.indexOf("display")>=0)
+//				        objTarget.style="display:" + sShowMSG;
+//				    else
+//				        objTarget.style="display:" + sShowMSG;
+				}
+				
+				window.returnValue = null;
+			
+			break;
+		}
+	} else {
+		alert("链接地址不能为空或者不正确，请修改！");
+		d_url.focus();
+		return;
+	}
+	window.close();
+</SCRIPT>
+</HEAD>
+<body bgColor=menu onload=InitDocument()>
+<table cellSpacing=0 cellPadding=0 align=center border=0>
+  <tr>
+    <td>
+      <fieldset><legend>超级链接信息</LEGEND>
+      <table cellSpacing=0 cellPadding=0 border=0>
+        <tr>
+          <td colSpan=9 height=5></TD></TR>
+        <tr>
+          <td width=7></TD>
+          <td noWrap>显示方式</TD>
+          <td width=5></TD>
+          <td><select id=d_anchor><option value="折叠" selected 
+              >折叠</OPTION><option value="展开">展开</OPTION></SELECT></TD>
+          <td width=10></TD>
+          <td noWrap>链接目标ID:</TD>
+          <td width=5></TD>
+          <td><input type="text" size="6" id="d_targetText" value="" /><select id=d_target onchange="javascript:changeTarget(this)" style="WIDTH: 122px" 
+            ><option value="" selected 
+              >默认(无)</OPTION></SELECT></TD>
+          <td width=7></TD></TR>
+        <tr>
+          <td colSpan=9 height=5></TD></TR>
+        <tr>
+          <td width=7 height=22></TD>
+          <td height=22>执行动作:</TD>
+          <td width=5 height=22></TD>
+          <td colSpan=5 height=22><textarea id=d_url name="d_url"
+            type=text rows="7" cols="35" style="WIDTH:330px" readonly></textarea></TD>
+          <td width=7 height=22></TD></TR>
+        <tr>
+          <td colSpan=9 height=5></TD></TR>
+        <tr>
+          <td width=7></TD>
+          <td></TD>
+          <td width=5></TD>
+          <td></TD>
+          <td width=40></TD>
+          <td colSpan=3></TD>
+          <td width=7></TD></TR>
+        <tr>
+          <td colSpan=9 height=5></TD></TR>
+        
+        <tr>
+          <td colSpan=9 height=5 
+      ></TD></TR></TABLE></FIELDSET> </TD></TR>
+  <tr>
+    <td height=5></TD></TR>
+  <tr>
+    <td align=right><input id=Ok type=submit value="  确定  ">&nbsp;&nbsp;<input onclick=window.close(); type=button value="  取消  "></TD></TR></TABLE>
+
+<script>
+
+</script>
+
+
+
+
+</body></HTML>

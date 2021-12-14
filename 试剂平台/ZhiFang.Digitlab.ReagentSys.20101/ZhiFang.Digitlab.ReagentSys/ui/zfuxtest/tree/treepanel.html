@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>树节点移动（树内部）</title>
+<link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>
+
+<script type="text/javascript" src="../../extjs/bootstrap.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+
+<script src="../../zhifangux/UXTreePanel.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+<body>
+
+<script>
+    Ext.onReady(function () {
+        Ext.create('Ext.zhifangux.UXTreePanel', {
+            title: '',
+            //bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			//cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			DataServerUrl: 'server/BZtree.json',
+           // width: 360,
+            //height: 425,
+           
+		    //margin :  '11 10 10 10',
+			expanded:true,//此处展开所有。		
+            renderTo: Ext.getBody()
+        });
+    });
+	
+	
+
+</script>
+
+</body>
+</html>

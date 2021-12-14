@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD7E515A-52CF-41A2-8325-8704EB187053}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IDAO.NHB.ReagentSys.Client</RootNamespace>
+    <AssemblyName>ZhiFang.IDAO.NHB.ReagentSys.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReagentSys.Client\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess_SQL.cs" />
+    <Compile Include="IDBDictDao.cs" />
+    <Compile Include="IDBDictTreeDao.cs" />
+    <Compile Include="IDBDictTypeDao.cs" />
+    <Compile Include="IDBLodopTempletDao.cs" />
+    <Compile Include="IDBReportDao.cs" />
+    <Compile Include="IDBTemplateDao.cs" />
+    <Compile Include="IDBUserUIConfigDao.cs" />
+    <Compile Include="IDCenOrgTypeDao.cs" />
+    <Compile Include="IDCenOrgDao.cs" />
+    <Compile Include="IDCSUpdateToBSDao_SQL.cs" />
+    <Compile Include="IDReaAlertInfoSettingsDao.cs" />
+    <Compile Include="IDReaBmsSerialDao.cs" />
+    <Compile Include="IDReaBusinessInterfaceDao.cs" />
+    <Compile Include="IDReaBusinessInterfaceLinkDao.cs" />
+    <Compile Include="IDReaEquipTestItemReaGoodLinkDao.cs" />
+    <Compile Include="IDReaLisTestStatisticalResultsDao.cs" />
+    <Compile Include="IDReaLisTestStatisticalResultsDao_SQL.cs" />
+    <Compile Include="IDReaMonthUsageStatisticsDocDao.cs" />
+    <Compile Include="IDReaMonthUsageStatisticsDtlDao.cs" />
+    <Compile Include="IDReaOpenBottleOperDocDao.cs" />
+    <Compile Include="IDReaStorageGoodsLinkDao.cs" />
+    <Compile Include="IDReaTestEquipItemDao.cs" />
+    <Compile Include="IDReaTestEquipItemDao_SQL.cs" />
+    <Compile Include="IDReaTestItemDao_SQL.cs" />
+    <Compile Include="IDReaTestEquipLabDao_SQL.cs" />
+    <Compile Include="IDReaTestItemDao.cs" />
+    <Compile Include="IReaBmsCenOrderDocOfServiceDao.cs" />
+    <Compile Include="IDReaBmsCenOrderDocDao.cs" />
+    <Compile Include="IDReaBmsCenOrderDtlDao.cs" />
+    <Compile Include="IDReaBmsCenSaleDtlDao.cs" />
+    <Compile Include="IDReaBmsCenSaleDocConfirmDao.cs" />
+    <Compile Include="IDReaBmsCenSaleDtlConfirmDao.cs" />
+    <Compile Include="IDBOperateObjectTypeDao.cs" />
+    <Compile Include="IDBObjectOperateDao.cs" />
+    <Compile Include="IDBObjectOperateTypeDao.cs" />
+    <Compile Include="IDBParameterDao.cs" />
+    <Compile Include="IDReaBmsCheckDocDao.cs" />
+    <Compile Include="IDReaBmsCheckDtlDao.cs" />
+    <Compile Include="IDReaBmsOutDocDao.cs" />
+    <Compile Include="IDReaBmsInDocDao.cs" />
+    <Compile Include="IDReaBmsInDtlDao.cs" />
+    <Compile Include="IDReaBmsOutDtlDao.cs" />
+    <Compile Include="IDReaBmsQtyBalanceDocDao.cs" />
+    <Compile Include="IDReaBmsQtyBalanceDtlDao.cs" />
+    <Compile Include="IDReaBmsQtyDtlDao.cs" />
+    <Compile Include="IDReaBmsQtyMonthBalanceDocDao.cs" />
+    <Compile Include="IDReaBmsReqDocDao.cs" />
+    <Compile Include="IDReaBmsReqDtlDao.cs" />
+    <Compile Include="IDReaBmsTransferDocDao.cs" />
+    <Compile Include="IDReaBmsTransferDtlDao.cs" />
+    <Compile Include="IDReaCenBarCodeFormatDao.cs" />
+    <Compile Include="IDReaCenOrgDao.cs" />
+    <Compile Include="IDReaCheckInOperationDao.cs" />
+    <Compile Include="IDReaChooseGoodsTemplateDao.cs" />
+    <Compile Include="IDReaDeptGoodsDao.cs" />
+    <Compile Include="IDReaEquipReagentLinkDao.cs" />
+    <Compile Include="IDReaGoodsBarcodeOperationDao.cs" />
+    <Compile Include="IDReaGoodsDao.cs" />
+    <Compile Include="IDReaGoodsLotDao.cs" />
+    <Compile Include="IDReaGoodsOrgLinkDao.cs" />
+    <Compile Include="IDReaGoodsRegisterDao.cs" />
+    <Compile Include="IDReaGoodsUnitDao.cs" />
+    <Compile Include="IDReaBmsCenSaleDocDao.cs" />
+    <Compile Include="IDReaBmsQtyDtlOperationDao.cs" />
+    <Compile Include="IDReaPlaceDao.cs" />
+    <Compile Include="IDReaReqOperationDao.cs" />
+    <Compile Include="IDReaStorageDao.cs" />
+    <Compile Include="IDReaUserStorageLinkDao.cs" />
+    <Compile Include="IDSCAttachmentDao.cs" />
+    <Compile Include="IDSCInteractionDao.cs" />
+    <Compile Include="IDSCOperationDao.cs" />
+    <Compile Include="IDReaTestEquipLabDao.cs" />
+    <Compile Include="IDTestEquipProdDao.cs" />
+    <Compile Include="IDReaTestEquipTypeDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.ReagentSys.Client\ZhiFang.Entity.ReagentSys.Client.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

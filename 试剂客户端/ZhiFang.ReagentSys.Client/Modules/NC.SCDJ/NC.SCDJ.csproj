@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F5610B3-E0F4-4842-98C2-E58A0C04A4A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NC.SCDJ</RootNamespace>
+    <AssemblyName>NC.SCDJ</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\ZhiFang.ReagentSys.Client\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NcObjectEntity.cs" />
+    <Compile Include="PlugInClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reference_DB.cs" />
+    <Compile Include="Reference_GJ.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.Entity.ReagentSys.Client\ZhiFang.Entity.ReagentSys.Client.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{f5a15ed6-4eb8-4e39-8b19-357b799a1f10}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.IBLL.ReagentSys.Client\ZhiFang.IBLL.ReagentSys.Client.csproj">
+      <Project>{be78b18b-9004-4280-ba87-08c167f00be6}</Project>
+      <Name>ZhiFang.IBLL.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.IDAO.NHB.ReagentSys.Client\ZhiFang.IDAO.NHB.ReagentSys.Client.csproj">
+      <Project>{dd7e515a-52cf-41a2-8325-8704eb187053}</Project>
+      <Name>ZhiFang.IDAO.NHB.ReagentSys.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.InterfaceFactory\ZhiFang.InterfaceFactory.csproj">
+      <Project>{6ac252d4-ebed-45ea-a4bd-94a456c6792f}</Project>
+      <Name>ZhiFang.InterfaceFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.ReagentSys.Client.Common\ZhiFang.ReagentSys.Client.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.ReagentSys.Client.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550f2-bf83-4c13-9386-9acf6e2ae591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

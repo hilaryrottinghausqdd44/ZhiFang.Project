@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		<!--不缓存缓存页面-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<title>任务日志</title>
+		<link rel="stylesheet" type="text/css" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../src/bootstrap-3.3.2-dist/css/bootstrap-switch.css" />
+		<link rel="stylesheet" type="text/css" href="../css/tasklog.css" />
+	</head>
+	<body>
+		<div id="top-div" class="page-top-fixed">
+			<div class="page-top-title">任务日志</div>
+			<div class="page-top-back"><b>〈</b></div>
+		</div>
+		<div id="content-div" hidden="hidden">
+			<div class="page-tab-div">
+				<div class="page-tab-div-tab" data="1">任务日志</div>
+				<div class="page-tab-div-tab" data="2">任务内容</div>
+			</div>
+			<div>
+				<!--任务日志-->
+				<div class="page-content-div" id="page-content-div_1" hidden="hidden">
+					<!--任务标题-->
+					<div id="task_title" style="font-weight:bold;text-align:center;"></div>
+					<!--工作量-->
+					<div class="page-content-div-row">
+						<div>工作量（天）</div>
+						<button class="workload-div" data="0.1">0.1</button>
+						<button class="workload-div" data="0.2">0.2</button>
+						<button class="workload-div" data="0.3">0.3</button>
+						<button class="workload-div" data="0.4">0.4</button>
+						<button class="workload-div" data="0.5">0.5</button>
+						<button class="workload-div" data="0.6">0.6</button>
+						<button class="workload-div" data="0.7">0.7</button>
+						<button class="workload-div" data="0.8">0.8</button>
+						<button class="workload-div" data="0.9">0.9</button>
+						<button class="workload-div" data="1.0">1.0</button>
+					</div>
+					<!--存在风险-->
+					<div class="page-content-div-row">
+						存在风险
+						<div style="float:right;">
+							<input type="checkbox" id="HasRisk" 
+								checked data-on-text="是" data-on-color="danger"
+								checked data-off-text="否" data-off-color="info">
+						</div>
+					</div>
+					<!--今天总结-->
+					<div class="form-group" style="padding:10px 15px;">
+						<label for="name">今天总结</label>
+						<textarea id="ToDayContent" class="form-control" rows="4" 
+							required="required" placeholder="必填"></textarea>
+					</div>
+					<!--明天计划-->
+					<div class="form-group" style="padding:10px 15px;">
+						<label for="name">明天计划</label>
+						<textarea id="NextDayContent" class="form-control" rows="4" 
+							required="required" placeholder="必填"></textarea>
+					</div>
+					<!--保存按钮-->
+					<div class="button-div" style="margin:40px 20px;text-align:center;">
+						<button id="save" style="width:160px;">确认</button>
+					</div>
+				</div>
+				<!--任务内容-->
+				<div class="page-content-div" style="padding:15px;" id="page-content-div_2" hidden="hidden">
+					
+				</div>
+			</div>
+ 		</div>
+		<div id="back-div" hidden="hidden">
+			<!--错误内容-->
+			<div id="back-content"></div>
+			<!--返回按钮-->
+			<div class="button-div" style="margin:20px;text-align:center;">
+				<button id="back-button" style="width:120px;">返回</button>
+			</div>
+		</div>
+		<div id="info-div" hidden="hidden">
+			<!--信息内容-->
+			<div id="info-content"></div>
+			<!--确定按钮-->
+			<div class="button-div" style="margin:20px;text-align:center;">
+				<button id="ok-button" style="width:120px;">确定</button>
+			</div>
+		</div>
+		<script src="../src/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../src/bootstrap-3.3.2-dist/js/bootstrap-switch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/TaskLog.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

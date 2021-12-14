@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- HTTP 1.0 -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Prevent caching at the proxy server -->
+    <meta http-equiv="expires" content="0">
+    <title></title>
+    <script src="../../../../easyui/jquery.min.js"></script>
+    <script src="../../../../easyui/jquery.easyui.min.js"></script>
+    <link href="../../../../easyui/themes/icon.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/buttons.css">
+    <link href="../../../../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../../../../util/util.js"></script>
+    <script src="../../../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../../../util/util_easyui.js"></script>
+    <script src="ItemColorSet.js"></script>
+    <style type="text/css">
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+        }
+
+        .fTitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .fItem {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .fItem label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .fItem input {
+            width: 130px;
+        }
+
+        .fItem select {
+            width: 130px;
+        }
+    </style>
+</head>
+
+<body class="easyui-layout">
+    <div data-options="region:'center',title:'颜色',iconCls:'icon-app-grid-16'">
+        <table id="dg"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; ">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="refresh()" plain="true"
+                    data-options="iconCls:'icon-reload'">刷新</a>
+            </div>
+            <div style="float: right; margin-right: 10px; margin-top: 3px;">
+                <input id="txtSearchKey" name="itemkey" class="easyui-searchbox"
+                    data-options="prompt:'请输入编码/名称',searcher:doSearch" style="width:200px;" />
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'east',title:'项目列表',split:true" style="width:600px;">
+        <table id="dgitem"></table>
+        <div id="toolbaritem" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; ">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="refreshitem()" plain="true"
+                    data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="additem()" plain="true"
+                    data-options="iconCls:'icon-add'">添加</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="delitem()" plain="true"
+                    data-options="iconCls:'icon-remove'">删除</a>
+            </div>
+        </div>
+    </div>
+    <div id="dlgitem" class="easyui-window" style="width:70%;height:70%;;margin: auto;" closed="true">
+        <div id="cc" class="easyui-layout" style="width:100%;height:100%;">
+            <div data-options="region:'east',title:'已选项目',split:true" style="width:50%;">
+                <table id="dgselectitem"></table>
+                <div id="toolbarselectitem" style="height:28px;width: 100%;background: #eeeeee ">
+                    <div style="float: left; ">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearselectitem()" plain="true"
+                            data-options="iconCls:'icon-reload'">清空</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveselectitem()" plain="true"
+                            data-options="iconCls:'icon-add'">保存</a>
+                            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="delselectitem()" plain="true"
+                            data-options="iconCls:'icon-remove'">删除</a>
+                    </div>
+                </div>
+            </div>
+            <div data-options="region:'center',title:'项目列表'" style="padding:5px;background:#eee;">
+                <table id="dgallitem"></table>
+                <div id="toolbarallitem" style="height:28px;width: 100%;background: #eeeeee ">
+                    <div style="float: left; ">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="allitem('all')" plain="true"
+                            data-options="iconCls:'icon-app-grid-16'">全部</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="allitem('un')" plain="true"
+                            data-options="iconCls:'icon-app-grid-16'">未设置</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="allitem('ed')" plain="true"
+                            data-options="iconCls:'icon-app-grid-16'">已设置</a>
+                            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="addselectitemlist()" plain="true"
+                            data-options="iconCls:'icon-add'">添加已选</a>
+                    </div>
+                    <div style="float: right; margin-right: 10px; margin-top: 3px;">
+                        <!-- <input class="easyui-datebox" style="width:80px"> -->
+                        <input id="dgitemSearchKey" name="dgitemSearchKey" class="easyui-searchbox" data-options="prompt:'请输入编码/名称',searcher:dgitemSearch" style="width:200px;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

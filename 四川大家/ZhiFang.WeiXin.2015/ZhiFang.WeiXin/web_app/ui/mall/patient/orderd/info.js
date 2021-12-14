@@ -1,0 +1,253 @@
+$(function () {
+	//外部参数
+	var params = JcallShell.getRequestParams(true);
+	//获取医嘱单信息服务地址
+	var DOCTOR_ORDER_INFO_URL = JcallShell.System.Path.ROOT + 
+		"/ServerWCF/ZhiFangWeiXinService.svc/ST_UDTO_SearchOSDoctorOrderFormById";
+	//获取医嘱单明细服务地址
+	var DOCTOR_ORDER_ITEMS_URL = JcallShell.System.Path.ROOT + 
+		"/ServerWCF/ZhiFangWeiXinService.svc/ST_UDTO_SearchOSDoctorOrderItemByHQL";
+	//医嘱单确认服务
+	var DOCTOR_ORDER_CHECK_URL = JcallShell.System.Path.ROOT + 
+		"/ServerWCF/ZhiFangWeiXinAppService.svc/UserOrderFormConfirm?Id=" + params.ID;
+	//医嘱单确认后跳转的页面地址
+	var CHECK_DOCTOR_ORDER_SUCCESS_PAGE_URL = "../order/list.html?statusStr=1";
+	//支付功能地址
+	var PAY_URL = JcallShell.System.Path.ROOT + "/WebForm/PayForm.aspx";
+		
+	//医嘱单数据
+	var INFO_DATA = null;
+	//医嘱单状态信息
+	var STATUS_INFO = null;
+	//市场价格-总和
+	var MARKET_PRICE_COUNT = 0;
+	//大家价格-总和
+	var GREAT_MASTER_PRICE_COUNT = 0;
+	//折扣价格-总和
+	var DISCOUNT_PRICE_COUNT = 0;
+	
+    //获取医嘱单信息
+	function getInfoData(callback){
+		var url = DOCTOR_ORDER_INFO_URL;
+		var FIELDS = [
+			'Id','HospitalName','DeptName','DoctorName','UserName',
+			'Age','AgeUnitName','SexName','PatNo','Status','DataAddTime'
+		];
+		url += '?fields=OSDoctorOrderForm_' + FIELDS.join(',OSDoctorOrderForm_') + '&id=' + params.ID;
+		
+        $("#loading-div").modal({ backdrop: 'static', keyboard: false });
+        JcallShell.Server.ajax({
+        	showError:true,
+            url: url
+        }, function (data) {
+            $("#loading-div").modal("hide");
+            callback(data);
+        });
+	}
+	//获取医嘱单明细内容
+	function getItemsData(callback){
+		var url = DOCTOR_ORDER_ITEMS_URL + '?where=osdoctororderitem.DOFID=' + params.ID;
+		var fields = ['MarketPrice','GreatMasterPrice','DiscountPrice','ItemCName'];
+		url += '&fields=OSDoctorOrderItem_' + fields.join(',OSDoctorOrderItem_');
+		
+        JcallShell.Server.ajax({
+        	showError:true,
+            url: url
+        }, function (data) {
+            callback(data);
+        });
+	}
+	
+	//显示错误信息
+    function showError(msg) {
+        $("#info").html('<div style="margin:20px 10px;color:#169ada;text-align:center;">' + msg + '</div>');
+    }
+	
+	//初始化内容
+	function initContent(){
+		var info = getInfoHtml(INFO_DATA);
+		var items = getItemsHtml(INFO_DATA.items);
+		
+		$("#info").html(info + items);
+	}
+	//更改医嘱单信息内容
+	function getInfoHtml(data){
+		var html = getInfoTemplet();
+		html = html.replace(/{Code}/g, data.Id || "");
+		html = html.replace(/{Hospital}/g, data.HospitalName || "");
+		html = html.replace(/{Dept}/g, data.DeptName || "");
+		html = html.replace(/{Doctor}/g, data.DoctorName || '<span style="color:green;">【自主下单】</span>');
+		html = html.replace(/{Patient}/g, data.UserName || "");
+		html = html.replace(/{Sex}/g, data.SexName || "");
+		html = html.replace(/{Age}/g, data.Age || "");
+		html = html.replace(/{AgeUnit}/g, data.AgeUnitName || "");
+		html = html.replace(/{PatNo}/g, data.PatNo || "");
+		html = html.replace(/{DataAddTime}/g, data.DataAddTime || "");
+		
+		html = html.replace(/{StatusBgColor}/g, STATUS_INFO.BGColor || "");
+		html = html.replace(/{StatusColor}/g, STATUS_INFO.BGColor || "");
+		html = html.replace(/{StatusName}/g, STATUS_INFO.Name || "");
+		
+		html = html.replace(/{MarketPriceCount}/g, MARKET_PRICE_COUNT);
+		html = html.replace(/{GreatMasterPriceCount}/g, GREAT_MASTER_PRICE_COUNT);
+		html = html.replace(/{DiscountPriceCount}/g, DISCOUNT_PRICE_COUNT);
+		
+		return html;
+	}
+	//获取医嘱单信息模板
+	function getInfoTemplet() {
+		var templet =
+			'<div style="padding:5px 0;">医嘱单号：{Code}</div>' +
+			'<div style="padding:5px 0;">医院：{Hospital}</div>' +
+			'<div style="padding:5px 0;">科室：{Dept}</div>' +
+			'<div style="padding:5px 0;">医生：{Doctor}</div>' +
+			'<div style="padding:5px 0;">患者：{Patient} {Sex} {Age}{AgeUnit}</div>' +
+			'<div style="padding:5px 0;">病历号：{PatNo}</div>' +
+			'<div style="padding:5px 0;">开单时间：{DataAddTime}</div>' +
+			'<div style="padding:5px 0;">' +
+    			'<span style="text-align:center;padding:5px 10px;text-align:center;border:1px solid {StatusBgColor};color:{StatusColor}">状态：{StatusName}</span>' +
+    		'</div>' +
+    		'<div style="padding:5px 0;">' +
+    			'<span style="text-align:center;color:red;"><s>市场价格:￥<b style="color:red;">{MarketPriceCount}</b>元</s></span>' +
+    		'</div>' +
+    		'<div style="padding:5px 0;">' +
+    			'<span style="text-align:center;">实际价格:￥<b>{DiscountPriceCount}</b>元</span>' +
+    		'</div>';
+			
+		return templet;
+	}
+	
+	//更改医嘱单明细
+	function getItemsHtml(list) {
+	    var len = (list || []).length,
+			html = [];
+
+	    html.push('<table class="basic_table" style="margin:10px 0;">');
+	    html.push('<thead><th style="width:70%;">套餐名称</th><th>市场价格</th></thead>');
+	    html.push('<tbody>');
+	    for (var i = 0; i < len; i++) {
+	        var item = getItemTemplet();
+	        var data = list[i];
+	        item = item.replace(/{Sort}/g, i + 1);
+	        item = item.replace(/{ItemName}/g, data.ItemCName || "");
+	        item = item.replace(/{MarketPrice}/g, data.MarketPrice);
+	        item = item.replace(/{GreatMasterPrice}/g, data.GreatMasterPrice);
+	        item = item.replace(/{DiscountPrice}/g, data.DiscountPrice);
+	        html.push(item);
+	    }
+	    html.push('</tbody>');
+	    html.push('</table>');
+
+	    return html.join("");
+	}
+    //获取医嘱单明细模板
+	function getItemTemplet() {
+	    //市场价格,大家价格,折扣价格
+	    var templet =
+			'<tr>' +
+				'<td rowspan="2">{Sort}.   {ItemName}</td>' +
+				'<td >市场价格:{MarketPrice}</td>' +
+			'</tr>' +
+		    '<tr>' +
+				'<td >实际价格:{DiscountPrice}</td>' +
+			'</tr>';
+
+	    return templet;
+	}
+	
+	//初始化数据
+	function initData(callback){
+		$("#loading-div").modal({ backdrop: 'static', keyboard: false });
+		//获取医嘱单数据
+		getInfoData(function(data){
+			if (data.success == true) {
+				INFO_DATA = data.value || {};//医嘱单数据
+				//获取医嘱单状态信息
+				JcallShell.LocalStorage.Enum.getInfoById('DoctorOrderFormStatus',INFO_DATA.Status,function(info){
+					STATUS_INFO = info;//医嘱单状态信息
+					//获取明细数据
+	                getItemsData(function(data){
+						if (data.success == true) {
+							INFO_DATA.items = (data.value || {}).list || [];
+							$("#loading-div").modal("hide");
+							callback();
+			            } else {
+			            	$("#loading-div").modal("hide");
+			                showError(data.msg);
+			            }
+					});
+				});
+            } else {
+            	$("#loading-div").modal("hide");
+                showError(data.msg);
+            }
+		});
+	}
+	//数据处理
+	function changeData(){
+		//总价格计算
+		var list = INFO_DATA.items || [],
+			len = list.length;
+			
+		for(var i=0;i<len;i++){
+    		MARKET_PRICE_COUNT += parseFloat(list[i].MarketPrice);
+    		GREAT_MASTER_PRICE_COUNT += parseFloat(list[i].GreatMasterPrice);
+    		DISCOUNT_PRICE_COUNT += parseFloat(list[i].DiscountPrice);
+    	}
+	}
+	//初始化按钮
+    function initButtons(){
+    	if(!params.HASBUTTON) return;
+    	
+		var status = INFO_DATA.Status + "";
+		
+		if(status == '2'){//"下医嘱单"状态
+			$("#submit-div").show();//显示功能按钮栏
+		}
+    }
+	
+    //初始化页面
+	function initHtml(){
+		initData(function(){
+			//数据处理
+			changeData();
+			//初始化内容
+			initContent();
+			//初始化按钮
+			initButtons();
+		});
+	}
+	
+	//医嘱单确认按钮
+	$("#checkDoctorOrder-button").on("click",function(){
+		$("#checkDoctorOrderModal").modal({ backdrop: 'static', keyboard: false });
+	});
+	//确定生成医嘱单
+	$("#checkDoctorOrder-submit-button").on("click",function(){
+		checkDoctorOrder();
+	});
+	//医嘱单确认
+	function checkDoctorOrder(){
+		JcallShell.Server.ajax({
+			url:DOCTOR_ORDER_CHECK_URL
+		},function(data){
+			if(data.success){
+				checkDoctorOrderSuccess(data.value);
+			}else{
+				alert(data.msg);
+			}
+		});
+	}
+	function checkDoctorOrderSuccess(UOFID){
+		$("#checkDoctorOrderModal").modal("hide");
+		//location.href = CHECK_DOCTOR_ORDER_SUCCESS_PAGE_URL;
+		payMoney(UOFID);
+	}
+	//支付
+	function payMoney(UOFID){
+		location.href = PAY_URL + "?UOFID=" + UOFID + "&v=1006";
+	}
+	
+	//初始化页面
+	initHtml();
+});

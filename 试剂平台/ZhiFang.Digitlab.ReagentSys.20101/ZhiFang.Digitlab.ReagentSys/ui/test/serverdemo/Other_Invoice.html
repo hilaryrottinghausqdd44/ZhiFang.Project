@@ -1,0 +1,105 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherInvoiceByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherInvoiceById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherInvoice',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherInvoice',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherInvoiceByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherInvoice',
+
+    		//发票管理对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherInvoice_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherInvoice_Id',value:'发票ID'},						 
+						 		     
+				     												 
+						{ key:'OtherInvoice_ClientID',value:'客户ID'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_CreatorID',value:'申请者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_ClientName',value:'客户名称'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_Money',value:'开票金额'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_Comment',value:'开票信息（备注）   包括发票内容，收款人，电话，地址等，不用再分开描述了'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_Creator',value:'申请者'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_DataAddTime',value:'申请时间'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_Checker',value:'审核人'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_CheckerID',value:'审核者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_CheckTime',value:'审核时间'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_CheckOpinion',value:'审核意见'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_ApproverID',value:'审批人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_Approver',value:'审批人'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_ApprovalTime',value:'审批时间'}, 
+						 		     
+				     												 
+						{ key:'OtherInvoice_ApprovalOpinion',value:'审批意见'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherInvoice_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'发票管理',
+    		//主键字段
+    		key:'OtherInvoice_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

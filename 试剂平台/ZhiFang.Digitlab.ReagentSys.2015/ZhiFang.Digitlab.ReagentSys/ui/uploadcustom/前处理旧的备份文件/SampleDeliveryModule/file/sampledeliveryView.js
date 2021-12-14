@@ -1,0 +1,12 @@
+Ext.onReady(function(){ 
+    Ext.QuickTips.init();//初始化后就会激活提示功能
+    Ext.Loader.setConfig({enabled: true});//允许动态加载
+    Ext.Loader.setPath('Ext.mept', '../class');
+    var panel = Ext.create('Ext.mept.SampleDeliveryModule.sampleDeliveryApp');
+    
+    //总体布局
+    Ext.create('Ext.container.Viewport',{
+        layout:'fit',
+        items:[panel]
+    });
+});

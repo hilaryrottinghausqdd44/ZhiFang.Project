@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="gb2312"?>
+<NewDataSet>
+  <TableName>
+    <!--供货子单号     明细编码-->
+    <FieldName>SaleDtlNo</FieldName>
+    <CompareFieldName>detailCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--第三方明细单号     明细编码-->
+    <FieldName>OtherDtlNo</FieldName>
+    <CompareFieldName>detailCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--货品编码  物资编码-->
+    <FieldName>ReaGoodsNo</FieldName>
+    <CompareFieldName>invCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--货品名称  物资名称-->
+    <FieldName>GoodsName</FieldName>
+    <CompareFieldName>invName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--物资编码-->
+    <FieldName>ProdGoodsNo</FieldName>
+    <CompareFieldName>invCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--物资编码-->
+    <FieldName>CenOrgGoodsNo</FieldName>
+    <CompareFieldName>invCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--规格-->
+    <FieldName>UnitMemo</FieldName>
+    <CompareFieldName>invSpec</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--包装单位  计量单位-->
+    <FieldName>GoodsUnit</FieldName>
+    <CompareFieldName>unitName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--生产商名称-->
+    <FieldName>ProdOrgName</FieldName>
+    <CompareFieldName>factoryName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!-- 单价-->
+    <FieldName>Price</FieldName>
+    <CompareFieldName>price</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--数量-->
+    <FieldName>GoodsQty</FieldName>
+    <CompareFieldName>amount</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--货品条码   条码-->
+    <FieldName>GoodsSerial</FieldName>
+    <CompareFieldName>barCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--第三方条码  条码-->
+    <FieldName>OtherSerialNoStr</FieldName>
+    <CompareFieldName>barCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--有效日期-->
+    <FieldName>InvalidDate</FieldName>
+    <CompareFieldName>invaDate</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--批号-->
+    <FieldName>LotNo</FieldName>
+    <CompareFieldName>batchNo</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--供应商编码	供应商编码，如果是望海接口，此字段必须放在货品编码之后-->   
+    <FieldName>ReaCompCode</FieldName>
+    <CompareFieldName>venCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--供应商编码	供应商编码-->   
+    <FieldName>ProdOrgNo</FieldName>
+    <CompareFieldName>venCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--供应商名称	供应商名称-->
+    <FieldName>ReaCompanyName</FieldName>
+    <CompareFieldName>venName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--供应商-->   
+    <FieldName>ReaServerCompCode</FieldName>
+    <CompareFieldName>venCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--备注-->
+    <FieldName>Memo</FieldName>
+    <CompareFieldName>memo</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--批次-->
+    <FieldName>ZX3</FieldName>
+    <CompareFieldName>batchSn</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+</NewDataSet>

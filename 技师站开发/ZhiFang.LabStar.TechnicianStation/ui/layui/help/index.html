@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>帮助文档</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../src/layui/src/css/layui.css" media="all">
+	<link rel="stylesheet" href="../../src/layui/src/css/modules/code.css" media="all">
+	<link rel="stylesheet" href="style.css" media="all">
+	<link rel="shortcut icon" href="../../../logo-16.png">
+	<style type="text/css">
+		.checked-li{color:#009E94;font-weight:bold;}
+		.content-iframe {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-header header header-doc" summer>
+		<div class="layui-main">
+			<a class="logo" style="color:#eeeeee;font-size:18px;">帮助文档</a>
+		</div>
+	</div>
+	<div class="layui-main site-inline">
+		<div class="site-tree" id="modules">
+			
+		</div>
+		<div class="site-content" id="content" style="position:absolute;">
+			<iframe id="contentIframe" src="" class="content-iframe" frameborder="0"></iframe>
+		</div>
+	</div>
+	
+	<div class="site-tree-mobile layui-hide">
+		<i class="layui-icon"></i>
+	</div>
+	<div class="site-mobile-shade"></div>
+	
+	<script src="../../src/layui/src/layui.js"></script>
+	<script src="../config/system.js"></script>
+	<script src="util.js"></script>
+	<script>
+		document.title = "帮助文档";
+		layui.extend({
+			uxutil: 'ux/util'
+		}).use(['uxutil','layer','code','form'],function(){
+			var $ = layui.$,
+				uxutil = layui.uxutil,
+				VERSION_LIST = null,
+				CHECKED_LI = null;
+				
+			//手机设备的简单适配
+			var treeMobile = $('.site-tree-mobile'),
+				shadeMobile = $('.site-mobile-shade');
+			
+			treeMobile.on('click', function(){
+				$('body').addClass('site-mobile');
+			});
+		
+			shadeMobile.on('click', function(){
+				$('body').removeClass('site-mobile');
+			});
+			
+			//初始化
+			function init(){
+				uxutil.server.ajax({
+					url:'modules.json?d=' + new Date().getTime()
+				},function(data){
+					if(data.success){
+						VERSION_LIST = data.data;
+						initHtml();
+					}
+				});
+			}
+			
+			//初始化页面
+			function initHtml(){
+				//版本下拉框
+				var versionList = createVersionList();
+				
+				$("#modules").html(versionList);
+				
+				layui.form.render();
+				
+				layui.form.on('select(version)',function(data){
+					changeModulesTreeByVersion(data.value);
+				});
+				
+				//功能树
+				changeModulesTreeByVersion(function(){
+					for(var i in VERSION_LIST){
+						return i;
+					}
+				}());
+			}
+			//功能树变更
+			function changeModulesTreeByVersion(version){
+				var list = VERSION_LIST[version].list;
+				var html = createModulesTree(list);
+				var ul = $("ul.layui-tree");
+				if(ul[0]){
+					ul.replaceWith(html);
+				}else{
+					$("#modules").append(html);
+				}
+				$("li a").on("click",function(){
+					if(CHECKED_LI){
+						$(CHECKED_LI).removeClass('checked-li');
+					}
+					CHECKED_LI = $(this);
+					$(CHECKED_LI).addClass('checked-li');
+					
+					changeModuleUrl($(this).attr("data"));
+				});
+				$("li a")[0].click();
+			}
+			//创建版本下拉框
+			function createVersionList(){
+				var list = VERSION_LIST,
+					html = [];
+				
+				html.push('<div class="layui-form">');
+				html.push('<div class="layui-form-item">');
+				html.push('<div class="layui-input-block" style="height:38px; margin:10px 13px 0 0;">');
+				html.push('<select lay-filter="version">');
+				for(var i in list){
+					html.push('<option value="' + i + '">' + list[i].version + '</option>');
+				}
+				html.push('</select>');
+				html.push('</div>');
+				html.push('</div>');
+				html.push('</div>');
+				
+				return html.join('');
+				
+			}
+			//创建功能树
+			function createModulesTree(list){
+				var typeList = list,
+					html = [];
+				
+				html.push('<ul class="layui-tree">');
+				
+				for(var i in typeList){
+					html.push('<li><h2>' + typeList[i].typeName + '</h2></li>');
+					
+					var modules = typeList[i].modules;
+					for(var j in modules){
+						html.push(
+							'<li class="site-tree-noicon">' +
+								'<a data="' + modules[j].url + '">' +
+									'<cite>' + modules[j].text + '</cite>' +
+									'<em>' + modules[j].memo + '</em>' +
+								'</a>' +
+							'</li>'
+						);
+					}
+				}
+				
+				html.push('</ul>');
+				
+				return html.join('');
+			}
+			//更改模块路径
+			function changeModuleUrl(url){
+//				uxutil.server.ajax({
+//					dataType: "html",
+//					url:url + '?d=' + new Date().getTime()
+//				},function(data){
+//					var list = data.split('\n');
+//					for(var i in list){
+//						//去掉css和js的引用
+//						if(list[i].indexOf('<script src=') != -1 || list[i].indexOf('<link rel=') != -1){
+//							list[i] = '';
+//						}
+//					}
+//					
+//					$("#content").html(list.join(''));
+//					
+//					$("#contentIframe")
+//				});
+				$("#contentIframe").attr("src",url + '?d=' + new Date().getTime())
+			}
+			
+			//调整页面大小
+			function changeHtmlSize(){
+				var win = $(window),
+					width = win.width(),
+					height = win.height() - 60 - 30;
+				
+				//$(".layui-main").css({"width":width+"px"});
+				$("#modules").css({"min-height":height+"px"});
+				$("#content").css({"min-height":height+"px"});
+				
+//				var contentWidth = width - 220;
+//				if(contentWidth > 899){contentWidth = 899;}
+//				if(contentWidth > 530){
+//					$("#content").css({"width":(contentWidth-21)+"px"});
+//				}else{
+//					$("#content").css({"width":"100%"});
+//				}
+			}
+			$(window).on("resize",function(){
+				changeHtmlSize();
+			});
+			
+			init();
+			changeHtmlSize();
+		});
+	</script>
+</body>
+</html>

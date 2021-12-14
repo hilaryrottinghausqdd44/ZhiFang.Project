@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Tables>
+  <Table TableCName="检验报告单" EName="VIEW_ReportFormFull">
+    <tr>
+      <td ColumnCName="序号" ColumnEName="ReportFormID" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="报告临时编号" ColumnEName="FORMNO" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="送检单位编号" ColumnEName="CLIENTNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="独立实验室" ColumnEName="LABCENTER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="申请单号" ColumnEName="SERIALNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="病历号" ColumnEName="PATNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="姓名" ColumnEName="CNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="年龄" ColumnEName="AGE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="年龄单位" ColumnEName="AGEUNITNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="生日" ColumnEName="BIRTHDAY" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="性别" ColumnEName="GENDERNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="科室" ColumnEName="DEPTNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="病区" ColumnEName="DISTRICTNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="病房" ColumnEName="WARDNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="医生" ColumnEName="DOCTORNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="病床" ColumnEName="BED" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="民族" ColumnEName="FOLKNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="就诊类型" ColumnEName="SICKTYPENAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="样本类型" ColumnEName="SAMPLETYPENAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检验目的" ColumnEName="TESTDEST" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="采样人" ColumnEName="COLLECTER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="采样日期" ColumnEName="COLLECTDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="采样时间" ColumnEName="COLLECTTIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检验类型名称" ColumnEName="TESTTYPENAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="状态编号" ColumnEName="STATUSNO" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="就诊类型代码" ColumnEName="SICKTYPENO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="样本类型代码" ColumnEName="SAMPLETYPENO" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="性别代码" ColumnEName="GENDERNO" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="年龄单位代码" ColumnEName="AGEUNITNO" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="民族代码" ColumnEName="FOLKNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="病区代码" ColumnEName="DISTRICTNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="病房代码" ColumnEName="WARDNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="科室代码" ColumnEName="DEPTNO" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="医生名称代码" ColumnEName="DOCTOR" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="收费类型" ColumnEName="CHARGENO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="费用" ColumnEName="CHARGE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="备注" ColumnEName="FORMMEMO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="签收人" ColumnEName="INCEPTER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="签收日期" ColumnEName="INCEPTDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="签收时间" ColumnEName="INCEPTTIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="小组名称" ColumnEName="SECTIONNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="小组编号" ColumnEName="SECTIONNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检测日期" ColumnEName="TESTDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检验技师" ColumnEName="TECHNICIAN" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检测时间" ColumnEName="TESTTIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="上机日期" ColumnEName="ONLINEDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="上机时间" ColumnEName="ONLINETIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="操作者" ColumnEName="OPERATOR" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="仪器检测样本号" ColumnEName="SAMPLENO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="仪器检测日期" ColumnEName="RECEIVEDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="仪器检测类型" ColumnEName="TESTTYPENO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="操作日期" ColumnEName="OPERDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="操作时间" ColumnEName="OPERTIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="审定人" ColumnEName="CHECKER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="审定日期" ColumnEName="CHECKDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="审定时间" ColumnEName="CHECKTIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="诊断描述" ColumnEName="DIAGNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检验单评语" ColumnEName="FORMCOMMENT" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="打印" ColumnEName="PRINTEXEC" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="('打印')" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="打印次数" ColumnEName="PRINTTIMES" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="(0)" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="来源机器名" ColumnEName="REQUESTSOURCE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="ARTIFICERORDER" ColumnEName="ARTIFICERORDER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="SICKORDER" ColumnEName="SICKORDER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="SICKTYPE" ColumnEName="SICKTYPE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="SLABLE" ColumnEName="SLABLE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义1" ColumnEName="ZDY1" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义2" ColumnEName="ZDY2" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义3" ColumnEName="ZDY3" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义4" ColumnEName="ZDY4" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义5" ColumnEName="ZDY5" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="报告文件类型" ColumnEName="FILETYPE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="报告单文件" ColumnEName="resultfile" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="图片报告文件" ColumnEName="JPGFILE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="PDF报告文件" ColumnEName="PDFFILE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="收费标记" ColumnEName="CHARGEFLAG" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="业务员" ColumnEName="BMANNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检测单位" ColumnEName="CheckName" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检测单位编号" ColumnEName="CheckNo" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="送检单位" ColumnEName="CLIENTNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="套打文件" ColumnEName="TPDFFILE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="套打" ColumnEName="PRINTTEXEC" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+    </tr>
+  </Table>
+  <Table TableCName="检验项目结果" EName="VIEW_ReportItemFull">
+    <tr>
+      <td ColumnCName="申请序号" ColumnEName="ReportFormID" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="项目结果序号" ColumnEName="ReportItemID" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="项目名称" ColumnEName="TESTITEMNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="项目缩写" ColumnEName="TESTITEMSNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="核收日期" ColumnEName="RECEIVEDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="小组编号" ColumnEName="SECTIONNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检测类型编号" ColumnEName="TESTTYPENO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="样本号" ColumnEName="SAMPLENO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="申请项目编号" ColumnEName="PARITEMNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="项目编号" ColumnEName="ITEMNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="原始结果" ColumnEName="ORIGINALVALUE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="报告结果" ColumnEName="REPORTVALUE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="描述" ColumnEName="ORIGINALDESC" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="报告描述" ColumnEName="REPORTDESC" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="状态" ColumnEName="STATUSNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="仪器号" ColumnEName="EQUIPNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="是否修改" ColumnEName="MODIFIED" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="参考值范围" ColumnEName="REFRANGE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="测定日期" ColumnEName="ITEMDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="测定时间" ColumnEName="ITEMTIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="ISMATCH" ColumnEName="ISMATCH" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="结果描述" ColumnEName="RESULTSTATUS" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检测日期" ColumnEName="TESTITEMDATETIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="结果" ColumnEName="REPORTVALUEALL" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="申请项目" ColumnEName="PARITEMNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="申请项目缩写" ColumnEName="PARITEMSNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="排序" ColumnEName="DISPORDER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="项目序号" ColumnEName="ITEMORDER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="单位" ColumnEName="UNIT" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="申请单号" ColumnEName="SERIALNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义1" ColumnEName="ZDY1" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义2" ColumnEName="ZDY2" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义3" ColumnEName="ZDY3" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义4" ColumnEName="ZDY4" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="自定义5" ColumnEName="ZDY5" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="HIS项目编码" ColumnEName="HISORDERNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="申请单临时编号" ColumnEName="FORMNO" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="机构类型" ColumnEName="orgType" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="病例号" ColumnEName="PATNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="姓名" ColumnEName="CNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="性别" ColumnEName="GENDERNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="科室" ColumnEName="DEPTNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="样本类型" ColumnEName="SAMPLETYPENAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="年龄" ColumnEName="AGE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="OPERATOR" ColumnEName="OPERATOR" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="申请日期" ColumnEName="OPERDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="OPERTIME" ColumnEName="OPERTIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="医生" ColumnEName="DOCTORNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="COLLECTER" ColumnEName="COLLECTER" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="采样日期" ColumnEName="COLLECTDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="COLLECTTIME" ColumnEName="COLLECTTIME" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="送检单位编号" ColumnEName="CLIENTNO" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="送检单位" ColumnEName="CLIENTNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检测单位编号" ColumnEName="CheckNo" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="检测单位" ColumnEName="CheckName" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="提示" ColumnEName="ReportValueMSG" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="Yes" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="审定日期" ColumnEName="CHECKDATE" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="3" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="ItemRanNum" ColumnEName="ItemRanNum" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+    </tr>
+  </Table>
+</Tables>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="gb2312"?>
+<NewDataSet>
+    <TableName>
+        <!--库房id   与HIS沟通后，明确库房只有一个，设置默认值即可，此默认值由HIS提供-->
+        <FieldName>FrLocId</FieldName>
+        <CompareFieldName></CompareFieldName>
+        <IsDefault>1</IsDefault>
+        <DefaultValue>TestStorge</DefaultValue>
+    </TableName>
+    <TableName>
+        <!--库房描述   此默认值由HIS提供-->
+        <FieldName>FrLocDesc</FieldName>
+        <CompareFieldName></CompareFieldName>
+        <IsDefault>1</IsDefault>
+        <DefaultValue>TestStorgeMemo</DefaultValue>
+    </TableName>
+    <TableName>
+        <!--接收科室ID  与HIS沟通后，明确科室只有一个，设置默认值即可，此默认值由HIS提供-->
+        <FieldName>ToLocId</FieldName>
+        <CompareFieldName></CompareFieldName>
+        <IsDefault>1</IsDefault>
+        <DefaultValue>TestDept</DefaultValue>
+    </TableName>
+    <TableName>
+        <!--接收科室描述  此默认值由HIS提供-->
+        <FieldName>ToLocDesc</FieldName>
+        <CompareFieldName></CompareFieldName>
+        <IsDefault>1</IsDefault>
+        <DefaultValue>TestDeptMemo</DefaultValue>
+    </TableName>
+    <TableName>
+        <!--订单号 -->
+        <FieldName>No</FieldName>
+        <CompareFieldName>OrderDocNo</CompareFieldName>
+        <IsDefault>0</IsDefault>
+        <DefaultValue></DefaultValue>
+    </TableName>
+</NewDataSet>

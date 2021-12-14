@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodReason" table="[dbo].[Blood_Reason]">
+    <id name="Id" column="[BReaNo]" type="String">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="BReaName" column="[BReaName]" type="String" not-null="false" length="50" />
+    <property name="DispOrder" column="[dispOrder]" type="Int32" not-null="false" length="4" />
+  </class>
+</hibernate-mapping>

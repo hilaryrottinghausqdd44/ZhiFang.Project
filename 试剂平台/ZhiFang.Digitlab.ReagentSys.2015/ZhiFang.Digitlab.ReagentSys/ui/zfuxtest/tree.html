@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>部门选择器</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	 <link rel="stylesheet" type="text/css" href="../css/icon.css"/> 
+    <script type="text/javascript" src="../util/util.js"></script>
+	
+<script src="../zhifangux/DepSelector.js" type="text/javascript"></script>
+
+<script language="javascript" type="text/javascript">
+    Ext.onReady(function(){
+     //一 生成组件
+	     var vartestobj=Ext.create('Ext.zhifangux.DepSelector', {
+	         renderTo: Ext.getBody(),
+	         margin :  '11 10 10 10',
+			 SelectType:0,
+			 layout:'fit',
+			 id:'leftf',
+			 DataServerUrl:'server/MenuTree.json'
+			
+		});
+
+		  var vbj=Ext.create('Ext.zhifangux.DepSelector', {
+	         renderTo: Ext.getBody(),
+	         margin :  '11 10 10 10',
+			 SelectType:1,
+			 id:'rr',
+			 DataServerUrl:'server/MenuTree.json',
+			 SaveServerUrl:'server/MenuTree.json',
+			  listeners:{
+                 OnChanged:function(){ 
+                     alert('当改变后触发');
+                 },
+                  OnClick:function(){ 
+                     alert('单击树节点时触发');
+                 },
+                  OndbClick:function(){ 
+                     alert('双击树节点时触发');
+                 },
+                  OnSave:function(){ 
+                     alert('保存时触发');
+                 },
+                  onCancelCilck:function(){ 
+                     alert('取消时触发');
+                 }
+             }      
+			 
+	 	    
+		});
+		//属性设置,多选方式
+		var SelectType=Ext.create('Ext.Button', {
+			text: '设置多选方式',
+			handler: function() {
+			    var left=Ext.getCmp('leftf');
+			    var LL1=Ext.getCmp('LL1').value;
+			   // alert(LL1);
+                left.SetSelectType(LL1);	
+                left.getLoader();
+	       }
+        });  
+
+	    //属性设置:
+		var mysetTitle=Ext.create('Ext.toolbar.Toolbar', {
+	    width   : 300,
+		height:25,
+		bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+		cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+		border : 0,//边框线显示 true,或隐藏false
+	    items: [
+	        {
+	            xtype    : 'textfield',
+	            name     : 'field1',
+				id:"L1",
+	            emptyText: '多选方式'
+	        },
+			 {
+	            xtype: SelectType,
+	        }
+	    ]
+		});	
+	    //属性设置:后台服务地址
+		var DataServerUrl =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype : 'textfield',id:"L2",emptyText: '设置后台服务地址'},
+			    { xtype : 'button', text: '后台服务地址',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+	
+		 //属性设置:后台保存服务地址
+		var mysetHeight =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        {xtype : 'textfield',id:"my_setHeight",emptyText: '设置后台保存服务地址'},
+				{ xtype: 'button',text: '后台保存服务地址',border : true,//边框线显示 true,或隐藏false
+				handler: function() {
+			
+					}
+		        }
+	        ]
+		});	
+		//属性设置:Width
+		var  SearchField=Ext.create('Ext.toolbar.Toolbar', {
+		    width   :300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L5",emptyText: '宽'},
+			    { xtype: 'button', text: '宽',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+					 var mytest=Ext.getCmp('leftf');
+					 var setWidth=Ext.getCmp('L5').getValue();
+					 mytest.width=parseInt(setWidth);
+					 mytest.insert();
+					
+					 
+
+				 }
+		        }
+		    ]
+		});	
+
+		//属性设置:高
+		var  KeyField=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L6",emptyText: '高'},
+			    { xtype: 'button', text: '高',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+			     
+			    
+				    var mytest=Ext.getCmp('leftf');
+					 var setWidth=Ext.getCmp('L6').getValue();
+					 mytest.height=parseInt(setWidth);
+					 alert(setWidth);
+					 mytest.insert();
+
+				
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:是否显示根节点
+		var  ValueField=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype  : 'textfield',id:"L7",emptyText: '是否显示根节点'},
+			    { xtype  : 'button', text: '是否显示根节点',border : true,//边框线显示 true,或隐藏false
+			     handler : function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:子节点的属性名
+		var  DefaultRootProperty=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L8",emptyText: '子节点的属性名'},
+			    { xtype: 'button', text: '是否显示根节点',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+	
+	    //属性设置:文本（保存）
+		var  okText=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L9",emptyText: '文本（确定）'},
+			    { xtype: 'button', text: '文本（确定）',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp('rr');
+					 var setWidth=Ext.getCmp('L9').getValue();
+					 mytest.okText=setWidth;
+					 
+					 
+					  // var t=Ext.getCmp('t');
+		                //t.setText("sfsg");
+		                
+		                
+					// mytest.insert();
+		             
+				 }
+		        }
+		    ]
+		});	
+	
+	      //属性设置:文本（取消）
+		var  cancelText=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L10",emptyText: '文本（取消）'},
+			    { xtype: 'button', text: '文本（取消）',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp('rr');
+					 var setWidth=Ext.getCmp('L10').getValue();
+					 //mytest.okText=setText(setWidth);
+					// mytest.okText.setText();
+					 mytest.insert();
+		             
+				 }
+		        }
+		    ]
+		});	
+		
+		//方法设置:设置选择方式
+	    var mysetTitleM =Ext.create('Ext.toolbar.Toolbar', {
+            width:300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        {xtype : 'textfield',id:"LL1",emptyText: '选择方式只能是单选和复选'},
+				{ xtype: 'button',text: '设置选择方式',border : true,//边框线显示 true,或隐藏false
+				handler: function() {
+				    var left=Ext.getCmp('rr');
+			        var LL1=Ext.getCmp('LL1').value;
+			        alert(LL1);
+			        left.SetSelectType(LL1);
+                    }
+		        }
+		    ]
+	    });	
+
+		//方法设置:获取选择方式
+		var mygetValueM =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [ 
+				{xtype: 'button',text: '获取选择方式',border : true,//边框线显示 true,或隐藏false
+				   handler: function() {
+				        var left=Ext.getCmp('rr');
+                         alert(left.GetSelectType());
+					 }
+			    }
+			]
+		});	
+		
+	   //方法设置:获取选中值
+		var ReLoad =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [ 
+				{xtype: 'button',text: '获取选中值',border : true,//边框线显示 true,或隐藏false
+				   handler: function() {
+				       var left=Ext.getCmp('rr');
+                       alert(Ext.encode(left.getAllValue()));
+					 }
+			     }
+			]
+		});	
+		
+		 //方法设置:重载
+		var GetCol =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [ 
+				{xtype: 'button',text: '重载',border : true,//边框线显示 true,或隐藏false
+				   handler: function() {
+		
+				       
+				       var right=Ext.getCmp('rr');
+				       right.Reload();
+				       
+                       //alert(Ext.encode(left.GetCol()));
+					 }
+			     }
+			]
+		});	
+		
+		//三:呈现视图
+		var viewport=Ext.create("Ext.container.Viewport",{
+			layout:  'border',//Border布局
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : false,//边框线显示 true,或隐藏false
+	        items: [
+			   {region: 'center',border : false,//边框线显示 true,或隐藏false
+			   layout:'column',
+			       items:[
+				       { xtype:vartestobj},
+				       { xtype:vbj}
+				    ]
+	           },{
+				region: 'east',layout: 'accordion', frame: true,collapsible: true,split: true,width: 320,border : true,//边框线显示 true,或隐藏false
+				items:[
+				    {xtype: 'form',id: 'formtest_Property',autoScroll: true,bodyPadding: 10,collapsed: true,
+					layout: 'column',title: '属性设置,不带复选框为列,测试用例未实现,可配置',
+			        items: [
+		               {xtype: mysetTitle,anchor: '100%'},
+                       {xtype:mysetHeight,anchor: '100%'},
+				       {xtype:DataServerUrl,anchor: '100%'},
+				       {xtype:SearchField,anchor: '100%'},
+				       {xtype:KeyField,anchor: '100%'},
+				       {xtype:ValueField,anchor: '100%'},
+				       {xtype:DefaultRootProperty,anchor: '100%'},
+				       {xtype:okText,anchor: '100%'},
+				       {xtype:cancelText,anchor: '100%'}
+				    ]},
+				   {xtype: 'form',id: 'formtest_Method',autoScroll: true,bodyPadding: 10,collapsed: true,title: '方法设置,带复选框为列为列',
+			        items: [
+						{xtype: mysetTitleM,anchor: '100%'},
+						{xtype:mygetValueM,anchor: '100%'},
+						{xtype:ReLoad,anchor: '100%'},
+						{xtype:GetCol,anchor: '100%'}
+					]
+					},//事件设置
+			        {xtype: 'form',id: 'formtest_Event',autoScroll: true,bodyPadding: 10,collapsed: true, title: '事件设置，带复选框为列',
+			        items: [
+			           
+					]}
+				]}
+			]
+	    });
+				
+     });
+
+ </script>
+</head>
+<body style="text-align:center;">
+<center> 
+</center> 
+</body>
+</html>

@@ -1,0 +1,105 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchSTypeDetailByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchSTypeDetailById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelSTypeDetail',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddSTypeDetail',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateSTypeDetailByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateSTypeDetail',
+
+    		//系统类型明细表   主要定义系统必用的，并且不会发生大的变化的类型   例如包括   1: 员工身份      1、检验人员      2、录入人员，      3、医生      4、护士      5、财务人员      6、物流人员   2: 部分身份      1、检验科      2、检验小组      3、病区      4、病房      5、送检单位      6、外送单位      7、科室      3: 项目身份      1、医嘱项目      2、检验结果项目      3、开单项目      4、计费项目   4: 检测类型      常规，急诊   5: 年龄单位类型      1、年      2、月      3、日      4、小时   6: 性别类型      男，女，新生儿，男转女，女转男      这个表所有的用户系统内容都一样，只是快捷码，名称，显示次次序上允许用户自定义对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'STypeDetail_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'STypeDetail_Id',value:'TSysID表主键ID   就是作为主键，与业务无关'},						 
+						 		     
+				     												 
+						{ key:'STypeDetail_TypeID',value:'类型ID   这个值是由公司管理的，不能随便更改'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_TypeDetailID',value:'类型ID   与类型明细ID共同构成主键。这个值是由公司管理的，不能更改'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_UseCode',value:'代码'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_StandCode',value:'标准代码'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_DeveCode',value:'开发商标准代码   不能改变。   例如 性别，就叫SexType'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_CName',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_EName',value:'英文名称'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_PinYinZiTou',value:'汉字拼音字头   主要用于录入方便'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_Comment',value:'描述'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_DispOrder',value:'显示次序'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'STypeDetail_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'STypeDetail_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'系统类型明细表   主要定义系统必用的，并且不会发生大的变化的类型   例如包括   1: 员工身份      1、检验人员      2、录入人员，      3、医生      4、护士      5、财务人员      6、物流人员   2: 部分身份      1、检验科      2、检验小组      3、病区      4、病房      5、送检单位      6、外送单位      7、科室      3: 项目身份      1、医嘱项目      2、检验结果项目      3、开单项目      4、计费项目   4: 检测类型      常规，急诊   5: 年龄单位类型      1、年      2、月      3、日      4、小时   6: 性别类型      男，女，新生儿，男转女，女转男      这个表所有的用户系统内容都一样，只是快捷码，名称，显示次次序上允许用户自定义',
+    		//主键字段
+    		key:'STypeDetail_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

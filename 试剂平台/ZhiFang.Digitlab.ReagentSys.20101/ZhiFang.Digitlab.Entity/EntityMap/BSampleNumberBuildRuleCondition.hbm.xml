@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="BSampleNumberBuildRuleCondition" table="[dbo].[B_SampleNumberBuildRuleCondition]">
+		<id name="Id" column="[SampleNumberBuildRuleConditionID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="Name" column="[Name]" type="String" not-null="false" length="100" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="ItemIDList" column="[ItemIDList]" type="String" not-null="false" length="1000" />    
+    <property name="RuleLevel" column="[RuleLevel]" type="Int32" not-null="false" length="4" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BNumberBuildRule" class="BNumberBuildRule" lazy="false">
+			<column name="[NumberBuildRuleID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BSampleType" class="BSampleType" lazy="false">
+			<column name="[SampleTypeID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BSickType" class="BSickType" lazy="false">
+			<column name="[SickTypeID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="EPBEquip" class="EPBEquip" lazy="false">
+			<column name="[EquipID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="GMGroup" class="GMGroup" lazy="false">
+			<column name="[GroupID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

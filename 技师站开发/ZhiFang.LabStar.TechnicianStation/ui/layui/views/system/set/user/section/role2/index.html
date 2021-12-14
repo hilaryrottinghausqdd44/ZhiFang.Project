@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>检验中权限</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+    <meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+    <meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">//加载版本号文件
+      document.write("<script type='text/javascript' src='../../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+  </head>
+  <body>
+    <div class="layui-fluid body">
+    	<div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="roletab" id="roletab"  style="margin:0px;padding:0px;height: 100%;">
+        <ul class="layui-tab-title" >
+          <li class="layui-this"><i class="iconfont">&#xe7a4;</i>&nbsp;单选模式</li>
+          <li><i class="iconfont">&#xe670;</i>&nbsp;多选模式</li>
+        </ul>
+        <div class="layui-tab-content" style="background-color:#fff;">
+          <div class="layui-tab-item layui-show">
+				    <div id="single-index"  style="overflow-y:hidden;"></div>
+          </div>
+          <div class="layui-tab-item">
+          	<div id="bata-index"  style="overflow-y:hidden;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    	UIVersion.loadLayui('2.6.8');
+//    UIVersion.loadLayui('2.6.8');
+      UIVersion.getCSS('../../../../../../css/layui.form.sm.all.css');
+      UIVersion.getJS('index.js');</script>
+      
+     <style type="text/css">
+				.layui-table-view{margin:0;}
+				.body{padding:10px;background-color:#fff;}
+				/*.single-index{padding:2px;margin-bottom:2px;border:1px solid #e6e6e6;}*/
+	
+        .layui-form-item .layui-input-inline{float: left; width: 160px; margin-right: 0px;}
+        .layui-form-item .layui-inline{margin-bottom: 2px; margin-right: 0px;}
+        .layui-form-item{margin-bottom: 0px;}
+        
+        .layui-card-body{ padding:2px!important; }
+        .layui-tab-content{ padding:10px!important; }
+		</style>
+  </body>
+</html>

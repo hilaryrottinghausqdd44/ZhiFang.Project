@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>危急值查看</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../css/layui.sm.all.css");
+    </script>
+</head>
+<body>
+
+    <div class="layui-fluid body">
+        <!--功能内容-->
+        <div id="content">
+            <!--功能按钮栏-->
+            <div id="toolbar" class="toolbar"></div>
+            <div class="layui-row">
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                    <!--页签-->
+                    <div id="tab" class="tab">
+                        <div class="layui-row layui-col-space1">
+                            <div class="layui-col-sm9 layui-col-xs12">
+                                <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="tab">
+                                    <ul class="layui-tab-title">
+                                        <li class="layui-this"><i class="layui-icon layui-icon-read"></i> 危急值报告</li>
+                                        <li><i class="layui-icon layui-icon-notice"></i> 危急值电话通知登记</li>
+                                    </ul>
+                                    <div class="layui-tab-content">
+                                        <div class="layui-tab-item layui-show">
+                                            <div id="CVSend"></div>
+                                        </div>
+                                        <div class="layui-tab-item">
+                                            <div id="CVNotice"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-sm3 layui-col-xs12 layui-hide-xs">
+                                <div id="Info"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+    
+	<style type="text/css">
+		.layui-table-view{margin:0;}
+		.body{padding:2px;background-color:#fff;}
+		.toolbar{padding:2px;margin-bottom:2px;border:1px solid #e6e6e6;}
+		.tab{padding:2px;margin-bottom:2px;border:1px solid #e6e6e6;}
+	</style>
+</body>
+</html>

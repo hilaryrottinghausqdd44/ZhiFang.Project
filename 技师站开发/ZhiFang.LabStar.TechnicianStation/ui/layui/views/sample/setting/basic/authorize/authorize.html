@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+	<script type="text/javascript">
+	    UIVersion.getCSS("../../../css/layui.sm.all.css");
+	</script>
+    <style>
+       .myStyle{font-size: 14px!important;}
+	   .layui-form-item .layui-inline{margin-bottom: 0px!important;}
+	   .layui-form-item{ margin-top: 15px;}
+	   .selectAuthorizedcss .layui-form-item {margin-top: 0px!important;}
+    </style>
+</head>
+<body class="myStyle">
+	<div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="authorize_Tab" id="authorize_Tab">
+	        <ul class="layui-tab-title">
+	            <li class="layui-this" lay-id="testconfirm_tab_title0"><i class="iconfont">&#xe7c4;</i>&nbsp;快捷预授权临时(一次性)</li>
+	            <li lay-id="testconfirm_tab_title1"><i class="iconfont">&#xe62c;</i>&nbsp;选择已有授权</li>
+	        </ul>
+	        <div class="layui-tab-content" id="testconfirm_tab_content">
+				<div class="layui-tab-item layui-show">
+					<div class="layui-col-xs12">
+					    <div class="layui-row">
+							<div class="layui-form">
+								<div class="layui-col-xs12">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<div class="layui-form-label" id="authorize_operate_name" style="width: 138px;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-xs12">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<div class="layui-form-label" style="">授权人:</div>
+											<div class="layui-input-inline">
+												<select name="authorize_username" id="authorize_username" lay-search lay-verify="required" autocomplete="new-password" placeholder="必填项" lay-filter='authorize_username'></select>
+											</div>
+											<div class="layui-form-label" style="">密码:</div>
+											<div class="layui-input-inline">
+												<input type="text" class="layui-input layui-hide" id="AuthorizeUserID" autocomplete="new-password" placeholder="授权人员ID">
+												<input type="text" class="layui-input" onFocus="this.type='password'" id="authorize_userpassword" autocomplete="new-password" lay-verify="required" placeholder="必填项">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-xs12">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<div class="layui-form-label" style="">被授权人:</div>
+											<div class="layui-input-inline">
+												<input type="text" class="layui-input" id="authorize_beuser" placeholder="" readonly>
+												<input type="text" class="layui-input layui-hide" id="authorize_beuserid" placeholder="" readonly>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-xs12">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<div class="layui-form-label" style="">授权时间:</div>
+											<div class="layui-input-inline" style="width: 541px;margin-top: -5px;">
+												<input type="radio" lay-filter="authorize_datetimeradio" name="authorize_datetimeradio" id="authorize_datetimeradio1" value="1" title="5分钟">
+												<input type="radio" lay-filter="authorize_datetimeradio" name="authorize_datetimeradio" id="authorize_datetimeradio2" value="2" title="30分钟">
+												<input type="radio" lay-filter="authorize_datetimeradio" name="authorize_datetimeradio" id="authorize_datetimeradio3" value="3" title="2小时">
+												<input type="radio" lay-filter="authorize_datetimeradio" name="authorize_datetimeradio" id="authorize_datetimeradio4" value="4" title="4小时">
+												<input type="radio" lay-filter="authorize_datetimeradio" name="authorize_datetimeradio" id="authorize_datetimeradio5" value="5" title="当日">
+												<!-- <input type="radio" lay-filter="authorize_datetimeradio" name="authorize_datetimeradio" id="authorize_datetimeradio6" value="6" title="自定义"> -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-xs12">
+									<div class="layui-form-item">
+										<div class="layui-form-label" style="">时间范围:</div>
+										<div class="layui-inline">
+											 <input type="text" class="layui-input" id="authorize_datascope1" placeholder="">
+										</div>
+										<div class="layui-inline">
+											<input type="text" class="layui-input" name="authorize_timescope1" id="authorize_timescope1" placeholder="">
+											<!-- <select name="authorize_timescope1" id="authorize_timescope1" lay-verify="authorize_timescope1" ></select> -->
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-xs12">
+									<div class="layui-form-item">
+										<div class="layui-form-label" style=""></div>
+										<div class="layui-inline" style="margin-left: 80px;">
+											 <input type="text" class="layui-input" id="authorize_datascope2" placeholder="">
+										</div>
+										<div class="layui-inline">
+											<input type="text" class="layui-input" name="authorize_timescope2" id="authorize_timescope2" placeholder="">
+											<!-- <select name="authorize_timescope2" id="authorize_timescope2" lay-verify="authorize_timescope2" ></select> -->
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-xs12">
+									<div class="layui-form-item">
+										<div class="layui-row">
+											<div class="layui-col-xs8">
+												<div style="font-size:12px;width:80px;text-align:right;">被授权小组:</div>
+											</div>
+											<div class="layui-col-xs4">
+												<select name="authorize_section_select" id="authorize_section_select" lay-search lay-verify="required" lay-filter='authorize_section_select'></select>
+												 <!-- <select name="authorize_section_select" id="authorize_section_select" lay-verify="authorize_section_select"  lay-search="">
+													 <option value="">更多小组选择</option>
+												 </select> -->
+											</div>
+										</div>
+										<div id="authorize_section_checkbox" style="padding:0 15px;max-height:70px;overflow-y:auto;">
+											<!-- <input type="checkbox" name="isCheckTip" id="isCheckTip" lay-skin="primary" title=""> -->
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-xs12">
+									<div class="layui-form-item">
+										<div class="layui-inline" style="margin-left: 521px;">
+											<!-- <button type="button" id="" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe615;</i>&nbsp;选择更多小组</button> -->
+											<button type="button" id="confirmAuthorizeBut" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe713;</i>&nbsp;确定授权</button>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					</div>
+				</div>
+				<div class="layui-tab-item selectAuthorizedcss">
+					<div class="layui-col-xs12">
+						<div class="layui-row">
+							<div class="layui-col-xs8">
+								<table id="authorizeTable" lay-filter="authorizeTable"></table>
+							</div>
+							<div class="layui-col-xs4">
+								<div class="layui-form">
+									<div class="layui-col-xs12">
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<div class="layui-form-label" style="width: 90px;">授权详细信息:</div>
+												<div class="layui-input-inline">
+													<textarea placeholder="" style="width: 206px;height: 168px!important;margin-left: 15px;" class="layui-textarea" id="authorize_textarea"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12">
+										<div class="layui-form-item">
+											<div style="font-size:12px;width:80px;text-align:right;">被授权小组:</div>
+											<div id="authorize_section_checkbox2" style="padding: 0 15px; max-height: 170px; overflow-y: auto;">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">主键ID:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_Id" id="LisOperateAuthorize_Id">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">授权操作类型:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_OperateType" id="LisOperateAuthorize_OperateType">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">授权人:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_OperateTypeID" id="LisOperateAuthorize_OperateTypeID">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">授权人:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_AuthorizeUserID" id="LisOperateAuthorize_AuthorizeUserID">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">被授权人</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_OperateUserID" id="LisOperateAuthorize_OperateUserID">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">授权人</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_AuthorizeUser" id="LisOperateAuthorize_AuthorizeUser">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">被授权人</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_OperateUser" id="LisOperateAuthorize_OperateUser">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">授权开始时间</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_BeginTime" id="LisOperateAuthorize_BeginTime">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">授权结束时间</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_EndTime" id="LisOperateAuthorize_EndTime">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">授权类型:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_AuthorizeInfo" id="LisOperateAuthorize_AuthorizeInfo">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">授权类型:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_AuthorizeType" id="LisOperateAuthorize_AuthorizeType">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">周一:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_Day1" id="LisOperateAuthorize_Day1">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">周二:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_Day2" id="LisOperateAuthorize_Day2">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">周三:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_Day3" id="LisOperateAuthorize_Day3">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">周四:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_Day4" id="LisOperateAuthorize_Day4">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">周五:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_Day5" id="LisOperateAuthorize_Day5">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">周六:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_Day6" id="LisOperateAuthorize_Day6">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12 layui-hide">
+										<div class="layui-form-item">
+											<div class="layui-form-label" style="">周日:</div>
+											<div class="layui-inline">
+												<input type="text" class="layui-input" name="LisOperateAuthorize_Day0" id="LisOperateAuthorize_Day0">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-xs12">
+									 	<div class="layui-form-item" style="padding: 0 15px;">
+									 		<button type="button" id="usebut" style="margin-top: 20px;" class="layui-btn layui-btn-xs layui-btn-fluid"><i class="iconfont">&#xe713;</i>&nbsp;采用</button>
+									 	</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+    
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('authorize.js');
+    </script>
+</body>
+</html>

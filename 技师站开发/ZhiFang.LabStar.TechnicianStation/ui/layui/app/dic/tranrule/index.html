@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>分发规则设置</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+  	</script> 
+  <style>
+  	  	body{background-color: #FFFFFF;}
+		/*input前存在icon 则加到input里面*/
+        .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+    </style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding:15px 15px 0 15px; margin: 0px;"> 
+   <div class="layui-row"> 
+    <!--站点类型对应小组列表 --> 
+    <div class="layui-col-xs3"> 
+     <div class="layui-form"> 
+      <div class="layui-row"> 
+       <div class="layui-col-xs6"> 
+        <input type="text" id="BHostTypeID" class="layui-input layui-hide" /> 
+        <input type="text" id="BHostTypeCName" placeholder="站点类型" readonly="" autocomplete="off" class="layui-input" /> 
+        <i class="layui-icon layui-icon-triangle-d"></i> 
+       </div> 
+       <div class="layui-btn-xs6"> 
+        <div class="layui-btn-group TranRuleHostSection"> 
+         <button class="layui-btn layui-btn-xs" data-type="add"><i class="iconfont"></i>&nbsp;追加小组</button> 
+        </div> 
+       </div> 
+      </div>
+     </div> 
+     <table id="hostsection_table" lay-filter="hostsection_table"></table> 
+    </div> 
+    <!--分发规则列表 --> 
+    <div class="layui-col-xs6" style="padding-left: 5px;padding-top: 3px;"> 
+    	<div class="layui-btn-group TranRule"> 
+         <button class="layui-btn layui-btn-xs" id="addrlue" data-type="addrlue"><i class="iconfont"></i>&nbsp;新增规则</button> 
+         <button class="layui-btn layui-btn-xs " id="edit" data-type="edit" ><i class="iconfont"></i>&nbsp;编辑</button> 
+         <button class="layui-btn layui-btn-xs layui-bg-orange" id="del" data-type="del" ><i class="layui-icon"></i>删除</button> 
+    	</div> 
+        
+     <table id="tranrule_table" lay-filter="tranrule_table"></table> 
+    </div> 
+    <!--分发规则项目明细列表 --> 
+    <div class="layui-col-xs3" style="padding-left: 5px;padding-top: 3px;"> 
+     	<div class="layui-btn-group TranRuleItem"> 
+         <button class="layui-btn layui-btn-xs" id="additem" data-type="additem"><i class="iconfont"></i>&nbsp;追加项目</button> 
+         <!--<button class="layui-btn layui-btn-xs layui-bg-orange" id="delitem" data-type="del" ><i class="layui-icon"></i>删除</button>--> 
+     	</div> 
+     <table id="ruleitem_table" lay-filter="ruleitem_table"></table> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script> 
+  <style>
+	 .layui-table-view{margin: 1px 0px; }
+	</style>  
+ </body>
+</html>

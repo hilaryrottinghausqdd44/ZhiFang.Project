@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- HTTP 1.0 -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Prevent caching at the proxy server -->
+    <meta http-equiv="expires" content="0">
+    <title>新闻类别维护</title>
+    <script src="../easyui/jquery.min.js"></script>
+    <script src="../easyui/jquery.easyui.min.js"></script>
+    <link href="../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../util/util.js"></script>
+    <script src="../util/util_easyui.js"></script>
+    <script src="NewsType.js?v=1"></script>
+    <style type="text/css">
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+        }
+
+        .fTitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .fItem {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+            .fItem label {
+                display: inline-block;
+                width: 100px;
+            }
+
+            .fItem input {
+                width: 130px;
+            }
+
+            .fItem select {
+                width: 130px;
+            }
+    </style>
+</head>
+<body class="easyui-layout">    
+    <div data-options="region:'center',title:'新闻类别',iconCls:'icon-app-grid-16'">
+        <table  id="dg"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; ">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">禁用</a>
+            </div>
+            <div style="float: right; margin-right: 10px; margin-top: 3px;">
+                <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入编码/名称/简称',searcher:doSearch" style="width:200px;" />
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'east',title:'类别信息',split:true" style="width:300px;" >
+        <div id="formToolBar" toolbar="#toolbar" fit="true">
+            <div id="toolbar" class="datagrid-toolbar">
+                <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" plain="true" data-options="iconCls:'icon-save'">保存</a>
+                <a href="javascript:void(0)" id="cancel"class="easyui-linkbutton" onclick="cancel()" plain="true"data-options="iconCls:'icon-cancel'">取消</a>
+            </div>
+        </div>
+        <!--<div id="dlg" class="easyui-dialog" style="width:590px;height:350px;margin: auto;" buttons="#dlgButtons">-->
+            <form id="fm">
+                <input id='txtId' name="TypeID" type="hidden" value="0" />
+                <table>
+                    <tr>
+                        <td class="fItem" style="float:left;">
+                            <label>名称:</label>
+                            <input id='txtCName' name="CName" class="easyui-textbox" required="true">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left; ">
+                            <label>简称:</label>
+                            <input id="txtSName" name="SName" class="easyui-textbox" style="width:130px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left; ">
+                            <label>简码:</label>
+                            <input id="txtShortCode" name="ShortCode" class="easyui-textbox" style="width:130px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left; ">
+                            <label>是否启用:</label>
+                            <select id="ddlIsUse" name="IsUse" class="easyui-combobox" panelheight=auto editable="false">
+                                <option selected="selected" value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fItem" style="float: left;">
+                            <label>排列次序:</label>
+                            <input id="txtDispOrder" name="DispOrder" class="easyui-textbox">
+                        </td>
+                    </tr>
+                    <tr style="width:99%">
+                        <td class="fItem" style="width:100%">
+                            <label>描述:</label>
+                            <input id="txtMemo" name="Memo" class="easyui-textbox" style="height:60px;width:255px;" data-options="multiline:true">
+                        </td>
+                    </tr>
+                </table>
+                
+            </form>
+        <!--</div>--> 
+        </div>   
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="SuperGroup" table="[dbo].[SuperGroup]">
+    <id name="Id" column="[SuperGroupNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <!--<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />-->
+    <property name="CName" column="[CName]" type="String" not-null="false" length="40" />
+    <property name="ShortName" column="[ShortName]" type="String" not-null="false" length="10" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="10" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="UseCode" column="[UseCode]" type="String" not-null="false" length="50" />
+    <property name="StandCode" column="[StandCode]" type="String" not-null="false" length="50" />
+    <property name="DeveCode" column="[DeveCode]" type="String" not-null="false" length="50" />
+    <property name="UserNo" column="[UserNo]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	 <link rel="stylesheet" type="text/css" href="../css/icon.css"/> 
+	 
+    <script type="text/javascript" src="../zhifangux/DateTime.js"></script>
+	 <script type="text/javascript" src="../zhifangux/DateIntervals.js"></script>
+	 
+   
+    <script type="text/javascript">
+    Ext.onReady(function () {
+    var LabField='';
+        var form1 = Ext.create('Ext.panel.Panel', {
+        layout:'absolute',
+        containerScroll : true,//是否支持滚动条 
+        renderTo: Ext.getBody(),
+        title: '',
+        id:'id',
+        height:600,
+        width:830,
+        border:false, 
+        layout: 'column',
+        items: [
+             {xtype: 'panel',layout:'absolute',x: 10,y: 10,width:400,height: 100, title: '日期区间格式',
+              items: [
+                 { xtype: 'dateintervals',dateFormat:'Y-m-d',x:10,y:10,id:'DateFormat',name:'c',labelWidth:60,fieldLabel:'起始日期:',
+                 fieldLabelTwo: '结束日期:',width:320,layoutType:'vbox'
+                },{ xtype: 'button',text: '获取日期区间值',x:236,y:36,
+                 handler: function(){
+                     var t= Ext.getCmp('DateFormat');
+                     alert(t.getValue());
+                 }
+				 }
+             ]},
+             {xtype: 'panel',x: 20,y: 10,width:400,height: 100,title: '日期时间格式',
+             items: [
+                { xtype: 'datetimefield',LabField: '日期时间:',x:10,y:10,id:'xx'},
+                { xtype: 'button',text: '获取日期时间值',x:250,y:-13,
+                 handler: function(){
+                     var t= Ext.getCmp('xx');
+                     alert(t.GetValue());
+                 }
+             }]
+              
+           },
+           
+            {
+               xtype: 'panel',
+               x: 10,
+               y: 20,
+               width:400,
+               height: 100,
+               title: '小时制',
+                  items: [
+                { xtype: 'datetimefield',LabField: '时间:',TimeFormat:'g:i A',x:10,y:10,id:'ga'},
+                { xtype: 'button',text: '获取时间值',x:180,y:-13,
+                 handler: function(){
+                   var t= Ext.getCmp('ga');
+                    alert(t.GetValue());
+                 }
+                 }
+                
+              ]
+           },
+           {
+               xtype: 'panel',
+               x: 20,
+               y: 20,
+               width:400,
+               height: 100,
+               title: '时间',
+                items: [
+                 { xtype: 'datetimefield',LabField: '时间:',TimeFormat:'h:i',x:10,y:10,id:'g'},
+                 { xtype: 'button',text: '获取时间值',x:180,y:-13,
+                  handler: function(){
+                      var t= Ext.getCmp('g');
+                      alert(t.GetValue());
+                  }
+                }
+              ]
+           },
+             {
+               xtype: 'panel',
+               x: 10,
+               y: 30,
+               width:400,
+               height: 100,
+			   layout:'absolute',
+               title: '方法测试用列,以日期格式为列',
+			   items: [
+                {
+                    xtype: 'textfield',
+                    x: 10,
+                    y: 10,
+                    width: 100,
+                    fieldLabel: '',
+					id:'txtdate',
+					value:' '
+					
+                },
+              
+                {
+                    xtype: 'textfield',
+                    x: 10,
+                    y: 40,
+                    width: 100,
+                    fieldLabel: '',
+					id:'cs',
+					emptyText: '时间格式与设置的格式一致'
+                },
+                {
+                    xtype: 'button',
+                    x: 130,
+                    y: 10,
+                    text: '设置文本',
+					handler: function(){
+                           var t= Ext.getCmp('DateFormat');
+                           var txtdate=  Ext.getCmp('txtdate');
+						   LabField1=txtdate.value;
+						   t.SetLabField(LabField1);
+                     }
+                },
+                {
+                    xtype: 'button',
+                    x: 220,
+                    y: 10,
+                    text: '获取文本方法',
+				    handler: function(){
+                           var t= Ext.getCmp('DateFormat');
+                           alert(t.GetLabField());
+                     }
+                },
+                {
+                    xtype: 'button',
+                    x: 130,
+                    y: 40,
+                    text: '设置日期时间参数',
+					handler: function(){
+                           var t= Ext.getCmp('DateFormat');
+                           var txtdate=  Ext.getCmp('cs');
+						   LabField1=txtdate.value;
+							t.SetValue(LabField1);
+                     }
+                }
+            ]
+           },
+           {
+               xtype: 'panel',
+               x: 20,
+               y: 30,
+               width:400,
+               height: 130,
+               title: '事件测试用列',
+               layout:'column',
+                items: [
+                { xtype: 'datetimefield',DateFormat:'Y-m-d' ,x:10,y:10,id:'fg',name:'c',LabFieldWidth:160,
+                 LabField: '当日期控件改变时触发:',
+                   listeners:{
+				       //公开的事件
+						OnChanged:function(){
+							alert("日期控件改变时触发事件");
+						}
+				   }
+                 },
+                 { xtype: 'datetimefield',LabField: '时间:',TimeFormat:'h:i',x:10,y:20,LabFieldWidth:160,
+                 LabField: '当时间控件改变时触发:',
+                   listeners:{
+				       //公开的事件
+						OnChanged:function(){
+							alert("时间控件改变时触发事件");
+						}
+				   }
+                 },
+                  { xtype: 'datetimefield',LabField: '日期时间:',x:10,y:30,LabFieldWidth:160,
+                 LabField: '当日期时间控件改变时触发:',
+                   listeners:{
+				       //公开的事件
+						OnChanged:function(){
+							alert("日期时间控件改变时触发事件");
+						}
+				   }
+                 }
+              ]
+           },
+            {
+               xtype: 'panel',
+               x: 10,
+               y: 60,
+               width:820,
+               layout:'absolute',
+               height: 150,
+               title: '属性设置,以日期格式为列，测试用例未实现，可配置',
+                items: [
+                {
+                    xtype: 'textfield',
+                    x: 10,
+                    y: 10,
+                    width:100,
+                    fieldLabel: '',
+                    id:'vv',
+					emptyText: '设置文本'
+                },
+                {
+                    xtype: 'button',
+                    x: 120,
+                    y: 10,
+                    width:90,
+                    text: '文本',
+                    handler: function(){
+	                    var t= Ext.getCmp('DateFormat');
+	                    var t1= Ext.getCmp('vv');
+							//   y=t1.value;
+                         t.LabField=t1.value;
+						 alert(t.LabField);
+						
+						 
+                    }
+                    
+                },
+                {
+                    xtype: 'textfield',
+                    x: 270,
+                    y: 10,
+                    id:'R31',
+                    width:100,
+                    fieldLabel: ''
+                },
+                {
+                    xtype: 'button',
+                    x: 380,
+                     width:90,
+                    y: 10,
+                    text: '文本宽度',
+                    handler: function(){
+	                    var t= Ext.getCmp('DateFormat');
+	                     var t1= Ext.getCmp('R31').value;
+					     t.LabFieldWidth=t1;
+					   // t.setWidth(100);
+                    }
+                },
+                {
+                    xtype: 'textfield',
+                    x: 10,
+                    y: 50,
+                    width:100,
+                    fieldLabel: ''
+                    
+                    
+                },
+                {
+                    xtype: 'button',
+                    x: 120,
+                    y: 50,
+                     width:90,
+                    text: '文本对齐方式'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 270,
+                    y: 50,
+                    width:100,
+                    fieldLabel: ''
+                },
+                {
+                    xtype: 'button',
+                    x: 380,
+                    y: 50,
+                     width:90,
+                    text: '日期时间值'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 520,
+                    y: 50,
+                    width:100,
+                    fieldLabel: ''
+                },
+                {
+                    xtype: 'button',
+                    x: 630,
+                     width:90,
+                    y: 50,
+                    text: '日期格式'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 10,
+                    width:100,
+                    y: 90,
+                    fieldLabel: ''
+                },
+                {
+                    xtype: 'button',
+                   x: 120,
+                    y: 90,
+                     width:90,
+                    text: '时间格式'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 520,
+                    y: 10,
+                    width:100,
+                    fieldLabel: ''
+                },
+                {
+                    xtype: 'button',
+                    x: 630,
+                    width:90,
+                    y: 10,
+                    text: '时间布距'
+                }
+            ]
+           }
+       ]
+           
+        });
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E769F10-C35B-4DB3-A375-578C4091E6B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IDAO.RBAC</RootNamespace>
+    <AssemblyName>ZhiFang.IDAO.RBAC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess_SQL.cs" />
+    <Compile Include="IDBCityDao.cs" />
+    <Compile Include="IDBCountryDao.cs" />
+    <Compile Include="IDBDegreeDao.cs" />
+    <Compile Include="IDBEducationLevelDao.cs" />
+    <Compile Include="IDBHealthStatusDao.cs" />
+    <Compile Include="IDBMaritalStatusDao.cs" />
+    <Compile Include="IDBNationalityDao.cs" />
+    <Compile Include="IDBPoliticsStatusDao.cs" />
+    <Compile Include="IDBProfessionalAbilityDao.cs" />
+    <Compile Include="IDBProvinceDao.cs" />
+    <Compile Include="IDBSexDao.cs" />
+    <Compile Include="IDBTDAppComponentsDao.cs" />
+    <Compile Include="IDBTDAppComponentsOperateDao.cs" />
+    <Compile Include="IDBTDAppComponentsRefDao.cs" />
+    <Compile Include="IDBTDAppPictureDao.cs" />
+    <Compile Include="IDBTDModuleTypeDao.cs" />
+    <Compile Include="IDBTDPictureTypeConDao.cs" />
+    <Compile Include="IDBTDPictureTypeDao.cs" />
+    <Compile Include="IDDepartmentDao.cs" />
+    <Compile Include="IDDepartmentUserDao.cs" />
+    <Compile Include="IDDoctorDao.cs" />
+    <Compile Include="IDHRDeptDao.cs" />
+    <Compile Include="IDPUserDao.cs" />
+    <Compile Include="IDRBACEmpRolesDao_SQL.cs" />
+    <Compile Include="IDRBACRoleModuleDao_SQL.cs" />
+    <Compile Include="IDRBACRoleDao_SQL.cs" />
+    <Compile Include="IDRBACUserDao_SQL.cs" />
+    <Compile Include="IDHREmployeeDao_SQL.cs" />
+    <Compile Include="IDSServiceClientDao.cs" />
+    <Compile Include="IDRBACModuleDao_SQL.cs" />
+    <Compile Include="IDSServiceClientDao_SQL.cs" />
+    <Compile Include="IDHRDeptEmpDao.cs" />
+    <Compile Include="IDHRDeptIdentityDao.cs" />
+    <Compile Include="IDHRDeptDao_SQL.cs" />
+    <Compile Include="IDHREmpIdentityDao.cs" />
+    <Compile Include="IDHREmployeeDao.cs" />
+    <Compile Include="IDHRPositionDao.cs" />
+    <Compile Include="IDRBACEmpOptionsDao.cs" />
+    <Compile Include="IDRBACEmpRolesDao.cs" />
+    <Compile Include="IDRBACModuleDao.cs" />
+    <Compile Include="IDRBACModuleOperDao.cs" />
+    <Compile Include="IDRBACPreconditionsDao.cs" />
+    <Compile Include="IDRBACRoleDao.cs" />
+    <Compile Include="IDRBACRoleModuleDao.cs" />
+    <Compile Include="IDRBACRoleRightDao.cs" />
+    <Compile Include="IDRBACRowFilter.cs" />
+    <Compile Include="IDRBACUserDao.cs" />
+    <Compile Include="IDSLogDao.cs" />
+    <Compile Include="IDSServiceClientlevelDao.cs" />
+    <Compile Include="IDSTypeDao.cs" />
+    <Compile Include="IDSTypeDetailDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Base\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

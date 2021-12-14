@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>配置列表项</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!--<link rel="stylesheet" href="../../../../../admin/layuiadmin/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../../../../admin/layuiadmin/style/admin.css" media="all" />-->
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+</head>
+<body>
+    <div class="myStyle">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-col-sm12">
+                <!--<div class="layui-card">-->
+                    <!--<div class="layui-card-body" style="overflow:auto;">-->
+                        <table id="mainTable" lay-filter="mainTable"></table>
+                        <!--是否使用-->
+                        <script type="text/html" id="IsUseTpl">
+                            <input type="checkbox" name="IsUse" title="" lay-skin="primary" lay-filter="IsUse" {{ d.IsUse ? 'checked' : '' }}>
+                        </script>
+                        <!--是否隐藏-->
+                        <script type="text/html" id="IsHideTpl">
+                            <input type="checkbox" name="IsHide" title="" lay-skin="primary" lay-filter="IsHide" {{ d.IsHide ? 'checked' : '' }}>
+                        </script>
+                        <!--是否排序-->
+                        <script type="text/html" id="IsOrderTpl">
+                            <input type="checkbox" name="IsOrder" title="" lay-skin="primary" lay-filter="IsOrder" {{ d.IsOrder ? 'checked' : '' }}>
+                        </script>
+                    <!--</div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <!--formItemConfigTable表格头工具 -->
+    <script type="text/html" id="Toolbar">
+        <button class="layui-btn layui-btn-sm" lay-event="add">新增配置项</button>
+        <button class="layui-btn layui-btn-sm layui-bg-blue" lay-event="edit">保存编辑项</button>
+        <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="del">删除选中项</button>
+    </script>
+    <!--<script src="../../../../../admin/layuiadmin/layui/layui.js"></script>
+    <script type="text/javascript" src="../../../../../config/system.js"></script>-->
+    <script type="text/javascript">UIVersion.loadLayui('2.5.6');</script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

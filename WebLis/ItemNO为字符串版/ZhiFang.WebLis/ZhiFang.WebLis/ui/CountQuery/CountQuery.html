@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../util/common.js"></script>
+    <script type="text/javascript" src="CountQuery.js"></script>
+</head>
+<body class="easyui-layout">
+<!--查询栏-->
+<div data-options="region:'north'" style="height: 70px;padding-top: 4px;padding-left:2px;background-color: #eeeeee " border="false">
+    <div style="height: 63px;float: left;">
+        <div style="height: 30px;">
+            送检单位:
+            <input id="cmbClient" type="cmb" class="easyui-combobox" >
+            医生:
+            <input id="cmbDoctor" type="cmb" class="easyui-combobox">
+            姓名: 
+            <input id="txtCName" type="text" class="easyui-textbox">
+            病历号:
+            <input id="txtPatNo" type="text" class="easyui-textbox">
+            申请单号:
+            <input id="txtNRequestFormNo" type="text" class="easyui-textbox">
+
+        </div>
+        <div style="height: 30px;">
+            条码号:
+            <input id="txtBarCode" type="text" class="easyui-textbox">
+            状态:
+            <select id="WeblisFlag" type="text" class="easyui-combobox" name="orderStatue" style="width: 70px"
+                    data-options="panelHeight:73">
+                <option value="-1" selected="true">全部</option>
+                <option value="5">已签收</option>
+                <option value="10">已报告</option>
+            </select>
+            开单时间:
+            <input id="OperDateStart" type="text" class="easyui-datebox" style="width: 94px">
+            -
+            <input id="OperDateEnd" type="text" class="easyui-datebox" style="width: 94px;" >
+            <!--采样时间:-->
+          <!--  <input id="CollectDateStart" type="text" class="easyui-datebox" style="width: 94px;">
+            -
+            <input id="CollectDateEnd" type="text" class="easyui-datebox" style="width: 94px;">-->
+        </div>
+    </div>
+    <div style="height: 63px;width: 85px;float: left;">
+        <a id="ltnSearch" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true"
+           style="height: 45px;width: 60px;margin: 9px 10px 9px 10px;">查询</a>
+    </div>
+
+</div>
+<!--列表区-->
+<div data-options="region:'center'" border="false">
+    <table id="tbNRequestFormList"></table>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>样本送达</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+    <link rel="stylesheet" href="../../../../../src/layui/dist/css/layui.css" media="all" /> 
+  <link rel="stylesheet" href="../css.css" media="all" /> 
+  <script type="text/javascript" src="../../../../../src/jquery-1.11.1.min.js"></script> 
+  <script type="text/javascript" src="../../../../../src/layui/dist/layui.js"></script> 
+  <script type="text/html" id="toolbarDemo">
+	  <div class="layui-btn-container">
+	  		   <button class="layui-btn layui-btn-sm" lay-event="test"><i class="layui-icon layui-icon-delete  layuiadmin-button-btn"></i>测试</button>
+
+	   <button class="layui-btn layui-btn-sm" lay-event="clearData"><i class="layui-icon layui-icon-delete  layuiadmin-button-btn"></i>清空</button>
+	  </div>
+	</script> 
+ </head> 
+ <body class="layui-layout-body"> 
+   <div class="layui-row layui-col-space15"> 
+    <div class="layui-col-md12"> 
+     <div class="layui-card"> 
+      <div class="layui-card-body"> 
+       <div class="row"> 
+        <div class="layui-form  layuiadmin-card-header-auto" style="padding-top: 15px;"> 
+         <div class="layui-form-item"> 
+          <div class="layui-inline"> 
+           <label class="layui-form-label">条码号</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="txtBarCode" id="txtBarCode" placeholder="条码号" autocomplete="off" class="layui-input" /> 
+           </div> 
+          </div> 
+          <div class="layui-inline" id="TransportCel"> 
+           <label class="layui-form-label">运送人</label> 
+           <div class="layui-input-block"> 
+            <input type="text" id="txtTransport" placeholder="运送人" autocomplete="off" class="layui-input" /> 
+           </div> 
+          </div> 
+          <div class="layui-inline"> 
+           <input type="text" readonly="" name="txtNum" id="txtNum" placeholder="" class="layui-input txtborder" style="color: #0000FF;font-size:xx-large;font-weight:bold; border: 0px;outline:none;cursor: pointer;" value="" /> 
+          </div> 
+         </div> 
+        </div> 
+        <table id="LAY-sample-service" lay-filter="LAY-sample-service"></table> 
+       </div> 
+       <div class="row"> 
+        <textarea name="txtBarcode2" id="txtBarcode2" placeholder="" class="layui-textarea" style="height:40px;padding: 2px; color: #0000FF; font-size: large; font-weight:bold;"></textarea> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  <script type="text/javascript" src="../../../../config/system.js"></script> 
+  <script type="text/javascript" src="list.js"></script>  
+ </body>
+</html>

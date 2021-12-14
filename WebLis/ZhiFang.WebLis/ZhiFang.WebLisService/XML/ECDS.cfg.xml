@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <!-- DBUtility,ECDS.Common公用部分-->
+  
+  <!-- 定义数据库类型,注意所有的id都不能修改，只能修改Ename-->
+  <DataBaseType>
+    <!-- SqlServer数据库-->
+    <Type id="1" Ename ="SqlServer" ></Type>
+    <!-- Oracle数据库-->
+    <Type id="2" Ename ="Oracle"></Type>
+    <!-- SyBase数据库-->
+    <Type id="3" Ename ="SyBase"></Type>
+    <!-- DB2数据库-->
+    <Type id="4" Ename ="DB2"></Type>
+    <!-- Access数据库-->
+    <Type id="5" Ename ="Access"></Type>
+
+  </DataBaseType>
+  
+  <!-- 数据库驱动类型-->
+  <DBDriverType>
+    <!-- 使用DBSQLConnection-->
+    <Type id="1" Ename="MSSql"></Type>
+    <!-- 使用DBOLEDBConnection-->
+    <Type id="2" Ename="OleDB"></Type>
+    <!-- 使用DBAESConnection-->
+    <Type id="3" Ename="SyBase"></Type>
+    <!--使用DBOracleConnection -->
+    <Type id="4" Ename="Oracle"></Type>
+    <!--使用DBOLEDBConnection -->
+    <Type id="5" Ename="Odbc"></Type>
+  </DBDriverType>
+
+  <!-- DBUtility,ECDS.Common公用部分结束-->
+
+  <!-- DBUtility部分-->
+  <DBSetting>
+    <!-- 是否开启数据库事务:true or false-->
+    <Transaction>true</Transaction>
+    <!-- 是否记录日志-->
+    <Log>true</Log>
+    
+  </DBSetting>
+
+  <!-- DBUtility部分结束-->
+
+
+  <!-- ECDS.Common部分-->
+  
+  <ConnectionString>
+    <!-- Web.Config文件中的连接字符串是否加密或者加密状态,true or false-->
+    <ConnStringEncrypt>false</ConnStringEncrypt>
+    <!-- 默认数据库连接字符串名称（在Web.Config中connectionStrings节配置的名称,区分大小写）-->
+    <DefaultConnName>ConnectionString</DefaultConnName>
+
+    
+  </ConnectionString>
+  
+  <!-- ECDS.Common部分结束-->
+</Config>

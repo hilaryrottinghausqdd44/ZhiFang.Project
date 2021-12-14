@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9DEC2E5E-9E6E-4BE3-9656-61568D209545}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Entity.Common</RootNamespace>
+    <AssemblyName>ZhiFang.Entity.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReagentSys.OrderTrace\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityObject\B_Dict.cs" />
+    <Compile Include="EntityObject\B_DictTree.cs" />
+    <Compile Include="EntityObject\B_DictType.cs" />
+    <Compile Include="EntityObject\B_Parameter.cs" />
+    <Compile Include="EntityObject\F_File.cs" />
+    <Compile Include="EntityObject\F_File_Attachment.cs" />
+    <Compile Include="EntityObject\F_File_CopyUser.cs" />
+    <Compile Include="EntityObject\F_File_Interaction.cs" />
+    <Compile Include="EntityObject\F_File_Operation.cs" />
+    <Compile Include="EntityObject\F_File_ReadingLog.cs" />
+    <Compile Include="EntityObject\F_File_ReadingUser.cs" />
+    <Compile Include="EntityObject\SC_Attachment.cs" />
+    <Compile Include="EntityObject\SC_Interaction.cs" />
+    <Compile Include="EntityObject\SC_Operation.cs" />
+    <Compile Include="EnumType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\BDict.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BDictTree.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BDictType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\BParameter.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_Attachment.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_CopyUser.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_Interaction.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_Operation.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_ReadingLog.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_ReadingUser.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SCAttachment.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SCInteraction.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SCOperation.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{f1096968-0d4e-4fba-b427-45173b78f476}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{61f57d84-74d3-409f-aa8b-e4dcacf5438c}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SYSCache\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

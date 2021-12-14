@@ -1,0 +1,89 @@
+Ext.Loader.setConfig({
+	enabled:true,
+	//disableCaching:false,
+	disableCachingParam:'v',
+	//获取当前版本参数
+	getDisableCachingParamValue:function(){
+		//return Ext.Date.now();
+		return JShell.System.JS_VERSION;
+	},
+	paths:{
+		'Shell':JShell.System.Path.UI,
+		'Ext.ux':JShell.System.Path.UI + '/extjs/ux'
+	}
+});
+//获取当前版本参数
+//getDisableCachingParamValue:function(){
+//	return Ext.Date.now();
+//}
+//Loader.config.getDisableCachingParamValue();
+//getDisableCachingParamValue:function(){return Ext.Date.now();}
+Ext.onReady(function(){	
+	Ext.QuickTips.init();//初始化后就会激活提示功能
+	JShell.Window = Ext.create('Ext.window.Window',{
+		layout:'fit',
+		header:false,
+		border:false,
+		margin:0,
+		padding:0,
+		modal:true,
+		plain:true,
+		draggable:false,
+		resizable:false,
+		closeAction:'hide',
+		close:function(){return JShell.Window.closeFun();}
+	});
+	
+	var view = Ext.create('Shell.class.sysbase.main.Viewport');
+	
+	//屏蔽右键菜单
+	Ext.getDoc().on("contextmenu",function(e){e.stopEvent();});
+	//键盘监听
+	if(document.addEventListener){
+		document.addEventListener("keydown",maskBackspace, true);
+	}else{
+		document.attachEvent("onkeydown",maskBackspace);
+	}
+	function maskBackspace(event){
+		var event = event || window.event; //标准化事件对象
+		var obj = event.target || event.srcElement;
+		var keyCode = event.keyCode ? event.keyCode : event.which ?
+				event.which : event.charCode;
+		if(keyCode == 8){
+			//元素存在&&元素标签名存在&&元素不能只读&&(元素标签名=(input || textarea))，当符合条件时，执行退格键操作，否则不处理
+			if(obj!=null && obj.tagName!=null && !obj.attributes.readonly && (obj.tagName.toLowerCase() == "input"
+				|| obj.tagName.toLowerCase() == "textarea")){
+				event.returnValue = true;//支持IE8及以下版本
+			}else{
+				if(window.event){
+					event.returnValue = false ;//or event.keyCode=0,支持IE8及以下版本
+					if(event.preventDefault){
+						event.preventDefault();//兼容IE9+
+					}
+				}else{
+					event.preventDefault();//for ff
+				}  
+			}  
+		}  
+	}
+	
+	var map = new Ext.KeyMap(document,[{
+		key:[116],//F5
+		fn:function(){},
+		stopEvent: true,
+		scope:this
+	},{
+		key:[37,39,115],//方向键左,右,F4
+		alt:true,
+		fn:function(){},
+		stopEvent:true,
+		scope:this
+	},{
+		key:[82],//ctrl + R
+		ctrl:true,  
+		fn:function(){},
+		stopEvent:true,
+		scope:this
+	}]);  
+	map.enable();
+});

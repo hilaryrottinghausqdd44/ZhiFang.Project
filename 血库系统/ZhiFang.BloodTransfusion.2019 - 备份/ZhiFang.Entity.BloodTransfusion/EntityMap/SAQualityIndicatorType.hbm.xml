@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <!--质量指标类型统计数据源  mutable="false"-->
+  <class name="SPSAQualityIndicatorType">
+    <id name="SerialNo" column="[SerialNo]" type="String" length="60" ></id>
+    <property name="SerialNo" column="[SerialNo]" type="String" not-null="false" length="60" />
+    <property name="QIndicatorTypeId" column="[QIndicatorTypeId]" type="String" not-null="false"/>
+    <property name="QIndicatorTypeCName" column="[QIndicatorTypeCName]" type="String" not-null="false" length="60" />
+    <property name="PhrasesWatchClassID" column="[PhrasesWatchClassID]" type="String" not-null="false" />
+    <property name="PhrasesWatchClassCName" column="[PhrasesWatchClassCName]" type="String" not-null="false" length="60" />
+    <property name="RefuseID" column="[RefuseID]" type="String" not-null="false" />
+    <property name="SickTypeNo" column="[SickTypeNo]" type="String" not-null="false" />
+    <property name="SickTypeCName" column="[SickTypeCName]" type="String" not-null="false" length="60" />
+    <property name="SampleTypeNo" column="[SampleTypeNo]" type="String" not-null="false" />
+    <property name="SampleTypeCName" column="[SampleTypeCName]" type="String" not-null="false" length="60" />
+    <property name="DeptNo" column="[DeptNo]" type="String" not-null="false" />
+    <property name="DeptCName" column="[DeptCName]" type="String" not-null="false" length="100" />
+    <property name="DoctorNo" column="[DoctorNo]" type="String" not-null="false" />
+    <property name="DoctorCName" column="[DoctorCName]" type="String" not-null="false" length="100" />
+    <property name="CollecterID" column="[CollecterID]" type="String" not-null="false" />
+    <property name="Collecter" column="[Collecter]" type="String" not-null="false" length="60" />
+    <property name="CollectTime" column="[CollectTime]" type="DateTime" not-null="false" length="8" />
+    <property name="NurseSendCarrier" column="[NurseSendCarrier]" type="String" not-null="false" length="60" />
+    <property name="NurseSendTime" column="[NurseSendTime]" type="DateTime" not-null="false" length="8" />
+    
+    <property name="FlagDateDelete" column="[FlagDateDelete]" type="DateTime" not-null="false" length="8" />
+    <property name="DistrictNo" column="[DistrictNo]" type="String" not-null="false" />
+    <property name="WardNo" column="[WardNo]" type="String" not-null="false"/>
+  </class>
+  <sql-query name="SP_SA_QualityIndicatorType">
+    <return class="ZhiFang.Entity.BloodTransfusion.SPSAQualityIndicatorType,ZhiFang.Entity.BloodTransfusion">
+      <return-property name="SerialNo" column="SerialNo"/>
+      <return-property name="QIndicatorTypeId" column="QIndicatorTypeId"/>
+      <return-property name="QIndicatorTypeCName" column="QIndicatorTypeCName"/>
+      <return-property name="PhrasesWatchClassID" column="PhrasesWatchClassID"/>
+      <return-property name="PhrasesWatchClassCName" column="PhrasesWatchClassCName"/>
+      <return-property name="RefuseID" column="RefuseID"/>
+      <return-property name="SickTypeNo" column="SickTypeNo"/>
+      <return-property name="SickTypeCName" column="SickTypeCName"/>
+      <return-property name="SampleTypeNo" column="SampleTypeNo"/>
+      <return-property name="SampleTypeCName" column="SampleTypeCName"/>
+      <return-property name="DeptNo" column="DeptNo"/>
+      <return-property name="DeptCName" column="DeptCName"/>
+      <return-property name="DoctorNo" column="DoctorNo"/>
+      <return-property name="DoctorCName" column="DoctorCName"/>
+      <return-property name="CollecterID" column="CollecterID" />
+      <return-property name="Collecter" column="Collecter"/>
+      <return-property name="CollectTime" column="CollectTime"/>
+      <return-property name="NurseSendCarrier" column="NurseSendCarrier"/>
+      <return-property name="NurseSendTime" column="NurseSendTime"/>
+      <return-property name="FlagDateDelete" column="FlagDateDelete"/>
+      <return-property name="DistrictNo" column="DistrictNo"/>
+      <return-property name="WardNo" column="WardNo"/>
+    </return>
+    exec SP_SA_QualityIndicatorType :StartDate,:EndDate,:QIndicatorTypeId,:PhrasesWatchClassID,:RefuseID,:Where,:Order
+  </sql-query>
+</hibernate-mapping>
+

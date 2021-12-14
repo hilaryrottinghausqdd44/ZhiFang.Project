@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>选择任务状态</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="../css/weui.min.css" />
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <script src="../src/jquery.min.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Common/TaskCommon.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/TaskStatusShow.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        .container {
+            width: 100%;
+            height: 100%;
+            -webkit-box-sizing: border-box;
+            position: relative;
+            overflow-y: auto;
+            background-color: #e6e6e6;
+            -webkit-overflow-scrolling: touch; /* liuhx:可以把这整行注释掉对比差别 */
+        }
+
+        ul {
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="appdiv" style="margin-bottom: 0px;  background-color: #fff;  border: 1px solid transparent;  border-radius: 4px;  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05); box-shadow: 0 1px 1px rgba(0, 0, 0, .05);height:96%">
+        <!-- Default panel contents -->
+        <div id="panel-head" class="panel-heading text-center"><span id="cancelspan" style="float:left">后退</span><span id="panel-head" style="float:none">选择任务状态</span></div>
+        <div>
+            <nav class="container">
+                <div id="alltitle" class="weui_cells_title"></div>
+                <div id="allcells" class="weui_cells weui_cells_access">
+                    <a class="weui_cell" id="all_a">
+                        <div class="weui_cell_hd"><img src="../img/icon/MarkGreen.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>全部任务</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                </div>
+                <div id="applytitle" class="weui_cells_title"></div>
+                <div id="applycells" class="weui_cells weui_cells_access">
+                    <a class="weui_cell" id="apply_a">
+                        <div class="weui_cell_hd"><img src="../img/icon/MarkBlue.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>任务申请中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="tmpapply_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>暂存</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="oneauditback_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>一审退回</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                </div>
+                <div id="oneaudittitle" class="weui_cells_title"></div>
+                <div id="oneauditcells" class="weui_cells weui_cells_access">
+                    <a class="weui_cell" id="oneaudit_a">
+                        <div class="weui_cell_hd"><img src="../img/icon/MarkBlue.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>任务一审中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="applyed_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>申请提交</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="oneauditing_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>一审中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="twoauditback_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>二审退回</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                </div>
+                <div id="twoaudittitle" class="weui_cells_title"></div>
+                <div id="twoauditcells" class="weui_cells weui_cells_access">
+                    <a class="weui_cell" id="twoaudit_a">
+                        <div class="weui_cell_hd"><img src="../img/icon/MarkBlue.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>任务二审中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="oneaudited_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>一审通过</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="twoauditing_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>二审中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="publishback_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>分配退回</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                </div>
+                <div id="publishtitle" class="weui_cells_title"></div>
+                <div id="publishcells" class="weui_cells weui_cells_access">
+                    <a class="weui_cell" id="publish_a">
+                        <div class="weui_cell_hd"><img src="../img/icon/MarkBlue.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>任务分配中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="twoaudited_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>二审通过</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="publishing_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>分配中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="executstop_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>不执行</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                </div>
+                <div id="executtitle" class="weui_cells_title"></div>
+                <div id="executcells" class="weui_cells weui_cells_access">
+                    <a class="weui_cell" id="execut_a">
+                        <div class="weui_cell_hd"><img src="../img/icon/MarkBlue.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>任务执行中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="published_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>分配完成</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="executing_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>执行中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="checkback_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>验收退回</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                </div>
+                <div id="checktitle" class="weui_cells_title"></div>
+                <div id="checkcells" class="weui_cells weui_cells_access">
+                    <a class="weui_cell" id="check_a">
+                        <div class="weui_cell_hd"><img src="../img/icon/MarkBlue.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>任务验收中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="executed_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>执行完成</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="checking_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>验收中</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                </div>
+                <div id="historytitle" class="weui_cells_title"></div>
+                <div id="historycells" class="weui_cells weui_cells_access">
+                    <a class="weui_cell" id="checked_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>已验收</p>
+                        </div>
+                        <div class="weui_cell_ft">
+
+                        </div>
+                    </a>
+                    <a class="weui_cell" id="stoped_a">
+                        <div class="weui_cell_bd weui_cell_primary" style="height:20px;font-size:15px">
+                            <p>已终止</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

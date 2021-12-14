@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>取单时间段表单</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+   <meta name="Cache-Control" content="no-cache">
+   <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+ </head> 
+ <body> 
+    <div class="layui-card"> 
+     <div class="layui-card-body"> 
+      <div class="layui-form" id="LBReportDateRule" lay-filter="LBReportDateRule">
+      	<div class="layui-form-item layui-hide"> 
+        <label class="layui-form-label">分组id</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBReportDateRule_Id" id="LBReportDateRule_Id" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+       <div class="layui-form-item"> 
+        <label class="layui-form-label">开始星期</label> 
+        <div class="layui-input-block"> 
+        <select name="LBReportDateRule_BeginWeekDay" required="" lay-verify="required" lay-search="" placeholder="必填项" ><option value="">请选择</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option> </select>
+        </div> 
+       </div> 
+         <div class="layui-form-item"> 
+        <label class="layui-form-label">结束星期</label> 
+        <div class="layui-input-block"> 
+         <select name="LBReportDateRule_EndWeekDay" required="" lay-verify="required" lay-search="" placeholder="必填项" ><option value="">请选择</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option> </select>
+        </div> 
+       </div> 
+        <div class="layui-form-item"> 
+        <label class="layui-form-label">开始时间</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBReportDateRule_BeginTime" id="LBReportDateRule_BeginTime" lay-verify="time" placeholder="HH:ss" autocomplete="off" class="layui-input">
+        </div> 
+       </div> 
+         <div class="layui-form-item"> 
+        <label class="layui-form-label">结束时间</label> 
+        <div class="layui-input-block"> 
+        <input type="text" name="LBReportDateRule_EndTime" id="LBReportDateRule_EndTime" lay-verify="time" placeholder="HH:ss" autocomplete="off" class="layui-input">
+        </div> 
+       </div> 
+       <div class="layui-form-item"> 
+        <div class="layui-input-block"> 
+         <button class="layui-btn layui-btn-xs" lay-submit="" lay-filter="save" id="save"><i class="iconfont"></i>&nbsp;保存</button> 
+         <button id="cancel" class="layui-btn layui-btn-primary layui-btn-xs"><i class="iconfont">&#xe674</i>&nbsp;取消</button> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+  </div>
+    <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('ruleform.js');
+	</script>  
+ </body>
+</html>

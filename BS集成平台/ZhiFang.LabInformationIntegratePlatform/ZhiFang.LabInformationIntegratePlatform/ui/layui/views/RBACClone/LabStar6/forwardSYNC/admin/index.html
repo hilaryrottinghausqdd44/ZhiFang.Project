@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>从集成平台同步组织机构到检验之星6.6</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<link rel="stylesheet" href="../../../../../../src/layui/dist/css/layui.css" media="all">
+</head>
+<body>
+	<div class="layui-tab layui-tab-brief" lay-filter="jinayan6.6">
+		<ul class="layui-tab-title">
+			<li id="hrdept" class="layui-this">HRDept</li>
+			<li id="hremployee">HREmployee</li>
+		</ul>
+		<div class="layui-tab-content" style="height: 100px;">
+			<div class="layui-tab-item layui-show">
+				<div id="hrdepttoolbar" class="layui-btn-container">
+					<button type="button" id="showhrdeptbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+					<button type="button" id="stnchrdeptbutton" class="layui-btn layui-btn-sm">抓取并同步</button>								
+				</div>				
+				<iframe id="hrdeptiframe"  src="../hrdept/hrdept.html"  style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+			</div>
+			<div class="layui-tab-item">
+				<div id="hremployeertoolbar">
+					<button type="button" id="showhremployeebutton" class="layui-btn layui-btn-sm">抓取数据</button>
+					<button type="button" id="stnchremployeebutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+					<div class="layui-form"  style="display: inline-block;">
+						<div class="layui-input-inline" id="checkboxs">
+					      <input type="checkbox" name="Doctor" lay-skin="primary" title="Doctor">
+					      <input type="checkbox" name="Puser" lay-skin="primary" title="Puser">
+					      <input type="checkbox" name="NPuser" lay-skin="primary" title="NPuser">	
+						</div>
+					</div>	
+				</div>
+				<iframe id="hremployeeiframe" src="../hremployee/hremployee.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+			</div>
+		</div>
+	</div>
+
+	<script src="../../../../../../src/layui/dist/layui.js" charset="utf-8"></script>
+	<script type="text/javascript">
+			UIVersion.getJS('../../../../../config/system.js');
+			UIVersion.getJS('index.js');
+		</script>
+</body>
+</html>

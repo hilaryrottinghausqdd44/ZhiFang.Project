@@ -1,0 +1,1 @@
+  Alter table LB_ItemRangeExp alter column AlarmColor nvarchar(50) NULL  --ÒÇÆ÷²Î¿¼·¶Î§µÍÖµ

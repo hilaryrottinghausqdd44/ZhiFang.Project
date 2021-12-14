@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>开发笔记</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../../src/layui/src/css/layui.css" media="all">
+	<link rel="stylesheet" href="../../../src/layui/src/css/modules/code.css" media="all">
+	<link rel="stylesheet" href="../style.css" media="all">
+	<link rel="shortcut icon" href="../../../../logo-16.png">
+</head>
+<body>
+	<div class="layui-fluid" style="padding: 0 15px 15px 15px;">
+		<h1 class="site-h1">开发笔记<a></a></h1>
+		
+		<!--js中let和var定义变量的区别-->
+		<div class="site-title">
+			<fieldset><legend>
+				<a name="use">js中let和var定义变量的区别</a>
+				<a class="editor-anchor" name="1" anchor-name="let和var区别">&nbsp;</a>
+			</legend></fieldset>
+		</div>
+		<blockquote class="site-text layui-elem-quote">
+			js中let和var定义变量的区别
+		</blockquote>
+		<div class="site-text">
+			<p>声明后未赋值表现相同</p>
+			<pre class="layui-code" lay-title="代码结构">
+				(function(){
+				    var varTest;
+				    let letTest;
+				    console.log(varTest);//输出undefined
+				    console.log(letTest); //输出undefined
+				}());
+			</pre>
+			
+			<p>使用未声明的变量表现不同</p>
+			<pre class="layui-code" lay-title="代码结构">
+				(function(){
+				    console.log(varTest);//输出undefined(注意要注释掉下面一行才能运行)
+				    console.log(letTest);//直接报错：ReferenceError: letTest is not defined
+				    var varTest = 'test var OK.'
+				    let letTest = 'test let OK.';
+				}());
+			</pre>
+			
+			<p>重复声明同一个变量时表现不同</p>
+			<pre class="layui-code" lay-title="代码结构">
+				(function(){
+				    "use strict";
+				    var varTest = 'test var OK.';
+				    let letTest = 'test let OK.';
+				    var varTest = 'varTest changed.';
+				    let letTest = 'letTest changed.';//直接报错：SyntaxError: Identifier 'letTest' has already been declared
+				    console.log(varTest);//输出varTest changed.(注意要注释掉上面letTest变量的重复声明才能运行)
+				    console.log(letTest);
+				}());
+			</pre>
+			
+			<p>变量作用范围表现不同</p>
+			<pre class="layui-code" lay-title="代码结构">
+				(function(){
+				    var varTest = 'test var OK.';
+				    let letTest = 'test let OK.';
+				    { 
+				        var varTest = 'varTest changed.';
+				        let letTest = 'letTest changed.';
+				    }
+				    console.log(varTest);//输出"varTest changed."，内部"{}"中声明的varTest变量覆盖外部的letTest声明
+				    console.log(letTest); //输出"test let OK."，内部"{}"中声明的letTest和外部的letTest不是同一个变量
+				}());
+			</pre>
+			
+			<p style="margin-top: 10px; margin-right: auto; margin-left: auto;">
+				<strong>备注：</strong>
+			</p>
+			<p style="margin-top: 10px; margin-right: auto; margin-left: auto;">
+				使用&nbsp;<strong>let</strong>&nbsp;语句声明一个变量，该变量的范围限于声明它的块中。&nbsp;&nbsp;可以在声明变量时为变量赋值，也可以稍后在脚本中给变量赋值。&nbsp;&nbsp;
+			</p>
+			<p style="margin-top: 10px; margin-right: auto; margin-left: auto;">
+				使用&nbsp;<strong>let</strong>&nbsp;声明的变量，在声明前无法使用，否则将会导致错误。
+			</p>
+			<p style="margin-top: 10px; margin-right: auto; margin-left: auto;">
+				如果未在&nbsp;<strong>let</strong>&nbsp;语句中初始化您的变量，则将自动为其分配 JavaScript 值&nbsp;<strong>undefined</strong>
+			</p>
+		</div>
+		
+		<!--var、let、const三者的区别-->
+		<div class="site-title">
+			<fieldset><legend>
+				<a name="use">var、let、const三者的区别</a>
+				<a class="editor-anchor" name="2" anchor-name="let、var、const区别">&nbsp;</a>
+			</legend></fieldset>
+		</div>
+		<blockquote class="site-text layui-elem-quote">
+			var、let、const三者的区别
+		</blockquote>
+		<p>1.var定义变量，没有块的概念，可以跨块访问，不能跨函数访问，不初始化出现undefined，不会报错。</p>
+		<p>2.let定义变量，只能在块作用域里访问，也不能跨函数访问，对函数外部无影响。</p>
+		<p>3.const定义常量，只能在块作用域里访问，也不能跨函数访问，使用时必须初始化(即必须赋值)，而且不能修改。</p>
+		<div class="site-text">
+			<pre class="layui-code" lay-title="代码结构">
+				&lt;script type="text/javascript"&gt;
+				// 块作用域
+				{
+				    var a = 1;
+				    let b = 2;
+				    const c = 3;
+				    // c = 4; // 报错，const不能修改
+				    var aa;
+				    let bb;
+				    // const cc; // 报错，必须初始化(即必须赋值)
+				    console.log(a); // 1
+				    console.log(b); // 2
+				    console.log(c); // 3
+				}
+				console.log(a); // 1
+				// console.log(b); // 报错，只能在块作用域里访问
+				// console.log(c); // 报错，只能在块作用域里访问
+				// 函数作用域
+				(function A() {
+				    var d = 5;
+				    let e = 6;
+				    const f = 7;
+				    console.log(d); // 5
+				    console.log(e); // 6  (在同一个{ }中,也属于同一个块，可以正常访问到)
+				    console.log(f); // 7  (在同一个{ }中,也属于同一个块，可以正常访问到)
+				})();
+				// console.log(d); // 报错，不能跨函数访问 
+				// console.log(e); // 报错，不能跨函数访问 
+				// console.log(f); // 报错，不能跨函数访问 
+				&lt;/script&gt;
+			</pre>
+		</div>
+		
+		<!--CSS样式-->
+		<div class="site-title">
+			<fieldset><legend>
+				<a name="use">CSS样式</a>
+				<a class="editor-anchor" name="3" anchor-name="CSS样式">&nbsp;</a>
+			</legend></fieldset>
+		</div>
+		<blockquote class="site-text layui-elem-quote">
+			CSS样式
+		</blockquote>
+		<p>cursor:pointer;/*经过效果显示为手形，兼容IE或其它浏览器*/</p>
+		<div class="site-text">
+			
+		</div>
+		
+	</div>
+	<script src="../../../src/layui/src/layui.js"></script>
+	<script src="../../config/system.js"></script>
+	<script src="../util.js"></script>
+	<script>
+		layui.extend({
+			uxutil: 'ux/util'
+		}).use(['uxutil','code'],function(){
+			layui.code();
+		});
+	</script>
+</body>
+</html>

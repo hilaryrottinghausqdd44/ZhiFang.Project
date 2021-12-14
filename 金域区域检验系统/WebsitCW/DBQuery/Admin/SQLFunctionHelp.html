@@ -1,0 +1,613 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+<meta name=ProgId content=VisualStudio.HTML>
+<meta name=Originator content="Microsoft Visual Studio .NET 7.1">
+</head>
+<body>
+<P><A 
+href="http://blog.csdn.net/Teng_s2000/archive/2006/02/27/611113.aspx">&nbsp;<FONT 
+size=5>Sql Server基本函数</FONT></A>&nbsp;
+<DIV></DIV><STRONG><FONT color=#3399ff><FONT color=#003300>1.字符串函数</FONT> 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 长度与分析用</FONT></STRONG> </P>
+<DIV class=postText>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+  <P>datalength(Char_expr) 返回字符串包含字符数,但不包含后面的空格 
+  <BR>substring(expression,start,length) 不多说了,取子串 <BR>right(char_expr,int_expr) 
+  返回字符串右边int_expr个字符 <BR>字符操作类 </P>
+  <P>upper(char_expr) 转为大写 </P>
+  <P>lower(char_expr) 转为小写 </P>
+  <P>space(int_expr) 生成int_expr个空格 </P>
+  <P>replicate(char_expr,int_expr)复制字符串int_expr次 </P>
+  <P>reverse(char_expr) 反转字符串 </P>
+  <P>stuff(char_expr1,start,length,char_expr2) 将字符串char_expr1中的从 </P>
+  <P>start开始的length个字符用char_expr2代替 </P>
+  <P>ltrim(char_expr) rtrim(char_expr) 取掉空格 <BR></P>
+  <P>ascii(char) char(ascii) 两函数对应,取ascii码,根据ascii吗取字符 <BR></P>
+  <P>字符串查找 </P>
+  <P>charindex(char_expr,expression) 返回char_expr的起始位置 </P>
+  <P>patindex("%pattern%",expression) 返回指定模式的起始位置,否则为0 <BR></P></BLOCKQUOTE>
+<P><STRONG><FONT size=4>2.数学函数</FONT></STRONG> </P>
+<P>abs(numeric_expr) 求绝对值 </P>
+<P>ceiling(numeric_expr) 取大于等于指定值的最小整数 </P>
+<P>exp(float_expr) 取指数 </P>
+<P>floor(numeric_expr) 小于等于指定值得最大整数 </P>
+<P>pi() 3.1415926......... </P>
+<P>power(numeric_expr,power) 返回power次方 </P>
+<P>rand([int_expr]) 随机数产生器 </P>
+<P>round(numeric_expr,int_expr) 安int_expr规定的精度四舍五入 </P>
+<P>sign(int_expr) 根据正数,0,负数,,返回+1,0,-1 </P>
+<P>sqrt(float_expr) 平方根 <BR></P>
+<P>3.日期函数 </P>
+<P>getdate() 返回日期 </P>
+<P>datename(datepart,date_expr) 返回名称如 June </P>
+<P>datepart(datepart,date_expr) 取日期一部份 </P>
+<P>datediff(datepart,date_expr1.dateexpr2) 日期差 </P>
+<P>dateadd(datepart,number,date_expr) 返回日期加上 number </P>
+<P>上述函数中datepart的 </P>
+<P>写法 取值和意义 </P>
+<P>yy 1753-9999 年份 </P>
+<P>qq 1-4 刻 </P>
+<P>mm 1-12 月 </P>
+<P>dy 1-366 日 </P>
+<P>dd 1-31 日 </P>
+<P>wk 1-54 周 </P>
+<P>dw 1-7 周几 </P>
+<P>hh 0-23 小时 </P>
+<P>mi 0-59 分钟 </P>
+<P>ss 0-59 秒 </P>
+<P>ms 0-999 毫秒 <BR></P>
+<P>日期转换 </P>
+<P>convert() </P>
+<P>4.系统函数&nbsp;</P>
+<P>suser_name() 用户登录名 </P>
+<P>user_name() 用户在数据库中的名字 </P>
+<P>user 用户在数据库中的名字 </P>
+<P>show_role() 对当前用户起作用的规则 <BR></P>
+<P>db_name() 数据库名 </P>
+<P>object_name(obj_id) 数据库对象名 </P>
+<P>col_name(obj_id,col_id) 列名 </P>
+<P>col_length(objname,colname) 列长度 </P>
+<P>valid_name(char_expr) 是否是有效标识符</P>
+<P>APP_NAME() --函数返回当前执行的应用程序的名称</P>
+<P>select app_name()<BR>COALESCE() --函数返回众多表达式中第一个非NULL 
+表达式的值<BR>COL_LENGTH(&lt;'table_name'&gt;, &lt;'column_name'&gt;) 
+--函数返回表中指定字段的长度值<BR>COL_NAME(<TABLE_ID></TABLE_ID>, <COLUMN_ID></COLUMN_ID>) 
+--函数返回表中指定字段的名称即列名<BR>DATALENGTH() 
+--函数返回数据表达式的数据的实际长度<BR>DB_ID(['database_name']) 
+--函数返回数据库的编号<BR>DB_NAME(database_id) --函数返回数据库的名称<BR>HOST_ID() 
+--函数返回服务器端计算机的名称<BR>HOST_NAME() --函数返回服务器端计算机的名称</P>
+<P>select host_name()<BR>IDENTITY(<DATA_TYPE></DATA_TYPE>[, seed increment]) [AS 
+column_name])<BR>--IDENTITY() 函数只在SELECT INTO 语句中使用用于插入一个identity 
+column列到新表中<BR>/*select identity(int, 1, 1) as column_name<BR>into 
+newtable<BR>from oldtable*/<BR>ISDATE() 
+--函数判断所给定的表达式是否为合理日期<BR>ISNULL(<CHECK_EXPRESSION></CHECK_EXPRESSION>, 
+<REPLACEMENT_VALUE></REPLACEMENT_VALUE>) --函数将表达式中的NULL 值用指定值替换<BR>ISNUMERIC() 
+--函数判断所给定的表达式是否为合理的数值<BR>NEWID() --函数返回一个UNIQUEIDENTIFIER 
+类型的数值<BR>NULLIF(<EXPRESSION1></EXPRESSION1>, 
+<EXPRESSION2></EXPRESSION2>)<BR>--NULLIF 函数在expression1 与expression2 相等时返回NULL 
+值若不相等时则返回expression1 的值<BR></P><BR>
+<P class=MsoNormal style="TEXT-ALIGN: left; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt"><A 
+href="http://blog.csdn.net/Teng_s2000/archive/2006/02/27/611113.aspx">&nbsp;<SPAN 
+style="FONT-SIZE: 18pt; mso-bidi-font-size: 12.0pt">Sql Server</SPAN><SPAN 
+lang=EN-US style="FONT-SIZE: 18pt; mso-bidi-font-size: 12.0pt"><SPAN 
+lang=EN-US>基本函数</SPAN></SPAN></A>&nbsp; <?xml:namespace prefix = o 
+/>
+<o:p></o:p></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt" 
+align=left><B><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; COLOR: #003300; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt"><SPAN 
+style="mso-list: Ignore">1.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><B><SPAN 
+style="FONT-SIZE: 12pt; COLOR: #003300; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">字符串函数</SPAN></B><B><SPAN 
+style="FONT-SIZE: 12pt; COLOR: #3399ff; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt"> 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></B></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-list: l0 level2 lfo1; tab-stops: list 42.0pt" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt"><SPAN 
+style="mso-list: Ignore">a)<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><B><SPAN 
+style="FONT-SIZE: 12pt; COLOR: #3399ff; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">长度与分析用</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt"> 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">datalength(Char_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">返回字符串包含字符数<SPAN 
+lang=EN-US>,</SPAN>但不包含后面的空格 <SPAN lang=EN-US>substring(expression,start,length) 
+</SPAN>不多说了<SPAN lang=EN-US>,</SPAN>取子串 <SPAN 
+lang=EN-US>right(char_expr,int_expr) </SPAN>返回字符串右边<SPAN 
+lang=EN-US>int_expr</SPAN>个字符 <SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-list: l0 level2 lfo1; tab-stops: list 42.0pt" 
+align=left><B><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; COLOR: #3399ff; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt"><SPAN 
+style="mso-list: Ignore">b)<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><B><SPAN 
+style="FONT-SIZE: 12pt; COLOR: #3399ff; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">字符操作类 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></B></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">upper(char_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">转为大写 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">lower(char_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">转为小写 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">space(int_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">生成<SPAN 
+lang=EN-US>int_expr</SPAN>个空格 <SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">replicate(char_expr,int_expr)</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">复制字符串<SPAN 
+lang=EN-US>int_expr</SPAN>次 <SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">reverse(char_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">反转字符串 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">stuff(char_expr1,start,length,char_expr2) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">将字符串<SPAN 
+lang=EN-US>char_expr1</SPAN>中的从 <SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">start</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">开始的<SPAN 
+lang=EN-US>length</SPAN>个字符用<SPAN lang=EN-US>char_expr2</SPAN>代替 <SPAN 
+lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">ltrim(char_expr) 
+rtrim(char_expr) </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">取掉空格 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">ascii(char) 
+char(ascii) </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">两函数对应<SPAN 
+lang=EN-US>,</SPAN>取<SPAN lang=EN-US>ascii</SPAN>码<SPAN 
+lang=EN-US>,</SPAN>根据<SPAN lang=EN-US>ascii</SPAN>吗取字符 <SPAN 
+lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-list: l0 level2 lfo1; tab-stops: list 42.0pt" 
+align=left><B><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; COLOR: #3399ff; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt"><SPAN 
+style="mso-list: Ignore">c)<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><B><SPAN 
+style="FONT-SIZE: 12pt; COLOR: #3399ff; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">字符串查找 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></B></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">charindex(char_expr,expression) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">返回<SPAN 
+lang=EN-US>char_expr</SPAN>的起始位置 <SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">patindex("%pattern%",expression) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">返回指定模式的起始位置<SPAN 
+lang=EN-US>,</SPAN>否则为<SPAN lang=EN-US>0 
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: left; mso-pagination: widow-orphan" 
+align=left><B><SPAN lang=EN-US 
+style="FONT-SIZE: 13.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-size: 12.0pt">2.</SPAN></B><B><SPAN 
+style="FONT-SIZE: 13.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-size: 12.0pt">数学函数</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt"> 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">abs(numeric_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">求绝对值 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">ceiling(numeric_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">取大于等于指定值的最小整数 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">exp(float_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">取指数 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">floor(numeric_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">小于等于指定值得最大整数 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">pi() 
+3.1415926......... 
+<o:p></o:p></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">power(numeric_expr,power) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">返回<SPAN 
+lang=EN-US>power</SPAN>次方 <SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">rand([int_expr]) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">随机数产生器 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">round(numeric_expr,int_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">安<SPAN 
+lang=EN-US>int_expr</SPAN>规定的精度四舍五入 <SPAN 
+lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">sign(int_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">根据正数<SPAN 
+lang=EN-US>,0,</SPAN>负数<SPAN lang=EN-US>,,</SPAN>返回<SPAN lang=EN-US>+1,0,-1 
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">sqrt(float_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">平方根 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: left; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">3.</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">日期函数 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">getdate() 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">返回日期 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">datename(datepart,date_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">返回名称如<SPAN 
+lang=EN-US> June 
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">datepart(datepart,date_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">取日期一部份 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">datediff(datepart,date_expr1.dateexpr2) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">日期差 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">dateadd(datepart,number,date_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">返回日期加上<SPAN 
+lang=EN-US> number 
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">上述函数中<SPAN 
+lang=EN-US>datepart</SPAN>的 写法 取值和意义 <SPAN 
+lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">yy 
+1753-9999 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">年份 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">qq 
+1-4 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">刻 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">mm 
+1-12 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">月 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">dy 
+1-366 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">日 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">dd 
+1-31 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">日 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">wk 
+1-54 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">周 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">dw 
+1-7 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">周几 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">hh 
+0-23 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">小时 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">mi 
+0-59 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">分钟 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">ss 
+0-59 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">秒 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">ms 
+0-999 </SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">毫秒 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">日期转换 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">convert() 
+<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: left; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">4.</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">系统函数<SPAN 
+lang=EN-US>&nbsp;
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">suser_name() 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">用户登录名 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">user_name() 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">用户在数据库中的名字 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">user 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">用户在数据库中的名字 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">show_role() 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">对当前用户起作用的规则 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">db_name() 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">数据库名 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">object_name(obj_id) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">数据库对象名 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">col_name(obj_id,col_id) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">列名 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">col_length(objname,colname) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">列长度 
+<SPAN lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">valid_name(char_expr) 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">是否是有效标识符<SPAN 
+lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">APP_NAME() 
+--</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">函数返回当前执行的应用程序的名称<SPAN 
+lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">select 
+app_name()<BR>COALESCE() --</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">函数返回众多表达式中第一个非<SPAN 
+lang=EN-US>NULL </SPAN>表达式的值<SPAN 
+lang=EN-US><BR>COL_LENGTH(&lt;'table_name'&gt;, &lt;'column_name'&gt;) 
+--</SPAN>函数返回表中指定字段的长度值<SPAN lang=EN-US><BR>COL_NAME(, ) 
+--</SPAN>函数返回表中指定字段的名称即列名<SPAN lang=EN-US><BR>DATALENGTH() 
+--</SPAN>函数返回数据表达式的数据的实际长度<SPAN lang=EN-US><BR>DB_ID(['database_name']) 
+--</SPAN>函数返回数据库的编号<SPAN lang=EN-US><BR>DB_NAME(database_id) 
+--</SPAN>函数返回数据库的名称<SPAN lang=EN-US><BR>HOST_ID() --</SPAN>函数返回服务器端计算机的名称<SPAN 
+lang=EN-US><BR>HOST_NAME() --</SPAN>函数返回服务器端计算机的名称<SPAN 
+lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 52.5pt; TEXT-ALIGN: left; mso-pagination: widow-orphan; mso-para-margin-left: 5.0gd" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">select 
+host_name()<BR>IDENTITY([, seed increment]) [AS column_name])<BR>--IDENTITY() 
+</SPAN><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">函数只在<SPAN 
+lang=EN-US>SELECT INTO </SPAN>语句中使用用于插入一个<SPAN lang=EN-US>identity 
+column</SPAN>列到新表中<SPAN lang=EN-US><BR>/*select identity(int, 1, 1) as 
+column_name<BR>into newtable<BR>from oldtable*/<BR>ISDATE() 
+--</SPAN>函数判断所给定的表达式是否为合理日期<SPAN lang=EN-US><BR>ISNULL(, ) 
+--</SPAN>函数将表达式中的<SPAN lang=EN-US>NULL </SPAN>值用指定值替换<SPAN 
+lang=EN-US><BR>ISNUMERIC() --</SPAN>函数判断所给定的表达式是否为合理的数值<SPAN 
+lang=EN-US><BR>NEWID() --</SPAN>函数返回一个<SPAN lang=EN-US>UNIQUEIDENTIFIER 
+</SPAN>类型的数值<SPAN lang=EN-US><BR>NULLIF(, )<BR>--NULLIF </SPAN>函数在<SPAN 
+lang=EN-US>expression1 </SPAN>与<SPAN lang=EN-US>expression2 </SPAN>相等时返回<SPAN 
+lang=EN-US>NULL </SPAN>值若不相等时则返回<SPAN lang=EN-US>expression1 </SPAN>的值<SPAN 
+lang=EN-US>
+<o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: left; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt">
+<o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+lang=EN-US>
+<o:p>&nbsp;</o:p></SPAN></P></DIV>
+
+
+
+</body>
+</html>

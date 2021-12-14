@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <title>人员管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--不缓存缓存页面-->
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link href="../../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="EmpList.js?v=1"></script>
+</head>
+
+<body class="easyui-layout">
+    <div data-options="region:'west',title:'部门树',split:true" style="width:200px;">
+        <div data-options="region:'north'" style="height: 32px">
+            <div style="padding: 2px; border: 0px solid #95B8E7;">
+                <a href="#" id="TreeExpandAll" class="easyui-linkbutton"
+                    data-options="plain:true,iconCls:'icon-arrow_out'">展开</a> <a href="#" id="TreeCollapseAll"
+                    class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-arrow_in'">收缩</a> <a href="#"
+                    id="TreeReload" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'">刷新</a>
+            </div>
+        </div>
+        <div data-options="region:'center'">
+            <ul id="Tree" class="easyui-tree">
+            </ul>
+        </div>
+    </div>
+    <div data-options="region:'center',title:'部门人员列表',iconCls:'icon-app-grid-16'">
+        <table id="dg"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; ">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="doSearch()" plain="true"
+                    data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true"
+                    data-options="iconCls:'icon-add'">新增</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="edit()" plain="true"
+                    data-options="iconCls:'icon-edit'">编辑</a>
+            </div>
+            <div style="float: right; margin-right: 10px; margin-top: 3px;">
+                <input id="txtSearchKey" name="itemkey" class="easyui-searchbox"
+                    data-options="prompt:'请输入编码/名称',searcher:doSearch" style="width:200px;" />
+            </div>
+        </div>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width:580px;height:400px;margin: auto;" closed="true"
+        buttons="#dlgButtons ">
+        <form id="fm">
+            <Table width="100%" border="0">
+                <tr>
+                    <td width="50%" style="padding:25px 5px 5px 20px;">
+                        <label>所属部门:</label>
+                        <input id="PDeptName" class="easyui-textbox" style="width: 150px"
+                            data-options="editable:false" />
+                        <div style="display: none;"><input id="PDeptId" class="easyui-textbox" style="width: 200px;"
+                                data-options="editable:false " /></div>
+                    </td>
+                    <td width="50%" style="padding:25px 5px 5px 20px;">
+                        <label>编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                        <input id="txtSN" type="text" name="SN" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%" style="padding: 5px 5px 5px 20px;">
+                        <label>中文名称:</label>
+                        <input id="txtCName" type="text" name="CName" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" />
+                    </td>
+                    <td>
+                        <label>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</label>
+                        <select id="Sex" class="easyui-combobox" name="Sex" style="width:50px;"
+                            data-options="required:true,editable:false">
+                            <option value="1" selected>男</option>
+                            <option value="2">女</option>
+                            <option value="3">未知</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%" style="padding: 5px 5px 5px 20px;">
+                        <label>出生日期:</label>
+                        <input id="brith" type="text" name="ShortCode" class="easyui-datebox" style="width: 150px;"
+                            data-options="required:true,editable:false" />
+                    </td>
+                    <td>
+                        <!-- <label>启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用:</label>
+                        <select id="Enabled" class="easyui-combobox" name="Enabled" style="width:70px;"
+                            data-options="required:true,editable:false">
+                            <option value="1" selected>启用</option>
+                            <option value="0">禁用</option>
+                        </select> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%" style="padding: 5px 5px 5px 20px;" colspan="2">
+                        <label>帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</label>
+                        <input id="txtAccount" type="text" name="Account" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%" style="padding: 5px 5px 5px 20px;">
+                        <label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                        <input id="txtPWD" name="PWD" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" type="password" />
+                    </td>
+                    <td>
+                        <label>再次输入密码:</label>
+                        <input id="txtDPWD" name="DPWD" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" type="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 5px 5px 5px 20px;">
+                        <label>描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述:</label>
+                        <input id="txtMemo" name="Memo" class="easyui-textbox" style="height:60px;width:255px;"
+                            data-options="multiline:true" />
+                    </td>
+                </tr>
+            </Table>
+            <div id="dlgButtons">
+                <div align="center">
+                    <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()"
+                        data-options="iconCls:'icon-save'">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton"
+                        onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="dlgedit" class="easyui-dialog" style="width:580px;height:400px;margin: auto;" closed="true"
+        buttons="#dlgeditButtons ">
+        <form id="fmedit">
+            <Table width="100%" border="0">
+                <tr>
+                    <td width="50%" style="padding: 5px 5px 5px 20px;">
+                        <label>中文名称:</label>
+                        <input id="txtCName1" type="text" name="txtCName1" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" />
+                    </td>
+                    <td width="50%" style="padding: 5px 5px 5px 20px;">
+                        <label>编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                        <input id="txtSN1" type="text" name="txtSN1" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%" style="padding: 5px 5px 5px 20px;">
+                        <label>出生日期:</label>
+                        <input id="brith1" type="text" name="brith1" class="easyui-datebox" style="width: 150px;"
+                            data-options="required:true,editable:false" />
+                    </td>
+                    <td>
+                        <label>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</label>
+                        <select id="Sex1" class="easyui-combobox" name="Sex1" style="width:50px;"
+                            data-options="required:true,editable:false">
+                            <option value="1" selected>男</option>
+                            <option value="2">女</option>
+                            <option value="3">未知</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr style="display: none;">
+                    <td width="50%" style="padding: 5px 5px 5px 20px;">
+                        <label>帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</label>
+                        <input id="txtAccount1" type="text" name="txtAccount1" class="easyui-textbox"
+                            style="width: 150px;" data-options="required:true" />
+                    </td>
+                    <td>
+                        <!-- <label>启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用:</label>
+                        <select id="Enabled" class="easyui-combobox" style="width:70px;"
+                            data-options="required:true,editable:false">
+                            <option value="1" selected>启用</option>
+                            <option value="0">禁用</option>
+                        </select> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 5px 5px 5px 20px;">
+                        <label>描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述:</label>
+                        <input id="txtMemo1" name="txtMemo1" class="easyui-textbox" style="height:60px;width:255px;"
+                            data-options="multiline:true" />
+                    </td>
+                </tr>
+            </Table>
+            <div id="dlgeditButtons">
+                <div align="center">
+                    <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()"
+                        data-options="iconCls:'icon-save'">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton"
+                        onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="dlgpwd" class="easyui-dialog" style="width:300px;height:230px;margin: auto;" closed="true"
+        buttons="#dlgpwdButtons ">
+        <form id="fmpwd">
+            <Table width="100%" border="0">
+                <tr>
+                    <td style="padding: 5px 5px 5px 20px;" colspan="2">
+                        <label>帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</label>
+                        <input id="txtAccountResetPwd" type="text" name="txtAccountResetPwd" class="easyui-textbox"
+                            style="width: 150px;" data-options="readonly:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px 5px 5px 20px;">
+                        <label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                        <input id="txtPWDResetPwd" name="txtPWDResetPwd" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" type="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px 5px 5px 20px;">
+                        <label>再次输入密码:</label>
+                        <input id="txtDPWDResetPwd" name="txtDPWDResetPwd" class="easyui-textbox" style="width: 150px;"
+                            data-options="required:true" type="password" />
+                    </td>
+                </tr>
+            </Table>
+            <div id="dlgpwdButtons">
+                <div align="center">
+                    <a href="javascript:void(0)" id="saveResetPwd" class="easyui-linkbutton" onclick="savepwd()"
+                        data-options="iconCls:'icon-save'">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton"
+                        onclick="javascript: $('#dlgpwd').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="dlgrole" class="easyui-dialog" style="width:580px;height:400px;margin: auto;" closed="true"
+        buttons="#dlgroleButtons ">
+        <table id="dgrole"></table>
+        <div id="toolbarrole" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; ">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saverole()" plain="true"
+                    data-options="iconCls:'icon-save'">保存</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton"
+                    onclick="javascript: $('#dlgrole').dialog('close')" plain="true"
+                    data-options="iconCls:'icon-remove'">关闭</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

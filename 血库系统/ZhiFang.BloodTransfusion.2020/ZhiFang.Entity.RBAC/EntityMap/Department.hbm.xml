@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.RBAC" assembly="ZhiFang.Entity.RBAC">
+    <class name="Department" table="[dbo].[Department]">
+      <id name="Id" column="[DeptNo]" type="Int64">
+        <generator class="assigned" />
+      </id>
+      <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+      <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+      <property name="ParentID" column="[ParentID]" type="Int64" not-null="false" length="8" />
+      <property name="CName" column="[CName]" type="String" not-null="false" length="40" />
+      <property name="ShortName" column="[ShortName]" type="String" not-null="false" length="20" />
+      <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="20" />
+      <property name="DeptPhoneCode" column="[DeptPhoneCode]" type="String" not-null="false" length="50" />
+      <property name="UrgentState" column="[UrgentState]" type="String" not-null="false" length="50" />
+      <property name="PatState" column="[PatState]" type="String" not-null="false" length="50" />
+      <property name="Code1" column="[code_1]" type="String" not-null="false" length="50" />
+      <property name="Code2" column="[code_2]" type="String" not-null="false" length="50" />
+      <property name="Code3" column="[code_3]" type="String" not-null="false" length="50" />
+      <property name="Code4" column="[code_4]" type="String" not-null="false" length="50" />
+      <property name="Code5" column="[code_5]" type="String" not-null="false" length="50" />
+      <property name="Code6" column="[code_6]" type="String" not-null="false" length="50" />
+      <property name="Code7" column="[code_7]" type="String" not-null="false" length="50" />
+      <property name="Code8" column="[code_8]" type="String" not-null="false" length="50" />
+      <property name="Code9" column="[code_9]" type="String" not-null="false" length="50" />
+      <property name="Code10" column="[code_10]" type="String" not-null="false" length="50" />
+      <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+      <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+      <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    </class>
+  </hibernate-mapping>

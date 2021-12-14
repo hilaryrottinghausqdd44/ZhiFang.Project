@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodBReqItem" table="[dbo].[Blood_BReqItem]">
+    <id name="Id" column="[BReqItemID]" type="Int64">
+      <generator class="native" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="BReqFormID" column="[BReqFormID]" type="String" not-null="false" length="40" />
+    <property name="BloodNo" column="[BloodNo]" type="Int32" not-null="false" length="4" />
+    <property name="BloodOrder" column="[BloodOrder]" type="Int32" not-null="false" length="4" />
+    <property name="BReqCount" column="[BReqCount]" type="Double" not-null="false" length="8" />
+    <property name="BPreCount" column="[BPreCount]" type="Double" not-null="false" length="8" />
+    <property name="BOutCount" column="[BOutCount]" type="Double" not-null="false" length="8" />
+    <property name="BloodUnitNo" column="[BloodUnitNo]" type="Int32" not-null="false" length="4" />    
+    <property name="BPresOutFlag" column="[BPresOutFlag]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="50" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="50" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="50" />
+    <property name="Auditflag" column="[Auditflag]" type="Int32" not-null="false" length="4" />
+    <property name="Barcode" column="[Barcode]" type="String" not-null="false" length="50" />
+    <property name="B3Code" column="[B3Code]" type="String" not-null="false" length="50" />
+    <property name="MainSignID" column="[MainSignID]" type="String" not-null="false" length="20" />
+    <property name="MainSigndate" column="[MainSigndate]" type="DateTime" not-null="false" length="8" />
+    <property name="DeptSignID" column="[DeptSignID]" type="String" not-null="false" length="20" />
+    <property name="DeptSigndate" column="[DeptSigndate]" type="DateTime" not-null="false" length="8" />
+    <property name="BReqTypeItemID" column="[BReqTypeItemID]" type="Int32" not-null="false" length="4" />
+    <property name="ReqTimeItem" column="[ReqTimeItem]" type="DateTime" not-null="false" length="8" />
+    <property name="BCCode" column="[BCCode]" type="String" not-null="false" length="20" />
+    <property name="BCNo" column="[BCNo]" type="String" not-null="false" length="20" />
+    <property name="BPreCheckFlag" column="[BPreCheckFlag]" type="Int32" not-null="false" length="4" />
+    <property name="GetCount" column="[getCount]" type="Double" not-null="false" length="8" />
+    <property name="Zlxmbm" column="[zlxmbm]" type="String" not-null="false" length="20" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+
+    <!--<many-to-one name="BloodBReqForm" class="BloodBReqForm" lazy="proxy" >
+      <column name="[BReqFormID]" not-null="false"/>
+    </many-to-one>-->
+    <!--<many-to-one name="Bloodstyle" class="Bloodstyle" lazy="proxy" >
+      <column name="[BloodNo]" not-null="false"/>
+    </many-to-one>-->
+    
+  </class>
+</hibernate-mapping>

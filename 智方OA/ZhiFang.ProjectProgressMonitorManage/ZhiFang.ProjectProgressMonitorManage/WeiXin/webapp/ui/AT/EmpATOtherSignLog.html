@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>其它打卡记录</title>
+    <!--第三方插件-->
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/pullToRefresh.css" />
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/iscroll.js"></script>
+    <script src="../util/pullToRefresh.js"></script>
+    <!--开发代码-->
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Common/ATCommon.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/EmpATOtherSignLog.js" type="text/javascript" charset="UTF-8"></script>
+
+    <style type="text/css" media="all">
+        .scroller li {
+            background-color: #fff;
+        }
+
+        .game-info {
+            padding: 2px 2px;
+            line-height: 30px;
+            color: #333;
+        }
+
+            .game-info p {
+                color: #999;
+            }
+    </style>
+</head>
+<body>
+    <!--must content ul li,or shoupi-->
+    <div id="wrapper">
+        <ul>
+            <li style="border-color:#000;border-style:solid;border-width:1px;display:none">
+            </li>
+        </ul>
+    </div>
+    <div class='panel panel-default' style='margin:1px;display:none'>
+        <div class='panel-heading'>
+            <h3 class='panel-title'>日期：2016-06-01<span class="label label-primary" style="float:right">工作日</span></h3>
+        </div>
+        <div class='panel-body' style='padding:2px;'>
+            <table style='width:100%;border-bottom-style:solid; border-bottom-width:1px; border-color:darkgrey' border='0'>
+                <tr style='margin:2px;height:29px'>
+                    <td rowspan="2" width="70" align="center" valign="middle"><img width="60" src="../img/icon/user.png"></td>
+                    <td width='105' valign='middle'>
+                        <div style='float :left;margin-left:5px;'>签到：</div><div style='float :left;margin-left:5px;vertical-align:middle;' class='text-success'>已打卡</div>
+                    </td>
+                    <td width='75px' style='padding:0px'>
+                        <button type='button' class='btn btn-danger  btn-xs'>迟到</button>
+                    </td>
+                    <td align='left'>
+                        <button type='button' class='btn btn-warning  btn-xs' onclick='alert(1)'>填写说明</button>
+                    </td>
+                </tr>
+                <tr style='margin:2px;height:29px'>
+                    <td>
+                        <div style='float :left;margin-left:5px;'>签到：</div><div style='float :left;margin-left:5px;vertical-align:middle;' class='text-success'>已打卡</div>
+                    </td>
+                    <td>
+                        <button type='button' class='btn btn-danger  btn-xs'>迟到</button>
+                    </td>
+                    <td>
+                        <button type='button' class='btn btn-warning  btn-xs' onclick='alert(1)'>填写说明</button>
+                    </td>
+                </tr>
+                <tr style='margin:2px;height:20px'>
+                    <td width='70' align='center' valign='middle'>
+                        测试测试测
+                    </td>
+                    <td colspan='3'>
+                        <p class='text-warning' style='padding:1px'>123123123</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

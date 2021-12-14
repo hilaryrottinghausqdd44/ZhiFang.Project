@@ -1,0 +1,818 @@
+﻿$(function(){
+	//给datagrid组件扩展行提示方法
+	$.extend($.fn.datagrid.methods,{
+		showColumnRowTooltip:function(taget,row){
+			var t = $(taget);
+			this.initColumnRowTooltip(t,row);
+		},
+		initColumnRowTooltip:function(t,row,tr){
+			var opts = t.datagrid("options"),
+				index = t.datagrid('getRowIndex',row);
+				
+	        tr = tr || t.datagrid("getPanel").find("div.datagrid-view div.datagrid-body table tr.datagrid-row[datagrid-row-index=" + index + "]");
+	        
+	        if(opts.rowTooltip){
+	            var onShow = function(e){
+	                var tt = $(this), text = $.isFunction(opts.rowTooltip) ? opts.rowTooltip.call(tr,index,row) : buildText(row);
+	                tt.tooltip("update",text);
+	            };
+	            tr.each(function(){$(this).tooltip({onShow:onShow});});
+	        } else {
+	            tr.children("td[field]").each(function(){
+	                var td = $(this), field = td.attr("field"), colOpts = t.datagrid("getColumnOption",field);
+	                if(!colOpts || !colOpts.tooltip){return;}
+	                var cell = td.find("div.datagrid-cell"), onShow = function(e){
+	                    var tt = $(this), text = $.isFunction(colOpts.tooltip) ? colOpts.tooltip.call(cell,row[field],index,row) : row[field];
+	                    tt.tooltip("update", text);
+	                };
+	                $(cell).tooltip({onShow:onShow});
+	            });
+	        }
+	        function buildText(row) {
+	            var fields = t.datagrid("getColumnFields"),
+	            	content = $("<table></table>").css({padding:"5px"});;
+	            $.each(fields,function (i,field){
+	            	var colOpts = t.datagrid("getColumnOption",field);
+	                if (!colOpts || !colOpts.field || !colOpts.title){return;}
+	                content.append("<tr><td style='text-align: right; width: 150px;'>" + colOpts.title + ":</td><td style='width: 250px;'>" + row[field] + "</td></tr>");
+	            });
+	            return content;
+	        };
+	    },
+		showCellTip:function(t,data){
+			var rows = t.datagrid("getRows"),
+				opts = t.datagrid("options");
+				
+	        t.datagrid("getPanel").find("div.datagrid-view div.datagrid-body table tr.datagrid-row").each(function(){
+	        	var tr = $(this), index = parseInt(tr.attr("datagrid-row-index")), row = rows[index];
+	        	this.initColumnRowTooltip(t,row,tr);
+	        });
+		}
+	});
+	
+	/**申请单号*/
+	var NRequestFormNo = "",
+		/**存储子项数据*/
+		itemData = {},
+		/**已经加载项目明细的数据*/
+		hasChildItemData = {},
+		/**项目DIV前缀*/
+		itemDiv = "itemdiv",
+		/**项目DIV原始背景色*/
+		itemDivBackgroundColor = "#C0E7FE",
+		/**项目DIV原始背景色*/
+		itemDivMousemoveColor = "#33CCFF",
+		/**加载字典服务*/
+		GetPubDictUrl = Shell.util.Path.rootPath + "/ServiceWCF/DictionaryService.svc/GetPubDict",
+		/**加载项目类型数据服务*/
+		GetSuperGroupListUrl = Shell.util.Path.rootPath + "/ServiceWCF/DictionaryService.svc/GetSuperGroupList?typestate=1",
+		/**根据检验项目ID查询检验明细服务*/
+		GetTestDetailByItemIDUrl = Shell.util.Path.rootPath + "/ServiceWCF/DictionaryService.svc/GetTestDetailByItemID",
+		/**获取检验项目列表数据服务*/
+		GetTestItemUrl = Shell.util.Path.rootPath + "/ServiceWCF/DictionaryService.svc/GetTestItem",
+		/**保存申请单数据服务*/
+		RequestFormAddOrUpdateUrl = Shell.util.Path.rootPath + "/ServiceWCF/NRequestFromService.svc/NrequestFormAddOrUpdate";
+
+	//--------------表单信息(开始)------------------
+	//------------文字框-------------
+	//申请号-只读
+    $('#form_NRequestFormNo').textbox({readonly:true});
+	//姓名-必填
+    $('#form_CName').textbox({required:true,missingMessage:"该输入项为必输项"});
+    //收费
+    $('#form_Charge').textbox();
+    //病历号
+    $('#form_PatNo').textbox();
+    //病房
+    $('#form_WardNo').textbox();
+    //诊断结果
+    $('#form_Diag').textbox();
+    //采样人
+    $('#form_Operator').textbox();
+    //床位
+    $('#form_Bed').textbox();
+    
+    //------------数字框-------------
+    //年龄-必填
+    $('#form_Age').numberbox({required:true});
+    
+    //------------时间框-------------
+    //开单时间
+    $('#form_OperDate').datetimebox({showSeconds:false});
+    //开单时间-清空按钮
+    $('#form_OperDate_clear').linkbutton({text:'清空',plain:true,onClick:function(){
+    	$('#form_OperDate').datetimebox("setValue",null);
+    }});
+    //采样时间-必填
+    $('#form_CollectDate').datetimebox({showSeconds:false,required:true});
+    
+    //------------下拉框-------------
+    /**字典下拉框参数方法*/
+	function getComboboxConfig(tableName,valueField,textField){
+    	return {
+    		valueField:valueField,  
+	    	textField:textField,
+	    	editable:false,
+	    	required:true,
+	    	method:'GET',
+	    	url:GetPubDictUrl + "?tableName=" + tableName + "&fields=" + valueField + "," + textField,
+	    	loadFilter:function(data){
+				if(data.success){
+					var obj = Shell.util.JSON.decode(data.ResultDataValue) || {};
+					var list = obj.rows || [];
+					if(list.length > 0){list[0].selected = true;}
+					return list;
+				}else{
+					return [];
+				}
+			}
+    	};
+    }
+    //年龄单位-必填
+    $("#form_AgeUnitNo").combobox(getComboboxConfig("AgeUnit","AgeUnitNo","CName"));
+    //送检单位
+    $('#form_ClientNo').combobox(getComboboxConfig("CLIENTELE","ClientNo","CName"));
+    //科室
+    $('#form_DeptNo').combobox(getComboboxConfig("Department","DeptNo","CName"));
+    //病区
+    $('#form_DistrictNo').combobox(getComboboxConfig("District","DistrictNo","CName"));
+    //医生
+	$('#form_Doctor').combobox(getComboboxConfig("Doctor","DoctorNo","CName"));
+	//性别-下拉框-必填
+    $('#form_GenderNo').combobox(getComboboxConfig("GenderType","GenderNo","CName"));
+	//民族-下拉框
+    $('#form_FolkNo').combobox(getComboboxConfig("FolkType","FolkNo","CName"));
+    //就诊类型-下拉框
+    $('#form_jztype').combobox(getComboboxConfig("SickType","SickTypeNo","CName"));
+	//样本类型-下拉框
+    $('#form_SampleTypeNo').combobox(getComboboxConfig("SampleType","SampleTypeNo","CName"));
+    //检验类型-下拉框
+    $('#form_TestTypeNo').combobox(getComboboxConfig("TestType","TestTypeNo","CName"));
+	//区域-只读
+    $('#form_AreaNo').combobox({readonly:true});
+    
+	//--------------表单信息(结束)------------------
+	
+	/**创建一个组合DIV*/
+	function createDiv(obj){
+		var div = 
+			"<div mark='" + itemDiv + obj.ItemNo + "' " +
+					"data='" + Shell.util.JSON.encodeValue(obj) + "'" +
+			">" +
+				"<span>" + 
+					obj.CName + "</br>(" + obj.ItemNo + ")" + 
+				"</span>" +
+			"</div>";
+		return div;
+	}
+	/**创建组合列表*/
+	function createDivTabel(list,cellNum){
+		var rows = list || [],
+			len = rows.length,
+			count = cellNum || 5,
+			table = [];
+			
+		itemData = {};
+			
+		table.push("<table style='width:100%'>");
+		for(var i=0;i<len;i++){
+			if(i % count == 0){
+				table.push(i==0 ? "<tr>" : "</tr><tr>");
+			}
+			var td = 
+				"<td style='width:100px;height:56px;cursor:pointer;background:" + (i%10 > 4 ? itemDivBackgroundColor : "#e4e4e4") + "'" +
+					"onmousemove='this.style.background=\"" + itemDivMousemoveColor + "\";' " +
+					"onmouseout='this.style.background=\"" + (i%10 > 4 ? itemDivBackgroundColor : "#e4e4e4") + "\";' " +
+				">" + 
+					createDiv(list[i]) +
+				"</td>";
+					
+			table.push(td);
+			itemData[itemDiv + list[i].ItemNo] = list[i];
+		}
+		if(len > 0) table.push("</tr>");
+		table.push("</table>");
+		
+		return table.join("");
+	}
+	/**改变改选列表的数据*/
+	function changeUncheckecGrid(data){
+		var divs = $("div[mark^=" + itemDiv +"]") || [],
+			len = divs.length;
+		for(var i=0;i<len;i++){
+			$(divs[i]).tooltip("destroy");
+		}
+		$("#uncheck_grid").empty();//清空内容
+				
+		var table = createDivTabel(data.rows,5);
+		
+		$("#uncheck_grid").append(table);//加上内容
+		
+		
+		for(var i in itemData){
+			$("div[mark='" + i + "']").tooltip({
+				content:(hasChildItemData[i] && hasChildItemData[i].list) ? '' : '<span>数据加载中...</span>',    
+				onShow:onTooltipShow
+			});
+			$("div[mark='" + i + "']").bind("dblclick",ItemDivDblClick);
+		}
+		TestItemLoaded(data.total);
+	}
+	/**鼠标悬浮提示*/
+	function onTooltipShow(e){
+		var div = this;
+		$(div).tooltip('tip').css({
+			backgroundColor:'#ffffff',
+			borderColor:'#000000'
+		});
+		changeHasChildItemData(div,createTooltipContent);
+	}
+	/**创建Tooltip显示内容*/
+	function createTooltipContent(div,data){
+		var list = data.list || [],
+			len = list.length,
+			content = [];
+		
+		content.push('<table class="easyui-datagrid" data-options="fit:true,border:true">');
+		//表头
+		content.push(
+			'<thead>' + 
+		       '<tr style="border:1px">' + 
+		        	'<th data-options="field:\'ItemNo\',width:100,hidden:true">编码</th>' + 
+		            '<th data-options="field:\'CName\',width:100">名称</th>' + 
+		            '<th data-options="field:\'EName\',width:100,hidden:true">英文名</th>' + 
+		        '</tr>' + 
+		    '</thead>'
+		);
+		//表体
+		content.push('<tbody>');
+		
+		for(var i=0;i<len;i++){
+			content.push(
+				'<tr' + (list[i].ColorValue ? ' style="background:' + list[i].ColorValue + '"' : '') + '>' + 
+					'<td>' + list[i].ItemNo + '</td>' + 
+					'<td>' + list[i].CName + '</td>' + 
+					'<td>' + list[i].EName + '</td>' + 
+				'</tr>'
+			);
+		}
+		
+		content.push('</tbody>');
+		
+		content.push('</table>');
+		
+		$(div).tooltip('update',content.join(""));
+	}
+	
+	/**选择项目数据*/
+	function ItemDivDblClick(e){
+		var div = this;
+		changeHasChildItemData(div,insertCheckedData);
+	}
+	/**添加选中数据*/
+	function insertCheckedData(div,data){
+		var grid = $('#checked_grid'),
+			index = grid.datagrid('getRowIndex',data);
+			
+		if(index == -1){
+			grid.datagrid('appendRow',data);
+			grid.datagrid('showColumnRowTooltip',data);
+			
+			var rows = grid.datagrid("getRows"),
+				num = grid.datagrid("getRowIndex",data),
+				panel = grid.datagrid("getPanel"),
+				col = panel.find("div.datagrid-view tr.datagrid-row");
+				
+            col.find("a.l-btn").each(function(i){
+            	if(i == num){
+            		var d = rows[num];
+            		$(this).click(function (e){
+	                    delCheckedItemData(d);
+	                    e.stopPropagation();
+	                });
+            	}
+            });
+            
+            changeBarcodeListData(true);
+		}
+	}
+	/**删除已选的项目数据*/
+	function delCheckedItemData(data){
+		if(!data){
+			Shell.util.Msg.showLog("删除已选的项目数据错误,参数不能为空!");
+			return;
+		}
+		var ItemNo = data.ItemNo;
+		if(ItemNo == null){
+			Shell.util.Msg.showLog("删除已选的项目数据错误,ItemNo不能为空!");
+			return;
+		}
+		Shell.util.Msg.showLog("删除已选的项目数据,ItemNo=" + ItemNo + ";CName=" + data.CName);
+		
+		var grid = $('#checked_grid'),
+			rows = grid.datagrid('getRows'),
+			index = grid.datagrid('getRowIndex',data);
+			
+		//清空已选组合项目列表数据
+    	grid.datagrid('deleteRow',index);
+    	changeBarcodeListData(false);
+	}
+	/**条码列表更改*/
+	function changeBarcodeListData(isAdd){
+		//计算出已选项目列表中的所有颜色信息列表
+		var colorInfoList = getAllColorItems();
+		
+		//条码列表信息
+		var barcodeGrid = $('#barcode_grid'),
+			barcodeGridRows = barcodeGrid.datagrid("getRows"),
+			barcodeLength = barcodeGridRows.length;
+			
+		if(isAdd){
+			//计算条码管的增加数据
+			var len = colorInfoList.length,
+				addList = [];
+				
+			for(var i=0;i<len;i++){
+				var nodata = true;
+				for(var j=0;j<barcodeLength;j++){
+					if(barcodeGridRows[j].ColorValue == colorInfoList[i].ColorValue){
+						nodata = false;break;
+					}
+				}
+				if(nodata){
+					addList.push(colorInfoList[i]);
+				}
+			}
+			for(var i=0;i<addList.length;i++){
+				barcodeGrid.datagrid("appendRow",addList[i]);
+				barcodeGrid.datagrid('showColumnRowTooltip',addList[i]);
+			}
+		}else{
+			//计算条码管的删除数据
+			var len = colorInfoList.length,
+				delList = [];
+				
+			for(var i=0;i<barcodeLength;i++){
+				var nodata = true;
+				for(var j=0;j<len;j++){
+					if(colorInfoList[j].ColorValue == barcodeGridRows[i].ColorValue){
+						nodata = false;break;
+					}
+				}
+				if(nodata){
+					delList.push(colorInfoList[i]);
+				}
+			}
+			for(var i=0;i<delList.length;i++){
+				var index = barcodeGrid.datagrid("getRowIndex",delList[i]);
+				barcodeGrid.datagrid("deleteRow",index);
+			}
+		}
+	}
+	
+	/**计算出已选项目列表中的所有颜色信息列表*/
+	function getAllColorItems(){
+		var checkedGrid = $('#checked_grid'),
+			checkedGridRows = checkedGrid.datagrid("getRows"),
+			checkedLength = checkedGridRows.length,
+			colorInfoList = [];
+		
+		//计算出已选项目列表中的所有颜色信息列表
+		for(var i=0;i<checkedLength;i++){
+			var list = checkedGridRows[i].list || [],
+				len = list.length;
+				
+			for(var j=0;j<len;j++){
+				if(list[j].ColorValue){
+					colorInfoList.push(list[j]);
+				}
+			}
+		}
+		return colorInfoList
+	}
+	
+	/**添加动态数据*/
+	function changeHasChildItemData(div,callback){
+		var value = div.getAttribute('data'),//attributes[0].value,//兼容性bug
+			itemno = Shell.util.JSON.decode(value).ItemNo,
+			info = hasChildItemData[itemDiv + itemno];
+			
+		if(info){
+			callback(div,info);
+		}else{
+			Shell.util.Action.delay(function(){
+				GetTestDetailByItemID(itemno,function(data){
+					hasChildItemData[itemDiv + itemno] = hasChildItemData[itemDiv + itemno] || itemData[itemDiv + itemno];
+					hasChildItemData[itemDiv + itemno].list = data;
+					callback(div,hasChildItemData[itemDiv + itemno]);
+				});
+			});
+		}
+	}
+	
+	/**待选组合项目列表加载数据中*/
+	function TestItemLoading(){
+		$('#uncheck_grid_pagination').pagination("loading");
+	}
+	/**待选组合项目列表加载数据完毕*/
+	function TestItemLoaded(total){
+		var pagination = $('#uncheck_grid_pagination');
+		pagination.pagination("refresh",{total:total});
+		pagination.pagination("loaded");
+	}
+	/**待选组合项目列表加载数据*/
+	function uncheckgridLoad(){
+		var rowData = $('#itemtype_grid').datagrid("getSelected");
+		if(rowData){
+			TestItemLoading();
+			GetTestItem(rowData.SuperGroupNo,changeUncheckecGrid);
+		}
+	}
+	
+	/**清空信息*/
+	function clearData(){
+		$('#checked_grid').datagrid('loadData',{total:0,rows:[]});
+		$('#barcode_grid').datagrid('loadData',{total:0,rows:[]});
+	}
+	
+	/**保存申请数据*/
+	function saveInfo(){
+		//数据由三部分组成：申请单信息+组合项目列表+条码列表
+		//flag(1-增加、0-修改)
+		var jsonentity = {
+			flag:"0",
+			NrequestForm:{CName:"aaa"}
+		};
+		
+		//if(!jsonentity.NrequestForm){
+			//$.messager.alert("错误信息","必填数据项不能为空！","error");
+		//}
+		
+		RequestFormAddOrUpdate(jsonentity,function(){
+			
+		});
+	}
+	/**获取申请单信息*/
+	function getNrequestForm(){
+		var form = {
+			//NRequestFormNo:$("#form_NRequestFormNo").textbox("getValue"),//申请号
+			//PatNo:$("#form_PatNo").textbox("getValue"),//病历号
+			CName:$("#form_CName").textbox("getValue")//姓名
+			
+
+		};
+		
+		return form;
+	}
+	/**获取组合项目列表*/
+	function getCombiItems(){
+		var checkedGrid = $('#checked_grid'),
+			rows = checkedGrid.datagrid("getRows"),
+			len = rows.length,
+			combiItem = [];//组合项目
+			
+		for(var i=0;i<len;i++){
+			var list = rows[i].list || [],
+				length = list.length,
+				CombiItemDetailList = [];
+				
+			for(var j=0;j<length;j++){
+				CombiItemDetailList.push({
+					CombiItemDetailNo:list[j].ItemNo,
+					CombiItemDetailName:list[j].CName
+				});
+			}
+				
+			combiItem.push({
+				CombiItemName:rows[i].CName,
+				CombiItemNo:rows[i].ItemNo,
+				CombiItemDetailList:CombiItemDetailList
+			});
+		}
+		
+		return combiItem;
+	}
+	/**获取条码列表*/
+	function getBarCodeList(){
+		var rows = $("#barcode_grid").datagrid("getRows") || [],
+			len = rows.length,
+			colorInfoList = getAllColorItems(),//获取所有带颜色项目列表
+			barCodeList = [];
+			
+		for(var i=0;i<len;i++){
+			if(!rows[i].BarCode) return null;
+			if(!rows[i].SampleTypeDetail || rows[i].SampleTypeDetail.length == 0) return null;
+			barCodeList.push({
+				ColorValue:rows[i].ColorValue,//颜色值
+				BarCode:rows[i].BarCode,//条码值
+				SampleType:rows[i].SampleType || rows[i].SampleTypeDetail[0].SampleTypeID,//样本类型
+				ItemList:[]//项目列表(id字符串数组)
+			});
+		}
+		
+		for(var i=0;i<barCodeList.length;i++){
+			for(var j=0;j<colorInfoList.length;j++){
+				if(barCodeList[i].ColorValue == colorInfoList[j].ColorValue){
+					barCodeList[i].ItemList.push(colorInfoList[j].ItemNo);
+				}
+			}
+			delete barCodeList[i].ColorValue;
+		}
+		
+		return barCodeList;
+	}
+	
+	/**填充申请单信息*/
+	function setNRequestForm(values){
+		
+	}
+	/**填充组合项目列表*/
+	function setCombiItems(list){
+		var grid = $('#checked_grid'),
+			len = list.length;
+			
+		for(var i=0;i<len;i++){
+			var data = list[i],
+				index = grid.datagrid('getRowIndex',data);
+			
+			if(index != -1) continue;
+			
+			grid.datagrid('appendRow',data);
+			grid.datagrid('showColumnRowTooltip',data);
+			
+			var rows = grid.datagrid("getRows"),
+				num = grid.datagrid("getRowIndex",data),
+				panel = grid.datagrid("getPanel"),
+				col = panel.find("div.datagrid-view tr.datagrid-row");
+				
+            col.find("a.l-btn").each(function(x){
+            	if(x == num){
+            		var d = rows[num];
+            		$(this).click(function (e){
+	                    delCheckedItemData(d);
+	                    e.stopPropagation();
+	                });
+            	}
+            });
+		}
+	}
+	/**填充条码列表*/
+	function setBarCodeList(list){
+		var grid = $('#barcode_grid'),
+			len = list.length;
+			
+		for(var i=0;i<len;i++){
+			grid.datagrid("appendRow",list[i]);
+			grid.datagrid('showColumnRowTooltip',list[i]);
+		}
+	}
+	
+	/**获取检验项目列表数据*/
+	function GetTestItem(supergroupno,callback){
+		var pagination = $('#uncheck_grid_pagination'),
+			options = pagination.pagination("options"),
+			itemkey = $("#uncheck_grid_search").searchbox("getValue"),
+			page = options.pageNumber || 1,
+			rows = options.pageSize;
+		$.ajax({ 
+			dataType:'json',
+			url:GetTestItemUrl + "?supergroupno=" + supergroupno + "&page=" + page + "&rows=" + rows + "&itemkey=" + itemkey,
+			success:function(result){
+				if(result.success){
+					Shell.util.Msg.showLog("获取检验项目列表数据成功");
+					var data = Shell.util.JSON.decode(result.ResultDataValue) || [];
+					callback(data);
+				}else{
+					Shell.util.Msg.showLog("获取检验项目列表数据失败！错误信息：" + result.ErrorInfo);
+					callback([]);
+				}
+			},
+			error:function(request,strError){
+				Shell.util.Msg.showLog("获取检验项目列表数据失败！错误信息：" + strError);
+				callback([]);
+			} 
+		});
+	}
+	/**根据检验项目ID查询检验明细*/
+	function GetTestDetailByItemID(itemid,callback){
+		$.ajax({ 
+			dataType:'json',
+			url:GetTestDetailByItemIDUrl + "?itemid=" + itemid,
+			success:function(result){
+				if(result.success){
+					Shell.util.Msg.showLog("根据检验项目ID查询检验明细成功");
+					var data = Shell.util.JSON.decode(result.ResultDataValue);
+					callback(data);
+				}else{
+					Shell.util.Msg.showLog("根据检验项目ID查询检验明细失败！错误信息：" + result.ErrorInfo);
+					callback([]);
+				}
+			},
+			error:function(request,strError){
+				Shell.util.Msg.showLog("根据检验项目ID查询检验明细失败！错误信息：" + strError);
+				callback([]);
+			} 
+		});
+	}
+	/**保存申请单信息*/
+	function RequestFormAddOrUpdate(entity,callback){
+		$.ajax({ 
+			type:'post',
+			dataType:'json',
+			url:RequestFormAddOrUpdateUrl,
+			data:Shell.util.JSON.encode({jsonentity:entity}),
+			success:function(result){
+				if(result.success){
+					Shell.util.Msg.showLog("保存申请单信息成功,保存后的主键：");
+					//var data = Shell.util.JSON.decode(result.ResultDataValue);
+					//callback(data);
+				}else{
+					Shell.util.Msg.showLog("保存申请单信息失败！错误信息：" + result.ErrorInfo);
+				}
+			},
+			error:function(request,strError){
+				Shell.util.Msg.showLog("保存申请单信息失败！错误信息：" + strError);
+			} 
+		});
+	}
+	
+	//项目类型列表_刷新按钮
+    $('#itemtype_toolbar_reload').bind('click', function(){
+    	//清空已选组合项目列表数据
+    	clearData();
+    	//加载项目类型数据
+       	$('#itemtype_grid').datagrid({
+       		url:GetSuperGroupListUrl
+		});
+    });
+    
+    //项目类型列表
+    $('#itemtype_grid').datagrid({
+    	fit:true,
+		border:false,
+		fitColumns:true,
+		singleSelect:true,
+		loadMsg:'数据加载中...',
+		method:'get',
+		//toolbar:'#itemtype_toolbar',
+		columns:[[
+            {field:'SuperGroupNo',title:'编码',width:100,hidden:true},
+            {field:'CName',title:'名称',width:100,tooltip:function(value,index,row){
+            	return "<b>" + row.CName + "</b>";
+            }}
+        ]],
+		loadFilter:function(data){
+			if(data.success){
+				return Shell.util.JSON.decode(data.ResultDataValue);
+			}else{
+				return {"tolal":0,"rows":[]};
+			}
+		},
+		onSelect:function(rowIndex,rowData){
+			//清空已选组合项目列表数据
+    		clearData();
+			//加载项目数据
+			Shell.util.Action.delay(function(){
+				TestItemLoading();
+				GetTestItem(rowData.SuperGroupNo,changeUncheckecGrid);
+			});
+		}
+	});
+	
+	//待选组合项目列表_查询栏
+	$("#uncheck_grid_search").searchbox({
+		height:24,
+		width:200,
+		prompt:'中文名/英文名/简码/简称',
+		searcher:function(value,name){
+			uncheckgridLoad();
+		}
+	});
+	
+	//待选组合项目列表_分页栏
+    $('#uncheck_grid_pagination').pagination({
+    	pageList:[10,50,100,200,500],
+    	total:0, 
+		pageSize:100,
+		onChangePageSize:function(pageSize){
+			$(this).pagination("refresh",{pageNumber:1});
+		},
+		onSelectPage:function(){
+			uncheckgridLoad();
+		}
+	});
+	
+	//已选组合项目列表
+	$('#checked_grid').datagrid({
+		fit:true,
+		border:false,
+		fitColumns:true,
+		singleSelect:true,
+		loadMsg:'数据加载中...',
+		method:'get',
+		toolbar:'#checked_grid_toolbar',
+		columns:[[
+            {field:'ItemNo',title:'编号',width:100,hidden:true},
+            {field:'CName',title:'名称',width:100,tooltip:function(value,index,row){
+            	return "<b>" + row.CName + "</b>";
+            }},
+            {field:'EName',title:'英文名',width:100,hidden:true},
+            {
+                field:'operator',title:'测试(不存在的字段)',width:20,formatter:function(val,row,index){
+                    return "<a class='l-btn l-btn-plain'><span class='l-btn-left'><span class='l-btn-text icon-no l-btn-icon-left'>&nbsp;</span></span></a>";
+                }
+            }
+        ]]
+	});
+	
+	//条码信息列表
+	$("#barcode_grid").datagrid({
+		fit:true,
+		fitColumns:true,
+		singleSelect:true,
+		loadMsg:'数据加载中...',
+		method:'get',
+		idField:'ColorValue',
+		toolbar:[{
+			iconCls:'icon-save',
+			text:'保存',
+			handler:saveInfo
+		}],
+		columns:[[
+			{field:'ColorName',title:'颜色名称',width:40,
+				tooltip:function(value,index,row){return "<b>" + value + "</b>";},
+				formatter:function(val,row,index){return "<b>" + val + "</a>";}
+            },
+            {field:'ColorValue',title:'颜色值',width:30,
+            	styler:function(val,row,index){return "background-color:" + val +";";},
+            	formatter:function(){return "";}
+            },
+            {field:'BarCode',title:'条码',width:140,
+				styler:function(val,row,index){return "background-color:" + row.ColorValue +";";},
+				formatter:function(value,row,index){
+					var input = 
+					"<input style='width:100%' onchange='" + 
+						"var grid=$(\"#barcode_grid\");" +
+						"var index=grid.datagrid(\"getRowIndex\",\"" + row.ColorValue + "\");" +
+						"var rows=grid.datagrid(\"getRows\");" + 
+						"rows[index].BarCode = this.value;" + 
+					"'/>";
+					return input;
+				}
+			},
+            {field:'SampleType',title:'样本类型',width:60,
+            	styler:function(val,row,index){return "background-color:" + row.ColorValue +";";},
+            	formatter:function(value,row,index){
+            		var list = row.SampleTypeDetail || [],
+            			len = list.length,
+            			arr = [];
+            		arr.push(
+            			"<select onchange='" +
+            				"var grid=$(\"#barcode_grid\");" +
+							"var index=grid.datagrid(\"getRowIndex\",\"" + row.ColorValue + "\");" +
+							"var rows=grid.datagrid(\"getRows\");" + 
+							"rows[index].SampleType = this.value;" + 
+            			"'>"
+            		);
+            		
+            		var selected = false;
+            		for(vari=0;i<len;i++){
+            			if(list[i].selected){
+            				selected = true;break;
+            			}
+            		}
+            		if(len > 0 && !selected){
+            			list[0].selected = true;
+            		}
+            		
+				    for(var i=0;i<len;i++){
+				    	arr.push("<option value='" + list[i].SampleTypeID + "'" + (list[i].selected ? " selected='selected'" : "") + ">" + list[i].CName + "</option>");
+				    }
+				    
+				    arr.push("</select>");
+				    return arr.join("");
+				}
+            }
+        ]]
+	});
+	
+	
+	//启动时加载项目类型数据
+	$('#itemtype_grid').datagrid("options").url = GetSuperGroupListUrl;
+	
+	//判断是否有参数传入，修改/新增
+	var params = Shell.util.Path.getRequestParams(),
+		NRequestFormNo = params.NRequestFormNo;
+		
+	if(NRequestFormNo){
+		//获取申请单信息
+	}
+}); 
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+ IF NOT EXISTS(SELECT * FROM B_Parameter WHERE [ParameterID] = 5101233254823494117) INSERT [B_Parameter] ([LabID],[ParameterID],[Name],[SName],[ParaType],[ParaNo],[ParaValue],[ParaDesc],[DispOrder],[IsUse],[IsUserSet],[DataAddTime]) VALUES ( 0,5101233254823494117,N'输血登记是否需要交接登记完成后',N'护士站',N'CONFIG',N'BL-BLTF-ISNB-0023',N'0',N'1:是;0:否;',10,1,1,N'2020-02-15 10:17:25'); 
+               
+update B_Parameter set ItemEditInfo=N'{"ItemXType":"radiogroup","ItemDefaultValue":"1","ItemUnit":"","ItemDataSet":"[{''1'':''是''},{''0'':''否''}]"}' where ParameterID=5101233254823494117 and ItemEditInfo is null; 
+               

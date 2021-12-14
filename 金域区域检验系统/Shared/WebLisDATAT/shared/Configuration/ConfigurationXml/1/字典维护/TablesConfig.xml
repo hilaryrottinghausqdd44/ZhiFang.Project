@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Tables>
+  <Table TableCName="字典" EName="Dictionary" DisplayRows="26" SortMethod="0" InputColsRight="1" DisplayManner="1" InputCols="3" IsHiddenTopSearch="No">
+    <tr>
+      <td ColumnCName="字典名称" ColumnEName="DicName" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="8" ColumnWidth="100%" DisplayInChild="No" AllowSum="No">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="字典分类" ColumnEName="DicType" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="Fixed" DataSourceName="" />
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="字典维数" ColumnEName="Directions" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="2" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" />
+      </td>
+      <td ColumnCName="字典表头" ColumnEName="Head" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="3" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="维护人" ColumnEName="Manager" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="2" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Query DisplayOnQuery="Yes" ColumnWidth="" DisplayLength="15" FunctionOnQuery="" DisplayInChild="No" AllowSum="No" />
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="字典编辑" ColumnEName="Ename1" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="" FunctionOnInput="字典编辑||字典名称,字典维数|true|../Admin/DictionariesConfigMain.aspx?DictName=字典名称|onclick|">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="" DataSourceName="" />
+      </td>
+    </tr>
+  </Table>
+</Tables>

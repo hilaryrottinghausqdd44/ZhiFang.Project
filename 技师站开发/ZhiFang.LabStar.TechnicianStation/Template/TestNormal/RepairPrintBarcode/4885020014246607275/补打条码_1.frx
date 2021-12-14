@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/14/2018 17:11:39" ReportInfo.Modified="05/24/2021 09:50:46" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+   <TableDataSource Name="Table" Alias="Table" ReferenceName="Data.Table" DataType="System.Int32" Enabled="true" TableName="Table">
+      <Column Name="CName" DataType="System.String"/>
+      <Column Name="Birthday" DataType="System.DateTime"/>
+      <Column Name="BarCode" DataType="System.Int64"/>
+      <Column Name="PatNo" DataType="System.String"/>
+      <Column Name="GenderName" DataType="System.String"/>
+      <Column Name="ItemName" DataType="System.String"/>
+      <Column Name="DoctorName" DataType="System.String"/>
+      <Column Name="DeptName" DataType="System.String"/>
+      <Column Name="Bed" DataType="System.String"/>
+      <Column Name="WardName" DataType="System.String"/>
+      <Column Name="DistrictName" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperHeight="148">
+    <PageHeaderBand Name="PageHeader1" Width="718.2" Height="103.95" Guides="0">
+      <BarcodeObject Name="Barcode1" Top="37.8" Width="272" Height="47.25" DataColumn="Table.BarCode" Text=""/>
+      <TextObject Name="Text1" Width="132.3" Height="18.9" Text="姓名：[Table.CName]" Font="宋体, 9pt"/>
+      <TextObject Name="Text2" Left="103.95" Width="170.1" Height="18.9" Text="性别：[Table.GenderName]" Font="宋体, 9pt"/>
+      <TextObject Name="Text3" Top="18.9" Width="141.75" Height="18.9" Text="病历号：[Table.PatNo]" Font="宋体, 9pt"/>
+      <TextObject Name="Text4" Left="103.95" Top="18.9" Width="170.1" Height="18.9" Text="出生日期：[Table.Birthday]" Font="宋体, 9pt"/>
+      <TextObject Name="Text5" Top="85.05" Width="274.05" Height="18.9" Text="[Table.ItemName]" Font="宋体, 9pt"/>
+    </PageHeaderBand>
+  </ReportPage>
+</Report>

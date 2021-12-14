@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="AntiGroup" table="[dbo].[AntiGroup]">
+    <id name="Id" column="[AntiGroupNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="FamilyNo" column="[FamilyNo]" type="Int32" not-null="true" length="4" />
+    <property name="UseTypeNo" column="[UseTypeNo]" type="Int32" not-null="true" length="4" />
+    <property name="AntiNo" column="[AntiNo]" type="Int32" not-null="true" length="4" />
+    <property name="RangeNo" column="[RangeNo]" type="Int32" not-null="true" length="4" />
+    <property name="AntiUnit" column="[AntiUnit]" type="String" not-null="false" length="10" />
+    <property name="FloorValue" column="[FloorValue]" type="Double" not-null="false" length="8" />
+    <property name="CeilingValue" column="[CeilingValue]" type="Double" not-null="false" length="8" />
+    <property name="Range" column="[Range]" type="String" not-null="false" length="30" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="IsUse" column="[IsUse]" type="Int32" not-null="false" length="4" />
+    <property name="SusCept" column="[SusCept]" type="String" not-null="false" length="16" />
+    <property name="MicroNo" column="[MicroNo]" type="Int32" not-null="false" length="4" />
+    <property name="SusDesc" column="[SusDesc]" type="String" not-null="false" length="16" />
+    <property name="Anticode" column="[anticode]" type="String" not-null="false" length="20" />
+    <property name="Antigrouptype" column="[antigrouptype]" type="String" not-null="false" length="2" />
+    <property name="OftenUse" column="[OftenUse]" type="Int32" not-null="false" length="4" />
+  </class>
+</hibernate-mapping>

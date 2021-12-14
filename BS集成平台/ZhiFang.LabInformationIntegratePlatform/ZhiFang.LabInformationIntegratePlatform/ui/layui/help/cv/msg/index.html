@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值消息-帮助文档</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../../../src/layui/src/css/layui.css" media="all">
+	<link rel="stylesheet" href="../../../../src/layui/src/css/modules/code.css" media="all">
+	<link rel="stylesheet" href="../../style.css" media="all">
+	<link rel="shortcut icon" href="../../../../../logo-16.png">
+</head>
+<body>
+	<div class="layui-fluid">
+		<h1 class="site-h1">危急值消息-帮助文档<a></a></h1>
+		
+		<a class="editor-anchor" name="1" anchor-name="消息上报"></a>
+		<div class="site-title">
+			<fieldset><legend><a name="use">消息上报</a></legend></fieldset>
+		</div>
+		<div class="site-text">
+			<p>1、根据条件查询出各种类型的消息（主要用于危急值）；</p>
+			<p>2、选择其中一条消息，自动显示该条消息对应的科室和电话号码（电话号码保存在科室表中）</p>
+			<p>3、手工打电话给科室，通报该条消息的内容给科室的人员（医生或者护士）。拨打电话后选择接电话人，点击上报按钮完成上报操作；</p>
+			<p>4、上报信息保存在消息表中，包括接电话人，时间，上报人，上报标志等；</p>
+			<p>5、接电话人选项有是否只显示发送科室人员选项；</p>
+			<p>6、常用查询条件有小组、科室、就诊类型等；</p>
+		</div>
+		<div class="layui-row">
+			<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+				<div class="layer-photos">
+					<img layer-pid="图片id，可以不写" layer-src="images/1.png" src="images/1.png" alt="图片名">
+				</div>
+			</div>
+		</div>
+		<div class="site-text">
+			<p>上报的列表条件：已超时+未上报？</p>
+		</div>
+		
+		<a class="editor-anchor" name="2" anchor-name="消息确认"></a>
+		<div class="site-title">
+			<fieldset><legend><a name="use">消息确认</a></legend></fieldset>
+		</div>
+		<div class="site-text">
+			<p>1、在客户端消息列表中，双击或者点击确认按钮弹出确认操作界面；</p>
+			<p>2、消息确认操作界面需要显示：消息描述、消息对应原始记录结果（危机值对应样本的结果、参考值范围、样本状态等）</p>
+			<p>3、选择通知医生，输入确认人帐号、密码，点击确认</p>
+			<p>4、确认时将通知医生、确认人、确认标志、时间记录在消息表中</p>
+		</div>
+		<div class="layui-row">
+			<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+				<div class="layer-photos">
+					<img layer-pid="图片id，可以不写" layer-src="images/2.png" src="images/2.png" alt="图片名">
+				</div>
+			</div>
+		</div>
+		
+		<a class="editor-anchor" name="3" anchor-name="消息处理"></a>
+		<div class="site-title">
+			<fieldset><legend><a name="use">消息处理</a></legend></fieldset>
+		</div>
+		<div class="site-text">
+			<p>1、处理界面和确认界面类似，需要显示消息描述和原始记录；</p>
+			<p>2、输入处理意见，可以从常用短语中进行快速选择；</p>
+			<p>3、处理人输入账号、密码进行处理</p>
+		</div>
+		<div class="layui-row">
+			<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+				<div class="layer-photos">
+					<img layer-pid="图片id，可以不写" layer-src="images/3.png" src="images/3.png" alt="图片名">
+				</div>
+			</div>
+		</div>
+		
+		<a class="editor-anchor" name="4" anchor-name="超时未处理消息处理提示"></a>
+		<div class="site-title">
+			<fieldset><legend><a name="use">超时未处理消息处理提示</a></legend></fieldset>
+		</div>
+		<div class="site-text">
+			<p>（检验科对此类消息再处理，相当于消息再次发送，但需要电话通知并进行记录）</p>
+		</div>
+		<div class="layui-row">
+			<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+				<div class="layer-photos">
+					<img layer-pid="图片id，可以不写" layer-src="images/4.png" src="images/4.png" alt="图片名">
+				</div>
+			</div>
+		</div>
+		
+		<a class="editor-anchor" name="5" anchor-name="消息处理记录查看"></a>
+		<div class="site-title">
+			<fieldset><legend><a name="use">消息处理记录查看</a></legend></fieldset>
+		</div>
+		<div class="site-text">
+			<p>针对某条已处理消息查看所有处理的情况</p>
+		</div>
+		<div class="layui-row">
+			<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+				<div class="layer-photos">
+					<img layer-pid="图片id，可以不写" layer-src="images/5.png" src="images/5.png" alt="图片名">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../../../src/layui/src/layui.js"></script>
+	<script src="../../../config/system.js"></script>
+	<script src="../../util.js"></script>
+	<script>
+		layui.extend({
+			uxutil: 'ux/util'
+		}).use(['uxutil'],function(){
+			
+		});
+	</script>
+</body>
+</html>

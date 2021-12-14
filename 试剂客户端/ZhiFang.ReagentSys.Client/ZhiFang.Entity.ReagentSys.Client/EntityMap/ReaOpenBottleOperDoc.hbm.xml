@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaOpenBottleOperDoc" table="[dbo].[Rea_OpenBottleOperDoc]">
+    <id name="Id" column="[OBottleOperDocId]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsID" column="[GoodsID]" type="Int64" not-null="true" length="8" />
+    <property name="QtyDtlID" column="[QtyDtlID]" type="Int64" not-null="true" length="8" />
+    <property name="OutDtlID" column="[OutDtlID]" type="Int64" not-null="true" length="8" />
+    <property name="OutDocID" column="[OutDocID]" type="Int64" not-null="false" length="8" />
+    <property name="BOpenDate" column="[BOpenDate]" type="DateTime" not-null="false" length="8" />
+    <property name="InvalidBOpenDate" column="[InvalidBOpenDate]" type="DateTime" not-null="false" length="8" />
+    <property name="IsUseCompleteFlag" column="[IsUseCompleteFlag]" type="Boolean" not-null="false" length="1" />
+    <property name="UseCompleteDate" column="[UseCompleteDate]" type="DateTime" not-null="false" length="8" />
+    <property name="IsObsolete" column="[IsObsolete]" type="Boolean" not-null="false" length="1" />
+    <property name="ObsoleteID" column="[ObsoleteID]" type="Int64" not-null="false" length="8" />
+    <property name="ObsoleteMemoId" column="[ObsoleteMemoId]" type="Int64" not-null="false" length="8" />
+    <property name="ObsoleteName" column="[ObsoleteName]" type="String" not-null="false" length="50" />
+    <property name="ObsoleteTime" column="[ObsoleteTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ObsoleteMemo" column="[ObsoleteMemo]" type="String" not-null="false" length="200" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="CreaterID" column="[CreaterID]" type="Int64" not-null="false" length="8" />
+    <property name="CreaterName" column="[CreaterName]" type="String" not-null="false" length="50" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

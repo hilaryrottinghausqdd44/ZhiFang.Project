@@ -1,0 +1,263 @@
+//检验仪器基本设置
+Ext.Loader.setConfig({enabled:true});
+Ext.Loader.setPath('Ext.zhifangux', getRootPath() + '/ui/zhifangux');
+Ext.ns('Ext.databasemanage');
+Ext.define('Ext.databasemanage.equip.equipForm', {
+    extend:"Ext.zhifangux.FormPanel",
+    alias:"widget.equipForm",
+    title:"检验仪器信息",
+    defaultTitle:"检验仪器信息",
+    width:439,
+    height:208,
+    objectName:"EPBEquip",
+    addUrl:"SingleTableService.svc/ST_UDTO_AddEPBEquip",
+    editUrl:"SingleTableService.svc/ST_UDTO_UpdateEPBEquipByField",
+    selectUrl:"SingleTableService.svc/ST_UDTO_SearchEPBEquipById",
+    type:"show",
+    bgFielName:"",
+    initComponent:function() {
+        var me = this;
+        if (me.type == "show") {
+            me.height -= 25;
+        }
+        me.fields = "EPBEquip_CName,EPBEquip_SName,EPBEquip_EName,EPBEquip_UseCode,EPBEquip_DispOrder,EPBEquip_SectionID,EPBEquip_Shortcode,EPBEquip_Comment,EPBEquip_Id,EPBEquip_EPEquipType_Id";
+        me.items = [ {
+            xtype:"textfield",
+            type:"textfield",
+            itemId:"EPBEquip_CName",
+            name:"EPBEquip_CName",
+            labelWidth:60,
+            height:22,
+            x:5,
+            y:5,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"名称",
+            labelAlign:"right",
+            sortNum:1,
+            hasReadOnly:false,
+            hidden:false,
+            width:200,
+            listeners:me.createBasicListeners()
+        }, {
+            xtype:"textfield",
+            type:"textfield",
+            itemId:"EPBEquip_SName",
+            name:"EPBEquip_SName",
+            labelWidth:60,
+            height:22,
+            x:215,
+            y:5,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"简称",
+            labelAlign:"right",
+            sortNum:2,
+            hasReadOnly:false,
+            hidden:false,
+            width:200,
+            listeners:me.createBasicListeners()
+        }, {
+            xtype:"textfield",
+            type:"textfield",
+            itemId:"EPBEquip_EName",
+            name:"EPBEquip_EName",
+            labelWidth:60,
+            height:22,
+            x:5,
+            y:31,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"英文名称",
+            labelAlign:"right",
+            sortNum:3,
+            hasReadOnly:false,
+            hidden:false,
+            width:200,
+            listeners:me.createBasicListeners()
+        }, {
+            xtype:"textfield",
+            type:"textfield",
+            itemId:"EPBEquip_UseCode",
+            name:"EPBEquip_UseCode",
+            labelWidth:60,
+            height:22,
+            x:215,
+            y:31,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"代码",
+            labelAlign:"right",
+            sortNum:4,
+            hasReadOnly:false,
+            hidden:false,
+            width:200,
+            listeners:me.createBasicListeners()
+        }, {
+            xtype:"numberfield",
+            maxValue:1e5,
+            step:1,
+            type:"numberfield",
+            itemId:"EPBEquip_DispOrder",
+            name:"EPBEquip_DispOrder",
+            labelWidth:60,
+            height:22,
+            x:215,
+            y:57,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"显示次序",
+            labelAlign:"right",
+            sortNum:5,
+            hasReadOnly:false,
+            hidden:false,
+            width:200,
+            listeners:me.createBasicListeners()
+        }, {
+            xtype:"textfield",
+            type:"textfield",
+            itemId:"EPBEquip_SectionID",
+            name:"EPBEquip_SectionID",
+            labelWidth:60,
+            height:22,
+            x:5,
+            y:57,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"检验小组",
+            labelAlign:"right",
+            sortNum:9,
+            hasReadOnly:false,
+            hidden:true,
+            width:200,
+            listeners:me.createBasicListeners()
+        }, {
+            xtype:"textfield",
+            type:"textfield",
+            itemId:"EPBEquip_Shortcode",
+            name:"EPBEquip_Shortcode",
+            labelWidth:60,
+            height:22,
+            x:4,
+            y:57,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"快捷码",
+            labelAlign:"right",
+            sortNum:6,
+            hasReadOnly:false,
+            hidden:false,
+            width:200,
+            listeners:me.createBasicListeners()
+        }, {//2014-06-19 hujie添加仪器类型
+            xtype:"combobox",
+            editable:true,
+            typeAhead:true,
+            queryMode:"local",
+            defaultValue:"",
+            displayField:"EPEquipType_Name",
+            valueField:"EPEquipType_Id",
+            DataTimeStampField:"EPBEquip_EPEquipType_DataTimeStamp",
+            store:me.createComboStore({
+                fields:"EPEquipType_Name,EPEquipType_Id,EPEquipType_DataTimeStamp",
+                url:"SingleTableService.svc/ST_UDTO_SearchEPEquipTypeByHQL?isPlanish=true",
+                InteractionField:"EPBEquip_EPEquipType_Id",
+                DataTimeStampField:"EPBEquip_EPEquipType_DataTimeStamp",
+                valueField:"EPEquipType_Id"
+            }),
+            type:"combobox",
+            itemId:"EPBEquip_EPEquipType_Id",
+            name:"EPBEquip_EPEquipType_Id",
+            labelWidth:60,
+            height:22,
+            x:4,
+            y:84,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"仪器类型",
+            labelAlign:"right",
+            sortNum:13,
+            hasReadOnly:false,
+            hidden:false,
+            width:200,
+            listeners:me.createComboListeners(),
+            allowBlank:false
+        }, {
+            xtype:"textfield",
+            type:"textfield",
+            itemId:"EPBEquip_EPEquipType_DataTimeStamp",
+            name:"EPBEquip_EPEquipType_DataTimeStamp",
+            labelWidth:60,
+            height:22,
+            x:215,
+            y:161,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"仪器类型_时间戳",
+            labelAlign:"right",
+            sortNum:14,
+            hasReadOnly:false,
+            hidden:true,
+            width:200,
+            listeners:me.createBasicListeners()
+        }, {
+            xtype:"textarea",
+            type:"textareafield",
+            itemId:"EPBEquip_Comment",
+            name:"EPBEquip_Comment",
+            labelWidth:60,
+            height:60,
+            x:5,
+            y:111,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"描述",
+            labelAlign:"right",
+            sortNum:7,
+            hasReadOnly:false,
+            hidden:false,
+            width:410,
+            listeners:me.createBasicListeners()
+        }, {
+            xtype:"textfield",
+            type:"textfield",
+            itemId:"EPBEquip_Id",
+            name:"EPBEquip_Id",
+            labelWidth:60,
+            height:22,
+            x:0,
+            y:0,
+            readOnly:false,
+            labelStyle:"font-style:normal",
+            fieldLabel:"主键ID",
+            labelAlign:"right",
+            sortNum:8,
+            hasReadOnly:false,
+            hidden:true,
+            width:200,
+            listeners:me.createBasicListeners()
+        } ];
+        me.dockedItems = [ {
+            xtype:"toolbar",
+            dock:"bottom",
+            itemId:"bottomtoolbar",
+            items:[ "->", {
+                xtype:"button",
+                text:"保存",
+                iconCls:"build-button-save",
+                handler:function(but) {
+                    me.submit();
+                }
+            }, {
+                xtype:"button",
+                text:"重置",
+                iconCls:"build-button-refresh",
+                handler:function(but) {
+                    me.getForm().reset();
+                }
+            } ]
+        } ];
+        me.changeConfig();
+        me.callParent(arguments);
+    }
+});

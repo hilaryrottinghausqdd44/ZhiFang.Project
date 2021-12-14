@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{567C1DF3-46BD-4485-B06D-607384CC6B3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IBLL.BloodTransfusion</RootNamespace>
+    <AssemblyName>ZhiFang.IBLL.BloodTransfusion</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.BloodTransfusion\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blood_BInForm.cs" />
+    <Compile Include="Blood_BOutForm.cs" />
+    <Compile Include="IBAgeUnit.cs" />
+    <Compile Include="IBBDict.cs" />
+    <Compile Include="IBBDictTree.cs" />
+    <Compile Include="IBBDictType.cs" />
+    <Compile Include="IBBloodABO.cs" />
+    <Compile Include="IBBloodAggluItem.cs" />
+    <Compile Include="IBBloodBagChargeLink.cs" />
+    <Compile Include="IBBloodBagHandoverOper.cs" />
+    <Compile Include="IBBloodBagProcess.cs" />
+    <Compile Include="IBBloodBagProcessType.cs" />
+    <Compile Include="IBBloodBagProcessTypeQry.cs" />
+    <Compile Include="IBBloodBagRecordDtl.cs" />
+    <Compile Include="IBBloodBagRecordItem.cs" />
+    <Compile Include="IBBloodBagRecordType.cs" />
+    <Compile Include="IBBloodBInItem.cs" />
+    <Compile Include="IBBloodBOutItem.cs" />
+    <Compile Include="IBBloodBPreForm.cs" />
+    <Compile Include="IBBloodBPreItem.cs" />
+    <Compile Include="IBBloodBReqForm.cs" />
+    <Compile Include="IBBloodBReqFormResult.cs" />
+    <Compile Include="IBBloodBReqItem.cs" />
+    <Compile Include="IBBloodBTestItem.cs" />
+    <Compile Include="IBBloodBUnit.cs" />
+    <Compile Include="IBBloodChargeGroupItem.cs" />
+    <Compile Include="IBBloodChargeItem.cs" />
+    <Compile Include="IBBloodChargeItemLink.cs" />
+    <Compile Include="IBBloodChargeItemType.cs" />
+    <Compile Include="IBBloodChargeMoney.cs" />
+    <Compile Include="IBBloodClass.cs" />
+    <Compile Include="IBBloodClassUnitLink.cs" />
+    <Compile Include="IBBloodInChecked.cs" />
+    <Compile Include="IBBloodInCheckedCurrent.cs" />
+    <Compile Include="IBBloodInCheckedItem.cs" />
+    <Compile Include="IBBloodInLoadfat.cs" />
+    <Compile Include="IBBloodInterfaceMaping.cs" />
+    <Compile Include="IBBloodInterfaceTransport.cs" />
+    <Compile Include="IBBloodLargeUseItem.cs" />
+    <Compile Include="IBBloodLisResult.cs" />
+    <Compile Include="IBBloodPatinfo.cs" />
+    <Compile Include="IBBloodQtyDtl.cs" />
+    <Compile Include="IBBloodRecei.cs" />
+    <Compile Include="IBBloodReceiItem.cs" />
+    <Compile Include="IBBloodSelfBlood.cs" />
+    <Compile Include="IBBloodSetQtyAlertColor.cs" />
+    <Compile Include="IBBloodSetQtyAlertInfo.cs" />
+    <Compile Include="IBBloodStyle.cs" />
+    <Compile Include="IBBloodTransForm.cs" />
+    <Compile Include="IBBloodTransItem.cs" />
+    <Compile Include="IBBloodUnit.cs" />
+    <Compile Include="IBBloodUseDesc.cs" />
+    <Compile Include="IBSCBagOperation.cs" />
+    <Compile Include="IBSCOperation.cs" />
+    <Compile Include="IBTemplate.cs" />
+    <Compile Include="IBBParameter.cs" />
+    <Compile Include="IBBUserUIConfig.cs" />
+    <Compile Include="IExcelDataCommon.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.BloodTransfusion\ZhiFang.Entity.BloodTransfusion.csproj">
+      <Project>{36917E28-CE6F-441F-8C2F-F9210AD56D31}</Project>
+      <Name>ZhiFang.Entity.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993FBE5-AA1F-433C-A07F-34CC25C59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

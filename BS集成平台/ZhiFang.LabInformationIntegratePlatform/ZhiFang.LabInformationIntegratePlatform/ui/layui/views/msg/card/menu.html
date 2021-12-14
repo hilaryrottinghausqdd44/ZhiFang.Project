@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>消息详情</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style>
+		.layui-nav-tree .layui-nav-item{line-height:24px;}
+		.layui-nav-tree .layui-nav-item a{line-height:24px;height:24px;padding:0 10px;font-size:12px;cursor:pointer;}
+	</style>
+</head>
+<body>
+	<ul class="layui-nav layui-nav-tree" lay-filter="test" style="width:100%;">
+		<li class="layui-nav-item" id="change_user" url="../../../interface/msg_login.html"><a>更改用户</a></li>
+		<li class="layui-nav-item" id="edit_password" url="../../../admin/views/set/user/password.html"><a>修改密码</a></li>
+		<li class="layui-nav-item" id="cv_search" url="{ZF_LAB_START}/ui/layui/views/msg/search/list.html"><a>危急值查询</a></li>
+	</ul>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('menu.js');
+	</script>
+</body>
+</html>

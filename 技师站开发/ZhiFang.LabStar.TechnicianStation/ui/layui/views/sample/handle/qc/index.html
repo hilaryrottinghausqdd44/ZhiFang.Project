@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>常规转质控</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../css/layui.sm.all.css");
+    </script>
+    <style>
+        .myStyle .layui-form-label{ width:60px; }
+        .myStyle .layui-input-block{ margin-left:70px; }
+        .layui-field-box{ padding: 10px 15px!important; }
+    </style>
+</head>
+<body>
+    <div class="myStyle">
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <fieldset class="layui-elem-field">
+                    <legend>请选择转换的质控样本</legend>
+                    <div class="layui-field-box">
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">质控样本:</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name='LisTestForm_QCMaterial' id="LisTestForm_QCMaterial" readonly autocomplete="off" class="layui-input" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item layui-hide">
+                                <label class="layui-form-label">质控样本Id:</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name='LisTestForm_QCMaterialID' id="LisTestForm_QCMaterialID" readonly autocomplete="off" class="layui-input" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="layui-elem-field">
+                    <legend>转换成功后处理</legend>
+                    <div class="layui-field-box">
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <input type="checkbox" name="isDel" id="isDel" title="转入质控表成功后,删除原样本" lay-skin="primary" checked>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="layui-elem-field">
+                    <legend>请核对即将转换为质控的检验单</legend>
+                    <div class="layui-field-box">
+                        <form class="layui-form" id="testFormInfo" lay-filter="testFormInfo">
+                            <div class="layui-row">
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检测日期:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GTestDate' readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">姓名:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_CName' readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样本类型主键:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GSampleTypeID' readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样本类型:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GSampleTypeCName' id="LisTestForm_GSampleTypeCName" readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">病历号:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_PatNo' readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样本号:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GSampleNo' readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">性别主键:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GenderID' readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">性别:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GenderCName' id="LisTestForm_GenderCName" readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </fieldset>
+                <div style="margin:20px;text-align:right;">
+                    <button type="button" id="save" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe625;</i>&nbsp;转换质控样本</button>
+                    <button type="button" id="cancel" class="layui-btn layui-btn-xs layui-btn-primary"><i class="iconfont">&#xe619;</i>&nbsp;取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+</body>
+</html>

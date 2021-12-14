@@ -1,0 +1,152 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>珠海主页</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+</head>
+<body>
+
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+
+            <div class="layui-col-sm6 layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        当日报告数
+                        <span class="layui-badge layui-bg-blue layuiadmin-badge">天</span>
+                    </div>
+                    <div class="layui-card-body layuiadmin-card-list">
+                        <p class="layuiadmin-big-font" id="TodayReportCount">0</p>
+                        <!--<p>
+                            检验报告数
+                            <span class="layuiadmin-span-color">9,666 <i class="layui-inline layui-icon layui-icon-flag"></i></span>
+                        </p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm6 layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        标本拒签数
+                        <span class="layui-badge layui-bg-orange layuiadmin-badge">月</span>
+                    </div>
+                    <div class="layui-card-body layuiadmin-card-list">
+                        <p class="layuiadmin-big-font" id="SampleRejectCount">0</p>
+                        <!--<p>
+                            标本拒签总数
+                            <span class="layuiadmin-span-color">33,555 <i class="layui-inline layui-icon layui-icon-face-cry"></i></span>
+                        </p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm6 layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        当月危急值
+                        <span class="layui-badge layui-bg-orange layuiadmin-badge">月</span>
+                    </div>
+                    <div class="layui-card-body layuiadmin-card-list">
+
+                        <p class="layuiadmin-big-font" id="MonthCV">0</p>
+                        <!--<p>
+                            传染病项目总数
+                            <span class="layuiadmin-span-color">30% <i class="layui-inline layui-icon layui-icon-survey"></i></span>
+                        </p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm6 layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        当月报告回传
+                        <span class="layui-badge layui-bg-orange layuiadmin-badge">月</span>
+                    </div>
+                    <div class="layui-card-body layuiadmin-card-list">
+
+                        <p class="layuiadmin-big-font" id="MonthReportReBackCount">0</p>
+                        <!--<p>
+                            单细菌总株数
+                            <span class="layuiadmin-span-color">9,666,666 <i class="layui-inline layui-icon layui-icon-tree"></i></span>
+                        </p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm12">
+                <div class="layui-row layui-col-space5">
+                    <div class="layui-col-sm8">
+                        <div class="layui-card">
+                            <div class="layui-card-header">
+                                当月项目TOP10
+                            </div>
+                            <div class="layui-card-body">
+                                <div id="LineChart" style="width:100%;height:300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-sm4">
+                        <div class="layui-card">
+                            <div class="layui-card-header">
+                                当月项目量占比TOP10
+                            </div>
+                            <div class="layui-card-body">
+                                <div id="PieChart" style="width:100%;height:300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm12">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-sm4">
+                        <div class="layui-card">
+                            <div class="layui-card-header">结果回报指标分析</div>
+                            <div class="layui-card-body">
+                                <table id="ResultReturnIndexAnalysisTable"></table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-sm4">
+                        <div class="layui-card">
+                            <div class="layui-card-header">7天内报告数量</div>
+                            <div class="layui-card-body">
+                                <table id="InfectionItemTable"></table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-sm4">
+                        <div class="layui-card">
+                            <div class="layui-card-header">当日报告列表</div>
+                            <div class="layui-card-body">
+                                <table id="ReportFormFullTable"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('../../../../src/echarts/4.8.0/echarts.min.js');
+        UIVersion.getJS('index.js');
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../layuiadmin/style/admin.css");
+    </script>
+    <style>
+        th > .layui-table-cell { padding:0 5px };
+    </style>
+</body>
+</html>

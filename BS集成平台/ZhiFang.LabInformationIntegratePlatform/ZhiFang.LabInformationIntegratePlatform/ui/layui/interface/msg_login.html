@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>消息卡片-登录方式</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		html { -webkit-text-size-adjust:none; }
+		.layui-form-select{position:unset;}
+	</style>
+</head>
+<body>
+	<div class="layadmin-user-login layadmin-user-display-show" style="padding:10px 0;" id="LAY-user-login">
+		<div class="layadmin-user-login-main">
+			<div style="margin-top:20px;margin-bottom:20px;text-align:center;font-size:24px;color:#009688;">
+				<i class="layui-icon layui-icon-component" style="font-size:96px;"></i>  
+				<div>消息平台</div>
+			</div>
+			<div class="layadmin-user-login-box layadmin-user-login-body layui-form" lay-filter="form">
+				<!--用户名-->
+				<div class="layui-form-item">
+					<label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+					<div id="account_div">
+						<input type="text" name="account" id="account" lay-verify="required" placeholder="用户名" class="layui-input">
+					</div>
+				</div>
+				<!--密码-->
+				<div class="layui-form-item">
+					<label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+					<input type="password" name="password" id="password" lay-verify="required" placeholder="密码" class="layui-input">
+				</div>
+				<!--记住密码-->
+				<div class="layui-form-item" style="margin-bottom: 20px;">
+					<input type="checkbox" name="remember" id="remember" lay-skin="primary" title="记住密码">
+					<!--<a href="forget.html" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">忘记密码？</a>-->
+				</div>
+				<!--登入-->
+				<div class="layui-form-item">
+					<button id="Button_Login" class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit">登 入</button>
+				</div>
+			</div>
+		</div>
+		<!--底部版权信息-->
+		<div class="layui-trans layadmin-user-login-footer">
+			<p>© 2019 <a href="http://demo.zhifang.com.cn/" target="_blank">demo.zhifang.com.cn</a></p>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../admin/layuiadmin/style/login.css');
+		UIVersion.getJS('msg_login.js');
+	</script>
+</body>
+</html>

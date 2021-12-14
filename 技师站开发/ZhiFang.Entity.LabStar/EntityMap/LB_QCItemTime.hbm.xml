@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+	<class name="LBQCItemTime" table="[dbo].[LB_QCItemTime]">
+		<id name="Id" column="[QCItemTimeID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="StartDate" column="[StartDate]" type="DateTime" not-null="true" length="8" />
+		<property name="EndDate" column="[EndDate]" type="DateTime" not-null="false" length="8" />
+		<property name="Target" column="[Target]" type="Double" not-null="false" length="8" />
+		<property name="SD" column="[SD]" type="Double" not-null="false" length="8" />
+		<property name="CCV" column="[CCV]" type="Double" not-null="false" length="8" />
+		<property name="HValue" column="[HValue]" type="Double" not-null="false" length="8" />
+		<property name="LValue" column="[LValue]" type="Double" not-null="false" length="8" />
+		<property name="HHValue" column="[HHValue]" type="Double" not-null="false" length="8" />
+		<property name="LLValue" column="[LLValue]" type="Double" not-null="false" length="8" />
+		<property name="DescAll" column="[DescAll]" type="String" not-null="false" length="500" />
+		<property name="SpecialType" column="[SpecialType]" type="Int32" not-null="false" length="4" />
+		<property name="IIndex" column="[iIndex]" type="Int32" not-null="true" length="4" />
+		<property name="ManuQCRange" column="[ManuQCRange]" type="String" not-null="false" length="200" />
+		<property name="ManuQCInfo" column="[ManuQCInfo]" type="String" not-null="false" length="200" />
+		<property name="QCItemTimeDesc" column="[QCItemTimeDesc]" type="String" not-null="false" length="200" />
+		<property name="Comment" column="[Comment]" type="String" not-null="false" length="1073741823" />
+		<property name="DiagMethod" column="[DiagMethod]" type="String" not-null="false" length="50" />
+		<property name="Unit" column="[Unit]" type="String" not-null="false" length="50" />
+		<property name="TestDesc" column="[TestDesc]" type="String" not-null="false" length="50" />
+		<property name="QCWithInfo" column="[QCWithInfo]" type="String" not-null="false" length="10" />
+		<property name="QCWithRange" column="[QCWithRange]" type="Double" not-null="false" length="8" />
+		<property name="UserID" column="[UserID]" type="Int64" not-null="false" length="8" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="LBQCItem" class="LBQCItem" lazy="proxy">
+			<column name="[QCItemID]" not-null="true"/>
+		</many-to-one>
+		<many-to-one name="LBQCMatTime" class="LBQCMatTime" lazy="proxy">
+			<column name="[QCMatTimeID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- <link rel="stylesheet" type="text/css" href="../../../../../src/layui/dist/css/layui.css" media="all" /> -->
+	<link rel="stylesheet" href="../../../../../layui/admin/layuiadmin/layui/css/layui.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../../../../../layui/admin/layuiadmin/style/admin.css" media="all" />
+	<style type="text/css">
+		p cite {
+			/* color: white; */
+			color: white
+		}
+	</style>
+</head>
+
+<body>
+	<div class="layui-fluid">
+	  <div class="layui-row layui-col-space15">
+	    <div class="layui-col-md12">
+	      <div class="layui-row layui-col-space15">	       
+	        <div class="layui-col-md12">
+	          <div class="layui-card">
+	            <div class="layui-card-header">临床实验室质控指标</div>
+	            <div class="layui-card-body">
+								<div class="layui-carousel layadmin-carousel layadmin-backlog" id="layui-carousel1">
+	                <div carousel-item>
+	                  <ul class="layui-row layui-col-space10" >
+	                    <li class="layui-col-xs3" >
+	                      <a lay-href="views/app/content/comment.html" class="layadmin-backlog-body layui-bg-blue" style="color: white;">
+	                        <h3>标本类型错误</h3>
+													<p><cite style="color: white;">66</cite></p>
+													<p><cite style="color: white;">1000</cite></p>
+	                      </a>											
+	                    </li>
+	                    <li class="layui-col-xs3">
+	                      <a lay-href="views/app/forum/list.html" class="layadmin-backlog-body layui-bg-green">
+	                        <h3>标本容器错误</h3>
+													<p><cite style="color: white;">11</cite></p>
+													<p><cite style="color: white;">1000</cite></p>
+	                      </a>
+	                    </li>
+	                    <li class="layui-col-xs3">
+	                      <a lay-href="views/template/goodslist.html" class="layadmin-backlog-body layui-bg-red">
+	                        <h3>标本采集量错误</h3>
+	                        <p><cite style="color: white;">99%</cite></p>
+	                      </a>
+	                    </li>
+	                    <li class="layui-col-xs3">
+	                      <a href="javascript:;" onclick="layer.tips('不跳转', this, {tips: 3});" class="layadmin-backlog-body layui-bg-green">
+	                        <h3>血培养污染</h3>
+	                        <p><cite style="color:white;">20%</cite></p>
+	                      </a>
+	                    </li>
+	                  </ul>
+	                  <ul class="layui-row layui-col-space10">
+	                    <li class="layui-col-xs3">
+	                      <a href="javascript:;" class="layadmin-backlog-body layui-bg-green">
+	                        <h3>抗凝标本凝集</h3>
+	                        <p><cite style="color: white;">5%</cite></p>
+	                      </a>
+	                    </li>
+											 <li class="layui-col-xs3" >
+											  <a href="javascript:;" class="layadmin-backlog-body" style="background-color: #FF5722;">
+											    <h3>其它</h3>
+											    <p><cite style="color: white;">0.5%</cite></p>
+											  </a>
+											</li>
+											<li class="layui-col-xs6" ></li>
+	                  </ul>
+	                </div>
+									</div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>	    
+	  </div>
+	</div>
+</body>
+</html>
+<script src="../../../../../src/layui/dist/layui.js"></script>
+<script src="../../../../../../ui/layui/config/system.js"></script>
+
+<script type="text/javascript">
+	layui.use(['element',"carousel"], function () {
+		var element = layui.element;
+		var carousel = layui.carousel;
+		 carousel.render({
+				elem: '#layui-carousel1'
+				,width: '100%' //设置容器宽度
+				,arrow: 'none' //始终显示箭头
+				,autoplay:false//是否自动切换
+				//,indicator:'outside'
+				//,anim: 'updown' //切换动画方式
+			});
+	});
+</script>

@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC03E805-5743-4343-840A-92FAA7457315}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.WeiXin.Entity</RootNamespace>
+    <AssemblyName>ZhiFang.WeiXin.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.WeiXin\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonServiceClass.cs" />
+    <Compile Include="Entity\B_Lab_District.cs" />
+    <Compile Include="Entity\PatDiagInfo.cs" />
+    <Compile Include="Entity\GenderType.cs" />
+    <Compile Include="Entity\B_DoctorControl.cs" />
+    <Compile Include="Entity\B_Lab_Doctor.cs" />
+    <Compile Include="Entity\B_Lab_SampleType.cs" />
+    <Compile Include="Entity\B_Lab_SickType.cs" />
+    <Compile Include="Entity\B_SampleTypeControl.cs" />
+    <Compile Include="Entity\B_SickTypeControl.cs" />
+    <Compile Include="Entity\B_TestItemControl.cs" />
+    <Compile Include="Entity\BusinessLogicClientControl.cs" />
+    <Compile Include="Entity\BarCodeForm.cs" />
+    <Compile Include="Entity\NRequestItem.cs" />
+    <Compile Include="Entity\NRequestForm.cs" />
+    <Compile Include="Entity\CLIENTELE.cs" />
+    <Compile Include="Entity\Doctor.cs" />
+    <Compile Include="Entity\ItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="Entity\ItemColorDict.cs" />
+    <Compile Include="Entity\B_LabTestItem.cs" />
+    <Compile Include="Entity\B_LabGroupItem.cs" />
+    <Compile Include="Entity\B_RuleNumber.cs" />
+    <Compile Include="Entity\B_AccountHospitalSearchContext.cs" />
+    <Compile Include="Entity\B_AccountType.cs" />
+    <Compile Include="Entity\B_AntiBiotic.cs" />
+    <Compile Include="Entity\B_AntiType.cs" />
+    <Compile Include="Entity\B_DoctorAccount.cs" />
+    <Compile Include="Entity\B_WeiXin_Emp_Link.cs" />
+    <Compile Include="Entity\B_WeiXin_PushMessageTemplate.cs" />
+    <Compile Include="Entity\ClientEleArea.cs" />
+    <Compile Include="Entity\B_Hospital.cs" />
+    <Compile Include="Entity\B_HospitalDept.cs" />
+    <Compile Include="Entity\B_HospitalLevel.cs" />
+    <Compile Include="Entity\B_HospitalSearch.cs" />
+    <Compile Include="Entity\B_HospitalType.cs" />
+    <Compile Include="Entity\B_Icons.cs" />
+    <Compile Include="Entity\B_IconsType.cs" />
+    <Compile Include="Entity\B_MicroItem.cs" />
+    <Compile Include="Entity\B_Parameter.cs" />
+    <Compile Include="Entity\B_SampleType.cs" />
+    <Compile Include="Entity\B_ScanningBarCodeReportForm.cs" />
+    <Compile Include="Entity\B_SearchAccount.cs" />
+    <Compile Include="Entity\B_SearchAccountReportForm.cs" />
+    <Compile Include="Entity\B_Specialty.cs" />
+    <Compile Include="Entity\B_TestItemClinicalSignificance.cs" />
+    <Compile Include="Entity\B_WeiXinAccount.cs" />
+    <Compile Include="Entity\B_WeiXinUserGroup.cs" />
+    <Compile Include="Entity\GroupItem.cs" />
+    <Compile Include="Entity\OS_DoctorBonus.cs" />
+    <Compile Include="Entity\OS_DoctorBonusForm.cs" />
+    <Compile Include="Entity\OS_DoctorBonus_Attachment.cs" />
+    <Compile Include="Entity\OS_DoctorBonus_Operation.cs" />
+    <Compile Include="Entity\OS_DoctorOrderForm.cs" />
+    <Compile Include="Entity\OS_DoctorOrderItem.cs" />
+    <Compile Include="Entity\OS_ItemProductClassTree.cs" />
+    <Compile Include="Entity\OS_ItemProductClassTreeLink.cs" />
+    <Compile Include="Entity\B_Dict.cs" />
+    <Compile Include="Entity\B_DictType.cs" />
+    <Compile Include="Entity\OS_ManagerRefundForm.cs" />
+    <Compile Include="Entity\OS_ManagerRefundForm_Attachment.cs" />
+    <Compile Include="Entity\OS_ManagerRefundForm_Operation.cs" />
+    <Compile Include="Entity\OS_RecommendationItemProduct.cs" />
+    <Compile Include="Entity\OS_ShoppingCart.cs" />
+    <Compile Include="Entity\OS_UserConsumerForm.cs" />
+    <Compile Include="Entity\OS_UserConsumerItem.cs" />
+    <Compile Include="Entity\OS_UserOrderForm.cs" />
+    <Compile Include="Entity\OS_UserOrderItem.cs" />
+    <Compile Include="Entity\RF_ReportForm_IndexInfo.cs" />
+    <Compile Include="Entity\RF_ReportItemFull.cs" />
+    <Compile Include="Entity\RF_ReportMarrowFull.cs" />
+    <Compile Include="Entity\RF_ReportMicroFull.cs" />
+    <Compile Include="Entity\SampleType.cs" />
+    <Compile Include="Entity\S_WeiXinAccountLog.cs" />
+    <Compile Include="Entity\TestItem.cs" />
+    <Compile Include="Entity\SickType.cs" />
+    <Compile Include="ViewObject\Request\GroupItemVO.cs" />
+    <Compile Include="ViewObject\Request\BLabGroupItemVO.cs" />
+    <Compile Include="ViewObject\Request\TestItemVO.cs" />
+    <Compile Include="ViewObject\Request\BLabTestItemVO.cs" />
+    <Compile Include="ViewObject\Response\BLabGroupItemVO.cs" />
+    <Compile Include="ViewObject\Response\BLabDoctorVO.cs" />
+    <Compile Include="ViewObject\Response\BLabSampleTypeVO.cs" />
+    <Compile Include="ViewObject\Response\BLabSickTypeVO.cs" />
+    <Compile Include="ViewObject\Response\BTestItemControlVO.cs" />
+    <Compile Include="ViewObject\Response\ClientEleAreaVO.cs" />
+    <Compile Include="ViewObject\Response\BarCodeFormVO.cs" />
+    <Compile Include="ViewObject\Response\ApplyInputItemEntityVO.cs" />
+    <Compile Include="ViewObject\Request\NrequestCombiItemBarCodeEntity.cs" />
+    <Compile Include="ViewObject\Response\WeChatConsumptionSamplingInfoVO.cs" />
+    <Compile Include="ViewObject\Response\TestItemDetailVO.cs" />
+    <Compile Include="ViewObject\Response\UserOrderFormVO.cs" />
+    <Compile Include="ViewObject\Response\NRequestItemVO.cs" />
+    <Compile Include="ViewObject\Response\NRequestFormVO.cs" />
+    <Compile Include="ViewObject\Response\GroupItemVO.cs" />
+    <Compile Include="ViewObject\Response\OSDoctorChargeInfoVO.cs" />
+    <Compile Include="ViewObject\Response\OSDoctorOrderFormVO.cs" />
+    <Compile Include="ViewObject\Response\OSItemProductClassTreeLinkVO.cs" />
+    <Compile Include="ViewObject\Response\OSItemProductClassTreeVO.cs" />
+    <Compile Include="ViewObject\Response\OSManagerRefundFormVO.cs" />
+    <Compile Include="ViewObject\Response\OSUserConsumerFormVO.cs" />
+    <Compile Include="ViewObject\Response\OSUserOrderFormVO.cs" />
+    <Compile Include="EnumType.cs" />
+    <Compile Include="InfoLevel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewObject\Request\OSDoctorOrderFormVO.cs" />
+    <Compile Include="ViewObject\Response\BLabTestItemVO.cs" />
+    <Compile Include="ViewObject\Request\OSDoctorBonusBase.cs" />
+    <Compile Include="ViewObject\Request\BusinessBase.cs" />
+    <Compile Include="ViewObject\Request\RefundFormVO.cs" />
+    <Compile Include="ViewObject\Response\OSDoctorBonusApply.cs" />
+    <Compile Include="ViewObject\Response\OSRecommendationItemProductVO.cs" />
+    <Compile Include="ViewObject\Statistics\UserConsumerFormSearch.cs" />
+    <Compile Include="ViewObject\Statistics\UserConsumerItemDetails.cs" />
+    <Compile Include="ViewObject\Statistics\FinanceIncome.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{3088c72d-5fbd-46f5-b9ba-fd8adc05b2a5}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{5bcba563-016a-493b-88f3-0dc683e9716b}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.Common\ZhiFang.WeiXin.Common.csproj">
+      <Project>{B7F82A5B-128A-4558-AD09-11CE50BE277F}</Project>
+      <Name>ZhiFang.WeiXin.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_AccountHospitalSearchContext.hbm.xml" />
+    <EmbeddedResource Include="Map\B_AccountType.hbm.xml" />
+    <EmbeddedResource Include="Map\B_AntiBiotic.hbm.xml" />
+    <EmbeddedResource Include="Map\B_AntiType.hbm.xml" />
+    <EmbeddedResource Include="Map\B_DoctorAccount.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\B_Hospital.hbm.xml" />
+    <EmbeddedResource Include="Map\B_HospitalLevel.hbm.xml" />
+    <EmbeddedResource Include="Map\B_HospitalSearch.hbm.xml" />
+    <EmbeddedResource Include="Map\B_HospitalType.hbm.xml" />
+    <EmbeddedResource Include="Map\B_Icons.hbm.xml" />
+    <EmbeddedResource Include="Map\B_IconsType.hbm.xml" />
+    <EmbeddedResource Include="Map\B_MicroItem.hbm.xml" />
+    <EmbeddedResource Include="Map\B_ScanningBarCodeReportForm.hbm.xml" />
+    <EmbeddedResource Include="Map\B_SearchAccount.hbm.xml" />
+    <EmbeddedResource Include="Map\B_SearchAccountReportForm.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\B_Specialty.hbm.xml" />
+    <EmbeddedResource Include="Map\B_WeiXinAccount.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\B_WeiXinUserGroup.hbm.xml" />
+    <EmbeddedResource Include="Map\RF_ReportForm_IndexInfo.hbm.xml" />
+    <EmbeddedResource Include="Map\RF_ReportItemFull.hbm.xml" />
+    <EmbeddedResource Include="Map\RF_ReportMarrowFull.hbm.xml" />
+    <EmbeddedResource Include="Map\RF_ReportMicroFull.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\S_WeiXinAccountLog.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_SampleType.hbm.xml" />
+    <EmbeddedResource Include="Map\B_TestItemClinicalSignificance.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_HospitalDept.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\OS_ItemProductClassTree.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_ItemProductClassTreeLink.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\GroupItem.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\TestItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_Parameter.hbm.xml" />
+    <EmbeddedResource Include="Map\B_Dict.hbm.xml" />
+    <EmbeddedResource Include="Map\B_DictType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\ClientEleArea.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_DoctorBonus.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\OS_DoctorBonusForm.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_DoctorBonus_Attachment.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_DoctorBonus_Operation.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_DoctorOrderForm.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_DoctorOrderItem.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_ManagerRefundForm.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\OS_ManagerRefundForm_Attachment.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\OS_ManagerRefundForm_Operation.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_RecommendationItemProduct.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_ShoppingCart.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_UserConsumerForm.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_UserConsumerItem.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_UserOrderForm.hbm.xml" />
+    <EmbeddedResource Include="Map\OS_UserOrderItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_LabTestItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewObject\Statistics\Map\FinanceIncome.hbm.xml" />
+    <EmbeddedResource Include="ViewObject\Statistics\Map\UserConsumerItemDetails.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_WeiXin_Emp_Link.hbm.xml" />
+    <EmbeddedResource Include="Map\B_WeiXin_PushMessageTemplate.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_LabGroupItem.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\ItemColorDict.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\ItemColorAndSampleTypeDetail.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_TestItemControl.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\CLIENTELE.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\SickType.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_Lab_SickType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_SickTypeControl.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\SampleType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_Lab_SampleType.hbm.xml" />
+    <EmbeddedResource Include="Map\B_SampleTypeControl.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_DoctorControl.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_Lab_Doctor.hbm.xml" />
+    <EmbeddedResource Include="Map\Doctor.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\BusinessLogicClientControl.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\BarCodeForm.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\GenderType.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\NRequestItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\NRequestForm.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\PatDiagInfo.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\B_Lab_District.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

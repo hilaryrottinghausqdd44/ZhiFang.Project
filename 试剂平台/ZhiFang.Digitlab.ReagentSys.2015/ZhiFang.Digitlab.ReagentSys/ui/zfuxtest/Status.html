@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>状态的集合显示模块</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	 <link rel="stylesheet" type="text/css" href="../css/icon.css"/> 
+    <script type="text/javascript" src="../util/util.js"></script>
+    <script type="text/javascript" src="../zhifangux/Status.js"></script>
+
+    <script type="text/javascript">
+      Ext.onReady(function () {
+         // var Height=33;
+          //var Width=500;
+         // var Size=16;
+
+		 
+	      var form2 = Ext.create('Ext.zhifangux.Status', {
+		          renderTo: Ext.getBody(),
+		          margin :'11 10 10 10',
+		          title: '',
+		          id:'cc',
+		          border:false,
+		          layout: 'hbox',
+		          size:16,
+		          serverUrl: 'server/GetStatusList.json',
+				arrowSrc:getRootPath()+'/ui/css/images/extjs-icons/bullet_go.png',//小箭头图片的路径
+	         });
+		   var form1 = Ext.create('Ext.panel.Panel', {
+		          renderTo: Ext.getBody(),
+		          margin :'10 10 10 10',
+		          title: '测试用例',
+				  border:true,
+				  layout:'absolute',
+				  items: [
+						{xtype: 'button',x: 100,y: 10,text: '设置高',
+						  handler: function () {
+							   var y=  Ext.getCmp('cc');
+							   var  t1=Ext.getCmp('L1');
+								  height1=parseInt(t1.value);
+								   y.height=height1;
+								   y.insert();
+		                      }
+						},
+						{xtype: 'button',x: 100,y: 50,text: '面板宽',
+						 handler: function () {
+							    var y=  Ext.getCmp('cc');
+							    var  t1=Ext.getCmp('L3');
+							  	  width1=parseInt(t1.value);
+								  
+								   y.width=width1;
+								   
+								   y.insert();
+								   
+							    //  alert(height);
+								//   y.width=width1;
+							 //   y.setWidth(width);
+		                      }
+						},
+					{xtype: 'button',x: 250,y: 10,text: '图片大小',
+					
+					handler: function () {
+							     var y=  Ext.getCmp('cc');
+							    var  t1=Ext.getCmp('L2');
+							    //  height= t1.value;
+								  size1=parseInt(t1.value);
+							     // alert(height);
+								 //y=height;
+								 //y.height=height1;
+							     // y.setHeight(height1);
+								 
+						     //   y.size = size1;
+							 y.setWidth=40;
+							    y.insert();
+							//	alert( y.setWidth);
+								//y.remove();
+								 //  y.size=60;
+								  y. insert();
+								   //y.getLoader();
+								   
+		                      }
+					},
+				    { xtype: 'textfield',x: 10,y: 10,width: 80,fieldLabel: '',id:'L1'  },
+                    {xtype: 'textfield',x: 170,y: 10, width: 70, fieldLabel: '',id:'L2' },
+                    {xtype: 'textfield', x: 10, y: 50, width: 80, fieldLabel: '',id:'L3'  },
+                    {xtype: 'textfield',x: 170, y: 50,width: 90,fieldLabel: '',id:'L4' },
+                    {xtype: 'button', x: 270, y: 50,text: '数据源',
+							handler: function () {
+							    var y=  Ext.getCmp('cc');
+							    var  t1=Ext.getCmp('L3');
+								//alert("测试用例未完成,现加载的数据源为server/GetStatusList.json");
+							
+							  //     height1=parseInt(t1.value);
+							       serverUrl1=t1.value;
+								   y.serverUrl='server/GetStatusList.json';
+								 
+								 
+								// alert(y.server/GetStatusList.json');
+								   y.insert();
+		                      }
+					},
+				    {xtype: 'button', x: 20, y: 80,text: '测试方法load',
+						 handler: function () {
+							    var y=  Ext.getCmp('cc');
+							     y.Load();
+		                      }
+					}
+			
+                  ]
+		   });
+		   
+		
+     });
+    </script>
+</head>
+<body>
+</body>
+</html>

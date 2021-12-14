@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="mainWindow">
+<head>
+   <title>无标题页</title>
+   <script language="javascript" type="text/javascript">
+       function SetPorgressBar(all,pos,type)
+       {
+           //设置进度条居中
+           var screenHeight = window["mainWindow"].offsetHeight;
+           var screenWidth = window["mainWindow"].offsetWidth;
+           ProgressBarSide.style.width = Math.round(screenWidth / 2);
+           ProgressBarSide.style.left = Math.round(screenWidth / 4);
+           ProgressBarSide.style.top = Math.round(screenHeight / 2);
+           ProgressBarSide.style.height = "21px";
+           ProgressBarSide.style.display = "";
+            
+           //设置进度条百分比
+           ProgressBar.style.width = parseInt((pos / all) * 100) + "%";
+           ProgressText.innerHTML = parseInt((pos / all) * 100) + "%";
+
+           //显示的数量信息
+           if (type == 0) {
+               CreateReportInfo.innerHTML = "医疗机构总数：" + all + "，已生成数：" + pos + "，未生成数：" + (all - pos);
+           }
+           else {
+               CreateReportInfo.innerHTML = "医疗机构总数：" + all + "，已审核数：" + pos + "，未审核数：" + (all - pos);
+           }
+           CreateReportInfo.style.left = Math.round(screenWidth / 4);
+           CreateReportInfo.style.top = Math.round(screenHeight / 2) - 20;
+       }
+
+       //完成后隐藏进度条
+       function SetCompleted()
+       {
+           CreateReportInfo.style.display = "none";
+           ProgressBarSide.style.display = "none";
+       }
+    </script>  
+
+</head>
+   <body>
+   <div id="CreateReportInfo" style="position:absolute;width:100%;"></div>
+   <div id="ProgressBarSide" style="position:absolute;height:21px;width:100px;color:Black;border-width:1px;border-style:Solid;display:none">
+       <div id="ProgressBar" style="position:absolute;height:21px;width:0%;background-color:#3366FF"></div>
+       <div id="ProgressText" style="position:absolute;height:21px;width:100%;text-align:center"></div>
+   </div>
+   </body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>选择取单分类项目</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+	//加载版本号文件
+	document.write("<script type='text/javascript' src='../../../../../layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");
+  </script> 
+  <style>
+        /*select layui 插件*/
+        .xm-select-parent .xm-select-label { left: 0px !important;}
+        dl.xm-select-dl { min-width: 200px !important;}
+        dl.xm-select-dl div.xm-cz-group {max-width: 200px !important;}
+        select[xm-select-radio] + div .icon-close { /**去掉select选中的关闭按钮**/display: none;}
+        /****/
+        .marLeft10 {margin-left:10px;}
+        .buttonBox { position: relative;top: 50%;margin-top: -100px;}
+        .buttonStyle {text-align: center;margin:10px 0;}
+        
+        .layui-table-view{margin: 1px 0;}
+	    /*input前存在icon 则加到input里面*/
+	    .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+    </style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="margin: 10px;"> 
+   <div class=" layui-col-xs5"> 
+    <blockquote class="layui-elem-quote layui-quote-nm" style="margin-bottom: 0px;padding-top: 5px;padding-bottom: 5px;">
+             模块名称： 
+     <span style="color:orange;font-weight:bold;" id="BHostTypeCName"></span> 
+    </blockquote> 
+    <div class="tableContainer"> 
+     <table id="lefttable" lay-filter="lefttable"></table> 
+    </div> 
+   </div> 
+   <div class="layui-col-xs1"> 
+    <div class="fiexdHeight"> 
+     <div class="buttonBox"> 
+      <div class="layui-row"> 
+       <div class="layui-col-xs12 buttonStyle"> 
+        <button class="layui-btn layui-btn-xs" id="add"> <i class="layui-icon layui-icon-left"></i>加入</button> 
+       </div> 
+       <div class="layui-col-xs12 buttonStyle"> 
+        <button class="layui-btn layui-btn-xs layui-bg-orange" id="remove"> <i class="layui-icon layui-icon-right"></i>移除</button> 
+       </div> 
+       <div class="layui-col-xs12 buttonStyle"> 
+        <button class="layui-btn layui-btn-xs layui-btn-primary" id="reset"><i class="layui-icon layui-icon-refresh"></i>重置 </button> 
+       </div> 
+       <div class="layui-col-xs12 buttonStyle"> 
+        <button class="layui-btn layui-btn-xs" id="save" ><i class="iconfont">&#xe713;</i>&nbsp;保存 </button> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="layui-col-xs6"> 
+    <div class="layui-form" id="BHostType" lay-filter="BHostType"> 
+     <div class="layui-form-item"> 
+     	<div class="layui-col-xs6">
+     	   <input type="text" name="BHostType_Id" id="BHostType_Id" autocomplete="off"  class="layui-input layui-hide" /> 
+
+           <label class="layui-form-label">名称</label> 
+	       <div class="layui-input-block"> 
+	       	<input type="text" name="BHostType_CName" id="BHostType_CName" autocomplete="off" lay-verify="required" placeholder="必填项" class="layui-input" /> 
+	       </div> 
+     	</div>
+        <div class="layui-col-xs6">
+     	   <label class="layui-form-label">简称</label> 
+	       <div class="layui-input-block"> 
+	       	<input type="text" name="BHostType_SName" id="BHostType_SName" autocomplete="off" class="layui-input" /> 
+	       </div> 
+     	</div>
+      </div>
+      <div class="layui-form-item"> 	
+     	 <div class="layui-col-xs6"> 
+        <label class="layui-form-label">显示次序</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="BHostType_DispOrder" id="BHostType_DispOrder" lay-verify="number" placeholder="请输入数字" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+        <div class="layui-col-xs6">
+     	   <label class="layui-form-label">备注</label> 
+	       <div class="layui-input-block"> 
+	       	<input type="text" name="BHostType_HostTypeDesc" id="BHostType_HostTypeDesc" autocomplete="off"  class="layui-input" /> 
+	       </div> 
+     	</div>
+     </div> 
+    </div> 
+    <div class="layui-row"> 
+     <table id="righttable" lay-filter="righttable"></table> 
+    </div> 
+    <div class="layui-row layui-hide"> 
+     <input type="text" name="sectionID" id="sectionID" autocomplete="off" class="layui-input" /> 
+     <input type="text" name="groupItemID" id="groupItemID" autocomplete="off" class="layui-input" /> 
+    </div> 
+    <script type="text/html" id="toolbarDemo">
+    	<div class="layui-inline">
+    		<input type="text" id="search_Text_add" autocomplete="off" placeholder="参数名称/编号过滤" class="layui-input" style="width: 150px;" /> 
+    	</div>
+    	<div class="layui-inline">
+    		<button class="layui-btn layui-btn-xs " type="button"  lay-event="search"><i class="layui-icon layui-icon-search"></i>查询</button> 
+    	</div>
+	</script>
+   </div> 
+  </div>  
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script> 
+    <style>
+	    .layui-table-view{margin: 1px 0px; }
+	    /*.layui-form-item{margin-bottom: 0px;}
+        .layui-form-label{ width: 90px;padding: 0px 15px;text-align: right;}
+        .layui-input-block{margin-left: 120px; min-height: 36px;}*/
+
+	</style>  
+ </body>
+</html>

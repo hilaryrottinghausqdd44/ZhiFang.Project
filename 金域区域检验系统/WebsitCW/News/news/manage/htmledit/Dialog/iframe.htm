@@ -1,0 +1,308 @@
+<HTML>
+<HEAD>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+
+<style type="text/css">
+body, a, table, div, span, td, th, input, select{font:9pt;font-family: "宋体", Verdana, Arial, Helvetica, sans-serif;}
+body {padding:5px}
+</style>
+
+<Script Language=JavaScript src="dialog.js"></script>
+
+
+<Script Language=JavaScript>
+    function getParameter(param) {
+        var query = window.location.search;
+        var iLen = param.length;
+        var iStart = query.indexOf(param);
+        if (iStart == -1)
+            return "";
+        iStart += iLen + 1;
+        var iEnd = query.indexOf("&", iStart);
+        if (iEnd == -1)
+            return query.substring(iStart);
+
+        return query.substring(iStart, iEnd);
+    }
+    var type1 = getParameter("type");
+var sAction = "INSERT";
+var sTitle = "插入";
+
+var oControl;
+var oSeletion;
+var sRangeType;
+
+var sUrl = "http://";
+var sScrolling = "";
+var sFrameBorder = "0";
+var sMarginHeight = "0";
+var sMarginWidth = "0";
+var sWidth = "500";
+var sHeight = "400";
+var sID=""
+
+if (type1 == null || type1 != "0") {
+    oSelection = dialogArguments.eWebEditor.document.selection.createRange();
+    sRangeType = dialogArguments.eWebEditor.document.selection.type;
+}
+else {
+    oSelection = dialogArguments.frames["eWebEditor1"].frames["eWebEditor"].document.selection.createRange();
+    sRangeType = dialogArguments.frames["eWebEditor1"].frames["eWebEditor"].document.selection.type;
+}
+//alert(sRangeType);
+if (sRangeType == "Control") {
+    //alert(oSelection.item(0).tagName);
+	if (oSelection.item(0).tagName == "IFRAME"){
+		sAction = "MODI";
+		sTitle = "修改";
+		oControl = oSelection.item(0);
+		sUrl = oControl.src;
+		sScrolling = oControl.scrolling;
+		sFrameBorder = oControl.frameBorder;
+		sMarginHeight = oControl.marginHeight;
+		sMarginWidth = oControl.marginWidth;
+		sWidth = oControl.width;
+		sHeight = oControl.height;
+		sID = oControl.id;
+	}
+}
+
+
+document.write("<title>网页帧属性（" + sTitle + "）(请在编辑时框架最左上角点击插入)</title>");
+
+// 初始值
+function InitDocument(){
+	SearchSelectValue(d_scrolling, sScrolling.toLowerCase());
+
+	d_url.innerHTML = sUrl;
+	d_frameborder.value = sFrameBorder;
+	d_marginheight.value = sMarginHeight;
+	d_marginwidth.value = sMarginWidth;
+	d_width.value = sWidth;
+	d_height.value = sHeight;
+	d_id.value = sID;
+
+}
+
+
+
+
+
+</Script>
+
+
+
+<title>网页帧属性（<%=sTitle%>）</title>
+
+<SCRIPT event=onclick for=Ok language=JavaScript>
+	sScrolling = d_scrolling.options[d_scrolling.selectedIndex].value;
+
+	sUrl = d_url.innerHTML;
+	/*
+	if (!IsURL(sUrl)){
+		BaseAlert(d_url, "无效的网页地址！");
+		return;
+	}*/
+
+	d_frameborder.value = ToInt(d_frameborder.value);
+	d_marginheight.value = ToInt(d_marginheight.value);
+	d_marginwidth.value = ToInt(d_marginwidth.value);
+	sFrameBorder = d_frameborder.value;
+	sMarginHeight = d_marginheight.value;
+	sMarginWidth = d_marginwidth.value;
+	sID = d_id.value;
+	var sWidth = "";
+	if (!MoreThanOne(d_width,'无效的帧宽度！')) return;
+	sWidth = d_width.value;
+	var sHeight = "";
+	if (!MoreThanOne(d_height,'无效的帧高度！')) return;
+	sHeight = d_height.value;
+	
+	var type = getParameter("type");
+	sUrl=sUrl.replace(/&amp;/g,'&');
+	//alert(type);
+	if(type == null || type != "0")
+	{
+	if (sAction == "MODI") {
+		
+		oControl.src = sUrl;
+		oControl.scrolling = sScrolling;
+				
+		oControl.frameBorder = sFrameBorder;
+		oControl.marginHeight = sMarginHeight;
+		oControl.marginWidth = sMarginWidth;
+		oControl.width = sWidth;
+		oControl.height = sHeight;
+		oControl.id = sID;
+		oControl.name = sID;
+		//alert(sUrl);
+	}else{
+	     
+		 dialogArguments.insertHTML("<iframe id='"+sID+"' name='"+sID+"' src='"+sUrl+"' scrolling='"+sScrolling+"' frameborder='"+sFrameBorder+"' marginheight='"+sMarginHeight+"' marginwidth='"+sMarginWidth+"' width='"+sWidth+"' height='"+sHeight+"'></iframe>");
+	}
+    
+	window.returnValue = null;
+	window.close();
+	}
+	else
+	{if (sAction == "MODI") {
+		
+		oControl.src = sUrl;
+		oControl.scrolling = sScrolling;
+				
+		oControl.frameBorder = sFrameBorder;
+		oControl.marginHeight = sMarginHeight;
+		oControl.marginWidth = sMarginWidth;
+		oControl.width = sWidth;
+		oControl.height = sHeight;
+		oControl.id = sID;
+		oControl.name = sID;
+		//alert(sUrl);
+	}else{	     
+		 //dialogArguments.insertHTML("<iframe id='"+sID+"' name='"+sID+"' src='"+sUrl+"' scrolling='"+sScrolling+"' frameborder='"+sFrameBorder+"' marginheight='"+sMarginHeight+"' marginwidth='"+sMarginWidth+"' width='"+sWidth+"' height='"+sHeight+"'></iframe>");
+	}
+    
+	window.returnValue = "<iframe id='"+sID+"' name='"+sID+"' src='"+sUrl+"' scrolling='"+sScrolling+"' frameborder='"+sFrameBorder+"' marginheight='"+sMarginHeight+"' marginwidth='"+sMarginWidth+"' width='"+sWidth+"' height='"+sHeight+"'></iframe>";
+	window.close();}
+</SCRIPT>
+
+<script type="text/javascript" charset="utf-8">
+
+
+// 判断值是否大于0
+function MoreThanOne(obj, sErr){
+	var b=false;
+	if (obj.value!=""){
+		obj.value=parseFloat(obj.value);
+		if (obj.value!="0"){
+			b=true;
+		}
+	}
+	if (b==false){
+		BaseAlert(obj,sErr);
+		return false;
+	}
+	return true;
+}
+//选择模块
+function ButtSelectModule_onclick()
+{
+	var sBaseUrl1 = document.location.protocol + '//' +
+					document.location.hostname + '/' +
+					document.location.pathname.substr(0,document.location.pathname.indexOf('/')) ;
+	//alert(sBaseUrl1);
+	
+	var r;
+	var r=window.showModalDialog(sBaseUrl1 + '/RBAC/Modules/SelectModuleDialog.aspx','','dialogWidth:588px;dialogHeight:618px;help:no;scroll:no;status:no');
+	if (r == '' || typeof(r) == 'undefined'||typeof(r)=='object')
+	{
+		return;
+	}
+	else
+	{
+		var returns=r.split("\v");
+		//document.all["d_url"].value=returns[0];
+		document.all["d_url"].innerHTML = sBaseUrl1 + returns[1].substr(5);
+	}
+}
+function ButtSelectConditions_onclick()
+{
+    var sBaseUrl1 = document.location.protocol + '//' +
+ 					document.location.hostname + '/' +
+ 					document.location.pathname.substr(0,document.location.pathname.indexOf('/')) ;
+	//alert(sBaseUrl1);
+    var sPopUrl = document.all["d_url"].innerText;
+	//alert('开始'+sPopUrl+'结束');   
+    
+	var r;	
+	r = window.showModalDialog(sBaseUrl1 + '/ModuleManage/ModuleDefault_List.aspx?PreviouseUrl=' + sPopUrl,'','dialogWidth:588px;dialogHeight:618px;help:no;status:no');
+	
+	if (r == '' || typeof(r) == 'undefined'||typeof(r)=='object')
+	{
+		return;
+	}
+	else
+	{
+	    var sBaseUrl2 = document.location.protocol + '//' + document.location.hostname;
+	    document.all["d_url"].innerHTML = sBaseUrl2 + r;
+	}
+  
+}
+
+</script>
+</HEAD>
+
+<body bgcolor=menu onload="InitDocument()">
+
+<table border=0 cellpadding=0 cellspacing=0 ID="Table1">
+<tr>
+	<td>
+	<fieldset>
+	<legend>属性设置</legend>
+	<table border=0 cellpadding=0 cellspacing=0 ID="Table2">
+	<tr><td colspan=9 height=5></td></tr>
+	<tr>
+		<td width=7></td>
+		<td>网页地址:</td>
+		<td width=5></td>
+		<td colspan=5><textarea type=text name="d_url" id=d_url style="width:343px" rows="7" cols="35"></textarea></td>
+		<td width=7></td>
+	</tr>
+	<tr><td colspan=9 height=5></td></tr>
+	<tr>
+		<td width=7></td>
+		<td noWrap>滚 动 条:</td>
+		<td width=5></td>
+		<td><select id=d_scrolling style="width:72px" NAME="d_scrolling"><option value='auto'>默认</option><option value='yes'>有</option><option value='no' selected="selected">无</option></select></td>
+		<td width=40></td>
+		<td noWrap>边 框 线:</td>
+		<td width=5></td>
+		<td><input id=d_frameborder size=10 maxlength=2 value="" ONKEYPRESS="event.returnValue=IsDigit();" NAME="d_frameborder"></td>
+		<td width=7></td>
+	</tr>
+	<tr><td colspan=9 height=5></td></tr>
+	<tr>
+		<td width=7></td>
+		<td>上下边距:</td>
+		<td width=5></td>
+		<td><input id=d_marginheight size=10 maxlength=2 value="" ONKEYPRESS="event.returnValue=IsDigit();" NAME="d_marginheight"></td>
+		<td width=40></td>
+		<td>左右边距:</td>
+		<td width=5></td>
+		<td><input id=d_marginwidth size=10 maxlength=2 value="" ONKEYPRESS="event.returnValue=IsDigit();" NAME="d_marginwidth"></td>
+		<td width=7></td>
+	</tr>
+	<tr><td colspan=9 height=5></td></tr>
+	<tr>
+		<td width=7></td>
+		<td>帧 宽 度:</td>
+		<td width=5></td>
+		<td><input id=d_width size=10 maxlength=4 value="" ONKEYPRESS="event.returnValue=IsDigit();" NAME="d_width"></td>
+		<td width=40></td>
+		<td>帧 高 度:</td>
+		<td width=5></td>
+		<td><input id=d_height size=10 maxlength=4 value="" ONKEYPRESS="event.returnValue=IsDigit();" NAME="d_height"></td>
+		<td width=7></td>
+	</tr>
+	<tr>
+		<td width=7></td>
+		<td>ID:</td>
+		<td width=5></td>
+		<td><input id="d_id" size=10 maxlength=10 value=""  NAME="d_id"></td>
+		<td width=40></td>
+		<td><input type=button value=选择模块 onclick=ButtSelectModule_onclick() ID="Button2" NAME="Button2"></td>
+		<td width=5></td>
+		<td><input type=button value=选择列表 onclick=ButtSelectConditions_onclick() ID="Button3" NAME="Button3"></td>
+		<td width=7></td>
+	</tr>
+	<tr><td colspan=9 height=5></td></tr>
+	</table>
+	</fieldset>
+	</td>
+</tr>
+<tr><td height=5></td></tr>
+<tr><td align=right><input type=submit value='  确定  ' id=Ok NAME="Ok">&nbsp;&nbsp;<input type=button value='  取消  ' onclick="window.close();" ID="Button1" NAME="Button1"></td></tr>
+</table>
+
+</BODY>
+</HTML>

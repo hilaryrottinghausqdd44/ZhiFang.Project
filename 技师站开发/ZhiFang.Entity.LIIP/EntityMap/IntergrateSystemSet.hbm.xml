@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LIIP" assembly="ZhiFang.Entity.LIIP">
+	<class name="IntergrateSystemSet" table="[dbo].[IntergrateSystemSet]">
+		<id name="Id" column="[SystemId]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="SystemName" column="[SystemName]" type="String" not-null="false" length="100" />
+		<property name="SystemCode" column="[SystemCode]" type="String" not-null="false" length="50" />
+		<property name="SystemHost" column="[SystemHost]" type="String" not-null="false" length="500" />
+		<property name="SystemEntryAddress" column="[SystemEntryAddress]" type="String" not-null="false" length="500" />
+		<property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

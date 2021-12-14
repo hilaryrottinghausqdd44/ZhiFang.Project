@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="EPBEquipCommInfo" table="[dbo].[EP_B_EquipCommInfo]">
+		<id name="Id" column="[EquipCommInfoID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="EquipID" column="[EquipID]" type="Int64" not-null="true" length="8" />
+		<property name="CommType" column="[CommType]" type="String" not-null="false" length="50" />
+		<property name="CommPara" column="[CommPara]" type="Byte[]" not-null="false" length="16" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

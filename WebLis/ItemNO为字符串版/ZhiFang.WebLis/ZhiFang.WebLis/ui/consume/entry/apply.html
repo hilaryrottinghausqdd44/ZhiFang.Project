@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		<!--不缓存缓存页面-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<title>申请录入</title>
+		
+		<script type="text/javascript" src="../../util/common.js"></script>
+    	<script type="text/javascript" src="apply.js?v=20170803"></script>
+    	
+    	<style type="text/css">
+    		/*套餐-点击样式*/
+			.package-div-checked{
+				color:#ffffff;
+				background-color: #169ada;
+			}
+	    </style>
+	</head>
+	<body class="easyui-layout" onkeydown="if(event.keyCode==116){event.keyCode=0;return false;}">
+		<!-- 申请录入 -->
+		<div id="info" class="easyui-panel" data-options="region:'north',title:''" style="height:120px;padding:4px">
+			<table style="width:850px;">
+	    		<tr>
+	    			<td><a style="color:blue;">送检单位</a>:</td><td><select id="form_ClientNo" style="width:155px;"></select></td>
+	    			<td>姓名:</td><td><input class="easyui-textbox" id="form_CName" data-options="readonly:true" style="width:155px;"/></td>
+	    			<td><a style="color:blue;">年龄</a>:</td><td>
+	    				<input class="easyui-numberbox" id="form_Age" data-options="readonly:false,min:0,precision:2" style="width:95px;"/>
+	    				<select id="form_AgeUnitNo" data-options="readonly:false" style="width:55px;"></select>
+	    			</td>
+    				<td><a style="color:red;">消费码</a>:</td><td>
+	    				<input class="easyui-textbox" id="payCode" data-options="prompt:'请输入消费单号'" style="width:155px"/>
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>区域:</td><td><select id="form_AreaNo" style="width:155px;"></select></td>
+	    			<td>性别:</td><td><select id="form_GenderNo" style="width:155px;"></select></td>
+	    			<td>病历号:</td><td><input class="easyui-textbox" id="form_PatNo" data-options="readonly:true" style="width:155px;"/></td>
+	    			<td><a style="color:red;">采样时间</a>:</td><td>
+	    				<input class="easyui-datetimebox" id="form_CollectDate" style="width:155px;"/>
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>就诊类型:</td><td><select id="form_jztype" style="width:155px;"></select></td>
+	    			<td>科室:</td><td><input class="easyui-textbox" id="form_DeptName" data-options="readonly:true" style="width:155px;"/></td>
+	    			<td>医生:</td><td><input class="easyui-textbox" id="form_DoctorName" data-options="readonly:true" style="width:155px;"/></td>
+					<td><a style="color:red;">开单时间</a>:</td><td>
+	    				<input class="easyui-datetimebox" id="form_OperDate" style="width:155px"/>
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>采样人:</td><td>
+	    				<input class="easyui-textbox" id="form_Operator" data-options="readonly:true" style="width:155px;"/>
+	    			</td>
+	    			<td>收费:</td><td><input class="easyui-numberbox" id="form_Charge" data-options="readonly:true" style="width:155px;"/></td>
+	    			<td>临床诊断:</td><td colspan="3"><input class="easyui-textbox" id="form_Diag" data-options="readonly:true" style="width:373px;"/></td>
+	    		</tr>
+		    </table>
+		</div>
+		
+		<!-- 订单套餐 -->
+		<div id="package_grid" data-options="region:'west',title:'订单套餐',split:true" style="width:250px;"></div>
+		<!-- 订单套餐-明细项目 -->
+		<div id="items_grid" data-options="region:'center',title:'明细项目'" style="padding:1px"></div>
+		<!-- 条码列表 -->
+		<div id="barcode" data-options="region:'east',title:'条码列表',split:true" style="width:300px;padding:1px;">
+			<table id="barcode_grid"></table>
+		</div>
+	</body>
+</html>

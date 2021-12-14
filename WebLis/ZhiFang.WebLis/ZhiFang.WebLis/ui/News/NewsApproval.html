@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- HTTP 1.0 -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Prevent caching at the proxy server -->
+    <meta http-equiv="expires" content="0">
+    <title>新闻审批</title>
+    <script src="../easyui/jquery.min.js"></script>
+    <script src="../easyui/jquery.easyui.min.js"></script>
+    <link href="../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../util/util.js"></script>
+    <script src="../util/util_easyui.js"></script>
+    <script src="NewsApproval.js?v=5"></script>
+    <style type="text/css">
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+        }
+
+        .fTitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .fItem {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+            .fItem label {
+                display: inline-block;
+                width: 100px;
+            }
+
+            .fItem input {
+                width: 130px;
+            }
+
+            .fItem select {
+                width: 130px;
+            }
+    </style>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'center',title:'新闻列表',iconCls:'icon-app-grid-16'">
+        <table id="dg"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; ">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="Approval()" plain="true" data-options="iconCls:'icon-add'">审批通过</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="UnApproval()" plain="true" data-options="iconCls:'icon-remove'">审批打回</a>
+            </div>
+            <div style="float: right; margin-right: 10px; margin-top: 3px;">
+                <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入标题/作者',searcher:doSearch" style="width:200px;" />
+            </div>
+        </div>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width:380px;height:350px;margin: auto;" closed="true" buttons="#dlgButtons">
+        <form id="fm">
+            <div class="fItem" style="margin-top:20px">
+                <label>审批意见:</label>
+                <input id="txtMemo" type="text" name="Memo" class="easyui-textbox" style="height:150px;width:200px;" data-options="multiline:true"/>
+            </div>
+        </form>
+    </div>
+    <div id="dlgButtons">
+        <div align="center">
+            <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="UnApprovalAction()" data-options="iconCls:'icon-save'">审批退回</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+        </div>
+    </div>
+</body>
+</html>

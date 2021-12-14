@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>树的多选</title>
+    <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	 <link rel="stylesheet" type="text/css" href="../css/icon.css"/> 
+    <script type="text/javascript" src="../util/util.js"></script>
+    
+<script src="../zhifangux/UXMorecheckTree.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+
+<script>
+     Ext.onReady(function () {
+    
+     //一 生成组件
+	     var vartestobj=Ext.create('Ext.zhifangux.UXMorecheckTree', {
+			 DataServerUrl: 'server/BZMoretree.json',
+			  SaveServerUrl:'server/BZMoretree.json',
+             width: 280,
+             height: 325,
+			 margin :  '11 10 10 10',	
+			 id:'tree',
+             renderTo:Ext.getBody(),    //'tree-div',    
+             LinkageType:1,
+             listeners:{
+                 // OnChanged:function(){ 
+                   //   alert("当改变后触发");
+                     //alert('保存时触发');
+              //   },
+                //  OnClick:function(){ 
+                    // alert('单击树节点时触发');
+                // }
+             }      
+		});
+
+
+	//属性设置,多选方式
+		var SelectType=Ext.create('Ext.Button', {
+			text: '联动方式',
+			handler: function() {
+			    var left=Ext.getCmp('tree');
+			    var LL1=Ext.getCmp('L1').value;
+			   // alert(LL1);
+                left.SetLinkageType(LL1);	
+	       }
+        });  
+
+	    //属性设置:联动方式
+		var LinkageType=Ext.create('Ext.toolbar.Toolbar', {
+	    width   : 300,
+		height:25,
+		bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+		cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+		border : 0,//边框线显示 true,或隐藏false
+	    items: [
+	        {
+	            xtype    : 'textfield',
+	            name     : 'field1',
+				id:"L1",
+	            emptyText: '联动方式'
+	        },
+			 {
+	            xtype: SelectType,
+	        }
+	    ]
+		});	
+	    //属性设置:后台服务地址
+		var DataServerUrl =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype : 'textfield',id:"L2",emptyText: '设置后台服务地址'},
+			    { xtype : 'button', text: '后台服务地址',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+	
+		 //属性设置:后台保存服务地址
+		var SaveServerUrl =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        {xtype : 'textfield',id:"my_setHeight",emptyText: '设置后台保存服务地址'},
+				{ xtype: 'button',text: '后台保存服务地址',border : true,//边框线显示 true,或隐藏false
+				handler: function() {
+			
+					}
+		        }
+	        ]
+		});	
+		//属性设置:宽
+		var  Root=Ext.create('Ext.toolbar.Toolbar', {
+		    width   :300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype: 'textfield',id:"L5",emptyText:'宽'},
+			    { xtype: 'button', text:'宽',border:true,//边框线显示 true,或隐藏false
+			     handler: function() {
+					 var mytest=Ext.getCmp('tree');
+					 var setWidth=Ext.getCmp('L5').getValue();
+					 mytest.width=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+
+		//属性设置:宽
+		var  width=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L6",emptyText: '高'},
+			    { xtype: 'button', text: '高',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+			    
+				    var mytest=Ext.getCmp('tree');
+					 var setWidth=Ext.getCmp('L6').getValue();
+					 mytest.height=parseInt(setWidth);
+					 alert(setWidth);
+					 mytest.insert();
+
+				
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:高
+		var  height=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype  : 'textfield',id:"L7",emptyText: '根节点'},
+			    { xtype  : 'button', text: '根节点',border : true,//边框线显示 true,或隐藏false
+			     handler : function() {
+				     var mytest=Ext.getCmp('tree');
+					 var setWidth=Ext.getCmp('L7').getValue();
+					 mytest.Root=setWidth;
+					 alert(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+		
+		//方法设置:设置联动方式
+	    var SetLinkageType =Ext.create('Ext.toolbar.Toolbar', {
+            width:300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        {xtype : 'textfield',id:"LL1",emptyText: '选择1是真树,0是假树'},
+				{ xtype: 'button',text: '设置联动方式',border : true,//边框线显示 true,或隐藏false
+				handler: function() {
+				    var left=Ext.getCmp('tree');
+			        var LL1=Ext.getCmp('LL1').getValue();
+			        left.SetLinkageType(LL1);
+                    }
+		        }
+		    ]
+	    });	
+
+		//方法设置:获取联动方式
+		var GetLinkageType =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [ 
+				{xtype: 'button',text: '获取联动方式',border : true,//边框线显示 true,或隐藏false
+				   handler: function() {
+				        var left=Ext.getCmp('tree');
+                        alert(left.GetLinkageType());
+					 }
+			    }
+			]
+		});	
+		
+	   //方法设置:保存列表对象
+		var Save =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [ 
+				{xtype: 'button',text: '保存列表对象',border : true,//边框线显示 true,或隐藏false
+				   handler: function() {
+				       var left=Ext.getCmp('tree');
+                       left.Save();
+					 }
+			     }
+			]
+		});	
+		
+		 //方法设置:重载
+		var Reload =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [ 
+				{xtype: 'button',text: '重载',border : true,//边框线显示 true,或隐藏false
+				   handler: function() {
+				       var right=Ext.getCmp('tree');
+				      //alert(right);
+				       right.ReLoad();
+				       
+                       //alert(Ext.encode(left.GetCol()));
+					 }
+			     }
+			]
+		});	
+		
+		 //方法设置:获取选中树对象
+		var GetValue =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [ 
+				{xtype: 'button',text: '获取选中树对象',border : true,//边框线显示 true,或隐藏false
+				   handler: function() {
+				       var right=Ext.getCmp('tree');
+				       alert(Ext.encode(right.GetValue()));
+				       
+                       //alert(Ext.encode(left.GetCol()));
+					 }
+			     }
+			]
+		});	
+		
+		//三:呈现视图
+		var viewport=Ext.create("Ext.container.Viewport",{
+			layout:  'border',//Border布局
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : false,//边框线显示 true,或隐藏false
+	        items: [
+			   {region: 'center',border : false,//边框线显示 true,或隐藏false
+			   layout:'column',
+			       items:[
+				       { xtype:vartestobj}
+				    ]
+	           },{
+				region: 'east',layout: 'accordion', frame: true,collapsible: true,split: true,width: 320,border : true,//边框线显示 true,或隐藏false
+				items:[
+				    {xtype: 'form',id: 'formtest_Property',autoScroll: true,bodyPadding: 10,collapsed: true,
+					layout: 'column',title: '属性设置,不带复选框为列,测试用例未实现,可配置',
+			        items: [
+		               {xtype: LinkageType,anchor: '100%'},
+				       {xtype:DataServerUrl,anchor: '100%'},
+				       {xtype:SaveServerUrl,anchor: '100%'},
+				       {xtype:Root,anchor: '100%'},
+				       {xtype:width,anchor: '100%'},
+				       {xtype:height,anchor: '100%'}
+				    ]},
+				   {xtype: 'form',id: 'formtest_Method',autoScroll: true,bodyPadding: 10,collapsed: true,title: '方法设置,带复选框为列为列',
+			        items: [
+						{xtype: SetLinkageType,anchor: '100%'},
+						{xtype:GetLinkageType,anchor: '100%'},
+						{xtype:Save,anchor: '100%'},
+						{xtype:Reload,anchor: '100%'},
+					    {xtype:GetValue,anchor: '100%'}
+					]
+					},//事件设置
+			        {xtype: 'form',id: 'formtest_Event',autoScroll: true,bodyPadding: 10,collapsed: true, title: '事件设置，带复选框为列',
+			        items: [
+			           
+					]}
+				]}
+			]
+	    });
+
+    });
+	
+	
+
+</script>
+
+</body>
+</html>

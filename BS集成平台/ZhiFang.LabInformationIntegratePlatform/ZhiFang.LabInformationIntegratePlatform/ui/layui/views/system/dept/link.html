@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>部门身份设置</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.layui-form-label{width:100px;}
+		.layui-input-block{margin-left:130px;}
+		.row-checked{background-color:#009688;}
+		.layui-table-view{margin:0;}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid" style="padding:15px;">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md3">
+				<div class="layui-card">
+					<div class="layui-card-body" style="padding:5px;">
+						<table class="layui-hide" id="table0" lay-filter="table0"></table>
+						<script type="text/html" id="table0-toolbar-top">
+							<button class="layui-btn" lay-event="search">查询</button>
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md3">
+				<div class="layui-card">
+					<div class="layui-card-body" style="padding:5px;">
+						<table class="layui-hide" id="table1" lay-filter="table1"></table>
+						<!--<script type="text/html" id="table1-toolbar-top">
+							<button class="layui-btn" lay-event="search">查询</button>
+						</script>-->
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-body" style="padding:5px;">
+						<table class="layui-hide" id="table2" lay-filter="table2"></table>
+						<script type="text/html" id="table2-toolbar-top">
+							<button class="layui-btn" lay-event="search">查询</button>
+							
+							<button class="layui-btn" lay-event="add">新增</button>
+							<button class="layui-btn layui-btn-danger" style="margin-left:unset;" lay-event="del">删除</button>
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('link.js');
+	</script>
+</body>
+</html>

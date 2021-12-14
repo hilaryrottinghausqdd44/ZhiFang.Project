@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BDoctorControl" table="[dbo].[B_DoctorControl]">
+		<id name="Id" column="[Id]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DTimeStampe]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="DoctorControlNo" column="[DoctorControlNo]" type="String" not-null="true" length="50" />
+		<property name="DoctorNo" column="[DoctorNo]" type="Int64" not-null="true" length="8" />
+		<property name="ControlLabNo" column="[ControlLabNo]" type="String" not-null="true" length="50" />
+		<property name="ControlDoctorNo" column="[ControlDoctorNo]" type="Int64" not-null="true" length="8" />
+		<property name="DataAddTime" column="[AddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="UseFlag" column="[UseFlag]" type="Int32" not-null="false" length="4" />
+	</class>
+</hibernate-mapping>

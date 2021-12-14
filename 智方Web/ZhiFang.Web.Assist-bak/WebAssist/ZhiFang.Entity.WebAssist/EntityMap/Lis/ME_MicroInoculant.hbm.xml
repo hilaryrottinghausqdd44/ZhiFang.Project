@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="MEMicroInoculant" table="[dbo].[ME_MicroInoculant]">
+    <id name="Id" column="[MicroInoculantID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="SampleTypeName" column="[SampleTypeName]" type="String" not-null="false" length="50" />
+    <property name="BarCode" column="[BarCode]" type="String" not-null="false" length="30" />
+    <property name="Amount" column="[Amount]" type="String" not-null="false" length="50" />
+    <property name="SampleCharacterName" column="[SampleCharacterName]" type="String" not-null="false" length="50" />
+    <property name="CultureMediumID" column="[CultureMediumID]" type="Int64" not-null="false" length="8" />
+    <property name="MicroTestDevelopID" column="[MicroTestDevelopID]" type="Int64" not-null="false" length="8" />
+    <property name="InoculantType" column="[InoculantType]" type="Int32" not-null="false" length="4" />
+    <property name="SampleTypeNo" column="[SampleTypeNo]" type="Int32" not-null="false" length="4" />
+    <property name="CultureMediumName" column="[CultureMediumName]" type="String" not-null="false" length="50" />
+    <property name="CultureMediumNo" column="[CultureMediumNo]" type="String" not-null="false" length="20" />
+    <property name="CultivationType" column="[CultivationType]" type="String" not-null="false" length="50" />
+    <property name="CultivationConditionName" column="[CultivationConditionName]" type="String" not-null="false" length="50" />
+    <property name="PointoutTime" column="[PointoutTime]" type="Double" not-null="false" length="8" />
+    <property name="BottleSerialNo" column="[BottleSerialNo]" type="String" not-null="false" length="30" />
+    <property name="CultureMediumEquipResult" column="[CultureMediumEquipResult]" type="String" not-null="false" length="30" />
+    <property name="CultureEndDatetime" column="[CultureEndDatetime]" type="DateTime" not-null="false" length="8" />
+    <property name="CultureTotalTime" column="[CultureTotalTime]" type="String" not-null="false" length="20" />
+    <property name="WarnPositiveDatetime" column="[WarnPositiveDatetime]" type="String" not-null="false" length="30" />
+    <property name="Desc" column="[Desc]" type="String" not-null="false" length="40" />
+    <property name="PMicroInoculantID" column="[PMicroInoculantID]" type="Int64" not-null="false" length="8" />
+    <property name="EmpUserNo" column="[EmpUserNo]" type="Int32" not-null="false" length="4" />
+    <property name="EmpName" column="[EmpName]" type="String" not-null="false" length="30" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DeleteFlag" column="[DeleteFlag]" type="Boolean" not-null="false" length="1" />
+    <property name="CultureDesc" column="[CultureDesc]" type="String" not-null="false" length="50" />
+    <property name="EquipOnlineTime" column="[EquipOnlineTime]" type="String" not-null="false" length="50" />
+    <property name="EquipOfflineTime" column="[EquipOfflineTime]" type="String" not-null="false" length="50" />
+    <property name="WarnPositiveTimelength" column="[WarnPositiveTimelength]" type="String" not-null="false" length="50" />
+    <property name="BottlePosition" column="[BottlePosition]" type="String" not-null="false" length="60" />
+    <property name="CultureNo" column="[CultureNo]" type="String" not-null="false" length="30" />
+    <property name="CultureStartDatetime" column="[CultureStartDatetime]" type="DateTime" not-null="false" length="8" />
+    <property name="GTestDate" column="[GTestDate]" type="DateTime" not-null="false" length="8" />
+    <property name="BottleAddTime" column="[BottleAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="AutoAddInfo" column="[AutoAddInfo]" type="String" not-null="false" length="100" />
+  </class>
+</hibernate-mapping>

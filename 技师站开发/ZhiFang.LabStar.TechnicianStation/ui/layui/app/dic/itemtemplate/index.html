@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>项目快捷模板</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+</head>
+<body>
+
+    <div class="layui-fluid body">
+        <!--功能内容-->
+        <div id="content">
+            <div class="layui-row layui-col-space5">
+                <div class="layui-col-xs12 layui-col-sm6">
+                    <table id="maintable" lay-filter="maintable"></table>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm6">
+                    <fieldset class="layui-elem-field">
+                        <legend>设置快捷模板</legend>
+                        <div class="layui-field-box">
+                            <form class="layui-form" id="sampleForm" lay-filter="sampleForm">
+                                <div class="layui-form-item">
+                                    <div id="editor-div"></div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <button type="button" id="Save" class="layui-btn layui-btn-sm layui-border-green"><i class="iconfont" style="font-weight: bold;">&#xe69d;</i> 模板内容保存</button>
+                                </div>
+                            </form>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--列表工具头-->
+    <script type="text/html" id="toolbar">
+        <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-warm layui-btn-sm" type="button" lay-event="save"><i class="iconfont" style="font-weight: bold;">&#xe69d;</i> 列表保存</button>
+        </div>
+    </script>
+    <!--显示上下标-->
+    <script type="text/html" id="IsHyperTextTp">
+        <input type="checkbox" name="IsHyperText" value="{{d.LBItemExp_IsHyperText}}" lay-filter="IsHyperText" lay-skin="primary" {{ d.LBItemExp_IsHyperText == "true" ? 'checked' : '' }}>
+    </script>
+    <!--显示快捷模板-->
+    <script type="text/html" id="IsTemplateTp">
+        <input type="checkbox" name="IsTemplate" value="{{d.LBItemExp_IsTemplate}}" lay-filter="IsTemplate" lay-skin="primary" {{ d.LBItemExp_IsTemplate == "true" ? 'checked' : '' }}>
+    </script>
+    <!--是否在用-->
+    <script type="text/html" id="IsUseTp">
+        <input type="checkbox" name="IsUse" value="{{d.LBItemExp_IsUse}}" lay-filter="IsUse" lay-skin="primary" {{ d.LBItemExp_IsUse == "true" ? 'checked' : '' }}>
+    </script>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../../css/layui.form.sm.all.css");
+    </script>
+    <style type="text/css">
+        
+    </style>
+</body>
+</html>

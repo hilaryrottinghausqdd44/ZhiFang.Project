@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>样本检验</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("css/layui.sm.all.css");
+        UIVersion.getCSS("css/index.css");
+    </script>
+</head>
+<body>
+    <div class="myStyle">
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <div class="layui-row">
+                    <!--功能按钮-->
+                    <div class="layui-col-xs12">
+                        <div id="topToolBar" class="ToolBar" style="padding-bottom: 2px;display:inline-block;"></div>
+                        <div class="layui-form" style="display:inline-block;margin-left:10px;">
+                            <input type="checkbox" name="testFormInfo" lay-filter="testFormInfo" title="样本单信息" lay-skin="primary" checked />
+                            <input type="checkbox" name="imageInfo" lay-filter="imageInfo" title="图形信息" lay-skin="primary" />
+                        </div>
+                    </div>
+                    <hr style="padding: 0;margin: 0;" class="layui-border-green">
+                    <!--样本单列表-->
+                    <div class="layui-col-md4 layui-col-xs12" id="sampleTableBox">
+                        <div id="baseDomHeight">
+                            <div class="layui-btn-container" id="dateRangeBtn">
+                                <button type="button" data-value="0" class="layui-btn layui-btn-xs layui-btn-primary"><i class="layui-icon layui-icon-search"></i>今天</button>
+                                <button type="button" data-value="-1" class="layui-btn layui-btn-xs layui-btn-primary"><i class="layui-icon layui-icon-search"></i>两天</button>
+                                <button type="button" data-value="-2" class="layui-btn layui-btn-xs layui-btn-primary"><i class="layui-icon layui-icon-search"></i>三天</button>
+                                <button type="button" data-value="-6" class="layui-btn layui-btn-xs layui-btn-primary"><i class="layui-icon layui-icon-search"></i>七天</button>
+                                <button type="button" data-value="all" class="layui-btn layui-btn-xs layui-btn-primary"><i class="layui-icon layui-icon-search"></i>全部</button>
+                            </div>
+                            <div class="layui-form">
+                                <div class="layui-row">
+                                    <div class="layui-col-xs12">
+                                        <div class="layui-inline" style="width:100px;">
+                                            <select id="DateType" lay-filter="DateType">
+                                                <option value="GTestDate">检验日期</option>
+                                                <option value="CheckTime">审核日期</option>
+                                            </select>
+                                        </div>
+                                        <div class="layui-inline" style="width:190px;">
+                                            <input type="text" id="DateValue" name="DateValue" style="margin-left: 1px;" class="layui-input myDate" />
+                                            <i class="layui-icon layui-icon-date"></i>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <button type="button" id="SampleListSearch" class="layui-btn layui-btn-xs">
+                                                <i class="layui-icon layui-icon-search"></i>查询
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-xs12">
+                                        <div class="layui-inline">
+                                            <input type="checkbox" name="" id="isAutoAdd" lay-filter="isAutoAdd" title="" lay-skin="primary">
+                                        </div>
+                                        <div class="layui-inline" style="width:75px;">
+                                            <input type="text" name="" id="isAutoAddInput" autocomplete="off" placeholder="" readonly class="layui-input" />
+                                        </div>
+                                        <div class="layui-inline" style="width:138px;">
+                                            <input type="text" id="receiveValue" name="" autocomplete="off" placeholder="请在此扫描条码号" class="layui-input" />
+                                        </div>
+                                        <div class="layui-inline">
+                                            <button type="button" id="SampleListSearch2" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-play"></i>核收</button>
+                                        </div>
+                                        <div class="layui-inline" style="width:30px;" id="receiveDownBox">
+                                            <input type="checkbox" name="receiveDown" id="receiveDown" lay-filter="receiveDown" title="核收后向下" lay-skin="primary">
+                                        </div>
+                                    </div>
+                                    <!--状态栏-->
+                                    <div class="layui-col-xs12" id="StatusBar" style="max-height: 26px;overflow-y: auto;"></div>
+                                </div>
+                            </div>
+                            <div id="SampleListTableBox">
+                                <table id="SampleListTable" lay-filter="SampleListTable"></table>
+                            </div>
+                            <div class="layui-form">
+                                <div class="layui-row">
+                                    <div class="layui-col-xs12">
+                                        <div class="layui-inline" style="width:100px;">
+                                            <select id="FieldValueType" lay-filter="FieldValueType">
+                                                <option value="GSampleNo" selected>样本号</option>
+                                                <option value="BarCode">条码号</option>
+                                                <option value="CName">病人姓名</option>
+                                                <option value="PatNo">病历号</option>
+                                                <option value="CardNo">卡号</option>
+                                            </select>
+                                        </div>
+                                        <div class="layui-inline" style="width:100px;">
+                                            <input type="text" id="FieldValue" name="date" autocomplete="off" placeholder="输入值后请回车" class="layui-input" />
+                                        </div>
+                                        <div class="layui-inline">
+                                            <button type="button" id="SampleListSearch3" class="layui-btn layui-btn-xs layui-btn-primary"><i class="layui-icon layui-icon-search"></i></button>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <input type="checkbox" name="isLikeSearch" id="isLikeSearch" lay-filter="isLikeSearch" title="模糊匹配" lay-skin="primary" checked>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--状态说明-->
+                            <div id="StatusDesc"></div>
+                        </div>
+                    </div>
+                    <!--中间内容-->
+                    <div class="layui-col-md8 layui-col-xs12" id="contentBox">
+                        <div class="layui-row">
+                            <!--样本单表单信息-->
+                            <div class="layui-col-md4 layui-col-xs12" id="testFormInfo">
+                                <fieldset class="layui-elem-field">
+                                    <legend>样本单信息<span id="testFormInfoStatus">【查看】</span></legend>
+                                    <div class="layui-field-box" id="sampleFormBox" style="overflow-y: auto;">
+                                        <form class="layui-form" id="sampleForm" lay-filter="sampleForm"></form>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <!--结果页签-->
+                            <div class="layui-col-md8 layui-col-xs12" id="resultTabBox">
+                                <div id="resultTabBox">
+                                    <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="ResultTab">
+                                        <ul class="layui-tab-title">
+                                            <li class="layui-hide" id="ProDLLTabLi"><i class="iconfont">&#xe61d;</i>&nbsp;专业编辑</li>
+                                            <li class="layui-this" id="SampleResultListTabLi" title="【其他页签：不存在组合项目集合】"><i class="iconfont">&#xe7c4;</i>&nbsp;检验结果</li>
+                                            <li><i class="iconfont">&#xe65f;</i>&nbsp;历史对比</li>
+                                            <li><i class="iconfont">&#xe646;</i>&nbsp;相关医嘱报告</li>
+                                            <li><i class="iconfont">&#xe628;</i>&nbsp;本单仪器结果</li>
+                                            <li><i class="iconfont">&#xe607;</i>&nbsp;全部仪器结果</li>
+                                        </ul>
+                                        <div class="layui-tab-content">
+                                            <div class="layui-tab-item">
+                                                <div class="layui-btn-group" style="padding:1px 3px;">
+                                                    <button type="button" id="ProEditorSave" class="layui-btn layui-btn-xs layui-hide"><i class="iconfont" style="font-weight: bold;">&#xe69d;</i>&nbsp;保存</button>
+                                                    <button type="button" id="RefreshEditor" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-refresh"></i>刷新</button>
+                                                    <button type="button" id="ShowItemTemplate" class="layui-btn layui-btn-xs"><i class="layui-icon">&#xe716;</i>显示配置</button>
+                                                </div>
+                                                <div id="ProEditor" style="overflow-y:auto;"></div>
+                                            </div>
+                                            <div class="layui-tab-item layui-show">
+                                                <div class="layui-row">
+                                                    <div class="layui-col-xs12" id="SampleResultTableBox">
+                                                        <div class="layui-tab layui-tab-brief my-tab-brief2" id="SampleResultTableGroupTab" lay-filter="SampleResultTableGroupTab">
+                                                            <ul class="layui-tab-title" id="SampleResultTableGroupTitle"></ul>
+                                                            <div class="layui-tab-content">
+                                                                <div class="layui-tab-item layui-show">
+                                                                    <table id="SampleResultTable" lay-filter="SampleResultTable"></table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs3 layui-hide" id="imageInfo">
+                                                        <fieldset class="layui-elem-field layui-field-title" id="addImageBox">
+                                                            <legend>新增图形</legend>
+                                                            <div class="layui-field-box">
+                                                                <div class="layui-form">
+                                                                    <div id="pasteImage" style="height:28px;padding:3px 5px;border:1px solid #000;line-height:1.3;color:#666;" contenteditable="true">在此可粘贴图片<br>自动保存</div>
+                                                                    <!--<input type="text" name="pasteImage" id="pasteImage" contenteditable="true" class="layui-input" placeholder="在此可粘贴图片&#10;自动保存" />-->
+                                                                    <button type="button" id="addImage" class="layui-btn layui-btn-xs layui-btn-fluid"><i class="iconfont">&#xe664;</i>&nbsp;新增图形</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </fieldset>
+                                                        <fieldset class="layui-elem-field">
+                                                            <legend>图形结果</legend>
+                                                            <div class="layui-field-box">
+                                                                <div id="imagesContent" style="overflow-y:auto;"></div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="layui-col-xs12">
+                                                        <div class="layui-form">
+                                                            <div class="layui-inline">
+                                                                <input type="radio" name="itemShowType" lay-filter="itemShowType" value="1" title="所有检验项目" checked>
+                                                            </div>
+                                                            <div class="layui-inline">
+                                                                <input type="radio" name="itemShowType" lay-filter="itemShowType" value="2" title="按组合项目">
+                                                            </div>
+                                                            <div class="layui-inline">
+                                                                <div class="layui-btn-group" id="testItemBtnGroup">
+                                                                    <button type="button" id="addLisTestItem" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe664;</i>&nbsp;新增</button>
+                                                                    <button type="button" id="saveLisTestItem" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                                                    <button type="button" id="TestItemAnewTestbut" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe62c;</i>&nbsp;项目处理<i class="layui-icon layui-icon-triangle-d" style="vertical-align:middle;"></i></button>
+                                                                    <button type="button" id="delLisTestItem" class="layui-btn layui-btn-xs layui-btn-warm"><i class="iconfont">&#xe626;</i>&nbsp;删除</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="layui-inline layui-hide">
+                                                                <input type="radio" name="showType" value="列表" title="列表" checked>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-tab-item">
+                                                <div class="layui-row">
+                                                    <div class="layui-col-xs5">
+                                                        <fieldset class="layui-elem-field">
+                                                            <legend>历史对比范围</legend>
+                                                            <div class="layui-field-box">
+                                                                <div class="layui-form" id="historyForm">
+                                                                    <div class="layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <div class="layui-inline">
+                                                                                <input type="checkbox" name="HistorySampleType" id="HistorySampleType" title="样本类型" lay-skin="primary">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <div class="layui-form-label">样本类型:</div>
+                                                                            <div class="layui-input-block">
+                                                                                <select name="resultContrastSample" id="resultContrastSample" lay-verify="" lay-filter='resultContrastSample'></select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <div class="layui-form-label">开始日期:</div>
+                                                                            <div class="layui-input-block">
+                                                                                <input type="text" name="HistoryStartDate" id="HistoryStartDate" class="layui-input myDate">
+                                                                                <i class="layui-icon layui-icon-date"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <div class="layui-form-label">结束日期:</div>
+                                                                            <div class="layui-input-block">
+                                                                                <input type="text" name="HistoryEndDate" id="HistoryEndDate" class="layui-input myDate">
+                                                                                <i class="layui-icon layui-icon-date"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="layui-col-xs12">
+                                                                        <div class="layui-form-item">
+                                                                            <div class="layui-inline">
+                                                                                <input type="checkbox" name="HistoryAtPresent" id="HistoryAtPresent" title="仅显示当前检验项目" lay-skin="primary">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <fieldset class="layui-elem-field">
+                                                            <legend>对比小组范围选择</legend>
+                                                            <div class="layui-field-box">
+                                                                <div class="layui-form" id="historySectionForm" style="overflow: auto;">
+                                                                </div>
+                                                                <button type="button" style="margin-top: 3px;" class="layui-btn layui-btn-sm layui-btn-fluid" id="confirmHistoryc">确认对比范围</button>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="layui-col-xs7" style="padding-top: 11px;">
+                                                        <div class="layui-tab layui-tab-card" lay-filter="historyIframeTab">
+                                                            <ul class="layui-tab-title">
+                                                                <li class="layui-this">定性定量结果</li>
+                                                                <li class="layui-hide">微生物结果</li>
+                                                            </ul>
+                                                            <div class="layui-tab-content">
+                                                                <div class="layui-tab-item layui-show">
+                                                                    <div id="normaliframe"></div>
+                                                                </div>
+                                                                <div class="layui-tab-item">
+                                                                    <div>微生物结果</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-tab-item">
+                                                <div id="reportIframeinfo">
+
+                                                </div>
+                                            </div>
+                                            <div class="layui-tab-item">
+                                                <div class="layui-form">
+                                                    <div class="layui-inline">
+                                                        <button type="button" class="layui-btn layui-btn-xs layui-btn-normal" id="useRecheckResult">采用结果</button>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <button type="button" class="layui-btn layui-btn-xs layui-btn-normal" id="cancelRecheckResult">采用结果并复检登记</button>
+                                                    </div>
+                                                    <div class="layui-inline" style="font-size: 0.750rem;">
+                                                        项目过滤:
+                                                    </div>
+                                                    <div class="layui-inline" style="width:120px;">
+                                                        <select name="rquipEquipItem" id="rquipEquipItem" lay-search lay-verify="" lay-filter='rquipEquipItem'></select>
+                                                    </div>
+                                                    <div class="layui-inline" style="width:100px;">
+                                                        <input type="text" name="resultno" id="resultNo" placeholder="检测序号" autocomplete="off" class="layui-input" />
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <button type="button" class="layui-btn layui-btn-xs" id="equipSeach"><i class="layui-icon layui-icon-search"></i>查询</button>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <button type="button" class="layui-btn layui-btn-xs layui-btn-warm" id="equipDelWhere">清楚过滤</button>
+                                                    </div>
+
+                                                </div>
+                                                <table id="EquipResult" lay-filter="EquipResult"></table>
+                                            </div>
+                                            <div class="layui-tab-item">
+                                                <div class="layui-form" id="extrctEquipResultForm">
+                                                    <div class="layui-inline">
+                                                        仪器:
+                                                    </div>
+                                                    <div class="layui-inline" style="width:120px;">
+                                                        <select name="cSectionEquip" id="cSectionEquip" lay-verify="" lay-filter='cSectionEquip'></select>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        仪器检验日期:
+                                                    </div>
+                                                    <div class="layui-inline" style="width:99px;">
+                                                        <input type="text" name="equipTestDate" id="equipTestDate" class="layui-input myDate">
+                                                        <i class="layui-icon layui-icon-date"></i>
+                                                        <!--<input type="text" name="equipTestDate" id="equipTestDate" lay-verify="equipTestDate" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">-->
+                                                    </div>
+                                                    <div class="layui-inline" style="width:80px;">
+                                                        <input type="text" name="equipSampleno" id="equipSampleno" placeholder="仪器样本号" class="layui-input" />
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <button type="button" class="layui-btn layui-btn-xs" id="cequipSearch"><i class="layui-icon layui-icon-search"></i>查询</button>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-row">
+                                                    <div class="layui-col-xs4">
+                                                        <fieldset class="layui-elem-field" style="min-width:100%;margin:0;">
+                                                            <legend>仪器样本单列表</legend>
+                                                            <div class="layui-field-box">
+                                                                <table id="EquipSample" lay-filter="EquipSample"></table>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="layui-col-xs8">
+                                                        <fieldset class="layui-elem-field" style="min-width:100%;margin:0;">
+                                                            <legend>仪器项目结果列表</legend>
+                                                            <div class="layui-field-box">
+                                                                <table id="EquipItemResult" lay-filter="EquipItemResult"></table>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-row">
+                                                    <div class="layui-form">
+                                                        <div class="layui-col-xs4">
+                                                            <div class="layui-form-item">
+                                                                <div class="layui-inline">
+                                                                    <input type="checkbox" name="" id="equipExtrctAddItemDel" title="检验单中仪器自增项目删除" checked="" lay-skin="primary">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-xs3">
+                                                            <div class="layui-form-item">
+                                                                <div class="layui-inline">
+                                                                    <input type="checkbox" name="" id="equipExtrctSampleNoChange" title="检验单样本号变更" checked="" lay-skin="primary">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-col-xs1">
+                                                            <div class="layui-form-item">
+                                                                <div class="layui-inline">
+                                                                    <button type="button" class="layui-btn layui-btn-xs layui-btn-warm" id="cequipSearchExecute">执行</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="padding:0;margin:0;height:0;">
+                    <!--底部信息栏-->
+                    <blockquote class="layui-elem-quote" style="padding:1px 3px;margin-bottom:0;">
+                        <div class="bottomToolbarInfo layui-inline" id="bottom_username"> 当前检验者： </div>
+                        <div class="bottomToolbarInfo layui-inline" id="bottom_CheckName"> 当前审核者： </div>
+                        <div class="bottomToolbarInfo layui-inline" id="bottom_SampleTotal"> 样本总数：0 </div>
+                        <div class="bottomToolbarInfo layui-inline" id="bottom_ItemTotal"> 项目总数：0 </div>
+                        <div class="bottomToolbarInfo layui-inline" id="bottom_HistoryTotal"> 历史例数：0 </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--项目复检下拉菜单-->
+    <div id="itemRecheckMenuDropDown" class="btn_spread_menu" style="display: none;">
+        <ul>
+            <li id="checkItemRecheck"><i class="iconfont">&#xe612;</i>&nbsp;选中项目复检</li>
+            <li id="checkItemUnRecheck"><i class="iconfont">&#xe6cc;</i>&nbsp;选中项目取消复检</li>
+            <li id="testFormRecheck"><i class="iconfont">&#xe64f;</i>&nbsp;整单复检</li>
+            <li id="testFormUnRecheck"><i class="iconfont">&#xe6cc;</i>&nbsp;整单取消复检</li>
+            <li id="currentItemRecheck"><i class="iconfont">&#xe670;</i>&nbsp;当前项目复检-输入检验结果</li>
+            <li id="itemResultShowAndLoad"><i class="iconfont">&#xe670;</i>&nbsp;项目结果查看并导出</li>
+            <li id="iteminfo"><i class="iconfont">&#xe670;</i>&nbsp;查看项目详细信息</li>
+        </ul>
+    </div>
+    <!--图形结果右键菜单-->
+    <div id="imageRightClickMenu" class="btn_spread_menu" style="display: none;">
+        <ul>
+            <li id="ImageName"></li>
+            <li data-id="delImage"><i class="iconfont">&#xe626;</i>&nbsp;删除图形</li>
+            <li data-id="moveUpImage"><i class="iconfont">&#xe63b;</i>&nbsp;上移图形</li>
+            <li data-id="moveDownImage"><i class="iconfont">&#xe665;</i>&nbsp;下移图形</li>
+            <li data-id="editImageName"><i class="iconfont">&#xe606;</i>&nbsp;名称修改</li>
+        </ul>
+    </div>
+    <!--新增图形结果-->
+    <div id="addImageModal" style="display: none;padding:10px 5px 0;">
+        <form class="layui-form" id="addImageForm" lay-filter="addImageForm">
+            <div class="layui-row">
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">图片文件:</label>
+                        <div class="layui-input-block">
+                            <input type="file" id="imgFile" name='imgFile' lay-verify="required" placeholder="必填项" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">图片名称:</label>
+                        <div class="layui-input-block">
+                            <input type="text" id="graphName" name='graphName' lay-verify="required" placeholder="必填项" autocomplete="off" class="layui-input" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">显示次序:</label>
+                        <div class="layui-input-block">
+                            <input type="number" id="dispOrder" name='dispOrder' lay-verify="required|number" placeholder="必填项" autocomplete="off" class="layui-input" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否报告:</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" id="isReport" name="isReport" lay-filter="isReport" lay-skin="primary" checked />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">数据说明:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name='graphInfo' autocomplete="off" class="layui-input" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">图形备注:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name='graphComment' autocomplete="off" class="layui-input" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12" style="text-align:right;margin-top:10px;">
+                    <button type="button" id="saveImage" lay-submit lay-filter='saveImage' class="layui-btn layui-btn-xs"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+</body>
+</html>

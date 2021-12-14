@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BSearchAccount" table="[dbo].[B_SearchAccount]">
+		<id name="Id" column="[SearchAccountID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="IconsID" column="[IconsID]" type="Int64" not-null="false" length="8" />
+		<property name="WeiXinUserID" column="[WeiXinUserID]" type="Int64" not-null="false" length="8" />
+		<property name="Name" column="[Name]" type="String" not-null="false" length="20" />
+		<property name="SexID" column="[SexID]" type="Int64" not-null="false" length="8" />
+		<property name="Birthday" column="[Birthday]" type="DateTime" not-null="false" length="8" />
+		<property name="MobileCode" column="[MobileCode]" type="String" not-null="false" length="11" />
+		<property name="IDNumber" column="[IDNumber]" type="String" not-null="false" length="18" />
+		<property name="MediCare" column="[MediCare]" type="String" not-null="false" length="20" />
+		<property name="Email" column="[Email]" type="String" not-null="false" length="30" />
+		<property name="LoginInputPasswordFlag" column="[LoginInputPasswordFlag]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="WeiXinAccount" column="[WeiXinAccount]" type="String" not-null="false" length="50" />
+    <property name="UnReadCount" column="[UnReadCount]" type="Int32" not-null="false" length="4" />
+    <property name="RFIndexList" column="[RFIndexList]" type="string" not-null="false" length="4000" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>打印模板使用</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <style>
+        .myStyle .layui-card-body{ padding:0 5px 5px; }
+    </style>
+</head>
+<body>
+    <div class="myStyle">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <div class="layui-inline">模板类型：</div>
+                <div class="layui-inline">
+                    <span id="ModelTypeName"></span>
+                </div>
+            </div>
+            <div class="layui-card-body">
+                <div class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-form-label">选择模板</div>
+                        <div class="layui-input-block">
+                            <select id="template" name="template" lay-filter="template" lay-verify='ZDY_required'></select>
+                        </div>
+                    </div>
+                    <div id="PrintInfo">
+                        <div class="layui-form-item">
+                            <div class="layui-form-label">打印机</div>
+                            <div class="layui-input-block">
+                                <select id="printer" name="printer" lay-filter="printer" lay-verify='ZDY_required'></select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-form-label">是否预览</div>
+                            <div class="layui-input-block">
+                                <input type="checkbox" id="IsPreview" name='IsPreview' lay-skin="primary" />
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-form-label">打印份数</div>
+                            <div class="layui-input-block">
+                                <input type="number" name="printCount" lay-verify='ZDY_number' value="1" class="layui-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="text-align:right;">
+                        <button type="button" id="export" lay-filter="export" class="layui-btn layui-btn-sm layui-btn-primary layui-hide">导出Excel</button>
+                        <button type="button" id="print" lay-filter="print" class="layui-btn layui-btn-sm layui-btn-primary" lay-submit>打印</button>
+                        <!--<button type="button" id="cancel" class="layui-btn layui-btn-sm layui-btn-normal">取消</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+</body>
+</html>

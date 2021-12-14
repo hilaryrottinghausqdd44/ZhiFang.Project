@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>测试文件</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body>
+	<div class="layui-fluid" style="padding:15px;">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						下拉框扩展-拼音字头过滤
+					</div>
+					<div class="layui-card-body">
+						<div class="layui-form">
+							<select name="city" lay-verify="city" lay-search>
+								<option value="">请选择一个城市</option>
+								<option value="010">北京</option>
+								<option value="021">上海</option>
+								<option value="0571">杭州</option>
+								<option value="0101">北京2</option>
+								<option value="0211">上海2</option>
+								<option value="05711">杭州2</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						formSelects下拉框扩展-拼音字头过滤
+					</div>
+					<div class="layui-card-body">
+						<div class="layui-form">
+							<select name="city" xm-select="select1" xm-select-search="">
+								<option value="">请选择一个城市</option>
+								<option value="010">北京</option>
+								<option value="021">上海</option>
+								<option value="0571">杭州</option>
+								<option value="0101">北京2</option>
+								<option value="0211">上海2</option>
+								<option value="05711">杭州2</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						soulTable功能测试
+					</div>
+					<div class="layui-card-body">
+						<table class="layui-hide" id="table" lay-filter="table"></table>
+						<script type="text/html" id="table-toolbar-top">
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="clearCache" >
+									清除缓存
+								</button>
+							</div>
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui('2.6.8');
+		UIVersion.getCSS('../../ux/other/form_select/form_selects_v4.css');
+		UIVersion.getJS('index.js');
+	</script>
+</body>
+</html>

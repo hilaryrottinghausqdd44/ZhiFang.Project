@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>人员选择</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<link rel="stylesheet" href="../../../../src/layui/layui-v2.5.5/css/layui.css" media="all">
+	<link rel="shortcut icon" href="../../../../../logo-16.png">
+	<style type="text/css">
+		.content{margin-top:10px;margin-bottom:68px;}
+		.footer{position:fixed;left:0;bottom:0;width:100%;height:68px;background-color:#ffffff;}
+		.footer div{position:fixed;right:0;bottom:0;padding:15px;}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid" style="padding:0 5px;">
+		<div class="content">
+			<table class="layui-hide" id="table" lay-filter="table"></table>
+		</div>
+		<div class="footer">
+			<div>
+				<button id="refresh_button" class="layui-btn" lay-submit lay-filter="refresh_button">刷新</button>
+				<button id="submit_button" class="layui-btn" lay-submit lay-filter="submit_button">确认</button>
+				<button id="cancel_button" class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel_button">取消</button>
+			</div>
+		</div>
+	</div>
+	<script src="../../../../src/layui/layui-v2.5.5/layui.js"></script>
+	<script type="text/javascript">
+		UIVersion.getJS('../../../config/system.js');
+		UIVersion.getJS('checkgrid.js');
+	</script>
+</body>
+</html>

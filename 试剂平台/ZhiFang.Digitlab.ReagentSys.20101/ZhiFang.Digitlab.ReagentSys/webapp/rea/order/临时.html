@@ -1,0 +1,49 @@
+<!--开发中提示-->
+<div class="alert alert-success" role="alert" style="margin:10px;">
+	<strong>开发中</strong> 该功能正在开发之中...
+</div>
+<!-- 条件栏-->
+<nav class="navbar navbar-default navbar-fixed-top" 
+	style="border:0;padding:5px 10px;padding-bottom:0;background-color: #ffffff;">
+<ul class="nav nav-tabs" >
+	<li role="presentation" id="checked" class="active">
+		<a href="#">选中</a>
+	</li>
+	<li role="presentation" id="all">
+		<a href="#">全部</a>
+	</li>
+	<li role="presentation" class="dropdown" id="brand">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" 
+			aria-haspopup="true" aria-expanded="false">
+			品牌 <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" id="brand-menu">
+			<li role="presentation" >
+				<a href="#">品牌1</a>
+			</li>
+			<li role="presentation" >
+				<a href="#">品牌2</a>
+			</li>
+			<li role="presentation" >
+				<a href="#">品牌3</a>
+			</li>
+			<li role="presentation" >
+				<a href="#">品牌4</a>
+			</li>
+		</ul>
+	</li>
+	<li role="presentation" class="dropdown" id="brand">
+		<a href="#">一级</a>
+	</li>
+	<li role="presentation" class="dropdown" id="brand">
+		<a href="#">二级</a>
+	</li>
+</ul>
+</nav>
+
+<!--数字组件-->
+<div class="number-spinner">
+	<button class="number-spinner-decrease" data="-1">-</button>
+	<input type="text" maxlength="4" onkeyup="this.value=this.value.replace(/\D/gi,'')">
+	<button class="number-spinner-increase" data="1">+</button>
+</div>

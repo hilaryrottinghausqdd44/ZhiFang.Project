@@ -1,0 +1,102 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherReceivablesByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherReceivablesById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherReceivables',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherReceivables',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherReceivablesByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherReceivables',
+
+    		//收款管理对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherReceivables_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherReceivables_Id',value:'收款ID'},						 
+						 		     
+				     												 
+						{ key:'OtherReceivables_ClientID',value:'客户ID'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_ClienName',value:'客户名称'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_CreatorID',value:'收款人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_Payee',value:'收款人'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_ReceiveTime',value:'收款时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_Amount',value:'收款金额'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_AccountingDepartment',value:'核算部门'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_Accounting',value:'核算个人'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_InputPeopleID',value:'录入人ID'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_InputPeople',value:'录入人'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_InputTime',value:'录入时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_Comment',value:'备注'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReceivables_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherReceivables_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'收款管理',
+    		//主键字段
+    		key:'OtherReceivables_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

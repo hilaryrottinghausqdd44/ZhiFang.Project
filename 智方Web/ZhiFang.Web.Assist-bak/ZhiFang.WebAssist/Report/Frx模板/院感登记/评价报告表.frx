@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/30/2018 13:39:22" ReportInfo.Modified="12/30/2020 16:53:17" ReportInfo.CreatorVersion="1.3.15.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data"/>
+    <Style Name="Footer"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.WebAssist" ConnectionString="rijcmlqAFHGp6KQj27H4qUwAIR20slrNAHxJ1yS43NGHBF484Sp/dfzhBkNxm6w+rpLKjekdia4ozJwobBxNx4dS0VjEaCKqckTZDk0BL09JR9PfE4EBKiSRcfHTR7I4Uo0j1k713q0SDvymVBSOlhWWalu8Yw3LVY+lWeHDwCPi9y2GLWqspUQJzSsA85R/rgVBINLTecHoNFZTrVWZSHph5mabEC5RjzrTdTZJSd2tRx1TVs=">
+      <TableDataSource Name="GK_SampleRequestForm" Alias="GKSampleRequestForm" DataType="System.Int32" Enabled="true" TableName="GK_SampleRequestForm">
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="ReqDocId" DataType="System.Int64"/>
+        <Column Name="ReqDocNo" DataType="System.String"/>
+        <Column Name="MonitorType" DataType="System.Int64"/>
+        <Column Name="DeptId" DataType="System.Int64"/>
+        <Column Name="DeptCName" DataType="System.String"/>
+        <Column Name="SamplerId" DataType="System.Int64"/>
+        <Column Name="Sampler" DataType="System.String"/>
+        <Column Name="SampleDate" DataType="System.DateTime"/>
+        <Column Name="SampleTime" DataType="System.DateTime"/>
+        <Column Name="RecordTypeID" DataType="System.Int64"/>
+        <Column Name="RecordTypeCName" DataType="System.String"/>
+        <Column Name="StatusID" DataType="System.Int32"/>
+        <Column Name="CName" DataType="System.String"/>
+        <Column Name="BarCode" DataType="System.String"/>
+        <Column Name="PrintCount" DataType="System.Int32"/>
+        <Column Name="SampleNo" DataType="System.String"/>
+        <Column Name="IsAutoReceive" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ReceiveFlag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ReceiveDate" DataType="System.DateTime"/>
+        <Column Name="ResultFlag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CreatorID" DataType="System.Int64"/>
+        <Column Name="CreatorName" DataType="System.String"/>
+        <Column Name="TesterId" DataType="System.Int64"/>
+        <Column Name="TesterName" DataType="System.String"/>
+        <Column Name="TestTime" DataType="System.DateTime"/>
+        <Column Name="TestResult" DataType="System.String"/>
+        <Column Name="BacteriaTotal" DataType="System.Double"/>
+        <Column Name="CheckId" DataType="System.Int64"/>
+        <Column Name="CheckCName" DataType="System.String"/>
+        <Column Name="CheckDate" DataType="System.DateTime"/>
+        <Column Name="EvaluatorId" DataType="System.Int64"/>
+        <Column Name="Evaluators" DataType="System.String"/>
+        <Column Name="EvaluationDate" DataType="System.DateTime"/>
+        <Column Name="EvaluatorFlag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Judgment" DataType="System.String"/>
+        <Column Name="Archived" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ObsoleteID" DataType="System.Int64"/>
+        <Column Name="ObsoleteName" DataType="System.String"/>
+        <Column Name="ObsoleteTime" DataType="System.DateTime"/>
+        <Column Name="ObsoleteMemoId" DataType="System.Int64"/>
+        <Column Name="ObsoleteMemo" DataType="System.String"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="InfectionDocVO" DataType="System.Int32" Enabled="true" TableName="InfectionDocVO">
+        <Column Name="MonitorType" DataType="System.String"/>
+        <Column Name="DeptCName" DataType="System.String"/>
+        <Column Name="RecordTypeNo" DataType="System.String"/>
+        <Column Name="RecordTypeCName" DataType="System.String"/>
+        <Column Name="StartDate" DataType="System.String"/>
+        <Column Name="EndDate" DataType="System.String"/>
+        <Column Name="Year" DataType="System.String"/>
+        <Column Name="Quarterly" DataType="System.String"/>
+        <Column Name="YMRange" DataType="System.String"/>
+        <Column Name="DateRange" DataType="System.String"/>
+        <Column Name="SumSamplesCount" DataType="System.String"/>
+        <Column Name="SumQualifiedCount" DataType="System.String"/>
+        <Column Name="SumQualifiedRate" DataType="System.String"/>
+        <Column Name="HygieneInfo" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="GKOfDeptEvaluation" DataType="System.Int32" Enabled="true" TableName="GKOfDeptEvaluation">
+        <Column Name="DeptId" DataType="System.String"/>
+        <Column Name="DeptCName" DataType="System.String"/>
+        <Column Name="Quarterly" DataType="System.String"/>
+        <Column Name="MonitoringDate" DataType="System.String"/>
+        <Column Name="Place" DataType="System.String"/>
+        <Column Name="MedicalEquipment" DataType="System.String"/>
+        <Column Name="TestResult" DataType="System.String"/>
+        <Column Name="MicroCount" DataType="System.String"/>
+        <Column Name="TestEvaluation" DataType="System.String"/>
+        <Column Name="TestCName" DataType="System.String"/>
+        <Column Name="Memo" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="139.75">
+      <TextObject Name="txtTitle" Left="66.15" Top="7.45" Width="500.85" Height="28.35" Text="[ExportExcelCommand.EEC_LabName]监测报告及评价表" HorzAlign="Center" VertAlign="Center" Font="宋体, 14pt, style=Bold"/>
+      <TextObject Name="Text11" Left="585.9" Top="18.9" Width="94.5" Height="18.9" Text="[PageN]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="9.45" Top="47.7" Width="311.85" Height="18.9" Text="监测级别:[InfectionDocVO.MonitorType]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text26" Left="404.9" Top="46.7" Width="255.15" Height="18.9" Text="统计时间:[InfectionDocVO.DateRange]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text3" Left="9.35" Top="73.5" Width="689.85" Height="56.7" Text="卫生评价：&#13;&#10;  按照《医院消毒卫生标准》或《消毒与灭菌效果的评价方法与标准卫生标准》评价，本次监测共检测[InfectionDocVO.HygieneInfo]" Font="宋体, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="143.75" Width="718.2" Height="28.35">
+      <LineObject Name="Line1" Left="6.85" Width="699.3"/>
+      <TextObject Name="lblAbsRow" Left="4.45" Top="5" Width="37.8" Height="18.9" Text="序号" Font="宋体, 10pt, style=Bold"/>
+      <LineObject Name="Line2" Left="1.45" Top="26.35" Width="708.75"/>
+      <TextObject Name="lblGoodsUnit" Left="228.55" Top="5" Width="75.6" Height="18.9" Text="场 所" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblReqGoodsQty" Left="547.9" Top="4.45" Width="75.6" Height="18.9" Text="检测评价" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="45.6" Top="5" Width="85.05" Height="18.9" Text="监测日期" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text16" Left="314.2" Top="4" Width="103.95" Height="18.9" Text="医疗器材名称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text17" Left="436.8" Top="4" Width="103.95" Height="18.9" Text="微生物学结果" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text18" Left="628.7" Top="4" Width="85.05" Height="18.9" Text="监测者" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text20" Left="137.75" Top="5" Width="85.05" Height="18.9" Text="科室" Font="宋体, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="176.1" Width="718.2" Height="32.8" DataSource="GK_SampleRequestForm">
+      <TextObject Name="txtAbsRow" Left="2" Top="4.45" Width="37.8" Height="18.9" Text="[AbsRow#]" Font="宋体, 10pt"/>
+      <TextObject Name="Text1" Left="43.25" Top="3" Width="94.5" Height="18.9" Text="[GKOfDeptEvaluation.MonitoringDate]" Format="Date" Format.Format="d" Font="宋体, 10pt"/>
+      <TextObject Name="Text19" Left="141.2" Top="3.45" Width="85.05" Height="18.9" Text="[GKOfDeptEvaluation.DeptCName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text21" Left="229.25" Top="3" Width="85.05" Height="18.9" Text="[GKOfDeptEvaluation.DeptCName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text22" Left="318.75" Top="3.45" Width="103.95" Height="18.9" Text="[GKOfDeptEvaluation.MedicalEquipment]" Font="宋体, 10pt"/>
+      <TextObject Name="Text23" Left="433.35" Top="2" Width="113.4" Height="18.9" Text="[GKOfDeptEvaluation.TestResult]" Font="宋体, 10pt"/>
+      <TextObject Name="Text24" Left="554.75" Top="3" Width="75.6" Height="18.9" Text="[GKOfDeptEvaluation.TestEvaluation]" Font="宋体, 10pt"/>
+      <TextObject Name="Text25" Left="635.15" Top="3" Width="75.6" Height="18.9" Text="[GKOfDeptEvaluation.TestCName]" Font="宋体, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="212.9" Width="718.2" Height="18.9">
+      <LineObject Name="Line3" Left="5" Width="708.75"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

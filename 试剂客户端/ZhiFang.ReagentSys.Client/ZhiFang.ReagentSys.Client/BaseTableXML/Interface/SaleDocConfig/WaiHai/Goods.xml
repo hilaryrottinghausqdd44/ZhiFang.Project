@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="gb2312"?>
+<NewDataSet>
+  <TableName>
+    <!--货品内部编码  物资编码-->
+    <FieldName>ReaGoodsNo</FieldName>
+    <CompareFieldName>invCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+    <TableName>
+    <!--物资编码  物资编码-->
+    <FieldName>MatchCode</FieldName>
+    <CompareFieldName>invCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--货品名称  物资名称-->
+    <FieldName>CName</FieldName>
+    <CompareFieldName>invName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+  <!--货品编码  物资编码-->
+    <FieldName>GoodsNo</FieldName>
+    <CompareFieldName>invCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--厂商货品编码  物资编码-->
+    <FieldName>ProdGoodsNo</FieldName>
+    <CompareFieldName>invCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--厂商名称  生产商名称-->
+    <FieldName>ProdOrgName</FieldName>
+    <CompareFieldName>factoryName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--产地   品牌-->
+    <FieldName>ProdEara</FieldName>
+    <CompareFieldName>brandName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+  <!--供应商编码-->
+    <FieldName>ReaCompCode</FieldName>
+    <CompareFieldName>venCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--供应商名称-->
+    <FieldName>ReaCompanyName</FieldName>
+    <CompareFieldName>venName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--单价-->
+    <FieldName>Price</FieldName>
+    <CompareFieldName>price</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--包装单位 单位-->
+    <FieldName>UnitName</FieldName>
+    <CompareFieldName>unitName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--包装单位描述  规格-->
+    <FieldName>UnitMemo</FieldName>
+    <CompareFieldName>invSpec</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--一货品描述   型号-->
+    <FieldName>GoodsDesc</FieldName>
+    <CompareFieldName>invModel</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--一GonvertQty  换算比率-->
+    <FieldName>GonvertQty</FieldName>
+    <CompareFieldName>maxPackNum</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--一批准文号   证件号码-->
+    <FieldName>ApproveDocNo</FieldName>
+    <CompareFieldName>certCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--一ZX1   物资类别编码-->
+    <FieldName>ZX1</FieldName>
+    <CompareFieldName>mateTypeCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--一ZX2  大包装转换比-->
+    <FieldName>ZX2</FieldName>
+    <CompareFieldName>maxPackNum</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--ZX3  小包装转换比-->
+    <FieldName>ZX3</FieldName>
+    <CompareFieldName>minPackNum</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--是否盒条码 是否条码管理-->
+    <FieldName>BarCodeMgr</FieldName>
+    <CompareFieldName>isBar</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--是否使用 是否停用-->
+    <FieldName>Visible</FieldName>
+    <CompareFieldName>isStop</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName> 
+</NewDataSet>

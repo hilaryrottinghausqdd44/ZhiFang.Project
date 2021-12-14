@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+		<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1, minimum-scale=1.0" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit"></meta>
+
+		<title>主菜单页面</title>
+		<link rel="stylesheet" href="src/bootstrap-3.3.2-dist/css/bootstrap.css"></link>
+		<script src="src/jquery.min.js"></script>
+		<script src="src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<script src="util/util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/home.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="page_home">
+		<nav class="navbar-fixed-top page_home_head">
+			<div id="page_home_head" class="circular_picture">
+				<figure><div><img id="user_image"/></div></figure>
+			</div>
+		</nav>
+		<div id="page_home_content" class="container page_home_content">
+		</div>
+
+		<nav id="page_home_floot" class="navbar-fixed-bottom page_home_floot">
+			<div id="button_home" class="function_button page_home_floot_button">
+				<span class="glyphicon glyphicon-home"></span>
+				<span class="page_home_floot_button_text">主页</span>
+			</div>
+			<div id="button_barcode" class="function_button page_home_floot_button">
+				<span class="glyphicon glyphicon-barcode "></span>
+				<span class="page_home_floot_button_text">扫一扫</span>
+			</div>
+			<div id="button_report" class="function_button page_home_floot_button">
+				<span class="glyphicon glyphicon-list"></span>
+				<span class="page_home_floot_button_text">报告查询</span>
+			</div>
+			<div id="button_config" class="function_button page_home_floot_button">
+				<span class="glyphicon glyphicon-cog"></span>
+				<span class="page_home_floot_button_text">维护</span>
+			</div>
+		</nav>
+		</div>
+		<!--覆盖整个页面,用于显示信息-->
+		<div id="page_info" class="page_info" hidden="hidden"></div>
+	</body>
+
+</html>

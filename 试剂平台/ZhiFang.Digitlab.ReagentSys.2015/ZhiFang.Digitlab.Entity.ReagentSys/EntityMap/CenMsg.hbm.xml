@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+	<class name="CenMsg" table="[dbo].[CenMsg]">
+		<id name="Id" column="[MsgID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="MsgDate" column="[MsgDate]" type="DateTime" not-null="false" length="8" />
+		<property name="MsgValue" column="[MsgValue]" type="String" not-null="false" length="2000" />
+		<property name="UrgentFlag" column="[UrgentFlag]" type="Int32" not-null="false" length="4" />
+		<property name="UrgentFlagName" column="[UrgentFlagName]" type="String" not-null="false" length="10" />
+		<property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+		<property name="StatusName" column="[StatusName]" type="String" not-null="false" length="10" />
+		<property name="TradeUser" column="[TradeUser]" type="String" not-null="false" length="50" />
+		<property name="TradeTime" column="[TradeTime]" type="DateTime" not-null="false" length="8" />
+		<property name="TradeDesc" column="[TradeDesc]" type="String" not-null="false" length="1000" />
+		<property name="TradeNodeName" column="[TradeNodeName]" type="String" not-null="false" length="100" />
+		<property name="TradeNodeIPAdress" column="[TradeNodeIPAdress]" type="String" not-null="false" length="50" />
+		<property name="IOFlag" column="[IOFlag]" type="Int32" not-null="false" length="4" />
+		<many-to-one name="From" class="CenOrg" lazy="false">
+			<column name="[FromOrgID]" not-null="true"/>
+		</many-to-one>
+		<many-to-one name="To" class="CenOrg" lazy="false">
+			<column name="[ToOrgID]" not-null="true"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+	<class name="BObjectOperateType" table="[dbo].[B_SampleOperateType]">
+		<id name="Id" column="[SampleOperateTypeID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="OperateLevel" column="[OperateLevel]" type="Int32" not-null="false" length="4" />
+		<property name="Name" column="[Name]" type="String" not-null="false" length="40" />
+		<property name="SName" column="[SName]" type="String" not-null="false" length="40" />
+		<property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="50" />
+		<property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+		<property name="Comment" column="[Comment]" type="String" not-null="false" length="16" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<bag name="OperateTypeBObjectOperateList" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key>
+                <column name="[OperateTypeID]" />
+            </key>
+			<one-to-many class="BObjectOperate"/>
+		</bag>
+	</class>
+</hibernate-mapping>

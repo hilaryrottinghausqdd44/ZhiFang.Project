@@ -1,0 +1,108 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherAttendanceTravelByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherAttendanceTravelById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherAttendanceTravel',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherAttendanceTravel',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherAttendanceTravelByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherAttendanceTravel',
+
+    		//考勤-出差对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherAttendanceTravel_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherAttendanceTravel_Id',value:'出差登记ID'},						 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_CreatorID',value:'创建人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_Creator',value:'创建人'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_TravelManID',value:'出差人ID'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_TravelMan',value:'出差人'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_TravelTime',value:'计划出差时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_PlanBackTime',value:'计划回来时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_BackTime',value:'实际回来时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_Contents',value:'事由'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_Comment',value:'说明   最多几十个字，一般没有'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_Summary',value:'总结'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_IsHasAttachment',value:'是否有附件   附件在附件系统中'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_CheckerID',value:'审核者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_Checker',value:'审核人'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_DataUpdateTime',value:'审核时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttendanceTravel_CheckOpinion',value:'审核意见   一般十几个字，大部分没有意见'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherAttendanceTravel_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'考勤-出差',
+    		//主键字段
+    		key:'OtherAttendanceTravel_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

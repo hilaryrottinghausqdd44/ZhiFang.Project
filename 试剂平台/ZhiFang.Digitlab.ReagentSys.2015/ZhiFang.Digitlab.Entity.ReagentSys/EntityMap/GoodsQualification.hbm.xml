@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+  <class name="GoodsQualification" table="[dbo].[GoodsQualification]">
+    <id name="Id" column="[RegisterID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+   
+    <property name="CName" column="[CName]" type="String" not-null="false" length="200" />
+    <property name="CompCName" column="[CompCName]" type="String" not-null="false" length="200" />
+    <property name="CenOrgCName" column="[CenOrgCName]" type="String" not-null="false" length="200" />
+    <property name="RegisterNo" column="[RegisterNo]" type="String" not-null="false" length="200" />
+    <property name="RegisterDate" column="[RegisterDate]" type="DateTime" not-null="false" length="8" />
+    <property name="RegisterInvalidDate" column="[RegisterInvalidDate]" type="DateTime" not-null="false" length="8" />
+    <property name="RegisterFilePath" column="[RegisterFilePath]" type="String" not-null="false" length="500" />
+    <property name="FileType" column="[FileType]" type="String" not-null="false" length="200" />
+    <property name="FileName" column="[FileName]" type="String" not-null="false" length="200" />
+    <property name="FileExt" column="[FileExt]" type="String" not-null="false" length="50" />
+    <property name="ClassType" column="[ClassType]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="AuthorizeCName" column="[AuthorizeCName]" type="String" not-null="false" length="50" />
+    <property name="Telephone" column="[Telephone]" type="String" not-null="false" length="20" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="CenOrg" class="CenOrg" lazy="false">
+      <column name="[CenOrgID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Comp" class="CenOrg" lazy="false">
+      <column name="[CompID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

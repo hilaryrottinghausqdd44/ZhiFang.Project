@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>授权信息</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/LicenceInfo.js" type="text/javascript" charset="UTF-8"></script>
+    <style>
+        .btn-circle {
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-default" style="margin:0px;">
+        <div class="panel-heading text-center">
+            <span id="cancelspan" style="float:left;height:25px">取消</span>
+            <span id="panel-head" style="float:none">授权信息</span>
+            <table style='float:right;display:none' border=0>
+                <tr>
+                    <td><a href="#" id="Interaction" class="btn btn-primary btn-xs" style="margin-left:5px" role="button">交&nbsp;&nbsp;&nbsp;&nbsp;流</a></td>
+                    <td><a href="#" id="OperationLog" class="btn btn-info btn-xs" style="margin-left:5px" role="button">流程记录</a></td>
+                    <td><a href="#" id="Worklog" class="btn btn-success btn-xs" style="margin-left:5px" role="button">工作日志</a></td>
+                </tr>
+            </table>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <td style="width:105px;" valign="middle">客户名称：</td>
+                <td class="text-center">
+                    <textarea id="PClientName" class="form-control" rows="3" readonly="readonly"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:105px;" valign="middle">当前申请号：</td>
+                <td class="text-center">
+                    <input id="LRNo" type="text" class="form-control" readonly="readonly" value='' />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:105px;" valign="middle">主申请号：</td>
+                <td class="text-center">
+                    <input id="LRNo1" type="text" class="form-control" readonly="readonly" value='' />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:105px;" valign="middle">备份申请号：</td>
+                <td class="text-center">
+                    <input id="LRNo2" type="text" class="form-control" readonly="readonly" value='' />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:105px;" valign="middle">申请人：</td>
+                <td class="text-center">
+                    <input id="ApplyName" type="text" class="form-control" readonly="readonly" value='' />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:105px;" valign="middle">审核人：</td>
+                <td class="text-center">
+                    <input id="OneAuditName" type="text" class="form-control" readonly="readonly" value='' />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:105px;" valign="middle">审批人：</td>
+                <td class="text-center">
+                    <input id="TwoAuditName" type="text" class="form-control" readonly="readonly" value='' />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:105px;" valign="middle">附件：</td>
+                <td class="text-center">
+                    <div id="LiceseFile" style="padding: 2px"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

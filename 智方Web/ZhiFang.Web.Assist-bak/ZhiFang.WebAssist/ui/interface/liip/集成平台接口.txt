@@ -1,0 +1,9 @@
+提供给 调用LayUI功能模块的入口
+1.接收集成平台传入的参数信息;
+	需要包含集成平台的基本URL,调用的功能模块入口等信息;
+2.处理业务系统是否已经完成业务系统的数据库版本升级;
+3.预获取业务系统的部分运行参数信息;
+4.集成平台模块入口格式
+{ZF_BLTF}/ui/interface/liip/index.html?moduleCode=/layui/views/bloodtransfusion/doctorstation/apply/index.html
+moduleCode:为集成平台调用血库系统的layui功能模块入口地址;
+isgetdoctor:是否按当前登录帐号获取6.6医生信息;

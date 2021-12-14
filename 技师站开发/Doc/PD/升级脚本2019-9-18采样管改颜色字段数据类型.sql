@@ -1,0 +1,1 @@
+alter table LB_Tcuvete alter column ColorValue nvarchar(50);

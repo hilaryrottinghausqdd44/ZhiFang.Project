@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BusinessLogicClientControl" table="[dbo].[BusinessLogicClientControl]">
+		<id name="Id" column="[Id]" type="Int64">
+			<generator class="assigned" />
+		</id>				
+		<property name="AddTime" column="[AddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="Flag" column="[Flag]" type="Int32" not-null="true" length="4" />
+		<property name="Account" column="[Account]" type="String" not-null="true" length="50" />		
+		<many-to-one name="CLIENTELE" class="CLIENTELE" lazy="false">
+			<column name="[ClientNo]" not-null="true"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

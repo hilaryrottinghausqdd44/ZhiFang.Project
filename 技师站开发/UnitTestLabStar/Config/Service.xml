@@ -1,0 +1,836 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--检验系统相关配置-->
+  <object id="BLisCommon" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisCommon,ZhiFang.BLL.LabStar">
+        <property name="IDLisCommonDao" ref="LisCommonDao"/>
+        <property name="IBLisTestItem" ref="BLisTestItem"/>
+        <property name="IBLBEquipItem" ref="BLBEquipItem"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBHost" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBHost,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BHostDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBHostType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBHostType,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BHostTypeDao"/>
+        <property name="IDBParaItemDao" ref="BParaItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBHostTypeUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBHostTypeUser,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BHostTypeUserDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBPara" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBPara,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BParaDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBParaItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBParaItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BParaItemDao"/>
+        <property name="IBBPara" ref="BBPara"/>
+        <property name="IDBHostTypeUserDao" ref="BHostTypeUserDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBChargeType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBChargeType,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBChargeTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBCollectPart" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBCollectPart,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBCollectPartDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBDestination" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBDestination,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBDestinationDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBDiag" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBDiag,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBDiagDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBDict" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBDict,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBDictDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBEquip" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBEquip,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBEquipDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBEquipItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBEquipItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBEquipItemDao"/>
+        <property name="IBLisEquipItem" ref="BLisEquipItem"/>
+        <property name="IDLBEquipItemVODao" ref="LBEquipItemVODao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBEquipResultTH" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBEquipResultTH,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBEquipResultTHDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBEquipSection" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBEquipSection,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBEquipSectionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBFolk" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBFolk,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBFolkDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBRight" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBRight,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBRightDao"/>
+        <property name="IBLisCommon" ref="BLisCommon"/>
+        <property name="IBLBSection" ref="BLBSection"/>
+        <property name="IBLisOperate" ref="BLisOperate"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBReportDate" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBReportDate,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBReportDateDao"/>
+        <property name="IBLBReportDateItem" ref="BLBReportDateItem"/>
+        <property name="IBLBReportDateRule" ref="BLBReportDateRule"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBReportDateItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBReportDateItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBReportDateItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBReportDateRule" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBReportDateRule,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBReportDateRuleDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemDao"/>
+        <property name="IDLBItemGroupDao" ref="LBItemGroupDao"/>
+        <property name="IDLBItemRangeDao" ref="LBItemRangeDao"/>
+        <property name="IDLBSampleItemDao" ref="LBSampleItemDao"/>
+        <property name="IDLBReportDateItemDao" ref="LBReportDateItemDao"/>
+        <property name="IDLBSamplingItemDao" ref="LBSamplingItemDao"/>
+        <property name="IDLBSectionItemDao" ref="LBSectionItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemCharge" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemCharge,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemChargeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemCalc" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemCalc,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemCalcDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemCalcFormula" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemCalcFormula,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemCalcFormulaDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemComp" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemComp,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemCompDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemGroup" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemGroup,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemGroupDao"/>
+        <property name="IBLBItem" ref="BLBItem"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemRange" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemRange,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemRangeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemRangeExp" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemRangeExp,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemRangeExpDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemTimeW" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemTimeW,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemTimeWDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemExp" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemExp,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemExpDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBOrderModel" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBOrderModel,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBOrderModelDao"/>
+        <property name="IDLBOrderModelItemDao" ref="LBOrderModelItemDao"/>
+        <property name="IBLBItem" ref="BLBItem"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBOrderModelItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBOrderModelItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBOrderModelItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBPhrase" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBPhrase,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBPhraseDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBPhyPeriod" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBPhyPeriod,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBPhyPeriodDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSampleType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSampleType,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSampleTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSection" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSection,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSectionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSectionItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSectionItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSectionItemDao"/>
+        <property name="IDLBSectionItemVODao" ref="LBSectionItemVODao"/>
+        <property name="IBLBSection" ref="BLBSection"/>
+        <property name="IBLBEquipItem" ref="BLBEquipItem"/>
+        <property name="IBLisTestItem" ref="BLisTestItem"/>
+        <property name="IBLBItem" ref="BLBItem"/>
+        <property name="IBLBItemGroup" ref="BLBItemGroup"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSectionPrint" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSectionPrint,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSectionPrintDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSectionHisComp" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSectionHisComp,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSectionHisCompDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSickType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSickType,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSickTypeDao"/>
+        <property name="IDLBItemDao" ref="LBItemDao"/>
+        <property name="IDLBSectionItemDao" ref="LBSectionItemDao"/>
+        <property name="IDLBItemCodeLinkDao" ref="LBItemCodeLinkDao"/>
+        <property name="IDLBDiagDao" ref="LBDiagDao"/>
+        <property name="IDLBSampleTypeDao" ref="LBSampleTypeDao"/>
+        <property name="IDLBDicCodeLinkDao" ref="LBDicCodeLinkDao"/>
+        <property name="IDLBFolkDao" ref="LBFolkDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSpecialty" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSpecialty,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSpecialtyDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBParItemSplit" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBParItemSplit,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBParItemSplitDao"/>
+        <property name="IBLBItemGroup" ref="BLBItemGroup"/>
+        <property name="IDLBSamplingItemDao" ref="LBSamplingItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBPhrasesWatch" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBPhrasesWatch,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBPhrasesWatchDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBPhrasesWatchClass" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBPhrasesWatchClass,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBPhrasesWatchClassDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBPhrasesWatchClassItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBPhrasesWatchClassItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBPhrasesWatchClassItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSampleItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSampleItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSampleItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSamplingChargeItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSamplingChargeItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSamplingChargeItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSamplingGroup" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSamplingGroup,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSamplingGroupDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBSamplingItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBSamplingItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBSamplingItemDao"/>
+        <property name="IDLBItemDao" ref="LBItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBTcuvete" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBTcuvete,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBTcuveteDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBTranRule" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBTranRule,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBTranRuleDao"/>
+        <property name="IDLBTranRuleTypeDao" ref="LBTranRuleTypeDao"/>
+        <property name="IDLBSickTypeDao" ref="LBSickTypeDao"/>
+        <property name="IDLBSampleTypeDao" ref="LBSampleTypeDao"/>
+        <property name="IDLBSamplingGroupDao" ref="LBSamplingGroupDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBTranRuleItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBTranRuleItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBTranRuleItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBTranRuleType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBTranRuleType,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBTranRuleTypeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisBarCodeForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisBarCodeForm,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisBarCodeFormDao"/>
+        <property name="IBBPara" ref="BBPara"/>
+        <property name="IBBParaItem" ref="BBParaItem"/>
+        <property name="IDLisBarCodeItemDao" ref="LisBarCodeItemDao"/>
+        <property name="IBLisOperate" ref="BLisOperate"/>
+        <property name="IDLisOrderItemDao" ref="LisOrderItemDao"/>
+        <property name="IDLisPatientDao" ref="LisPatientDao"/>
+        <property name="IDLisOrderFormDao" ref="LisOrderFormDao"/>
+        <property name="IDLBDestinationDao" ref="LBDestinationDao"/>
+        <property name="IDLBSampleTypeDao" ref="LBSampleTypeDao"/>
+        <property name="IDLBSamplingGroupDao" ref="LBSamplingGroupDao"/>
+        <property name="IDLisBarCodeRefuseRecordDao" ref="LisBarCodeRefuseRecordDao"/>
+        <property name="IDLBReportDateItemDao" ref="LBReportDateItemDao"/>
+        <property name="IDLBReportDateDescDao" ref="LBReportDateDescDao"/>
+        <property name="IDLBReportDateRuleDao" ref="LBReportDateRuleDao"/>
+        <property name="IBBPrintModel" ref="BBPrintModel"/>
+        <property name="IDLBItemDao" ref="LBItemDao"/>
+        <property name="IDLBTGetMaxNoDao" ref="LBTGetMaxNoDao"/>
+        <property name="IDLBPhrasesWatchClassItemDao" ref="LBPhrasesWatchClassItemDao"/>
+        <property name="IDLBSampleItemDao" ref="LBSampleItemDao"/>
+        <property name="IDLBSectionDao" ref="LBSectionDao"/>
+        <property name="IDLBSectionItemDao" ref="LBSectionItemDao"/>
+        <property name="IDLisQueueDao" ref="LisQueueDao"/>
+        <property name="IBLisTestItem" ref="BLisTestItem"/>
+        <property name="IDLBTranRuleHostSectionDao" ref="LBTranRuleHostSectionDao"/>
+        <property name="IDLBTranRuleDao" ref="LBTranRuleDao"/>
+        <property name="IDLBTranRuleItemDao" ref="LBTranRuleItemDao"/>
+        <property name="IDLBItemGroupDao" ref="LBItemGroupDao"/>
+        <property name="IDLisTestFormDao" ref="LisTestFormDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisBarCodeItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisBarCodeItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisBarCodeItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisEquipComFile" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisEquipComFile,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisEquipComFileDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisEquipComLog" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisEquipComLog,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisEquipComLogDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisEquipForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisEquipForm,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisEquipFormDao"/>
+        <property name="IBLBItem" ref="BLBItem"/>
+        <property name="IBLBEquip" ref="BLBEquip"/>
+        <property name="IBLBSection" ref="BLBSection"/>
+        <property name="IBLisTestForm" ref="BLisTestForm"/>
+        <property name="IBLisTestItem" ref="BLisTestItem"/>
+        <property name="IBLisEquipItem" ref="BLisEquipItem"/>
+        <property name="IBLisEquipGraph" ref="BLisEquipGraph"/>
+        <property name="IBLisTestGraph" ref="BLisTestGraph"/>
+        <property name="IBLisOperate" ref="BLisOperate"/>
+        <property name="IBLBRight" ref="BLBRight"/>
+        <property name="IBLisEquipComLog" ref="BLisEquipComLog"/>
+        <property name="IBLBEquipResultTH" ref="BLBEquipResultTH"/>
+        <property name="IBLBEquipSection" ref="BLBEquipSection"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisEquipItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisEquipItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisEquipItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisOrderForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisOrderForm,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisOrderFormDao"/>
+        <property name="IDLisOrderItemDao" ref="LisOrderItemDao"/>
+        <property name="IDLisPatientDao" ref="LisPatientDao"/>
+        <property name="IDLBItemDao" ref="LBItemDao"/>
+        <property name="IBLisOperate" ref="BLisOperate"/>
+        <property name="IDLBTGetMaxNoDao" ref="LBTGetMaxNoDao"/>
+        <property name="IBBPara" ref="BBPara"/>
+        <property name="IBBParaItem" ref="BBParaItem"/>
+        <property name="IDLBParItemSplitDao" ref="LBParItemSplitDao"/>
+        <property name="IDLBSamplingItemDao" ref="LBSamplingItemDao"/>
+        <property name="IBLisBarCodeForm" ref="BLisBarCodeForm"/>
+        <property name="IBLisBarCodeItem" ref="BLisBarCodeItem"/>
+        <property name="IDLBDestinationDao" ref="LBDestinationDao"/>
+        <property name="IDLBSampleTypeDao" ref="LBSampleTypeDao"/>
+        <property name="IDLBSamplingGroupDao" ref="LBSamplingGroupDao"/>
+        <property name="IDLBTcuveteDao" ref="LBTcuveteDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisOrderItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisOrderItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisOrderItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisPatient" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisPatient,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisPatientDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisTestForm" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisTestForm,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisTestFormDao"/>
+        <property name="IDLBQCItemDao" ref="LBQCItemDao"/>
+        <property name="IBLisTestItem" ref="BLisTestItem"/>
+        <property name="IBLisPatient" ref="BLisPatient"/>
+        <property name="IBLBSectionItem" ref="BLBSectionItem"/>
+        <property name="IBLBItemCalc" ref="BLBItemCalc"/>
+        <property name="IBLBItemCalcFormula" ref="BLBItemCalcFormula"/>
+        <property name="IBLBItemGroup" ref="BLBItemGroup"/>
+        <property name="IBLBSection" ref="BLBSection"/>
+        <property name="IBLisOperate" ref="BLisOperate"/>
+        <property name="IBBPara" ref="BBPara"/>
+        <property name="IBBParaItem" ref="BBParaItem"/>
+        <property name="IBLBItem" ref="BLBItem"/>
+        <property name="IBLBItemTimeW" ref="BLBItemTimeW"/>
+        <property name="IBLisTestFormMsg" ref="BLisTestFormMsg"/>
+        <property name="IBLisTestFormMsgItem" ref="BLisTestFormMsgItem"/>
+        <property name="IBLBRight" ref="BLBRight"/>
+        <property name="IBLisBarCodeForm" ref="BLisBarCodeForm"/>
+        <property name="IBLisBarCodeItem" ref="BLisBarCodeItem"/>
+        <property name="IBLBSampleType" ref="BLBSampleType"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisTestItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisTestItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisTestItemDao"/>
+        <property name="IBLBItemRange" ref="BLBItemRange"/>
+        <property name="IBLBItemRangeExp" ref="BLBItemRangeExp"/>
+        <property name="IBLBDict" ref="BLBDict"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisTestGraph" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisTestGraph,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisTestGraphDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisTestFormMsg" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisTestFormMsg,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisTestFormMsgDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisTestFormMsgItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisTestFormMsgItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisTestFormMsgItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisTestItemReceive" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisTestItemReceive,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisTestItemReceiveDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisOperateAuthorize" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisOperateAuthorize,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisOperateAuthorizeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisOperateASection" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisOperateASection,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisOperateASectionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisOperate" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisOperate,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisOperateDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisEquipGraph" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisEquipGraph,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisEquipGraphDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCItem,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCItemDao"/>
+        <property name="IDLBEquipItemDao" ref="LBEquipItemDao"/>
+        <property name="IDLisQCDataDao" ref="LisQCDataDao"/>
+        <property name="IDLBQCItemTimeDao" ref="LBQCItemTimeDao"/>
+        <property name="IDLBQCMaterialDao" ref="LBQCMaterialDao"/>
+        <property name="IDLBEquipDao" ref="LBEquipDao"/>
+        <property name="IDLBQCMatTimeDao" ref="LBQCMatTimeDao"/>
+        <property name="IDLBQCPrintTemplateDao" ref="LBQCPrintTemplateDao"/>
+        <property name="IDLisQCCommentsDao" ref="LisQCCommentsDao"/>
+        <property name="IDLBItemDao" ref="LBItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCItemTime" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCItemTime,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCItemTimeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCMaterial" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCMaterial,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCMaterialDao"/>
+        <property name="IBLBEquip" ref="BLBEquip"/>
+        <property name="IBLBEquipItem" ref="BLBEquipItem"/>
+        <property name="IBLBQCItem" ref="BLBQCItem"/>
+        <property name="IDLBEquipDao" ref="LBEquipDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCMatTime" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCMatTime,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCMatTimeDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCItemRule" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCItemRule,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCItemRuleDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCRule" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCRule,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCRuleDao"/>
+        <property name="IBLBQCItemRule" ref="BLBQCItemRule"/>
+        <property name="IBLBQCRulesCon" ref="BLBQCRulesCon"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCRuleBase" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCRuleBase,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCRuleBaseDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCRulesCon" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCRulesCon,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCRulesConDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisQCData" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisQCData,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisQCDataDao"/>
+        <property name="IDLBQCItemTimeDao" ref="LBQCItemTimeDao"/>
+        <property name="IDLBQCItemRuleDao" ref="LBQCItemRuleDao"/>
+        <property name="IDLBQCRuleBaseDao" ref="LBQCRuleBaseDao"/>
+        <property name="IDLBQCRuleDao" ref="LBQCRuleDao"/>
+        <property name="IDLBQCItemDao" ref="LBQCItemDao"/>
+        <property name="IDLBQCRulesConDao" ref="LBQCRulesConDao"/>
+        <property name="IDLBQCMaterialDao" ref="LBQCMaterialDao"/>
+        <property name="IDLBEquipDao" ref="LBEquipDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisQCComments" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisQCComments,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisQCCommentsDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBQCPrintTemplate" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBQCPrintTemplate,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBQCPrintTemplateDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBDicCodeLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBDicCodeLink,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBDicCodeLinkDao"/>
+        <property name="IDLBDiagDao" ref="LBDiagDao"/>
+        <property name="IDLBSampleTypeDao" ref="LBSampleTypeDao"/>
+        <property name="IDLBFolkDao" ref="LBFolkDao"/>
+        <property name="IDLBSickTypeDao" ref="LBSickTypeDao"/>
+        <property name="IDLBSamplingGroupDao" ref="LBSamplingGroupDao"/>
+        <property name="IDLBDestinationDao" ref="LBDestinationDao"/>
+        <property name="IDLBSectionDao" ref="LBSectionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBItemCodeLink" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBItemCodeLink,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBItemCodeLinkDao"/>
+        <property name="IDLBItemDao" ref="LBItemDao"/>
+        <property name="IDLBSectionItemDao" ref="LBSectionItemDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBPrintModel" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBPrintModel,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BPrintModelDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBReportDateDesc" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBReportDateDesc,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBReportDateDescDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBTGetMaxNo" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBTGetMaxNo,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBTGetMaxNoDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLBTranRuleHostSection" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLBTranRuleHostSection,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LBTranRuleHostSectionDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisBarCodeRefuseRecord" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisBarCodeRefuseRecord,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisBarCodeRefuseRecordDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BLisQueue" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BLisQueue,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="LisQueueDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBModuleGridList" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBModuleGridList,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BModuleGridListDao"/>
+        <property name="IDBModuleFormListDao" ref="BModuleFormListDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBModuleGridControlSet" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBModuleGridControlSet,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BModuleGridControlSetDao"/>
+        <property name="IDBModuleGridControlListDao" ref="BModuleGridControlListDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBModuleGridControlList" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBModuleGridControlList,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BModuleGridControlListDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBModuleFormList" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBModuleFormList,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BModuleFormListDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBModuleFormControlSet" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBModuleFormControlSet,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BModuleFormControlSetDao"/>
+      </object>
+    </property>
+  </object>
+  <object id="BBModuleFormControlList" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.BLL.LabStar.BBModuleFormControlList,ZhiFang.BLL.LabStar">
+        <property name="DBDao" ref="BModuleFormControlListDao"/>
+      </object>
+    </property>
+  </object>
+</objects>

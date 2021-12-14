@@ -1,0 +1,96 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherFileByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherFileById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherFile',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherFile',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherFileByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherFile',
+
+    		//文件管理对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherFile_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherFile_Id',value:'文件ID'},						 
+						 		     
+				     												 
+						{ key:'OtherFile_FileTypeID',value:'文件类型ID'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_FileGroupID',value:'文件分类ID'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_CreatorID',value:'创建者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_IsDirectory',value:'是否目录   1：目录；0：文件'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_FileName',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_ParFileID',value:'父节点ID'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_FileCreatTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_FileUpdateTime',value:'修改时间'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_Size',value:'大小'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_Creator',value:'创建者'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'OtherFile_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherFile_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'文件管理',
+    		//主键字段
+    		key:'OtherFile_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

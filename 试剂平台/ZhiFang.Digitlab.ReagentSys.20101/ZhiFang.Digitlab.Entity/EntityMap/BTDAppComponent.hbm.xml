@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="BTDAppComponents" table="[dbo].[BT_D_AppComponents]">
+    <id name="Id" column="[AppComID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="100" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="100" />
+    <property name="ModuleOperCode" column="[ModuleOperCode]" type="String" not-null="false" length="20" />
+    <property name="ModuleOperInfo" column="[ModuleOperInfo]" type="String" not-null="false" length="1073741823" />
+    <property name="InitParameter" column="[InitParameter]" type="String" not-null="false" length="200" />
+    <property name="AppType" column="[AppType]" type="Int32" not-null="false" length="4" />
+    <property name="BuildType" column="[BuildType]" type="Int32" not-null="false" length="4" />
+    <property name="ExecuteCode" column="[ExecuteCode]" type="String" not-null="false" length="1073741823" />
+    <property name="DesignCode" column="[DesignCode]" type="String" not-null="false" length="1073741823" />
+    <property name="ClassCode" column="[ClassCode]" type="String" not-null="false" length="1073741823" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="Creator" column="[Creator]" type="String" not-null="false" length="20" />
+    <property name="Modifier" column="[Modifier]" type="String" not-null="false" length="20" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="BTDModuleType" class="BTDModuleType" lazy="false">
+      <column name="[ModuleTypeID]" not-null="false"/>
+    </many-to-one>
+    <bag name="BTDAppComponentsOperateList" inverse="false" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[AppComID]" />
+      </key>
+      <one-to-many class="BTDAppComponentsOperate"/>
+    </bag>
+    <bag name="BTDAppComponentsRefList"  inverse="false" cascade="save-update" lazy="true">
+      <key>
+        <column name="[AppComID]" />
+      </key>
+      <one-to-many class="BTDAppComponentsRef"/>
+    </bag>
+    <!--<bag name="RBACModuleList" inverse="true" cascade="save-update" lazy="true">
+      <key>
+        <column name="[AppComID]" />
+      </key>
+      <one-to-many class="RBACModule"/>
+    </bag>-->
+  </class>
+</hibernate-mapping>

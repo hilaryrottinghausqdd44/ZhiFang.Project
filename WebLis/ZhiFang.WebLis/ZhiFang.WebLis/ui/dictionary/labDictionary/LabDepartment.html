@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>实验室科室字典</title>
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="LabDepartment.js"></script>
+</head>
+<body >
+<table id="tbDepartment"></table>
+<div id="topBars" style="height:28px;width: 100%;background: #eeeeee ">
+    <div style="float: left;padding-top: 3px">
+
+        <a href="javascript:void (0)" class="easyui-linkbutton" onclick="refresh()" iconCls="icon-reload" plain="true">刷新</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" onclick="addRow()" iconCls="icon-add" plain="true">新增</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" onclick="deleteRow()" iconCls="icon-remove" plain="true" id="delRows">删除</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" onclick="disableRecords()" iconCls="icon-cancel-2" plain="true" id="disable">禁用</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" onclick="enableRecords()" iconCls="icon-accept" plain="true" id="enable">启用</a>
+       <!-- <a href="javascript:void (0)" class="easyui-linkbutton" onclick="exportExcel()" iconCls="icon-excel" plain="true" id="exportExcel">导出Excel</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" onclick="uploadFile()" iconCls="icon-dictionary_upload" plain="true" id="uploadFile">上传文件</a>-->
+
+    </div>
+    <div style="float: right;margin-right: 10px;padding-top: 3px"><input type="text" class="easyui-searchbox" data-options="prompt:'编码/名称/简称',searcher:search" style="width: 160px;" id="txtSearch" ></div>
+</div>
+
+<div id="dlg" class="easyui-dialog"  style="width:560px;height:auto;margin: auto;" closed="true" buttons="#dlgButtons">
+    <div id="frm" class="easyui-form" method="post">
+        <table style="margin: 0;padding: 10px 30px 10px 30px">
+            <tr>
+                <td>编号:</td>
+                <td ><input id="LabDeptNo" class="easyui-numberbox" type="text" name="LabDeptNo" data-options="required:true,validType:['length[0,10]']"></td>
+                <td style="padding-left: 20px">实验室编码:</td>
+                <td><input id="LabCode" class="easyui-textbox" type="text" name="LabCode" data-options="disabled:true,required:true"></td>
+            </tr>
+            <tr>
+                <td> 科室名称:</td>
+                <td ><input id="CName" class="easyui-textbox" type="text" name="CName" data-options="required:true"></td>
+                <td style="padding-left: 20px">简称:</td>
+                <td><input id="ShortName" class="easyui-textbox" type="text" name="ShortName" data-options="required:true"></td>
+
+            </tr>
+            <tr>
+                <td >是否显示:</td>
+                <td><input id="Visible" class="easyui-textbox" type="cmb" name="Visible"></td>
+                <td style="padding-left: 20px">简码:</td>
+                <td ><input id="ShortCode" class="easyui-textbox" type="text" name="ShortCode" data-options="required:true"></td>
+
+            </tr>
+            <tr>
+                <td>是否启用:</td>
+                <td><input id="UseFlag" class="easyui-textbox" type="cmb" name="UseFlag" ></td>
+                <td  style="padding-left: 20px">排列次序:</td>
+                <td ><input id="DispOrder" class="easyui-textbox" type="text" name="DispOrder" ></td>
+
+            </tr>
+            <tr>
+                <td>标准编码:</td>
+                <td ><input id="StandCode" class="easyui-textbox" type="text" name="StandCode" ></td>
+                <td style="padding-left: 20px">智方标准编码:</td>
+                <td ><input id="ZFStandCode" class="easyui-textbox" type="text" name="ZFStandCode" ></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<div id="dlgButtons">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()"  iconCls="icon-save">保存</a>
+    <a href="javascript:void (0)" class="easyui-linkbutton" onclick="cancel()"  iconCls="icon-cancel">取消</a>
+</div>
+
+<div id="dlgUpload" class="easyui-dialog"  style="width:250px;height:auto;margin: auto;" closed="true" buttons="#uploadBtn">
+    <form id="frmUpload" class="easyui-form" method="post" enctype="multipart/form-data">
+     <input id="fileboxID" type="text" style="width: 230px;margin: 5px 5px" >
+    </form>
+</div>
+<div id="uploadBtn">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="uploadSave()"  iconCls="icon-save">保存</a>
+    <a href="javascript:void (0)" class="easyui-linkbutton" onclick="uploadCancel()"  iconCls="icon-cancel">取消</a>
+</div>
+
+<div>
+    <iframe id="ifmExport" style="width: 300px;height: 300px" frameborder="0"></iframe>
+</div>
+
+</body>
+</html>

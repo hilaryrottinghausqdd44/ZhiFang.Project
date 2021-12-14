@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LBItemRange" table="dbo.LB_ItemRange">
+    <id name="Id" column="ItemRangeID" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="DataTimeStamp" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="ConditionName" column="ConditionName" type="String" not-null="false" length="100" />
+    <property name="GenderID" column="GenderID" type="Int64" not-null="false" length="8" />
+    <property name="LowAge" column="LowAge" type="Double" not-null="false" length="8" />
+    <property name="HighAge" column="HighAge" type="Double" not-null="false" length="8" />
+    <property name="BCollectTime" column="bCollectTime" type="DateTime" not-null="false" length="8" />
+    <property name="ECollectTime" column="eCollectTime" type="DateTime" not-null="false" length="8" />
+    <property name="IsDefault" column="IsDefault" type="Boolean" not-null="false" length="1" />
+    <property name="LValueComp" column="LValueComp" type="String" not-null="false" length="10" />
+    <property name="LValue" column="LValue" type="Double" not-null="false" length="8" />
+    <property name="HValueComp" column="HValueComp" type="String" not-null="false" length="10" />
+    <property name="HValue" column="HValue" type="Double" not-null="false" length="8" />
+    <property name="RefRange" column="RefRange" type="String" not-null="false" length="400" />
+    <property name="LLValueComp" column="LLValueComp" type="String" not-null="false" length="10" />
+    <property name="LLValue" column="LLValue" type="Double" not-null="false" length="8" />
+    <property name="HHValueComp" column="HHValueComp" type="String" not-null="false" length="10" />
+    <property name="HHValue" column="HHValue" type="Double" not-null="false" length="8" />
+    <property name="DiagMethod" column="DiagMethod" type="String" not-null="false" length="50" />
+    <property name="Unit" column="Unit" type="String" not-null="false" length="50" />
+    <property name="ManualSort" column="ManualSort" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="DispOrder" type="Int32" not-null="false" length="4" />
+    <property name="RedoLValueComp" column="RedoLValueComp" type="String" not-null="false" length="10" />
+    <property name="RedoLValue" column="RedoLValue" type="Double" not-null="false" length="8" />
+    <property name="RedoHValueComp" column="RedoHValueComp" type="String" not-null="false" length="10" />
+    <property name="RedoHValue" column="RedoHValue" type="Double" not-null="false" length="8" />
+    <property name="InvalidLValueComp" column="InvalidLValueComp" type="String" not-null="false" length="10" />
+    <property name="InvalidLValue" column="InvalidLValue" type="Double" not-null="false" length="8" />
+    <property name="InvalidHValueComp" column="InvalidHValueComp" type="String" not-null="false" length="10" />
+    <property name="InvalidHValue" column="InvalidHValue" type="Double" not-null="false" length="8" />
+    <property name="LabID" column="LabID" type="Int64" not-null="true" length="8" />
+    <property name="DataAddTime" column="DataAddTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="DataUpdateTime" type="DateTime" not-null="false" length="8" />
+    <property name="DeptID" column="DeptID" type="Int64" not-null="false" length="8" />
+    <property name="SectionID" column="SectionID" type="Int64" not-null="false" length="8" />
+    <property name="EquipID" column="EquipID" type="Int64" not-null="false" length="8" />
+    <property name="AgeUnitID" column="AgeUnitID" type="Int64" not-null="false" length="8" />
+    <property name="SampleTypeID" column="SampleTypeID" type="Int64" not-null="false" length="8" />
+    <property name="BCritical" column="bCritical" type="Boolean" not-null="false" length="1" />
+    <property name="DiagID" column="DiagID" type="Int64" not-null="false" length="8" />
+    <property name="PhyPeriodID" column="PhyPeriodID" type="Int64" not-null="false" length="8" />
+    <property name="CollectPartID" column="CollectPartID" type="Int64" not-null="false" length="8" />
+    <many-to-one name="LBItem" class="LBItem" lazy="proxy">
+      <column name="ItemID" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

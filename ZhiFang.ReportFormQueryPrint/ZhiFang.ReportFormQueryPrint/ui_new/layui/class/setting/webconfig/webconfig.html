@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript">
+    //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        table td {
+            border: none !important;
+        }
+
+        .layui-table tr:hover {
+            background-color: white !important;
+        }
+
+        .layui-form-item .layui-form-label {
+            width: 120px !important;
+            text-align: center;
+        }
+
+        .layui-form-item .layui-input-block {
+            margin-left: 130px !important;
+            margin-right: 30px !important;
+        }
+    </style>
+</head>
+<body class="layui-bg-gray">
+    <div style="position: relative;top: 50%;margin-top:-370px">
+        <div class="layui-col-md12" style="padding: 20px;">
+            <div class="layui-card" style="height:700px">
+                <div class="layui-card-header">程序基础配置</div>
+                <div class="layui-card-body">
+                    <div class="layui-row" style="margin-top: 5px; margin-left: 17px"><button class="layui-btn  layui-btn-xs" id="saveSetting">保存</button></div>
+                    <hr style="margin:8px 0">
+                    <div style="overflow-y:auto;height:600px">
+                        <form class="layui-form" lay-filter="settingForm" action="">
+                            <table class="layui-table" style="border:0; ">
+                                <tbody>
+                                    
+                                    <tr>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>现用库链接(必填项)</legend>
+                                                <div class="layui-field-box">
+                                                    
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库地址</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="ReportFormQueryPrintConnectionString_data source" id="ReportFormQueryPrintConnectionString_data source" autocomplete="off" placeholder='请输入数据库所在服务器的IP地址！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户名</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="ReportFormQueryPrintConnectionString_user id" id="ReportFormQueryPrintConnectionString_user id" autocomplete="off" placeholder='请输入数据库用户名称！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户密码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="ReportFormQueryPrintConnectionString_password" id="ReportFormQueryPrintConnectionString_password" autocomplete="off" placeholder='请输入数据库用户密码！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="ReportFormQueryPrintConnectionString_initial catalog" id="ReportFormQueryPrintConnectionString_initial catalog" autocomplete="off" placeholder='请输入数据库名称！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>历史库链接(非必填)</legend>
+                                                <div class="layui-field-box">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库地址</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="HistoryConnectionString_data source" id="HistoryConnectionString_data source" autocomplete="off" placeholder='请输入数据库所在服务器的IP地址！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户名</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="HistoryConnectionString_user id" id="HistoryConnectionString_user id" autocomplete="off" placeholder='请输入数据库用户名称！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户密码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="HistoryConnectionString_password" id="HistoryConnectionString_password" autocomplete="off" placeholder='请输入数据库用户密码！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="HistoryConnectionString_initial catalog" id="HistoryConnectionString_initial catalog" autocomplete="off" placeholder='请输入数据库名称' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>备份库链接(非必填)</legend>
+                                                <div class="layui-field-box">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库地址</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="BackupsConnectionString_data source" id="BackupsConnectionString_data source" autocomplete="off" placeholder='请输入数据库所在服务器的IP地址！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户名</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="BackupsConnectionString_user id" id="BackupsConnectionString_user id" autocomplete="off" placeholder='请输入数据库用户名称！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户密码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="BackupsConnectionString_password" id="BackupsConnectionString_password" autocomplete="off" placeholder='请输入数据库用户密码！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="BackupsConnectionString_initial catalog" id="BackupsConnectionString_initial catalog" autocomplete="off" placeholder='请输入数据库名称' class="layui-input">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>数据库业务类型(必选)</legend>
+                                                <div class="layui-field-box">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">现用库链接(必填项)</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="DBSourceType" id="DBSourceType">
+                                                                <option value="ZhiFang.ReportFormQueryPrint.DAL.MSSQL.MSSQL66" selected="">6.6库</option>
+                                                                <option value="ZhiFang.ReportFormQueryPrint.DAL.MSSQL.ReportCenter">报告库</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>打印次数同步</legend>
+                                                <div class="layui-field-box">
+                                                    
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">向LIS同步</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="IsLisAddPrintTime" id="IsLisAddPrintTime">
+                                                                <option value="1">同步</option>
+                                                                <option value="0" selected="">不同步</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="layui-field-box">
+                                                    
+                                                        <div class="layui-form-item">
+                                                            <label class="layui-form-label">向框架微生物同步</label>
+                                                            <div class="layui-input-block">
+                                                                <select name="IsMEGroupSampleFormAddPrintTime" id="IsMEGroupSampleFormAddPrintTime">
+                                                                    <option value="1">同步</option>
+                                                                    <option value="0" selected="">不同步</option>
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>LIS库连接(非必填)</legend>
+                                                <div class="layui-field-box">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库地址</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LISConnectionString_data source" id="LISConnectionString_data source" autocomplete="off" placeholder='请输入数据库所在服务器的IP地址！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户名</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LISConnectionString_user id" id="LISConnectionString_user id" autocomplete="off" placeholder='请输入数据库用户名称！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户密码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LISConnectionString_password" id="LISConnectionString_password" autocomplete="off" placeholder='请输入数据库用户密码！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LISConnectionString_initial catalog" id="LISConnectionString_initial catalog" autocomplete="off" placeholder='请输入数据库名称' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>LabStar库连接(非必填)</legend>
+                                                <div class="layui-field-box">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库地址</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LabStarConnectionString_data source" id="LabStarConnectionString_data source" autocomplete="off" placeholder='请输入数据库所在服务器的IP地址！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户名</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LabStarConnectionString_user id" id="LabStarConnectionString_user id" autocomplete="off" placeholder='请输入数据库用户名称！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库用户密码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LabStarConnectionString_password" id="LabStarConnectionString_password" autocomplete="off" placeholder='请输入数据库用户密码！' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">数据库名称</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="LabStarConnectionString_initial catalog" id="LabStarConnectionString_initial catalog" autocomplete="off" placeholder='请输入数据库名称' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>页面配置登录密码</legend>
+                                                <div class="layui-field-box">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">静态密码</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="StaticUserNo" id="StaticUserNo" autocomplete="off" placeholder='请输入密码' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td>
+                                            <fieldset class="layui-elem-field">
+                                                <legend>其他</legend>
+                                                <div class="layui-field-box">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">查询RFGraphData数据时要过滤的PointType类型</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="PointType" id="PointType" autocomplete="off" placeholder='请输入类型编号，多种类型用逗号隔开' class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">是否使用frx模板生成PDF</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="IsUseFrxGeneratePDF" id="IsUseFrxGeneratePDF">
+                                                                <option value="1" selected="">是</option>
+                                                                <option value="0">否</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script type="text/javascript">
+        UIVersion.loadLayui('2.5.6');
+        UIVersion.getJS('webconfig.js');
+        UIVersion.getCSS('../../../../../web_src/layui/css/layui.sm.all.css');
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaBmsQtyDtlWarning" mutable="false">
+    <id name="Id" column="[Id]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="CompanyName" column="[CompanyName]" type="String" not-null="false" length="100" />
+    <property name="GoodsID" column="[GoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsName" column="[GoodsName]" type="String" not-null="false" length="100" />
+    <property name="LotNo" column="[LotNo]" type="String" not-null="false" length="100" />
+    <property name="GoodsUnit" column="[GoodsUnit]" type="String" not-null="false" length="100" />
+    <property name="GoodsQty" column="[GoodsQty]" type="Double" not-null="false" length="8" />
+    <property name="SumTotal" column="[SumTotal]" type="Double" not-null="false" length="8" />
+    <property name="StorageName" column="[StorageName]" type="String" not-null="false" length="100" />
+    <property name="PlaceName" column="[PlaceName]" type="String" not-null="false" length="100" />
+    <property name="ProdDate" column="[ProdDate]" type="DateTime" not-null="false" length="8" />
+    <property name="InvalidDate" column="[InvalidDate]" type="DateTime" not-null="false" length="8" />
+    <property name="UnitMemo" column="[UnitMemo]" type="String" not-null="false" length="100" />
+    <property name="GroupByKey" column="[GroupByKey]" type="String" not-null="false" length="100" />
+    <property name="StoreUpper" column="[StoreUpper]" type="Double" not-null="false" length="8" />
+    <property name="StoreLower" column="[StoreLower]" type="Double" not-null="false" length="8" />
+    <property name="CurLowerWarning" column="[CurLowerWarning]" type="Double" not-null="false" length="8" />
+    <property name="CurUpperWarning" column="[CurUpperWarning]" type="Double" not-null="false" length="8" />
+  </class>
+  <sql-query name="P_Rea_BmsQtyDtlWarning">
+    <return class="ZhiFang.Entity.ReagentSys.Client.ReaBmsQtyDtlWarning,ZhiFang.Entity.ReagentSys.Client">
+      <return-property name="Id" column="[LabID]" />
+      <return-property name="LabID" column="[LabID]" />
+      <return-property name="CompanyName" column="[CompanyName]" />
+      <return-property name="GoodsID" column="[GoodsID]" />
+      <return-property name="GoodsName" column="[GoodsName]" />
+      <return-property name="LotNo" column="[LotNo]" />
+      <return-property name="GoodsUnit" column="[GoodsUnit]" />
+      <return-property name="GoodsQty" column="[GoodsQty]" />
+      <return-property name="SumTotal" column="[SumTotal]" />
+      <return-property name="StorageName" column="[StorageName]" />
+      <return-property name="PlaceName" column="[PlaceName]" />
+      <return-property name="ProdDate" column="[ProdDate]" />
+      <return-property name="InvalidDate" column="[InvalidDate]" />
+      <return-property name="UnitMemo" column="[UnitMemo]" />
+      <return-property name="GroupByKey" column="[GroupByKey]"/>
+      <return-property name="StoreUpper" column="[StoreUpper]" />
+      <return-property name="StoreLower" column="[StoreLower]" />
+      <return-property name="CurLowerWarning" column="[CurLowerWarning]" />
+      <return-property name="CurUpperWarning" column="[CurUpperWarning]" />     
+    </return>
+    exec P_Rea_BmsQtyDtlWarning :warningType,:groupByType,:storePercent,:strWhere
+  </sql-query>
+</hibernate-mapping>

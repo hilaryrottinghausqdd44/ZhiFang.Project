@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		
+		<meta http-equiv="Pragma" content="no-cache">
+	    <meta http-equiv="Cache-control" content="no-cache">
+	    <meta http-equiv="Cache" content="no-cache">
+
+		<title>试剂平台-供货单列表</title>
+		<link rel="shortcut icon" href="../../../../img/logo-16.png">
+		<link rel="stylesheet" type="text/css" href="../../../../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../../../../css/css.css">
+		<script type="text/javascript">
+			var Shell = Shell || {};
+			Shell.System = Shell.System || {};
+			//不强制登录标志
+			Shell.System.noLogin = true;
+			//是否开启本地缓存机制
+			//Shell.System.openLocalStorage = false;
+		</script>
+		<style>
+			.navbar-top-refresh-data {
+				float: right;
+				padding: 13px 10px;
+				margin-top: -50px;
+			}
+		</style>
+	</head>
+
+	<body style="margin:2px;" hidden="hidden">
+		<!--标题-->
+		<nav id="navbar-top" class="navbar navbar-default navbar-fixed-top navbar-top">
+			<div class="navbar-top-title">供货单待验收</div>
+			<div class="navbar-top-refresh-data">
+				<span id="div-refresh-data" class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true" style="font-size: 18px;margin-right:10px;"></span>
+			</div>
+		</nav>
+		<!--内容DIV-->
+		<div class="list-group content-div" id="ContentDiv" style="margin-bottom:0;"></div>
+		
+		<div id="div-loadmore-data" class="div-button" style="width:100%;margin:5px 0;text-align:center;" hidden="hidden">加载更多</div>
+			
+		<script type="text/javascript" charset="utf-8" src="../../../../src/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../../../util/util.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../../../config/els.js"></script>
+		<script type="text/javascript" charset="utf-8" src="list.js"></script>
+	</body>
+
+</html>

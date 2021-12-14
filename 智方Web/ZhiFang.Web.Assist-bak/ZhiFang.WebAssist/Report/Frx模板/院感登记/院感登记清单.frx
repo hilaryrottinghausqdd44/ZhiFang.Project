@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/30/2018 13:39:22" ReportInfo.Modified="12/29/2020 10:50:43" ReportInfo.CreatorVersion="1.3.15.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data"/>
+    <Style Name="Footer"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.WebAssist" ConnectionString="rijcmlqAFHGp6KQj27H4qUwAIR20slrNAHxJ1yS43NGHBF484Sp/dfzhBkNxm6w+rpLKjekdia4ozJwobBxNx4dS0VjEaCKqckTZDk0BL09JR9PfE4EBKiSRcfHTR7I4Uo0j1k713q0SDvymVBSOlhWWalu8Yw3LVY+lWeHDwCPi9y2GLWqspUQJzSsA85R/rgVBINLTecHoNFZTrVWZSHph5mabKCenPhoez0MboFxwVpk26Y=">
+      <TableDataSource Name="GK_SampleRequestForm" Alias="GKSampleRequestForm" DataType="System.Int32" Enabled="true" TableName="GK_SampleRequestForm">
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="ReqDocId" DataType="System.Int64"/>
+        <Column Name="ReqDocNo" DataType="System.String"/>
+        <Column Name="MonitorType" DataType="System.Int64"/>
+        <Column Name="DeptId" DataType="System.Int64"/>
+        <Column Name="DeptCName" DataType="System.String"/>
+        <Column Name="SamplerId" DataType="System.Int64"/>
+        <Column Name="Sampler" DataType="System.String"/>
+        <Column Name="SampleDate" DataType="System.DateTime"/>
+        <Column Name="SampleTime" DataType="System.DateTime"/>
+        <Column Name="RecordTypeID" DataType="System.Int64"/>
+        <Column Name="RecordTypeCName" DataType="System.String"/>
+        <Column Name="StatusID" DataType="System.Int32"/>
+        <Column Name="CName" DataType="System.String"/>
+        <Column Name="BarCode" DataType="System.String"/>
+        <Column Name="PrintCount" DataType="System.Int32"/>
+        <Column Name="SampleNo" DataType="System.String"/>
+        <Column Name="IsAutoReceive" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ReceiveFlag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ReceiveDate" DataType="System.DateTime"/>
+        <Column Name="ResultFlag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CreatorID" DataType="System.Int64"/>
+        <Column Name="CreatorName" DataType="System.String"/>
+        <Column Name="TesterId" DataType="System.Int64"/>
+        <Column Name="TesterName" DataType="System.String"/>
+        <Column Name="TestTime" DataType="System.DateTime"/>
+        <Column Name="TestResult" DataType="System.String"/>
+        <Column Name="BacteriaTotal" DataType="System.Double"/>
+        <Column Name="CheckId" DataType="System.Int64"/>
+        <Column Name="CheckCName" DataType="System.String"/>
+        <Column Name="CheckDate" DataType="System.DateTime"/>
+        <Column Name="EvaluatorId" DataType="System.Int64"/>
+        <Column Name="Evaluators" DataType="System.String"/>
+        <Column Name="EvaluationDate" DataType="System.DateTime"/>
+        <Column Name="EvaluatorFlag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Judgment" DataType="System.String"/>
+        <Column Name="Archived" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ObsoleteID" DataType="System.Int64"/>
+        <Column Name="ObsoleteName" DataType="System.String"/>
+        <Column Name="ObsoleteTime" DataType="System.DateTime"/>
+        <Column Name="ObsoleteMemoId" DataType="System.Int64"/>
+        <Column Name="ObsoleteMemo" DataType="System.String"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="DataTimeStamp" DataType="System.Byte[]" BindableControl="Picture"/>
+      </TableDataSource>
+      <TableDataSource Name="ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="InfectionDocVO" DataType="System.Int32" Enabled="true" TableName="InfectionDocVO">
+        <Column Name="MonitorType" DataType="System.String"/>
+        <Column Name="DeptCName" DataType="System.String"/>
+        <Column Name="RecordTypeNo" DataType="System.String"/>
+        <Column Name="RecordTypeCName" DataType="System.String"/>
+        <Column Name="StartDate" DataType="System.String"/>
+        <Column Name="EndDate" DataType="System.String"/>
+        <Column Name="Year" DataType="System.String"/>
+        <Column Name="Quarterly" DataType="System.String"/>
+        <Column Name="YMRange" DataType="System.String"/>
+        <Column Name="DateRange" DataType="System.String"/>
+        <Column Name="SumSamplesCount" DataType="System.String"/>
+        <Column Name="SumQualifiedCount" DataType="System.String"/>
+        <Column Name="SumQualifiedRate" DataType="System.String"/>
+        <Column Name="HygieneInfo" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="355.6" PaperHeight="215.9">
+    <ReportTitleBand Name="ReportTitle1" Width="1268.57" Height="75.6">
+      <TextObject Name="txtTitle" Left="217.35" Top="7.45" Width="500.85" Height="28.35" Text="[ExportExcelCommand.EEC_LabName]院感登记清单" HorzAlign="Center" VertAlign="Center" Font="宋体, 14pt, style=Bold"/>
+      <TextObject Name="Text11" Left="737.1" Top="18.9" Width="94.5" Height="18.9" Text="[PageN]" Font="宋体, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="79.6" Width="1268.57" Height="28.8">
+      <LineObject Name="Line1" Left="-82.5" Width="1341.9"/>
+      <TextObject Name="lblAbsRow" Left="2.45" Top="5" Width="37.8" Height="18.9" Text="序号" Font="宋体, 10pt, style=Bold"/>
+      <LineObject Name="Line2" Left="-26.9" Top="26.35" Width="1266.3"/>
+      <TextObject Name="lblReaGoodsName" Left="42.25" Top="5.45" Width="94.5" Height="18.9" Text="登记时间" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblGoodsUnit" Left="650.75" Top="4" Width="85.05" Height="18.9" Text="采样者" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblReqGoodsQty" Left="893.5" Top="4.45" Width="85.05" Height="18.9" Text="检验日期" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="139.75" Top="5" Width="75.6" Height="18.9" Text="科室" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text16" Left="738.4" Top="3" Width="85.05" Height="18.9" Text="采样日期" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text17" Left="824.3" Top="4" Width="66.15" Height="18.9" Text="检验结果" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text18" Left="973.9" Top="4" Width="66.15" Height="18.9" Text="评估判定" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text24" Left="220.6" Top="4.9" Width="75.6" Height="18.9" Text="监测类型" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text25" Left="300.3" Top="4" Width="85.05" Height="18.9" Text="样品信息1" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text26" Left="387.7" Top="3" Width="85.05" Height="18.9" Text="样品信息2" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text27" Left="476.1" Top="3" Width="94.5" Height="18.9" Text="样品信息3" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text28" Left="571.5" Top="4" Width="75.6" Height="18.9" Text="样品信息4" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text32" Left="1106.7" Top="4.9" Width="85.05" Height="18.9" Text="评估日期" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text33" Left="1039.5" Top="4" Width="66.15" Height="18.9" Text="评估者" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text34" Left="1195.45" Top="4" Width="66.15" Height="18.9" Text="检验者" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="112.4" Width="1268.57" Height="32.8" DataSource="GK_SampleRequestForm">
+      <TextObject Name="txtAbsRow" Left="-1" Top="3.45" Width="37.8" Height="18.9" Text="[AbsRow#]" Font="宋体, 10pt"/>
+      <TextObject Name="Text1" Left="40.25" Top="3" Width="94.5" Height="18.9" Text="[GKSampleRequestForm.DataAddTime]" Format="Date" Format.Format="d" Font="宋体, 10pt"/>
+      <TextObject Name="Text13" Left="139.3" Top="2.45" Width="75.6" Height="18.9" Text="[GKSampleRequestForm.ItemResult1]" Font="宋体, 10pt"/>
+      <TextObject Name="Text14" Left="653.8" Top="2" Width="85.05" Height="18.9" Text="[GKSampleRequestForm.Sampler]" Font="宋体, 10pt"/>
+      <TextObject Name="Text15" Left="743.3" Top="1.45" Width="85.05" Height="18.9" Text="[GKSampleRequestForm.SampleDate]" Format="Date" Format.Format="d" Font="宋体, 10pt"/>
+      <TextObject Name="Text19" Left="830.75" Top="1" Width="66.15" Height="18.9" Text="[GKSampleRequestForm.TestResult]" Font="宋体, 10pt"/>
+      <TextObject Name="Text20" Left="900.25" Width="85.05" Height="18.9" Text="[GKSampleRequestForm.CheckDate]" Format="Date" Format.Format="d" Font="宋体, 10pt"/>
+      <TextObject Name="Text21" Left="983.25" Width="66.15" Height="18.9" Text="[GKSampleRequestForm.JudgmentInfo]" Font="宋体, 10pt"/>
+      <TextObject Name="Text22" Left="221.25" Top="2.55" Width="75.6" Height="18.9" Text="[GKSampleRequestForm.RecordTypeCName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text23" Left="301.4" Top="1" Width="85.05" Height="18.9" Text="[GKSampleRequestForm.ItemResult1]" Font="宋体, 10pt"/>
+      <TextObject Name="Text29" Left="388.7" Top="2.45" Width="85.05" Height="18.9" Text="[GKSampleRequestForm.ItemResult2]" Font="宋体, 10pt"/>
+      <TextObject Name="Text30" Left="478.1" Top="2.45" Width="85.05" Height="18.9" Text="[GKSampleRequestForm.ItemResult3]" Font="宋体, 10pt"/>
+      <TextObject Name="Text31" Left="567.15" Top="3" Width="85.05" Height="18.9" Text="[GKSampleRequestForm.ItemResult4]" Font="宋体, 10pt"/>
+      <TextObject Name="Text35" Left="1051.85" Width="66.15" Height="18.9" Text="[GKSampleRequestForm.Evaluators]" Font="宋体, 10pt"/>
+      <TextObject Name="Text36" Left="1121" Width="66.15" Height="18.9" Text="[GKSampleRequestForm.EvaluationDate]" Format="Date" Format.Format="d" Font="宋体, 10pt"/>
+      <TextObject Name="Text37" Left="1193.15" Width="66.15" Height="18.9" Text="[GKSampleRequestForm.CheckCName]" Font="宋体, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="149.2" Width="1268.57" Height="37.8">
+      <LineObject Name="Line3" Left="2" Top="0.45" Width="1256.85"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

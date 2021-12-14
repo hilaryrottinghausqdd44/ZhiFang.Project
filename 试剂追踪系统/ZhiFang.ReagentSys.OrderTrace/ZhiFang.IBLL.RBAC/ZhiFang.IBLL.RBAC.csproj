@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42C5AA48-EF31-4213-83A5-D24B19F00921}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IBLL.RBAC</RootNamespace>
+    <AssemblyName>ZhiFang.IBLL.RBAC</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReagentSys.OrderTrace\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IBBCity.cs" />
+    <Compile Include="IBBCountry.cs" />
+    <Compile Include="IBBDegree.cs" />
+    <Compile Include="IBBEducationLevel.cs" />
+    <Compile Include="IBBHealthStatus.cs" />
+    <Compile Include="IBBMaritalStatus.cs" />
+    <Compile Include="IBBNationality.cs" />
+    <Compile Include="IBBPoliticsStatus.cs" />
+    <Compile Include="IBBProfessionalAbility.cs" />
+    <Compile Include="IBBProvince.cs" />
+    <Compile Include="IBBSex.cs" />
+    <Compile Include="IBBTDAppComponents.cs" />
+    <Compile Include="IBBTDAppComponentsOperate.cs" />
+    <Compile Include="IBBTDAppComponentsRef.cs" />
+    <Compile Include="IBBTDAppPicture.cs" />
+    <Compile Include="IBBTDMacroCommand.cs" />
+    <Compile Include="IBBTDModuleType.cs" />
+    <Compile Include="IBBTDPictureType.cs" />
+    <Compile Include="IBBTDPictureTypeCon.cs" />
+    <Compile Include="IBHRDept.cs" />
+    <Compile Include="IBHRDeptEmp.cs" />
+    <Compile Include="IBHRDeptIdentity.cs" />
+    <Compile Include="IBHREmpIdentity.cs" />
+    <Compile Include="IBHREmployee.cs" />
+    <Compile Include="IBHRPosition.cs" />
+    <Compile Include="IBImportFile.cs" />
+    <Compile Include="IBRBACEmpOptions.cs" />
+    <Compile Include="IBRBACEmpRoles.cs" />
+    <Compile Include="IBRBACModule.cs" />
+    <Compile Include="IBRBACModuleOper.cs" />
+    <Compile Include="IBRBACPreconditions.cs" />
+    <Compile Include="IBRBACRole.cs" />
+    <Compile Include="IBRBACRoleModule.cs" />
+    <Compile Include="IBRBACRoleRight.cs" />
+    <Compile Include="IBRBACRowFilter.cs" />
+    <Compile Include="IBRBACUser.cs" />
+    <Compile Include="IBSLog.cs" />
+    <Compile Include="IBSServiceClient.cs" />
+    <Compile Include="IBSServiceClientlevel.cs" />
+    <Compile Include="IBSType.cs" />
+    <Compile Include="IBSTypeDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{f1096968-0d4e-4fba-b427-45173b78f476}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{61f57d84-74d3-409f-aa8b-e4dcacf5438c}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{51894403-5fc4-4546-857e-dd4ba973819f}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

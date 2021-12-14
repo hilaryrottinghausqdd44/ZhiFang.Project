@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+	<class name="ReaBmsReqDtl" table="[dbo].[Rea_BmsReqDtl]">
+		<id name="Id" column="[ReqDtlID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="ReqDtlNo" column="[ReqDtlNo]" type="String" not-null="false" length="20" />
+		<property name="ReqDocNo" column="[ReqDocNo]" type="String" not-null="false" length="20" />
+		<property name="GoodsQty" column="[GoodsQty]" type="Double" not-null="false" length="8" />
+		<property name="OrderFlag" column="[OrderFlag]" type="Int32" not-null="false" length="4" />
+		<property name="OrderDtlNo" column="[OrderDtlNo]" type="String" not-null="false" length="20" />
+		<property name="ZX1" column="[ZX1]" type="String" not-null="false" length="50" />
+		<property name="ZX2" column="[ZX2]" type="String" not-null="false" length="50" />
+		<property name="ZX3" column="[ZX3]" type="String" not-null="false" length="50" />
+		<property name="OrgName" column="[OrgName]" type="String" not-null="false" length="100" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" />
+		<property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+		<property name="CreaterID" column="[CreaterID]" type="Int64" not-null="false" length="8" />
+		<property name="CreaterName" column="[CreaterName]" type="String" not-null="false" length="50" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="ReaBmsReqDoc" class="ReaBmsReqDoc">
+			<column name="[ReqDocID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="ReaCenOrg" class="ReaCenOrg">
+			<column name="[OrgID]" not-null="false"/>
+		</many-to-one>
+    <property name="GoodsCName" column="[GoodsCName]" type="String" not-null="true" length="200" />
+    <property name="GoodsUnitID" column="[GoodsUnitID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsID" column="[GoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="GoodsUnit" column="[GoodsUnit]" type="String" not-null="false" length="50" />
+    <property name="OrderDtlID" column="[OrderDtlID]" type="Int64" not-null="false" length="8" />
+    <property name="OrderGoodsID" column="[OrderGoodsID]" type="Int64" not-null="false" length="8" />
+    <property name="OrderStatus" column="[OrderStatus]" type="Int64" not-null="false" length="8" />
+    <property name="OrderCheckMemo" column="[OrderCheckMemo]" type="String" not-null="false" length="500" />
+	</class>
+</hibernate-mapping>

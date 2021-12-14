@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+	<class name="LBTranRuleHostSection" table="[dbo].[LB_TranRuleHostSection]">
+		<id name="Id" column="[HostSectionID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="HostTypeID" column="[HostTypeID]" type="Int64" not-null="false" length="8" />
+		<property name="SectionID" column="[SectionID]" type="Int64" not-null="false" length="8" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

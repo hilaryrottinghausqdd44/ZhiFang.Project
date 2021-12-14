@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>样本信息合并</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../css/layui.sm.all.css");
+    </script>
+    <style>
+        /*input后存在icon 则加到input里面*/
+        .myStyle .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+        .myStyle .layui-form-label{ width:60px; }
+        .myStyle .layui-input-block{ margin-left:70px; }
+        .myStyle .layui-elem-field{ min-width: 100%;margin-left: 0;margin-right: 0;  }
+        /*合并样本列头样式*/
+        #mergeSampleTable + div tr th:nth-child(n+17) { background-color:rgb(34, 139, 34);color:#fff; }
+        #mergeSampleTable + div tr th:nth-child(-n+15) { background-color:rgb(240, 128, 128);color:#fff; }
+    </style>
+</head>
+<body>
+    <div class="myStyle">
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <div class="layui-row">
+                    <div class="layui-col-xs3">
+                        <div class="layui-form" id="mergeForm">
+                            <fieldset class="layui-elem-field">
+                                <legend>样本信息</legend>
+                                <div class="layui-field-box">
+                                    <div class="layui-form-item">
+                                        <input type="checkbox" name="isSampleNoMerge" id="isSampleNoMerge" title="样本号" lay-skin="primary">
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <input type="checkbox" name="isSerialNoMerge" id="isSerialNoMerge" title="条码号+采样信息" lay-skin="primary" checked>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="layui-elem-field">
+                                <legend>合并方式</legend>
+                                <div class="layui-field-box">
+                                    <div class="layui-form-item">
+                                        <input type="radio" name="mergeType" value="1" title="仅合并样本信息">
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <input type="radio" name="mergeType" value="2" title="仅合并项目信息">
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <input type="radio" name="mergeType" value="3" title="两者均合并" checked>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="layui-elem-field">
+                                <legend>源样本选择条件</legend>
+                                <div class="layui-field-box">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检验小组:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSection_CName' id="LBSection_CName" readonly autocomplete="off" class="layui-input" />
+                                            <i class="layui-icon layui-icon-triangle-d"></i>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item layui-hide">
+                                        <label class="layui-form-label">检验小组ID:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LBSection_ID' id="LBSection_ID" readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检测日期:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="GTestDate" name='GTestDate' placeholder="必填项" autocomplete="off" class="layui-input myDate" />
+                                            <i class="layui-icon layui-icon-date"></i>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样&nbsp;&nbsp;本&nbsp;号:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='GSampleNo' id="GSampleNo" placeholder="必填项" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="layui-elem-field">
+                                <legend>目标样本选择条件</legend>
+                                <div class="layui-field-box">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检验小组:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='DLBSection_CName' id="DLBSection_CName" readonly autocomplete="off" class="layui-input" />
+                                            <i class="layui-icon layui-icon-triangle-d"></i>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item layui-hide">
+                                        <label class="layui-form-label">检验小组ID:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='DLBSection_ID' id="DLBSection_ID" readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检测日期:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="DGTestDate" name='DGTestDate' placeholder="必填项" autocomplete="off" class="layui-input myDate" />
+                                            <i class="layui-icon layui-icon-date"></i>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样&nbsp;&nbsp;本&nbsp;号:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='DGSampleNo' id="DGSampleNo" placeholder="必填项" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div>
+                                <div class="layui-form-item" style="text-align:right;">
+                                    <button type="button" id="confirm" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe68d;</i>&nbsp;确定</button>
+                                </div>
+                                <div class="layui-form-item">
+                                    <input type="checkbox" name="isDelFormTestItem" id="isDelFormTestItem" title="源项目合并后删除" lay-skin="primary">
+                                </div>
+                                <div class="layui-form-item">
+                                <input type="checkbox" name="isDelFormTestForm" id="isDelFormTestForm" title="源项目合并后,如果没有项目,删除源样本单" lay-skin="primary">
+                                </div>
+                                <div class="layui-form-item">
+                                    <button type="button" id="merge" class="layui-btn layui-btn-xs layui-btn-fluid"><i class="iconfont">&#xe65a;</i>&nbsp;执行合并</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-xs9">
+                        <fieldset class="layui-elem-field">
+                            <legend>确认合并样本</legend>
+                            <div class="layui-field-box">
+                                <table id="mergeSampleTable" lay-filter="mergeSampleTable"></table>
+                            </div>
+                        </fieldset>
+                        <fieldset class="layui-elem-field">
+                            <legend>项目结果源</legend>
+                            <div class="layui-field-box">
+                                <table id="ItemResultTable" lay-filter="ItemResultTable"></table>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+</body>
+</html>

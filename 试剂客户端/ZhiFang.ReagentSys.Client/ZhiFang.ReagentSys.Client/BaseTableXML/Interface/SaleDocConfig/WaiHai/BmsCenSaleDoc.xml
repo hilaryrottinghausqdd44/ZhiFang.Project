@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="gb2312"?>
+<NewDataSet>
+  <TableName>
+    <!--供货主单号   单据编码-->
+    <FieldName>SaleDocNo</FieldName>
+    <CompareFieldName>billCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+ <TableName>
+    <!--第三方单号   单据编码-->
+    <FieldName>OtherDocNo</FieldName>
+    <CompareFieldName>billCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--部门名称  入库科室名称-->
+    <FieldName>DeptName</FieldName>
+    <CompareFieldName>deptName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--入库科室库编码-->
+    <FieldName>DeptStoreCode</FieldName>
+    <CompareFieldName>deptStoreCode</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--总金额-->
+    <FieldName>TotalPrice</FieldName>
+    <CompareFieldName>totalPrice</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--审核人姓名-->
+    <FieldName>Checker</FieldName>
+    <CompareFieldName>checkerName</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--审核时间-->
+    <FieldName>CheckTime</FieldName>
+    <CompareFieldName>chkeckDate</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+  <TableName>
+    <!--备注-->
+    <FieldName>Memo</FieldName>
+    <CompareFieldName>memo</CompareFieldName>
+    <IsPrimaryKey>0</IsPrimaryKey>
+    <IsRequiredField>0</IsRequiredField>
+  </TableName>
+</NewDataSet>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值消息内容</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.layui-colla-content{padding:10px;}
+		.footer{position:fixed;left:0;bottom:0;width:100%;height:68px;background-color:#ffffff;}
+		.footer div{position:fixed;right:0;bottom:0;padding:15px;}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid layui-form" style="padding:15px;">
+		<div class="layui-collapse" style="margin-bottom:55px;">
+			<div class="layui-colla-item">
+				<h2 class="layui-colla-title">处理信息</h2>
+				<div class="layui-colla-content layui-show">
+					<div class="layui-row layui-col-space5">
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">确认人：<span id="ConfirmerName"></span></div>
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">确认时间：<span id="ConfirmDateTime"></span></span></div>
+						<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">确认备注：<span id="ConfirmMemo"></span></div>
+						
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">处理人：<span id="HandlerName"></span></div>
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">处理时间：<span id="HandleTime"></span></div>
+						<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">处理备注 ：<span id="HandleMemo"></span></div>
+						
+						<div class="layui-col-xs12 layui-col-sm12 layui-col-md12">处理意见 ：<span id="HandleDesc"></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-colla-item">
+				<h2 class="layui-colla-title">消息内容</h2>
+				<div id="MsgContent" class="layui-colla-content layui-show"></div>
+			</div>
+		</div>
+		<div class="footer">
+			<div>
+				<button id="confirm_button" class="layui-btn layui-btn-normal layui-hide" lay-submit lay-filter="confirm_button">消息确认</button>
+				<button id="handle_button" class="layui-btn layui-hide" lay-submit lay-filter="handle_button">消息处理</button>
+				
+				<button id="cancel_button" class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel_button">取消</button>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('index.js');
+	</script>
+</body>
+</html>

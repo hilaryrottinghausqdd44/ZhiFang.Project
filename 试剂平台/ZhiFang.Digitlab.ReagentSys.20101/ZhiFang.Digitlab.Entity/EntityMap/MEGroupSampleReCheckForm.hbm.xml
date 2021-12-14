@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="MEGroupSampleReCheckForm" table="[dbo].[ME_GroupSampleReCheckForm]">
+		<id name="Id" column="[ReCheckFormID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="GroupID" column="[GroupID]" type="Int64" not-null="false" length="8" />
+		<property name="SampleFormID" column="[SampleFormID]" type="Int64" not-null="false" length="8" />
+		<property name="GTestDate" column="[GTestDate]" type="DateTime" not-null="false" length="8" />
+		<property name="GSampleNo" column="[GSampleNo]" type="String" not-null="false" length="20" />
+		<property name="GTestNo" column="[GTestNo]" type="Int32" not-null="false" length="4" />
+		<property name="GSampleTypeID" column="[GSampleTypeID]" type="Int64" not-null="false" length="8" />
+		<property name="GSampleInfo" column="[GSampleInfo]" type="String" not-null="false" length="50" />
+		<property name="TestComment" column="[TestComment]" type="String" not-null="false" length="16" />
+		<property name="FormMemo" column="[FormMemo]" type="String" not-null="false" length="16" />
+		<property name="ZDY1" column="[ZDY1]" type="String" not-null="false" length="200" />
+		<property name="ZDY2" column="[ZDY2]" type="String" not-null="false" length="200" />
+		<property name="ZDY3" column="[ZDY3]" type="String" not-null="false" length="200" />
+		<property name="ZDY4" column="[ZDY4]" type="String" not-null="false" length="200" />
+		<property name="ZDY5" column="[ZDY5]" type="String" not-null="false" length="200" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="Sort" column="[Sort]" type="Int32" not-null="false" length="4" />
+		<many-to-one name="BReCheckReason" class="BReCheckReason" lazy="false">
+			<column name="[ReCheckReasonID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEGroupSampleForm" class="MEGroupSampleForm" lazy="false">
+			<column name="[GroupSampleFormID]" not-null="false"/>
+		</many-to-one>
+		<bag name="MEGroupSampleReCheckItemList" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key>
+                <column name="[ReCheckFormID]" />
+            </key>
+			<one-to-many class="MEGroupSampleReCheckItem"/>
+		</bag>
+	</class>
+</hibernate-mapping>

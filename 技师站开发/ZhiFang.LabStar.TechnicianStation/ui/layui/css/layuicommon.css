@@ -1,0 +1,19 @@
+/**
+	@name：layui页面公共样式
+	@author：zhangda
+	@version 2021-04-14
+ */
+/*table选中行样式*/
+.layui-table-click { background-color: #77DDFF!important; }
+/**解决列表鼠标划过border消失问题*/
+.layui-table td{ bottom:1px!important; }
+/*表格宽高调整*/
+.layui-table-cell { padding: 0 5px;height: 16px !important;line-height: 16px !important; }
+/*简洁风格选项卡样式 -- .my-tab-brief */
+.my-tab-brief > .layui-tab-title { color:#666;border-bottom: 2px solid #c6c6c6; }
+.my-tab-brief .layui-tab-title .layui-this:after { height:42px; }
+/*简洁风格选项卡样式2 -- .my-tab-brief2 */
+.my-tab-brief2 > .layui-tab-title { color:#666; }
+.my-tab-brief2 > .layui-tab-title li { border:1px solid #ccc;background-color:#eee;margin-right:3px; }
+.my-tab-brief2 > .layui-tab-title li.layui-this { border:1px solid #36a821;background-color:#6CC67C;color:#fff!important; }
+.my-tab-brief2 > .layui-tab-title .layui-this:after { border:none; }

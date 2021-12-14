@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>批量新增检验单</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../css/layui.sm.all.css");
+    </script>
+    <style>
+        /*input后存在icon 则加到input里面*/
+        .myStyle .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+        .myStyle .layui-form-label{ width:90px; }
+        .myStyle .layui-input-block{ margin-left:100px; }
+    </style>
+</head>
+<body>
+    <div class="myStyle">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding:5px 2px!important;">
+                <div class="layui-form" id="formInfo">
+                    <div class="layui-row">
+                        <fieldset class="layui-elem-field">
+                            <legend>必填信息</legend>
+                            <div class="layui-field-box">
+                                <div class="layui-col-xs5">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检测日期:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="GTestDate" name='GTestDate' placeholder="必填项" autocomplete="off" class="layui-input myDate" />
+                                            <i class="layui-icon layui-icon-date"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs4">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样本起始号:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='GSampleNo' id="GSampleNo" placeholder="必填项" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs3">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样本数量:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='GSampleNoForOrder' id="GSampleNoForOrder" placeholder="必填项" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="layui-elem-field">
+                            <legend>其他信息</legend>
+                            <div class="layui-field-box">
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样本类型:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GSampleTypeCName' id="LisTestForm_GSampleTypeCName" readonly autocomplete="off" class="layui-input" />
+                                            <i class="layui-icon layui-icon-triangle-d"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item layui-hide">
+                                        <label class="layui-form-label">样本类型ID:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GSampleTypeID' id="LisTestForm_GSampleTypeID" readonly autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样本描述:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_GSampleInfo' id="LisTestForm_GSampleInfo" data-typecode="YBMS" data-typename="样本描述" autocomplete="off" class="layui-input myPhrase" />
+                                            <i class="layui-icon layui-icon-add-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">样本备注:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_FormMemo' id="LisTestForm_FormMemo" data-typecode="YBBZ" data-typename="样本备注" autocomplete="off" class="layui-input myPhrase" />
+                                            <i class="layui-icon layui-icon-add-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">特殊性状描述:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_SampleSpecialDesc' id="LisTestForm_SampleSpecialDesc" data-typecode="TSXZMS" data-typename="特殊性状描述" autocomplete="off" class="layui-input myPhrase" />
+                                            <i class="layui-icon layui-icon-add-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs6">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检验备注:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_TestComment' id="LisTestForm_TestComment" data-typecode="JYBZ" data-typename="检验备注" autocomplete="off" class="layui-input myPhrase" />
+                                            <i class="layui-icon layui-icon-add-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检验评语:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='LisTestForm_TestInfo' id="LisTestForm_TestInfo" data-typecode="JYPY" data-typename="检验评语" autocomplete="off" class="layui-input myPhrase" />
+                                            <i class="layui-icon layui-icon-add-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="layui-col-xs12">
+                            <div style="margin:180px 10px 20px;position:relative;">
+                                <button type="button" id="save" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe713;</i>&nbsp;保存</button>
+                                <button type="button" id="reset" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe637;</i>&nbsp;重置</button>
+                                <button type="button" id="cancel" style="position:absolute;right:0px;" class="layui-btn layui-btn-xs layui-btn-warm"><i class="iconfont">&#xe674;</i>&nbsp;关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+</body>
+</html>

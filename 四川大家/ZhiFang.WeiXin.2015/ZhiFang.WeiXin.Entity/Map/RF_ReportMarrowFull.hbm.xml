@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="RFReportMarrowFull" table="[dbo].[ReportMarrowFull]">
+		<id name="Id" column="[ReportMarrowIndexID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="ReportFormIndexID" column="[ReportFormIndexID]" type="Int64" not-null="false" length="8" />
+		<property name="ReportFormID" column="[ReportFormID]" type="String" not-null="true" length="50" />
+		<property name="ReportItemID" column="[ReportItemID]" type="Int32" not-null="true" length="4" />
+		<property name="ParItemNo" column="[ParItemNo]" type="Int32" not-null="true" length="4" />
+		<property name="ItemNo" column="[ItemNo]" type="Int32" not-null="true" length="4" />
+		<property name="BloodNum" column="[BloodNum]" type="Int32" not-null="false" length="4" />
+		<property name="BloodPercent" column="[BloodPercent]" type="Double" not-null="false" length="8" />
+		<property name="MarrowNum" column="[MarrowNum]" type="Int32" not-null="false" length="4" />
+		<property name="MarrowPercent" column="[MarrowPercent]" type="Double" not-null="false" length="8" />
+		<property name="BloodDesc" column="[BloodDesc]" type="String" not-null="false" length="1000" />
+		<property name="MarrowDesc" column="[MarrowDesc]" type="String" not-null="false" length="1000" />
+		<property name="StatusNo" column="[StatusNo]" type="Int32" not-null="false" length="4" />
+		<property name="RefRange" column="[RefRange]" type="String" not-null="false" length="30" />
+		<property name="EquipNo" column="[EquipNo]" type="Int32" not-null="false" length="4" />
+		<property name="IsCale" column="[IsCale]" type="Int32" not-null="false" length="4" />
+		<property name="Modified" column="[Modified]" type="Int32" not-null="false" length="4" />
+		<property name="ItemDate" column="[ItemDate]" type="DateTime" not-null="false" length="8" />
+		<property name="ItemTime" column="[ItemTime]" type="DateTime" not-null="false" length="8" />
+		<property name="IsMatch" column="[IsMatch]" type="Int32" not-null="false" length="4" />
+		<property name="ResultStatus" column="[ResultStatus]" type="String" not-null="false" length="10" />
+		<property name="FormNo" column="[FormNo]" type="String"  not-null="false" length="50" />
+		<property name="CItemNo" column="[CItemNo]" type="Int32" not-null="false" length="4" />
+		<property name="ReportText" column="[ReportText]" type="String" not-null="false" length="16" />
+		<property name="OrgValue" column="[OrgValue]" type="Double" not-null="false" length="8" />
+		<property name="OrgDesc" column="[OrgDesc]" type="String" not-null="false" length="400" />
+		<property name="IsPrint" column="[IsPrint]" type="Int32" not-null="false" length="4" />
+		<property name="PrintOrder" column="[PrintOrder]" type="Int32" not-null="false" length="4" />
+		<property name="Itemname" column="[itemname]" type="String" not-null="false" length="50" />
+		<property name="ValueTypeNo" column="[ValueTypeNo]" type="Int32" not-null="false" length="4" />
+		<property name="ReportValue" column="[ReportValue]" type="Double" not-null="false" length="8" />
+		<property name="ReportDesc" column="[ReportDesc]" type="String" not-null="false" length="400" />
+		<property name="ReportImage" column="[ReportImage]" type="Byte[]" not-null="false" length="16" />
+		<property name="Barcode" column="[Barcode]" type="String" not-null="false" length="20" />
+		<property name="EquipName" column="[EquipName]" type="String" not-null="false" length="40" />
+		<property name="ReceiveDate" column="[ReceiveDate]" type="DateTime" not-null="false" length="8" />
+		<property name="SectionNo" column="[SectionNo]" type="Int32" not-null="false" length="4" />
+		<property name="ItemCName" column="[ItemCName]" type="String" not-null="false" length="40" />
+		<property name="ItemEName" column="[ItemEName]" type="String" not-null="false" length="40" />
+		<property name="ParItemCName" column="[ParItemCName]" type="String" not-null="false" length="40" />
+		<property name="ParItemEName" column="[ParItemEName]" type="String" not-null="false" length="20" />
+		<property name="TestTypeNo" column="[TestTypeNo]" type="Int32" not-null="false" length="4" />
+		<property name="SampleNo" column="[SampleNo]" type="String" not-null="false" length="20" />
+	</class>
+</hibernate-mapping>

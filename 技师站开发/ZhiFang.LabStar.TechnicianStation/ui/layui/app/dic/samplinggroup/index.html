@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>采样组设置</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+  <style>
+  	body{background-color: #FFFFFF;}
+	 /*重置表单控件上下间距*/
+    .layui-form-item { margin-bottom: 5px; }
+	.layui-table-view{margin: 1px 0;}
+  	/*label宽度*/
+    /*通讯控制符页签lable长度*/
+    #LBSamplingGroup .layui-form-label {
+        position: relative;float: left;display: block;padding: 8px 8px;
+        width: 120px;font-weight: 400;line-height: 10px;text-align: right;
+    }
+    #LBSamplingGroup .layui-input-block{margin-left: 136px; min-height: 23px;}
+  	/* 防止下拉框的下拉列表被隐藏---必须设置--- */
+	.layui-table-cell {
+		overflow: visible !important;
+	}
+	/*列表下拉框高度调整*/
+    table .layui-input, .layui-textarea, .layui-select{height: 28px; line-height: 1; line-height: 16px; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px;}
+	/* 使得下拉框与单元格刚好合适      */
+	td .layui-form-select{margin-top: -10px;margin-left: -5px;margin-right: -5px;}  
+    /*input前存在icon 则加到input里面*/
+    .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+
+  </style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding:15px 15px 0 15px; margin: 0px;"> 
+   	 <div class="layui-row"> 
+    <div class="layui-col-xs6"> 
+     <div class="layui-form" lay-filter="search-table" id="search-table">
+       名称/简称： 
+      <div class="layui-inline"> 
+       <input type="text" name="search" id="search_val" placeholder="采样组名称/简称/简码" autocomplete="off" class="layui-input" /> 
+      </div> 
+      <button class="layui-btn layui-btn-xs" id="search" lay-submit="" lay-filter="search"> <i class="layui-icon"></i>查询 </button> 
+     </div> 
+     <table class="layui-hide" id="samplinggroup-table" lay-filter="samplinggroup-table"></table> 
+    </div> 
+    <div class="layui-col-xs6" style="padding-left: 10px;"> 
+     <div class="layui-tab layui-tab-brief my-tab-brief tabHeight" lay-filter="tabs" id="tabs"> 
+      <ul class="layui-tab-title"> 
+       <li class="layui-this" data-index="0"><i class="iconfont"></i>&nbsp;采样组基本信息</li> 
+       <li data-index="1"><i class="iconfont"></i>&nbsp;采样组项目</li> 
+      </ul> 
+      <div class="layui-tab-content"> 
+       <div class="layui-tab-item layui-show" data-index="0"> 
+      <span class="layui-badge layui-hide" id="formType" style="position: absolute;left: 15px;">编辑</span>
+        <div class="layui-form myform" id="LBSamplingGroup" lay-filter="LBSamplingGroup"> 
+         <div class="layui-form-item"> 
+          <input type="hidden" name="LBSamplingGroup_Id" id="LBSamplingGroup_Id" autocomplete="off" class="layui-input" /> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">采样组名称</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_CName" id="LBSamplingGroup_CName" autocomplete="off" lay-verify="required" placeholder="必填项" class="layui-input" /> 
+           </div> 
+          </div> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">样本类型</label> 
+           <div class="layui-input-block"> 
+            <select name="LBSamplingGroup_SampleTypeID" id="LBSamplingGroup_SampleTypeID" lay-search=""  lay-filter="LBSamplingGroup_SampleTypeID"></select> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="layui-form-item"> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">简称</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_SName" id="LBSamplingGroup_SName" autocomplete="off" class="layui-input" /> 
+           </div> 
+          </div> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">采样管</label> 
+           <div class="layui-input-block"> 
+           	 <input type="text"  id="LBSamplingGroup_LBTcuvete_Id"  name='LBSamplingGroup_LBTcuvete_Id'  lay-verify="required" placeholder="必填项"  class="layui-input layui-hide" />
+	      	<input type="text" name='LBSamplingGroup_LBTcuvete_CName' id="LBSamplingGroup_LBTcuvete_CName"  lay-verify="required" placeholder="必填项" readonly autocomplete="off" class="layui-input" />
+	       <i class="layui-icon layui-icon-triangle-d"></i> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="layui-form-item"> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">简码</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_SCode" id="LBSamplingGroup_SCode" autocomplete="off" class="layui-input" /> 
+           </div> 
+          </div> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">专业组</label> 
+           <div class="layui-input-block"> 
+            <select name="LBSamplingGroup_SpecialtyID" id="LBSamplingGroup_SpecialtyID" lay-search=""  lay-filter="LBSamplingGroup_SpecialtyID"></select> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="layui-form-item"> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">送检目的地</label> 
+           <div class="layui-input-block"> 
+           	 <select name="LBSamplingGroup_DestinationID" id="LBSamplingGroup_DestinationID" lay-search=""  lay-filter="LBSamplingGroup_DestinationID"></select> 
+           </div> 
+          </div> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">说明</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_Synopsis" id="LBSamplingGroup_Synopsis" autocomplete="off" class="layui-input" /> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="layui-form-item"> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">条码打印份数</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_PrintCount" id="LBSamplingGroup_PrintCount" lay-verify="number" placeholder="请输入数字" autocomplete="off" min="0" class="layui-input" />
+           </div> 
+          </div> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">打包机通道</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_AffixTubeFlag" id="LBSamplingGroup_AffixTubeFlag" autocomplete="off" placeholder="" class="layui-input" /> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="layui-form-item"> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">最大虚拟采样量</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_VirtualNo" id="LBSamplingGroup_VirtualNo" lay-verify="number" placeholder="请输入数字" autocomplete="off" class="layui-input" /> 
+           </div> 
+          </div> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">显示次序</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_DispOrder" id="LBSamplingGroup_DispOrder" lay-verify="number" placeholder="请输入数字" autocomplete="off" class="layui-input" /> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="layui-form-item"> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">预制条码匹配信息</label> 
+           <div class="layui-input-block"> 
+            <input type="text" name="LBSamplingGroup_PrepInfo" id="LBSamplingGroup_PrepInfo" autocomplete="off" placeholder="" class="layui-input" /> 
+           </div> 
+          </div> 
+          <div class="layui-col-xs6"> 
+           <label class="layui-form-label">是否使用</label> 
+           <div class="layui-input-block"> 
+            <input type="checkbox" checked="" name="LBSamplingGroup_IsUse" id="LBSamplingGroup_IsUse" lay-skin="switch" lay-filter="LBSamplingGroup_IsUse" lay-text="是|否" /> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="layui-btn-group" style="position: fixed;bottom: 25px;height: 40px;background-color: #fff;left: 60%;"> 
+          <button class="layui-btn layui-btn-sm" type="button" id="add"><i class="iconfont"></i>&nbsp;新增</button> 
+          <button class="layui-btn  layui-btn-sm" type="button" id="edit"><i class="iconfont"></i>&nbsp;编辑</button> 
+          <button class="layui-btn  layui-btn-sm" lay-submit="" id="save" lay-filter="save"><i class="iconfont"></i>&nbsp;保存</button> 
+          <button class="layui-btn  layui-btn-sm layui-btn-primary" type="button" id="reset" lay-filter="reset"><i class="layui-icon"></i>重置</button> 
+          <button class="layui-btn  layui-btn-sm layui-bg-orange" type="button" id="del"><i class="layui-icon"></i>删除</button> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="layui-tab-item" data-index="1"> 
+        <div class="layui-btn-group"> 
+         <button class="layui-btn layui-btn-xs" id="addsamplingitem"><i class="iconfont"></i>&nbsp;选择采样组项目</button> 
+         <button class="layui-btn layui-btn-xs" id="additemsampling"><i class="iconfont"></i>&nbsp;采样组与项目的关系</button> 
+         <button class="layui-btn layui-btn-xs" id="saveitemsampling"><i class="iconfont"></i>&nbsp;保存</button> 
+        </div> 
+        <div class="layui-row"> 
+         <table id="samplingitem_table" lay-filter="samplingitem_table"></table> 
+         <script type="text/html" id="switchTpl">
+             <input type="checkbox" name="IsDefult" title="" lay-skin="switch" lay-text="是|否" lay-filter="isdefult" {{ d.LBSamplingItemVO_IsDefault == 'false' ? '' : 'checked' }}  >
+	        </script> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>  
+ </body>
+</html>

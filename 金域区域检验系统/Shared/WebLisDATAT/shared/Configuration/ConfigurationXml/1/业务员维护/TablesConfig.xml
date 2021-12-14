@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Tables>
+  <Table TableCName="业务员表" EName="BUSINESSMAN" DisplayManner="1" InputCols="3" UserDefinedGroupQuery="No" SophQuery="No" UserNavigator="No" IsHiddenTopSearch="No" DisplayRows="15" SortMethod="0" SumPage="False" SumAll="False" CheckBoxPager="0" PagerStyle="2" CheckBoxDBLClick="1" InputColsRight="1" SubsIuputShow="False" SubsMeIuputShow="False" SubsMeIuputLines="10" NeedSMS="False" HideInput="False" ButtonsLocation="bot" PositionSize="中,中,80%,80%" OpenPara="" Buttons="|../image/middle/add.jpg|../image/middle/delete.jpg||../image/middle/gai.jpg|../Buttons/Save/save.jpg|../Buttons/Cancel/cancel.jpg|" ModalClass="" BatchModify="false" BatchPrint="false">
+    <tr>
+      <td ColumnCName="编号" ColumnEName="BMANNO" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="3" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="名称" ColumnEName="CNAME" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="6" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="输入代码" ColumnEName="SHORTCODE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="6" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <InputQuery Display="Yes" ColumnHeight="" ColumnWidth="" DisplayLength="" OrderBy="" DisplayMethod="文本框" DisplayInSub="No" />
+      </td>
+      <td ColumnCName="ISUSE" ColumnEName="ISUSE" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="(1)" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="身份证号" ColumnEName="IDCODE" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="12" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="家庭住址" ColumnEName="ADDRESS" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="12" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="联系方法" ColumnEName="PHONENUM" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="Yes" ColumnHeight="1" FunctionOnQuery="" DisplayLength="8" ColumnWidth="100%" DisplayInChild="No" AllowSum="No" MoneyStyle="No" MoneySymbol="￥" OrderBy="0">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="显示顺序" ColumnEName="DispOrder" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="备注" ColumnEName="ROMARK" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Input DisplayOnInput="Yes" ColumnHeight="2" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+    </tr>
+  </Table>
+</Tables>

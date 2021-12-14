@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>从检验之星6.6机构组织同步</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<link rel="stylesheet" href="../../../../../src/layui/dist/css/layui.css" media="all">
+</head>
+<body>
+	<div class="layui-tab layui-tab-brief" lay-filter="jinayan6.6">
+		<ul class="layui-tab-title">
+			<li id="dept" class="layui-this">Dept</li>
+			<li id="doctor">Doctor</li>
+			<li id="npuser">NPuser</li>
+			<li id="puser">Puser</li>
+		</ul>
+		<div class="layui-tab-content" style="height: 100px;">
+			<div class="layui-tab-item layui-show">
+				<div id="depttoolbar" class="layui-btn-container">
+					<button type="button" id="showdeptbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+					<button type="button" id="stncdeptbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+				</div>
+				<iframe id="deptiframe"  src="../dept/dept.html"  style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+			</div>
+			<div class="layui-tab-item">
+				<div id="doctortoolbar">
+					<button type="button" id="showdoctorbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+					<button type="button" id="stncdoctorbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+				</div>
+				<iframe id="doctoriframe" src="../doctor/doctor.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+			</div>
+			<div class="layui-tab-item">
+				<div id="npusertoolbar">
+					<button type="button" id="shownpuserbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+					<button type="button" id="stncnpuserbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+				</div>
+				<iframe id="npuseriframe" src="../npuser/npuser.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+			</div>
+			<div class="layui-tab-item">
+				<div id="pusertoolbar">
+					<button type="button" id="showpuserbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+					<button type="button" id="stncpuserbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+				</div>
+				<iframe id="puseriframe" src="../puser/puser.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+			</div>
+		</div>
+	</div>
+
+	<script src="../../../../../src/layui/dist/layui.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		UIVersion.getJS('../../../../config/system.js');
+		UIVersion.getJS('index.js');
+	</script>
+</body>
+</html>

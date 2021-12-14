@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="MEMicroCultureValue" table="[dbo].[ME_MicroCultureValue]">
+    <id name="Id" column="[CultureValueID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="EmpName" column="[EmpName]" type="String" not-null="false" length="50" />
+    <property name="AmountOfBacteria" column="[AmountOfBacteria]" type="Int64" not-null="false" length="8" />
+    <property name="ColonyMorphology" column="[ColonyMorphology]" type="Int64" not-null="false" length="8" />
+    <property name="Hemolysis" column="[Hemolysis]" type="Int64" not-null="false" length="8" />
+    <property name="Catalyst" column="[Catalyst]" type="Int64" not-null="false" length="8" />
+    <property name="Oxidase" column="[Oxidase]" type="Int64" not-null="false" length="8" />
+    <property name="GramStain" column="[GramStain]" type="Int64" not-null="false" length="8" />
+    <property name="Zdy1" column="[zdy1]" type="Int64" not-null="false" length="8" />
+    <property name="Zdy2" column="[zdy2]" type="Int64" not-null="false" length="8" />
+    <property name="Zdy3" column="[zdy3]" type="Int64" not-null="false" length="8" />
+    <property name="Zdy4" column="[zdy4]" type="Int64" not-null="false" length="8" />
+    <property name="Zdy5" column="[zdy5]" type="Int64" not-null="false" length="8" />
+    <property name="SmearMemo" column="[SmearMemo]" type="String" not-null="false" length="500" />
+    <property name="IsReport" column="[isReport]" type="Boolean" not-null="false" length="1" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="MicroGroup" column="[MicroGroup]" type="Int64" not-null="false" length="8" />
+    <property name="DeleteFlag" column="[DeleteFlag]" type="Boolean" not-null="false" length="1" />
+    <many-to-one name="HREmployee" class="HREmployee" >
+      <column name="[EmpID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEGroupSampleForm" class="MEGroupSampleForm" >
+      <column name="[GroupSampleFormID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEGroupSampleItem" class="MEGroupSampleItem" >
+      <column name="[ResultID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEMicroInoculant" class="MEMicroInoculant" >
+      <column name="[MicroInoculantID]" not-null="false"/>
+    </many-to-one>
+    <bag name="MEMicroAppraisalValueList" lazy="true">
+      <key>
+        <column name="[CultureValueID]" />
+      </key>
+      <one-to-many class="MEMicroAppraisalValue"/>
+    </bag>
+    <bag name="MEMicroCultureLogList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[CultureValueID]" />
+      </key>
+      <one-to-many class="MEMicroCultureLog"/>
+    </bag>
+    <bag name="MEMicroDSTValueList" lazy="true">
+      <key>
+        <column name="[CultureValueID]" />
+      </key>
+      <one-to-many class="MEMicroDSTValue"/>
+    </bag>
+  </class>
+</hibernate-mapping>

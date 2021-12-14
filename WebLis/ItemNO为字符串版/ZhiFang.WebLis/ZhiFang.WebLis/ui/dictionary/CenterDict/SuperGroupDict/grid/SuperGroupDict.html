@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../../../easyui/jquery.min.js"></script>
+    <script src="../../../../easyui/jquery.easyui.min.js"></script>
+    <link href="../../../../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../../../../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../../../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../../../util/util.js"></script>
+    <script src="../../../../util/util_easyui.js"></script>
+
+    <script src="SuperGroupDict.js"></script>
+    <style type="text/css">
+        #fm { margin: 0; padding: 10px 30px; }
+        .fTitle { font-size: 14px; font-weight: bold; padding: 5px 0; margin-bottom: 10px; border-bottom: 1px solid #cccccc;}
+        .fItem { margin-bottom: 15px; }
+        .fItem label {  display: inline-block;   width: 100px; }
+    </style>
+</head>
+<body>
+       <table title="中心检验大组字典表" id="dg"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; width:auto">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="copy()" plain="true" data-options="iconCls:'icon-copy_16x16'">复制</a>
+            </div>
+            <div style="margin-left:10px;float:left" id="copy">
+                <input style="width:200px" id="txtlabNo" />
+                <a href="javascript:void(0)" class="easyui-linkbutton" id="labsave" onclick="labsave()" plain="true" data-options="iconCls:'icon-save'">保存</a>
+            </div>
+
+            <div style="float: right; margin-right: 10px; margin-top: 3px;">
+                <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入编码/名称/简称',searcher:doSearch" style="width:200px;" />
+            </div>
+        </div>
+        <div id="dlg" class="easyui-dialog" style="width:380px;height:350px;margin: auto;" closed="true" buttons="#dlgButtons">
+            <form id="fm">
+                <div class="fItem" style="margin-top:20px">
+                    <label>编号:</label>
+                    <input id="txtSuperGroupNo" type="text" name="SuperGroupNo" class="easyui-numberbox" style="width: 200px;" data-options="required:true" />
+                </div>
+                <div class="fItem">
+                    <label>简称:</label>
+                    <input id="txtShortName" type="text" name="ShortName" required="required" class="easyui-textbox" style="width: 200px;" />
+                </div>
+                <div class="fItem">
+                    <label>检验大组名称:</label>
+                    <input id="txtCName" type="text" name="CName" class="easyui-textbox" required="required" style="width: 200px;" />
+                </div>
+                <div class="fItem">
+                    <label>排列次序:</label>
+                    <input id="txtDispOrder" type="text" name="DispOrder" class="easyui-textbox" style="width: 200px;" />
+                </div>
+                <div class="fItem">
+                    <label>输入代码:</label>
+                    <input id="txtShortCode" type="text" name="ShortCode" class="easyui-textbox" required="required" style="width: 200px;" />
+                </div>
+                <div class="fItem">
+                    <label>是否显示:</label>
+                    <select id="ddlVisible" name="Visible" class="easyui-combobox" panelheight=auto style="width: 200px;" editable="false">
+                        <option value="0">否</option>
+                        <option selected="selected" value="1">是</option>
+
+                    </select>
+                </div>
+                
+               
+            </form>
+        </div>
+        <div id="dlgButtons">
+            <div align="center">
+                <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+            </div>
+        </div>
+   
+</body>
+</html>

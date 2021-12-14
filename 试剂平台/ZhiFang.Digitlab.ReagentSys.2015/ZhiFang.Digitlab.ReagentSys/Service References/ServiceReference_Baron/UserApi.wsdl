@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="IPad_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IPad_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IPad_LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebUser_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebUser_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebUser_LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="User_LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pro_GetList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pro_GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pro_GetListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_InvClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_InvClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_InvClassResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Web_GetList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Web_GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_GetListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Web_GetDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="img" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Web_GetDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_GetDetailsResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="img" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachineTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_GetList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_GetListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_Detial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_DetialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_DetialResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_Del">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_DelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_DelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_Submit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_SubmitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_SubmitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_Cancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_CancelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_CancelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_Creat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_CreatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_CreatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_CreatSub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_CreatSubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_CreatSubResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_CreatSubAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_CreatSubAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_CreatSubAPIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebOrder_CreatSub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebOrder_CreatSubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebOrder_CreatSubResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_Save">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_SaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_SaveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_SaveSub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_SaveSubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_SaveSubResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Details_Edit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsoncode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Details_EditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Details_EditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IPad_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:IPad_Login" />
+  </wsdl:message>
+  <wsdl:message name="IPad_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:IPad_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebUser_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:WebUser_Login" />
+  </wsdl:message>
+  <wsdl:message name="WebUser_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:WebUser_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="User_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:User_Login" />
+  </wsdl:message>
+  <wsdl:message name="User_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:User_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="Pro_GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:Pro_GetList" />
+  </wsdl:message>
+  <wsdl:message name="Pro_GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:Pro_GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_InvClassSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_InvClass" />
+  </wsdl:message>
+  <wsdl:message name="Get_InvClassSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_InvClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="Web_GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:Web_GetList" />
+  </wsdl:message>
+  <wsdl:message name="Web_GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:Web_GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Web_GetDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Web_GetDetails" />
+  </wsdl:message>
+  <wsdl:message name="Web_GetDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Web_GetDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachineType" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachineTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_GetList" />
+  </wsdl:message>
+  <wsdl:message name="Order_GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_DetialSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_Detial" />
+  </wsdl:message>
+  <wsdl:message name="Order_DetialSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_DetialResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_DelSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_Del" />
+  </wsdl:message>
+  <wsdl:message name="Order_DelSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_DelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_SubmitSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_Submit" />
+  </wsdl:message>
+  <wsdl:message name="Order_SubmitSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_SubmitResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_CancelSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_Cancel" />
+  </wsdl:message>
+  <wsdl:message name="Order_CancelSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_CancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_CreatSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_Creat" />
+  </wsdl:message>
+  <wsdl:message name="Order_CreatSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_CreatResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_CreatSubSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_CreatSub" />
+  </wsdl:message>
+  <wsdl:message name="Order_CreatSubSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_CreatSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_CreatSubAPISoapIn">
+    <wsdl:part name="parameters" element="tns:Order_CreatSubAPI" />
+  </wsdl:message>
+  <wsdl:message name="Order_CreatSubAPISoapOut">
+    <wsdl:part name="parameters" element="tns:Order_CreatSubAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileTime" />
+  </wsdl:message>
+  <wsdl:message name="GetFileTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebOrder_CreatSubSoapIn">
+    <wsdl:part name="parameters" element="tns:WebOrder_CreatSub" />
+  </wsdl:message>
+  <wsdl:message name="WebOrder_CreatSubSoapOut">
+    <wsdl:part name="parameters" element="tns:WebOrder_CreatSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_SaveSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_Save" />
+  </wsdl:message>
+  <wsdl:message name="Order_SaveSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_SaveSubSoapIn">
+    <wsdl:part name="parameters" element="tns:Order_SaveSub" />
+  </wsdl:message>
+  <wsdl:message name="Order_SaveSubSoapOut">
+    <wsdl:part name="parameters" element="tns:Order_SaveSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="Details_EditSoapIn">
+    <wsdl:part name="parameters" element="tns:Details_Edit" />
+  </wsdl:message>
+  <wsdl:message name="Details_EditSoapOut">
+    <wsdl:part name="parameters" element="tns:Details_EditResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserApiSoap">
+    <wsdl:operation name="IPad_Login">
+      <wsdl:input message="tns:IPad_LoginSoapIn" />
+      <wsdl:output message="tns:IPad_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebUser_Login">
+      <wsdl:input message="tns:WebUser_LoginSoapIn" />
+      <wsdl:output message="tns:WebUser_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="User_Login">
+      <wsdl:input message="tns:User_LoginSoapIn" />
+      <wsdl:output message="tns:User_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pro_GetList">
+      <wsdl:input message="tns:Pro_GetListSoapIn" />
+      <wsdl:output message="tns:Pro_GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_InvClass">
+      <wsdl:input message="tns:Get_InvClassSoapIn" />
+      <wsdl:output message="tns:Get_InvClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Web_GetList">
+      <wsdl:input message="tns:Web_GetListSoapIn" />
+      <wsdl:output message="tns:Web_GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Web_GetDetails">
+      <wsdl:input message="tns:Web_GetDetailsSoapIn" />
+      <wsdl:output message="tns:Web_GetDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineType">
+      <wsdl:input message="tns:GetMachineTypeSoapIn" />
+      <wsdl:output message="tns:GetMachineTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_GetList">
+      <wsdl:input message="tns:Order_GetListSoapIn" />
+      <wsdl:output message="tns:Order_GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_Detial">
+      <wsdl:input message="tns:Order_DetialSoapIn" />
+      <wsdl:output message="tns:Order_DetialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_Del">
+      <wsdl:input message="tns:Order_DelSoapIn" />
+      <wsdl:output message="tns:Order_DelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_Submit">
+      <wsdl:input message="tns:Order_SubmitSoapIn" />
+      <wsdl:output message="tns:Order_SubmitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_Cancel">
+      <wsdl:input message="tns:Order_CancelSoapIn" />
+      <wsdl:output message="tns:Order_CancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_Creat">
+      <wsdl:input message="tns:Order_CreatSoapIn" />
+      <wsdl:output message="tns:Order_CreatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_CreatSub">
+      <wsdl:input message="tns:Order_CreatSubSoapIn" />
+      <wsdl:output message="tns:Order_CreatSubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_CreatSubAPI">
+      <wsdl:input message="tns:Order_CreatSubAPISoapIn" />
+      <wsdl:output message="tns:Order_CreatSubAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileTime">
+      <wsdl:input message="tns:GetFileTimeSoapIn" />
+      <wsdl:output message="tns:GetFileTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebOrder_CreatSub">
+      <wsdl:input message="tns:WebOrder_CreatSubSoapIn" />
+      <wsdl:output message="tns:WebOrder_CreatSubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_Save">
+      <wsdl:input message="tns:Order_SaveSoapIn" />
+      <wsdl:output message="tns:Order_SaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Order_SaveSub">
+      <wsdl:input message="tns:Order_SaveSubSoapIn" />
+      <wsdl:output message="tns:Order_SaveSubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Details_Edit">
+      <wsdl:input message="tns:Details_EditSoapIn" />
+      <wsdl:output message="tns:Details_EditSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserApiSoap" type="tns:UserApiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IPad_Login">
+      <soap:operation soapAction="http://tempuri.org/IPad_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebUser_Login">
+      <soap:operation soapAction="http://tempuri.org/WebUser_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Login">
+      <soap:operation soapAction="http://tempuri.org/User_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pro_GetList">
+      <soap:operation soapAction="http://tempuri.org/Pro_GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_InvClass">
+      <soap:operation soapAction="http://tempuri.org/Get_InvClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Web_GetList">
+      <soap:operation soapAction="http://tempuri.org/Web_GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Web_GetDetails">
+      <soap:operation soapAction="http://tempuri.org/Web_GetDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineType">
+      <soap:operation soapAction="http://tempuri.org/GetMachineType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_GetList">
+      <soap:operation soapAction="http://tempuri.org/Order_GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Detial">
+      <soap:operation soapAction="http://tempuri.org/Order_Detial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Del">
+      <soap:operation soapAction="http://tempuri.org/Order_Del" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Submit">
+      <soap:operation soapAction="http://tempuri.org/Order_Submit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Cancel">
+      <soap:operation soapAction="http://tempuri.org/Order_Cancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Creat">
+      <soap:operation soapAction="http://tempuri.org/Order_Creat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_CreatSub">
+      <soap:operation soapAction="http://tempuri.org/Order_CreatSub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_CreatSubAPI">
+      <soap:operation soapAction="http://tempuri.org/Order_CreatSubAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileTime">
+      <soap:operation soapAction="http://tempuri.org/GetFileTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebOrder_CreatSub">
+      <soap:operation soapAction="http://tempuri.org/WebOrder_CreatSub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Save">
+      <soap:operation soapAction="http://tempuri.org/Order_Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_SaveSub">
+      <soap:operation soapAction="http://tempuri.org/Order_SaveSub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Details_Edit">
+      <soap:operation soapAction="http://tempuri.org/Details_Edit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserApiSoap12" type="tns:UserApiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IPad_Login">
+      <soap12:operation soapAction="http://tempuri.org/IPad_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebUser_Login">
+      <soap12:operation soapAction="http://tempuri.org/WebUser_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Login">
+      <soap12:operation soapAction="http://tempuri.org/User_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pro_GetList">
+      <soap12:operation soapAction="http://tempuri.org/Pro_GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_InvClass">
+      <soap12:operation soapAction="http://tempuri.org/Get_InvClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Web_GetList">
+      <soap12:operation soapAction="http://tempuri.org/Web_GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Web_GetDetails">
+      <soap12:operation soapAction="http://tempuri.org/Web_GetDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineType">
+      <soap12:operation soapAction="http://tempuri.org/GetMachineType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_GetList">
+      <soap12:operation soapAction="http://tempuri.org/Order_GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Detial">
+      <soap12:operation soapAction="http://tempuri.org/Order_Detial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Del">
+      <soap12:operation soapAction="http://tempuri.org/Order_Del" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Submit">
+      <soap12:operation soapAction="http://tempuri.org/Order_Submit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Cancel">
+      <soap12:operation soapAction="http://tempuri.org/Order_Cancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Creat">
+      <soap12:operation soapAction="http://tempuri.org/Order_Creat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_CreatSub">
+      <soap12:operation soapAction="http://tempuri.org/Order_CreatSub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_CreatSubAPI">
+      <soap12:operation soapAction="http://tempuri.org/Order_CreatSubAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileTime">
+      <soap12:operation soapAction="http://tempuri.org/GetFileTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebOrder_CreatSub">
+      <soap12:operation soapAction="http://tempuri.org/WebOrder_CreatSub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_Save">
+      <soap12:operation soapAction="http://tempuri.org/Order_Save" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order_SaveSub">
+      <soap12:operation soapAction="http://tempuri.org/Order_SaveSub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Details_Edit">
+      <soap12:operation soapAction="http://tempuri.org/Details_Edit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserApi">
+    <wsdl:port name="UserApiSoap" binding="tns:UserApiSoap">
+      <soap:address location="http://dh.baron-bj.com/webservice/UserApi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserApiSoap12" binding="tns:UserApiSoap12">
+      <soap12:address location="http://dh.baron-bj.com/webservice/UserApi.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,246 @@
+﻿ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LIIP_实验室信息集成平台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<link rel="stylesheet" href="../../../src/layui/dist/css/layui.css" media="all">
+	<link rel="stylesheet" href="../layuiadmin/style/admin.css" media="all">
+	<link rel="shortcut icon" href="../../../../logo-16.png">
+	<style type="text/css">
+		.layadmin-backlog-body p{padding-top:10px;}
+		.layadmin-backlog-body h3{padding-bottom:0;}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15" id="cards-div">
+			
+		</div>
+	</div>
+	<script src="../../../src/layui/dist/layui.js"></script>
+	<script type="text/javascript">
+		UIVersion.getJS('../../config/system.js');
+	</script>
+	<script>
+		function afterInit(){
+			layui.config({
+				base: '../layuiadmin/'
+			}).extend({
+				index:'lib/index',
+			}).use(['index','console'],function(){
+				var $ = layui.$,
+					admin = layui.admin;
+				
+				$("body").find('a').each(function(index,elem){
+					$(this).on("click",function(){
+						var url = $(this).attr('url'),
+							info = $(this).attr('info').replace(/'/g,'"'),
+							info = $.parseJSON(info),
+							opentype = $(this).attr('opentype');
+							
+						url += (url.indexOf('?') == -1 ? '?' : '&') + 't=' + new Date().getTime();
+						var config = {
+							type:2,
+							title:$(this).attr('lay-text'),
+							content:url,
+							maxmin:true,
+							resize:true
+						};
+						if(url){
+							if(opentype == 3){//手机方式弹出
+								config.area = ['414px','779px'];
+								layer.open($.extend(config,info));
+							}else if(opentype == 2){//弹出
+								config.area = ['90%','90%'];
+								layer.open($.extend(config,info));
+							}else if(opentype == 22){//顶层弹出
+								config.area = ['500px','90%'];
+								layer.open($.extend(config,info));
+							}else if(opentype == 1){//内嵌
+								var othis = $(this)
+									href = othis.attr('url'),
+									text = othis.attr('lay-text'),
+									router = layui.router();
+									    
+								admin.tabsPage.elem = othis;
+								//执行跳转
+								var topLayui = parent === self ? layui : top.layui;
+								topLayui.index.openTabsPage(href, text || othis.text());
+							}else if(opentype == 4){//右侧显示
+								top.layui.admin.popupRight({
+									area:"1160px",
+									id:'LAY_adminPopupLayerTest',
+									success:function(layero, index){
+										top.layui.$('#'+ this.id).html('<iframe src="' + url + '" style="width:100%;height:' + ($(layero).height()-3) + 'px;top:0;right:0;bottom:0;" frameborder="0"></iframe>');
+									}
+								});
+							}else{//新开一页
+								window.open(url);
+							}
+						}else{
+							layer.msg('没有配置地址');
+						}
+					});
+				});
+			});
+		};
+		layui.extend({
+			uxutil:'ux/util'
+		}).use(['uxutil'],function(){
+			var $ = layui.$,
+				uxutil = layui.uxutil;
+				
+			uxutil.server.ajax({
+				url:'data.json?t=' + new Date().getTime()
+			},function(data){
+				if(data.success){
+					initCards(data.value);
+					afterInit();
+				}
+			});
+			//初始化卡片
+			function initCards(data){
+				var html = [];
+				
+				for(var key in data){
+					var isTab = data[key].isTab;
+					
+					html.push(isTab? createTabDiv(data[key]) : createCardDiv(data[key]));
+				}
+				
+				$("#cards-div").html(html.join(''));
+				//return html.join('');
+			}
+			//创建Tab卡片组
+			function createTabDiv(data){
+				var isSmall = data.isSmall,
+					title = data.title,
+					list = data.list,
+					len = list.length,
+					html = [];
+				
+				html.push('<div class="layui-col-md6">');
+				html.push('<div class="layui-card">');
+				html.push('<div class="layui-card-header">' + title + '</div>');
+				html.push('<div class="layui-card-body">');
+				html.push('<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">');
+				
+				html.push('<ul class="layui-tab-title">');
+				for(var i=0;i<len;i++){
+					html.push('<li' + (i==0 ? ' class="layui-this"' : '') + '>' + list[i].TabName + '</li>');
+				}
+				html.push('</ul>');
+				
+				html.push('<div class="layui-tab-content">');
+				for(var i=0;i<len;i++){
+					html.push('<div class="layui-tab-item' + (i==0 ? ' layui-show' : '') + '">');
+					html.push('<div class="layui-carousel layadmin-carousel layadmin-shortcut">');
+					html.push('<div carousel-item>');
+					
+					html.push(isSmall? createSmallCards(list[i].list) : createUnSmallCards(list[i].list));
+					
+					html.push('</div>');
+					html.push('</div>');
+					html.push('</div>');
+				}
+				html.push('</div>');
+				
+				html.push('</div>');
+				html.push('</div>');
+				html.push('</div>');
+				html.push('</div>');
+				html.push('</div>');
+				
+				return html.join('');
+			}
+			//创建卡片组
+			function createCardDiv(data){
+				var isSmall = data.isSmall,
+					title = data.title,
+					list = data.list,
+					html = [];
+				
+				html.push('<div class="layui-col-md6">');
+				html.push('<div class="layui-card">');
+				html.push('<div class="layui-card-header">' + title + '</div>');
+				html.push('<div class="layui-card-body">');
+				html.push('<div class="layui-carousel layadmin-carousel layadmin-backlog">');
+				html.push('<div carousel-item>');
+				
+				html.push(isSmall? createSmallCards(list) : createUnSmallCards(list));
+				
+				html.push('</div>');
+				html.push('</div>');
+				html.push('</div>');
+				html.push('</div>');
+				html.push('</div>');
+				html.push('</div>');
+				
+				return html.join('');
+			}
+			
+			function createUnSmallCards(list){
+				var len = list.length,
+					cols = 4,
+					html = [];
+				
+				for(var i=0;i<len;i++){
+					if(i%cols == 0){//重开一页
+						if(i != 0){html.push('</ul>');}
+						html.push('<ul class="layui-row layui-col-space10">');
+					}
+					list[i].Url = list[i].Url.replace(/#layui/g,uxutil.path.LAYUI).replace(/{LOCAL}/g,uxutil.path.LOCAL);
+					html.push(
+						'<li class="layui-col-xs6" style="text-align:center;">' +
+							'<a lay-text="' + list[i].Name + '" url="' + list[i].Url + '" opentype="' + list[i].OpenType +
+							'" info="' + JSON.stringify(list[i]).replace(/\"/g,"'") +
+							'" class="layadmin-backlog-body" style="cursor:pointer;">' +
+								'<p><cite>' + list[i].Name + '</cite></p>' +
+								'<h3>' + list[i].Memo + '</h3>' +
+							'</a>' +
+						'</li>'
+					);
+				}
+				if(len > 0){
+					html.push('</ul>');
+				}
+				
+				return html.join('');
+			}
+			function createSmallCards(list){
+				var len = list.length,
+					cols = 8,
+					html = [];
+				
+				for(var i=0;i<len;i++){
+					if(i%cols == 0){//重开一页
+						if(i != 0){html.push('</ul>');}
+						html.push('<ul class="layui-row layui-col-space10">');
+					}
+					list[i].Url = list[i].Url.replace(/#layui/g,uxutil.path.LAYUI);
+					html.push(
+						'<li class="layui-col-xs3">' +
+							'<a url="' + list[i].Url + '" opentype="' + (list[i].OpenType || '') + '" style="cursor:pointer;">' +
+								'<i class="' + list[i].IconCls + '"></i>' +
+								'<cite>' + list[i].Name + '</cite>' +
+							'</a>' +
+						'</li>'
+					);
+				}
+				if(len > 0){
+					html.push('</ul>');
+				}
+				
+				return html.join('');
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+    <style>
+        .layui-table, .layui-table-view {
+            margin: 0 !important;
+        }
+        .layui-btn-container .layui-btn {
+            margin-right: 10px;
+            margin-bottom: 0 !important;
+        }
+        .layui-form-item {
+            
+            width: 92%;
+        }
+        #addAndUpdateForm .layui-form-label{
+            width: 92px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 弹出层dom -->
+    <div style="display: none;" id="addAndUpdateForm"> 
+        <form class="layui-form" lay-filter="dataForm">
+            <div class="layui-form-item" style="margin-top:17px;">
+                <input type="text" name="SPID" style="display: none;">
+            </div>
+            <div class="layui-form-item" style="margin-top:17px;">
+                <label class="layui-form-label">小组名称</label>
+                <div class="layui-input-block">
+                    <select name="SectionNo" lay-verify="required" id="addAndUpdatePGroup">
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">打印格式</label>
+                <div class="layui-input-block">
+                    <input type="text" name="PrintFormat" lay-filter="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            
+            <div class="layui-form-item">
+                <label class="layui-form-label">模板名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="PrintProgram" lay-filter="required"  autocomplete="off" class="layui-input"  >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">默认打印机</label>
+                <div class="layui-input-block">
+                    <input type="text" value="站点默认打印机" name="DefPrinter"  autocomplete="off" class="layui-input"  >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">特殊项目号</label>
+                <div class="layui-input-block">
+                    <input type="text" name="TestItemNo"  autocomplete="off" class="layui-input"  >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">项目最小数量</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ItemCountMin"  autocomplete="off" class="layui-input"  >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">项目最大数量</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ItemCountMax"  autocomplete="off" class="layui-input"  >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">就诊类型</label>
+                <div class="layui-input-block">
+                    <select name="sicktypeno" id="SickType">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">打印排序</label>
+                <div class="layui-input-block">
+                    <input type="text" name="PrintOrder"  autocomplete="off" class="layui-input"  >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">微生物属性</label>
+                <div class="layui-input-block">
+                    <select name="microattribute">
+                        <option value="">请选择</option>
+                        <option value="全部">全部</option>
+                        <option value="阴性报告">阴性报告</option>
+                        <option value="阳性报告">阳性报告</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否外送单</label>
+                <div class="layui-input-block">
+                    <select name="IsRFGraphdataPDf" lay-verify="required">
+                        <option value="">请选择</option>
+                        <option value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+                </div>
+            </div>
+            <!-- <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button id="saveButton" style="margin-left:76px" class="layui-btn layui-btn-sm" lay-filter="saveButton" >提交</button>
+                    
+                </div>
+            </div> -->
+        </form>
+    </div>
+    
+    <table class="layui-table layui-hide" id="printSettingTable" lay-filter="printSettingTable"></table>
+    <script type="text/html" id="toolbarDemo">
+        <form class="layui-form" action="" lay-filter="PGroupForm"  style="float: left;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <div class="layui-input-inline">
+                        <select name="PGroupSelect"  lay-search="" lay-filter="PGroupSelect" id="PGroupSelect">
+                        <option value="">小组过滤</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+        <div class="layui-btn-container" style="float: left;">
+            
+            <button class="layui-btn layui-btn-xs" lay-event="add"><i class="layui-icon">&#xe608;</i>添加</button>
+            <button class="layui-btn layui-btn-warm layui-btn-xs" lay-event="modify"><i class="layui-icon">&#xe642;</i>修改</button>
+            <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete"><i class="layui-icon">&#xe640;</i>删除</button>
+            
+    </script>
+    <script type="text/javascript">
+        UIVersion.loadLayui('2.5.6');
+        UIVersion.getJS('PrintSetting.js');
+        UIVersion.getCSS('../../../../../web_src/layui/css/layui.sm.all.css');
+    </script>
+</body>
+</html>

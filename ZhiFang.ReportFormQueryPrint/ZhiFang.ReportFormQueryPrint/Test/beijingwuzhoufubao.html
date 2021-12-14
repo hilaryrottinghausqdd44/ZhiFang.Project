@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <!--不缓存缓存页面-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>北京五洲妇保</title>
+    <script type="text/javascript" charset="utf-8" src="jquery.min.js"></script>
+    <style>
+        .input-div{
+            padding:5px;
+            font-size:12px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#btn').on('click', function () {
+                var data = {
+                    vaa01: $('#vaa01').val(),
+                    start: $('#start').val(),
+                    end: $('#end').val(),
+                    key: $('#key').val()
+                };
+
+                $("#request").html(JSON.stringify(data));
+
+                $.ajax({
+                    url: "../ServiceWCF/Customization/beijingwuzhoufubao.svc/SelectReport",
+                    type: "post",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    dataType: "text",
+                    success: function (result) {
+                        $("#result").html(result);
+                    }
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="input-div" style="border:1px solid #e0e0e0;width:600px;">
+        <div class="input-div" style="text-align:center;border-bottom:1px solid #e0e0e0;color:#e0e0e0;"><b>五洲妇保接口测试</b></div>
+        <div class="input-div" style="border-bottom:1px solid #e0e0e0;color:#e0e0e0;"><b>参数</b></div>
+        <div class="input-div">病历号：<input id="vaa01" type="text" /></div>
+        <div class="input-div">开始时间：<input id="start" type="text" /></div>
+        <div class="input-div">结束时间：<input id="end" type="text" /></div>
+        <div class="input-div">KEY：<input id="key" type="text" /></div>
+        <div class="input-div"><input id="btn" type="button" value="测试" /></div>
+        <div class="input-div" style="border-top:1px solid #e0e0e0;color:#e0e0e0;"><b>请求参数</b></div>
+        <div class="input-div" id="request" style="border-top:1px solid #e0e0e0;"></div>
+        <div class="input-div" style="border-top:1px solid #e0e0e0;color:#e0e0e0;"><b>返回结果</b></div>
+        <div class="input-div" id="result" style="border-top:1px solid #e0e0e0;"></div>
+    </div>
+</body>
+</html>

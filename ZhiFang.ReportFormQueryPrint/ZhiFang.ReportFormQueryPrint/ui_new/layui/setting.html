@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>报告浏览打印</title>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+</head>
+<body>
+    <div class="layui-tab layui-tab-brief" lay-filter="moduleTab" style="margin:0">
+        <ul class="layui-tab-title">
+            <li class="layui-this" lay-id="5296815982421190629" name="doctor">医生页面设置</li>
+            <li lay-id="2" name="nurse">护士页面设置</li>
+            <li lay-id="3" name="odp">查询台页面设置</li>
+            <li lay-id="4" name="lis">技师站页面设置</li>
+            <li lay-id="5" name="selfhelp">自助打印页面设置</li>
+            <li lay-id="6" name="siteQuery">站点查询设置</li>
+            <li lay-id="7" name="historyAndBackups">分库查询设置</li>
+            <li lay-id="8" name="focusPrint">集中打印设置</li>
+            <li lay-id="9" name="CheckReportRequest">检验前后查询设置</li>
+            <li lay-id="10" name="labStar">LabStar调用设置</li>
+            <li lay-id="11" name="xmlConfig">模板配置信息</li>
+            <li lay-id="12" name="PrintSetting">小组打印模板设置</li>
+            <li lay-id="13" name="clearPrintCount">清除打印次数</li>
+            <li lay-id="14" name="webconfig">程序基础配置</li>
+            <li lay-id="15" name="ScriptingOptions">程序升级脚本</li>
+            <li lay-id="16" name="moduleFormColumnConfiguration" >模块表单显示列配置</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show" id="moduleTabContent"></div>
+
+        </div>
+    </div>
+    <!--<div class="layui-bg-gray" style="padding: 5px;">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-col-md2 layui-col-xs2 layui-col-sm2">
+                <div class="layui-card">
+                    <div class="layui-card-body" id="settingLeftContent">
+                        <div id="test1" class="demo-tree demo-tree-box"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md10 layui-col-xs10 layui-col-sm10">
+                <div class="layui-card">
+                    <div class="layui-card-body" id="settingRightContent">
+                        <div style="line-height: 26px;padding: 15px;text-align: center;color: #999;">暂无相关数据</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <script type="text/javascript">UIVersion.loadLayui('2.5.6');
+        UIVersion.getJS('class/setting/setting.js');
+        UIVersion.getCSS('../../web_src/layui/css/layui.sm.all.css');
+    </script>
+</body>
+</html>

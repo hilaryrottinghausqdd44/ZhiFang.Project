@@ -1,0 +1,317 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>芜湖市区域检验数据中心平台</title>
+
+    <link rel="stylesheet" href="../css/comon0.css">
+    <link rel="stylesheet" href="../css/layui.css">
+    <style>
+        .LCDNumBox {
+            position:relative;
+            margin-right:5px;
+            top: 10px;
+        }
+        /* ie:fullscreen */
+        :-ms-fullscreen {
+            width: 100%;
+        }
+        .title {
+            background: url(../images/bigBtn.png) center no-repeat;
+            background-size:100% 100%!important;
+            font-size: 14px;
+            line-height: 42px;
+            color: #39E1E3;
+            height: 42px;
+            text-align: center;
+            margin-left: 1%
+        }
+        .qpBtnBox {
+            background: url(../images/bnt.png) center;
+            font-size: 14px;
+            line-height: 68px;
+            background-repeat: no-repeat;
+            width: 92px;
+            height: 67px;
+            float: left;
+            text-align: center;
+            margin-left: 1%
+        }
+        .navboxall2 {
+	        height: calc(100% - 42px);
+        }
+        .boxBackGround {
+            background-color: rgba(69, 27,133,0.3);
+            border-radius: 5px;
+        }
+        .zb1Box {
+            float:left;
+            width:30%;
+            height:100%;
+        }
+        .otherzbBox{
+            float:left;
+            width:70%;
+            height:100%;
+        }
+        #zb1{float:left; width:100%; height: calc(100% - 30px); }
+        #zb2,#zb3,#zb4,#zb5{float:left; width:25%; height: calc(100% - 30px); }
+        #SampleWLMsgul span,#SampleWLMsgul2 span{
+            color:#45b9ca;
+        }
+        .wrap li span:nth-child(1),.wraptit span:nth-child(1){ width: 40%;padding-left:10px;}
+        .wrap li span:nth-child(2),.wraptit span:nth-child(2){ width: 50%;padding:0;}
+        .wrap .line {
+            display: inline-block;
+            position: relative;
+            width: 70%;
+            height: 5px;
+            background: rgba(46,144,164,1); /* 不支持线性的时候显示 */
+            background: linear-gradient(to right, #1B2A68, #2E90A4);
+            /* Firefox 3.6+ */
+            background: -moz-linear-gradient(left, rgba(46,144,164,0), rgba(46,144,164,1));
+            /* Safari 5.1+, Chrome 10+ */
+            background: -webkit-linear-gradient(left, rgba(46,144,164,0), rgba(46,144,164,1));
+            /* Opera 11.10+ */
+            background: -o-linear-gradient(left, rgba(46,144,164,0), rgba(46,144,164,1));
+            /*box-shadow: 0px 0px 5px rgba(46,144,164,1);*/
+        }
+
+        .wrap .circle {
+            display: inline-block;
+            width: 10px;
+            height: 7px;
+            border-radius: 10px;
+            background-color: rgba(46,144,164,1);
+            box-shadow: 0px 0px 10px rgba(108,157,167,1);
+            position: absolute;
+            right: -8px;
+            top: -1px;
+        }
+        .wrap .lineValue {
+            position:absolute;
+            right:-55px;
+            top:-18px;
+            font-weight:400;
+            color:rgba(46,144,164,1);
+            font-size:10px;
+        }
+        #year {
+            width:100%;
+            padding: 5px;
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid rgba(22,232,223,0.5);
+            box-shadow: 0px 0px 0px #57b6b7;
+        }
+    </style>
+</head>
+<body>
+    <div style="background: #000d4a url(../images/bg.jpg) center top;">
+        <div class="loading">
+            <div class="loadbox"> <img src="../images/loading.gif"> 页面加载中... </div>
+        </div>
+        <div class="back"></div>
+        <div class="head">
+            <div class="weather">
+                <span id="showTime"></span>
+            </div>
+            <div class="weather1">
+                <ul style="padding-top: 2px;width: 210px;">
+                    <li style="width:100px;float:left;margin-left:5px;margin-right: 10px;margin-top: -1px;">
+                        <select id="year"></select>
+                    </li>
+                    <li class="qpBtnBox">
+                        <botton id="qpview" style="text-decoration: none;border: 0px;color: #fff;cursor:pointer;" onClick="qpandunqp()">
+                            全屏显示
+                        </botton>
+                    </li>
+                </ul>
+            </div>
+            <h1>芜湖市区域检验数据中心平台</h1>
+
+        </div>
+        <div class="mainbox">
+            <div class="layui-row layui-col-space5">
+                <div class="layui-col-sm3 layui-col-xs12">
+                    <div class="layui-row layui-col-space5">
+                        <div class="layui-col-xs12">
+                            <div style="height: 220px;" class="boxBackGround">
+                                <div class="title">
+                                    性别分布
+                                </div>
+                                <div class="navboxall2" id="echart1"></div>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs12">
+                            <div class="boxBackGround" style=" height: 300px; ">
+                                <div class="title">
+                                    年龄分布
+                                </div>
+                                <div class="navboxall" id="echart2"></div>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs12">
+                            <div class="boxBackGround" style="height:400px;">
+                                <div class="title" style="background-size:150px 38px;">
+                                    检验数据构成
+                                </div>
+                                <div class="navboxall" id="echart3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-row layui-col-space5">
+                        <div class="layui-col-xs12">
+                            <div class="boxBackGround" style="height:500px;">
+                                <div class="title" style="background-size:300px 38px;">
+                                    检验数据分析
+                                </div>
+                                <div class="clearfix navboxall" style=" height: 40%">
+                                    <div class="zb1Box">
+                                        <div id="zb1" style="padding-left:20px;">
+                                            <div style="color:#39E1E3;font-size:12px;height:10%;">检验人次数</div>
+                                            <div style="height:40%;" id="NumberOfInspectors"></div>
+                                            <div style="color:#39E1E3;font-size:12px;height:10%;">检验标本数</div>
+                                            <div style="height:40%;" id="NumberOfTestSpecimens"></div>
+                                        </div>
+                                    </div>
+                                    <div class="otherzbBox">
+                                        <div id="zb2"></div>
+                                        <div id="zb3"></div>
+                                        <div id="zb4"></div>
+                                        <div id="zb5"></div>
+                                    </div>
+                                </div>
+                                <div style="height:60%">
+                                    <div class="navboxall" id="echart4"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs6">
+                            <div class="boxBackGround" style="height:420px;">
+                                <div class="title" style="background-size:150px 38px;">
+                                    各级医院分布
+                                </div>
+                                <div class="navboxall" id="echart5"></div>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs6">
+                            <div class="boxBackGround" style="height:420px;">
+                                <div class="title" style="background-size:150px 38px;">
+                                    城乡分布
+                                </div>
+                                <div class="navboxall" id="echart6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm3 layui-col-xs12">
+                    <div class="layui-row layui-col-space5">
+                        <div class="layui-col-xs12">
+                            <div class="boxBackGround" style="height:240px;">
+                                <div class="title" style="background-size:240px 38px;">
+                                    区域当日检验量（实时）
+                                </div>
+                                <div class="navboxall">
+                                    <div class="wrap">
+                                        <ul id="SampleWLMsgul"></ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs12">
+                            <div class="boxBackGround" style="height:240px;">
+                                <div class="title" style="background-size:240px 38px;">
+                                    区域近30日检验量（实时）
+                                </div>
+                                <div class="navboxall">
+                                    <div class="wrap">
+                                        <ul id="SampleWLMsgul2"></ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs12">
+                            <div class="boxBackGround" style="height:440px;">
+                                <div class="title" style="background-size:200px 38px;">
+                                    人均检验费用
+                                </div>
+                                <div class="navboxall" id="echart7"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="../js/jquery.liMarquee.js"></script>
+    <!--<script type="text/javascript" src="../js/jquery.cxselect.min.js"></script>-->
+    <script>
+        function qpandunqp() {
+            var va = $("#qpview").text();
+            if (va == "全屏显示") {
+                qp();
+            } else {
+                unqp();
+            };
+        };
+        //全屏显示
+        function qp() {
+            var docElm = document.documentElement;
+            //W3C
+            if (docElm.requestFullscreen) { docElm.requestFullscreen(); }
+            //FireFox
+            else if (docElm.mozRequestFullScreen) { docElm.mozRequestFullScreen(); }
+            //Chrome等
+            else if (docElm.webkitRequestFullScreen) { docElm.webkitRequestFullScreen(); }
+            //IE11
+            else if (docElm.msRequestFullscreen) {
+                docElm.msRequestFullscreen();
+            }
+            $("#qpview").text("退出全屏");
+        };
+        //退出全屏
+        function unqp() {
+            $("#qpview").text("全屏显示");
+            if (document.exitFullscreen) { document.exitFullscreen(); }
+            //FireFox
+            else if (document.mozCancelFullScreen) { document.mozCancelFullScreen(); }
+            //Chrome等
+            else if (document.webkitCancelFullScreen) { document.webkitCancelFullScreen(); }
+            //IE11
+            else if (document.msExitFullscreen) { document.msExitFullscreen(); }
+        };
+        var t = null;
+        t = setTimeout(time, 1000);/*開始运行*/
+        function time() {
+            clearTimeout(t);/*清除定时器*/
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();
+            var m = dt.getMinutes();
+            var s = dt.getSeconds();
+            document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "日" + h + "时" + m + "分" + s + "秒";
+            t = setTimeout(time, 1000);
+        }
+    </script>
+    <!--<script>
+        $(function () {
+            $('.wrap,.adduser').liMarquee({
+                direction: 'up',/*身上滚动*/
+                runshort: true,/*内容不足时不滚动*/
+                scrollamount: 20/*速度*/
+            });
+        });
+    </script>-->
+</body>
+</html>

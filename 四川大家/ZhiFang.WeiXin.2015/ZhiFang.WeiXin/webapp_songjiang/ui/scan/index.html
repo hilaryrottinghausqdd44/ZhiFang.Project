@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+
+		<title>东亿健康</title>
+		<link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../css/ace.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/css.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="../src/jquery.min.js"></script>
+		<script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+		<script src="app.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!--覆盖整个页面,用于显示信息-->
+		<div id="search_page" class="page_info">
+			<div class="page_head_fixed"><div class="page_info_head_title">扫一扫</div></div>
+			<div class="page_content" style="margin-bottom:0;text-align:center;">
+				<img id="scan_button" src="../img/icon/barcode_but_blue.png"></img>
+				<b>扫描条码号</b>
+			</div>
+		</div>
+		<!--报告列表页面-->
+		<div id="report_grid_page" class="page_info" hidden="hidden">
+			<div class="page_head_fixed">
+				<div id="back_but" class="page_info_head_back">〈 返回 </div>
+				<div class="page_info_head_title">报告列表</div>
+			</div>
+			<div class="report_grid_view" id="report_grid_view" style="margin:10px;margin-top:60px;"></div>
+		</div>
+		<!--报告信息页面-->
+		<div id="report_info_page" class="page_info" hidden="hidden">
+			<div class="page_head_fixed">
+				<div id="back_but2" class="page_info_head_back">〈 返回 </div>
+				<div class="page_info_head_title">报告信息</div>
+			</div>
+			<div id="report_info_view" class="page_content" style="margin-top:60px;margin-bottom:0;"></div>
+			<div style="margin-left:10px;margin-top:10px;">
+				<b>深圳东亿医学检验中心</b>
+			</div>
+			<div style="margin-left:10px;">
+				<b>深圳市坪山新区大工业区青兰三路24号维尔德电子厂A座1栋401</b>
+			</div>
+			<div style="margin-left:10px;">
+				<b>TEL:0755-22236538     0755-22236568</b>
+			</div>
+			<div style="margin-left:10px;margin-bottom:10px;">
+				<b>如有疑问敬请来电，谢谢！</b>
+			</div>
+		</div>
+	</body>
+
+</html>

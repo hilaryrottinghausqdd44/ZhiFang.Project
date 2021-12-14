@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>我的打卡记录</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/pullToRefresh.css" />
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Common/ATCommon.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/EmpATMySignLog.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="../util/iscroll.js"></script>
+    <script src="../util/pullToRefresh.js"></script>
+    <style type="text/css" media="all">
+        .scroller li {
+            height: 178px;
+            background-color: #fff;
+        }
+
+        .game-info {
+            padding: 2px 2px;
+            line-height: 30px;
+            color: #333;
+        }
+
+            .game-info p {
+                color: #999;
+            }
+    </style>
+</head>
+<body>
+    <!--must content ul li,or shoupi-->
+    <div id="wrapper">
+        <ul>
+            <li style="border-color:#000;border-style:solid;border-width:1px;display:none">
+            </li>
+        </ul>
+    </div>
+    <!--填写说明面板-->
+    <div class="modal fade" id="InputMemo_div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:-100px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">填写说明</h4>
+                </div>
+                <div class="modal-body" style="padding: 0px;"><textarea id="memo" class="form-control" rows="5"></textarea><input id="signid" value="" style="display:none" /></div>
+                <div class="modal-footer">
+                    <button type="button" id="InputMemo_action_save_btn" class="btn btn-primary">提交</button>
+                    <button type="button" id="InputMemo_action_cancel_btn" class="btn btn-danger">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

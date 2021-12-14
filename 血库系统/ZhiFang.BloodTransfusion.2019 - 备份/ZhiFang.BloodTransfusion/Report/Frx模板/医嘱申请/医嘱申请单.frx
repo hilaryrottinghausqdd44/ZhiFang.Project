@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ConvertNulls="false" ReportInfo.Created="07/26/2019 15:58:35" ReportInfo.Modified="12/30/2019 16:48:54" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void SetVisibles(){
+      string sexV=txtSex.Text;
+      bool  visible=true;
+      if(sexV.Contains(&quot;男&quot;)==true){     
+        visible=false;
+      }
+      txtGravidaOfBirth.Visible=visible;
+      txtGravida.Visible=visible;
+      txtBirth.Visible=visible;
+    }
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+       SetVisibles();   
+    }
+
+    private void ReportTitle1_AfterData(object sender, EventArgs e)
+    {
+         SetVisibles();  
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.BloodTransfusion" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFnOj/jpt1uQpt4rkngdS8WNkEdNC44oVJMVkqIYDH+Np/7ynR0m1KPTAoE2harFGhwDMq/msrpkkN9/+ZYpoS9YQexh8WYG5zFLdNkDBeg4k+g+bI/UkssbQrM/LeZ8wF">
+      <TableDataSource Name="BloodBReqForm" DataType="System.Int32" Enabled="true" TableName="Blood_BReqForm">
+        <Column Name="Id" DataType="System.String"/>
+        <Column Name="ReqTime" DataType="System.DateTime"/>
+        <Column Name="PatID" DataType="System.String"/>
+        <Column Name="PatNo" DataType="System.String"/>
+        <Column Name="CName" DataType="System.String"/>
+        <Column Name="Sex" DataType="System.String"/>
+        <Column Name="AgeALL" DataType="System.String"/>
+        <Column Name="AgeUnit" DataType="System.String"/>
+        <Column Name="PatHeight" DataType="System.Double"/>
+        <Column Name="PatWeight" DataType="System.Double"/>
+        <Column Name="Birthday" DataType="System.DateTime"/>
+        <Column Name="Diag" DataType="System.String"/>
+        <Column Name="BeforUse" DataType="System.String"/>
+        <Column Name="Gravida" DataType="System.String"/>
+        <Column Name="Harm" DataType="System.String"/>
+        <Column Name="Help" DataType="System.String"/>
+        <Column Name="Drag" DataType="System.String"/>
+        <Column Name="AddressType" DataType="System.String"/>
+        <Column Name="BPatStatusID" DataType="System.Int32"/>
+        <Column Name="UseTime" DataType="System.DateTime"/>
+        <Column Name="UseTypeID" DataType="System.Int32"/>
+        <Column Name="BUseTimeTypeID" DataType="System.Int32"/>
+        <Column Name="UsePurpose" DataType="System.String"/>
+        <Column Name="BloodABONo" DataType="System.Int32"/>
+        <Column Name="ReqBloodABONo" DataType="System.Int32"/>
+        <Column Name="BPresOutFlag" DataType="System.Int32"/>
+        <Column Name="Newbornflag" DataType="System.Int32"/>
+        <Column Name="Bed" DataType="System.String"/>
+        <Column Name="BarCode" DataType="System.String"/>
+        <Column Name="ReqDoctor" DataType="System.String"/>
+        <Column Name="ReqIDTime" DataType="System.DateTime"/>
+        <Column Name="PatientCount" DataType="System.String"/>
+        <Column Name="BloodOrderID" DataType="System.String"/>
+        <Column Name="BReqTypeID" DataType="System.Int32"/>
+        <Column Name="Zx1" DataType="System.String"/>
+        <Column Name="Zx2" DataType="System.String"/>
+        <Column Name="Zx3" DataType="System.String"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="Birth" DataType="System.String"/>
+        <Column Name="Postflag" DataType="System.Int32"/>
+        <Column Name="ToHosdate" DataType="System.DateTime"/>
+        <Column Name="WristBandNo" DataType="System.String"/>
+        <Column Name="EmergentFlag" DataType="System.String"/>
+        <Column Name="HisABOCode" DataType="System.String"/>
+        <Column Name="HisrhCode" DataType="System.String"/>
+        <Column Name="CostType" DataType="System.String"/>
+        <Column Name="BReqFormFlag" DataType="System.Int32"/>
+        <Column Name="BPreMemo" DataType="System.String"/>
+        <Column Name="BPreMemoEditID" DataType="System.String"/>
+        <Column Name="BPreMemoTime" DataType="System.DateTime"/>
+        <Column Name="BdeptCheckID" DataType="System.String"/>
+        <Column Name="BdeptCheckDate" DataType="System.DateTime"/>
+        <Column Name="BPreMemoNo" DataType="System.String"/>
+        <Column Name="ReCheckBloodABONo" DataType="System.Int32"/>
+        <Column Name="ReChecker" DataType="System.String"/>
+        <Column Name="ReCheckDatetime" DataType="System.DateTime"/>
+        <Column Name="Patindate" DataType="System.DateTime"/>
+        <Column Name="IsSame" DataType="System.String"/>
+        <Column Name="ABORhDesc" DataType="System.String"/>
+        <Column Name="ReviewABORhdesc" DataType="System.String"/>
+        <Column Name="GetbloodHint" DataType="System.String"/>
+        <Column Name="Evaluation" DataType="System.String"/>
+        <Column Name="Pataddress" DataType="System.String"/>
+        <Column Name="AggluName" DataType="System.String"/>
+        <Column Name="AggluMemo" DataType="System.String"/>
+        <Column Name="PatIdentity" DataType="System.String"/>
+        <Column Name="BarCodeMemo" DataType="System.String"/>
+        <Column Name="Transplant" DataType="System.String"/>
+        <Column Name="Transdate" DataType="System.DateTime"/>
+        <Column Name="DonorABOrh" DataType="System.String"/>
+        <Column Name="AssessFormID" DataType="System.String"/>
+        <Column Name="BreqMainNo" DataType="System.String"/>
+        <Column Name="Docphone" DataType="System.String"/>
+        <Column Name="YqCode" DataType="System.String"/>
+        <Column Name="Bprotect" DataType="System.String"/>
+        <Column Name="Cardio" DataType="System.String"/>
+        <Column Name="Decom" DataType="System.String"/>
+        <Column Name="Around" DataType="System.String"/>
+        <Column Name="Icdcode" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="HisDeptID" DataType="System.String"/>
+        <Column Name="HisDoctorId" DataType="System.String"/>
+        <Column Name="CheckCompleteFlag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CheckCompleteTime" DataType="System.DateTime"/>
+        <Column Name="ApplyName" DataType="System.String"/>
+        <Column Name="ApplyTime" DataType="System.DateTime"/>
+        <Column Name="ApplyMemo" DataType="System.String"/>
+        <Column Name="SeniorName" DataType="System.String"/>
+        <Column Name="SeniorTime" DataType="System.DateTime"/>
+        <Column Name="SeniorMemo" DataType="System.String"/>
+        <Column Name="DirectorName" DataType="System.String"/>
+        <Column Name="DirectorTime" DataType="System.DateTime"/>
+        <Column Name="DirectorMemo" DataType="System.String"/>
+        <Column Name="MedicalName" DataType="System.String"/>
+        <Column Name="MedicalTime" DataType="System.DateTime"/>
+        <Column Name="MedicalMemo" DataType="System.String"/>
+        <Column Name="BreqStatusID" DataType="System.Int64"/>
+        <Column Name="BreqStatusName" DataType="System.String"/>
+        <Column Name="PatABO" DataType="System.String"/>
+        <Column Name="PatRh" DataType="System.String"/>
+        <Column Name="BloodWay" DataType="System.String"/>
+        <Column Name="ReqTotal" DataType="System.Double"/>
+        <Column Name="ObsoleteID" DataType="System.Int64"/>
+        <Column Name="ObsoleteName" DataType="System.String"/>
+        <Column Name="ObsoleteTime" DataType="System.DateTime"/>
+        <Column Name="ObsoleteMemo" DataType="System.String"/>
+        <Column Name="ToHisFlag" DataType="System.Int32"/>
+        <Column Name="BReqTypeCName" DataType="System.String"/>
+        <Column Name="UseTypeCName" DataType="System.String"/>
+        <Column Name="DeptCName" DataType="System.String"/>
+        <Column Name="DoctorCName" DataType="System.String"/>
+        <Column Name="BloodListStr" DataType="System.String"/>
+        <Column Name="BloodBReqForm_BeforUse" DataType="System.String"/>
+        <Column Name="BloodBReqForm_Harm" DataType="System.String"/>
+        <Column Name="OrganTransplant" DataType="System.String"/>
+        <Column Name="MarrowTransplantation" DataType="System.String"/>
+        <Column Name="BLPreEvaluation" DataType="System.String"/>
+        <Column Name="BUseTimeTypeCName" DataType="System.String"/>
+        <Column Name="PrintTotal" DataType="System.Int32"/>
+        <Column Name="HasAllergy" DataType="System.Boolean"/>
+      </TableDataSource>
+      <TableDataSource Name="BloodBReqItem" DataType="System.Int32" Enabled="true" TableName="Blood_BReqItem">
+        <Column Name="BReqFormID" DataType="System.String"/>
+        <Column Name="BloodNo" DataType="System.Int32"/>
+        <Column Name="BReqCount" DataType="System.Double"/>
+        <Column Name="BPreCount" DataType="System.Double"/>
+        <Column Name="BOutCount" DataType="System.Double"/>
+        <Column Name="BloodUnitNo" DataType="System.Int32"/>
+        <Column Name="BloodOrder" DataType="System.Int32"/>
+        <Column Name="BPresOutFlag" DataType="System.Int32"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="Auditflag" DataType="System.Int32"/>
+        <Column Name="Barcode" DataType="System.String"/>
+        <Column Name="B3Code" DataType="System.String"/>
+        <Column Name="MainSignID" DataType="System.String"/>
+        <Column Name="MainSigndate" DataType="System.DateTime"/>
+        <Column Name="DeptSignID" DataType="System.String"/>
+        <Column Name="DeptSigndate" DataType="System.DateTime"/>
+        <Column Name="BReqTypeItemID" DataType="System.Int32"/>
+        <Column Name="ReqTimeItem" DataType="System.DateTime"/>
+        <Column Name="BCCode" DataType="System.String"/>
+        <Column Name="BCNo" DataType="System.String"/>
+        <Column Name="BPreCheckFlag" DataType="System.Int32"/>
+        <Column Name="getCount" DataType="System.Double"/>
+        <Column Name="zlxmbm" DataType="System.String"/>
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="BloodclassCName" DataType="System.String"/>
+        <Column Name="BloodCName" DataType="System.String"/>
+        <Column Name="BloodUnitCName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="BloodBReqFormResult" DataType="System.Int32" Enabled="true" TableName="Blood_BReqFormResult">
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="BReqFormID" DataType="System.String"/>
+        <Column Name="BTestItemNo" DataType="System.String"/>
+        <Column Name="BTestTime" DataType="System.DateTime"/>
+        <Column Name="Barcode" DataType="System.String"/>
+        <Column Name="ItemResult" DataType="System.String"/>
+        <Column Name="ItemUnit" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ItemLisResult" DataType="System.String"/>
+        <Column Name="BTestItemEName" DataType="System.String"/>
+        <Column Name="IsPreTrransfusionEvaluationItem " DataType="System.Boolean"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Columns.Count="2" Columns.Width="95" Columns.Positions="0,95">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="718.2" Height="549.4" BeforePrintEvent="   ReportTitle1_BeforePrint" AfterDataEvent="ReportTitle1_AfterData">
+      <TextObject Name="txtTitle" Left="229.35" Top="60.15" Width="264.6" Height="66.15" Text="　宁波市鄞州人民医院&#13;&#10;　临床用血申请单" HorzAlign="Center" Font="黑体, 18pt, style=Bold"/>
+      <TextObject Name="txtCName" Left="8" Top="168.65" Width="141.75" Height="18.9" Text="姓名:[BloodBReqForm.CName]" Font="宋体, 11pt"/>
+      <TextObject Name="txtSex" Left="376" Top="168.65" Width="75.6" Height="18.9" Text="性别:[BloodBReqForm.Sex]" Font="宋体, 11pt"/>
+      <TextObject Name="txtPatNo" Left="5.45" Top="140.3" Width="132.3" Height="18.9" Text="住院号:[BloodBReqForm.PatNo]" Font="宋体, 11pt"/>
+      <TextObject Name="txtDeptCName" Left="8" Top="194" Width="141.75" Height="18.9" Text="科室:[BloodBReqForm.DeptCName]" Font="宋体, 11pt"/>
+      <TextObject Name="txtBed" Left="181" Top="192.45" Width="179.55" Height="18.9" Text="病区床号:[BloodBReqForm.Bed]" Font="宋体, 11pt"/>
+      <TextObject Name="txtBeforUse" Left="9.45" Top="366" Width="85.05" Height="18.9" Text="输血史: [BloodBReqForm.BeforUse]" Font="宋体, 11pt"/>
+      <TextObject Name="txtOrganTransplant" Left="213.35" Top="366" Width="94.5" Height="18.9" Text="器官移植: [BloodBReqForm.OrganTransplant]" Font="宋体, 11pt"/>
+      <TextObject Name="txtHarm" Left="96.05" Top="366" Width="113.4" Height="18.9" Text="输血反应: [BloodBReqForm.Harm]" Font="宋体, 11pt"/>
+      <TextObject Name="txtMarrowTransplantation" Left="308.95" Top="366.45" Width="103.95" Height="18.9" Text="骨髓移植: [BloodBReqForm.MarrowTransplantation]" Font="宋体, 11pt"/>
+      <TextObject Name="txtGravidaOfBirth" Left="507.85" Top="365.45" Width="66.15" Height="18.9" Text="孕产史:" Font="宋体, 11pt"/>
+      <TextObject Name="txtGravida" Left="577.55" Top="366" Width="66.15" Height="18.9" Text="孕 [BloodBReqForm.Gravida]" Font="宋体, 11pt"/>
+      <TextObject Name="txtBirth" Left="647.7" Top="366" Width="66.15" Height="18.9" Text="产 [BloodBReqForm.Birth]" Font="宋体, 11pt"/>
+      <TextObject Name="txtDiag" Left="6.9" Top="216.7" Width="699.3" Height="18.9" Text="临床诊断:[BloodBReqForm.Diag]" Font="宋体, 11pt"/>
+      <LineObject Name="Line4" Left="4.45" Top="240.4" Width="708.75"/>
+      <LineObject Name="Line5" Left="2" Top="160.65" Width="708.75"/>
+      <TextObject Name="txtUsePurpose" Left="9" Top="419.3" Width="330.75" Height="18.9" Text="输血目的:[BloodBReqForm.UsePurpose]" Font="宋体, 11pt"/>
+      <TextObject Name="txtUseTime" Left="254.65" Top="445.65" Width="236.25" Height="18.9" Text="预定用血时间:[BloodBReqForm.UseTime]" Format="Custom" Format.Format="yyyy-MM-dd" Font="宋体, 11pt"/>
+      <TextObject Name="txtHisABOCode" Left="593.6" Top="398.05" Width="75.6" Height="28.35" Text="[BloodBReqForm.HisABOCode]" Font="黑体, 20pt, style=Bold"/>
+      <TextObject Name="txtHisrhCode" Left="594" Top="430.4" Width="75.6" Height="28.35" Text="[BloodBReqForm.HisrhCode]" Font="黑体, 20pt, style=Bold"/>
+      <TextObject Name="txtBloodListStr" Left="9.45" Top="392.05" Width="444.15" Height="24.57" Text="申请血液制品和数量:[BloodBReqForm.BloodListStr]" AutoWidth="true" Font="宋体, 11pt"/>
+      <TextObject Name="txtPatID" Left="151.2" Top="140.75" Width="132.3" Height="18.9" Text="病人ID:[BloodBReqForm.PatID]" Font="宋体, 11pt"/>
+      <TextObject Name="txtBirthday" Left="180.35" Top="169.1" Width="179.55" Height="18.9" Text="出生年月:[BloodBReqForm.Birthday]" Format="Custom" Format.Format="yyyy-MM-dd" Font="宋体, 11pt"/>
+      <BarcodeObject Name="Barcode1" Left="524.9" Top="9.35" Width="98.75" Height="49.85" DataColumn="BloodBReqFormResult.BReqFormID" Barcode="Code128" Barcode.AutoEncode="true"/>
+      <PictureObject Name="Picture1" Left="3.45" Top="-2.55" Width="255.15" Height="75.6" Image="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"/>
+      <TextObject Name="txtBLPreEvaluation" Left="7.45" Top="267.4" Width="699.3" Height="85.05" Text="输血前评估:[BloodBReqForm.BLPreEvaluation]" Font="宋体, 11pt"/>
+      <TextObject Name="Text25" Left="7.35" Top="242.15" Width="198.45" Height="18.9" Text="输血申请和既往史：" Font="黑体, 11pt, style=Bold"/>
+      <TextObject Name="txtBReqTypeCName" Left="299.4" Top="140.75" Width="151.2" Height="18.9" Text="病人类型:[BloodBReqForm.BReqTypeCName]" Font="宋体, 11pt"/>
+      <TextObject Name="Text53" Left="8.35" Top="445.15" Width="236.25" Height="18.9" Text="预用血时间:[BloodBReqForm.UseTime]" Format="Custom" Format.Format="yyyy-MM-dd" Font="宋体, 11pt"/>
+      <TextObject Name="Text26" Left="523.75" Top="179.55" Width="75.6" Height="18.9" Text="ABO血型:" Font="宋体, 11pt"/>
+      <TextObject Name="Text27" Left="523.4" Top="207.9" Width="85.05" Height="18.9" Text="Rh(D)血型:" Font="宋体, 11pt"/>
+      <TextObject Name="Text29" Left="493.4" Top="402.9" Width="103.95" Height="18.9" Text="申请ABO血型:" Font="宋体, 11pt"/>
+      <TextObject Name="Text54" Left="493.95" Top="434.7" Width="122.85" Height="18.9" Text="申请Rh(D)血型:" Font="宋体, 11pt"/>
+      <TextObject Name="txtSeniorName" Left="335.85" Top="484.15" Width="170.1" Height="18.9" Text="上级医师:[BloodBReqForm.SeniorName]" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtApplyName" Left="3.45" Top="482.6" Width="141.75" Height="18.9" Text="申请医生:[BloodBReqForm.ApplyName]" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtApplyTime" Left="147.75" Top="483.7" Width="179.55" Height="18.9" Text="申请日期:[BloodBReqForm.ApplyTime]" Format="Custom" Format.Format="yyyy-MM-dd" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtSeniorTime" Left="509.75" Top="483.8" Width="198.45" Height="18.9" Text="审核日期:[BloodBReqForm.SeniorTime]" Format="Custom" Format.Format="yyyy-MM-dd" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtDirectorName" Left="1.45" Top="509.5" Width="141.75" Height="18.9" Text="科主任:[BloodBReqForm.DirectorName]" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtDirectorMemo" Left="398.25" Top="510.5" Width="311.85" Height="18.9" Text="科主任意见:[BloodBReqForm.DirectorMemo]" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtMedicalName" Left="3" Top="530.5" Width="141.75" Height="18.9" Text="医务处:[BloodBReqForm.MedicalName]" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtMedicalMemo" Left="396.8" Top="528.5" Width="311.85" Height="18.9" Text="医务处意见:[BloodBReqForm.MedicalMemo]" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtDirectorTime" Left="148.1" Top="510.15" Width="245.7" Height="18.9" Text="科主任审核日期:[BloodBReqForm.DirectorTime]" Format="Custom" Format.Format="yyyy-MM-dd" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="txtMedicalTime" Left="147.45" Top="529.6" Width="245.7" Height="18.9" Text="医务处审批日期:[BloodBReqForm.MedicalTime]" Format="Custom" Format.Format="yyyy-MM-dd" Font="宋体, 11pt, style=Bold"/>
+      <LineObject Name="Line9" Top="472.5" Width="708.75"/>
+      <TextObject Name="Text56" Left="604.8" Top="170.1" Width="103.95" Height="28.35" Text="[BloodBReqForm.patABO]" Font="黑体, 20pt, style=Bold"/>
+      <TextObject Name="Text57" Left="604.8" Top="198.45" Width="75.6" Height="28.35" Text="[BloodBReqForm.patrh]" Font="黑体, 20pt, style=Bold"/>
+      <TextObject Name="Text58" Left="415.8" Top="366.55" Width="85.05" Height="18.9" Text="过敏史: [BloodBReqForm.HasAllergy]" Format="Boolean" Format.TrueText="有" Format.FalseText="无" Font="宋体, 11pt"/>
+      <TextObject Name="Text60" Left="510.3" Top="132.3" Width="415.8" Height="66.15" Text="抢救用血：[BloodBReqForm.BUseTimeTypeCName]" Font="黑体, 20pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="589.4" Width="718.2" Height="26.46">
+      <TextObject Name="Text5" Left="3" Top="4" Width="30.24" Height="18.9" Text="行号" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text37" Left="38.25" Top="5" Width="141.75" Height="18.9" Text="项目名称" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text39" Left="183" Top="5" Width="94.5" Height="18.9" Text="项目结果" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text41" Left="284.4" Top="5" Width="66.15" Height="18.9" Text="单位" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text43" Left="398.25" Top="4.45" Width="141.75" Height="18.9" Text="项目名称" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text44" Left="547" Top="4.45" Width="94.5" Height="18.9" Text="项目结果" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text45" Left="645.85" Top="4.45" Width="56.7" Height="18.9" Text="单位" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text42" Left="360.55" Top="5" Width="30.24" Height="18.9" Text="行号" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <LineObject Name="Line7" Left="3.35" Top="3.78" Width="708.75"/>
+      <LineObject Name="Line8" Left="3.9" Top="26.08" Width="708.75"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="635.86" Width="359.1" Height="23.35" CanBreak="true" Guides="37.8,47.25" DataSource="BloodBReqFormResult" KeepDetail="true">
+      <TextObject Name="Text4" Left="3" Top="4.45" Width="30.24" Height="18.9" Text="[AbsRow#]" Font="宋体, 10pt"/>
+      <TextObject Name="txtBTestItemEName" Left="37.25" Top="3" Width="141.75" Height="18.9" Text="[BloodBReqFormResult.BTestItemEName]" Font="宋体, 10pt"/>
+      <TextObject Name="txtItemResult" Left="183.45" Top="4.45" Width="94.5" Height="18.9" Text="[BloodBReqFormResult.ItemResult]" Font="宋体, 10pt"/>
+      <TextObject Name="txtItemUnit" Left="285.6" Top="4" Width="66.15" Height="18.9" Text="[BloodBReqFormResult.ItemUnit]" VertAlign="Center" Font="宋体, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="679.21" Width="718.2" Height="124.15">
+      <LineObject Name="Line3" Left="5" Top="61.55" Width="708.75"/>
+      <TextObject Name="Text13" Left="1.45" Top="7.56" Width="670.95" Height="32.35" Text="备注：１、请医生逐行认真准确填写，于输血日前送达输血科。&#13;&#10;　　　２、以上检查必须于输血日前检查或抽样。" Font="宋体, 11pt, style=Bold"/>
+      <LineObject Name="Line6" Left="4" Top="3.78" Width="708.75"/>
+      <TextObject Name="Text55" Left="28.35" Top="75.6" Width="670.95" Height="32.35" Text="输血科审核：                                      审核时间：&#13;&#10;" Font="宋体, 11pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

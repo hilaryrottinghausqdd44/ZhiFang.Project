@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>弹出AL类型选择</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+   <meta name="Cache-Control" content="no-cache">
+   <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+
+ </head> 
+ <body> 
+   <div class="layui-card" style="padding:10px 15px 10px 15px;"> 
+    <div class="layui-row"> 
+    	<div class="layui-row layui-hide">
+    		<input type="text" id="idfields" autocomplete="off" class="layui-input">
+    	</div>
+      <table class="layui-hide" id="obarcodefields_table" lay-filter="obarcodefields_table">
+      	 <script type="text/html" id="switchTpl">
+             <input type="checkbox" name="IsShow" title="" lay-skin="switch" lay-text="是|否" lay-filter="IsShow" {{ d.IsShow == 'false' ? '' : 'checked' }}  >
+	        </script> 
+      </table> 
+      <div class="layui-btn-group" style="padding-top: 5px;">
+	     <button class="layui-btn layui-btn-xs" data-type="save"><i class="iconfont">&#xe670;</i>&nbsp;确定</button> 
+	     <button class="layui-btn layui-btn-xs"  data-type="clear"><i class="iconfont"></i>&nbsp;清空</button> 
+	     <button class="layui-btn layui-btn-xs layui-btn-primary" data-type="close" style="margin-left: 100px;"><i class="iconfont">&#xe674;</i>&nbsp;关闭</button> 
+    	</div>
+  </div> 
+   </div>
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('obarcodefields.js');
+	</script>  
+	 <style>
+  	body{background-color: #FFFFFF;}
+	 /*重置表单控件上下间距*/
+	.layui-table-view{margin: 1px 0;}
+  	/* 防止下拉框的下拉列表被隐藏---必须设置--- */
+	.layui-table-cell {
+		overflow: visible !important;
+	}
+	/*列表下拉框高度调整*/
+    table .layui-input, .layui-textarea, .layui-select{height: 28px; line-height: 1; line-height: 16px; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px;}
+  </style> 
+ </body>
+</html>

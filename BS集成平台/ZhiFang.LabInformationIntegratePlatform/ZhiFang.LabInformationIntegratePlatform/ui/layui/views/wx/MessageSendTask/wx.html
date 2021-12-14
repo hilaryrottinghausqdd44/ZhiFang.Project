@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>消息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+    <link rel="stylesheet" href="../../../../src/layui/2.5.5/dist/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../../admin/layuiadmin/style/admin.css" media="all" />
+    <style>
+        .layui-form label {padding: 9px 0;width: 100px;}
+        .tableHeight {overflow: auto;}
+		.layui-table-tool-temp {padding-right: 30px;}
+    </style>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space10">
+            <div class=" layui-col-md12 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="tableContainer">
+                            <table id="table" lay-filter="table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="addModel" style="display:none">
+        <div class="layui-fluid">
+                        <form class="layui-form" id='layForm' lay-filter='layForm' style=" padding-right: 36px;">
+                            <div class="layui-row">
+                                <div class="layui-col-md6 layui-col-lg12 layui-col-sm12 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">主键id</label>
+                                        <div class="layui-input-block">
+                                            <input type="hidden" name='WXMessageSendTask_Id' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-col-lg12 layui-col-sm12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='WXMessageSendTask_TaskName' id="TaskName" autocomplete="off" lay-verify='required' placeholder="必填项" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-col-lg12 layui-col-sm12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">医院</label>
+                                        <div class="layui-input-block">
+                                            <select name="WXMessageSendTask_HospitalID" id="BHospital" lay-verify="" lay-filter='BHospital' lay-search></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm6 layui-col-xs12  layui-col-lg12 layui-col-sm12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">任务类型</label>
+                                        <div class="layui-input-block">
+                                            <select name="WXMessageSendTask_TaskTypeID" lay-filter="TaskTypeID" id="TaskTypeID">
+                                                <option value=''>请选择</option>
+                                                <option value="1">质控</option>
+                                                <option value="2">新闻</option>
+                                                <option value="3">消息</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm6 layui-col-xs12  layui-col-lg12 layui-col-sm12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">发送方式</label>
+                                        <div class="layui-input-block">
+                                            <select name="WXMessageSendTask_SendTypeID" lay-filter="SendTypeID" id="SendTypeID">
+                                                <option value=''>请选择</option>
+                                                <option value="1">个人</option>
+                                                <option value="2">部门</option>
+                                                <option value="3">未指定</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm6 layui-col-xs12  layui-col-lg12 layui-col-sm12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">消息模板</label>
+                                        <div class="layui-input-block">
+                                            <select name="WXMessageSendTask_PMTID" lay-filter="PMTID" id="PMTID">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm12 layui-col-xs12 layui-col-lg12 layui-col-sm12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">内容</label>
+                                        <div class="layui-input-block">
+                                            <textarea style="height: 145px;" name="WXMessageSendTask_Context" id="Context" class="layui-input" autocomplete="off"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm12 layui-col-xs12 layui-col-lg12 layui-col-sm12">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <div class="layui-upload">
+                                                <button type="button" class="layui-btn" id="test3"><i class="layui-icon"></i>上传文件</button>
+                                                <span id="uploadname"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md12 layui-col-xs12 layui-col-lg12 layui-col-sm12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='WXMessageSendTask_Comment' id="Comment" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+        </div>
+    </div>
+
+    <div id="hosptalpeople" style="display:none">
+        <div class="layui-fluid">
+            <div class="layui-row">
+                <div class="layui-col-md4">
+                    <div id="test1" class="demo-tree demo-tree-box"></div>
+                </div>
+                <div class="layui-col-md8"><table id="peopletable" lay-filter="peopletable"></table></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="toolbar">
+        <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+        <!--<button class="layui-btn layui-btn-sm layui-bg-blue" lay-event="edit">编辑</button>-->
+        <button class="layui-btn layui-btn-sm layui-bg-red" lay-event="del">删除</button>
+        <div class="layui-input-inline">
+            <input type="text" name='search' id="search" placeholder="名称/简称/拼音字头" autocomplete="off" class="layui-input" />
+        </div>
+        <button class="layui-btn layui-btn-sm" lay-event="search">查询</button>
+    </script>
+    <!--表格行工具 -->
+    <script type="text/html" id="tableOperation">
+        <a class="layui-btn layui-btn-xs layui-bg-red" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-bg-blue layui-btn-xs" lay-event="sendout">发送</a>
+    </script>
+    <script type="text/javascript" src="../../../../src/layui/2.5.5/dist/layui.js"></script>
+    <script type="text/javascript">
+        UIVersion.getJS('../../../config/system.js');
+        UIVersion.getJS('wx.js');
+    </script>
+</body>
+</html>

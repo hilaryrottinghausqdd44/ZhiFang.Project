@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+	<class name="CenOrgCondition" table="[dbo].[CenOrgCondition]">
+		<id name="Id" column="[CenOrgCondition]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="Memo" column="[Memo]" type="String" not-null="false" length="100" />
+		<property name="ConfirmToken" column="[ConfirmToken]" type="String" not-null="false" length="100" />
+		<property name="ConfirmUserNo" column="[ConfirmUserNo]" type="String" not-null="false" length="100" />
+		<property name="ConfirmUserName" column="[ConfirmUserName]" type="String" not-null="false" length="100" />
+		<property name="ConfirmUserPassWord" column="[ConfirmUserPassWord]" type="String" not-null="false" length="100" />
+		<property name="ConfirmUrl" column="[ConfirmUrl]" type="String" not-null="false" length="100" />
+		<property name="CustomerCode" column="[CustomerCode]" type="String" not-null="false" length="100" />
+    <property name="CustomerAccount" column="[CustomerAccount]" type="String" not-null="false" length="100" />
+		<many-to-one name="cenorg1" class="CenOrg" lazy="false">
+			<column name="[OrgID1]" not-null="true"/>
+		</many-to-one>
+		<many-to-one name="cenorg2" class="CenOrg" lazy="false">
+			<column name="[OrgID2]" not-null="true"/>
+		</many-to-one>
+		<property name="OrgAlias1" column="[OrgAlias1]" type="String" not-null="false" length="100" />
+		<property name="OrgAlias2" column="[OrgAlias2]" type="String" not-null="false" length="100" />
+	</class>
+</hibernate-mapping>

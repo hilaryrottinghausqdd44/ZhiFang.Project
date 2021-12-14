@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  有关如何配置 ASP.NET 应用程序的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkId=301880
+  -->
+<configuration>
+  <configSections>
+    <sectionGroup name="spring">
+      <section name="context" type="Spring.Context.Support.ContextHandler, Spring.Core"/>
+      <section name="parsers" type="Spring.Context.Support.NamespaceParsersSectionHandler, Spring.Core"/>
+      <section name="objects" type="Spring.Context.Support.DefaultSectionHandler, Spring.Core"/>
+    </sectionGroup>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net"/>
+    <section name="databaseSettings" type="System.Configuration.NameValueSectionHandler"/>
+    <section name="lisdatabaseSettings" type="System.Configuration.NameValueSectionHandler"/>
+    <section name="csreadatabaseSettings" type="System.Configuration.NameValueSectionHandler"/>
+    <sectionGroup name="applicationSettings"
+      type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="ZhiFang.ReagentSys.Client.Properties.Settings"
+        type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false"/>
+    </sectionGroup>
+  <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+  <section name="entityFramework"
+      type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      requirePermission="false"/>
+  </configSections>
+  <spring xmlns="http://www.springframework.net">
+    <parsers>
+      <parser type="Spring.Data.Config.DatabaseNamespaceParser, Spring.Data"/>
+      <parser type="Spring.Transaction.Config.TxNamespaceParser, Spring.Data"/>
+    </parsers>
+    <context>
+      <resource uri="config://spring/objects"/>
+      <!--数据库访问层配置-->
+      <resource uri="assembly://ZhiFang.ObjectFactory.ReagentSys.Client/ZhiFang.ObjectFactory.ReagentSys.Client.Config/DaoBase.xml"/>
+      <resource uri="assembly://ZhiFang.ObjectFactory.ReagentSys.Client/ZhiFang.ObjectFactory.ReagentSys.Client.Config/Dao.xml"/>
+      <!--业务处理层配置-->
+      <resource uri="assembly://ZhiFang.ObjectFactory.ReagentSys.Client/ZhiFang.ObjectFactory.ReagentSys.Client.Config/ServiceBase.xml"/>
+      <resource uri="assembly://ZhiFang.ObjectFactory.ReagentSys.Client/ZhiFang.ObjectFactory.ReagentSys.Client.Config/Service.xml"/>
+      <!--契约实现-->
+      <resource uri="assembly://ZhiFang.ObjectFactory.ReagentSys.Client/ZhiFang.ObjectFactory.ReagentSys.Client.Config/Facade.xml"/>
+    </context>
+    <objects xmlns="http://www.springframework.net" xmlns:aop="http://www.springframework.net/aop">
+      <!--拦截控制层所有业务操作-->
+      <!--
+      <object id="serviceOperation" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+        <property name="Patterns">
+          <list>
+            -->
+      <!--<value>ZhiFang.ReagentSys.Client.*</value>-->
+      <!--
+            <value>ZhiFang.Digitlab.ServiceCommon.*</value>
+          </list>
+        </property>
+      </object>-->
+      <!--数据库升级-->
+      <object id="UpdateDataBase" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+        <property name="Patterns">
+          <list>
+            <value>ZhiFang.ReagentSys.Client.RBACService.*</value>
+          </list>
+        </property>
+      </object>
+      <!--拦截服务层所有业务操作-->
+      <object id="LoginValidationOperation" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+        <property name="Patterns">
+          <list>
+            <value>ZhiFang.ReagentSys.Client.ReaSysManageService.*</value>
+            <value>ZhiFang.ReagentSys.Client.WeiXinAppService.*</value>
+            <value>ZhiFang.ReagentSys.Client.SingleTableService.*</value>
+            <value>ZhiFang.ReagentSys.Client.ConstructionService.*</value>
+            <value>ZhiFang.ReagentSys.Client.PublicService.*</value>
+          </list>
+        </property>
+      </object>
+      <!--登录成功后,实验室数据升级RBAC_BA_Login-->
+      <object id="LoginAfterOperation" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+        <property name="Patterns">
+          <list>
+            <value>ZhiFang.ReagentSys.Client.RBACService.*</value>
+          </list>
+        </property>
+      </object>
+      <!--切面-->
+      <!--
+      <object id="LogAdvice" type="ZhiFang.Digitlab.Interceptor.ReagentSys.InterceptorLog, ZhiFang.Digitlab.Interceptor.ReagentSys" singleton="false"/>
+      -->
+      <!--切面-->
+      <!--
+      <object id="BeforeAdvice" type="ZhiFang.Digitlab.Interceptor.ReagentSys.InterceptorAuthorityFilter, ZhiFang.Digitlab.Interceptor.ReagentSys" singleton="false"/>
+      -->
+      <!--切面-->
+      <!--
+      <object id="AfterAdvice" type="ZhiFang.Digitlab.Interceptor.ReagentSys.AfterReturningAdvice, ZhiFang.Digitlab.Interceptor.ReagentSys" singleton="false"/>
+      -->
+      <!--切面-->
+      <!--
+      <object id="ExceptAdvice" type="ZhiFang.Digitlab.Interceptor.ReagentSys.ExceptAdvice, ZhiFang.Digitlab.Interceptor.ReagentSys" singleton="false"/>-->
+      <object id="UpdateDataBaseAdvice" type="ZhiFang.Interceptor.ReagentSys.Client.UpdateDataBaseAdvice, ZhiFang.Interceptor.ReagentSys.Client"
+        singleton="false"/>
+      <!--登录验证切面-->
+      <object id="LoginValidationAdvice" type="ZhiFang.Interceptor.ReagentSys.Client.LoginValidationAdvice, ZhiFang.Interceptor.ReagentSys.Client"
+        singleton="false"/>
+      <object id="ModuleValidationAdvice" type="ZhiFang.Interceptor.ReagentSys.Client.ModuleValidationAdvice, ZhiFang.Interceptor.ReagentSys.Client"
+        singleton="false"/>
+      <!--登录成功后拦截-->
+      <object id="LoginAfterFilterAdvice" type="ZhiFang.Interceptor.ReagentSys.Client.LoginAfterFilterAdvice, ZhiFang.Interceptor.ReagentSys.Client"
+        singleton="false"/>
+      <!--关联切面-->
+      <aop:config>
+        <!--<aop:advisor pointcut-ref="serviceOperation" advice-ref="LogAdvice"/>
+        <aop:advisor pointcut-ref="serviceOperation" advice-ref="BeforeAdvice"/>
+        <aop:advisor pointcut-ref="serviceOperation" advice-ref="AfterAdvice"/>
+        <aop:advisor pointcut-ref="serviceOperation" advice-ref="ExceptAdvice"/>-->
+        <aop:advisor pointcut-ref="UpdateDataBase" advice-ref="UpdateDataBaseAdvice"/>
+        <aop:advisor pointcut-ref="LoginValidationOperation" advice-ref="LoginValidationAdvice"/>
+        <aop:advisor pointcut-ref="LoginValidationOperation" advice-ref="ModuleValidationAdvice"/>
+        <aop:advisor pointcut-ref="LoginAfterOperation" advice-ref="LoginAfterFilterAdvice"/>
+      </aop:config>
+    </objects>
+  </spring>
+  <!--试剂客户端数据库连接字符串-->
+  <databaseSettings>
+    <add key="db.provider" value="SqlServer-2.0"/>
+    <!--试剂客户端数据库连接字符串-->
+
+    <add key="db.connectionString" value="Server=.\MSSQLSERVER2012;database=ZhiFang.ReagentSys.Client.QZ;uid=sa;pwd=longfuchu;"/>
+    <add key="db.driver_class" value="NHibernate.Driver.SqlClientDriver"/>
+    <add key="db.dialect" value="NHibernate.Dialect.MsSql2005Dialect"/>
+    <add key="hbm2ddl.auto" value="update"/> 
+
+  </databaseSettings>
+  <!--Lis数据库连接字符串-->
+  <lisdatabaseSettings>
+    <add key="db.provider" value="SqlServer-2.0"/>
+    <add key="db.connectionString" value="Server=localhost;database=digitlab;uid=sa;pwd=longfuchu;"/>
+  </lisdatabaseSettings>
+  <!--CS试剂数据库连接字符串-->
+  <csreadatabaseSettings>
+    <add key="db.provider" value="SqlServer-2.0"/>
+    <add key="db.connectionString" value="Server=localhost;database=LabStar_10001_0S12;uid=sa;pwd=longfuchu;"/>
+  </csreadatabaseSettings>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0"/>
+    <add key="webpages:Enabled" value="false"/>
+    <add key="ClientValidationEnabled" value="true"/>
+    <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+    <add key="Spring.Data.NHibernate.Support.SessionScope.SessionFactoryObjectName" value="NHibernateSessionFactory"/>
+    <add key="EntityNamespace" value="ZhiFang.Entity.ReagentSys.Client"/>
+    <add key="ReportTemplateDir" value="ReportTemplate"/>
+    <add key="ReportTemplateFileextension" value=".frx"/>
+    <!--微信参数-->
+    <add key="appid" value="wx82fee0402905390c"/>
+    <add key="appsecret" value="28eb6ea1135bc8999d54644ce894aaf6"/>
+    <add key="GetTokenUrl" value="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential"/>
+    <add key="GetOpenIdListUrl" value="https://api.weixin.qq.com/cgi-bin/user/get"/>
+    <add key="GetOpenIdUrl" value="https://api.weixin.qq.com/cgi-bin/user/info"/>
+    <!--<add key="GetUserAuthorizeCode" value="https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect"/>-->
+    <add key="GetUserAuthorizeTokenUrl" value="https://api.weixin.qq.com/sns/oauth2/access_token"/>
+    <add key="GetUserAuthorizeTokenRefreshUrl" value="https://api.weixin.qq.com/sns/oauth2/refresh_token"/>
+    <add key="GetJSAPITokenUrl" value="https://api.weixin.qq.com/cgi-bin/ticket/getticket"/>
+    <add key="PushMsgUrl" value="https://api.weixin.qq.com/cgi-bin/message/custom/send"/>
+    <add key="GetMediaUrl" value="http://file.api.weixin.qq.com/cgi-bin/media/get"/>
+    <add key="GetPermanentMediaListUrl" value="https://api.weixin.qq.com/cgi-bin/material/batchget_material"/>
+    <add key="GetPermanentMediaFileUrl" value="https://api.weixin.qq.com/cgi-bin/material/get_material"/>
+    <add key="Domain" value="demo.zhifang.com.cn"/>
+    <!--模版消息-->
+    <add key="SetBusinessUrl" value="https://api.weixin.qq.com/cgi-bin/template/api_set_industry"/>
+    <add key="GetBusinessTemplateIdUrl" value="https://api.weixin.qq.com/cgi-bin/template/api_add_template"/>
+    <add key="PushMessageTemplateContextUrl" value="https://api.weixin.qq.com/cgi-bin/message/template/send"/>
+    <!--消息推送开关0：不推送，1推送。默认不推送-->
+    <add key="PushMessageFlag" value="0"/>
+    <!--模版消息-->
+    <add key="SJBhttpReg" value="101100-SJB-ZFKJ-867438"/>
+    <add key="SJBhttpPWD" value="VHODXCGZ"/>
+    <add key="SJBhttpVaildModule" value="(检验之星平台验证码,十分钟内有效)【智方科技】"/>
+    <add key="VaildCodeTimeOut" value="300"/>
+    <!--欢迎词-->
+    <add key="WelcomeStr" value="'XXX'您好！检验之星服务号正在建设中，感谢您的关注！"/>
+    <add key="WelcomeStrInput" value="请输入“手机号:xxx”或“身份证号:xxx”进行绑定或直接输入“条码号:xxx”进行查询！"/>
+    <!--是否强制注册手机号（1开启0关闭）-->
+    <add key="RegeditMobileFlag" value="1"/>
+    <!--微信版本-->
+    <add key="WeiXinVersion" value="0000.0000.0000.0000"/>
+
+    <!--WebService接口调用是否验证调用者和服务器的间隔时间，默认验证间隔时间，0为不验证-->
+    <add key="IsCheckIntervalTime" value="1"/>
+
+    <!--********************************************************************************接口或统一登录安全验证相关参数开始********************-->
+    <!--WebService接口调用是否验证token/sign：0为不验证，1为验证-->
+    <add key="IsCheckToken" value="1"/>
+    <!--WebService接口调用是否验证调用者和服务器的间隔时间，默认验证间隔时间，0为不验证，1为验证-->
+    <add key="IsCheckIntervalTime" value="0" />
+    <!--WebService接口调用间隔时间设置，默认为600秒（10分钟），如果调用时间和服务器时间间隔大于600秒，接口调用失败-->
+    <add key="IntervalTimeValue" value="600" />
+    <!--签名密钥,由平台分配给各业务系统(安阳市第六医院一体化统一登录新增参数)-->
+    <add key="SignKey" value="abcdefghijklmnoprrstuvwxyzabcdef"/>
+    <!--********************************************************************************接口或统一登录安全验证相关参数结束********************-->
+    <!--接口接收人员信息同步时，是否自动创建账号（默认以UseCode为账号创建）-->
+    <add key="IsAddAccount" value="true"/>
+    <!--三方接口URL地址，多个地址以|分隔-->
+    <add key="InterfaceUrl" value="https://esb.maccura.com:9088|http://172.16.8.8:9099"/>
+  </appSettings>
+  <system.web>
+    <authentication mode="None"/>
+    <compilation debug="true" targetFramework="4.0"/>
+    <pages validateRequest="false" controlRenderingCompatibilityVersion="4.0"/>
+    <httpRuntime maxQueryStringLength="102400" maxRequestLength="409600"/>
+    <httpModules/>
+  </system.web>
+  <system.serviceModel>
+    <client>
+      <endpoint address="http://192.168.1.15/csp/i-lis/DHC.LIS.BS.WebSHIJIService.cls" binding="basicHttpBinding" bindingConfiguration="WebLisServiceSoap"
+        contract="Service_HIS_WangJing.WebLisServiceSoap" name="WebLisServiceSoap"/>
+      <endpoint address="http://172.21.8.20:8088/services/Lis" binding="basicHttpBinding" bindingConfiguration="UserApiSoap"
+        contract="Service_WangHai_ShiJiTan.SysPlatformDataSync" name="UserApiSoap"/>
+    </client>
+    <services>
+      <service name="ZhiFang.ReagentSys.Client.RBACService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.RBACServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.IRBACService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.ConstructionService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.ConstructionServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.IConstructionService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.SingleTableService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.SingleTableServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.ISingleTableService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.PublicService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.PublicServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.IPublicService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.WeiXinAppService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.WeiXinAppServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.IWeiXinAppService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.ReaSysManageService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.ReaSysManageServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.IReaSysManageService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.ReaManageService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.ReaManageServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.IReaManageService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.CommonService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.CommonServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.ICommonService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.ReaStatisticalAnalysisService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.ReaStatisticalAnalysisServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.IReaStatisticalAnalysisService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.ZFReaRestfulService">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.ZFReaRestfulServiceAspNetAjaxBehavior" binding="webHttpBinding"
+          contract="ZhiFang.ReagentSys.Client.ServerContract.IZFReaRestfulService"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.ReaInternalInterface">
+
+        <endpoint address="" binding="wsHttpBinding" contract="ZhiFang.ReagentSys.Client.ServerContract.IReaInternalInterface"/>
+
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.ReaInternalInterfaceAspNetAjaxBehavior"
+          binding="webHttpBinding" contract="ZhiFang.ReagentSys.Client.ServerContract.IReaInternalInterface" />
+
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.ReaExternalInterface">
+        <endpoint address="" binding="basicHttpBinding" contract="ZhiFang.ReagentSys.Client.ServerContract.IReaExternalInterface"/>
+      </service>
+      <service name="ZhiFang.ReagentSys.Client.ReaCustomInterface">
+        <endpoint address="" behaviorConfiguration="ZhiFang.ReagentSys.Client.ReaCustomInterfaceAspNetAjaxBehavior"
+          binding="webHttpBinding" contract="ZhiFang.ReagentSys.Client.ServerContract.IReaCustomInterface" />
+      </service>
+    </services>
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name="ZhiFang.ReagentSys.Client.RBACServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.ConstructionServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.SingleTableServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.PublicServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.WeiXinAppServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.ReaManageServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.ReaSysManageServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.CommonServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.ReaStatisticalAnalysisServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.ZFReaRestfulServiceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true"/>
+        </behavior>
+
+        <behavior name="ZhiFang.ReagentSys.Client.ReaExternalInterfaceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true" />
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.ReaInternalInterfaceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true" />
+        </behavior>
+        <behavior name="ZhiFang.ReagentSys.Client.ReaCustomInterfaceAspNetAjaxBehavior">
+          <webHttp helpEnabled="true" />
+        </behavior>
+
+      </endpointBehaviors>
+      <serviceBehaviors>
+        <behavior name="DefaultBehavior">
+          <serviceMetadata httpGetEnabled="true"/>
+          <serviceDebug includeExceptionDetailInFaults="true"/>
+        </behavior>
+        <behavior name="">
+          <serviceMetadata httpGetEnabled="true"/>
+          <serviceDebug includeExceptionDetailInFaults="false"/>
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <bindings>
+      <basicHttpBinding>
+        <binding closeTimeout="00:10:00" openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00" allowCookies="false"
+          bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="2147483647" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647" textEncoding="utf-8" transferMode="Buffered" useDefaultWebProxy="true" messageEncoding="Text">
+          <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647"
+            maxNameTableCharCount="2147483647"/>
+        </binding>
+        <binding name="ZFClientServiceSoap">
+          <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647"
+            maxNameTableCharCount="2147483647"/>
+        </binding>
+        <binding name="WebLisServiceSoap"/>
+        <binding name="UserApiSoap" maxReceivedMessageSize="2147483647"/>
+        <binding name="SupplyChainForLISServiceSoapBinding"/>
+      </basicHttpBinding>
+      <wsHttpBinding>
+        <binding closeTimeout="00:10:00" openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00" bypassProxyOnLocal="false"
+          hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="2147483647" maxReceivedMessageSize="2147483647" messageEncoding="Text"
+          textEncoding="utf-8" useDefaultWebProxy="true" allowCookies="false">
+          <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647"
+            maxNameTableCharCount="2147483647"/>
+          <security mode="None"/>
+        </binding>
+      </wsHttpBinding>
+      <webHttpBinding>
+        <binding closeTimeout="00:10:00" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00" allowCookies="true" maxBufferSize="2147483647"
+          maxBufferPoolSize="9223372036854775807" maxReceivedMessageSize="2147483647"/>
+        <binding name="ReagentService">
+          <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647"
+            maxNameTableCharCount="2147483647"/>
+        </binding>
+      </webHttpBinding>
+    </bindings>
+    <!--内存入口检查失败时配置 minFreeMemoryPercentageToActivateService="1"-->
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true"
+      multipleSiteBindingsEnabled="true" />
+  </system.serviceModel>
+  <system.webServer>
+    <modules>
+      <remove name="FormsAuthentication"/>
+      <remove name="ApplicationInsightsWebTracking"/>
+      <add name="WcfReadEntityBodyModeWorkaroundModule"
+        type="ZhiFang.ReagentSys.Client.HttpModule.WcfReadEntityBodyModeWorkaroundModule, ZhiFang.ReagentSys.Client"/>
+    </modules>
+    <staticContent>
+      <mimeMap fileExtension=".svc" mimeType="application/json; charset=UTF-8"/>
+    </staticContent>
+    <security>
+      <requestFiltering>
+        <requestLimits maxQueryString="102400"/>
+      </requestFiltering>
+    </security>
+    <handlers>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0"/>
+      <remove name="OPTIONSVerbHandler"/>
+      <remove name="TRACEVerbHandler"/>
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler"
+        preCondition="integratedMode,runtimeVersionv4.0"/>
+      <!--IIS反向代理-->
+      <remove name="svc-Integrated-4.0"/>
+      <add name="svc-Integrated-4.0" path="*.svc" verb="*"
+        type="System.ServiceModel.Activation.ServiceHttpHandlerFactory, System.ServiceModel.Activation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        resourceType="Unspecified" requireAccess="Script" preCondition="integratedMode,runtimeVersionv4.0"/>
+      
+    </handlers>
+    <validation validateIntegratedModeConfiguration="false"/>
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-4.5.0.0" newVersion="4.5.0.0"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb"/>
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer"/>
+    </providers>
+  </entityFramework>
+  <applicationSettings>
+    <ZhiFang.ReagentSys.Client.Properties.Settings>
+      <setting name="ZhiFang_ReagentSys_Client_WebReference_HIS_ErLongLu_WSEntryClassService" serializeAs="String">
+        <value>http://192.168.88.61:9528/hai/WebServiceEntry</value>
+      </setting>
+    </ZhiFang.ReagentSys.Client.Properties.Settings>
+  </applicationSettings>
+</configuration>

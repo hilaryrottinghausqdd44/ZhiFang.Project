@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.RBACService" type="ZhiFang.ProjectProgressMonitorManage.RBACService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <property name="IBImportFile" ref="BImportFile"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHRPosition" ref="BHRPosition"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <property name="IBSLog" ref="BSLog"/>
+    <property name="IBRBACPreconditions" ref="BRBACPreconditions"/>
+  </object>
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.RBACServiceNoWeb" type="ZhiFang.ProjectProgressMonitorManage.RBACService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <property name="IBImportFile" ref="BImportFile"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHRPosition" ref="BHRPosition"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <property name="IBSLog" ref="BSLog"/>
+  </object>
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.ConstructionService" type="ZhiFang.ProjectProgressMonitorManage.ConstructionService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBBTDAppComponents" ref="BBTDAppComponents"/>
+    <property name="IBBTDAppPicture" ref="BBTDAppPicture"/>
+    <property name="IBBTDModuleType" ref="BBTDModuleType"/>
+    <property name="IBBTDPictureType" ref="BBTDPictureType"/>
+    <property name="IBBTDPictureTypeCon" ref="BBTDPictureTypeCon"/>
+    <property name="IBBTDMacroCommand" ref="BBTDMacroCommand"/>
+    <property name="IBBTDAppComponentsOperate" ref="BBTDAppComponentsOperate"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+  </object>
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.SingleTableService" type="ZhiFang.ProjectProgressMonitorManage.SingleTableService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBBEducationLevel" ref="BBEducationLevel"/>
+    <property name="IBBHealthStatus" ref="BBHealthStatus"/>
+    <property name="IBBMaritalStatus" ref="BBMaritalStatus"/>
+    <property name="IBBNationality" ref="BBNationality"/>
+    <property name="IBBProvince" ref="BBProvince"/>
+    <property name="IBBSex" ref="BBSex"/>
+    <property name="IBSTypeDetail" ref="BSTypeDetail"/>
+    <property name="IBSType" ref="BSType"/>
+    <property name="IBBCountry" ref="BBCountry"/>
+    <property name="IBBPoliticsStatus" ref="BBPoliticsStatus"/>
+    <property name="IBBDegree" ref="BBDegree"/>
+    <property name="IBBCity" ref="BBCity"/>
+    <property name="IBBProfessionalAbility" ref="BBProfessionalAbility"/>
+    <property name="IBBEquip" ref="BBEquip"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+  </object>
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.PublicService" type="ZhiFang.ProjectProgressMonitorManage.PublicService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+  </object>
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.ProjectProgressMonitorManageService" type="ZhiFang.ProjectProgressMonitorManage.ProjectProgressMonitorManageService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBPDict" ref="BPDict"/>
+    <property name="IBPDictType" ref="BPDictType"/>
+    <property name="IBPInteraction" ref="BPInteraction"/>
+    <property name="IBPProjectAttachment" ref="BPProjectAttachment"/>
+    <property name="IBPTask" ref="BPTask"/>
+    <property name="IBPTaskCopyFor" ref="BPTaskCopyFor"/>
+    <property name="IBPTaskOperLog" ref="BPTaskOperLog"/>
+    <property name="IBPWorkDayLog" ref="BPWorkDayLog"/>
+    <property name="IBPWorkLogCopyFor" ref="BPWorkLogCopyFor"/>
+    <property name="IBPWorkLogSendFor" ref="BPWorkLogSendFor"/>
+    <property name="IBPWorkMonthLog" ref="BPWorkMonthLog"/>
+    <!--<property name="IBPWorkTaskLog" ref="BPWorkTaskLog"/>-->
+    <property name="IBPWorkWeekLog" ref="BPWorkWeekLog"/>
+    <property name="IBPWorkLogInteraction" ref="BPWorkLogInteraction"/>
+    <property name="IBPClient" ref="BPClient"/>
+    <property name="IBPClientLinker" ref="BPClientLinker"/>
+    <property name="IBPContract" ref="BPContract"/>
+    <property name="IBPContractFollow" ref="BPContractFollow"/>
+    <property name="IBPContractFollowInteraction" ref="BPContractFollowInteraction"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+    <property name="IBBWeiXinPushMessageTemplate" ref="BBWeiXinPushMessageTemplate"/>
+    <property name="IBPTaskTypeEmpLink" ref="BPTaskTypeEmpLink"/>
+    <property name="IBFFileAttachment" ref="BFFileAttachment"/>
+    <property name="IBPInvoice" ref="BPInvoice"/>
+    <property name="IBPFinanceReceive" ref="BPFinanceReceive"/>
+    <property name="IBPReceive" ref="BPReceive"/>
+    <property name="IBPReceivePlan" ref="BPReceivePlan"/>
+    <property name="IBPRepayment" ref="BPRepayment"/>
+    <property name="IBPLoanBill" ref="BPLoanBill"/>
+    <property name="IBPEmpFinanceAccount" ref="BPEmpFinanceAccount"/>
+    <property name="IBPExpenseAccount" ref="BPExpenseAccount"/>
+    <property name="IBPCustomerServiceOperation" ref="BPCustomerServiceOperation"/>
+    <property name="IBPCustomerServiceAttachment" ref="BPCustomerServiceAttachment"/>
+    <property name="IBPCustomerService" ref="BPCustomerService"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+    <property name="IBPSalesManClientLink" ref="BPSalesManClientLink"/>
+    <property name="IBPCustomerServiceOperationLog" ref="BPCustomerServiceOperationLog"/>
+
+    <property name="IBAHOperation" ref="BAHOperation"/>
+    <property name="IBAHServerEquipLicence" ref="BAHServerEquipLicence"/>
+    <property name="IBAHServerLicence" ref="BAHServerLicence"/>
+    <property name="IBAHServerProgramLicence" ref="BAHServerProgramLicence"/>
+    <property name="IBAHSingleLicence" ref="BAHSingleLicence"/>
+    <property name="IBATHolidaySetting" ref="BATHolidaySetting"/>
+    <property name="IBPProject" ref="BPProject"/>
+    <property name="IBPProjectTask" ref="BPProjectTask"/>
+    <property name="IBPProjectTaskProgress" ref="BPProjectTaskProgress"/>
+    <property name="IBPProjectDocument" ref="BPProjectDocument"/>
+    <property name="IBCUser" ref="BCUser"/>
+  </object>
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.QMSService" type="ZhiFang.ProjectProgressMonitorManage.QMSService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBFFile" ref="BFFile"/>
+    <property name="IBFFileAttachment" ref="BFFileAttachment"/>
+    <property name="IBFFileCopyUser" ref="BFFileCopyUser"/>
+    <property name="IBFFileInteraction" ref="BFFileInteraction"/>
+    <property name="IBFFileOperation" ref="BFFileOperation"/>
+    <property name="IBFFileReadingLog" ref="BFFileReadingLog"/>
+    <property name="IBFFileReadingUser" ref="BFFileReadingUser"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+  </object>
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.QMSReport" type="ZhiFang.ProjectProgressMonitorManage.QMSReport,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBEAttachment" ref="BEAttachment"/>
+    <property name="IBEEquip" ref="BEEquip"/>
+    <property name="IBEParameter" ref="BEParameter"/>
+    <property name="IBEMaintenanceData" ref="BEMaintenanceData"/>
+    <property name="IBEReportData" ref="BEReportData"/>
+    <property name="IBETemplet" ref="BETemplet"/>
+    <property name="IBETempletEmp" ref="BETempletEmp"/>
+    <property name="IBEResEmp" ref="BEResEmp"/>
+    <property name="IBEResponsibility" ref="BEResponsibility"/>
+    <property name="IBETempletRes" ref="BETempletRes"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+  </object>
+
+  <object id="ZhiFang.ProjectProgressMonitorManage.WeiXinAppService" type="ZhiFang.ProjectProgressMonitorManage.WeiXinAppService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBATApproveStatus" ref="BATApproveStatus"/>
+    <property name="IBATAttendanceEventType" ref="BATAttendanceEventType"/>
+    <property name="IBATEmpAttendanceEventLog" ref="BATEmpAttendanceEventLog"/>
+    <property name="IBATEmpAttendanceEventParaSettings" ref="BATEmpAttendanceEventParaSettings"/>
+    <property name="IBATTransportation" ref="BATTransportation"/>
+    <property name="IBBAccountType" ref="BBAccountType"/>
+    <property name="IBBIcons" ref="BBIcons"/>
+    <property name="IBBWeiXinEmpLink" ref="BBWeiXinEmpLink"/>
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+    <property name="IBBWeiXinUserGroup" ref="BBWeiXinUserGroup"/>
+    <property name="IBSServiceClient" ref="BSServiceClient"/>
+    <property name="IBSServiceClientlevel" ref="BSServiceClientlevel"/>
+    <property name="IBBWeiXinPushMessageTemplate" ref="BBWeiXinPushMessageTemplate"/>
+    <property name="IBATHolidaySetting" ref="BATHolidaySetting"/>
+  </object>
+  <!--程序发布-->
+  <object id="ZhiFang.ProjectProgressMonitorManage.PDProgramManageService" type="ZhiFang.ProjectProgressMonitorManage.PDProgramManageService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBPGMProgram" ref="BPGMProgram"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+  </object>
+  <!--系统公用-->
+  <object id="ZhiFang.ProjectProgressMonitorManage.SystemCommonService" type="ZhiFang.ProjectProgressMonitorManage.SystemCommonService,ZhiFang.ProjectProgressMonitorManage"  singleton="true">
+    <property name="IBSCAttachment" ref="BSCAttachment"/>
+    <property name="IBSCInteraction" ref="BSCInteraction"/>
+    <property name="IBSCOperation" ref="BSCOperation"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+  </object>
+
+</objects>

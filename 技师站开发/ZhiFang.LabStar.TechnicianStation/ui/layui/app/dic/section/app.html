@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>检验小组</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+ </head> 
+ <body> 
+  <div class="layui-card myStyle" style="padding: 0px; margin: 0px;"> 
+   <div class="layui-card-body"> 
+    <div class="layui-row"> 
+     <div class="layui-col-xs5"> 
+        <div class="layui-form" lay-filter="searchTable" id="searchTable" style="padding-top: 15px;"> 
+       <div class="layui-form-item" style="margin-bottom: 0px;"> 
+       <div class="layui-col-xs8">
+       	 <label class="layui-form-label">名称/简称</label> 
+         <div class="layui-input-block" > 
+          <input type="text" name="searchText" id="searchText" placeholder="名称/英文名/简称/快捷码" autocomplete="off" class="layui-input" /> 
+         </div> 
+       </div>
+       <div class="layui-col-xs4">
+       	  <button class="layui-btn layui-btn-xs" id="search" lay-submit="" lay-filter="search"> <i class="layui-icon"></i>查询 </button> 
+       </div>
+       </div> 
+      </div> 
+      <table id="grouptable" lay-filter="grouptable" style="padding-top: 0px;"></table> 
+     </div> 
+     <div class="layui-col-xs7" style="padding-left: 15px;"> 
+      <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="tabs" > 
+       <ul class="layui-tab-title"> 
+        <li class="layui-this"><i class="iconfont"></i>&nbsp;小组基本信息</li> 
+        <li><i class="iconfont"></i>&nbsp;小组项目</li> 
+        <li><i class="iconfont"></i>&nbsp;历史前值对比设置</li> 
+        <li><i class="iconfont"></i>&nbsp;常用短语维护</li> 
+       </ul> 
+       <div class="layui-tab-content"  > 
+        <div class="layui-tab-item layui-show"> 
+         <span class="layui-badge" id="formType" style="position: absolute;left: 15px;">编辑</span> 
+         <div class="layui-form" id="LBSection" lay-filter="LBSection" style="position:relative;"> 
+          <div class="layui-form-item layui-hide"> 
+           <label class="layui-form-label">主键id</label> 
+           <div class="layui-input-block"> 
+            <input type="hidden" name="LBSection_Id" id="LBSection_Id" autocomplete="off" class="layui-input" /> 
+           </div> 
+          </div> 
+          <div class="layui-form-item"> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">名称</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="LBSection_CName" id="LBSection_CName" autocomplete="off" lay-verify="required" placeholder="必填项" class="layui-input" /> 
+            </div> 
+           </div> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">英文名称</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="LBSection_EName" autocomplete="off" class="layui-input" /> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="layui-form-item"> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">简称</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="LBSection_SName" id="LBSection_SName" autocomplete="off" class="layui-input" /> 
+            </div> 
+           </div> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">用户编码</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="LBSection_UseCode" autocomplete="off" class="layui-input" /> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="layui-form-item"> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">快捷码</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="LBSection_Shortcode" id="LBSection_Shortcode" autocomplete="off" placeholder="" class="layui-input" /> 
+            </div> 
+           </div> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">拼音字头</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="LBSection_PinYinZiTou" id="LBSection_PinYinZiTou" autocomplete="off" placeholder="" class="layui-input" /> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="layui-form-item"> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">检验大组</label> 
+            <div class="layui-input-block"> 
+             <select name="LBSection_SuperSectionID" autocomplete="off" id="LBSection_SuperSectionID" lay-filter="LBSection_SuperSectionID"></select> 
+            </div> 
+           </div> 
+              <div class="layui-col-xs6"> 
+            <label class="layui-form-label">检验科室</label> 
+            <div class="layui-input-block"> 
+             <select name="LBSection_ExecDeptID" id="LBSection_ExecDeptID" autocomplete="off" lay-filter="LBSection_ExecDeptID"></select> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="layui-form-item"> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">专业</label> 
+            <div class="layui-input-block"> 
+             <select name="LBSection_LBSpecialty_Id" autocomplete="off" id="LBSection_LBSpecialty_Id" lay-filter="LBSection_SuperSectionID"></select> 
+            </div> 
+           </div> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">专业类型</label> 
+            <div class="layui-input-block"> 
+             <select name="LBSection_SectionFun" id="LBSection_SectionFun" autocomplete="off" lay-filter="LBSection_SectionFun" placeholder=""> </select> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="layui-form-item"> 
+            <div class="layui-col-xs6"> 
+            <label class="layui-form-label">小组类型</label> 
+            <div class="layui-input-block"> 
+             <select name="LBSection_SectionTypeID" id="LBSection_SectionTypeID" autocomplete="off" lay-filter="LBSection_SectionTypeID"></select> 
+            </div> 
+           </div> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">专业编辑</label> 
+            <div class="layui-input-block">
+             <select name="LBSection_ProDLL" id="LBSection_ProDLL" autocomplete="off" lay-filter="LBSection_ProDLL"></select>
+            </div> 
+           </div> 
+          </div>
+           <div class="layui-form-item"> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">显示次序</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="LBSection_DispOrder" id="LBSection_DispOrder" lay-verify="number" placeholder="请输入数字" autocomplete="off" class="layui-input" /> 
+            </div> 
+           </div> 
+               <div class="layui-col-xs6"> 
+            <label class="layui-form-label">是否使用</label> 
+            <div class="layui-input-block"> 
+             <input type="checkbox" checked="" name="LBSection_IsUse" id="LBSection_IsUse" lay-skin="switch" lay-filter="LBSection_IsUse" lay-text="是|否" /> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="layui-form-item"> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">显示图形</label> 
+            <div class="layui-input-block"> 
+             <input type="checkbox" name="LBSection_IsImage" lay-filter="LBSection_IsImage" lay-skin="switch" lay-text="是|否" /> 
+            </div> 
+           </div> 
+           <div class="layui-col-xs6"> 
+            <label class="layui-form-label">虚拟组</label> 
+            <div class="layui-input-block"> 
+             <input type="checkbox" name="LBSection_IsVirtualGroup" autocomplete="off" lay-filter="LBSection_IsVirtualGroup" lay-skin="switch" lay-text="是|否" /> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="layui-form-item"> 
+           <div class="layui-col-xs12" id="tab"> 
+            <label class="layui-form-label">小组描述</label> 
+            <div class="layui-input-block"> 
+             <input type="text" name="LBSection_Comment" placeholder="" autocomplete="off" class="layui-input" /> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="layui-form-item" style="text-align: center;bottom: 0;"> 
+           <div class="layui-col-xs12 fixedBtm fixedBtnBox" style="width:auto;left: 40%;margin-left: 2px; background-color: #fff;text-align: center;"> 
+            <div class="layui-btn-group"> 
+             <button class="layui-btn layui-btn-sm" type="button" id="add"><i class="iconfont"></i>&nbsp;新增</button> 
+             <button class="layui-btn layui-btn-sm" type="button" id="edit"><i class="iconfont"></i>&nbsp;编辑</button> 
+             <button class="layui-btn layui-btn-sm" lay-submit="" id="save" lay-filter="save"><i class="iconfont">&#xe713;</i>&nbsp;保存</button> 
+             <button class="layui-btn layui-btn-primary layui-btn-sm" type="button" id="reset" lay-filter="reset"><i class="layui-icon"></i>重置</button> 
+             <button class="layui-btn layui-btn-sm" type="button" id="btngroupsort"><i class="iconfont"></i>&nbsp;排序</button> 
+             <button class="layui-btn layui-bg-orange layui-btn-sm" type="button" id="del"><i class="layui-icon layui-icon-delete"></i>删除</button> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="layui-tab-item"> 
+          <div id="SecitonItemList" style="overflow-y:hidden;"></div>
+            <div class="layui-collapse" lay-filter="memo" id="memo">
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">说明</h2>
+		    <div class="layui-colla-content" id="content_memo">
+		       <p>默认组合项目：有的检验项目不可能单独存在，一定是某个组合项目的子项 </p> 
+	           <p>默认仪器：小组有多个仪器的情况下，指定默认仪器，双向检验会按默认仪器发送。手工录入结果时，能指定仪器 </p> 
+	           <p>默认项目：该小组每个样本必做的项目。增加样本时，自动增加项目。如果是组合项目，组合项目和子项一起增加。</p>  
+	           <p> 默认值：有的项目需要手工录入，结果几乎都是一样的，可以设置默认值，减少录入。仪器项目建议不要设置默认值。</p>  
+		    </div>
+		  </div>
+		 </div>
+        </div> 
+        <div class="layui-tab-item"> 
+         <div class="layui-btn-group"> 
+          <button class="layui-btn layui-btn-xs" id="select_section_hiscomp"><i class="iconfont"></i>&nbsp;选择小组</button> 
+         </div> 
+         <div class="layui-row"> 
+          <table id="hiscomptable" lay-filter="hiscomptable"></table> 
+         </div> 
+        </div> 
+        <div class="layui-tab-item"> 
+         <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="phraseTab"> 
+          <ul class="layui-tab-title"> 
+           <li class="layui-this"><i class="iconfont"></i>&nbsp;项目短语</li> 
+           <li><i class="iconfont"></i>&nbsp;样本短语</li> 
+          </ul> 
+          <div class="layui-tab-content" style="padding: 0px;margin: 0px;"> 
+           <div class="layui-tab-item layui-show"> 
+            <div class="layui-row layui-col-space5"> 
+             <div class="layui-col-md3 layui-col-sm3 layui-col-xs3"> 
+              <table id="phrase_section_item_table" lay-filter="phrase_section_item_table"></table> 
+             </div> 
+             <div class="layui-col-md9 layui-col-sm9 layui-col-xs9" style="position:relative;"> 
+              <div id="itemphraseBox" style="overflow-y: scroll;overflow-x:hidden;height: auto;"></div> 
+              <script type="text/html" id="itemPhrasetool">
+              	<div class="layui-btn-group">
+		        <button class="layui-btn layui-btn-xs" lay-event="add"><i class="iconfont">&#xe664;</i>&nbsp;新增</button>
+		        <button class="layui-btn layui-btn-xs " lay-event="edit"><i class="iconfont">&#xe608;</i>&nbsp;编辑</button>
+		        <button class="layui-btn layui-btn-xs layui-bg-orange" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</button>
+		       </div>
+              </script> 
+             </div> 
+            </div> 
+           </div> 
+           <div class="layui-tab-item"> 
+            <div class="layui-row layui-col-space5"> 
+             <div class="layui-col-md3 layui-col-sm3 layui-col-xs3"> 
+              <table id="section_sample_table" lay-filter="section_sample_table"></table> 
+             </div> 
+             <div class="layui-col-md9 layui-col-sm9 layui-col-xs9"> 
+              <div class="layui-row"> 
+               <table id="phrase_section_sample_table" lay-filter="phrase_section_sample_table"></table> 
+              </div> 
+              <div class="layui-row"> 
+               <div class="layui-form" id="LBPhrase" lay-filter="LBPhrase" style="padding-top: 10px;padding-right: 15px;"> 
+                <div class="layui-row"> 
+                 <div class="layui-col-xs6 "> 
+                  <div class="layui-form-item layui-hide"> 
+                   <label class="layui-form-label">id</label> 
+                   <div class="layui-input-block"> 
+                    <input type="text" name="LBPhrase_Id" id="LBPhrase_Id" autocomplete="off" class="layui-input" /> 
+                   </div> 
+                  </div> 
+                 </div> 
+                 <div class="layui-col-md12 layui-col-sm12 layui-col-xs12"> 
+                  <div class="layui-form-item"> 
+                   <label class="layui-form-label">短语名称</label> 
+                   <div class="layui-input-block"> 
+                    <input type="text" name="LBPhrase_CName" id="LBPhrase_CName" lay-verify="required" placeholder="必填项" autocomplete="off" class="layui-input" /> 
+                   </div> 
+                  </div> 
+                 </div> 
+                 <div class="layui-col-md6 layui-col-sm6 layui-col-xs6"> 
+                  <div class="layui-form-item"> 
+                   <label class="layui-form-label">快捷码</label> 
+                   <div class="layui-input-block"> 
+                    <input type="text" name="LBPhrase_Shortcode" id="LBPhrase_Shortcode" autocomplete="off" class="layui-input" /> 
+                   </div> 
+                  </div> 
+                 </div> 
+                 <div class="layui-col-md6 layui-col-sm6 layui-col-xs6"> 
+                  <div class="layui-form-item"> 
+                   <label class="layui-form-label">显示次序</label> 
+                   <div class="layui-input-block"> 
+                    <input type="text" name="LBPhrase_DispOrder" id="LBPhrase_DispOrder" lay-verify="number" placeholder="请输入数字" autocomplete="off" class="layui-input" value="0" /> 
+                   </div> 
+                  </div> 
+                 </div> 
+                 <div class="layui-col-md12 layui-col-sm12 layui-col-xs12"> 
+                  <div class="layui-form-item"> 
+                   <div class="layui-input-block"> 
+                    <div class="layui-btn-group"> 
+                     <button class="layui-btn layui-btn-xs" id="batchAdd"><i class="iconfont"></i>&nbsp;批量新增</button> 
+                     <button class="layui-btn layui-btn-xs" id="addsamplephrase"><i class="iconfont"></i>&nbsp;新增</button> 
+                     <button class="layui-btn layui-btn-xs layui-bg-orange" id="delsamplephrase"><i class="layui-icon layui-icon-delete"></i>删除</button> 
+                     <button class="layui-btn layui-btn-xs" lay-submit="" id="savesamplephrase" lay-filter="savesamplephrase"><i class="iconfont">&#xe713;</i>&nbsp;保存</button> 
+                     <button class="layui-btn layui-btn-xs layui-btn-primary" lay-submit="" id="resetsamplephrase"><i class="layui-icon layui-icon-refresh"></i>重置</button> 
+                    </div> 
+                   </div> 
+                  </div> 
+                 </div> 
+                </div> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('app.js');
+	</script>
+     
+  <style>
+     	body{background-color: #FFFFFF;}
+        .right { margin-right: 70px;top:0px;margin-bottom: 0px;}
+        .left {float: right;width: 67px;margin-bottom: 0px;top:0px;}
+       	/*列表下拉框高度调整*/
+	    table .layui-input, .layui-textarea, .layui-select{height: 28px; line-height: 1; line-height: 16px; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px;}
+		/* 使得下拉框与单元格刚好合适      */
+		td .layui-form-select{margin-top: -10px;margin-left: -5px;margin-right: -5px;}  
+        /*固定按钮*/
+        .myStyle .fixedBtm {position: fixed;bottom: 20px;right: 15px;z-index: 1000;}
+        .myStyle .fixedBtm .layui-input-block {margin-left: 0px;text-align: center;}
+        .myStyle .fixedBtnBox {background-color: transparent;}
+        .myStyle .fixedBtnBoxContainer {padding-bottom: 20px;}
+        /*禁用样式*/
+        .layui-disabled, .layui-disabled:hover { color: #666 !important; }
+        .layui-radio-disbaled > i{ color:#5FB878!important; }
+    </style> 
+	<style>
+	 .layui-table-view{margin: 1px 0px; }
+	 /*表格上的工具栏处理*/
+      .layui-table-tool{ padding:1px 15px;min-height:30px; }
+	</style>
+ </body>
+</html>

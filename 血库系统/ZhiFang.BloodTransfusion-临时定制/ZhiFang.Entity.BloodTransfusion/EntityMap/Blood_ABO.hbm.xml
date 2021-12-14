@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodABO" table="[dbo].[Blood_ABO]">
+    <id name="Id" column="[BloodABONo]" type="String">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="CName" column="[BloodABOName]" type="String" not-null="false" length="20" />
+    <property name="ABOCode" column="[ABOCode]" type="String" not-null="false" length="20" />
+    <property name="HisDispCode" column="[HisDispCode]" type="String" not-null="false" length="10" />
+    <property name="ABOType" column="[ABOType]" type="String" not-null="false" length="10" />
+    <property name="RHType" column="[RHType]" type="String" not-null="false" length="10" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="10" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Visible" column="[Visible]" type="String" not-null="false" length="10" />
+    <property name="HisABOCode" column="[HisABOCode]" type="String" not-null="false" length="20" />
+    <property name="HisrhCode" column="[HisrhCode]" type="String" not-null="false" length="20" />
+    <property name="HisABOrhCode" column="[HisABOrhCode]" type="String" not-null="false" length="20" />
+    <property name="LisABOCode" column="[LisABOCode]" type="String" not-null="false" length="20" />
+    <property name="LisRhCode" column="[LisRhCode]" type="String" not-null="false" length="20" />
+    <property name="LisABORhCode" column="[LisABORhCode]" type="String" not-null="false" length="20" />
+    <property name="HIsOrderCOde" column="[HIsOrderCOde]" type="String" not-null="false" length="20" />
+    <property name="Demo" column="[demo]" type="String" not-null="false" length="200" />
+    <property name="Rhename" column="[Rhename]" type="String" not-null="false" length="50" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

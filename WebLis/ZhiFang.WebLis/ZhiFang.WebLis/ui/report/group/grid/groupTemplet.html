@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>小组模板</title>
+
+    <script type="text/javascript" src="../../../util/common.js"></script>
+    <script type="text/javascript" src="groupTemplet.js"></script>
+    <style type="text/css">
+        #fm{margin: 0;padding: 10px 30px}
+        .fTitle{font-size: 14px;font-weight: bold;padding: 5px 0;margin-bottom: 10px;border-bottom: 1px solid #cccccc;}
+        .fItem{margin-bottom: 5px;}
+        .fItem label{display: inline-block;width: 80px;}
+    </style>
+</head>
+<body >
+<table id="tb"></table>
+<div id="topBars" style="height:28px;width: 100%;background: #eeeeee ">
+   <div style="float: left;padding-top: 3px">
+    <a href="javascript:void (0)" class="easyui-linkbutton" onclick="refresh()" iconCls="icon-reload" plain="true">刷新</a>
+    <a href="javascript:void (0)" class="easyui-linkbutton" onclick="addRow()" iconCls="icon-add" plain="true">新增</a>
+    <a href="javascript:void (0)" class="easyui-linkbutton" onclick="delRow()" iconCls="icon-remove" plain="true">删除</a>
+   </div>
+    <div style="float: right;margin-right: 10px;padding-top: 3px">
+    <input type="text" class="easyui-searchbox" data-options="prompt:'小组名称',searcher:search" style="width: 160px;margin: -10px" id="txtSearch" >
+    </div>
+</div>
+<div id="dlg" class="easyui-dialog"  style="width:400px;height:450px;margin: auto;" closed="true" buttons="#dlgButtons">
+    <form id="fm">
+
+        <div class="fItem">
+            <input id='Id' name="Id" class="easyui-validatebox"  style="width: 200px;display: none">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">小组名称:</label>
+            <input id='cmbSectionName' name="SectionName" type="cmb"  class="easyui-validatebox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">模板名称:</label>
+            <input id="cmbPrintFormatName" name="PrintFormatName" type="cmb" class="easyui-validatebox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">特殊项目:</label>
+            <input id="cmbSpecialtyItemName" name="SpecialtyItemName" type="cmb"  style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">优先级别:</label>
+            <input name="Sort" class="easyui-numberbox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">送检单位:</label>
+            <input id="cmbClientName" name="ClientName" type="cmb" class="easyui-validatebox" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">项目或图片数下限:</label>
+            <input name="ItemMinNumber" class="easyui-numberbox" data-options="required:true"  style="width: 200px;" >
+        </div>
+
+        <div class="fItem">
+            <label  style="width: 105px">项目或图片数上限:</label>
+            <input name="ItemMaxNumber" class="easyui-numberbox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">使用标志:</label>
+            <input id="cmbUseFlag" name="UseFlag" type="cmb" class="easyui-validatebox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">是否带图:</label>
+            <input id="cmbImageFlag" name="ImageFlag" type="cmb" class="easyui-validatebox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">是否有抗生素:</label>
+            <input id="cmbAntiFlag" name="AntiFlag" type="cmb" class="easyui-validatebox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">是否套打:</label>
+            <input id="cmbBatchPrint" name="BatchPrint" type="cmb" class="easyui-validatebox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">就诊类型:</label>
+            <input id="cmbSickTypeNo" name="SickTypeNo" type="cmb" class="easyui-validatebox" required="true" style="width: 200px;">
+        </div>
+
+        <div class="fItem">
+            <label style="width: 105px">模板抬头类型:</label>
+            <input id="cmbModelTitleType" name="ModelTitleType" type="cmb" class="easyui-validatebox" required="true" style="width: 200px;">
+        </div>
+
+    </form>
+</div>
+<div id="dlgButtons">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()"  iconCls="icon-save">保存</a>
+    <a href="javascript:void (0)" class="easyui-linkbutton" onclick="cancel()"  iconCls="icon-cancel">取消</a>
+</div>
+
+</body>
+</html>

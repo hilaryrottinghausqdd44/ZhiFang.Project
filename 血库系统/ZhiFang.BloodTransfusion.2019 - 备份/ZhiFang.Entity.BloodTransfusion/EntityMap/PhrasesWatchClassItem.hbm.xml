@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="PhrasesWatchClassItem" table="[dbo].[PhrasesWatchClassItem]">
+    <!--<id name="Id" column="[PhrasesWatchClassID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />-->
+    <composite-id>
+      <key-property name="PhrasesWatchClassID" column="PhrasesWatchClassID" type="Int64" />
+      <key-property name="RefuseID" column="RefuseID"  type="Int32" />
+    </composite-id>
+    <property name="PhrasesWatchClassID" column="[PhrasesWatchClassID]" type="Int64" not-null="false" length="8" />
+    <property name="RefuseID" column="[RefuseID]" type="Int64" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

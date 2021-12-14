@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值消息确认</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.footer{position:fixed;left:0;bottom:0;width:100%;height:68px;background-color:#ffffff;}
+		.footer div{position:fixed;right:0;bottom:0;padding:15px;}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid" style="padding:15px;">
+		<div class="layui-form" style="margin-bottom:70px;">
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md6 layui-col-sm6 layui-col-xs12">
+					<input type="text" id="ConfirmNotifyDoctorName" lay-verify="required" placeholder="通知医生姓名" autocomplete="off" class="layui-input" readonly>
+				</div>
+			</div>
+			<div class="layui-row layui-col-space10">
+				<div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+					<input type="text" id="account" lay-verify="required" placeholder="确认人账号" autocomplete="off" class="layui-input">
+				</div>
+				<div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+					<input type="password" id="pwd" lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<textarea id="Memo" placeholder="备注" class="layui-textarea" readonly></textarea>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<div>
+				<button id="submit_button" class="layui-btn" lay-submit lay-filter="submit_button">提交</button>
+				<button id="cancel_button" class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel_button">取消</button>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('confirmAgain.js');
+	</script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E3B08151-FBE9-4E8E-B390-11BD9F7DEF4A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Entity.ProjectProgressMonitorManage</RootNamespace>
+    <AssemblyName>ZhiFang.Entity.ProjectProgressMonitorManage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log">
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityObject\B_Equip.cs" />
+    <Compile Include="EntityObject\E_Parameter.cs" />
+    <Compile Include="EntityObject\B_Parameter.cs" />
+    <Compile Include="EntityObject\CUser.cs" />
+    <Compile Include="EntityObject\E_TempletRes.cs" />
+    <Compile Include="EntityObject\E_Responsibility.cs" />
+    <Compile Include="EntityObject\E_ResEmp.cs" />
+    <Compile Include="EntityObject\E_Equip.cs" />
+    <Compile Include="EntityObject\E_Attachment.cs" />
+    <Compile Include="EntityObject\E_MaintenanceData.cs" />
+    <Compile Include="EntityObject\E_ReportData.cs" />
+    <Compile Include="EntityObject\E_Templet.cs" />
+    <Compile Include="EntityObject\E_TempletEmp.cs" />
+    <Compile Include="EntityObject\PGM_Program.cs" />
+    <Compile Include="EntityObject\P_Contract_Follow.cs" />
+    <Compile Include="EntityObject\P_CustomerService.cs" />
+    <Compile Include="EntityObject\P_CustomerServiceAttachment.cs" />
+    <Compile Include="EntityObject\P_CustomerServiceOperation.cs" />
+    <Compile Include="EntityObject\P_CustomerServiceOperationLog.cs" />
+    <Compile Include="EntityObject\P_EmpFinanceAccount.cs" />
+    <Compile Include="EntityObject\P_ExpenseAccount.cs" />
+    <Compile Include="EntityObject\P_Finance_Receive.cs" />
+    <Compile Include="EntityObject\P_Contract_Follow_Interaction.cs" />
+    <Compile Include="EntityObject\P_Invoice.cs" />
+    <Compile Include="EntityObject\P_LoanBill.cs" />
+    <Compile Include="EntityObject\P_Project.cs" />
+    <Compile Include="EntityObject\P_ProjectDocument.cs" />
+    <Compile Include="EntityObject\P_ProjectTaskProgress.cs" />
+    <Compile Include="EntityObject\P_ProjectTask.cs" />
+    <Compile Include="EntityObject\P_Receive.cs" />
+    <Compile Include="EntityObject\P_ReceivePlan.cs" />
+    <Compile Include="EntityObject\P_Repayment.cs" />
+    <Compile Include="EntityObject\P_SalesManClientLink.cs" />
+    <Compile Include="EntityObject\P_TaskOperLog.cs" />
+    <Compile Include="EntityObject\P_TaskTypeEmpLink.cs" />
+    <Compile Include="EntityObject\F_File.cs" />
+    <Compile Include="EntityObject\F_File_Attachment.cs" />
+    <Compile Include="EntityObject\F_File_CopyUser.cs" />
+    <Compile Include="EntityObject\F_File_Interaction.cs" />
+    <Compile Include="EntityObject\F_File_Operation.cs" />
+    <Compile Include="EntityObject\F_File_ReadingLog.cs" />
+    <Compile Include="EntityObject\F_File_ReadingUser.cs" />
+    <Compile Include="EntityObject\B_DictTree.cs" />
+    <Compile Include="EntityObject\P_Client.cs" />
+    <Compile Include="EntityObject\P_ClientLinker.cs" />
+    <Compile Include="EntityObject\P_Contract.cs" />
+    <Compile Include="EntityObject\P_Dict.cs" />
+    <Compile Include="EntityObject\P_DictType.cs" />
+    <Compile Include="EntityObject\P_Interaction.cs" />
+    <Compile Include="EntityObject\P_ProjectAttachment.cs" />
+    <Compile Include="EntityObject\P_Task.cs" />
+    <Compile Include="EntityObject\P_TaskCopyFor.cs" />
+    <Compile Include="EntityObject\P_WorkDayLog.cs" />
+    <Compile Include="EntityObject\P_WorkLogCopyFor.cs" />
+    <Compile Include="EntityObject\P_WorkLogInteraction.cs" />
+    <Compile Include="EntityObject\P_WorkLogSendFor.cs" />
+    <Compile Include="EntityObject\P_WorkMonthLog.cs" />
+    <Compile Include="EntityObject\SC_Attachment.cs" />
+    <Compile Include="EntityObject\SC_Interaction.cs" />
+    <Compile Include="EntityObject\SC_Operation.cs" />
+    <Compile Include="EntityObject\StoredProcedure.cs" />
+    <Compile Include="EntityObject\P_WorkWeekLog.cs" />
+    <Compile Include="QMSEnumType.cs" />
+    <Compile Include="EnumType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewObject\Request\PEmpFinanceAccount_Business.cs" />
+    <Compile Include="ViewObject\Request\BusinessBase.cs" />
+    <Compile Include="ViewObject\Request\Task_Search.cs" />
+    <Compile Include="ViewObject\Response\Task_Search_ResultVO.cs" />
+    <Compile Include="ViewObject\Response\WorkLogVO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_Dict.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\P_DictType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_Interaction.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_Task.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\P_TaskCopyFor.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_WorkDayLog.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_WorkLogCopyFor.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_WorkLogSendFor.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_WorkMonthLog.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_WorkWeekLog.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_Client.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\P_ClientLinker.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_Contract.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_ProjectAttachment.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\F_File_Attachment.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_CopyUser.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_Interaction.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_Operation.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_ReadingLog.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\F_File_ReadingUser.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_DictTree.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_TaskTypeEmpLink.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_TaskOperLog.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\E_Equip.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\E_MaintenanceData.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\E_ReportData.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\E_Templet.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\E_TempletEmp.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_WorkLogInteraction.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_Receive.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\P_ReceivePlan.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\F_File.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\StoredProcedure.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\PGM_Program.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_Attachment.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_Interaction.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\SC_Operation.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\B_Equip.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\B_Parameter.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_Finance_Receive.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_Invoice.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_CustomerService.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\P_CustomerServiceAttachment.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\P_CustomerServiceOperation.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\P_EmpFinanceAccount.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_ExpenseAccount.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_LoanBill.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_Repayment.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\E_Attachment.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_SalesManClientLink.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\P_CustomerServiceOperationLog.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_Project.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\CUser.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_ProjectTask.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_ProjectTaskProgress.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_ProjectDocument.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_Contract_Follow.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\P_Contract_Follow_Interaction.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\E_ResEmp.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\E_Responsibilitys.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\E_TempletRes.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\E_Parameter.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

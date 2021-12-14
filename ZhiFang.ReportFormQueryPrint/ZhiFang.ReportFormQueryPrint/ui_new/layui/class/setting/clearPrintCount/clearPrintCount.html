@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <style>
+        .layui-table, .layui-table-view {
+            margin: 0 !important;
+        }
+        #conditionsForm .layui-form-label {
+            
+            width: 50px !important;
+            
+        }
+        #conditionsForm .layui-form-item .layui-input-inline {
+            float: left;
+            width: 146px;
+            margin-right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <table class="layui-table layui-hide" id="clearPrintCountTable" lay-filter="clearPrintCountTable"></table>
+    <script type="text/html" id="toolbarDemo">
+        <form id="conditionsForm" class="layui-form" action="" lay-filter="conditionsForm"  style="float: left;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">姓名：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="CName" id="CName"  autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <div class="layui-input-inline">
+                        <select name="SECTIONNO"  lay-search="" lay-filter="SECTIONNO" id="SECTIONNO">
+                        <option value="">小组过滤</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <div class="layui-input-inline">
+                        <select name="selectdate"  lay-search="" lay-filter="selectdate" id="selectdate">
+                        <option value="CHECKDATE" selected="">审核（报告）时间</option>
+                        <option value="RECEIVEDATE">核收日期</option>
+                        <option value="COLLECTDATE">采样日期</option>
+                        <option value="INCEPTDATE">签收日期</option>
+                        <option value="TESTDATE">检测（上机）日期</option>
+                        <option value="OPERDATE">录入（操作）日期</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <div class="layui-input-inline">
+                      <input type="text" class="layui-input" id="selectdateValue" placeholder=" - ">
+                    </div>
+                </div>
+                
+                <div class="layui-inline">
+                    <label class="layui-form-label">条码号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="SERIALNO" id="SERIALNO" autocomplete="off" class="layui-input">
+                    </div>
+                    
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">病历号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="PATNO" id="PATNO" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+            <div class="layui-btn-container" style="float: left;">
+                
+                <button class="layui-btn layui-btn-xs" lay-event="search"><i class="layui-icon">&#xe615;</i>查询</button>
+            </div>    
+    </script>
+    <script type="text/html" id="delClientPrintbar">
+        <a style="height:13px;line-height:13px;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delClientPrint">删除</a>
+    </script>
+    <script type="text/html" id="delPrintTimesbar">
+        <a style="height:13px;line-height:13px;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delPrintTimes">删除</a>
+    </script>
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('clearPrintCount.js');
+        UIVersion.getCSS('../../../../../web_src/layui/css/layui.sm.all.css');
+    </script>
+</body>
+</html>

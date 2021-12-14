@@ -1,0 +1,81 @@
+﻿
+1.0.0.7
+
+1.科室调整
+	科室信息表添加“监测级别”：1:感控监测;0:科室监测;
+	感染管理科为“感控监测”，其他科室为“科室监测”;
+	感控监测类型分为感控管理部门监测及科室监测，以采样科室区分;	
+	增加字段:MonitorType bigint
+2.新增表
+	1.需要维护自动收科室关系;
+3.系统运行参数维护
+	完成评估后超过天数未归档(默认是30)
+	指定自动核收检验小组;
+	指定自动核收默认检验者;
+
+4.添置院感系统配置文件GKConfig.json
+
+5.添置院感与LIS对照配置文件;
+
+6.角色信息表添置系统预置类型，方便在登录入口账号注册时使用;SySType
+	1:全系统预置;
+	2:临床医生预置;
+	3:临床护士预置;
+	4:检验技师预置;
+	5:护工角色预置;
+	6:感染科预置;
+	7:输血科预置;
+	8;统计和报表;
+
+	IF COL_LENGTH('GK_SampleRequestForm', 'CName') IS NULL ALTER TABLE GK_SampleRequestForm ADD CName varchar(40); 
+	IF COL_LENGTH('RBAC_Role', 'SySType') IS NULL ALTER TABLE RBAC_Role ADD SySType bigint;
+
+3.LIS同步HIS
+（1）导入HIS科室，人员，科室人员信息服务
+
+	LIS仅同步HIS科室信息
+	http://localhost/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_SaveLisSyncDpetHisData
+
+	LIS同步HIS科室人员信息
+	http://localhost/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_SaveLisSyncHisDataInfo
+
+4.原院感系统数据导入LIS
+（1）导入科室，人员，科室人员信息服务(先不导入,从HIS导入)
+	http://localhost/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_SaveSyncGKBarcodeInfo
+
+（2）导入监测类型，记录项，科室记录项结果短语基础数据
+	http://localhost/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_SaveSyncTestTypeInfo
+
+（3）初始化系统条码信息
+	http://localhost/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_AddInitysOfLabId
+
+	http://localhost/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/BT_SYS_DBUpdate
+
+（4）导入原院感数据库的院感记录信息
+	IF COL_LENGTH('GKBarRed', 'IsSync') IS NULL ALTER TABLE GKBarRed ADD IsSync bit;
+	update GKBarRed set IsSync=0 where IsSync is null;
+	
+	http://localhost/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_SaveSyncGKBarRedInfo
+	
+	http://192.168.100.206/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_SaveLisSyncHisDataInfo
+
+	http://192.168.100.206/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_SaveSyncGKBarRedInfo
+
+（5）从导入的院感记录信息同步科室记录项结果短语(未实现)
+	http://localhost/ZhiFang.WebAssist/ServerWCF/WebAssistManageService.svc/WA_UDTO_SaveSyncTestTypeInfo
+
+
+	1.需要执行LIS更新;
+	(1)先清空原运行参数(80147)的设置;
+	(2)执行“运行参数执行.txt”;
+	(3)设置运行参数“常规检验审核调存储过程”值为GK_UpDate_Result [groupsampleformid];
+	(4)DBCop文件夹更新;
+	2.需要更新GK_ToLis_ItemsFormView;
+	3.需要清空样品信息记录项的“检验项目”的对照码;
+	4.需要清空透析液及透析用水的样品信息记录项的“检验项目”的对照码;
+	5.需要设置感控培养小组的小组项目对应项目(细菌总数,细菌数)的默认值为0;
+	6.返回结果时，将检验者信息更新给申请核收信息;
+
+	http://localhost/ZhiFang.WebAssist/ui/index.html
+	http://localhost/ZhiFang.WebAssist/ui/extjs.html
+

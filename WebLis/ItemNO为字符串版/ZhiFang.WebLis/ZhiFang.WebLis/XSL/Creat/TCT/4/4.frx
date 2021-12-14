@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/13/2011 09:57:41" ReportInfo.Modified="11/30/2012 16:51:31" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {  
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2"/>
+    <PageHeaderBand Name="PageHeader1" Top="4" Width="718.2" Height="162.54" BeforePrintEvent="PageHeader1_BeforePrint">
+      <TextObject Name="Text3" Left="63.7" Top="42.1" Width="595.35" Height="47.25" Text="骨髓细胞学检验报告单" HorzAlign="Center" WordWrap="false" Font="宋体, 24pt, style=Bold" TextFill.Color="MidnightBlue"/>
+      <TextObject Name="TextTitle" Left="55.05" Top="9.36" Width="614.25" Height="28.35" HorzAlign="Center" Font="宋体, 20pt, style=Bold"/>
+      <TextObject Name="Text4" Left="1.8" Top="106.14" Width="69.93" Height="17.01" Text="姓    名：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="TextSickType" Left="1.8" Top="124.39" Width="69.93" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" Text="病人ID：" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text16" Left="156.02" Top="87.3" Width="69.93" Height="17.01" BeforePrintEvent="Text16_BeforePrint" Text="送检单位：" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="TextCName" Left="65.68" Top="106.14" Width="88.83" Height="18.9" Text="[frform.CName]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="TextPatNo" Left="65.68" Top="124.28" Width="88.83" Height="17.01" Text="[frform.PatNo]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Textclient" Left="226.33" Top="87.3" Width="325.08" Height="17.01" Text="[frform.CLIENTNAME]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text13" Left="400.59" Top="106.14" Width="69.93" Height="17.01" Text="临床印象：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text17" Left="400.59" Top="124.28" Width="69.93" Height="17.01" Text="采样时间：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="TextSampleType" Left="467.5" Top="106.14" Width="88.83" Height="17.01" Text="[frform.ZDY3]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="TextDoctor" Left="467.5" Top="124.28" Width="88.83" Height="17.01" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text51" Left="65.68" Top="87.3" Width="88.83" Height="17.01" Text="[frform.BARCODE]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text52" Left="1.8" Top="87.3" Width="69.93" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" Text="条形码：" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text57" Left="467.5" Top="143.18" Width="52.92" Height="17.01" Text="[frform.COLLECTDATE]" Format="Date" Format.Format="d" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text58" Left="400.59" Top="143.18" Width="69.93" Height="17.01" Text="接收时间：" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text67" Left="1.8" Top="143.18" Width="69.93" Height="17.01" Text="科    别：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text68" Left="65.68" Top="143.18" Width="88.83" Height="17.01" Text="[frform.DeptNo]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text69" Left="156.02" Top="106.14" Width="69.93" Height="17.01" Text="性    别：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text70" Left="156.02" Top="124.28" Width="69.93" Height="17.01" Text="年    龄：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text71" Left="156.02" Top="143.18" Width="69.93" Height="17.01" Text="床    号：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text72" Left="226.33" Top="106.14" Width="51.03" Height="17.01" Text="[frform.GENDERNAME]&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text73" Left="226.33" Top="124.28" Width="51.03" Height="17.01" Text="[frform.AGE][frform.AGEUNITNAME]&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text74" Left="226.33" Top="143.18" Width="51.03" Height="17.01" Text="[frform.BED]&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text75" Left="279.25" Top="106.14" Width="69.93" Height="17.01" Text="申请医生：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text76" Left="279.25" Top="124.28" Width="69.93" Height="17.01" Text="申请日期：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text77" Left="279.25" Top="143.18" Width="69.93" Height="17.01" Text="采样人员：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text78" Left="348.8" Top="106.14" Width="51.03" Height="17.01" Text="[frform.DOCTORNAME]&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text79" Left="349.25" Top="124.28" Width="51.03" Height="17.01" Text="&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text80" Left="348.8" Top="143.18" Width="51.03" Height="17.01" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text85" Left="627.77" Top="87.3" Width="88.83" Height="17.01" Text="[frform.SAMPLENO]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text86" Left="560.86" Top="87.3" Width="69.93" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" Text="样 本 号：" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text81" Left="560.86" Top="106.14" Width="69.93" Height="17.01" Text="样本状态：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text83" Left="627.77" Top="106.14" Width="88.83" Height="18.9" Text="[frform.ZDY2]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text82" Left="560.86" Top="124.28" Width="69.93" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" Text="标本种类：" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text84" Left="627.77" Top="124.28" Width="88.83" Height="17.01" Text="[frform.SAMPLETYPENAME]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text87" Left="560.86" Top="143.18" Width="69.93" Height="17.01" Text="备    注：&#13;&#10;" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text88" Left="627.77" Top="143.18" Width="88.83" Height="17.01" Text="[frform.FORMMEMO]" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+      <TextObject Name="Text89" Left="525.55" Top="143.18" Width="34.02" Height="17.01" Text="[frform.COLLECTTIME]" Format="Time" Format.Format="HH:mm" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="170.54" Width="718.2" Height="718.2">
+      <TextObject Name="Text144" Left="464.3" Top="639.25" Width="94.5" Height="22.68" Text="报告医师：" WordWrap="false" Font="宋体, 12pt"/>
+      <PictureObject Name="NameImageChecker" Left="557.66" Top="635.25" Width="94.5" Height="33.26"/>
+      <TextObject Name="Text15" Left="463.87" Top="677.28" Width="94.5" Height="22.68" Text="报告日期：" Font="宋体, 12pt"/>
+      <TextObject Name="TextCheckDate" Left="560.45" Top="677.28" Width="122.85" Height="22.68" BeforePrintEvent="TextCheckDate_BeforePrint" Text="[frform.CHECKDATE]" Format="Date" Format.Format="d" WordWrap="false" Font="宋体, 12pt"/>
+      <LineObject Name="Line6" Left="46.12" Top="705.1" Width="623.7" Border.Shadow="true" Border.ShadowWidth="10" Border.Width="2"/>
+      <LineObject Name="Line2" Left="4.12" Top="1.15" Width="708.75" Border.Shadow="true" Border.ShadowWidth="10" Border.Width="2"/>
+      <TableObject Name="Table1" Left="18.9" Top="18.9" Width="415.8" Height="699.3">
+        <TableColumn Name="Column1"/>
+        <TableColumn Name="Column2"/>
+        <TableColumn Name="Column3"/>
+        <TableColumn Name="Column4"/>
+        <TableColumn Name="Column6"/>
+        <TableColumn Name="Column5" Width="85.05"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Text="细  胞  名  称" HorzAlign="Center" VertAlign="Center" ColSpan="3" RowSpan="2"/>
+          <TableCell Name="Cell2"/>
+          <TableCell Name="Cell3"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="血片" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="髓       片  " HorzAlign="Center" VertAlign="Bottom" ColSpan="2"/>
+          <TableCell Name="Cell5" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6"/>
+          <TableCell Name="Cell7"/>
+          <TableCell Name="Cell8"/>
+          <TableCell Name="Cell9" Border.Lines="Right, Bottom" Text="%" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell27" Border.Lines="Right, Bottom" Text="%" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell10" Border.Lines="Right, Bottom" Text="正常范围%" VertAlign="Bottom"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell11" Text="原始血细胞" HorzAlign="Center" VertAlign="Bottom" ColSpan="3"/>
+          <TableCell Name="Cell12" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell13" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell14">
+            <TextObject Name="TextBP1122" Left="0.45" Top="2" Width="62.75" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+          </TableCell>
+          <TableCell Name="Cell28">
+            <TextObject Name="TextMP1122" Left="1.45" Top="1.55" Width="62.75" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+          </TableCell>
+          <TableCell Name="Cell15">
+            <TextObject Name="TextRR1122" Left="2.45" Top="2" Width="81.65" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+            <TextObject Name="TextRR2" Left="2.45" Top="18.35" Width="81.65" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell16"/>
+          <TableCell Name="Cell17" Text="原 粒 细 胞" HorzAlign="Center" VertAlign="Bottom" ColSpan="2"/>
+          <TableCell Name="Cell18" HorzAlign="Center"/>
+          <TableCell Name="Cell19">
+            <TextObject Name="TextBP1123" Left="1.45" Top="0.9" Width="62.75" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+          </TableCell>
+          <TableCell Name="Cell29">
+            <TextObject Name="TextMP1123" Left="1.45" Top="1" Width="62.75" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" VertAlign="Center" WordWrap="false" Font="宋体, 9pt"/>
+          </TableCell>
+          <TableCell Name="Cell20"/>
+        </TableRow>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell21"/>
+          <TableCell Name="Cell22" Text="早幼粒细胞" HorzAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell23" HorzAlign="Center"/>
+          <TableCell Name="Cell24"/>
+          <TableCell Name="Cell30"/>
+          <TableCell Name="Cell25"/>
+        </TableRow>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell31"/>
+          <TableCell Name="Cell32" Text="中性&#13;&#10;粒细胞" RowSpan="4"/>
+          <TableCell Name="Cell33" Text="中    幼"/>
+          <TableCell Name="Cell34"/>
+          <TableCell Name="Cell35"/>
+          <TableCell Name="Cell36"/>
+        </TableRow>
+        <TableRow Name="Row7">
+          <TableCell Name="Cell37"/>
+          <TableCell Name="Cell38"/>
+          <TableCell Name="Cell39" Text="晚    幼"/>
+          <TableCell Name="Cell40"/>
+          <TableCell Name="Cell41"/>
+          <TableCell Name="Cell42"/>
+        </TableRow>
+        <TableRow Name="Row8">
+          <TableCell Name="Cell43"/>
+          <TableCell Name="Cell44"/>
+          <TableCell Name="Cell45" Text="杆状核"/>
+          <TableCell Name="Cell46"/>
+          <TableCell Name="Cell47"/>
+          <TableCell Name="Cell48"/>
+        </TableRow>
+        <TableRow Name="Row9">
+          <TableCell Name="Cell49"/>
+          <TableCell Name="Cell50"/>
+          <TableCell Name="Cell51" Text="分叶核"/>
+          <TableCell Name="Cell52"/>
+          <TableCell Name="Cell53"/>
+          <TableCell Name="Cell54"/>
+        </TableRow>
+        <TableRow Name="Row10">
+          <TableCell Name="Cell55"/>
+          <TableCell Name="Cell56" Text="嗜酸&#13;&#10;粒细胞" RowSpan="4"/>
+          <TableCell Name="Cell57" Text="中    幼"/>
+          <TableCell Name="Cell58"/>
+          <TableCell Name="Cell59"/>
+          <TableCell Name="Cell60"/>
+        </TableRow>
+        <TableRow Name="Row11">
+          <TableCell Name="Cell61"/>
+          <TableCell Name="Cell62"/>
+          <TableCell Name="Cell63" Text="晚    幼"/>
+          <TableCell Name="Cell64"/>
+          <TableCell Name="Cell65"/>
+          <TableCell Name="Cell66"/>
+        </TableRow>
+        <TableRow Name="Row12">
+          <TableCell Name="Cell67"/>
+          <TableCell Name="Cell68"/>
+          <TableCell Name="Cell69" Text="杆状核"/>
+          <TableCell Name="Cell70"/>
+          <TableCell Name="Cell71"/>
+          <TableCell Name="Cell72"/>
+        </TableRow>
+        <TableRow Name="Row13">
+          <TableCell Name="Cell73"/>
+          <TableCell Name="Cell74"/>
+          <TableCell Name="Cell75" Text="分叶核"/>
+          <TableCell Name="Cell76"/>
+          <TableCell Name="Cell77"/>
+          <TableCell Name="Cell78"/>
+        </TableRow>
+        <TableRow Name="Row14">
+          <TableCell Name="Cell79"/>
+          <TableCell Name="Cell80" Text="嗜碱&#13;&#10;粒细胞" RowSpan="4"/>
+          <TableCell Name="Cell81" Text="中幼"/>
+          <TableCell Name="Cell82"/>
+          <TableCell Name="Cell83"/>
+          <TableCell Name="Cell84"/>
+        </TableRow>
+        <TableRow Name="Row15">
+          <TableCell Name="Cell85"/>
+          <TableCell Name="Cell86"/>
+          <TableCell Name="Cell87" Text="晚幼"/>
+          <TableCell Name="Cell88"/>
+          <TableCell Name="Cell89"/>
+          <TableCell Name="Cell90"/>
+        </TableRow>
+        <TableRow Name="Row16">
+          <TableCell Name="Cell91"/>
+          <TableCell Name="Cell92"/>
+          <TableCell Name="Cell93" Text="杆状核"/>
+          <TableCell Name="Cell94"/>
+          <TableCell Name="Cell95"/>
+          <TableCell Name="Cell96"/>
+        </TableRow>
+        <TableRow Name="Row17">
+          <TableCell Name="Cell97"/>
+          <TableCell Name="Cell98"/>
+          <TableCell Name="Cell99" Text="分叶核"/>
+          <TableCell Name="Cell100"/>
+          <TableCell Name="Cell101"/>
+          <TableCell Name="Cell102"/>
+        </TableRow>
+        <TableRow Name="Row18">
+          <TableCell Name="Cell103"/>
+          <TableCell Name="Cell104"/>
+          <TableCell Name="Cell105"/>
+          <TableCell Name="Cell106"/>
+          <TableCell Name="Cell107"/>
+          <TableCell Name="Cell108"/>
+        </TableRow>
+        <TableRow Name="Row19">
+          <TableCell Name="Cell109"/>
+          <TableCell Name="Cell110"/>
+          <TableCell Name="Cell111"/>
+          <TableCell Name="Cell112"/>
+          <TableCell Name="Cell113"/>
+          <TableCell Name="Cell114"/>
+        </TableRow>
+        <TableRow Name="Row20">
+          <TableCell Name="Cell115"/>
+          <TableCell Name="Cell116"/>
+          <TableCell Name="Cell117"/>
+          <TableCell Name="Cell118"/>
+          <TableCell Name="Cell119"/>
+          <TableCell Name="Cell120"/>
+        </TableRow>
+        <TableRow Name="Row21">
+          <TableCell Name="Cell121"/>
+          <TableCell Name="Cell122"/>
+          <TableCell Name="Cell123"/>
+          <TableCell Name="Cell124"/>
+          <TableCell Name="Cell125"/>
+          <TableCell Name="Cell126"/>
+        </TableRow>
+        <TableRow Name="Row22">
+          <TableCell Name="Cell127"/>
+          <TableCell Name="Cell128"/>
+          <TableCell Name="Cell129"/>
+          <TableCell Name="Cell130"/>
+          <TableCell Name="Cell131"/>
+          <TableCell Name="Cell132"/>
+        </TableRow>
+        <TableRow Name="Row23">
+          <TableCell Name="Cell133"/>
+          <TableCell Name="Cell134"/>
+          <TableCell Name="Cell135"/>
+          <TableCell Name="Cell136"/>
+          <TableCell Name="Cell137"/>
+          <TableCell Name="Cell138"/>
+        </TableRow>
+        <TableRow Name="Row24">
+          <TableCell Name="Cell139"/>
+          <TableCell Name="Cell140"/>
+          <TableCell Name="Cell141"/>
+          <TableCell Name="Cell142"/>
+          <TableCell Name="Cell143"/>
+          <TableCell Name="Cell144"/>
+        </TableRow>
+        <TableRow Name="Row25">
+          <TableCell Name="Cell145"/>
+          <TableCell Name="Cell146"/>
+          <TableCell Name="Cell147"/>
+          <TableCell Name="Cell148"/>
+          <TableCell Name="Cell149"/>
+          <TableCell Name="Cell150"/>
+        </TableRow>
+        <TableRow Name="Row26">
+          <TableCell Name="Cell151"/>
+          <TableCell Name="Cell152"/>
+          <TableCell Name="Cell153"/>
+          <TableCell Name="Cell154"/>
+          <TableCell Name="Cell155"/>
+          <TableCell Name="Cell156"/>
+        </TableRow>
+        <TableRow Name="Row27">
+          <TableCell Name="Cell157"/>
+          <TableCell Name="Cell158"/>
+          <TableCell Name="Cell159"/>
+          <TableCell Name="Cell160"/>
+          <TableCell Name="Cell161"/>
+          <TableCell Name="Cell162"/>
+        </TableRow>
+        <TableRow Name="Row28">
+          <TableCell Name="Cell163"/>
+          <TableCell Name="Cell164"/>
+          <TableCell Name="Cell165"/>
+          <TableCell Name="Cell166"/>
+          <TableCell Name="Cell167"/>
+          <TableCell Name="Cell168"/>
+        </TableRow>
+        <TableRow Name="Row29">
+          <TableCell Name="Cell169"/>
+          <TableCell Name="Cell170"/>
+          <TableCell Name="Cell171"/>
+          <TableCell Name="Cell172"/>
+          <TableCell Name="Cell173"/>
+          <TableCell Name="Cell174"/>
+        </TableRow>
+        <TableRow Name="Row30">
+          <TableCell Name="Cell175"/>
+          <TableCell Name="Cell176"/>
+          <TableCell Name="Cell177"/>
+          <TableCell Name="Cell178"/>
+          <TableCell Name="Cell179"/>
+          <TableCell Name="Cell180"/>
+        </TableRow>
+        <TableRow Name="Row31">
+          <TableCell Name="Cell181"/>
+          <TableCell Name="Cell182"/>
+          <TableCell Name="Cell183"/>
+          <TableCell Name="Cell184"/>
+          <TableCell Name="Cell185"/>
+          <TableCell Name="Cell186"/>
+        </TableRow>
+        <TableRow Name="Row32">
+          <TableCell Name="Cell187"/>
+          <TableCell Name="Cell188"/>
+          <TableCell Name="Cell189"/>
+          <TableCell Name="Cell190"/>
+          <TableCell Name="Cell191"/>
+          <TableCell Name="Cell192"/>
+        </TableRow>
+        <TableRow Name="Row33">
+          <TableCell Name="Cell193"/>
+          <TableCell Name="Cell194"/>
+          <TableCell Name="Cell195"/>
+          <TableCell Name="Cell196"/>
+          <TableCell Name="Cell197"/>
+          <TableCell Name="Cell198"/>
+        </TableRow>
+        <TableRow Name="Row34">
+          <TableCell Name="Cell199"/>
+          <TableCell Name="Cell200"/>
+          <TableCell Name="Cell201"/>
+          <TableCell Name="Cell202"/>
+          <TableCell Name="Cell203"/>
+          <TableCell Name="Cell204"/>
+        </TableRow>
+        <TableRow Name="Row35">
+          <TableCell Name="Cell205"/>
+          <TableCell Name="Cell206"/>
+          <TableCell Name="Cell207"/>
+          <TableCell Name="Cell208"/>
+          <TableCell Name="Cell209"/>
+          <TableCell Name="Cell210"/>
+        </TableRow>
+        <TableRow Name="Row36">
+          <TableCell Name="Cell211"/>
+          <TableCell Name="Cell212"/>
+          <TableCell Name="Cell213"/>
+          <TableCell Name="Cell214"/>
+          <TableCell Name="Cell215"/>
+          <TableCell Name="Cell216"/>
+        </TableRow>
+        <TableRow Name="Row37">
+          <TableCell Name="Cell217"/>
+          <TableCell Name="Cell218"/>
+          <TableCell Name="Cell219"/>
+          <TableCell Name="Cell220"/>
+          <TableCell Name="Cell221"/>
+          <TableCell Name="Cell222"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="892.74" Width="718.2" Height="58.97">
+      <TextObject Name="Text148" Left="46.12" Top="8.42" Width="585.9" Height="26.46" Text="如有疑问请咨询电话：400-120-618" WordWrap="false" Font="宋体, 11pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

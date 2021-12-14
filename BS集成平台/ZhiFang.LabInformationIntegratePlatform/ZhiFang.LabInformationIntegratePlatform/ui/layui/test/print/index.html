@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>功能测试</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body class="layui-layout-body">
+	<div class="layui-fluid">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				打印测试
+			</div>
+			<div class="layui-card-body">
+				<div class="layui-btn-container">
+					<button id="print" class="layui-btn layui-btn-primary">直接打印</button>
+					<button id="preview" class="layui-btn layui-btn-primary">预览打印</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('index.js');
+	</script>
+</body>
+</html>

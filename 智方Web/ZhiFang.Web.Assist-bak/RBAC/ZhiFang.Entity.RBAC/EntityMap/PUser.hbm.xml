@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.RBAC" assembly="ZhiFang.Entity.RBAC">
+  <class name="PUser" table="[dbo].[PUser]">
+    <id name="Id" column="[UserNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="50" />
+    <property name="Password" column="[Password]" type="String" not-null="false" length="50" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="20" />
+    <property name="Gender" column="[Gender]" type="Int32" not-null="false" length="4" />
+    <property name="Birthday" column="[Birthday]" type="DateTime" not-null="false" length="8" />
+    <property name="Role" column="[Role]" type="String" not-null="false" length="20" />
+    <property name="Resume" column="[Resume]" type="String" not-null="false" length="250" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="Userimage" column="[userimage]" type="Byte[]" not-null="false" length="16" />
+    <property name="Usertype" column="[usertype]" type="String" not-null="false" length="20" />
+    <!--<property name="DeptNo" column="[DeptNo]" type="Int32" not-null="false" length="4" />-->
+    <property name="SectorTypeNo" column="[SectorTypeNo]" type="Int32" not-null="false" length="4" />
+    <property name="UserImeName" column="[UserImeName]" type="String" not-null="false" length="80" />
+    <property name="IsManager" column="[IsManager]" type="Int32" not-null="false" length="4" />
+    <property name="PassWordS" column="[PassWordS]" type="String" not-null="false" length="20" />
+    <property name="CAUserName" column="[CAUserName]" type="String" not-null="false" length="40" />
+    <property name="CAContainerName" column="[CAContainerName]" type="String" not-null="false" length="40" />
+    <property name="CAUserID" column="[CAUserID]" type="String" not-null="false" length="40" />
+    <property name="CAkeysn" column="[CAkeysn]" type="String" not-null="false" length="40" />
+    <property name="Code1" column="[code_1]" type="String" not-null="false" length="50" />
+    <property name="Code2" column="[code_2]" type="String" not-null="false" length="50" />
+    <property name="Code3" column="[code_3]" type="String" not-null="false" length="50" />
+    <property name="Code4" column="[code_4]" type="String" not-null="false" length="50" />
+    <property name="Code5" column="[code_5]" type="String" not-null="false" length="50" />
+    <property name="PWDateTime" column="[PWDateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="LoginDateTime" column="[LoginDateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="CAUserAuthorised" column="[CAUserAuthorised]" type="Int32" not-null="false" length="4" />
+    <property name="UserDataRights" column="[UserDataRights]" type="String" not-null="false" length="2000" />
+    <property name="Imgsignature" column="[Imgsignature]" type="String" not-null="false" length="16" />
+    <property name="Email" column="[Email]" type="String" not-null="false" length="100" />
+    
+    <!--<property name="OtherCode" column="[OtherCode]" type="String" not-null="false" length="50" />
+    <property name="Code6" column="[code_6]" type="String" not-null="false" length="50" />
+    <property name="Code7" column="[code_7]" type="String" not-null="false" length="50" />
+    <property name="Code8" column="[code_8]" type="String" not-null="false" length="50" />
+    <property name="Code9" column="[code_9]" type="String" not-null="false" length="50" />
+    <property name="Code10" column="[code_10]" type="String" not-null="false" length="50" />-->
+    <many-to-one name="Department" class="Department" lazy="false" >
+      <column name="[DeptNo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Doctor" class="Doctor" lazy="false" >
+      <column name="[DoctorNo]" not-null="false"/>
+    </many-to-one>
+    
+  </class>
+</hibernate-mapping>

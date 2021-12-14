@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ZhiFang.ReportFormQueryPrint" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="ZhiFang.ReportFormQueryPrint" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="ZhiFang.ReportFormQueryPrint">
+      <s:element name="ZhongRiYiYuanZiZhuDaDanReportFormService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZhongRiYiYuanZiZhuDaDanReportFormServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ZhongRiYiYuanZiZhuDaDanReportFormServiceResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportFormPDFByPatNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PatNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByPatNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByPatNoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFormNo_FTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FormNoFormat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SplitChar" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFormNo_FTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByFormNo_FTPResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLisReportBase64">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batchXMLRequest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLisReportBase64Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLisReportBase64Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFields_Base64String">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fields" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="values" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsPrintTimes" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFormPDFByFields_Base64StringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReportFormPDFByFields_Base64StringResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPathBtis" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NeiJiangGetReportFormPDFListByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NeiJiangGetReportFormPDFListByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NeiJiangGetReportFormPDFListByUserIdResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NeiJiangGetReportFormPDFListBitsByDSXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NeiJiangGetReportFormPDFListBitsByDSXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NeiJiangGetReportFormPDFListBitsByDSXMLResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NeiJiangUpdateReportPrintTimes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NeiJiangUpdateReportPrintTimesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NeiJiangUpdateReportPrintTimesResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TianJinGetReportFormPDFByFormNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FormNoFormat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SplitChar" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RangeDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TianJinGetReportFormPDFByFormNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TianJinGetReportFormPDFByFormNoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ZhongRiYiYuanZiZhuDaDanReportFormServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:ZhongRiYiYuanZiZhuDaDanReportFormService" />
+  </wsdl:message>
+  <wsdl:message name="ZhongRiYiYuanZiZhuDaDanReportFormServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:ZhongRiYiYuanZiZhuDaDanReportFormServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByPatNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByPatNo" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByPatNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByPatNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFormNo_FTPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFormNo_FTP" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFormNo_FTPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFormNo_FTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLisReportBase64SoapIn">
+    <wsdl:part name="parameters" element="tns:GetLisReportBase64" />
+  </wsdl:message>
+  <wsdl:message name="GetLisReportBase64SoapOut">
+    <wsdl:part name="parameters" element="tns:GetLisReportBase64Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFields_Base64StringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFields_Base64String" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFormPDFByFields_Base64StringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFormPDFByFields_Base64StringResponse" />
+  </wsdl:message>
+  <wsdl:message name="NeiJiangGetReportFormPDFListByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:NeiJiangGetReportFormPDFListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="NeiJiangGetReportFormPDFListByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:NeiJiangGetReportFormPDFListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="NeiJiangGetReportFormPDFListBitsByDSXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:NeiJiangGetReportFormPDFListBitsByDSXML" />
+  </wsdl:message>
+  <wsdl:message name="NeiJiangGetReportFormPDFListBitsByDSXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:NeiJiangGetReportFormPDFListBitsByDSXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="NeiJiangUpdateReportPrintTimesSoapIn">
+    <wsdl:part name="parameters" element="tns:NeiJiangUpdateReportPrintTimes" />
+  </wsdl:message>
+  <wsdl:message name="NeiJiangUpdateReportPrintTimesSoapOut">
+    <wsdl:part name="parameters" element="tns:NeiJiangUpdateReportPrintTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TianJinGetReportFormPDFByFormNoSoapIn">
+    <wsdl:part name="parameters" element="tns:TianJinGetReportFormPDFByFormNo" />
+  </wsdl:message>
+  <wsdl:message name="TianJinGetReportFormPDFByFormNoSoapOut">
+    <wsdl:part name="parameters" element="tns:TianJinGetReportFormPDFByFormNoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportFormServiceInterFaceSoap">
+    <wsdl:operation name="ZhongRiYiYuanZiZhuDaDanReportFormService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">中日医院自助打单机服务，先调用HIS视图</wsdl:documentation>
+      <wsdl:input message="tns:ZhongRiYiYuanZiZhuDaDanReportFormServiceSoapIn" />
+      <wsdl:output message="tns:ZhongRiYiYuanZiZhuDaDanReportFormServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByPatNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据病历号生成PDF报告并返回报告URL（返回结果包含正在打印的报告单数和正在检验的报告单数）</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByPatNoSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByPatNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo_FTP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">北医三院报告服务:根据FormNo(四个关键字Receivedate;Section;TestTypeno;Sampleno)生成PDF报告并返回报告FTP路径</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByFormNo_FTPSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByFormNo_FTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLisReportBase64">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">秦皇岛第一医院报告服务:根据传入字段和值生成PDF报告并返回XML文件格式字符串(报告PDF为Base64字符串)</wsdl:documentation>
+      <wsdl:input message="tns:GetLisReportBase64SoapIn" />
+      <wsdl:output message="tns:GetLisReportBase64SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields_Base64String">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据传入字段和值生成PDF报告并返回报告Base64字符串</wsdl:documentation>
+      <wsdl:input message="tns:GetReportFormPDFByFields_Base64StringSoapIn" />
+      <wsdl:output message="tns:GetReportFormPDFByFields_Base64StringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangGetReportFormPDFListByUserId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">内江东区人民医院:查询报告列表返回xml格式数据</wsdl:documentation>
+      <wsdl:input message="tns:NeiJiangGetReportFormPDFListByUserIdSoapIn" />
+      <wsdl:output message="tns:NeiJiangGetReportFormPDFListByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangGetReportFormPDFListBitsByDSXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">内江东区人民医院:查询并生成PDf返回xml格式数据</wsdl:documentation>
+      <wsdl:input message="tns:NeiJiangGetReportFormPDFListBitsByDSXMLSoapIn" />
+      <wsdl:output message="tns:NeiJiangGetReportFormPDFListBitsByDSXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangUpdateReportPrintTimes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">内江东区人民医院:根据传入patientId增加打印次数</wsdl:documentation>
+      <wsdl:input message="tns:NeiJiangUpdateReportPrintTimesSoapIn" />
+      <wsdl:output message="tns:NeiJiangUpdateReportPrintTimesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TianJinGetReportFormPDFByFormNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">天津血研究所根据FormNo(四个关键字Receivedate;Section;TestTypeno;Sampleno)生成PDF报告并返回报告URL</wsdl:documentation>
+      <wsdl:input message="tns:TianJinGetReportFormPDFByFormNoSoapIn" />
+      <wsdl:output message="tns:TianJinGetReportFormPDFByFormNoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportFormServiceInterFaceSoap" type="tns:ReportFormServiceInterFaceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZhongRiYiYuanZiZhuDaDanReportFormService">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/ZhongRiYiYuanZiZhuDaDanReportFormService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByPatNo">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/GetReportFormPDFByPatNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo_FTP">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/GetReportFormPDFByFormNo_FTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLisReportBase64">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/GetLisReportBase64" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields_Base64String">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/GetReportFormPDFByFields_Base64String" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangGetReportFormPDFListByUserId">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/NeiJiangGetReportFormPDFListByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangGetReportFormPDFListBitsByDSXML">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/NeiJiangGetReportFormPDFListBitsByDSXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangUpdateReportPrintTimes">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/NeiJiangUpdateReportPrintTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TianJinGetReportFormPDFByFormNo">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/TianJinGetReportFormPDFByFormNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportFormServiceInterFaceSoap12" type="tns:ReportFormServiceInterFaceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZhongRiYiYuanZiZhuDaDanReportFormService">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/ZhongRiYiYuanZiZhuDaDanReportFormService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByPatNo">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/GetReportFormPDFByPatNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFormNo_FTP">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/GetReportFormPDFByFormNo_FTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLisReportBase64">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/GetLisReportBase64" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFormPDFByFields_Base64String">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/GetReportFormPDFByFields_Base64String" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangGetReportFormPDFListByUserId">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/NeiJiangGetReportFormPDFListByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangGetReportFormPDFListBitsByDSXML">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/NeiJiangGetReportFormPDFListBitsByDSXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NeiJiangUpdateReportPrintTimes">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/NeiJiangUpdateReportPrintTimes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TianJinGetReportFormPDFByFormNo">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/TianJinGetReportFormPDFByFormNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportFormServiceInterFace">
+    <wsdl:port name="ReportFormServiceInterFaceSoap" binding="tns:ReportFormServiceInterFaceSoap">
+      <soap:address location="http://localhost/ZhiFang.ReportFormQueryPrint/ServiceWCF/ReportFormServiceInterFace.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportFormServiceInterFaceSoap12" binding="tns:ReportFormServiceInterFaceSoap12">
+      <soap12:address location="http://localhost/ZhiFang.ReportFormQueryPrint/ServiceWCF/ReportFormServiceInterFace.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

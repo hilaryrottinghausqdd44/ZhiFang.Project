@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="ItemRefeRange" table="[dbo].[Item_RefeRange]">
+    <id name="Id" column="[RefeRangeID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="ConditionName" column="[ConditionName]" type="String" not-null="false" length="100" />
+    <property name="IIndex" column="[iIndex]" type="Int32" not-null="false" length="4" />
+    <property name="LowAge" column="[LowAge]" type="Double" not-null="false" length="8" />
+    <property name="HighAge" column="[HighAge]" type="Double" not-null="false" length="8" />
+    <property name="BCollectTime" column="[bCollectTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ECollectTime" column="[eCollectTime]" type="DateTime" not-null="false" length="8" />
+    <property name="IsDefault" column="[IsDefault]" type="Boolean" not-null="false" length="1" />
+    <property name="LowValue" column="[LowValue]" type="Double" not-null="false" length="8" />
+    <property name="HighValue" column="[HighValue]" type="Double" not-null="false" length="8" />
+    <property name="RefRange" column="[RefRange]" type="String" not-null="false" length="400" />
+    <property name="AbLow" column="[AbLow]" type="Double" not-null="false" length="8" />
+    <property name="AbHigh" column="[AbHigh]" type="Double" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ManualSort" column="[ManualSort]" type="Int32" not-null="false" length="4" />
+    <many-to-one name="BAgeUnit" class="BAgeUnit" >
+      <column name="[AgeUnitID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BSampleType" class="BSampleType" >
+      <column name="[SampleTypeID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BSex" class="BSex" >
+      <column name="[SexID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="EPBEquip" class="EPBEquip" >
+      <column name="[EquipID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="GMGroup" class="GMGroup" >
+      <column name="[GroupID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="HRDept" class="HRDept" >
+      <column name="[DeptID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="ItemAllItem" class="ItemAllItem" >
+      <column name="[ItemID]" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

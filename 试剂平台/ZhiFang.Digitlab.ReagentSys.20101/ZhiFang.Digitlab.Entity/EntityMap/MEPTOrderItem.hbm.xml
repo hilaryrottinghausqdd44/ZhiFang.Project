@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="MEPTOrderItem" table="[dbo].[MEPT_OrderItem]">
+		<id name="Id" column="[OrderItemID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="ItemCoefficient" column="[ItemCoefficient]" type="Int32" not-null="false" length="4" />
+		<property name="ItemSource" column="[ItemSource]" type="Int32" not-null="false" length="4" />
+		<property name="SampleTypeID" column="[SampleTypeID]" type="Int64" not-null="false" length="8" />
+		<property name="Charge" column="[Charge]" type="Decimal" not-null="false" length="8" />
+		<property name="SamplingFlag" column="[SamplingFlag]" type="Int32" not-null="false" length="4" />
+    <property name="SplitFlag" column="[SplitFlag]" type="Int32" not-null="false" length="4" />
+		<property name="ZDY1" column="[ZDY1]" type="String" not-null="false" length="80" />
+		<property name="ZDY2" column="[ZDY2]" type="String" not-null="false" length="20" />
+		<property name="ZDY3" column="[ZDY3]" type="String" not-null="false" length="20" />
+		<property name="ZDY4" column="[ZDY4]" type="String" not-null="false" length="20" />
+		<property name="ZDY5" column="[ZDY5]" type="String" not-null="false" length="20" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="DeleteFlag" column="[DeleteFlag]" type="Int32" not-null="false" length="4" />
+		<property name="TransitFlag" column="[TransitFlag]" type="Int32" not-null="false" length="4" />
+		<property name="ErrorFlag" column="[ErrorFlag]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="ItemAllItem" class="ItemAllItem" >
+			<column name="[ItemID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEPTOrderForm" class="MEPTOrderForm" >
+			<column name="[OrderFormID]" not-null="false"/>
+		</many-to-one>
+		<bag name="MEPTSampleItemList" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key>
+                <column name="[OrderItemID]" />
+            </key>
+			<one-to-many class="MEPTSampleItem"/>
+		</bag>
+	</class>
+</hibernate-mapping>

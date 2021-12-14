@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="http://localhost/ZhiFang.LabInformationIntegratePlatform/ui/src/layui/src/css/layui.css" media="all">
+<script src="http://localhost/ZhiFang.LabInformationIntegratePlatform/ui/src/layui/src/layui.js"></script>
+<script type="text/javascript">
+	//初始化危急值消息卡片模块
+	function initMsgCardModule(loginInfo){
+		layui.config({
+			base:'http://localhost/ZhiFang.LabInformationIntegratePlatform/ui/layui/'
+		}).extend({
+			uxutil:'ux/util',
+			msgcard:'app/modules/msg/card'
+		}).use(['uxutil','msgcard'],function(){
+			var $ = layui.$,
+				uxutil = layui.uxutil,
+				msgcard = layui.msgcard;
+			
+			function initMsgCard(){
+				var card = msgcard.render({
+					//扩展定位属性
+					offsetP:{"right":0,"top":0},
+					//宽度高度
+					area:["100px","100px"],
+					isLogin:true,
+					loginInfo:loginInfo
+				});
+			}
+			initMsgCard();
+		});
+	}
+	//登录后调用
+	initMsgCardModule({
+		"Account":"hujie",
+		"PWD":"123456",
+		"Name":"胡杰",
+		"Sex":"男",
+		"DeptName":"前处理组",
+		"DeptHISCode":"1",
+		"Phone":"13812345678"
+	});
+</script>

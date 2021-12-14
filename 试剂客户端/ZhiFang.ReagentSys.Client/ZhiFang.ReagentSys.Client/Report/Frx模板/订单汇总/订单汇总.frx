@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/17/2018 15:46:37" ReportInfo.Modified="11/02/2021 20:24:08" ReportInfo.CreatorVersion="1.3.15.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.ReagentSys.Client" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFAmkwwEssvI/BSCZ7lXL6+lWiK56aPTvrPIhcFqsFJa0vx5wmt1wrLYfduaG8nqx/Mh2x4x7Y6xv5wHc+kcOmIcLJi8RwLQKR1RiSC5KyI9idWFNYRXyko1WJJ66jnW82hS2KGqY/+9Dj7VcVjDqWzNWC1ZJ0zHI9fg4DcWt3j7w=">
+      <TableDataSource Name="Rea_BmsCenOrderDtl" DataType="System.Int32" Enabled="true" TableName="Rea_BmsCenOrderDtl">
+        <Column Name="DeptName" DataType="System.String"/>
+        <Column Name="Checker" DataType="System.String"/>
+        <Column Name="CompMemo" DataType="System.String"/>
+        <Column Name="LabMemo" DataType="System.String"/>
+        <Column Name="CompanyName" DataType="System.String"/>
+        <Column Name="LabcName" DataType="System.String"/>
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="OrderDocNo" DataType="System.String"/>
+        <Column Name="ProdGoodsNo" DataType="System.String"/>
+        <Column Name="ProdOrgName" DataType="System.String"/>
+        <Column Name="GoodsUnit" DataType="System.String"/>
+        <Column Name="UnitMemo" DataType="System.String"/>
+        <Column Name="GoodsQty" DataType="System.Double"/>
+        <Column Name="CurrentQty" DataType="System.Double"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="Price" DataType="System.Double"/>
+        <Column Name="ReaGoodsID" DataType="System.Int64"/>
+        <Column Name="ReaGoodsName" DataType="System.String"/>
+        <Column Name="GoodsNo" DataType="System.String"/>
+        <Column Name="SumTotal" DataType="System.Double"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="BarCodeType" DataType="System.Int64"/>
+        <Column Name="ProdOrgNo" DataType="System.String"/>
+        <Column Name="ReaGoodsNo" DataType="System.String"/>
+        <Column Name="CenOrgGoodsNo" DataType="System.String"/>
+        <Column Name="GoodsSort" DataType="System.Int32"/>
+        <Column Name="ReqGoodsQty" DataType="System.Double"/>
+        <Column Name="ArrivalTime" DataType="System.DateTime"/>
+        <Column Name="ExpectedStock" DataType="System.Double"/>
+        <Column Name="MonthlyUsage" DataType="System.Double"/>
+        <Column Name="LastMonthlyUsage" DataType="System.Double"/>
+        <Column Name="OrderDocID" DataType="System.Int64"/>
+        <Column Name="GoodSName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="Rea_ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="47.25">
+      <TextObject Name="txtTitle" Left="311.85" Top="8.9" Width="368.55" Height="28.35" Text="订货汇总明细信息" HorzAlign="Center" VertAlign="Center" Font="宋体, 14pt, style=Bold"/>
+      <TextObject Name="Text11" Left="926.1" Top="16.9" Width="94.5" Height="18.9" Text="[PageN]" Font="宋体, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="51.25" Width="1047.06" Height="28.35">
+      <LineObject Name="Line1" Left="2.55" Width="1039.5"/>
+      <TextObject Name="lblAbsRow" Left="4.45" Top="5" Width="37.8" Height="18.9" Text="行号" Font="宋体, 10pt, style=Bold"/>
+      <LineObject Name="Line2" Left="1.45" Top="26.35" Width="1039.5"/>
+      <TextObject Name="lblReaGoodsName" Left="347.65" Top="5.45" Width="75.6" Height="18.9" Text="货品名称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblGoodsUnit" Left="550.4" Top="5" Width="66.15" Height="18.9" Text="包装单位" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblReqGoodsQty" Left="693.45" Top="4.45" Width="66.15" Height="18.9" Text="申请数" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblPrice" Left="840.05" Top="4" Width="66.15" Height="18.9" Text="单价" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblUnitMemo" Left="621.15" Top="3.45" Width="66.15" Height="18.9" Text="单位描述" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblSumTotal" Left="905.2" Top="3" Width="47.25" Height="18.9" Text="金额" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblGoodsQty" Left="762.45" Top="4" Width="75.6" Height="18.9" Text="审批数" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="46.25" Top="5.45" Width="94.5" Height="18.9" Text="申请部门" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text14" Left="147.2" Top="4" Width="103.95" Height="18.9" Text="供应商" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text16" Left="254.15" Top="4" Width="85.05" Height="18.9" Text="产品编码" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text18" Left="472.5" Top="5.29" Width="75.6" Height="18.9" Text="货品简称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text20" Left="973.35" Top="3.02" Width="66.15" Height="18.9" Text="品牌" Font="宋体, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="83.6" Width="1047.06" Height="32.8" DataSource="Rea_BmsCenOrderDtl">
+      <TextObject Name="txtAbsRow" Left="2" Top="3.45" Width="37.8" Height="18.9" Text="[AbsRow#]" Font="宋体, 10pt"/>
+      <TextObject Name="txtReaGoodsName" Left="345.55" Top="-0.1" Width="113.4" Height="28.35" Text="[Rea_BmsCenOrderDtl.ReaGoodsName]" Font="宋体, 10pt"/>
+      <TextObject Name="txtGoodsUnit" Left="548.95" Top="2.45" Width="66.15" Height="18.9" Text="[Rea_BmsCenOrderDtl.GoodsUnit]" Font="宋体, 10pt"/>
+      <TextObject Name="txtReqGoodsQty" Left="691.2" Top="4.45" Width="66.15" Height="18.9" Text="[Rea_BmsCenOrderDtl.ReqGoodsQty]" Font="宋体, 10pt"/>
+      <TextObject Name="txtGoodsQty" Left="759.9" Top="4" Width="75.6" Height="18.9" Text="[Rea_BmsCenOrderDtl.GoodsQty]" Font="宋体, 10pt"/>
+      <TextObject Name="txtUnitMemo" Left="619.05" Top="1.45" Width="66.15" Height="28.35" Text="[Rea_BmsCenOrderDtl.UnitMemo]" Font="宋体, 10pt"/>
+      <TextObject Name="txtPrice" Left="838.5" Top="4.45" Width="66.15" Height="18.9" Text="[Rea_BmsCenOrderDtl.Price]" Font="宋体, 10pt"/>
+      <TextObject Name="txtSumTotal" Left="908.65" Top="5.45" Width="56.7" Height="18.9" Text="[Rea_BmsCenOrderDtl.SumTotal]" Font="宋体, 10pt"/>
+      <TextObject Name="Text13" Left="44.25" Width="103.95" Height="28.35" Text="[Rea_BmsCenOrderDtl.DeptName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text15" Left="149.2" Width="103.95" Height="28.35" Text="[Rea_BmsCenOrderDtl.CompanyName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text17" Left="255.15" Top="3.45" Width="85.05" Height="18.9" Text="[Rea_BmsCenOrderDtl.ReaGoodsNo]" Font="宋体, 10pt"/>
+      <TextObject Name="Text19" Left="463.05" Width="85.05" Height="28.35" Text="[Rea_BmsCenOrderDtl.GoodSName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text21" Left="973.35" Top="5.29" Width="66.15" Height="18.9" Text="[Rea_BmsCenOrderDtl.ProdOrgName]" Font="宋体, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="120.4" Width="1047.06" Height="37.8">
+      <LineObject Name="Line3" Left="2" Top="0.45" Width="1039.5"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

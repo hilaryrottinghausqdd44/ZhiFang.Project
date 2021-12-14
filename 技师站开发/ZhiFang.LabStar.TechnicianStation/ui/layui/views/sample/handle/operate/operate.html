@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>操作记录</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../css/layui.sm.all.css");
+    </script>
+</head>
+<body>
+   <div class="layui-col-xs12">
+	   <div class="layui-row">
+		   <table id="operateTable" lay-filter="operateTable"></table>
+	   </div>
+   </div>
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('operate.js');
+    </script>
+</body>
+</html>

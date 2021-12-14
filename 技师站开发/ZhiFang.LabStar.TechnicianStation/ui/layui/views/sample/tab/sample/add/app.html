@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>追加项目</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+	<script type="text/javascript">
+		UIVersion.getCSS("../../../css/layui.sm.all.css");
+	</script>
+    <style>
+        /*label宽度*/
+        .layui-form label {
+            padding: 9px 0;
+            width: 100px;
+        }
+		.buttonBox {
+            position: relative;
+            top: 50%;
+			margin-top: -100px;
+        }
+        .buttonStyle {
+            text-align: center;
+            margin: 10px 0;
+        }
+		.bottom-txt{
+			margin-top: 10px;
+		}
+		.bottom-txt span{
+			padding: 3px; border-radius: 5px;color:#000;
+		}
+		.layui-form-item .layui-form-checkbox[lay-skin=primary]{ margin-top: 0!important; }
+		.layui-form-item{
+			margin-top: 5px;
+		}
+    </style>
+</head> 
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space5">
+            <div class=" layui-col-sm5 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="layui-form" lay-filter="form">
+                            <div class="layui-row">
+                                <div class="layui-col-sm8 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">已选择项目：</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="existSearchText" id="existSearchText" autocomplete="off" placeholder="名称/简称/快捷码/拼音字头" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableContainer">
+                            <table id="leftTable" lay-filter="leftTable"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm1 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body fiexdHeight">
+                        <div class="buttonBox">
+                            <div class="layui-row">
+                                <div class="layui-col-xs12 buttonStyle">
+                                    <button class="layui-btn layui-btn-sm" id="add"> 加入 </button>
+                                </div>
+                                <div class="layui-col-xs12 buttonStyle">
+                                    <button class="layui-btn layui-btn-sm" id="remove"> 删除 </button>
+                                </div>
+                                <div class="layui-col-xs12 buttonStyle">
+                                    <button class="layui-btn layui-btn-sm" id="removeAll"> 组合删除 </button>
+                                </div>
+                                <div class="layui-col-xs12 buttonStyle">
+                                    <button class="layui-btn layui-btn-sm" id="reset"> 重置 </button>
+                                </div>
+                                <div class="layui-col-xs12 buttonStyle">
+                                    <button class="layui-btn layui-btn-sm" id="save"> 保存 </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm6 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="layui-form" lay-filter="formAll">
+                            <div class="layui-row">
+                                <div class="layui-col-sm6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">名称/简称：</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="searchText" id="searchText" autocomplete="off" placeholder="名称/英文名/简称/快捷码" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm3 layui-col-xs12" style="margin-left: 20px;">
+                                    <div class="layui-form-item">
+                                        <input type="checkbox" name="IsOrderItem" id="IsOrderItem" lay-skin="primary" title="仅查看医嘱项目" checked="">
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm1 layui-col-xs4">
+                                    <div class="layui-form-item">
+                                        <button class="layui-btn layui-btn-xs" id="search" lay-submit="" lay-filter="search"> 查询 </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableContainer">
+							<div class="layui-col-sm12" id="rightTalbeDiv">
+								 <table id="rightTable" lay-filter="rightTable"></table>
+							</div>
+                           <div class="" id="groupItemTableDiv" layui-hide>
+                           	 <table id="groupItemTable" lay-filter="groupItemTable"></table>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="layui-row bottom-txt">
+				<font style="color: red;font-weight:bold;">
+					提示：
+				</font>
+				<span style="background-color:#ADE3F7;">在用</span>
+				<span style="background-color:#BDFFDE;">新增</span>
+				&nbsp;&nbsp;
+				<span style="background-color:#FFC3A5;">组合项目</span>
+				<span style="background-color:#7CE9BE;">医嘱项目</span>
+		</div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('app.js');
+    </script>
+</body>
+</html>

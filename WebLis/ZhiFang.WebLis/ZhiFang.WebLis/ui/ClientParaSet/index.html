@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>客户参数管理</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="../util/common.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <style type="text/css">
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+        }
+
+        .fTitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .fItem {
+            margin-bottom: 15px;
+        }
+
+            .fItem label {
+                display: inline-block;
+                width: 100px;
+            }
+    </style>
+</head>
+<body class="easyui-layout">   
+    <div data-options="region:'west',title:'参数列表',split:true" style="width:300px;">
+    <table id="dg" ></table>
+        
+    </div>
+    <div data-options="region:'center',title:'客户参数配置列表'" style="background:#eee;">
+        <table id="dgsub"></table>
+    </div>
+    <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: left; width:auto">
+
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+        </div>
+        <div style="float: right; margin-right: 10px; margin-top: 3px;">
+            <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入名称',searcher:doSearch" style="width:200px;" />
+        </div>
+    </div>
+    <div id="toolbarsub" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: left; width:auto">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="updatesub()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+        </div>
+        <div style="float: right; margin-right: 10px; margin-top: 3px;">
+            <input id="txtSearchKeysub" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入实验室名称',searcher:doSearchsub" style="width:200px;" />
+        </div>
+    </div>
+    <div id="dlg" class="easyui-dialog" style="width:580px;height:360px;margin: auto;" closed="true" buttons="#dlgButtons">
+        <form id="fm">
+            <div class="fItem" style="margin-top:20px">
+                <label>参数名:</label>
+                <input id="TxtName" type="text" name="Name" class="easyui-textbox" style="width: 200px;" data-options="required:true" />
+            </div>
+            <div class="fItem">
+                <label>参数编码:</label>
+                <input id="TxtParaNo" type="text" name="ParaNo" class="easyui-textbox" style="width: 200px;" data-options="required:true" />
+            </div>
+            <div class="fItem">
+                <label>参数值:</label>
+                <input id="TxtParaValue" type="text" name="ParaValue" class="easyui-textbox" required="required" style="width: 200px;" />
+            </div>
+            <div class="fItem">
+                <label>参数描述:</label>
+                <input id="TxtParaDesc" type="text" name="ParaDesc" class="easyui-textbox" data-options="required:true,multiline:true" style="width: 200px;height:80px" />
+            </div>
+            <div class="fItem">
+                <label>实验室选择:</label>
+                <select id="ddlLab" name="ddlLab" class="easyui-combobox"  style="width: 200px;" editable="true">
+                </select>
+            </div>
+        </form>
+    </div>
+    <div id="dlgButtons">
+        <div align="center">
+            <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+        </div>
+    </div>
+</body>
+</html>

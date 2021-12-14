@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86FC16A1-18BB-4121-B1FE-4117AE5825E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitTestLabStar</RootNamespace>
+    <AssemblyName>UnitTestLabStar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\Lib\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Spring">
+      <HintPath>..\Lib\NHibernate.ByteCode.Spring.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache2">
+      <HintPath>..\Lib\NHibernate.Caches.SysCache2.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\Lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30">
+      <HintPath>..\Lib\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Services">
+      <HintPath>..\Lib\Spring.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Testing.Microsoft">
+      <HintPath>..\Lib\Spring.Testing.Microsoft.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="ZhiFang.BLL.LabStar\BBParaItemTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBItemRangeTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBPhraseTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBQCItemTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBQCRuleTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBQCMaterialTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBSamplingGroupTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBSamplingItemTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BBParaTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLisCommonTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLisOperateTest .cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLisOrderFormTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLisTestFormTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLisTestGraphTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLisTestItemTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBItemTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBEquipItemTest.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\BLBSectionItemTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZhiFang.BLL.LabStar\QualityControlRuleJudgment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.BLL.LabStar\ZhiFang.BLL.LabStar.csproj">
+      <Project>{45D7B243-199A-4DE7-A777-EC02BD1BBCE6}</Project>
+      <Name>ZhiFang.BLL.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{1cfa6885-ebbe-489e-9373-b672e8dad7e7}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.LabStar\ZhiFang.DAO.NHB.LabStar.csproj">
+      <Project>{0fc4a7e3-1466-48cb-a058-7eca3cddff50}</Project>
+      <Name>ZhiFang.DAO.NHB.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.RBAC\ZhiFang.DAO.NHB.RBAC.csproj">
+      <Project>{97ee1806-fbd2-4305-858f-f2572e80a4de}</Project>
+      <Name>ZhiFang.DAO.NHB.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.LabStar\ZhiFang.Entity.LabStar.csproj">
+      <Project>{50641dca-bffc-4818-9fef-d9338dbb2327}</Project>
+      <Name>ZhiFang.Entity.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.LIIP\ZhiFang.Entity.LIIP.csproj">
+      <Project>{34a7c4df-e99d-4a8c-b614-c9e7a22fed91}</Project>
+      <Name>ZhiFang.Entity.LIIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.LabStar\ZhiFang.IBLL.LabStar.csproj">
+      <Project>{ba6a2ef3-1134-45e4-8420-da3f40d9197c}</Project>
+      <Name>ZhiFang.IBLL.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.LabStar\ZhiFang.IDAO.LabStar.csproj">
+      <Project>{286b724d-312b-4657-8e2b-2772b31ffa97}</Project>
+      <Name>ZhiFang.IDAO.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.LabStar.Common\ZhiFang.LabStar.Common.csproj">
+      <Project>{D187EDC5-9421-4097-85EC-AB82A76A82D5}</Project>
+      <Name>ZhiFang.LabStar.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ObjectFactory.LabStar\ZhiFang.ObjectFactory.LabStar.csproj">
+      <Project>{a398bae9-4641-4ac6-829c-01307d38ba8f}</Project>
+      <Name>ZhiFang.ObjectFactory.LabStar</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Dao.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\DaoBase.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Service.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\ServiceBase.xml" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

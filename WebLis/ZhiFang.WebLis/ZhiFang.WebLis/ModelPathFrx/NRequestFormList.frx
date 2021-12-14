@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/19/2019 12:04:27" ReportInfo.Modified="05/19/2019 22:22:12" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Text6_AfterPrint(object sender, EventArgs e)
+    {
+       Text6.Text=&quot;123&quot;;
+    }
+
+    private void Text6_BeforePrint(object sender, EventArgs e)
+    {
+            
+    }
+
+    private void Text6_AfterData(object sender, EventArgs e)
+    {
+            Text6.Text=Text6.Text.Substring(0,10);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Table" Alias="tab_nrf" ReferenceName="Data.tab_nrf" DataType="System.Int32" Enabled="true" SelectCommand="SELECT top 100 dbo.BarCodeForm.BarCode, dbo.NRequestForm.ClientNo, dbo.NRequestForm.ClientName, &#13;&#10;                   dbo.NRequestForm.WebLisOrgID, dbo.NRequestForm.WebLisOrgName, dbo.NRequestForm.WebLisSourceOrgID, &#13;&#10;                   dbo.NRequestForm.WebLisSourceOrgName, dbo.NRequestForm.Age, dbo.BarCodeForm.ItemName, &#13;&#10;                   dbo.BarCodeForm.ItemNo, dbo.BarCodeForm.color, dbo.BarCodeForm.SampleTypeName, dbo.NRequestForm.CName, &#13;&#10;                   dbo.NRequestForm.AgeUnitName, dbo.NRequestForm.GenderName, dbo.NRequestForm.PatNo, &#13;&#10;                   dbo.NRequestForm.GenderNo, dbo.NRequestForm.AgeUnitNo, dbo.NRequestForm.OperDate, &#13;&#10;                   dbo.NRequestForm.OperTime, dbo.NRequestForm.jztype, dbo.NRequestForm.jztypeName,'aaa' as Count&#13;&#10;FROM      dbo.NRequestForm INNER JOIN&#13;&#10;                   dbo.NRequestItem ON dbo.NRequestForm.NRequestFormNo = dbo.NRequestItem.NRequestFormNo INNER JOIN&#13;&#10;                   dbo.BarCodeForm ON dbo.NRequestItem.BarCodeFormNo = dbo.BarCodeForm.BarCodeFormNo&#13;&#10;				   where BarCodeForm.BarCode='99180525001'">
+      <Column Name="BarCode" DataType="System.String"/>
+      <Column Name="ClientNo" DataType="System.String"/>
+      <Column Name="ClientName" DataType="System.String"/>
+      <Column Name="WebLisOrgID" DataType="System.String"/>
+      <Column Name="WebLisOrgName" DataType="System.String"/>
+      <Column Name="WebLisSourceOrgID" DataType="System.String"/>
+      <Column Name="WebLisSourceOrgName" DataType="System.String"/>
+      <Column Name="Age" DataType="System.Double"/>
+      <Column Name="ItemName" DataType="System.String"/>
+      <Column Name="ItemNo" DataType="System.String"/>
+      <Column Name="color" DataType="System.String"/>
+      <Column Name="SampleTypeName" DataType="System.String"/>
+      <Column Name="CName" DataType="System.String"/>
+      <Column Name="AgeUnitName" DataType="System.String"/>
+      <Column Name="GenderName" DataType="System.String"/>
+      <Column Name="PatNo" DataType="System.String"/>
+      <Column Name="GenderNo" DataType="System.Int32"/>
+      <Column Name="AgeUnitNo" DataType="System.Int32"/>
+      <Column Name="OperDate" DataType="System.DateTime"/>
+      <Column Name="OperTime" DataType="System.DateTime"/>
+      <Column Name="jztype" DataType="System.Int32"/>
+      <Column Name="jztypeName" DataType="System.String"/>
+      <Column Name="Count" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="278" OtherPagesSource="278">
+    <PageHeaderBand Name="PageHeader1" Width="718.2" Height="64.26">
+      <TextObject Name="Text1" Top="20.79" Width="200.34" Height="24.57" Text="外送单位：四川大家实验室" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="Text2" Left="200.34" Top="20.79" Width="289.17" Height="24.57" Text="外送单位：[tab_nrf.WebLisSourceOrgName]" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="Text3" Left="489.51" Top="20.79" Width="228.69" Height="24.57" Text="日期：[FormatDateTime([Date],&quot;Long Date&quot;)]" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
+      <TextObject Name="Text4" Width="718.2" Height="20.79" Text="外送清单" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TableObject Name="Table1" Top="45.36" Width="718.2" Height="18.9" Dock="Bottom" Border.Lines="Top, Bottom" Border.Width="1.5">
+        <TableColumn Name="Column1" Width="51.06"/>
+        <TableColumn Name="Column2" Width="69.96"/>
+        <TableColumn Name="Column3" Width="88.87"/>
+        <TableColumn Name="Column4" Width="117.21"/>
+        <TableColumn Name="Column5" Width="69.97"/>
+        <TableColumn Name="Column6" Width="51"/>
+        <TableColumn Name="Column7" Width="51"/>
+        <TableColumn Name="Column8" Width="51"/>
+        <TableColumn Name="Column9" Width="51.03"/>
+        <TableColumn Name="Column10" Width="126.6"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Text="序号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell2" Text="申请时间" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell3" Text="条码号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell4" Text="就诊类型" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell5" Text="病历号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell26" Text="姓名" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell27" Text="性别" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell28" Text="年龄" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell29" Text="项目" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell30" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="67.46" Width="718.2" Height="18.9" CanGrow="true" DataSource="Table">
+      <TextObject Name="Text5" Width="51.03" Height="18.9" CanGrow="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Left="51.03" Width="69.93" Height="18.9" CanGrow="true" BeforePrintEvent="Text6_BeforePrint" AfterPrintEvent="Text6_AfterPrint" AfterDataEvent="Text6_AfterData" Text="[tab_nrf.OperDate]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text7" Left="120.96" Width="88.83" Height="18.9" CanGrow="true" Text="[tab_nrf.BarCode]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text8" Left="209.79" Width="117.18" Height="18.9" CanGrow="true" Text="[tab_nrf.jztypeName]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text10" Left="326.97" Width="69.93" Height="18.9" CanGrow="true" Text="[tab_nrf.PatNo]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text11" Left="396.9" Width="51.03" Height="18.9" CanGrow="true" Text="[tab_nrf.CName]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text12" Left="447.93" Width="51.03" Height="18.9" CanGrow="true" Text="[tab_nrf.GenderName]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text13" Left="498.96" Width="51.03" Height="18.9" CanGrow="true" Text="[tab_nrf.Age][tab_nrf.AgeUnitName]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text14" Left="549.99" Width="168.21" Height="18.9" CanGrow="true" Text="[tab_nrf.ItemName]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="89.56" Width="718.2" Height="85.05">
+      <TextObject Name="Text9" Width="720.09" Height="18.9" Text="检验标本总数: [tab_nrf.Count]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text16" Top="18.9" Width="200.34" Height="66.15" Text="客户签名: " Font="宋体, 9pt"/>
+      <TextObject Name="Text17" Left="198.45" Top="18.9" Width="245.7" Height="66.15" Text="物流签名: &#13;&#10;&#13;&#10;&#13;&#10;实验室签名: " Font="宋体, 9pt"/>
+      <TextObject Name="Text18" Left="444.15" Top="18.9" Width="274.05" Height="66.15" Text="物流接收时间: &#13;&#10;&#13;&#10;&#13;&#10;实验室接收时间:" Font="宋体, 9pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

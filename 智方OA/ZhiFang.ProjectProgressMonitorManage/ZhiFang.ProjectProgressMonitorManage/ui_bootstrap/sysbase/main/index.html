@@ -1,0 +1,219 @@
+﻿<!-- AUI Framework -->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>内部管理系统</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="shortcut icon" href="../../img/logo-16.png">
+			<link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/style.css">
+		<script type="text/javascript" src="../../src/jquery.min.js"></script>
+		<script type="text/javascript" src="../../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="../../util/JcallShell.js"></script>
+	</head>
+
+	<body class="fixed-sidebar fixed-header">
+		<noscript>
+		&lt;div class="noscript"&gt;
+			您好，需要浏览器开启JavaScript功能来帮助你使用内部管理系统。&lt;br/&gt;
+			请设置浏览器开启JavaScript功能，然后重试。
+		&lt;/div&gt;
+	</noscript>
+		<!-- 加载进度条  -->
+		<div id="load-mask" style="width: 123.05px; height: 60.9px; left: 440px; top: 274px; display: none;">
+			<div id="load-mask-msg" class="load-mask-msg">
+				<div><img align="absmiddle" style="width:16px;height:16px;" src="../../img/common/wait.gif">&nbsp;努力加载中...</div>
+			</div>
+		</div>
+		<!-- 顶部功能栏 -->
+		<div class="header">
+			<div class="logo">
+				<img src="../../img/logo.png" alt="内部管理系统">
+			</div>
+			<div class="info clearfix">
+				<ul id="navigator">
+					<li class="info-i user-name tooltip-f" title="">
+						<span id="UserImg"><img class="avatar" alt="我的头像" src="../../img/common/head.png"></span>
+						<b class="caret"></b>
+						<span id="UserName" class="name">胡杰</span>
+					</li>
+					<li class="separate"></li>
+					<li class="info-i">
+						<a class="forum" href="../../building.html" target="_blank" hidefocus="true">论坛</a>
+					</li>
+
+					<li class="separate"></li>
+					<li class="info-i">
+						<a id="Info" class="message" href="javascript:;" hidefocus="true">
+						消息<span id="message_number" style="display:none;"></span></a>
+					</li>
+					<li class="separate"></li>
+					<li class="info-i">
+						<a href="../../download/index.html" target="_blank" hidefocus="true">下载</a>
+					</li>
+					<li class="separate"></li>
+					<li class="info-i">
+						<a href="../../help/index.html" target="_blank" hidefocus="true">帮助</a>
+					</li>
+					<li class="separate"></li>
+					<li class="info-i no-separate">
+						<a id="Close" class="exit" href="javascript:;" hidefocus="true">退出</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 左侧功能栏 -->
+		<div class="panel layout-panel layout-panel-west" style="width: 203px; left: 0px; top: 56px;">
+			<div data-options="region:'west',border:false" style="padding: 12px 5px 10px 10px; overflow: hidden; width: 188px; height: 530px; background: rgb(243, 243, 243);" title="" class="panel-body panel-body-noheader panel-body-noborder  layout-body panel-noscroll">
+				<div id="menu" class="easyui-tabs tabs-container easyui-fluid" data-options="fit:true,headerWidth:'28',tabPosition:'left',border:false,onSelect:selectTab" style="width: 188px; height: 530px;">
+					<div class="tabs-header tabs-header-left tabs-header-noborder" style="width: 28px; height: 530px;">
+						<div class="tabs-scroller-left"></div>
+						<div class="tabs-scroller-right"></div>
+						<div class="tabs-wrap" style="width: 28px;">
+							<ul class="tabs" style="width: 27px;">
+								<li class="tabs-selected tabs-first">
+									<a href="javascript:void(0)" class="tabs-inner tabs-inner0" style="height: 0px; line-height: 92px;">
+										<span class="tabs-title">日常办公</span>
+										<span class="tabs-icon"></span>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0)" class="tabs-inner tabs-inner1" style="height: 0px; line-height: 92px;">
+										<span class="tabs-title">客户管理</span>
+										<span class="tabs-icon"></span>
+									</a>
+								</li>
+								<li class="tabs-last">
+									<a href="javascript:void(0)" class="tabs-inner tabs-inner2" style="height: 0px; line-height: 92px;">
+										<span class="tabs-title">数据上报</span>
+										<span class="tabs-icon"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="tabs-panels tabs-panels-right tabs-panels-noborder" style="width: 160px; height: 530px;">
+						<div class="panel" style="display: block; width: 159px;">
+							<div title="" style="border: none; overflow: hidden; width: 159px; height: 528px;" data-options="onResize:resizeMenu" class="panel-body panel-body-noheader panel-body-noborder">
+								<div class="menu-switch">
+									<span onclick="javascript:resizePage(this);" class="layout-button-left"></span>
+								</div>
+								<div class="menu-wrap" style="overflow: auto; height: 506px;">
+									<ul class="nav-menu">
+										<li class="dropdown">
+											<a id="104020" href="javascript:;" node-tab="" node-desc="查看公司或部门发布的内容，支持word/PPT/excel、图片等附件的预览、保存；也可以在手机端查看。" onclick="addTab('104020','通知公告','/app/bbs/v2/web/browse_showViewPage.action?menuId=104020');return false;" class="menu-item arrowright">
+												<span class="iconfa-pencil"></span> 通知公告
+											</a>
+										</li>
+										<li class="dropdown"><a id="5729414545714286935" href="javascript:;" node-desc=""><span class="iconfa-pencil"></span> 任务交办</a>
+											<ul>
+												<li><a href="javascript:;" id="8007575876371476714" node-tab="" node-desc="" onclick="addTab('8007575876371476714','新建任务','/platform/udf/impl_new/dispatch.action?funId=8819843200958718929&amp;menuId=8007575876371476714');return false;" class="menu-item">新建任务</a></li>
+												<li><a href="javascript:;" id="6453234423951791241" node-tab="" node-desc="" onclick="addTab('6453234423951791241','待办任务','/platform/udf/impl_new/dispatch.action?funId=5431472633620114941&amp;menuId=6453234423951791241');return false;" class="menu-item">待办任务</a></li>
+												<li><a href="javascript:;" id="5830693312232675842" node-tab="" node-desc="" onclick="addTab('5830693312232675842','已办任务','/platform/udf/impl_new/dispatch.action?funId=8416455041575647362&amp;menuId=5830693312232675842');return false;" class="menu-item">已办任务</a></li>
+												<li><a href="javascript:;" id="7218245391942015070" node-tab="" node-desc="" onclick="addTab('7218245391942015070','已发任务','/platform/udf/impl_new/dispatch.action?funId=6359404802484736642&amp;menuId=7218245391942015070');return false;" class="menu-item">已发任务</a></li>
+												<li><a href="javascript:;" id="6521859734781010074" node-tab="" node-desc="" onclick="addTab('6521859734781010074','任务看板','/platform/udf/impl_new/dispatch.action?funId=5315210832009469643&amp;menuId=6521859734781010074');return false;" class="menu-item">任务看板</a></li>
+											</ul>
+										</li>
+										<li class="dropdown"><a id="8006513282678925019" href="javascript:;" node-desc=""><span class="iconfa-pencil"></span> 费用</a>
+											<ul>
+												<li><a href="javascript:;" id="5149218531686197474" node-tab="" node-desc="" onclick="addTab('5149218531686197474','费用申请查询','/platform/udf/impl_new/dispatch.action?funId=5824263706440592599&amp;menuId=5149218531686197474');return false;" class="menu-item">费用申请查询</a></li>
+											</ul>
+										</li>
+										<li class="dropdown"><a id="8849327503404841939" href="javascript:;" node-desc=""><span class="iconfa-pencil"></span> 日报</a>
+											<ul>
+												<li><a href="javascript:;" id="5629987925225528408" node-tab="" node-desc="" onclick="addTab('5629987925225528408','日报浏览','/app/blog/v8/web/blogmain.action?menuId=5629987925225528408');return false;" class="menu-item">日报浏览</a></li>
+												<li><a href="javascript:;" id="7014050933214066364" node-tab="" node-desc="" onclick="addTab('7014050933214066364','数量统计','/app/blog/v8/web/daily_weiboDailyList.action?menuId=7014050933214066364');return false;" class="menu-item">数量统计</a></li>
+												<li><a href="javascript:;" id="6172539359691908175" node-tab="" node-desc="" onclick="addTab('6172539359691908175','星级统计','/app/blog/v8/web/ajax_weiboStarList.action?menuId=6172539359691908175');return false;" class="menu-item">星级统计</a></li>
+											</ul>
+										</li>
+										<li class="dropdown"><a id="2000" href="javascript:;" node-desc=""><span class="iconfa-pencil"></span> 投诉建议</a>
+											<ul>
+												<li><a href="javascript:;" id="200032" node-tab="" node-desc="" onclick="addTab('200032','投诉建议处理','/app/suggest/web/dealList.action?menuId=200032');return false;" class="menu-item">投诉建议处理</a></li>
+												<li><a href="javascript:;" id="200030" node-tab="" node-desc="" onclick="addTab('200030','投诉建议新增','/app/suggest/web/manager.action?menuId=200030');return false;" class="menu-item">投诉建议新增</a></li>
+												<li><a href="javascript:;" id="200031" node-tab="" node-desc="" onclick="addTab('200031','投诉建议分派','/app/suggest/web/assignList.action?menuId=200031');return false;" class="menu-item">投诉建议分派</a></li>
+												<li><a href="javascript:;" id="8590871578968197521" node-tab="" node-desc="" onclick="addTab('8590871578968197521','投诉建议查询','/platform/udf/impl_new/dispatch.action?funId=7450297401412198961&amp;menuId=8590871578968197521');return false;" class="menu-item">投诉建议查询</a></li>
+											</ul>
+										</li>
+										<li class="dropdown">
+											<a id="5046806322878165170" href="javascript:;" node-desc="">
+												<span class="iconfa-pencil"></span> 考勤管理
+											</a>
+											<ul>
+												<li><a href="javascript:;" id="6294648137947936001" node-tab="[{&quot;id&quot;:&quot;6841817627057817763&quot;,&quot;desc&quot;:&quot;这里可以查询到每个员工每天的考勤情况，便于考勤员核对<br/> 查询结果中，红色表示异常；蓝色表示正常&quot;,&quot;name&quot;:&quot;考勤明细统计&quot;,&quot;url&quot;:&quot;/app/attendance/web/attendencedetail/attendanceSumAction_attendanceDetail.action?menuId=6841817627057817763&quot;},{&quot;id&quot;:&quot;7693630718206391227&quot;,&quot;desc&quot;:&quot;&quot;,&quot;name&quot;:&quot;打卡清单&quot;,&quot;url&quot;:&quot;/app/attendance/web/attendencedetail/attendanceCardAction_prepare.action?menuId=7693630718206391227&quot;},{&quot;id&quot;:&quot;6701141668638495978&quot;,&quot;desc&quot;:&quot;&quot;,&quot;name&quot;:&quot;请假清单&quot;,&quot;url&quot;:&quot;/app/attendance/web/attendencedetail/attendanceLeaveAction_prepare.action?menuId=6701141668638495978&quot;},{&quot;id&quot;:&quot;5173186825023945263&quot;,&quot;desc&quot;:&quot;&quot;,&quot;name&quot;:&quot;出差清单&quot;,&quot;url&quot;:&quot;/app/attendance/web/attendencedetail/attendanceTravelAction_prepare.action?menuId=5173186825023945263&quot;},{&quot;id&quot;:&quot;5388644018846225176&quot;,&quot;desc&quot;:&quot;&quot;,&quot;name&quot;:&quot;外出清单&quot;,&quot;url&quot;:&quot;/app/attendance/web/attendencedetail/attendanceGoingoutAction_prepare.action?menuId=5388644018846225176&quot;},{&quot;id&quot;:&quot;7431203602870679329&quot;,&quot;desc&quot;:&quot;&quot;,&quot;name&quot;:&quot;加班清单&quot;,&quot;url&quot;:&quot;/app/attendance/web/attendencedetail/attendanceOvertimeAction_prepare.action?menuId=7431203602870679329&quot;}]"
+														node-desc="" onclick="addTab('6294648137947936001','考勤明细','');return false;" class="menu-item">考勤明细</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel" style="display: none;">
+							<div title="" style="border:none;overflow:hidden;" data-options="onResize:resizeMenu" class="panel-body panel-body-noheader panel-body-noborder" id="">
+								<div class="menu-switch">
+									<span onclick="javascript:resizePage(this);" class="layout-button-left"></span>
+								</div>
+								<div class="menu-wrap" style="overflow: auto; height: 506px;">
+									<ul class="nav-menu">
+										<li class="dropdown"><a id="7984578543397070038" href="javascript:;" node-desc=""><span class="iconfa-pencil"></span> 客户</a>
+											<ul>
+												<li><a href="javascript:;" id="8188081514521366698" node-tab="" node-desc="点击高级设置，您会发现很多灵活的设置，例如：设置快捷查询；列表显示栏位及顺序；查询条件也可以根据需要自己定义。<br/> 如果您以系统管理员和老板角色登录，在高级设置中还可以自定义字段；调整字段显示及顺序，不需要的字段可以隐藏。" onclick="addTab('8188081514521366698','客户信息','/app/cm/v2/manage/cmlist_prepare.action?tradeType=1&amp;menuId=8188081514521366698');return false;"
+														class="menu-item">客户信息</a></li>
+												<li><a href="javascript:;" id="5273136199178085556" node-tab="" node-desc="" onclick="addTab('5273136199178085556','客户分布地图','/app/cm/web/disdribution/cusDistributionListStart.action?query.tradeType=1&amp;menuId=5273136199178085556');return false;"
+														class="menu-item">客户分布地图</a></li>
+											</ul>
+										</li>
+										<li class="dropdown">
+											<a id="6289485090385585214" href="javascript:;" node-desc="">
+												<span class="iconfa-pencil"></span> 客户拜访
+											</a>
+											<ul>
+												<li><a href="javascript:;" id="8490849815189851397" node-tab="[{&quot;id&quot;:&quot;4845488260011948777&quot;,&quot;desc&quot;:&quot;为自己或下属添加某一天的拜访计划，可以批量添加客户。也可以查看到自己以及下属每天的拜访计划，以及计划的状态&quot;,&quot;name&quot;:&quot;拜访计划管理&quot;,&quot;url&quot;:&quot;/app/visit/v2/planMangement/manage/layout.action?menuId=4845488260011948777&quot;},{&quot;id&quot;:&quot;8936607875611030037&quot;,&quot;desc&quot;:&quot;&quot;,&quot;name&quot;:&quot;拜访计划查询&quot;,&quot;url&quot;:&quot;/app/visit/plan/viewer/showLayout.action?menuId=8936607875611030037&quot;}]"
+														node-desc="" onclick="addTab('8490849815189851397','拜访计划管理','');return false;" class="menu-item">拜访计划管理</a></li>
+												<li><a href="javascript:;" id="9041513450660385275" node-tab="[{&quot;id&quot;:&quot;5316297691506327734&quot;,&quot;desc&quot;:&quot;查看自己及下属的拜访日志，查看实际拜访客户的位置、拜访后的记录总结，方便了解市场客户的实际状况&quot;,&quot;name&quot;:&quot;客户拜访清单&quot;,&quot;url&quot;:&quot;/app/visit/cusvisitsummary/cusVisitListAction_list.action?menuId=5316297691506327734&quot;},{&quot;id&quot;:&quot;4718428925838108128&quot;,&quot;desc&quot;:&quot;查询下属某一天的拜访路线，同时显示拜访客户的位置&quot;,&quot;name&quot;:&quot;拜访轨迹查询&quot;,&quot;url&quot;:&quot;/app/visit/track/visittrack.action?menuId=4718428925838108128&quot;}]"
+														node-desc="" onclick="addTab('9041513450660385275','客户拜访查询','');return false;" class="menu-item">客户拜访查询</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel" style="display: none;">
+							<div title="" style="border:none;overflow:hidden;" data-options="onResize:resizeMenu" class="panel-body panel-body-noheader panel-body-noborder" id="">
+								<div class="menu-switch">
+									<span onclick="javascript:resizePage(this);" class="layout-button-left"></span>
+								</div>
+								<div class="menu-wrap" style="overflow: auto; height: 506px;">
+									<ul class="nav-menu">
+										<li class="dropdown">
+											<a id="6045972347359683533" href="javascript:;" node-tab="" node-desc="" onclick="addTab('6045972347359683533','商机查询','/platform/udf/impl_new/dispatch.action?funId=5535455319542260195&amp;menuId=6045972347359683533');return false;" class="menu-item arrowright">
+												<span class="iconfa-pencil"></span> 商机查询
+											</a>
+										</li>
+										<li class="dropdown">
+											<a id="4689371766301718097" href="javascript:;" node-desc="">
+												<span class="iconfa-pencil"></span> 批量拍照上传
+											</a>
+											<ul>
+												<li><a href="javascript:;" id="8271392794121944379" node-tab="" node-desc="" onclick="addTab('8271392794121944379','拍照上传统计','/app/volpicup/web/pic_list/initStat.action?menuId=8271392794121944379');return false;" class="menu-item">拍照上传统计</a></li>
+												<li><a href="javascript:;" id="8488765734145033526" node-tab="" node-desc="" onclick="addTab('8488765734145033526','照片浏览','app/volpicup/web/pic_list/picList.action?menuId=8488765734145033526');return false;" class="menu-item">照片浏览</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+
+</html>

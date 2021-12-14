@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisPatient" table="dbo.Lis_Patient">
+    <id name="Id" column="PatID" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="DataTimeStamp" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="LabID" type="Int64" not-null="true" length="8" />
+    <property name="PartitionDate" column="PartitionDate" type="DateTime" not-null="false" length="8" />
+    <property name="BConfirm" column="bConfirm" type="Boolean" not-null="false" length="1" />
+    <property name="CName" column="CName" type="String" not-null="false" length="100" />
+    <property name="GenderID" column="GenderID" type="Int32" not-null="false" length="4" />
+    <property name="GenderName" column="GenderName" type="String" not-null="false" length="50" />
+    <property name="Age" column="Age" type="Double" not-null="false" length="8" />
+    <property name="AgeUnitID" column="AgeUnitID" type="Int64" not-null="false" length="8" />
+    <property name="AgeUnitName" column="AgeUnitName" type="String" not-null="false" length="50" />
+    <property name="Birthday" column="Birthday" type="DateTime" not-null="false" length="8" />
+    <property name="AgeDesc" column="AgeDesc" type="String" not-null="false" length="100" />
+    <property name="PatHeight" column="PatHeight" type="Int32" not-null="false" length="4" />
+    <property name="PatWeight" column="PatWeight" type="Double" not-null="false" length="8" />
+    <property name="FolkID" column="FolkID" type="Int64" not-null="false" length="8" />
+    <property name="FolkName" column="FolkName" type="String" not-null="false" length="100" />
+    <property name="PatAddress" column="PatAddress" type="String" not-null="false" length="200" />
+    <property name="PatPhoto" column="PatPhoto" type="Byte[]" not-null="false" />
+    <property name="PhoneCode" column="PhoneCode" type="String" not-null="false" length="100" />
+    <property name="WeChatNo" column="WeChatNo" type="String" not-null="false" length="100" />
+    <property name="EMailAddress" column="EMailAddress" type="String" not-null="false" length="100" />
+    <property name="PatType" column="PatType" type="String" not-null="false" length="100" />
+    <property name="SickTypeID" column="SickTypeID" type="Int64" not-null="false" length="8" />
+    <property name="SickType" column="SickType" type="String" not-null="false" length="50" />
+    <property name="DiagID" column="DiagID" type="Int64" not-null="false" length="8" />
+    <property name="DiagName" column="DiagName" type="String" not-null="false" length="2000" />
+    <property name="DoctorID" column="DoctorID" type="Int64" not-null="false" length="8" />
+    <property name="DoctorName" column="DoctorName" type="String" not-null="false" length="100" />
+    <property name="DoctorTell" column="DoctorTell" type="String" not-null="false" length="500" />
+    <property name="ExecDeptID" column="ExecDeptID" type="Int64" not-null="false" length="8" />
+    <property name="DeptID" column="DeptID" type="Int64" not-null="false" length="8" />
+    <property name="DeptName" column="DeptName" type="String" not-null="false" length="100" />
+    <property name="VisitTimes" column="VisitTimes" type="Int32" not-null="false" length="4" />
+    <property name="VisitDate" column="VisitDate" type="DateTime" not-null="false" length="8" />
+    <property name="DistrictID" column="DistrictID" type="Int64" not-null="false" length="8" />
+    <property name="DistrictName" column="DistrictName" type="String" not-null="false" length="100" />
+    <property name="WardID" column="WardID" type="Int64" not-null="false" length="8" />
+    <property name="WardName" column="WardName" type="String" not-null="false" length="100" />
+    <property name="Bed" column="Bed" type="String" not-null="false" length="100" />
+    <property name="PhyPeriodID" column="PhyPeriodID" type="Int64" not-null="false" length="8" />
+    <property name="PhyPeriodName" column="PhyPeriodName" type="String" not-null="false" length="500" />
+    <property name="CollectPartID" column="CollectPartID" type="Int64" not-null="false" length="8" />
+    <property name="CollectPartName" column="CollectPartName" type="String" not-null="false" length="500" />
+    <property name="HISComment" column="HISComment" type="String" not-null="false" length="500" />
+    <property name="PatComment" column="PatComment" type="String" not-null="false" length="500" />
+    <property name="IDCardNo" column="IDCardNo" type="String" not-null="false" length="40" />
+    <property name="HisPatNo" column="HisPatNo" type="String" not-null="false" length="100" />
+    <property name="PatNo" column="PatNo" type="String" not-null="false" length="100" />
+    <property name="PatCardNo" column="PatCardNo" type="String" not-null="false" length="100" />
+    <property name="InPatNo" column="InPatNo" type="String" not-null="false" length="100" />
+    <property name="ExamNo" column="ExamNo" type="String" not-null="false" length="100" />
+    <property name="MedicareNo" column="MedicareNo" type="String" not-null="false" length="100" />
+    <property name="UnionPayNo" column="UnionPayNo" type="String" not-null="false" length="100" />
+    <property name="HealthCardNo" column="HealthCardNo" type="String" not-null="false" length="100" />
+    <property name="PowerCardNo" column="PowerCardNo" type="String" not-null="false" length="100" />
+    <property name="InOutSerialNo" column="InOutSerialNo" type="String" not-null="false" length="100" />
+    <property name="InvoiceNo" column="InvoiceNo" type="String" not-null="false" length="100" />
+    <property name="DataAddTime" column="DataAddTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="DataUpdateTime" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>前处理参数设置</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+  <style>
+  	body{background-color: #FFFFFF;}
+	/* 防止下拉框的下拉列表被隐藏---必须设置--- */
+	td[data-field='l1'] .layui-table-cell {  
+		overflow: visible !important; 
+	} 
+	td[data-field='ParaValue'] .layui-table-cell {  
+		overflow: visible !important; 
+	} 
+   
+	td[data-field='ParaValue2'] .layui-table-cell {  
+		overflow: visible !important; 
+	}
+	td[data-field='BPara_ParaValue'] .layui-table-cell, .layui-table-tool-panel li { 
+    	overflow:hidden;white-space:nowrap;text-overflow:ellipsis; 
+		/*overflow: visible !important;*/ 
+	}
+	/* 复选框左边对齐      */
+	td .layui-form-checkbox[lay-skin="primary"]{left: 5px; }
+	.layui-form input[type=checkbox]
+    /*input前存在icon 则加到input里面*/
+    .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+    .layui-table-edit2{position: absolute; left: 0; top: 0; width: 100%; height: 100%; padding: 0px 5px 1px; line-height: 25px; border-radius: 0; box-shadow: 1px 1px 20px rgba(0,0,0,0)}
+ 	/*列表下拉框高度调整*/
+    table .layui-input, .layui-textarea, .layui-select{left:5px;height: 28px; line-height: 1; line-height: 16px; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px;}
+	/* 使得下拉框与单元格刚好合适      */
+	td .layui-form-select{margin-top: -10px;margin-left: -5px;margin-right: -5px;}  
+
+  </style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding:15px 15px;margin: 0px;"> 
+   <div class="layui-row"> 
+    <div class="layui-col-md2 layui-col-sm2"> 
+     <table class="layui-hide" id="table" lay-filter="table"> 
+     </table> 
+    </div> 
+    <div class="layui-col-md3 layui-col-sm3" style="padding-left: 5px;"> 
+     <div class="layui-btn-group"> 
+      <button class="layui-btn layui-btn-xs" type="button" id="add"><i class="iconfont"></i>&nbsp;新增</button> 
+       <button class="layui-btn  layui-btn-xs" type="button" id="edit"><i class="iconfont"></i>&nbsp;修改</button> 
+      <button class="layui-btn layui-bg-orange layui-btn-xs" type="button" id="del"><i class="layui-icon"></i>删除</button> 
+      <button class="layui-btn layui-btn-xs " type="button" id="copy"><i class="iconfont"></i>&nbsp;复制</button> 
+     </div> 
+     <table class="layui-hide" id="para_table" lay-filter="para_table"> 
+     </table> 
+    </div> 
+    <div class="layui-col-md7 layui-col-sm7" style="padding-left: 5px;"> 
+     <div class="layui-row"> 
+      <div class="layui-form" style="margin: 0px;padding: 0px;"> 
+       <div class="layui-form-item" style="margin: 0px;padding: 0px;"> 
+        <div class="layui-inline"> 
+        	<input type="text" id="search_Text" autocomplete="off" placeholder="参数名称/编号过滤" class="layui-input" /> 
+        </div> 
+
+        <div class="layui-inline"> 
+         <div class="layui-btn-group"> 
+          <button class="layui-btn layui-btn-xs " type="button" id="search"><i class="layui-icon layui-icon-search"></i>查询</button> 
+          <button class="layui-btn layui-btn-xs " type="button" id="save"><i class="iconfont"></i>&nbsp;保存</button> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <table class="layui-hide" id="paraitem_table" lay-filter="paraitem_table"> 
+      <script type="text/html" id="barDemo">
+       	  <a class="layui-btn layui-bg-orange layui-btn-xs" lay-event="del"><i class="layui-icon"></i>删除</a>
+       	  <a class="layui-btn  layui-btn-xs" lay-event="up"><i class="layui-icon layui-icon-up"></i>上移</a>
+          <a class="layui-btn  layui-btn-xs" lay-event="down"><i class="layui-icon layui-icon-down"></i>下移</a>
+		</script> 
+     </table> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script> 
+  <style>
+	    .layui-table-view{margin: 1px 0px; }
+	    /*$(".layui-table-body").css('overflow','visible');
+		$(".layui-table-box").css('overflow','visible');
+		$(".layui-table-view").css('overflow','visible');*/
+		.layui-form-item { margin-bottom: 0px; }
+		.layui-form-item .layui-inline{margin-bottom: 0px; margin-right: 10px;}
+	</style>  
+ </body>
+</html>

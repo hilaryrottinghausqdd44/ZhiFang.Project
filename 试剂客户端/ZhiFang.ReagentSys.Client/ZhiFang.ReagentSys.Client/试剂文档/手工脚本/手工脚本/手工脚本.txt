@@ -1,0 +1,35 @@
+
+
+--机构货品是否需要开瓶管理
+IF COL_LENGTH('Rea_Goods', 'IsNeedBOpen') IS NULL ALTER TABLE Rea_Goods ADD IsNeedBOpen bit;
+
+--机构货品开瓶管理效期天数
+IF COL_LENGTH('Rea_Goods', 'BOpenDays') IS NULL ALTER TABLE Rea_Goods ADD BOpenDays int;
+
+--库存货品是否需要开瓶管理
+IF COL_LENGTH('Rea_BmsQtyDtl', 'IsNeedBOpen') IS NULL ALTER TABLE Rea_BmsQtyDtl ADD IsNeedBOpen bit;
+
+--出库主单是否需要开瓶管理
+IF COL_LENGTH('Rea_BmsOutDoc', 'IsNeedBOpen') IS NULL ALTER TABLE Rea_BmsOutDoc ADD IsNeedBOpen bit;
+
+--出库货品是否需要开瓶管理
+IF COL_LENGTH('Rea_BmsOutDtl', 'IsNeedBOpen') IS NULL ALTER TABLE Rea_BmsOutDtl ADD IsNeedBOpen bit;
+
+
+--开瓶管理记录主单 Rea_OpenBottleOperDoc
+ IF NOT EXISTS(SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Rea_OpenBottleOperDoc]') AND type in(N'U')) CREATE TABLE [dbo].[Rea_OpenBottleOperDoc]( [LabID] [dbo].[D_系统主键] NULL, [OBottleOperDocId] [dbo].[D_系统主键] NOT NULL, [GoodsID] [dbo].[D_系统主键] NOT NULL, [QtyDtlID] [dbo].[D_系统主键] NOT NULL, [OutDtlID] [dbo].[D_系统主键] NOT NULL, [OutDocID] [dbo].[D_系统主键] NULL, [BOpenDate] [datetime] NULL, [InvalidBOpenDate] [datetime] NULL, [IsUseCompleteFlag] [bit] NULL, [UseCompleteDate] [datetime] NULL, [IsObsolete] [bit] NULL, [ObsoleteID] [bigint] NULL, [ObsoleteMemoId] [bigint] NULL, [ObsoleteName] [varchar](50) NULL, [ObsoleteTime] [datetime] NULL, [ObsoleteMemo] [varchar](200) NULL, [Visible] [bit] NULL, [DispOrder] [int] NULL, [CreaterID] [bigint] NULL, [CreaterName] [varchar](50) NULL, [Memo] [varchar](max) NULL, [DataAddTime] [datetime] NULL, [DataTimeStamp] [timestamp] NULL, CONSTRAINT [PK_Rea_OpenBottleOperDoc] PRIMARY KEY CLUSTERED( [OBottleOperDocId] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY] ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
+
+--开瓶管理记录主单 Rea_OpenBottleOperDoc 开瓶时间
+IF COL_LENGTH('Rea_OpenBottleOperDoc', 'BOpenDate') IS NULL ALTER TABLE Rea_OpenBottleOperDoc ADD BOpenDate datetime;
+
+--开瓶管理记录主单 Rea_OpenBottleOperDoc 是否作废
+IF COL_LENGTH('Rea_OpenBottleOperDoc', 'IsObsolete') IS NULL ALTER TABLE Rea_OpenBottleOperDoc ADD IsObsolete bit;
+
+--开瓶管理模块
+if not exists (select * from RBAC_Module where ModuleID=4872092464739641759)  INSERT [RBAC_Module] ([LabID],[ModuleID],[ParentID],[LevelNum],[TreeCatalog],[IsLeaf],[ModuleType],[PicFile],[URL],[CName],[Shortcode],[PinYinZiTou],[IsUse],[DispOrder],[DataAddTime]) VALUES ( 0,4872092464739641759,4925427390656614626,0,0,0,0,N'list.PNG',N'#Shell.class.rea.client.openbottleoper.App',N'开瓶管理',N'KPGL',N'KPGL',1,60000,N'2021-01-25 14:15:10');
+
+--钦州二院机构的系统管理员角色添加“开瓶管理”角色模块关系
+--if not exists (select * from RBAC_RoleModule where ModuleVisiteID=5362870391966454812) INSERT [RBAC_RoleModule] ([LabID],[ModuleVisiteID],[ModuleID],[RoleID],[IsUse],[DispOrder],[IsOftenUse],[IsDefaultOpen],[DataAddTime]) VALUES ( 4741399353833279865,5362870391966454812,4872092464739641759,4723894632170451436,1,0,0,0,N'2021-01-25 14:23:44');
+
+--智方管理机构的系统管理员角色添加“开瓶管理”角色模块关系
+if not exists (select * from RBAC_RoleModule where ModuleVisiteID=5741832707940141444) INSERT [RBAC_RoleModule] ([LabID],[ModuleVisiteID],[ModuleID],[RoleID],[IsUse],[DispOrder],[IsOftenUse],[IsDefaultOpen],[DataAddTime]) VALUES ( 1,5741832707940141444,4872092464739641759,5192782536902634177,1,0,0,0,N'2021-01-25 14:19:45');

@@ -1,0 +1,20 @@
+﻿using ZhiFang.IDAO.Base;
+using ZhiFang.Entity.SA;
+using System.Collections.Generic;
+
+namespace ZhiFang.IDAO.NHB.SA
+{
+    public interface IDLStatTotalDao : IDBaseDao<LStatTotal, long>
+    {
+        /// <summary>
+        /// 获取质量指标类型统计原始数据源
+        /// </summary>
+        /// <param name="searchEntity"></param>
+        /// <param name="strWhere">""</param>
+        /// <param name="page"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        IList<SPSAQualityIndicatorType> SearchSPSAQualityIndicatorTypeList(SPSAQualityIndicatorType searchEntity, string where, string order, int page, int count);
+
+    }
+}

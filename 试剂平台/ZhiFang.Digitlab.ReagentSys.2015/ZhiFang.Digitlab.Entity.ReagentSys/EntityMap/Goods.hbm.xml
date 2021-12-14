@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+	<class name="Goods" table="[dbo].[Goods]">
+		<id name="Id" column="[GoodsID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="GoodsNo" column="[GoodsNo]" type="String" not-null="true" length="50" />
+		<property name="CompGoodsNo" column="[CompGoodsNo]" type="String" not-null="false" length="50" />
+		<property name="ProdGoodsNo" column="[ProdGoodsNo]" type="String" not-null="false" length="50" />
+		<property name="CName" column="[CName]" type="String" not-null="true" length="200" />
+		<property name="EName" column="[EName]" type="String" not-null="false" length="200" />
+		<property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="100" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+		<property name="GoodsClass" column="[GoodsClass]" type="String" not-null="false" length="100" />
+		<property name="GoodsClassType" column="[GoodsClassType]" type="String" not-null="false" length="100" />
+		<property name="UnitName" column="[UnitName]" type="String" not-null="false" length="10" />
+		<property name="UnitMemo" column="[UnitMemo]" type="String" not-null="false" length="100" />
+		<property name="StorageType" column="[StorageType]" type="String" not-null="false" length="200" />
+		<property name="GoodsDesc" column="[GoodsDesc]" type="String" not-null="false" length="500" />
+		<property name="ApproveDocNo" column="[ApproveDocNo]" type="String" not-null="false" length="200" />
+		<property name="Standard" column="[Standard]" type="String" not-null="false" length="200" />
+		<property name="RegistNo" column="[RegistNo]" type="String" not-null="false" length="200" />
+		<property name="RegistDate" column="[RegistDate]" type="DateTime" not-null="false" length="8" />
+		<property name="RegistNoInvalidDate" column="[RegistNoInvalidDate]" type="DateTime" not-null="false" length="8" />
+		<property name="Purpose" column="[Purpose]" type="String" not-null="false" length="500" />
+		<property name="Constitute" column="[Constitute]" type="String" not-null="false" length="500" />
+		<property name="License" column="[License]" type="Byte[]" not-null="false" length="16" />
+		<property name="GoodsPicture" column="[GoodsPicture]" type="Byte[]" not-null="false" length="16" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+		<property name="Price" column="[Price]" type="Double" not-null="false" length="8" />
+    <property name="BarCodeMgr" column="[BarCodeMgr]" type="Int32" not-null="false" length="4" />
+		<property name="BiddingNo" column="[BiddingNo]" type="String" not-null="false" length="100" />
+		<property name="ProdEara" column="[ProdEara]" type="String" not-null="false" length="50" />
+		<property name="ProdOrgName" column="[ProdOrgName]" type="String" not-null="false" length="100" />		
+		<property name="ZX1" column="[ZX1]" type="String" not-null="false" length="100" />
+		<property name="ZX2" column="[ZX2]" type="String" not-null="false" length="100" />
+		<property name="ZX3" column="[ZX3]" type="String" not-null="false" length="100" />
+		<property name="Equipment" column="[Equipment]" type="String" not-null="false" length="100" />
+    <property name="SuitableType" column="[SuitableType]" type="String" not-null="false" length="100" />
+		<property name="CenOrgConfirm" column="[CenOrgConfirm]" type="Int32" not-null="false" length="4" />
+		<property name="CompConfirm" column="[CompConfirm]" type="Int32" not-null="false" length="4" />
+    <property name="IsRegister" column="[IsRegister]" type="Int32" not-null="false" length="4" />
+    <property name="IsPrintBarCode" column="[IsPrintBarCode]" type="Int32" not-null="false" length="4" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="TestCount" column="[TestCount]" type="Int32" not-null="false" length="4" />
+    <property name="GoodsSort" column="[GoodsSort]" type="Int32" not-null="false" length="4" />
+    <property name="DownloadFlag" column="[DownloadFlag]" type="Int32" not-null="false" length="4" />
+		<many-to-one name="CenOrg" class="CenOrg" lazy="false">
+			<column name="[CenOrgID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="Comp" class="CenOrg" lazy="false">
+			<column name="[CompID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="Prod" class="CenOrg" lazy="false">
+			<column name="[ProdID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

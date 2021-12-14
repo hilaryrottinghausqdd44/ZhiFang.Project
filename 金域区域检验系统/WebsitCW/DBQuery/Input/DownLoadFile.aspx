@@ -1,0 +1,1 @@
+<%@ Page language="c#" AutoEventWireup="True" Inherits="OA.DBQuery.Input.DownLoadFile" Codebehind="DownLoadFile.aspx.cs" %>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>设置</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body>
+	<div class="layui-fluid layui-form" style="padding:15px;" lay-filter="form">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-header">公共消息系统运行参数设置</div>
+					<div class="layui-card-body">
+						<!--是否开启消息系统-->
+						<div class="layui-form-item">
+							<label class="layui-form-label">开启消息：</label>
+							<div class="layui-input-inline" style="width:70px;">
+								<input type="checkbox" name="Msg_Open" lay-filter="Msg_Open" lay-skin="switch" lay-text="开启|关闭">
+							</div>
+							<div class="layui-form-mid layui-word-aux">开启后客户端开始接收服务器消息</div>
+						</div>
+						<!--开启后消息系统的设置项-->
+						<div id="msg_config_div" style="display:none;">
+							<!--声音提醒设置项-->
+							<div class="layui-form-item">
+								<!--是否开启声音提醒-->
+								<label class="layui-form-label">声音提醒：</label>
+								<div class="layui-input-inline" style="width:70px;">
+									<input type="checkbox" name="Msg_Audio" lay-filter="Msg_Audio" lay-skin="switch" lay-text="开启|关闭">
+								</div>
+								<!--开启声音提醒后，时间间隔设置项-->
+								<div id="audioTimes_div" style="display:none;">
+									<label class="layui-form-label" style="padding:9px 0;width:70px;">时间间隔：</label>
+									<div class="layui-input-inline" style="width:80px;">
+										<input type="text" name="Msg_AudioTimes" id="Msg_AudioTimes" placeholder="间隔秒数" class="layui-input" lay-verify="number">
+									</div>
+									<div class="layui-form-mid layui-word-aux">秒</div>
+								</div>
+							</div>
+							<!--是否强制弹屏-->
+							<div class="layui-form-item">
+								<label class="layui-form-label">强制弹屏：</label>
+								<div class="layui-input-inline" style="width:70px;">
+									<input type="checkbox" name="Msg_ForcedBombScreen" lay-filter="Msg_ForcedBombScreen" lay-skin="switch" lay-text="开启|关闭">
+								</div>
+								<!--开启强制弹屏后，时间间隔设置项-->
+								<div id="forcedBombScreenTimes_div" style="display:none;">
+									<label class="layui-form-label" style="padding:9px 0;width:70px;">时间间隔：</label>
+									<div class="layui-input-inline" style="width:80px;">
+										<input type="text" name="Msg_ForcedBombScreenTimes" id="Msg_ForcedBombScreenTimes" placeholder="间隔秒数" class="layui-input" lay-verify="number">
+									</div>
+									<div class="layui-form-mid layui-word-aux">秒</div>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">默认最小：</label>
+								<div class="layui-input-inline" style="width:70px;">
+									<input type="checkbox" name="ZF_LIIP_Msg_Default_Min" lay-filter="ZF_LIIP_Msg_Default_Min" lay-skin="switch" lay-text="开启|关闭">
+								</div>
+								<div class="layui-form-mid layui-word-aux">开启后客户端打开时默认最小化</div>
+							</div>
+							<!--允许展示消息类型-->
+							<div class="layui-form-item">
+								<div class="layui-collapse">
+									<div class="layui-colla-item">
+										<h2 class="layui-colla-title">展现消息类型</h2>
+										<div class="layui-colla-content layui-show" id="ZF_LIIP_Msg_Type_Codes">内容区域</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-card">
+					<div class="layui-card-header">危急值消息参数设置</div>
+					<div class="layui-card-body">
+						<!--危急值处理后是否调用第三方服务-->
+						<div class="layui-form-item">
+							<label class="layui-form-label">处理回调：</label>
+							<div class="layui-input-inline" style="width:70px;">
+								<input type="checkbox" name="ZF_LIIP_Msg_CV_After_Handle" lay-filter="ZF_LIIP_Msg_CV_After_Handle" lay-skin="switch" lay-text="开启|关闭">
+							</div>
+							<div class="layui-form-mid layui-word-aux">危急值处理后是否调用第三方服务</div>
+						</div>
+						<!--确认超时-->
+						<div class="layui-form-item">
+							<label class="layui-form-label">确认超时：</label>
+							<div class="layui-input-inline" style="width:80px;">
+								<input type="text" name="Msg_CV_ConfirmOutTimes" id="Msg_CV_ConfirmOutTimes" placeholder="超时时间" class="layui-input" lay-verify="number">
+							</div>
+							<div class="layui-form-mid layui-word-aux">单位：分钟，危急值发出后要求确认的时间</div>
+						</div>
+						<!--处理意见-->
+						<div class="layui-form-item">
+							<label class="layui-form-label">处理意见：</label>
+							<div class="layui-input-block">
+								<textarea name="Msg_CV_HandleDesc" id="Msg_CV_HandleDesc" placeholder="请输入内容" class="layui-textarea"></textarea>
+								<div class="layui-form-mid layui-word-aux">以|分割每一个下拉内容，例如：同意|不同意</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		UIVersion.loadLayui('2.5.5');
+		UIVersion.getJS('index.js');
+	</script>
+</body>
+</html>

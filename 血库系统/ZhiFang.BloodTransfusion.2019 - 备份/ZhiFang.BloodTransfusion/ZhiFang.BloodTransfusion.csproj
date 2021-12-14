@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A80745A-0183-40CE-885B-DD18C6525B08}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BloodTransfusion</RootNamespace>
+    <AssemblyName>ZhiFang.BloodTransfusion</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net40\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net40\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net40\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net40\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net40\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net40\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net40\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net40\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=1.3.1.40711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.1.40711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=1.3.1.40711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Services">
+      <HintPath>..\Lib\Spring.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BloodTransfusionManageService.svc" />
+    <Content Include="CommonService.svc" />
+    <Content Include="ConstructionService.svc" />
+    <Content Include="Global.asax" />
+    <Content Include="PublicService.svc" />
+    <Content Include="RBACService.svc" />
+    <Content Include="ReaStatisticalAnalysisService.svc" />
+    <Content Include="SingleTableService.svc" />
+    <Content Include="ui\extjs.html" />
+    <Content Include="ui\extjs\ExtJS框架.txt" />
+    <Content Include="ui\index.html" />
+    <Content Include="ui\layui.html" />
+    <Content Include="ui\layui\LayUI框架.txt" />
+    <Content Include="ui\src\jquery-1.11.1.min.js" />
+    <Content Include="ui\src\jquery.qrcode.min.js" />
+    <Content Include="ui\src\jquery.signalR-2.1.2.min.js" />
+    <Content Include="ui\src\第三方资源.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WeiXinAppService.svc" />
+    <Content Include="WeiXinWebService.asmx" />
+    <Content Include="文档\升级说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BloodTransfusionManageService.svc.cs">
+      <DependentUpon>BloodTransfusionManageService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\EncodeFileName.cs" />
+    <Compile Include="BusinessObject\ErrResult.cs" />
+    <Compile Include="BusinessObject\GetBusinessTemplate.cs" />
+    <Compile Include="BusinessObject\OpenIdInfoResult.cs" />
+    <Compile Include="BusinessObject\OpenIdListResult.cs" />
+    <Compile Include="BusinessObject\PermanentMediaListResult.cs" />
+    <Compile Include="BusinessObject\PushMessageTemplateResult.cs" />
+    <Compile Include="BusinessObject\RequestXMLObject.cs" />
+    <Compile Include="BusinessObject\TokenResult.cs" />
+    <Compile Include="BusinessObject\UserAuthorizeToken.cs" />
+    <Compile Include="BusinessObject\WCF_WebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\WeiXinResponseHelp.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommonService.svc.cs">
+      <DependentUpon>CommonService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ConstructionService.svc.cs">
+      <DependentUpon>ConstructionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="hisinterface\BReqToHisHelp.cs" />
+    <Compile Include="HttpModule\WcfReadEntityBodyModeWorkaroundModule.cs" />
+    <Compile Include="ServerContract\IBloodTransfusionManageService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicService.svc.cs">
+      <DependentUpon>PublicService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="RBACService.svc.cs">
+      <DependentUpon>RBACService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ReaStatisticalAnalysisService.svc.cs">
+      <DependentUpon>ReaStatisticalAnalysisService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerContract\ICommonService.cs" />
+    <Compile Include="ServerContract\IConstructionService.cs" />
+    <Compile Include="ServerContract\IPublicService.cs" />
+    <Compile Include="ServerContract\IRBACService.cs" />
+    <Compile Include="ServerContract\IReaStatisticalAnalysisService.cs" />
+    <Compile Include="ServerContract\ISingleTableService.cs" />
+    <Compile Include="ServerContract\IWeiXinAppService.cs" />
+    <Compile Include="SingleTableService.svc.cs">
+      <DependentUpon>SingleTableService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SYSCache\BParameterCache.cs" />
+    <Compile Include="WeiXinAppService.svc.cs">
+      <DependentUpon>WeiXinAppService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WeiXinWebService.asmx.cs">
+      <DependentUpon>WeiXinWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\bloods.pubxml" />
+    <Content Include="Report\Frx模板\医嘱申请\医嘱申请单.frx" />
+    <Content Include="Report\Frx模板\医嘱申请\医嘱申请单 - 副本.frx" />
+    <Content Include="Report\Frx模板\医嘱申请\医嘱申请单 - 备份.frx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BloodTransfusion.Common\ZhiFang.BloodTransfusion.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.BloodTransfusion.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DBUpdate.PM\ZhiFang.DBUpdate.PM.csproj">
+      <Project>{a1650855-b138-4898-91a2-019e04660a1b}</Project>
+      <Name>ZhiFang.DBUpdate.PM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471E84C-7A1B-4719-89F9-CCC626D111AD}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.BloodTransfusion\ZhiFang.Entity.BloodTransfusion.csproj">
+      <Project>{36917E28-CE6F-441F-8C2F-F9210AD56D31}</Project>
+      <Name>ZhiFang.Entity.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Common\ZhiFang.Entity.Common.csproj">
+      <Project>{81E083DC-BDE0-4742-AEC7-CF36768F6BFD}</Project>
+      <Name>ZhiFang.Entity.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993FBE5-AA1F-433C-A07F-34CC25C59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WeiXin\ZhiFang.Entity.WeiXin.csproj">
+      <Project>{c867875c-5404-480d-89e4-9cc67c66d963}</Project>
+      <Name>ZhiFang.Entity.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.BloodTransfusion\ZhiFang.IBLL.BloodTransfusion.csproj">
+      <Project>{567C1DF3-46BD-4485-B06D-607384CC6B3F}</Project>
+      <Name>ZhiFang.IBLL.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Common\ZhiFang.IBLL.Common.csproj">
+      <Project>{F55AD050-B25C-42AF-9D13-9CE1B8F27701}</Project>
+      <Name>ZhiFang.IBLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{f5a15ed6-4eb8-4e39-8b19-357b799a1f10}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.WeiXin\ZhiFang.IBLL.WeiXin.csproj">
+      <Project>{2421232c-e74b-44c6-add8-19ac07a1357a}</Project>
+      <Name>ZhiFang.IBLL.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550F2-BF83-4C13-9386-9ACF6E2AE591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Report\Excel模板\交叉配血\" />
+    <Folder Include="Report\Excel模板\入库清单\" />
+    <Folder Include="Report\Excel模板\发血清单\" />
+    <Folder Include="Report\Excel模板\样本接收\" />
+    <Folder Include="Report\Excel模板\输血综合查询\" />
+    <Folder Include="Report\Excel模板\输血过程\" />
+    <Folder Include="Report\Frx模板\交叉配血\" />
+    <Folder Include="Report\Frx模板\入库清单\" />
+    <Folder Include="Report\Frx模板\发血清单\" />
+    <Folder Include="Report\Frx模板\样本接收\" />
+    <Folder Include="Report\Frx模板\输血综合查询\" />
+    <Folder Include="Report\Frx模板\输血过程\" />
+    <Folder Include="SysConfig\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50539</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/ZhiFang.BloodTransfusion</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/ZhiFang.BloodTransfusion</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

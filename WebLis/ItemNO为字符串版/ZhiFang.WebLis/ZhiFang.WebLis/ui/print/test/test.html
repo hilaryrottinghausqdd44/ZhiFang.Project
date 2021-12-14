@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>打印功能测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css"/>
+	<script type="text/javascript" src="../../easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="../Print.js"></script>
+    <script type="text/javascript" src="../../entry_taihe/barcode.js"></script>
+    
+</head>
+<body onkeydown="if(event.keyCode==116){event.keyCode=0;return false;}">
+	<!-- 网页打印 -->
+	<object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+        <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="resources/install_lodop32.exe"></embed>
+    </object>
+    
+    <input id="printUrl" type="button" value="打印网页"></input>
+    <input id="printBarcode" type="button" value="打印条码"></input>
+    <input id="printMark0" type="button" value="打印标签-预览"></input>
+    <input id="printMark1" type="button" value="打印标签-直接"></input>
+    <input id="printMark2" type="button" value="编辑标签"></input>
+    
+    <input id="showMsgdiv" type="button" value="显示div"></input>
+    <input id="hideMsgdiv" type="button" value="隐藏div"></input>
+    
+    <input id="showMaskdiv" type="button" value="显示蒙版"></input>
+    <input id="hideMaskdiv" type="button" value="隐藏蒙版"></input>
+    
+    <div id="maskdiv"><span style="margin:25px;">数据加载中...</span></div>
+    
+    <div id="msgdiv" style="display:none;background:red;border:solid 1px;width:400px;height:300px;position:relative;z-index:99999;"></div>
+    
+    <script type="text/javascript" src="test.js"></script>
+</body>
+</html>

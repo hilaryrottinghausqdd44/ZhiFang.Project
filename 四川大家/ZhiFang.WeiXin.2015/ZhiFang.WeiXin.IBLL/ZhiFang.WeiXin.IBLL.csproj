@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81CE76B4-4265-4CBF-93ED-D3176E1B450A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.WeiXin.IBLL</RootNamespace>
+    <AssemblyName>ZhiFang.WeiXin.IBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.WeiXin\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IBBDoctorControl.cs" />
+    <Compile Include="IBBLabDoctor.cs" />
+    <Compile Include="IBBLabDistrict.cs" />
+    <Compile Include="IBBusinessLogicClientControl.cs" />
+    <Compile Include="IBGenderType.cs" />
+    <Compile Include="IBNRequestForm.cs" />
+    <Compile Include="IBNRequestItem.cs" />
+    <Compile Include="IBPatDiagInfo.cs" />
+    <Compile Include="IBBarCodeForm.cs" />
+    <Compile Include="IBDoctor.cs" />
+    <Compile Include="IBBLabSampleType.cs" />
+    <Compile Include="IBBSampleTypeControl.cs" />
+    <Compile Include="IBBSickTypeControl.cs" />
+    <Compile Include="IBB_Lab_SickType.cs" />
+    <Compile Include="IBCLIENTELE.cs" />
+    <Compile Include="IBBDict.cs" />
+    <Compile Include="IBBBLabGroupItem.cs" />
+    <Compile Include="IBBWeiXinEmpLink.cs" />
+    <Compile Include="IBBWeiXinPushMessageTemplate.cs" />
+    <Compile Include="IBBTestItemControl.cs" />
+    <Compile Include="IBItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="IBItemColorDict.cs" />
+    <Compile Include="IBUserConsumerItemDetails.cs" />
+    <Compile Include="IBFinanceIncome.cs" />
+    <Compile Include="IBBDictType.cs" />
+    <Compile Include="IBBLabTestItem.cs" />
+    <Compile Include="IBBRuleNumber.cs" />
+    <Compile Include="IBClientEleArea.cs" />
+    <Compile Include="IBBParameter.cs" />
+    <Compile Include="IBOSDoctorBonus.cs" />
+    <Compile Include="IBOSDoctorBonusForm.cs" />
+    <Compile Include="IBOSDoctorBonusAttachment.cs" />
+    <Compile Include="IBOSDoctorBonusOperation.cs" />
+    <Compile Include="IBOSDoctorOrderForm.cs" />
+    <Compile Include="IBOSDoctorOrderItem.cs" />
+    <Compile Include="IBOSItemProductClassTreeLink.cs" />
+    <Compile Include="IBOSItemProductClassTree.cs" />
+    <Compile Include="IBBHospitalDept.cs" />
+    <Compile Include="IBBSampleType.cs" />
+    <Compile Include="IBBTestItemClinicalSignificance.cs" />
+    <Compile Include="IBBAccountHospitalSearchContext.cs" />
+    <Compile Include="IBBAccountType.cs" />
+    <Compile Include="IBBAntiBiotic.cs" />
+    <Compile Include="IBBAntiType.cs" />
+    <Compile Include="IBBDoctorAccount.cs" />
+    <Compile Include="IBBHospital.cs" />
+    <Compile Include="IBBHospitalLevel.cs" />
+    <Compile Include="IBBHospitalSearch.cs" />
+    <Compile Include="IBBHospitalType.cs" />
+    <Compile Include="IBBIcons.cs" />
+    <Compile Include="IBBIconsType.cs" />
+    <Compile Include="IBBItemCon.cs" />
+    <Compile Include="IBBMicroItem.cs" />
+    <Compile Include="IBBScanningBarCodeReportForm.cs" />
+    <Compile Include="IBBSearchAccount.cs" />
+    <Compile Include="IBBSearchAccountReportForm.cs" />
+    <Compile Include="IBBSpecialty.cs" />
+    <Compile Include="IBBWeiXinAccount.cs" />
+    <Compile Include="IBBWeiXinUserGroup.cs" />
+    <Compile Include="IBItemAllItem.cs" />
+    <Compile Include="IBOSManagerRefundForm.cs" />
+    <Compile Include="IBOSManagerRefundFormAttachment.cs" />
+    <Compile Include="IBOSManagerRefundFormOperation.cs" />
+    <Compile Include="IBOSRecommendationItemProduct.cs" />
+    <Compile Include="IBOSShoppingCart.cs" />
+    <Compile Include="IBOSUserConsumerForm.cs" />
+    <Compile Include="IBOSUserConsumerItem.cs" />
+    <Compile Include="IBOSUserOrderForm.cs" />
+    <Compile Include="IBOSUserOrderItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IBRFReportFormIndexInfo.cs" />
+    <Compile Include="IBRFReportItemFull.cs" />
+    <Compile Include="IBRFReportMarrowFull.cs" />
+    <Compile Include="IBRFReportMicroFull.cs" />
+    <Compile Include="IBSWeiXinAccountLog.cs" />
+    <Compile Include="IBSickType.cs" />
+    <Compile Include="IBSampleType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{3088c72d-5fbd-46f5-b9ba-fd8adc05b2a5}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{5bcba563-016a-493b-88f3-0dc683e9716b}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{0448af93-d854-466f-86c7-8f7843cb9f06}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.WeiXin.Entity\ZhiFang.WeiXin.Entity.csproj">
+      <Project>{CC03E805-5743-4343-840A-92FAA7457315}</Project>
+      <Name>ZhiFang.WeiXin.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

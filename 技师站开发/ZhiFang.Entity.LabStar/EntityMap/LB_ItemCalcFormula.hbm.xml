@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+	<class name="LBItemCalcFormula" table="[dbo].[LB_ItemCalcFormula]">
+		<id name="Id" column="[CalcFormulaID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="FormulaCondition" column="[FormulaCondition]" type="String" not-null="false" length="300" />
+		<property name="CalcFormula" column="[CalcFormula]" type="String" not-null="false" length="300" />
+		<property name="HAge" column="[HAge]" type="Double" not-null="false" length="8" />
+		<property name="LAge" column="[LAge]" type="Double" not-null="false" length="8" />
+		<property name="AgeUnitID" column="[AgeUnitID]" type="Int64" not-null="false" length="8" />
+		<property name="GenderID" column="[GenderID]" type="Int64" not-null="false" length="8" />
+		<property name="UWeight" column="[UWeight]" type="Double" not-null="false" length="8" />
+		<property name="LWeight" column="[LWeight]" type="Double" not-null="false" length="8" />
+		<property name="SampleTypeID" column="[SampleTypeID]" type="Int64" not-null="false" length="8" />
+		<property name="SectionID" column="[SectionID]" type="Int64" not-null="false" length="8" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="IsDefault" column="[IsDefault]" type="Boolean" not-null="false" length="1" />
+		<property name="CalcType" column="[CalcType]" type="Int32" not-null="false" length="4" />
+		<property name="IsKeepInvalid" column="[IsKeepInvalid]" type="Boolean" not-null="false" length="1" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="FormulaConditionInfo" column="[FormulaConditionInfo]" type="String" not-null="false" length="300" />
+		<property name="CalcFormulaInfo" column="[CalcFormulaInfo]" type="String" not-null="false" length="300" />
+		<many-to-one name="LBItem" class="LBItem" lazy="proxy">
+			<column name="[ItemID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

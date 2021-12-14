@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD7E515A-52CF-41A2-8325-8704EB187053}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IDAO.NHB.WebAssist</RootNamespace>
+    <AssemblyName>ZhiFang.IDAO.NHB.WebAssist</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess_SQL.cs" />
+    <Compile Include="GKBarcode\IDepartment_SQL.cs" />
+    <Compile Include="GKBarcode\IDGKDeptAutoCheckLinkDao.cs" />
+    <Compile Include="GKBarcode\IFeeSetUp_SQL.cs" />
+    <Compile Include="GKBarcode\IGKBarRed_SQL.cs" />
+    <Compile Include="GKBarcode\ILastBarcodeS_SQL.cs" />
+    <Compile Include="GKBarcode\IOperateType_SQL.cs" />
+    <Compile Include="GKBarcode\ITestType_SQL.cs" />
+    <Compile Include="GKBarcode\ITestType_Info_SQL.cs" />
+    <Compile Include="GKBarcode\IUser_SQL.cs" />
+    <Compile Include="HisInterface\IDBSDeptUserVODao_SQL.cs" />
+    <Compile Include="IDAgeUnitDao.cs" />
+    <Compile Include="IDBDictDao.cs" />
+    <Compile Include="IDBDictTreeDao.cs" />
+    <Compile Include="IDBDictTypeDao.cs" />
+    <Compile Include="IDBLodopTempletDao.cs" />
+    <Compile Include="IDBTemplateDao.cs" />
+    <Compile Include="IDSCInterfaceMapingDao.cs" />
+    <Compile Include="Lis\IDAntiGroupDao.cs" />
+    <Compile Include="Lis\IDChargeTypeDao.cs" />
+    <Compile Include="GKBarcode\IDGKSampleRequestFormDao.cs" />
+    <Compile Include="Lis\IDMDMicroTestDevelopDao.cs" />
+    <Compile Include="Lis\IDMDMicroTestValueDao.cs" />
+    <Compile Include="Lis\IDMEGroupSampleItemDao.cs" />
+    <Compile Include="Lis\IDMEMicroAppraisalValueDao.cs" />
+    <Compile Include="Lis\IDMEMicroDSTValueDao.cs" />
+    <Compile Include="Lis\IDMEGroupSampleFormDao.cs" />
+    <Compile Include="Lis\IDMEMicroInoculantDao.cs" />
+    <Compile Include="Lis\IDNPUserDao.cs" />
+    <Compile Include="IDBObjectOperateDao.cs" />
+    <Compile Include="IDBObjectOperateTypeDao.cs" />
+    <Compile Include="IDBOperateObjectTypeDao.cs" />
+    <Compile Include="IDBUserUIConfigDao.cs" />
+    <Compile Include="IDCenOrgTypeDao.cs" />
+    <Compile Include="IDCenOrgDao.cs" />
+    <Compile Include="IDBParameterDao.cs" />
+    <Compile Include="Lis\IDDistrictDao.cs" />
+    <Compile Include="Lis\IDEmployeeDao.cs" />
+    <Compile Include="Lis\IDEquipItemDao.cs" />
+    <Compile Include="Lis\IDEquipmentDao.cs" />
+    <Compile Include="Lis\IDFolkTypeDao.cs" />
+    <Compile Include="Lis\IDGenderTypeDao.cs" />
+    <Compile Include="Lis\IDGroupItemDao.cs" />
+    <Compile Include="Lis\IDItemRangeDao.cs" />
+    <Compile Include="Lis\IDItemTypeDao.cs" />
+    <Compile Include="Lis\IDNRequestFormDao.cs" />
+    <Compile Include="Lis\IDNRequestItemDao.cs" />
+    <Compile Include="Lis\IDPGroupDao.cs" />
+    <Compile Include="Lis\IDSampleTypeDao.cs" />
+    <Compile Include="IDSCBarCodeRulesDao.cs" />
+    <Compile Include="IDSCRecordDtlDao.cs" />
+    <Compile Include="IDSCRecordItemLinkDao.cs" />
+    <Compile Include="IDSCRecordPhraseDao.cs" />
+    <Compile Include="IDSCRecordTypeDao.cs" />
+    <Compile Include="IDSCRecordTypeItemDao.cs" />
+    <Compile Include="Lis\IDSamplingGroupDao.cs" />
+    <Compile Include="Lis\IDSamplingitemDao.cs" />
+    <Compile Include="Lis\IDSectionItemDao.cs" />
+    <Compile Include="Lis\IDSickTypeDao.cs" />
+    <Compile Include="Lis\IDStatusTypeDao.cs" />
+    <Compile Include="Lis\IDSuperGroupDao.cs" />
+    <Compile Include="Lis\IDTestEquipDao.cs" />
+    <Compile Include="IDSCOperationDao.cs" />
+    <Compile Include="Lis\IDTestItemDao.cs" />
+    <Compile Include="Lis\IDTestTypeDao.cs" />
+    <Compile Include="Lis\IDWardTypeDao.cs" />
+    <Compile Include="Lis_SQL\IDMEGroupSampleFormDao_SQL.cs" />
+    <Compile Include="Lis_SQL\IDMEGroupSampleItemDao_SQL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Base\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RBAC\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WebAssist\ZhiFang.Entity.WebAssist.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.WebAssist</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

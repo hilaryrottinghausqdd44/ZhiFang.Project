@@ -1,0 +1,25 @@
+SELECT type,--Clerk的类型 
+sum(virtual_memory_reserved_kb)as vm_Reserved_kb,--保留的内存 
+sum(virtual_memory_committed_kb)as vm_Committed_kb,--提交的内存 
+sum(awe_allocated_kb)as awe_Allocated_kb,--开启AWE后使用的内存 
+sum(shared_memory_reserved_kb)as sm_Reserved_kb,--共享的保留内存 
+sum(shared_memory_committed_kb)as sm_Committed_kb,--共享的提交内存 
+sum(single_pages_kb)as SinlgePage_kb,-- Buffer Pool中的Stolen的内存 
+sum(multi_pages_kb)as MultiPage_kb-- MemToLeave的内存
+FROM sys.dm_os_memory_clerks
+GROUP BY type ORDER BYtype
+ 
+--查询Buffer Pool/Memory To Leave
+SELECT
+ sum(virtual_memory_reserved_kb)AS [Reserved],
+ sum(virtual_memory_committed_kb)AS [Commit],
+ sum(virtual_memory_reserved_kb)/sum(virtual_memory_committed_kb) AS[Reserved/Commit],
+ sum(single_pages_kb)+sum(multi_pages_kb) AS [Stolen],
+ sum(virtual_memory_committed_kb)+sum(single_pages_kb)AS [Buffer Pool],
+ sum(multi_pages_kb) AS[MemToLeave],
+ SUM(awe_allocated_kb)AS [AWEAllocated]
+ FROM sys.dm_os_memory_clerks
+ 
+--查询SQLSERVER内存使用
+ 
+select * from sys.dm_os_process_memory

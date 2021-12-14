@@ -1,0 +1,465 @@
+<html>
+<head>
+    <title>超级链接属性</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <style type="text/css">
+        body, a, table, div, span, td, th, input, select
+        {
+            font: 9pt;
+            font-family: "宋体" , Verdana, Arial, Helvetica, sans-serif;
+        }
+        body
+        {
+            padding: 5px;
+        }
+    </style>
+
+    <script language="JavaScript" src="dialog.js"></script>
+
+    <script language="JavaScript">
+    function getParameter(param) {
+        var query = window.location.search;
+        var iLen = param.length;
+        var iStart = query.indexOf(param);
+        if (iStart == -1)
+            return "";
+        iStart += iLen + 1;
+        var iEnd = query.indexOf("&", iStart);
+        if (iEnd == -1)
+            return query.substring(iStart);
+
+        return query.substring(iStart, iEnd);
+    }
+
+    var type1 = getParameter("type");
+var sAction = URLParams['action'];
+var sTitle = "插入";
+
+var objWindow;
+
+var oRange;
+var sType;
+var oSel;
+
+var sUrl = "http://";
+var sProtocol = "http://";
+var sTarget = "";
+
+var sPositionSize="中,中,80%,80%";
+
+
+
+switch (sAction){
+case "other":
+	sUrl = dialogArguments.objLink.Href;
+	sTarget = dialogArguments.objLink.Target;
+	sProtocol = getProtocol(sUrl);
+	objWindow = dialogArguments.opener;
+	
+	break;
+default:
+if (type1 == null || type1 != "0") 
+{
+oRange = dialogArguments.eWebEditor.document.selection.createRange();
+	sType = dialogArguments.eWebEditor.document.selection.type;
+	}
+	else
+	{
+    oRange = dialogArguments.frames["eWebEditor1"].frames["eWebEditor"].document.selection.createRange();
+    sType = dialogArguments.frames["eWebEditor1"].frames["eWebEditor"].document.selection.type;
+	}
+	
+	if (sType == "Control") {
+		oSel = oRange(0).parentNode;
+	}else{
+		oSel = oRange.parentElement();
+	}
+	
+	while(oSel.tagName.toUpperCase() != "A" && oSel.tagName.toUpperCase() != "BODY")
+	{
+		oSel = oSel.parentNode;
+	}
+
+	if (oSel.tagName.toUpperCase() == "A"){
+		sTarget = oSel.target;
+		sUrl = oSel.getAttribute("href",2);
+		sProtocol = getProtocol(sUrl);
+	}
+	objWindow = dialogArguments;
+	break;
+}
+
+// 从地址取协议
+function getProtocol(url){
+	var re=/(.+:\/*)(.*)/gi;
+	return url.replace(re,"$1");
+}
+
+// 改变协议
+function changeProtocol(index){
+	sProtocol=d_protocol.options[index].value;
+	sUrl = d_url.innerHTML;
+	var re = /(.+:\/*)/gi;
+	sUrl = sUrl.replace(re, "");
+	d_url.innerHTML = sProtocol + sUrl;
+
+}
+
+
+
+
+
+// 初始值
+function InitDocument(){
+    type1 = getParameter("type");
+    var allFrame = '';
+    if (type1 == null || type1 != "0") 
+    {
+    allFrame = objWindow.eWebEditor.document.body.getElementsByTagName("IFRAME");
+    }
+    else
+    {allFrame = dialogArguments.frames["eWebEditor1"].frames["eWebEditor"].document.body.getElementsByTagName("IFRAME");
+    }
+	for (i=0; i < allFrame.length; i++)
+	{
+		d_target.options[d_target.options.length] = new Option(allFrame[i].id,allFrame[i].id);
+	}
+	//alert(allFrame.length);
+	
+	
+	SearchSelectValue(d_protocol, sProtocol.toLowerCase());
+	SearchSelectValue(d_target, sTarget.toLowerCase());
+	getAnchors();
+	d_url.innerHTML = sUrl;
+	
+	//初始化时判断，javascript开头的href属性，则属于弹出全屏窗口
+	d_PositionSize.disabled=true;
+	if(sUrl.indexOf("javascript:")==0)
+	{
+		d_PositionSize.disabled=false;
+		d_win.checked = true;
+		sPositionSize=sUrl;
+		sPositionSize=sPositionSize.substr(sPositionSize.indexOf('\'')+1);
+		//alert(sPositionSize);
+		sPositionSize=sPositionSize.substr(sPositionSize.indexOf('\'')+1);
+		//alert(sPositionSize);
+		sPositionSize=sPositionSize.substr(sPositionSize.indexOf('\'')+1);
+		
+		//alert(sPositionSize);
+		sPositionSize=sPositionSize.substr(0,sPositionSize.indexOf('\''));
+		
+		//alert(sPositionSize);
+		
+		if(sPositionSize=="")
+			sPositionSize="中,中,80%,80%";
+			
+		
+		d_PositionSize.value=sPositionSize;
+		
+	}
+	
+}
+
+//复选框变化
+function change()
+{
+    sUrl = d_url.innerHTML;
+	sPara=d_PositionSize.value;
+	if(document.all["d_win"].checked==true)
+	{
+		
+		if(sUrl.indexOf("http://")==0)
+		{
+		    d_url.innerHTML = "javascript: openWinPositionSize('" + sUrl + "','" + sPara + "')";
+		}
+		else if(sUrl.indexOf("javascript:")==0)
+		{
+			alert('已经是全屏窗口！');
+		}
+		else
+		{
+			alert('请选择正确的网址,http://……');
+			d_url.select();
+		}
+		d_PositionSize.disabled=false;
+	}
+	else
+	{
+		//去除弹出全屏窗口
+		if(sUrl.indexOf("javascript:")==0)
+		{
+			sUrl = sUrl.substr(sUrl.indexOf('\'')+1);
+			sUrl = sUrl.substr(0,sUrl.indexOf('\''));
+			d_url.innerHTML = sUrl;
+		}
+		
+		d_PositionSize.disabled=true;
+	
+
+	
+		
+	}
+
+
+}
+
+
+
+// 取所有的锚
+function getAnchors() {
+    d_anchor.options.length = 1; 
+    var allLinks = '';
+      type1 = getParameter("type");
+    if (type1 == null || type1 != "0") 
+    {   
+         allLinks = objWindow.eWebEditor.document.body.getElementsByTagName("A");
+      }
+      else
+      {
+       allLinks = dialogArguments.frames["eWebEditor1"].frames["eWebEditor"].document.body.getElementsByTagName("A");
+    }
+	for (i=0; i < allLinks.length; i++) {
+		if (allLinks[i].href.toUpperCase() == "") {
+			d_anchor.options[d_anchor.options.length] = new Option(allLinks[i].name,"#"+allLinks[i].name);
+		}
+	}
+}
+
+function ButtSelectModule_onclick()
+{
+	var sBaseUrl1 = document.location.protocol + '//' +
+					document.location.hostname + '/' +
+					document.location.pathname.substr(0,document.location.pathname.indexOf('/')) ;
+	//alert(sBaseUrl1);
+	
+	var r;
+	var r=window.showModalDialog(sBaseUrl1 + '/RBAC/Modules/SelectModuleDialog.aspx','','dialogWidth:588px;dialogHeight:618px;help:no;scroll:no;status:no');
+	if (r == '' || typeof(r) == 'undefined'||typeof(r)=='object')
+	{
+		return;
+	}
+	else
+	{
+		var returns=r.split("\v");
+		//document.all["d_url"].innerHTML=returns[0];
+		document.all["d_url"].innerHTML = sBaseUrl1 + returns[1].substr(5);
+		//返回的网址为http://形式，去掉弹出全屏窗口复选框
+		d_win.checked = false;
+	}
+}
+function ButtSelectConditions_onclick()
+{
+   var sBaseUrl1 = document.location.protocol + '//' +
+					document.location.hostname + '/' +
+					document.location.pathname.substr(0,document.location.pathname.indexOf('/')) ;
+	var r;
+	var r = window.showModalDialog(sBaseUrl1 + '/ModuleManage/ModuleDefault_List.aspx','','dialogWidth:588px;dialogHeight:618px;help:no;scroll:no;status:no');
+	if (r == '' || typeof(r) == 'undefined'||typeof(r)=='object')
+	{
+		return;
+	}
+	else
+	{
+	    var sBaseUrl2 = document.location.protocol + '//' + document.location.hostname;
+	    document.all["d_url"].innerHTML = sBaseUrl2 + r;
+	}
+  
+}
+    </script>
+
+    <script language="JavaScript" event="onclick" for="Ok">
+	sUrl = d_url.innerHTML;
+	sProtocol = d_protocol.options[d_protocol.selectedIndex].value;
+	sTarget = d_target.options[d_target.selectedIndex].value;
+
+	if (sUrl != ""&&(sUrl.indexOf("javascript:")==0||sUrl.indexOf("http://")==0)||sUrl.indexOf("/")==0){
+	    sUrl=sUrl.replace(/&amp;/g,'&');
+		switch (sAction){
+		case "other":
+			var arr = new Array();
+			arr[0] = sUrl;
+			arr[1] = sTarget;
+			window.returnValue = arr;
+			break;
+		default:
+		
+				
+				oRange.execCommand("CreateLink",false,sUrl);    //修改连接地址
+
+                var type = getParameter("type");
+              if (type == null || type != "0") 
+              {   
+				  oRange = dialogArguments.eWebEditor.document.selection.createRange();
+			      sType = dialogArguments.eWebEditor.document.selection.type;
+				}
+				else
+				{
+				  oRange = dialogArguments.frames["eWebEditor1"].frames["eWebEditor"].document.selection.createRange();
+				  sType = dialogArguments.frames["eWebEditor1"].frames["eWebEditor"].document.selection.type;
+                }
+				if (sType == "Control") {
+					oSel = oRange(0).parentNode;
+				}else{
+					oSel = oRange.parentElement();
+				}
+				
+	
+				while(oSel.tagName.toUpperCase() != "A" && oSel.tagName.toUpperCase() != "BODY")
+				{
+					oSel = oSel.parentNode;
+				}
+		
+				//保存判断，如果为弹出全屏窗口则去掉target属性
+				if (sTarget != ""&&sUrl.indexOf("javascript:")<0){
+					oSel.target = sTarget;
+				}else{
+					oSel.removeAttribute("target");
+				}		
+				
+				window.returnValue = null;
+			
+			break;
+		}
+	} else {
+		alert("链接地址不能为空或者不正确，请修改！");
+		d_url.focus();
+		return;
+	}
+	window.close();
+    </script>
+
+</head>
+<body bgcolor="menu" onload="InitDocument()">
+    <table cellspacing="0" cellpadding="0" align="center" border="0">
+        <tr>
+            <td>
+                <fieldset>
+                    <legend>超级链接信息</legend>
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td colspan="9" height="5">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="7">
+                            </td>
+                            <td nowrap>
+                                链接类型:
+                            </td>
+                            <td width="5">
+                            </td>
+                            <td>
+                                <select id="d_protocol" style="width: 72px" onchange="changeProtocol(this.selectedIndex)">
+                                    <option value="" selected>其它</option>
+                                    <option value="file:">file:</option>
+                                    <option value="ftp:">ftp:</option>
+                                    <option value="gopher:">gopher:</option>
+                                    <option value="http:">http:</option>
+                                    <option value="https:">https:</option>
+                                    <option value="mailto:">mailto:</option>
+                                    <option value="news:">news:</option>
+                                    <option value="telnet:">telnet:</option>
+                                    <option value="wais:">wais:</option>
+                                </select>
+                            </td>
+                            <td width="10">
+                            </td>
+                            <td nowrap>
+                                链接目标:
+                            </td>
+                            <td width="5">
+                            </td>
+                            <td>
+                                <select id="d_target" style="width: 122px">
+                                    <option value="" selected>默认(无)</option>
+                                    <option value="_self">相同框架</option>
+                                    <option value="_top">整页</option>
+                                    <option value="_blank">新建窗口</option>
+                                    <option value="_parent">父框架</option>
+                                </select>
+                            </td>
+                            <td width="7">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="9" height="5">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="7" height="22">
+                            </td>
+                            <td height="22">
+                                链接地址:
+                            </td>
+                            <td width="5" height="22">
+                            </td>
+                            <td colspan="5" height="22">
+                                <textarea id="d_url" name="d_url" type="text" rows="7" cols="35" style="width: 330px"></textarea>
+                            </td>
+                            <td width="7" height="22">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="9" height="5">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="7">
+                            </td>
+                            <td>
+                                书签链接:
+                            </td>
+                            <td width="5">
+                            </td>
+                            <td>
+                                <select id="d_anchor" onchange="d_url.innerHTML=this.options[this.selectedIndex].value">
+                                    <option value="" selected>默认(无)</option>
+                                </select>
+                            </td>
+                            <td width="40">
+                            </td>
+                            <td colspan="3">
+                                <input onclick="ButtSelectModule_onclick()" type="button" value="选择模块"><input type="button"
+                                    value="选择列表" onclick="ButtSelectConditions_onclick()" id="Button3" name="Button3">
+                            </td>
+                            <td width="7">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="9" height="5">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="7">
+                            </td>
+                            <td colspan="8" height="5">
+                                弹出全屏窗口:<input id="d_win" onclick="change()" type="checkbox" name="d_win">位置大小<input
+                                    id="d_PositionSize" type="text" size="29" value="中,中,80%,80%" name="d_PositionSize">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="9" height="5">
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td height="5">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <input id="Ok" type="submit" value="  确定  ">&nbsp;&nbsp;<input onclick="window.close();"
+                    type="button" value="  取消  ">
+            </td>
+        </tr>
+    </table>
+
+    <script>
+
+    </script>
+
+</body>
+</html>

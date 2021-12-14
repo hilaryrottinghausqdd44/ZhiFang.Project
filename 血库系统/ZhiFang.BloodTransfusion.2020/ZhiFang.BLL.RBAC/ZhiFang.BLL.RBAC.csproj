@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{247886C9-EC78-4CF9-8121-151AA091BBBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.RBAC</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.RBAC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.BloodTransfusion\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\Lib\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\Lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBCity.cs" />
+    <Compile Include="BBCountry.cs" />
+    <Compile Include="BBDegree.cs" />
+    <Compile Include="BBEducationLevel.cs" />
+    <Compile Include="BBHealthStatus.cs" />
+    <Compile Include="BBloodDocGrade.cs" />
+    <Compile Include="BBMaritalStatus.cs" />
+    <Compile Include="BBNationality.cs" />
+    <Compile Include="BBPoliticsStatus.cs" />
+    <Compile Include="BBProfessionalAbility.cs" />
+    <Compile Include="BBProvince.cs" />
+    <Compile Include="BBSex.cs" />
+    <Compile Include="BBTDAppComponents.cs" />
+    <Compile Include="BBTDAppComponentsOperate.cs" />
+    <Compile Include="BBTDAppComponentsRef.cs" />
+    <Compile Include="BBTDAppPicture.cs" />
+    <Compile Include="BBTDMacroCommand.cs" />
+    <Compile Include="BBTDModuleType.cs" />
+    <Compile Include="BBTDPictureType.cs" />
+    <Compile Include="BBTDPictureTypeCon.cs" />
+    <Compile Include="BDepartment.cs" />
+    <Compile Include="BDepartmentUser.cs" />
+    <Compile Include="BHRDept.cs" />
+    <Compile Include="BHRDeptEmp.cs" />
+    <Compile Include="BHRDeptIdentity.cs" />
+    <Compile Include="BHREmpIdentity.cs" />
+    <Compile Include="BHREmployee.cs" />
+    <Compile Include="BHRPosition.cs" />
+    <Compile Include="BImportFile.cs" />
+    <Compile Include="BPUser.cs" />
+    <Compile Include="BRBACEmpOptions.cs" />
+    <Compile Include="BRBACEmpRoles.cs" />
+    <Compile Include="BRBACModule.cs" />
+    <Compile Include="BRBACModuleOper.cs" />
+    <Compile Include="BRBACPreconditions.cs" />
+    <Compile Include="BRBACRole.cs" />
+    <Compile Include="BRBACRoleModule.cs" />
+    <Compile Include="BRBACRoleRight.cs" />
+    <Compile Include="BRBACRowFilter.cs" />
+    <Compile Include="BRBACUser.cs" />
+    <Compile Include="BSLog.cs" />
+    <Compile Include="BSServiceClient.cs" />
+    <Compile Include="BSServiceClientlevel.cs" />
+    <Compile Include="BSType.cs" />
+    <Compile Include="BSTypeDetail.cs" />
+    <Compile Include="ExcelDataCommon.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.BloodTransfusion.Common\ZhiFang.BloodTransfusion.Common.csproj">
+      <Project>{E57B020B-E404-4D4E-92A2-ABC517CE6BDD}</Project>
+      <Name>ZhiFang.BloodTransfusion.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.BloodTransfusion\ZhiFang.Entity.BloodTransfusion.csproj">
+      <Project>{36917E28-CE6F-441F-8C2F-F9210AD56D31}</Project>
+      <Name>ZhiFang.Entity.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.BloodTransfusion\ZhiFang.IBLL.BloodTransfusion.csproj">
+      <Project>{567C1DF3-46BD-4485-B06D-607384CC6B3F}</Project>
+      <Name>ZhiFang.IBLL.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{f5a15ed6-4eb8-4e39-8b19-357b799a1f10}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.NHB.BloodTransfusion\ZhiFang.IDAO.NHB.BloodTransfusion.csproj">
+      <Project>{DD7E515A-52CF-41A2-8325-8704EB187053}</Project>
+      <Name>ZhiFang.IDAO.NHB.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550F2-BF83-4C13-9386-9ACF6E2AE591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

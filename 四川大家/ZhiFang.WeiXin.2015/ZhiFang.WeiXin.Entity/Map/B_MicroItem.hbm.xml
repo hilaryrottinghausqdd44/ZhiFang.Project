@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BMicroItem" table="[dbo].[B_MicroItem]">
+		<id name="Id" column="[MicroID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="MicroTypeNo" column="[MicroTypeNo]" type="Int32" not-null="false" length="4" />
+		<property name="CName" column="[CName]" type="String" not-null="false" length="40" />
+		<property name="EName" column="[EName]" type="String" not-null="false" length="40" />
+		<property name="ShortName" column="[ShortName]" type="String" not-null="false" length="10" />
+		<property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="10" />
+		<property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="MicroDesc" column="[MicroDesc]" type="String" not-null="false" length="250" />
+		<property name="IsMicro" column="[isMicro]" type="Int32" not-null="true" length="4" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+//高级表单查询--全部与查询条件配置:表单窗体属性的model类
+Ext.define("ZhiFang.model.FormParamsModel",{
+	extend:'Ext.data.Model',
+    fields:[
+    	{name:'Title',type:'String'},//标题名称
+    	{name:'Size',type:'int'},//字体大小
+    	{name:'Color',type:'String'},//字体颜色
+    	{name:'Style',type:'String'},//字体类型 	
+    	{name:'ListModel',type:'String'},//模板列表
+    	{name:'Refresh',type:'bool'}//是否公开刷新方法
+    ]
+})

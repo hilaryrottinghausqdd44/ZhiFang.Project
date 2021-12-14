@@ -1,0 +1,216 @@
+﻿body {
+}
+/*页面顶部样式*/
+.page-top{
+	text-align:center;
+	background-color:#ffffff;
+	color:#169ada;
+    height:50px;
+    z-index:100;
+}
+/*页面顶部样式-标题*/
+.page-top-title {
+	float: left;
+	width: 100%;
+	padding:10px 0;
+	font-size: 24px;
+}
+/*页面顶部样式-返回*/
+.page-top-back {
+	float: left;
+    padding:13px 10px;
+    margin-top:-50px;
+    cursor:pointer;
+}
+/*页面顶部样式-主页*/
+.page-top-home {
+	float: right;
+    padding:13px 10px;
+    margin-top:-50px;
+    cursor:pointer;
+}
+/*加载中样式*/
+.loading-div {
+    position: absolute;
+	top:50%;
+	margin-top:-150px;
+    left:50%;
+    margin-left:-150px;
+	height:300px;
+    width:300px;
+    text-align:center;
+    color:#ffffff;
+    z-index: 1040;
+    background-image:url('images/gif/loading_300.gif');
+}
+/*列表样式*/
+.list-div{
+	float:left;
+	width:100%;
+	padding:10px 5px;
+	/*margin:0 2px;*/
+	border-bottom: 1px solid #e0e0e0;
+	color:#595959;
+}
+.list-div img{
+	float:left;
+	width:64px;
+	height:64Px;
+}
+.list-div-button{
+	float:right;
+	margin:-45px 5px 0 5px;
+	padding:5px 10px;
+	border:1px solid #169ada;
+	color:#169ada;
+	border-radius:2px;
+	cursor:pointer;
+}
+.list-div-delete{
+	/*float:right;
+	margin:-45px 5px 0 5px;
+	padding:5px 10px;
+	border:1px solid #169ada;
+	color:#169ada;
+	border-radius:2px;
+	cursor:pointer;*/
+	
+	z-index:-1;
+	float:right;
+	width:60px;
+	text-align: center;
+	/*margin-top:-65px;*/
+	padding:10px;
+	background-color:red;
+	color:white;
+}
+.div-button{
+	text-align:center;
+	border:1px solid #169ada;
+	padding:5px 10px;
+	margin:5px;
+	background-color: #169ada;
+	color:#ffffff;
+	/*border-radius:2px;*/
+	cursor:pointer;
+}
+
+/**基础列表table*/
+.basic_table {
+	width: 100%;
+	font-size: 1em;
+	table-layout: fixed;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0;
+	border: 1px solid #cad9ea;
+	color: #666;
+	background-color: #FFFFFF;
+}
+.basic_table th {
+	background-repeat: repeat-x;
+	height: 30px;
+	border: 1px solid #cad9ea;
+	padding: 7px 2px;
+	text-align: center;
+	/*background-color: #cad9ea;*/
+	background-color:rgba(22,154,218,0.7);
+	color:#ffffff;
+}
+.basic_table td {
+	height: 20px;
+	border: 1px solid #cad9ea;
+	padding: 10px 2px;
+}
+/**日期样式*/
+.date-div{
+	float:left;
+	padding:5px;
+	margin:5px 0;
+	background-color: #169ada;
+	border:1px solid #169ada;
+	color:#ffffff;
+}
+.date-div span{
+	
+}
+.date-div input{
+	width:100px;
+	height:24px;
+	padding:5px 10px;
+	color:#169ada;
+	border-radius: 0;
+}
+
+.list-group-item{
+	/*padding:0;*/
+}
+.list-group-item-heading{
+	color:#006dcc;
+	font-size:14px;
+}
+.list-group-item-right-icon{
+	float:right;
+	color:#ddd;
+}
+.list-group-item-content{
+	margin:1px;
+	padding:10px;
+	background-color: #ffffff;
+	z-index:9999;
+	-webkit-transform: translateX(0px);
+}
+.list-group-item-text{
+	margin:5px;
+	font-size:11px;
+}
+.remove-button-div{
+	z-index:-1;
+	float:right;
+	width:60px;
+	text-align: center;
+	margin:5px;
+	margin-top:-65px;
+	padding:10px;
+	background-color:#ffffff;
+	color:#d9534f;
+	border:1px solid #d9534f;
+	/*border-radius: 2px;*/
+}
+.number-spinner{
+	border:1px solid #e0e0e0;
+	height: 30px;
+    width: 112px;
+    text-align:center;
+    margin:5px;
+}
+.number-spinner button {
+	float: left;
+    width: 30px;
+    height:28px;
+    padding: 0;
+    margin:0;
+    border:0;
+    color: #169ada;
+    background-color: #ffffff;
+    font: 22px Arial bold;
+    outline:none;
+}
+.number-spinner input{
+	float: left;
+    width: 50px;
+    height: 28px;
+    padding:0;
+    margin:0;
+    border:0;
+	border-left:1px solid #e0e0e0;
+	border-right:1px solid #e0e0e0;
+    color:#d9534f;
+    text-align:center;
+    outline:none;
+    border-radius: 0;
+}
+.number-spinner-decrease{
+}
+.number-spinner-increase{
+}

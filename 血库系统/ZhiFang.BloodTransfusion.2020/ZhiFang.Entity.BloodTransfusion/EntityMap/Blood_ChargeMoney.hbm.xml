@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+	<class name="BloodChargeMoney" table="[dbo].[Blood_ChargeMoney]">
+		<id name="Id" column="[ChargeId]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="PChargeId" column="[PChargeId]" type="Int64" not-null="false" length="8" />
+		<property name="OperTypeId" column="[OperTypeId]" type="Int64" not-null="false" length="8" />
+		<property name="CMNo" column="[CMNo]" type="String" not-null="true" length="50" />
+		<property name="TypeId" column="[TypeId]" type="Int64" not-null="false" length="8" />
+		<property name="BobjectID" column="[BobjectID]" type="Int64" not-null="true" length="8" />
+		<property name="BobjectDtlID" column="[BobjectDtlID]" type="Int64" not-null="true" length="8" />
+		<property name="BloodDeptNo" column="[BloodDeptNo]" type="Int64" not-null="false" length="8" />
+		<property name="HisChargeItemNo" column="[HisChargeItemNo]" type="String" not-null="false" length="50" />
+		<property name="OrdItemId" column="[OrdItemId]" type="String" not-null="false" length="50" />
+		<property name="IsCharge" column="[IsCharge]" type="Int32" not-null="false" length="4" />
+		<property name="HisisCharge" column="[HisisCharge]" type="Int32" not-null="false" length="4" />
+		<property name="ChargeDate" column="[ChargeDate]" type="DateTime" not-null="false" length="8" />
+		<property name="HisChargeDate" column="[HisChargeDate]" type="DateTime" not-null="false" length="8" />
+		<property name="Modulus" column="[Modulus]" type="Double" not-null="false" length="8" />
+		<property name="TotalPrice" column="[TotalPrice]" type="Double" not-null="false" length="8" />
+    <property name="ReductionAmount" column="[ReductionAmount]" type="Double" not-null="false" length="8" />
+    <property name="ActuallyAmount" column="[ActuallyAmount]" type="Double" not-null="false" length="8" />
+		<property name="OperateId" column="[OperateId]" type="Int64" not-null="false" length="8" />
+		<property name="OperateName" column="[OperateName]" type="String" not-null="false" length="50" />
+		<property name="OperateDate" column="[OperateDate]" type="DateTime" not-null="false" length="8" />
+		<property name="OperateMemo" column="[OperateMemo]" type="String" not-null="false" length="200" />
+		<property name="HisDemo" column="[HisDemo]" type="String" not-null="false" length="200" />
+		<property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BloodBagProcessType" class="BloodBagProcessType"  lazy="proxy" >
+			<column name="[PTNo]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodBReqForm" class="BloodBReqForm"  lazy="proxy" >
+			<column name="[BReqFormID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodBReqItem" class="BloodBReqItem"  lazy="proxy" >
+			<column name="[BReqItemID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodChargeItem" class="BloodChargeItem"  lazy="proxy" >
+			<column name="[ChargeItemNo]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodChargeItemLink" class="BloodChargeItemLink"  lazy="proxy" >
+			<column name="[ChargeItemLinkId]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodChargeItemType" class="BloodChargeItemType"  lazy="proxy" >
+			<column name="[ChargeItemTypeNo]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="ChargeType" class="BDict"  lazy="proxy" >
+			<column name="[ChargeTypeNo]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodPatinfo" class="BloodPatinfo"  lazy="proxy" >
+			<column name="[PatId]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodUnit" class="BloodUnit"  lazy="proxy" >
+			<column name="[BloodUnitNo]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="BloodChargeException" class="BDict"  lazy="proxy" >
+			<column name="[BCEID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="GBloodChargeItem" class="BloodChargeItem"  lazy="proxy" >
+			<column name="[GChargeItemNo]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

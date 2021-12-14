@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://intf.api.gates.sc.oes.viewhigh.com" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SupplyChainForLISService" targetNamespace="http://intf.api.gates.sc.oes.viewhigh.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://intf.api.gates.sc.oes.viewhigh.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="checkInStorageByCode" type="tns:checkInStorageByCode" />
+      <xs:element name="checkInStorageByCodeResponse" type="tns:checkInStorageByCodeResponse" />
+      <xs:element name="drawsBackStorage" type="tns:drawsBackStorage" />
+      <xs:element name="drawsBackStorageResponse" type="tns:drawsBackStorageResponse" />
+      <xs:element name="getDeptInfoSync" type="tns:getDeptInfoSync" />
+      <xs:element name="getDeptInfoSyncResponse" type="tns:getDeptInfoSyncResponse" />
+      <xs:element name="getMateInfoSync" type="tns:getMateInfoSync" />
+      <xs:element name="getMateInfoSyncResponse" type="tns:getMateInfoSyncResponse" />
+      <xs:element name="getMateTypeSync" type="tns:getMateTypeSync" />
+      <xs:element name="getMateTypeSyncResponse" type="tns:getMateTypeSyncResponse" />
+      <xs:element name="getStoreInfoSync" type="tns:getStoreInfoSync" />
+      <xs:element name="getStoreInfoSyncResponse" type="tns:getStoreInfoSyncResponse" />
+      <xs:element name="getUserInfoSync" type="tns:getUserInfoSync" />
+      <xs:element name="getUserInfoSyncResponse" type="tns:getUserInfoSyncResponse" />
+      <xs:element name="mateDetailUsed" type="tns:mateDetailUsed" />
+      <xs:element name="mateDetailUsedResponse" type="tns:mateDetailUsedResponse" />
+      <xs:element name="xml" nillable="true" type="xs:anyType" />
+      <xs:complexType name="drawsBackStorage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:backOrderInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="arg1" type="tns:backOrderDetailInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="backOrderInfo">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="billBarCode" type="xs:string" />
+              <xs:element minOccurs="0" name="checkDate" type="xs:string" />
+              <xs:element minOccurs="0" name="checker" type="xs:string" />
+              <xs:element minOccurs="0" name="checkerName" type="xs:string" />
+              <xs:element minOccurs="0" name="compCode" type="xs:string" />
+              <xs:element minOccurs="0" name="memo" type="xs:string" />
+              <xs:element minOccurs="0" name="storeCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="reqParam">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="backOrderDetailInfo">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amount" type="xs:string" />
+              <xs:element minOccurs="0" name="barCode" type="xs:string" />
+              <xs:element minOccurs="0" name="batchNo" type="xs:string" />
+              <xs:element minOccurs="0" name="detailCode" type="xs:string" />
+              <xs:element minOccurs="0" name="invCode" type="xs:string" />
+              <xs:element minOccurs="0" name="invaDate" type="xs:string" />
+              <xs:element minOccurs="0" name="price" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="drawsBackStorageResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:commonResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="commonResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="head" type="tns:head" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="head">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="businessSyncCode" type="xs:string" />
+          <xs:element minOccurs="0" name="businessSyncMsg" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkInStorageByCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:checkInStoreParam" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkInStoreParam">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="billBarCode" type="xs:string" />
+              <xs:element minOccurs="0" name="compCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="checkInStorageByCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:outOrderInfoRes" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="outOrderInfoRes">
+        <xs:all>
+          <xs:element minOccurs="0" name="head" type="tns:head" />
+          <xs:element minOccurs="0" name="body" type="tns:outOrderBody" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="outOrderBody">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="outOrderInfo" type="tns:outOrderInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="outOrderInfo">
+        <xs:sequence>
+          <xs:element name="billCode" type="xs:string" />
+          <xs:element name="storeCode" type="xs:string" />
+          <xs:element name="storeName" type="xs:string" />
+          <xs:element name="deptCode" type="xs:string" />
+          <xs:element name="deptName" type="xs:string" />
+          <xs:element name="deptStoreCode" type="xs:string" />
+          <xs:element name="deptStoreName" type="xs:string" />
+          <xs:element minOccurs="0" name="totalPrice" nillable="true" type="xs:string" />
+          <xs:element name="checker" type="xs:string" />
+          <xs:element name="checkerName" type="xs:string" />
+          <xs:element name="chkeckDate" type="xs:string" />
+          <xs:element minOccurs="0" name="memo" nillable="true" type="xs:string" />
+          <xs:element maxOccurs="unbounded" name="outOrderInfoDetail" nillable="true" type="tns:outOrderInfoDetail" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="outOrderInfoDetail">
+        <xs:sequence>
+          <xs:element name="detailCode" type="xs:string" />
+          <xs:element name="venCode" type="xs:string" />
+          <xs:element name="venName" type="xs:string" />
+          <xs:element name="invCode" type="xs:string" />
+          <xs:element name="invName" type="xs:string" />
+          <xs:element name="mateTypeCode" type="xs:string" />
+          <xs:element name="invSpec" type="xs:string" />
+          <xs:element minOccurs="0" name="invModel" nillable="true" type="xs:string" />
+          <xs:element name="unitName" type="xs:string" />
+          <xs:element name="factoryCode" type="xs:string" />
+          <xs:element name="factoryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="certCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="brandName" nillable="true" type="xs:string" />
+          <xs:element name="price" type="xs:string" />
+          <xs:element name="amount" type="xs:string" />
+          <xs:element minOccurs="0" name="barCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="invaDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="batchNo" nillable="true" type="xs:string" />
+          <xs:element name="batchSn" type="xs:string" />
+          <xs:element minOccurs="0" name="packUnit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="memo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getUserInfoSync">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:userInfoParam" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="userInfoParam">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="compCode" type="xs:string" />
+              <xs:element minOccurs="0" name="userCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getUserInfoSyncResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:userInfoRes" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="userInfoRes">
+        <xs:all>
+          <xs:element minOccurs="0" name="head" type="tns:head" />
+          <xs:element minOccurs="0" name="body">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="userInfo" type="tns:userInfo" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="userInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userCode" type="xs:string" />
+          <xs:element minOccurs="0" name="userName" type="xs:string" />
+          <xs:element minOccurs="0" name="deptCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMateTypeSync">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:mateTypeParam" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mateTypeParam">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="compCode" type="xs:string" />
+              <xs:element minOccurs="0" name="mateTypeCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getMateTypeSyncResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:mateTypeRes" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mateTypeRes">
+        <xs:all>
+          <xs:element minOccurs="0" name="head" type="tns:head" />
+          <xs:element minOccurs="0" name="body">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="mateType" type="tns:mateType" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="mateType">
+        <xs:sequence>
+          <xs:element name="mateTypeCode" nillable="true" type="xs:string" />
+          <xs:element name="mateTypeName" nillable="true" type="xs:string" />
+          <xs:element name="superCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDeptInfoSync">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:deptInfoParam" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deptInfoParam">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="compCode" type="xs:string" />
+              <xs:element minOccurs="0" name="deptCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getDeptInfoSyncResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:deptInfoRes" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deptInfoRes">
+        <xs:all>
+          <xs:element minOccurs="0" name="head" type="tns:head" />
+          <xs:element minOccurs="0" name="body">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="deptInfo" type="tns:deptInfo" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="deptInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deptCode" type="xs:string" />
+          <xs:element minOccurs="0" name="deptName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMateInfoSync">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:materialInfoParam" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="materialInfoParam">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="compCode" type="xs:string" />
+              <xs:element minOccurs="0" name="invCode" type="xs:string" />
+              <xs:element minOccurs="0" name="lastModifyDate" type="xs:string" />
+              <xs:element minOccurs="0" name="pageNum" type="xs:string" />
+              <xs:element minOccurs="0" name="pageSize" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getMateInfoSyncResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:mateInfoRes" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mateInfoRes">
+        <xs:all>
+          <xs:element minOccurs="0" name="head" type="tns:head" />
+          <xs:element minOccurs="0" name="body">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="mateInfo" type="tns:mateInfo" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="mateInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="invCode" type="xs:string" />
+          <xs:element minOccurs="0" name="invName" type="xs:string" />
+          <xs:element minOccurs="0" name="mateTypeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="invSpec" type="xs:string" />
+          <xs:element minOccurs="0" name="invModel" type="xs:string" />
+          <xs:element minOccurs="0" name="unitName" type="xs:string" />
+          <xs:element minOccurs="0" name="venCode" type="xs:string" />
+          <xs:element minOccurs="0" name="venName" type="xs:string" />
+          <xs:element minOccurs="0" name="factoryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="factoryName" type="xs:string" />
+          <xs:element minOccurs="0" name="certCode" type="xs:string" />
+          <xs:element minOccurs="0" name="brandName" type="xs:string" />
+          <xs:element minOccurs="0" name="price" type="xs:string" />
+          <xs:element minOccurs="0" name="isStop" type="xs:string" />
+          <xs:element minOccurs="0" name="isBar" type="xs:string" />
+          <xs:element minOccurs="0" name="maxPackNum" type="xs:string" />
+          <xs:element minOccurs="0" name="minPackNum" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getStoreInfoSync">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:storeInfoParam" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="storeInfoParam">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="compCode" type="xs:string" />
+              <xs:element minOccurs="0" name="storeCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getStoreInfoSyncResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:storeInfoRes" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="storeInfoRes">
+        <xs:all>
+          <xs:element minOccurs="0" name="head" type="tns:head" />
+          <xs:element minOccurs="0" name="body">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="deptInfo" type="tns:storeInfo" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="storeInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="storeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="storeName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mateDetailUsed">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="arg0" type="tns:deptOutOrderDetailInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deptOutOrderDetailInfo">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:reqParam">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amount" type="xs:string" />
+              <xs:element minOccurs="0" name="barCode" type="xs:string" />
+              <xs:element minOccurs="0" name="batchNo" type="xs:string" />
+              <xs:element minOccurs="0" name="batchSn" type="xs:string" />
+              <xs:element minOccurs="0" name="billCode" type="xs:string" />
+              <xs:element minOccurs="0" name="brandName" type="xs:string" />
+              <xs:element minOccurs="0" name="certCode" type="xs:string" />
+              <xs:element minOccurs="0" name="checkDate" type="xs:string" />
+              <xs:element minOccurs="0" name="checkerEmp" type="xs:string" />
+              <xs:element minOccurs="0" name="compCode" type="xs:string" />
+              <xs:element minOccurs="0" name="deptCode" type="xs:string" />
+              <xs:element minOccurs="0" name="deptName" type="xs:string" />
+              <xs:element minOccurs="0" name="factoryCode" type="xs:string" />
+              <xs:element minOccurs="0" name="factoryName" type="xs:string" />
+              <xs:element minOccurs="0" name="inOutFlag" type="xs:string" />
+              <xs:element minOccurs="0" name="invCode" type="xs:string" />
+              <xs:element minOccurs="0" name="invModel" type="xs:string" />
+              <xs:element minOccurs="0" name="invName" type="xs:string" />
+              <xs:element minOccurs="0" name="invSpec" type="xs:string" />
+              <xs:element minOccurs="0" name="invaDate" type="xs:string" />
+              <xs:element minOccurs="0" name="lisOutCode" type="xs:string" />
+              <xs:element minOccurs="0" name="makeDate" type="xs:string" />
+              <xs:element minOccurs="0" name="makerEmp" type="xs:string" />
+              <xs:element minOccurs="0" name="mateTypeCode" type="xs:string" />
+              <xs:element minOccurs="0" name="memo" type="xs:string" />
+              <xs:element minOccurs="0" name="outDate" type="xs:string" />
+              <xs:element minOccurs="0" name="price" type="xs:string" />
+              <xs:element minOccurs="0" name="storeCode" type="xs:string" />
+              <xs:element minOccurs="0" name="storeName" type="xs:string" />
+              <xs:element minOccurs="0" name="unitName" type="xs:string" />
+              <xs:element minOccurs="0" name="venCode" type="xs:string" />
+              <xs:element minOccurs="0" name="venName" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="mateDetailUsedResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:commonResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Exception" type="tns:Exception" />
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="drawsBackStorage">
+    <wsdl:part name="parameters" element="tns:drawsBackStorage" />
+  </wsdl:message>
+  <wsdl:message name="drawsBackStorageResponse">
+    <wsdl:part name="parameters" element="tns:drawsBackStorageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMateInfoSyncResponse">
+    <wsdl:part name="parameters" element="tns:getMateInfoSyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStoreInfoSyncResponse">
+    <wsdl:part name="parameters" element="tns:getStoreInfoSyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMateTypeSync">
+    <wsdl:part name="parameters" element="tns:getMateTypeSync" />
+  </wsdl:message>
+  <wsdl:message name="getUserInfoSyncResponse">
+    <wsdl:part name="parameters" element="tns:getUserInfoSyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMateInfoSync">
+    <wsdl:part name="parameters" element="tns:getMateInfoSync" />
+  </wsdl:message>
+  <wsdl:message name="getStoreInfoSync">
+    <wsdl:part name="parameters" element="tns:getStoreInfoSync" />
+  </wsdl:message>
+  <wsdl:message name="getDeptInfoSyncResponse">
+    <wsdl:part name="parameters" element="tns:getDeptInfoSyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="mateDetailUsedResponse">
+    <wsdl:part name="parameters" element="tns:mateDetailUsedResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMateTypeSyncResponse">
+    <wsdl:part name="parameters" element="tns:getMateTypeSyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkInStorageByCode">
+    <wsdl:part name="parameters" element="tns:checkInStorageByCode" />
+  </wsdl:message>
+  <wsdl:message name="getUserInfoSync">
+    <wsdl:part name="parameters" element="tns:getUserInfoSync" />
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part name="Exception" element="tns:Exception" />
+  </wsdl:message>
+  <wsdl:message name="getDeptInfoSync">
+    <wsdl:part name="parameters" element="tns:getDeptInfoSync" />
+  </wsdl:message>
+  <wsdl:message name="mateDetailUsed">
+    <wsdl:part name="parameters" element="tns:mateDetailUsed" />
+  </wsdl:message>
+  <wsdl:message name="checkInStorageByCodeResponse">
+    <wsdl:part name="parameters" element="tns:checkInStorageByCodeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SysPlatformDataSync">
+    <wsdl:operation name="drawsBackStorage">
+      <wsdl:input name="drawsBackStorage" message="tns:drawsBackStorage" />
+      <wsdl:output name="drawsBackStorageResponse" message="tns:drawsBackStorageResponse" />
+      <wsdl:fault name="Exception" message="tns:Exception" />
+    </wsdl:operation>
+    <wsdl:operation name="checkInStorageByCode">
+      <wsdl:input name="checkInStorageByCode" message="tns:checkInStorageByCode" />
+      <wsdl:output name="checkInStorageByCodeResponse" message="tns:checkInStorageByCodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfoSync">
+      <wsdl:input name="getUserInfoSync" message="tns:getUserInfoSync" />
+      <wsdl:output name="getUserInfoSyncResponse" message="tns:getUserInfoSyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMateTypeSync">
+      <wsdl:input name="getMateTypeSync" message="tns:getMateTypeSync" />
+      <wsdl:output name="getMateTypeSyncResponse" message="tns:getMateTypeSyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeptInfoSync">
+      <wsdl:input name="getDeptInfoSync" message="tns:getDeptInfoSync" />
+      <wsdl:output name="getDeptInfoSyncResponse" message="tns:getDeptInfoSyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMateInfoSync">
+      <wsdl:input name="getMateInfoSync" message="tns:getMateInfoSync" />
+      <wsdl:output name="getMateInfoSyncResponse" message="tns:getMateInfoSyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getStoreInfoSync">
+      <wsdl:input name="getStoreInfoSync" message="tns:getStoreInfoSync" />
+      <wsdl:output name="getStoreInfoSyncResponse" message="tns:getStoreInfoSyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="mateDetailUsed">
+      <wsdl:input name="mateDetailUsed" message="tns:mateDetailUsed" />
+      <wsdl:output name="mateDetailUsedResponse" message="tns:mateDetailUsedResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SupplyChainForLISServiceSoapBinding" type="tns:SysPlatformDataSync">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="drawsBackStorage">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="drawsBackStorage">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="drawsBackStorageResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkInStorageByCode">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkInStorageByCode">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkInStorageByCodeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfoSync">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getUserInfoSync">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUserInfoSyncResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMateTypeSync">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMateTypeSync">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMateTypeSyncResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeptInfoSync">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getDeptInfoSync">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDeptInfoSyncResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMateInfoSync">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMateInfoSync">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMateInfoSyncResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStoreInfoSync">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getStoreInfoSync">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getStoreInfoSyncResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mateDetailUsed">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="mateDetailUsed">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="mateDetailUsedResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SupplyChainForLISService">
+    <wsdl:port name="SysPlantformDataSyncImplPort" binding="tns:SupplyChainForLISServiceSoapBinding">
+      <soap:address location="http://172.21.8.20:8088/services/Lis" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	
+	<!--危急值卡片引入-->
+	<!--<link rel="stylesheet" href="http://192.168.0.104/ZhiFang.LabInformationIntegratePlatform/ui/src/layui/src/css/layui.css" media="all">
+	<script src="http://192.168.0.104/ZhiFang.LabInformationIntegratePlatform/ui/src/layui/src/layui.js"></script>
+	<script type="text/javascript">
+		layui.config({
+			base:'http://192.168.0.104/ZhiFang.LabInformationIntegratePlatform/ui/layui/'
+		}).extend({
+			msgcard_cv:'modules/msg/cv'
+		}).use(['msgcard_cv'],function(){
+			layui.msgcard_cv.render({
+				loginInfo:{
+					"Account":"测试",
+					"PWD":"123456",
+					"Name":"测试",
+					"Sex":"男",
+					"DeptName":"测试科室",
+					"DeptHISCode":"测试科室HIS编码",
+					"Phone":"1234"
+				}
+			});
+		});
+	</script>-->
+	<!--<script src="http://192.168.0.104/ZhiFang.LabInformationIntegratePlatform/ui/layui/interface/msg_cv.js"></script>
+	<script type="text/javascript">
+		//显示危急值卡片
+		function showCard(loginInfo){
+			return;//测试注释
+			if(window.msgcard_cv){
+				window.msgcard_cv.render({loginInfo:loginInfo});
+			}else{
+				setTimeout(function(){showCard(loginInfo);},1000);
+			}
+		}
+		//第三方登录自己的账号后，将登录人员信息传入卡片，如果没有信息平台没有该账号则自动创建相应信息
+		//Account=账户名&PWD=密码&Name=姓名&Sex=性别&DeptName=科室名称&DeptHISCode=科室HIS编码&Phone=电话
+		showCard({
+			"Account":"测试",
+			"PWD":"123456",
+			"Name":"测试",
+			"Sex":"男",
+			"DeptName":"测试科室",
+			"DeptHISCode":"测试科室HIS编码",
+			"Phone":"1234"
+		});
+	</script>-->
+	
+	<link rel="stylesheet" href="../../src/layui/dist/css/layui.css" media="all">
+	<script src="../../src/layui/dist/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['jquery','layer'],function(){
+			var $ = layui.$;
+			var CARD_URL = 'http://192.168.0.104/ZhiFang.LabInformationIntegratePlatform/ui/layui/interface/msg_cv.html';
+			
+			CARD_URL += '?hasTitle=true&Account=测试&PWD=123456&Name=测试&Sex=男&DeptName=测试科室&DeptHISCode=测试科室HIS编码&Phone=13812345678';
+
+			function showCard(){
+				layui.layer.open({
+					title:'危急值消息',//标题为空
+					type:2,//类型
+					resize:false,//是否允许拉伸
+					shade:0,//遮罩
+					//closeBtn:0,//关闭按钮
+					
+					area:['100px','143px'],//宽度高度
+					
+					offset:'rt',//默认位置
+					offsetP:{"right":0,"top":0},//扩展定位属性,left、right、top、bottom都可以设置，优先top、left属性
+					
+					content:CARD_URL
+				});
+			};
+			$("#button").on("click",function(){
+				showCard();
+			});
+		});
+	</script>
+</head>
+<body>
+	<button type="button" class="layui-btn" id="button">显示卡片</button>
+</body>
+</html>

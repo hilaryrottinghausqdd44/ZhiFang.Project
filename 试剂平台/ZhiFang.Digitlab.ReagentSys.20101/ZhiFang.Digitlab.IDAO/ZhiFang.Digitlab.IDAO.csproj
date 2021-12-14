@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{963308BE-C1E7-430F-8E7F-D3C9033C3E29}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Digitlab.IDAO</RootNamespace>
+    <AssemblyName>ZhiFang.Digitlab.IDAO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDBAccountTypeDao.cs" />
+    <Compile Include="IDBAntiClassDao.cs" />
+    <Compile Include="IDBAntiClassMethodDao.cs" />
+    <Compile Include="IDBAntiClassTypeDao.cs" />
+    <Compile Include="IDBAntiDao.cs" />
+    <Compile Include="IDBAntiUseDao.cs" />
+    <Compile Include="IDBCalcFormulaDao.cs" />
+    <Compile Include="IDBCalcFormulaParasDao.cs" />
+    <Compile Include="IDBCalcItemDao.cs" />
+    <Compile Include="IDBChargeItemDao.cs" />
+    <Compile Include="IDBIdentificationMethodDao.cs" />
+    <Compile Include="IDBImmCalcTemplateDao.cs" />
+    <Compile Include="IDBImmDxCalcRuleDao.cs" />
+    <Compile Include="IDBImmDxCalcVarReplaceDao.cs" />
+    <Compile Include="IDBImmItemCalcInfoDao.cs" />
+    <Compile Include="IDBImmResultSetDao.cs" />
+    <Compile Include="IDBImmunePlateTemplateDao.cs" />
+    <Compile Include="IDBImmunePlateTemplateDetailInfoDao.cs" />
+    <Compile Include="IDBLaboratoryDao.cs" />
+    <Compile Include="IDBMicroAntiClassDao.cs" />
+    <Compile Include="IDBMicroAntiRangeDao.cs" />
+    <Compile Include="IDBMicroBCBottleReceivingPersonDao.cs" />
+    <Compile Include="IDBMicroBCBottleTypeOfItemDao.cs" />
+    <Compile Include="IDBMicroBCBottleTypeOfManufacturerDao.cs" />
+    <Compile Include="IDBMicroBloodCultureBottleManufacturerDao.cs" />
+    <Compile Include="IDBMicroBloodCultureBottleTypeDao.cs" />
+    <Compile Include="IDBMicroClassDao.cs" />
+    <Compile Include="IDBMicroClassMethodDao.cs" />
+    <Compile Include="IDBMicroClassTypeDao.cs" />
+    <Compile Include="IDBMicroDao.cs" />
+    <Compile Include="IDBMicroGroupAntiClassDao.cs" />
+    <Compile Include="IDBMicroTestItemAndSampleDao.cs" />
+    <Compile Include="IDBMicroTestItemInfoDao.cs" />
+    <Compile Include="IDBMicroTestItemUseValueDao.cs" />
+    <Compile Include="IDBReCheckReasonDao.cs" />
+    <Compile Include="IDBRetainedBacteriaBoxTypeDao.cs" />
+    <Compile Include="IDBSampleNumberBuildRuleConditionDao.cs" />
+    <Compile Include="IDBSoftWareDao.cs" />
+    <Compile Include="IDBSoftWareVersionManagerDao.cs" />
+    <Compile Include="IDBStainingMethodDao.cs" />
+    <Compile Include="IDBWeiXinAccountDao.cs" />
+    <Compile Include="IDBWeiXinEmpLinkDao.cs" />
+    <Compile Include="IDBWeiXinPushMessageTemplateDao.cs" />
+    <Compile Include="IDBWeiXinUserGroupDao.cs" />
+    <Compile Include="IDEPEquipTypeDao.cs" />
+    <Compile Include="IDEPEquipTypeOperateDao.cs" />
+    <Compile Include="IDEPMicroEquipAntiChannelDao.cs" />
+    <Compile Include="IDEPMicroEquipMicroChannelDao.cs" />
+    <Compile Include="IDGMGroupTypeOperateDao.cs" />
+    <Compile Include="IDBAgeUnitDao.cs" />
+    <Compile Include="IDBaseDao.cs" />
+    <Compile Include="IDBAttendanceTypeDao.cs" />
+    <Compile Include="IDBBackSectionStateDao.cs" />
+    <Compile Include="IDBBusinessTypeDao.cs" />
+    <Compile Include="IDBCheckStatusDao.cs" />
+    <Compile Include="IDBConstellationDao.cs" />
+    <Compile Include="IDBDiagDao.cs" />
+    <Compile Include="IDBDicClassDao.cs" />
+    <Compile Include="IDBDicDao.cs" />
+    <Compile Include="IDBEducationLevelDao.cs" />
+    <Compile Include="IDBExecutionStateDao.cs" />
+    <Compile Include="IDBFileGroupDao.cs" />
+    <Compile Include="IDBFileTypeDao.cs" />
+    <Compile Include="IDBFinancialDao.cs" />
+    <Compile Include="IDBHealthStatusDao.cs" />
+    <Compile Include="IDBMicAntiDao.cs" />
+    <Compile Include="IDBMicMicroDao.cs" />
+    <Compile Include="IDBProjectTypeDao.cs" />
+    <Compile Include="IDBLeaveTypeDao.cs" />
+    <Compile Include="IDBLevelDao.cs" />
+    <Compile Include="IDBMaritalStatusDao.cs" />
+    <Compile Include="IDBMaxNumberToRuleDao.cs" />
+    <Compile Include="IDBNationalityDao.cs" />
+    <Compile Include="IDBNumberBuildRuleConditionDao.cs" />
+    <Compile Include="IDBNumberBuildRuleDao.cs" />
+    <Compile Include="IDBOperateObjectTypeDao.cs" />
+    <Compile Include="IDBParameterDao.cs" />
+    <Compile Include="IDBPatientInfoDao.cs" />
+    <Compile Include="IDBPaymentTypeDao.cs" />
+    <Compile Include="IDBPhraseDao.cs" />
+    <Compile Include="IDBPhraseTypeDao.cs" />
+    <Compile Include="IDBProduceDao.cs" />
+    <Compile Include="IDBProvinceDao.cs" />
+    <Compile Include="IDBReimbursementStateDao.cs" />
+    <Compile Include="IDBReimbursementTypeDao.cs" />
+    <Compile Include="IDBReportCycleDao.cs" />
+    <Compile Include="IDBReportStatusDao.cs" />
+    <Compile Include="IDBReportTypeDao.cs" />
+    <Compile Include="IDBSampleOperateDao.cs" />
+    <Compile Include="IDBSampleOperateTypeDao.cs" />
+    <Compile Include="IDBSampleStatusDao.cs" />
+    <Compile Include="IDBSampleStatusTypeDao.cs" />
+    <Compile Include="IDBSexDao.cs" />
+    <Compile Include="IDBSickTypeDao.cs" />
+    <Compile Include="IDBStatusDao.cs" />
+    <Compile Include="IDBStorageTypeDao.cs" />
+    <Compile Include="IDBStorehouseDao.cs" />
+    <Compile Include="IDBSubjectDao.cs" />
+    <Compile Include="IDBSupplierDao.cs" />
+    <Compile Include="IDBTDAppComponentsDao.cs" />
+    <Compile Include="IDBTDAppComponentsOperateDao.cs" />
+    <Compile Include="IDBTDAppComponentsRefDao.cs" />
+    <Compile Include="IDBTDAppPictureDao.cs" />
+    <Compile Include="IDBTDMacroCommandDao.cs" />
+    <Compile Include="IDBTDModuleTypeDao.cs" />
+    <Compile Include="IDBTDPictureTypeConDao.cs" />
+    <Compile Include="IDBTDPictureTypeDao.cs" />
+    <Compile Include="IDBTestTypeDao.cs" />
+    <Compile Include="IDBURLGroupDao.cs" />
+    <Compile Include="IDBURLTypeDao.cs" />
+    <Compile Include="IDEPBEquipCommInfoDao.cs" />
+    <Compile Include="IDEPBEquipDao.cs" />
+    <Compile Include="IDEPEquipItemDao.cs" />
+    <Compile Include="IDEPModuleDao.cs" />
+    <Compile Include="IDGMGroupDao.cs" />
+    <Compile Include="IDGMGroupEquipDao.cs" />
+    <Compile Include="IDGMGroupItemDao.cs" />
+    <Compile Include="IDGMGroupTypeDao.cs" />
+    <Compile Include="IDHRDeptEmpDao.cs" />
+    <Compile Include="IDHRDeptIdentityDao.cs" />
+    <Compile Include="IDHREmpIdentityDao.cs" />
+    <Compile Include="IDHREmployeeDao.cs" />
+    <Compile Include="IDHRPositionDao.cs" />
+    <Compile Include="IDBCityDao.cs" />
+    <Compile Include="IDBCountryDao.cs" />
+    <Compile Include="IDBDegreeDao.cs" />
+    <Compile Include="IDBPoliticsStatusDao.cs" />
+    <Compile Include="IDBProfessionalAbilityDao.cs" />
+    <Compile Include="IDBCultivationConditionDao.cs" />
+    <Compile Include="IDBCultureMediumDao.cs" />
+    <Compile Include="IDBDiseaseAreaDao.cs" />
+    <Compile Include="IDBDiseaseRoomDao.cs" />
+    <Compile Include="IDBDoctorDao.cs" />
+    <Compile Include="IDBMedicalDepartmentDao.cs" />
+    <Compile Include="IDBSampleCharacterDao.cs" />
+    <Compile Include="IDBSampleTypeAndCultureMediumDao.cs" />
+    <Compile Include="IDMEMicroAppraisalTestDao.cs" />
+    <Compile Include="IDMEMicroCultureLogDao.cs" />
+    <Compile Include="IDMEMicroCultureMessageDao.cs" />
+    <Compile Include="IDMEMicroCultureValueDao.cs" />
+    <Compile Include="IDMEMicroInoculantDao.cs" />
+    <Compile Include="IDItemHisCompDao.cs" />
+    <Compile Include="IDMEGroupSampleGraphDao.cs" />
+    <Compile Include="IDMEMicroBCBottleManageInfoDao.cs" />
+    <Compile Include="IDMEMicroDSTResultReportPublicationDao.cs" />
+    <Compile Include="IDMEMicroAppraisalValueDao.cs" />
+    <Compile Include="IDMEMicroAppraisalResultReportPublicationDao.cs" />
+    <Compile Include="IDItemAllItemDao.cs" />
+    <Compile Include="IDItemItemConDao.cs" />
+    <Compile Include="IDBSampleTypeDao.cs" />
+    <Compile Include="IDItemRefeRangeDao.cs" />
+    <Compile Include="IDItemResultJudgeDao.cs" />
+    <Compile Include="IDMEChargeInfoDao.cs" />
+    <Compile Include="IDMEEquipMicroStepInfoDao.cs" />
+    <Compile Include="IDMEEquipMicroSuscResultDao.cs" />
+    <Compile Include="IDMEEquipSampleFormDao.cs" />
+    <Compile Include="IDMEEquipSampleItemDao.cs" />
+    <Compile Include="IDMEGroupSampleFormDao.cs" />
+    <Compile Include="IDMEGroupSampleItemDao.cs" />
+    <Compile Include="IDMEGroupSampleReCheckFormDao.cs" />
+    <Compile Include="IDMEGroupSampleReCheckItemDao.cs" />
+    <Compile Include="IDMEGroupSampleReportPublicationDao.cs" />
+    <Compile Include="IDMEImmunePlateDao.cs" />
+    <Compile Include="IDMEImmuneResultsDao.cs" />
+    <Compile Include="IDMEMicroDSTValueDao.cs" />
+    <Compile Include="IDMEMicroRetainedBacteriaBoxDao.cs" />
+    <Compile Include="IDMEMicroRetainedBacteriaDao.cs" />
+    <Compile Include="IDMEMicroSecondReportAppraisalValueDao.cs" />
+    <Compile Include="IDMEMicroSecondReportDSTValueDao.cs" />
+    <Compile Include="IDMEMicroSmearValueDao.cs" />
+    <Compile Include="IDMEMicroSmearValueDetailDao.cs" />
+    <Compile Include="IDMEMicroThreeReportDao.cs" />
+    <Compile Include="IDMEMicroThreeReportDetailDao.cs" />
+    <Compile Include="IDMEPTBarCodePrintTypeDao.cs" />
+    <Compile Include="IDMEPTBChargeDao.cs" />
+    <Compile Include="IDMEPTBChargeTypeDao.cs" />
+    <Compile Include="IDBNodeTableDao.cs" />
+    <Compile Include="IDMEPTBSampleSourceDao.cs" />
+    <Compile Include="IDMEPTBSpecialTimeTypeDao.cs" />
+    <Compile Include="IDBSpecialtyDao.cs" />
+    <Compile Include="IDBTimeUnitDao.cs" />
+    <Compile Include="IDMEPTDefaultItemModeDao.cs" />
+    <Compile Include="IDMEPTDefaultItemModeRelationDao.cs" />
+    <Compile Include="IDMEPTDistributeGroupDao.cs" />
+    <Compile Include="IDMEPTDistributeGroupItemDao.cs" />
+    <Compile Include="IDMEPTDistributeRuleDao.cs" />
+    <Compile Include="IDMEPTDistributeRuleDetailDao.cs" />
+    <Compile Include="IDMEPTGetReportTimeDao.cs" />
+    <Compile Include="IDMEPTGetReportTimeOfItemDao.cs" />
+    <Compile Include="IDMEPTGetReportTimeOfSickTypeDao.cs" />
+    <Compile Include="IDMEPTItemSplitDao.cs" />
+    <Compile Include="IDMEPTNodeSampleSourceDao.cs" />
+    <Compile Include="IDMEPTOrderFormDao.cs" />
+    <Compile Include="IDMEPTOrderItemDao.cs" />
+    <Compile Include="IDMEPTSampleDeliveryConditonDao.cs" />
+    <Compile Include="IDMEPTSampleDeliveryDao.cs" />
+    <Compile Include="IDMEPTSampleDeliveryItemDao.cs" />
+    <Compile Include="IDMEPTSampleFormDao.cs" />
+    <Compile Include="IDMEPTSampleInceptConditonDao.cs" />
+    <Compile Include="IDMEPTSampleInceptDao.cs" />
+    <Compile Include="IDMEPTSampleItemDao.cs" />
+    <Compile Include="IDMEPTSampleSendConditonDao.cs" />
+    <Compile Include="IDMEPTSampleSendDao.cs" />
+    <Compile Include="IDMEPTSampleTypeItemDao.cs" />
+    <Compile Include="IDMEPTSamplingGroupDao.cs" />
+    <Compile Include="IDMEPTSamplingGroupPrintDao.cs" />
+    <Compile Include="IDMEPTSamplingItemDao.cs" />
+    <Compile Include="IDMEPTSamplingTubeDao.cs" />
+    <Compile Include="IDMEPTSpecialDistributeRuleDao.cs" />
+    <Compile Include="IDMEPTSpecialSplitDao.cs" />
+    <Compile Include="IDQCDataDao.cs" />
+    <Compile Include="IDQCItemDao.cs" />
+    <Compile Include="IDQCMaterialDao.cs" />
+    <Compile Include="IDRBACEmpRolesDao.cs" />
+    <Compile Include="IDRBACModuleDao.cs" />
+    <Compile Include="IDRBACModuleOperDao.cs" />
+    <Compile Include="IDRBACRoleDao.cs" />
+    <Compile Include="IDRBACRoleModuleDao.cs" />
+    <Compile Include="IDRBACRoleRightDao.cs" />
+    <Compile Include="IDRBACRowFilter.cs" />
+    <Compile Include="IDRBACUserDao.cs" />
+    <Compile Include="IDSCInteractionDao.cs" />
+    <Compile Include="IDSIDictionaryRelationDao.cs" />
+    <Compile Include="IDSLogDao.cs" />
+    <Compile Include="IDSTypeDao.cs" />
+    <Compile Include="IDSTypeDetailDao.cs" />
+    <Compile Include="IDHRDeptDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IDRBACEmpOptionsDao.cs" />
+    <Compile Include="IDMEImmuneTempResultsDao.cs" />
+    <Compile Include="IDBSoftWareUpdateHistoryDao.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Digitlab.Entity\ZhiFang.Digitlab.Entity.csproj">
+      <Project>{D9AFA74E-62BF-474D-AC0D-FD04F361D0A4}</Project>
+      <Name>ZhiFang.Digitlab.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

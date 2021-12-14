@@ -1,0 +1,297 @@
+2017-10-26 13:32:25,150 [3968] INFO  : tableName为:BLabTestItem,labcode为:1,account为:1001,password为:1001,实验室字典下载开始:
+2017-10-26 13:32:25,158 [3968] ERROR : tableName为:BLabTestItem,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证开始:
+2017-10-26 13:32:28,694 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:28,708 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:28,710 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:29,091 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:29,091 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:29,091 [3968] ERROR : tableName为:BLabTestItem,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证结束:验证结果为:True
+2017-10-26 13:32:29,092 [3968] INFO  : 实验室检验项目字典下载开始:,labcode为:1,account为:1001,password为:1001
+2017-10-26 13:32:29,100 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:29,101 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:29,101 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:29,101 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:29,101 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:29,103 [3968] INFO  : select  *  FROM B_Lab_TestItem  where UseFlag=1 and LabCode='1' order by DTimeStampe DESC
+2017-10-26 13:32:35,873 [3968] INFO  : tableName为:BLabSampleType,labcode为:1,account为:1001,password为:1001,实验室字典下载开始:
+2017-10-26 13:32:35,873 [3968] ERROR : tableName为:BLabSampleType,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证开始:
+2017-10-26 13:32:35,878 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:35,878 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:35,878 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:35,901 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:35,901 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:35,901 [3968] ERROR : tableName为:BLabSampleType,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证结束:验证结果为:True
+2017-10-26 13:32:35,901 [3968] INFO  : 实验室样本类型字典下载开始:,labcode为:1,account为:1001,password为:1001
+2017-10-26 13:32:35,904 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:35,905 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:35,905 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:35,905 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:35,905 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:36,086 [3968] INFO  : tableName为:ItemColorDict,labcode为:1,account为:1001,password为:1001,实验室字典下载开始:
+2017-10-26 13:32:36,086 [3968] ERROR : tableName为:ItemColorDict,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证开始:
+2017-10-26 13:32:36,088 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:36,089 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:36,089 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:36,090 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:36,090 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:36,090 [3968] ERROR : tableName为:ItemColorDict,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证结束:验证结果为:True
+2017-10-26 13:32:36,090 [3968] INFO  : 获取颜色字典下载开始:,labcode为:1,account为:1001,password为:1001
+2017-10-26 13:32:36,093 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:36,094 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:36,094 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:36,094 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:36,094 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:36,169 [3968] INFO  : tableName为:ItemColorAndSampleTypeDetail,labcode为:1,account为:1001,password为:1001,实验室字典下载开始:
+2017-10-26 13:32:36,169 [3968] ERROR : tableName为:ItemColorAndSampleTypeDetail,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证开始:
+2017-10-26 13:32:36,172 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:36,173 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:36,173 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:36,174 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:36,174 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:36,174 [3968] ERROR : tableName为:ItemColorAndSampleTypeDetail,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证结束:验证结果为:True
+2017-10-26 13:32:36,174 [3968] INFO  : 获取ItemColorAndSampleTypeDetail下载开始:,labcode为:1,account为:1001,password为:1001
+2017-10-26 13:32:36,177 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:36,178 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:36,178 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:36,178 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:36,178 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:36,289 [3968] INFO  : tableName为:BLabGroupItem,labcode为:1,account为:1001,password为:1001,实验室字典下载开始:
+2017-10-26 13:32:36,289 [3968] ERROR : tableName为:BLabGroupItem,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证开始:
+2017-10-26 13:32:36,292 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:36,293 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:36,293 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:36,293 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:36,293 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:36,293 [3968] ERROR : tableName为:BLabGroupItem,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证结束:验证结果为:True
+2017-10-26 13:32:36,294 [3968] INFO  : 实验室检验项目子项明细字典下载开始:,labcode为:1,account为:1001,password为:1001
+2017-10-26 13:32:36,297 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:36,297 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:36,297 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:36,298 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:36,298 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:36,416 [3968] ERROR : DataTableToListOfBLabGroupItem.Count:2498
+2017-10-26 13:32:37,154 [3968] INFO  : tableName为:GroupItem,labcode为:1,account为:1001,password为:1001,实验室字典下载开始:
+2017-10-26 13:32:37,155 [3968] ERROR : tableName为:GroupItem,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证开始:
+2017-10-26 13:32:37,157 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:37,158 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:37,158 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:37,159 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:37,159 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:37,159 [3968] ERROR : tableName为:GroupItem,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证结束:验证结果为:True
+2017-10-26 13:32:37,159 [3968] INFO  : 获取GroupItem下载开始:,labcode为:1,account为:1001,password为:1001
+2017-10-26 13:32:37,162 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:37,163 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:37,163 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:37,164 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:37,164 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:37,207 [3968] ERROR : DataTableToListOfGroupItem.Count:4814
+2017-10-26 13:32:38,432 [3968] INFO  : tableName为:BLabSickType,labcode为:1,account为:1001,password为:1001,实验室字典下载开始:
+2017-10-26 13:32:38,432 [3968] ERROR : tableName为:BLabSickType,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证开始:
+2017-10-26 13:32:38,435 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:38,436 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:38,436 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:38,436 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:38,437 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-26 13:32:38,437 [3968] ERROR : tableName为:BLabSickType,labcode为:1,account为:1001,password为:1001实验室字典下载时帐号验证结束:验证结果为:True
+2017-10-26 13:32:38,437 [3968] INFO  : 实验室就诊类型字典下载开始:,labcode为:1,account为:1001,password为:1001
+2017-10-26 13:32:38,440 [3968] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-26 13:32:38,441 [3968] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-26 13:32:38,441 [3968] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-26 13:32:38,441 [3968] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-26 13:32:38,441 [3968] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户

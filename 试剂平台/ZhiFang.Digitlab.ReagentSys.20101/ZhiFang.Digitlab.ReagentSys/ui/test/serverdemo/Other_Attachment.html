@@ -1,0 +1,93 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherAttachmentByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherAttachmentById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherAttachment',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherAttachment',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherAttachmentByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherAttachment',
+
+    		//附件   1、附件可以嵌套到任何系统中，如新闻、表单等   2、一条记录的附件可以有一个或多个对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherAttachment_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherAttachment_Id',value:'附件ID'},						 
+						 		     
+				     												 
+						{ key:'OtherAttachment_AppComID',value:'应用编号'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_CreatorID',value:'创建者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_ModifierID',value:'修改者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_FileTypeID',value:'附件类型ID'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_RecordIndex',value:'记录索引'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_Name',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_Url',value:'路径'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_Creator',value:'创建者'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_Modifier',value:'修改者'}, 
+						 		     
+				     												 
+						{ key:'OtherAttachment_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherAttachment_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'附件   1、附件可以嵌套到任何系统中，如新闻、表单等   2、一条记录的附件可以有一个或多个',
+    		//主键字段
+    		key:'OtherAttachment_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

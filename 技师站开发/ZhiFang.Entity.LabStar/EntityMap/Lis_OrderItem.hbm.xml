@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisOrderItem" table="[dbo].[Lis_OrderItem]">
+    <id name="Id" column="[OrderItemID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="OrdersItemID" column="[OrdersItemID]" type="Int64" not-null="false" length="8" />
+    <property name="OrderFormNo" column="[OrderFormNo]" type="String" not-null="false" length="100" />
+    <property name="OrderDate" column="[OrderDate]" type="DateTime" not-null="false" length="8" />
+    <property name="PartitionDate" column="[PartitionDate]" type="DateTime" not-null="true" length="8" />
+    <property name="OrderItemExecFlag" column="[OrderItemExecFlag]" type="Int32" not-null="false" length="4" />
+    <property name="ItemStatusID" column="[ItemStatusID]" type="Int64" not-null="false" length="8" />
+    <property name="IsCancelled" column="[IsCancelled]" type="Int32" not-null="false" length="4" />
+    <property name="IsPriceItem" column="[IsPriceItem]" type="Int32" not-null="false" length="4" />
+    <property name="IsCheckFee" column="[IsCheckFee]" type="Int32" not-null="false" length="4" />
+    <property name="Charge" column="[Charge]" type="Double" not-null="false" length="8" />
+    <property name="RemoveHost" column="[RemoveHost]" type="String" not-null="false" length="100" />
+    <property name="Remover" column="[Remover]" type="String" not-null="false" length="100" />
+    <property name="RemoveTime" column="[RemoveTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SampleTypeID" column="[SampleTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="CollectPart" column="[CollectPart]" type="String" not-null="false" length="100" />
+    <property name="HisItemNo" column="[HisItemNo]" type="String" not-null="false" length="100" />
+    <property name="HisItemName" column="[HisItemName]" type="String" not-null="false" length="100" />
+    <property name="HisSampleTypeNo" column="[HisSampleTypeNo]" type="String" not-null="false" length="100" />
+    <property name="HisSampleTypeName" column="[HisSampleTypeName]" type="String" not-null="false" length="100" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+	<property name="OrderFormID" column="[OrderFormID]" type="Int64" not-null="false" length="8" />
+    <!--<many-to-one name="LisOrderForm" class="LisOrderForm" lazy="proxy">
+      <column name="[OrderFormID]" not-null="false"/>
+    </many-to-one>-->
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,396 @@
+/**
+ * 历史比对图表
+ * @author Jcall
+ * @version 2018-09-03
+ * 代码新包迁移
+ * @author Jing
+ * @version 2018-09-20
+ */
+Ext.define('Shell.class.lis.basic.HistoryCompare',{
+	extend:'Shell.ux.panel.Panel',
+	
+	requires:[
+		'Shell.ux.form.field.DateArea',
+		'Shell.ux.chart.LineChart'
+	],
+	
+	title:'历史比对图表',
+	width:500,
+	height:300,
+	layout:'fit',
+	
+	/**获取数据服务路径*/
+	selectUrl:'/ServiceWCF/ReportFormService.svc/ResultHistory',
+	//时间条件字段
+    whereDateField:'CheckDate',
+	/**X轴字段*/
+    xField:'CheckDateTime',
+	/**Y轴结果字段*/
+	yField:'ReportValue',
+	//Y轴结果描述字段
+	yFieldDesc:'ReportDesc',
+	//X轴文字
+	xFieldText:'审核时间',
+	//Y轴结果文字
+	yFieldText:'结果',
+	//Y轴描述文字
+	yFieldDescText:'结果描述',
+	/**数据条件对象*/
+	serverParams:null,
+	
+	/**开启加载数据遮罩层*/
+	hasLoadMask:true,
+	/**加载数据提示*/
+	loadingText:'数据加载中...',
+	/**是否存在收缩按钮*/
+	hasCollapseButton:true,
+	//最后一次数据
+	_lastData:null,
+	//默认比对天数
+	defaultDays:30,
+	
+	//患者信息
+	PatName:'',
+	PatNo:'',
+	//项目信息
+	ItemName:'',
+	ItemNo:'',
+	
+	/**渲染完毕执行*/
+	afterRender:function(){
+		var me = this;
+		me.disableControl();
+		me.callParent(arguments);
+		//视图准备完毕
+		me.on({
+			expand:function(p,d){
+				if(me.isCollapsed && me.selectUrl){me.load(null,true);}
+				me.isCollapsed = false;
+			}
+		});
+	},
+	
+	/**初始化面板属性*/
+	initComponent:function(){
+		var me = this;
+		me.items = [{
+			xtype:'uxlinechart',
+			itemId:'chart'
+		},{
+			xtype:'panel',
+			itemId:'info',
+			border:false,
+			hidden:true
+		}];
+		if (me.HistoryCompareDateField == 'CHECKDATE') {
+			me.xFieldText = '审核时间';
+		} else if (me.HistoryCompareDateField == 'RECEIVEDATE') {
+			me.xFieldText = '核收日期';
+		} else if (me.HistoryCompareDateField) {
+			me.xFieldText = '采样日期';
+		} else if (me.HistoryCompareDateField == 'COLLECTDATE') {
+			me.xFieldText = '签收日期';
+		} else if (me.HistoryCompareDateField == 'INCEPTDATE') {
+			me.xFieldText = '检测（上机）日期';
+		} else if (me.HistoryCompareDateField == 'TESTDATE') {
+			me.xFieldText = '录入（操作）日期';
+		}
+		me.toolbars = [{dock:'top',itemId:'toptoolbar',buttons:[
+			{xtype:'label',text:'历史对比',style:'padding:3px;color:blue;font-weight:bold;'},'refresh',
+			{xtype:'uxdatearea',itemId:'date',fieldLabel:me.xFieldText},
+			{xtype:'uxbutton',itemId:'search',iconCls:'button-search',tooltip:'<b>查询</b>'}
+		]}];
+		
+		if(me.hasCollapseButton){
+			me.toolbars[0].buttons.push('->',{xtype:'uxbutton',itemId:'collapse',text:'',iconCls:'button-down',tooltip:'<b>收缩面板</b>'});
+		}
+		
+		me.callParent(arguments);
+	},
+	/**收缩*/
+	onCollapseClick:function(but){
+		this.collapse();
+	},
+	/**刷新处理*/
+	onRefreshClick:function(){
+		this.onSearchClick();
+	},
+	/**查询处理*/
+	onSearchClick:function(){
+		this.load(null,true);
+	},
+	
+	enableControl:function(){
+		this.disableControl(true);
+	},
+	disableControl:function(bo){
+		var me = this,
+			toptoolbar = me.getComponent('toptoolbar'),
+			items = toptoolbar.items.items,
+			len = items.length;
+		
+		for(var i=0;i<len;i++){
+			if(items[i].itemId == "collapse") continue;
+			items[i][bo ? "enable" : "disable"]();
+		}
+	},
+	
+	/**获取查询条件和图表标题*/
+	getWhereAndTitle:function(value){
+		var me = this,
+			receiveDate = me.serverParams.ReceiveDate,
+			title = {text:"",subtext:""},
+			where = "";
+		if (me.HistoryCompareDateField) {
+			me.whereDateField = me.HistoryCompareDateField;
+		}
+		var start = "",
+			end = "",
+			arr = [];
+			
+		if(value.start){
+			start = Shell.util.Date.toString(value.start,true);
+			arr.push("rf." + me.whereDateField + ">='" + start + "'");
+		}
+		if(value.end){
+			var nextDate=Shell.util.Date.getNextDate(value.end,1);
+			end = Shell.util.Date.toString(nextDate,true);
+			arr.push("rf." + me.whereDateField + "<'" + end + "'");
+		}
+		//title.subtext = (start ? start : "开始") + " ~ " + (end ? end : "至今");
+		where = arr.join(" and ")
+		if(arr.length == 2){
+			where = "(" + where + ")";
+		}
+		
+		return {where:where,title:title};
+	},
+	/**加载数据*/
+	getDataFromServer:function(params,where,callback){
+		var me = this,
+			url = Shell.util.Path.rootPath + me.selectUrl + "?PatNo=" + params.PatNo + 
+				"&ItemNo=" + params.ItemNo + "&Table=" + params.Table;
+		if(where){url += "&where=" + where;}
+			
+		Shell.util.Action.delay(function(){
+		    me.getToServer(url, function (text) {
+                var result = Ext.JSON.decode(text),
+				    option = null;
+
+                if (result.success) {
+                    var value = Ext.JSON.decode(result.ResultDataValue);
+                    var list = me.onDataChange(value);
+                    option = me.getOptionData(list);
+				}else{
+                    me.showError(result.ErrorInfo);
+				}
+				callback(option);
+			});
+		},null,100);
+	},
+	/**数据处理*/
+	getOptionData:function(list){
+		var me = this,
+			date = me.getComponent('toptoolbar').getComponent('date'),
+			dateValue = date.getValue(true),
+			list = list || [],
+			len = list.length,
+			lineName = "结果",
+			option = {
+				tooltip:{
+					trigger:'axis',
+                    padding: 5,  
+                    formatter: function(params){
+                    	var info = me.getInfoByX(params[0][1]);
+                        return me.xFieldText + '：' + info[me.xField] + 
+                        	'</br>' + me.yFieldText + '：' + info[me.yField] +
+                        	'</br>' + me.yFieldDescText + '：' + (info[me.yFieldDesc] || '');
+					}
+				},
+				legend:{data:[lineName]},
+				xAxis:[{
+					type:'category',axisLabel:{rotate:45,formatter:function(value){
+						return value.substring(0,10);
+					}},data:[]
+				}],
+				yAxis:[{type:'value'}],
+				series:[{type:'value',name:lineName,data:[]}],
+				toolbox:{
+			        show:true,
+			        feature:{
+			            mark:{show:true},
+			            magicType:{show:true,type:['line','bar']},
+			            restore:{show:true},
+			            saveAsImage:{show:true}
+			        }
+			    }
+			};
+		
+		for(var i=0;i<len;i++){
+			option.xAxis[0].data.push(list[i][me.xField]);
+			option.series[0].data.push(list[i][me.yField]);
+		}
+		
+		//标题
+		option.title = {
+			text:"患者:" + me.PatName + "(" + me.PatNo + ")" + "\n项目:" + me.ItemName + "(" + me.ItemNo + ")",
+			textStyle:{fontSize:12},
+			subtext:""
+		};
+			
+		return option;
+	},
+	
+	/**更改图表内容*/
+	load:function(params,isPrivate){
+		var me = this,
+			info = me.getComponent('info'),
+			chart = me.getComponent('chart');
+		
+		if(!isPrivate){
+			if(!params || !params.PatNo || !params.ItemNo || !params.Table || !params.ReceiveDate){
+				var errorInfo = [];
+				if(!params){
+					me.showError("Shell.print.class.PrintChart的load方法没有接收到参数对象!");
+					return;
+				}
+				
+				if (!params.PatNo) { errorInfo.push("未获得<b style='color:red'>PATNO</b>，无法显示历史结果信息。"); }
+				if (!params.ItemNo) { errorInfo.push("未获得<b style='color:red'>ITEMNO</b>，无法显示历史结果信息。!"); }
+				if (!params.Table) { errorInfo.push("未获得<b style='color:red'>SECTIONTYPE</b>，无法显示历史结果信息。!"); }
+				if (!params.ReceiveDate) { errorInfo.push("未获得<b style='color:red'>RECEIVEDATE</b>，无法显示历史结果信息。!"); }
+				
+				me.showError(errorInfo.join("</br>"));
+				return;
+			}else{
+				me.setItemInfo({
+					ItemName:'',
+					ItemNo:params.ItemNo
+				});
+			}
+		}
+		
+		//清空错误信息
+		info.update("");
+		info.hide();
+		//图表显示
+		chart.show();
+		
+		me.serverParams = isPrivate ? me.serverParams : params;
+		
+		var collapsed = me.getCollapsed(),
+			chart = me.getComponent('chart'),
+			date = me.getComponent('toptoolbar').getComponent('date'),
+			value = date.getValue(true);
+			
+		if(!value){
+			var end = new Date();
+			if (me.HistoryCompareDefaultDates) {
+				me.defaultDays = me.HistoryCompareDefaultDates;
+			}
+			var start = Shell.util.Date.getNextDate(end,0 - me.defaultDays);
+			date.setValue({start:start,end:end});
+		}
+		value = date.getValue(true);
+		var info = me.getWhereAndTitle(value);
+			
+		//收缩的面板不加载数据,展开时再加载，避免加载无效数据
+		if(collapsed){
+			me.isCollapsed = true;
+			return;
+		}
+		
+		if(me.hasLoadMask){me.body.mask(me.loadingText);}//显示遮罩层
+		me.disableControl();
+		
+		me.getDataFromServer(me.serverParams,info.where,function(option){
+			if(!option){
+				chart.clearData();
+			}else{
+				//option.title = info.title;
+				chart.changeChart(option,true);
+			}
+			
+			me.enableControl();
+			if(me.hasLoadMask){me.body.unmask();}//隐藏遮罩层
+		});
+	},
+    /**清理数据*/
+	clearData: function () {
+		var me = this,
+			info = me.getComponent('info'),
+			chart = me.getComponent('chart');
+			
+		//清空错误信息
+		info.update("");
+		info.hide();
+		//清理图表数据
+		chart.clearData();
+		chart.show();
+	},
+	/**提示错误*/
+	showError:function(value){
+		var me = this,
+			info = me.getComponent('info'),
+			chart = me.getComponent('chart');
+			
+		//清理数据
+		chart.clearData();
+		chart.hide();
+		//错误信息
+		value = '<div style="text-align:center;padding:20px;">' + value + '</div>';
+		info.update(value);
+		info.show();
+	},
+	//根据X轴数据获取对应的对象
+	getInfoByX:function(value){
+		var me = this,
+			list = me._lastData,
+			len = list.length,
+			info = null;
+		
+		for(var i=0;i<len;i++){
+			if(list[i][me.xField] == value){
+				info = list[i];
+				break;
+			}
+		}
+		
+		return info;
+	},
+	//数据更改
+	onDataChange:function(list){
+		var me = this,
+			arr = list || [],
+			len = arr.length;
+			
+		for(var i=0;i<len;i++){
+			arr[i][me.xField] = arr[i]['CheckDate'] + ' ' + arr[i]['CheckTime'];
+		}
+		//按时间从新排序（正序）
+		arr = Shell.util.Array.reorder(arr,me.xField);
+		
+        me._lastData = arr;
+        
+        me.setItemInfo({
+			ItemName:list[0].ItemCName,
+			ItemNo:me.ItemNo
+		});
+        
+        return arr;
+	},
+	//更改患者信息
+	setPatientInfo:function(info){
+		var me = this;
+		info = info || {};
+		me.PatName = info.PatName || '';
+		me.PatNo = info.PatNo || '';
+	},
+	//更改项目信息
+	setItemInfo:function(info){
+		var me = this;
+		info = info || {};
+		me.ItemName = info.ItemName || '';
+		me.ItemNo = info.ItemNo || '';
+	}
+});

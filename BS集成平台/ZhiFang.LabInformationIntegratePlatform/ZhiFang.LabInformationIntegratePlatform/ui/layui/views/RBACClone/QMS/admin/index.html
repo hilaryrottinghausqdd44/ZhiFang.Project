@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>从QMS同步机构组织</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <link rel="stylesheet" href="../../../../../src/layui/src/css/layui.css" media="all">
+</head>
+<body>
+    <div class="layui-tab layui-tab-brief" lay-filter="qms">
+        <ul class="layui-tab-title">
+            <li id="hrdept" class="layui-this">HR_Dept</li>
+            <li id="hrposition">HR_Position</li>
+            <li id="hremployee">HR_Employee</li>
+            <li id="hrempIdentity">HR_EmpIdentity</li>
+            <li id="hrdeptEmp">HR_DeptEmp</li>
+            <li id="hrdeptIdentity">HR_DeptIdentity</li>
+            <li id="rbacuser">RBAC_User</li>
+            <li id="rbacrowFilter">RBAC_RowFilter</li>
+            <li id="rbacrole">RBAC_Role</li>
+            <li id="rbacmodule">RBAC_Module</li>
+            <li id="rbacroleModule">RBAC_RoleModule</li>
+            <li id="rbacmoduleOper">RBAC_ModuleOper</li>
+            <li id="rbacroleRight">RBAC_RoleRight</li>
+            <li id="rbacempRoles">RBAC_EmpRoles</li>
+            <li id="rbacempOptions">RBAC_EmpOptions</li>
+        </ul>
+        <div class="layui-tab-content" style="height: 100px;">
+            <div class="layui-tab-item layui-show">
+                <div id="hrdepttoolbar" class="layui-btn-container">
+                    <button type="button" id="showhrdeptbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stnchrdeptbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="hrdeptiframe" src="../hrdept/hrdept.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="hrpositiontoolbar">
+                    <button type="button" id="showhrpositionbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stnchrpositionbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="hrpositioniframe" src="../hrposition/hrposition.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="hremployeetoolbar">
+                    <button type="button" id="showhremployeebutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stnchremployeebutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="hremployeeiframe" src="../hremployee/hremployee.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+
+            <div class="layui-tab-item">
+                <div id="hrempIdentitytoolbar">
+                    <button type="button" id="showhrempIdentitybutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stnchrempIdentitybutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="hrempIdentityiframe" src="../hrempIdentity/hrempIdentity.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="hrdeptEmptoolbar">
+                    <button type="button" id="showhrdeptEmpbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stnchrdeptEmpbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="hrdeptEmpiframe" src="../hrdeptEmp/hrdeptEmp.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="hrdeptIdentitytoolbar">
+                    <button type="button" id="showhrdeptIdentitybutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stnchrdeptIdentitybutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="hrdeptIdentityiframe" src="../hrdeptIdentity/hrdeptIdentity.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacusertoolbar">
+                    <button type="button" id="showrbacuserbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacuserbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacuseriframe" src="../rbacuser/rbacuser.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacrowFiltertoolbar">
+                    <button type="button" id="showrbacrowFilterbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacrowFilterbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacrowFilteriframe" src="../rbacrowFilter/rbacrowFilter.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacroletoolbar">
+                    <button type="button" id="showrbacrolebutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacrolebutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacroleiframe" src="../rbacrole/rbacrole.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacmoduletoolbar">
+                    <button type="button" id="showrbacmodulebutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacmodulebutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacmoduleiframe" src="../rbacmodule/rbacmodule.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacroleModuletoolbar">
+                    <button type="button" id="showrbacroleModulebutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacroleModulebutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacroleModuleiframe" src="../rbacroleModule/rbacroleModule.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacmoduleOpertoolbar">
+                    <button type="button" id="showrbacmoduleOperbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacmoduleOperbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacmoduleOperiframe" src="../rbacmoduleOper/rbacmoduleOper.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacroleRighttoolbar">
+                    <button type="button" id="showrbacroleRightbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacroleRightbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacroleRightiframe" src="../rbacroleRight/rbacroleRight.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacempRolestoolbar">
+                    <button type="button" id="showrbacempRolesbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacempRolesbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacempRolesiframe" src="../rbacempRoles/rbacempRoles.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+            <div class="layui-tab-item">
+                <div id="rbacempOptionstoolbar">
+                    <button type="button" id="showrbacempOptionsbutton" class="layui-btn layui-btn-sm">抓取数据</button>
+                    <button type="button" id="stncrbacempOptionsbutton" class="layui-btn layui-btn-sm">抓取并同步</button>
+                </div>
+                <iframe id="rbacempOptionsiframe" src="../rbacempOptions/rbacempOptions.html" style="border: medium none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:98.5%;position:absolute;display:none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../../../src/layui/src/layui.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        UIVersion.getJS('../../../../config/system.js');
+        UIVersion.getJS('index.js');
+    </script>
+</body>
+</html>

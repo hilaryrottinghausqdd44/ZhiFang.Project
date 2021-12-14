@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ZhiFang.ReportFormQueryPrint" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="ZhiFang.ReportFormQueryPrint" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="ZhiFang.ReportFormQueryPrint">
+      <s:element name="ZhongRiYiYuanZiZhuDaDanReportFormService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZhongRiYiYuanZiZhuDaDanReportFormServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ZhongRiYiYuanZiZhuDaDanReportFormServiceResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormPdfPath" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ZhongRiYiYuanZiZhuDaDanReportFormServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:ZhongRiYiYuanZiZhuDaDanReportFormService" />
+  </wsdl:message>
+  <wsdl:message name="ZhongRiYiYuanZiZhuDaDanReportFormServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:ZhongRiYiYuanZiZhuDaDanReportFormServiceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportFormServiceInterFaceSoap">
+    <wsdl:operation name="ZhongRiYiYuanZiZhuDaDanReportFormService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">中日医院自助打单机服务，先调用HIS视图</wsdl:documentation>
+      <wsdl:input message="tns:ZhongRiYiYuanZiZhuDaDanReportFormServiceSoapIn" />
+      <wsdl:output message="tns:ZhongRiYiYuanZiZhuDaDanReportFormServiceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportFormServiceInterFaceSoap" type="tns:ReportFormServiceInterFaceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZhongRiYiYuanZiZhuDaDanReportFormService">
+      <soap:operation soapAction="ZhiFang.ReportFormQueryPrint/ZhongRiYiYuanZiZhuDaDanReportFormService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportFormServiceInterFaceSoap12" type="tns:ReportFormServiceInterFaceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZhongRiYiYuanZiZhuDaDanReportFormService">
+      <soap12:operation soapAction="ZhiFang.ReportFormQueryPrint/ZhongRiYiYuanZiZhuDaDanReportFormService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportFormServiceInterFace">
+    <wsdl:port name="ReportFormServiceInterFaceSoap" binding="tns:ReportFormServiceInterFaceSoap">
+      <soap:address location="http://localhost/ZhiFang.ReportFormQueryPrint/ServiceWCF/ReportFormServiceInterFace.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportFormServiceInterFaceSoap12" binding="tns:ReportFormServiceInterFaceSoap12">
+      <soap12:address location="http://localhost/ZhiFang.ReportFormQueryPrint/ServiceWCF/ReportFormServiceInterFace.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

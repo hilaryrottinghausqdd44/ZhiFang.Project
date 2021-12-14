@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="ZhiFang.WeiXin.WeiXinAppService" type="ZhiFang.WeiXin.WeiXinAppService,ZhiFang.WeiXin"  singleton="true">
+    <property name="IBBAccountType" ref="BBAccountType"/>
+    <property name="IBBDoctorAccount" ref="BBDoctorAccount"/>
+    <property name="IBBIcons" ref="BBIcons"/>
+    <property name="IBBSearchAccount" ref="BBSearchAccount"/>
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+    <property name="IBBWeiXinUserGroup" ref="BBWeiXinUserGroup"/>
+    <property name="IBBScanningBarCodeReportForm" ref="BBScanningBarCodeReportForm"/>
+    <property name="IBBHospitalSearch" ref="BBHospitalSearch"/>
+    <property name="IBBAccountHospitalSearchContext" ref="BBAccountHospitalSearchContext"/>
+    <property name="IBBSearchAccountReportForm" ref="BBSearchAccountReportForm"/>
+  </object>
+
+  <object id="ZhiFang.WeiXin.DictionaryService" type="ZhiFang.WeiXin.DictionaryService,ZhiFang.WeiXin"  singleton="true">
+    <property name="IBBAntiBiotic" ref="BBAntiBiotic"/>
+    <property name="IBBAccountType" ref="BBAccountType"/>
+    <property name="IBBAntiType" ref="BBAntiType"/>
+    <property name="IBBCity" ref="BBCity"/>
+    <property name="IBBCountry" ref="BBCountry"/>
+
+    <property name="IBBIcons" ref="BBIcons"/>
+    <property name="IBBIconsType" ref="BBIconsType"/>
+    <property name="IBBMicroItem" ref="BBMicroItem"/>
+    <property name="IBBProvince" ref="BBProvince"/>
+    <property name="IBBSex" ref="BBSex"/>
+    <property name="IBBProfessionalAbility" ref="BBProfessionalAbility"/>
+    <property name="IBBSampleType" ref="BBSampleType"/>
+    <property name="IBBTestItemClinicalSignificance" ref="BBTestItemClinicalSignificance"/>
+    <property name="IBBSpecialty" ref="BBSpecialty"/>
+    <property name="IBBHospital" ref="BBHospital"/>
+    <property name="IBBHospitalDept" ref="BBHospitalDept"/>
+    <property name="IBBHospitalLevel" ref="BBHospitalLevel"/>
+    <property name="IBBHospitalType" ref="BBHospitalType"/>
+    <property name="IBBHospitalSearch" ref="BBHospitalSearch"/>
+
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+    <property name="IBBWeiXinUserGroup" ref="BBWeiXinUserGroup"/>
+    <property name="IBSLog" ref="BSLog"/>
+    <property name="IBSWeiXinAccountLog" ref="BSWeiXinAccountLog"/>
+    <property name="IBOSItemProductClassTree" ref="BOSItemProductClassTree"/>
+    <property name="IBOSItemProductClassTreeLink" ref="BOSItemProductClassTreeLink"/>
+    <property name="IBItemAllItem" ref="BItemAllItem"/>
+    <property name="IBClientEleArea" ref="BClientEleArea"/>
+
+    <property name="IBSickType" ref="BSickType"/>
+    <property name="IBBLabSickType" ref="BBLabSickType"/>
+    <property name="IBBSickTypeControl" ref="BBSickTypeControl"/>
+    <property name="IBSampleType" ref="BSampleType"/>
+    <property name="IBBSampleTypeControl" ref="BBSampleTypeControl"/>
+    <property name="IBBLabSampleType" ref="BBLabSampleType"/>
+
+    <property name="IBBDoctorControl" ref="BBDoctorControl"/>
+    <property name="IBBLabDoctor" ref="BBLabDoctor"/>
+    <property name="IBDoctor" ref="BDoctor"/>
+
+  </object>
+  <object id="ZhiFang.WeiXin.ReportFormWeiXinService" type="ZhiFang.WeiXin.ReportFormWeiXinService,ZhiFang.WeiXin"  singleton="true">
+    <property name="IBBSearchAccountReportForm" ref="BBSearchAccountReportForm"/>
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>    
+  </object>
+  <object id="ZhiFang.WeiXin.RBACService" type="ZhiFang.WeiXin.RBACService,ZhiFang.WeiXin"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <property name="IBSLog" ref="BSLog"/>
+  </object>
+  <object id="ZhiFang.WeiXin.ServerWCF.ConstructionService" type="ZhiFang.WeiXin.ServerWCF.ConstructionService,ZhiFang.WeiXin"  singleton="true">
+    <property name="IBBTDAppComponents" ref="BBTDAppComponents"/>
+    <property name="IBBTDAppPicture" ref="BBTDAppPicture"/>
+    <property name="IBBTDModuleType" ref="BBTDModuleType"/>
+    <property name="IBBTDPictureType" ref="BBTDPictureType"/>
+    <property name="IBBTDPictureTypeCon" ref="BBTDPictureTypeCon"/>
+    <property name="IBBTDMacroCommand" ref="BBTDMacroCommand"/>
+    <property name="IBBTDAppComponentsOperate" ref="BBTDAppComponentsOperate"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+  </object>
+
+  <object id="ZhiFang.WeiXin.ServerWCF.ZhiFangWeiXinService" type="ZhiFang.WeiXin.ServerWCF.ZhiFangWeiXinService,ZhiFang.WeiXin"  singleton="true">
+    <property name="IBBParameter" ref="BBParameter"/>
+    <property name="IBBDictType" ref="BBDictType"/>
+    <property name="IBBDict" ref="BBDict"/>
+    <property name="IBBDoctorAccount" ref="BBDoctorAccount"/>
+    <property name="IBOSManagerRefundFormAttachment" ref="BOSManagerRefundFormAttachment"/>
+    <property name="IBOSDoctorBonus" ref="BOSDoctorBonus"/>
+    <property name="IBOSDoctorBonusAttachment" ref="BOSDoctorBonusAttachment"/>
+    <property name="IBOSDoctorBonusOperation" ref="BOSDoctorBonusOperation"/>
+    <property name="IBOSDoctorBonusForm" ref="BOSDoctorBonusForm"/>
+    <property name="IBOSDoctorOrderForm" ref="BOSDoctorOrderForm"/>
+    <property name="IBOSDoctorOrderItem" ref="BOSDoctorOrderItem"/>
+    <property name="IBOSItemProductClassTree" ref="BOSItemProductClassTree"/>
+    <property name="IBOSItemProductClassTreeLink" ref="BOSItemProductClassTreeLink"/>
+    <property name="IBOSManagerRefundForm" ref="BOSManagerRefundForm"/>
+    <property name="IBOSManagerRefundFormOperation" ref="BOSManagerRefundFormOperation"/>
+    <property name="IBOSRecommendationItemProduct" ref="BOSRecommendationItemProduct"/>
+    <property name="IBOSShoppingCart" ref="BOSShoppingCart"/>
+    <property name="IBOSUserConsumerForm" ref="BOSUserConsumerForm"/>
+    <property name="IBOSUserConsumerItem" ref="BOSUserConsumerItem"/>
+    <property name="IBOSUserOrderForm" ref="BOSUserOrderForm"/>
+    <property name="IBOSUserOrderItem" ref="BOSUserOrderItem"/>
+    <property name="IBFinanceIncome" ref="BFinanceIncome"/>
+    <property name="IBBLabTestItem" ref="BBLabTestItem"/>
+    <property name="IBUserConsumerItemDetails" ref="BUserConsumerItemDetails"/>
+    <property name="IBBRuleNumber" ref="BBRuleNumber"/>
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+    <property name="IBItemColorAndSampleTypeDetail" ref="BItemColorAndSampleTypeDetail"/>
+    <property name="IBItemColorDict" ref="BItemColorDict"/>
+    <property name="IBCLIENTELE" ref="BCLIENTELE"/>
+    <property name="IBBLabGroupItem" ref="BBLabGroupItem"/>
+    <property name="IBBTestItemControl" ref="BBTestItemControl"/>
+	<property name="IBBusinessLogicClientControl" ref="BBusinessLogicClientControl"/>
+	<property name="IBBarCodeForm" ref="BBarCodeForm"/>
+	<property name="IBPatDiagInfo" ref="BPatDiagInfo"/>
+	<property name="IBNRequestItem" ref="BNRequestItem"/>
+	<property name="IBNRequestForm" ref="BNRequestForm"/>
+	<property name="IBGenderType" ref="BGenderType"/>
+	<property name="IBItemAllItem" ref="BItemAllItem"/>
+	<property name="IBBItemCon" ref="BBItemCon"/>
+	  <property name="IBSampleType" ref="BSampleType"/>
+	  <property name="IBSampleType" ref="BSampleType"/>
+	  <property name="IBBLabDistrict" ref="BBLabDistrict"/>
+  </object>
+
+  <object id="ZhiFang.WeiXin.ServerWCF.ZhiFangWeiXinAppDoctService" type="ZhiFang.WeiXin.ServerWCF.ZhiFangWeiXinAppDoctService,ZhiFang.WeiXin"  singleton="true">
+    <property name="IBOSDoctorOrderForm" ref="BOSDoctorOrderForm"/>
+    <property name="IBOSUserConsumerForm" ref="BOSUserConsumerForm"/>
+    <property name="IBOSDoctorBonus" ref="BOSDoctorBonus"/>
+    <property name="IBBDoctorAccount" ref="BBDoctorAccount"/>
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+    <property name="IBBLabTestItem" ref="BBLabTestItem"/>
+    <property name="IBOSRecommendationItemProduct" ref="BOSRecommendationItemProduct"/>
+    <property name="IBOSItemProductClassTree" ref="BOSItemProductClassTree"/>
+    <property name="IBOSItemProductClassTreeLink" ref="BOSItemProductClassTreeLink"/>
+  </object>
+
+  <object id="ZhiFang.WeiXin.ServerWCF.ZhiFangWeiXinAppService" type="ZhiFang.WeiXin.ServerWCF.ZhiFangWeiXinAppService,ZhiFang.WeiXin"  singleton="true">
+    <property name="IBOSUserOrderForm" ref="BOSUserOrderForm"/>
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+    <property name="IBOSDoctorOrderForm" ref="BOSDoctorOrderForm"/>
+    <property name="IBBSearchAccountReportForm" ref="BBSearchAccountReportForm"/>
+    <property name="IBRFReportFormIndexInfo" ref="BRFReportFormIndexInfo"/>
+    <property name="IBOSManagerRefundForm" ref="BOSManagerRefundForm"/>
+    <property name="IBBLabTestItem" ref="BBLabTestItem"/>
+  </object>
+</objects>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+				 xmlns:db="http://www.springframework.net/database">
+  <!-- 配置数据访问 -->
+  <object type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
+    <property name="ConfigSections" value="databaseSettings"/>
+  </object>
+
+  <!-- 数据库和Nhibernate的相关配置-->
+  <db:provider id="DbProvider" provider="${db.provider}" connectionString="${db.connectionString}"/>
+
+  <!--SessionFactory对象-->
+  <object id="NHibernateSessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate30">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="MappingAssemblies">
+      <list>
+        <value>ZhiFang.Entity.LIIP</value>
+        <value>ZhiFang.Entity.RBAC</value>
+        <value>ZhiFang.Entity.Common</value>
+      </list>
+    </property>
+    <property name="HibernateProperties">
+      <dictionary>
+        <!--DB设置-->
+        <entry key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider"/>
+        <entry key="dialect" value="${db.dialect}"/>
+        <entry key="hibernate.connection.driver_class" value="${db.driver_class}"/>
+        <entry key="use_outer_join" value="true"/>
+        <entry key="show_sql" value="false"/>
+        <!--自动建表(反向映射)-->
+        <!--<entry key="hbm2ddl.auto" value="${hbm2ddl.auto}"/>-->
+        <!--批量更新-->
+        <entry key="adonet.batch_size" value="0"/>
+        <!--超时时间-->
+        <entry key="command_timeout" value="60"/>
+        <!--启用二级缓存-->
+        <entry key="cache.use_second_level_cache" value="true"/>
+        <!--<entry key="expiration" value="120" />
+				<entry key="cache.default_expiration" value="60"/>-->
+        <entry key="cache.provider_class" value="NHibernate.Caches.SysCache2.SysCacheProvider, NHibernate.Caches.SysCache2"/>
+        <!--启动查询缓存-->
+        <entry key="cache.use_query_cache" value="false"/>
+        <entry key="query.substitutions" value="true 1, false 0, yes 'Y', no 'N'"/>
+        <entry key="proxyfactory.factory_class" value="NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu"/>
+      </dictionary>
+    </property>
+    <property name="ExposeTransactionAwareSessionFactory" value="true" />
+  </object>
+
+  <object id="HibernateTemplate" type="Spring.Data.NHibernate.Generic.HibernateTemplate">
+    <property name="SessionFactory" ref="NHibernateSessionFactory" />
+    <property name="TemplateFlushMode" value="Auto" />
+    <property name="CacheQueries" value="true" />
+  </object>
+
+</objects>

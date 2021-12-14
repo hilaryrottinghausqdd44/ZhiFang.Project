@@ -1,0 +1,359 @@
+2020-07-09 11:27:38,442 [8] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 11:27:39,195 [8] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 11:27:39,489 [8] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 11:27:39,496 [8] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 11:27:39,497 [8] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 11:27:39,632 [8] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 11:27:39,641 [8] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 11:27:39,645 [8] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 11:27:39,694 [8] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 11:27:39,694 [8] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 11:27:39,694 [8] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 11:27:39,695 [8] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 11:27:39,697 [8] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 11:27:39,957 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 11:27:39,958 [8] DEBUG : objectID:1483204384
+2020-07-09 11:27:39,959 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 11:27:39,965 [8] INFO  :  IF COL_LENGTH('Blood_BOutForm', 'BDEndBReasonId') IS NULL ALTER TABLE Blood_BOutForm ADD BDEndBReasonId bigint; 
+2020-07-09 11:27:40,038 [8] INFO  :  if not exists(select * from [B_DictType] where DCId=200) INSERT [B_DictType] ([LabID],[DCId],[CName],[DispOrder],[Memo],[IsUse],[DataAddTime],[DictTypeCode]) VALUES ( 0,200,N'终止输血原因',200,N'终止输血原因',1,N'2020-07-09 15:11:18',N'BDEndBReason');
+2020-07-09 11:27:40,046 [8] INFO  :  update B_Parameter set ParaValue='1.0.0.43' where ParaType='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 11:27:41,691 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 11:27:41,692 [8] DEBUG : objectID:1483204384
+2020-07-09 11:27:41,692 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 11:28:43,187 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 11:28:43,187 [8] DEBUG : objectID:1483204384
+2020-07-09 11:28:43,187 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 11:28:53,698 [8] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 11:28:53,699 [8] DEBUG : objectID:1483204384
+2020-07-09 11:28:53,700 [8] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:32:43,133 [64] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 12:32:43,133 [64] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 12:32:43,147 [64] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 12:32:43,148 [64] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 12:32:43,148 [64] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 12:32:43,149 [64] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 12:32:43,150 [64] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 12:32:43,153 [64] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 12:32:43,155 [64] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 12:32:43,155 [64] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 12:32:43,156 [64] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 12:32:43,156 [64] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 12:32:43,156 [64] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 12:32:43,169 [64] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:32:43,169 [64] DEBUG : objectID:1483204384
+2020-07-09 12:32:43,170 [64] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:32:44,738 [64] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:32:44,739 [64] DEBUG : objectID:1483204384
+2020-07-09 12:32:44,739 [64] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:35:38,561 [56] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 12:35:38,561 [56] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 12:35:38,564 [56] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 12:35:38,565 [56] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 12:35:38,565 [56] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 12:35:38,566 [56] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 12:35:38,566 [56] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 12:35:38,567 [56] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 12:35:38,567 [56] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 12:35:38,567 [56] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 12:35:38,567 [56] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 12:35:38,567 [56] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 12:35:38,567 [56] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 12:35:38,578 [56] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:35:38,579 [56] DEBUG : objectID:1483204384
+2020-07-09 12:35:38,579 [56] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:35:40,093 [56] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:35:40,093 [56] DEBUG : objectID:1483204384
+2020-07-09 12:35:40,093 [56] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:39:45,266 [56] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 12:39:45,266 [56] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 12:39:45,270 [56] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 12:39:45,272 [56] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 12:39:45,272 [56] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 12:39:45,274 [56] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 12:39:45,275 [56] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 12:39:45,276 [56] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 12:39:45,277 [56] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 12:39:45,277 [56] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 12:39:45,277 [56] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 12:39:45,277 [56] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 12:39:45,277 [56] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 12:39:45,293 [56] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:39:45,293 [56] DEBUG : objectID:1483204384
+2020-07-09 12:39:45,293 [56] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:39:46,819 [51] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:39:46,820 [51] DEBUG : objectID:1483204384
+2020-07-09 12:39:46,820 [51] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:43:51,339 [54] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 12:43:51,339 [54] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 12:43:51,344 [54] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 12:43:51,345 [54] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 12:43:51,345 [54] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 12:43:51,346 [54] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 12:43:51,347 [54] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 12:43:51,347 [54] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 12:43:51,348 [54] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 12:43:51,348 [54] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 12:43:51,348 [54] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 12:43:51,348 [54] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 12:43:51,348 [54] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 12:43:51,365 [54] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:43:51,365 [54] DEBUG : objectID:1483204384
+2020-07-09 12:43:51,365 [54] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:43:52,842 [54] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:43:52,842 [54] DEBUG : objectID:1483204384
+2020-07-09 12:43:52,842 [54] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:44:44,384 [54] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 12:44:44,385 [54] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 12:44:44,389 [54] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 12:44:44,390 [54] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 12:44:44,390 [54] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 12:44:44,391 [54] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 12:44:44,391 [54] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 12:44:44,392 [54] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 12:44:44,393 [54] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 12:44:44,393 [54] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 12:44:44,393 [54] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 12:44:44,393 [54] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 12:44:44,393 [54] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 12:44:44,403 [54] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:44:44,403 [54] DEBUG : objectID:1483204384
+2020-07-09 12:44:44,403 [54] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:44:45,889 [54] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:44:45,890 [54] DEBUG : objectID:1483204384
+2020-07-09 12:44:45,890 [54] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:46:54,245 [54] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 12:46:54,245 [54] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 12:46:54,251 [54] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 12:46:54,251 [54] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 12:46:54,252 [54] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 12:46:54,252 [54] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 12:46:54,253 [54] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 12:46:54,256 [54] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 12:46:54,256 [54] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 12:46:54,256 [54] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 12:46:54,256 [54] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 12:46:54,257 [54] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 12:46:54,257 [54] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 12:46:54,269 [54] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:46:54,269 [54] DEBUG : objectID:1483204384
+2020-07-09 12:46:54,270 [54] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:46:55,786 [54] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:46:55,787 [54] DEBUG : objectID:1483204384
+2020-07-09 12:46:55,787 [54] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:49:41,941 [50] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 12:49:41,942 [50] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 12:49:41,946 [50] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 12:49:41,947 [50] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 12:49:41,947 [50] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 12:49:41,948 [50] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 12:49:41,949 [50] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 12:49:41,950 [50] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 12:49:41,951 [50] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 12:49:41,951 [50] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 12:49:41,951 [50] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 12:49:41,951 [50] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 12:49:41,951 [50] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 12:49:41,961 [50] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:49:41,963 [50] DEBUG : objectID:1483204384
+2020-07-09 12:49:41,963 [50] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:49:43,499 [50] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:49:43,499 [50] DEBUG : objectID:1483204384
+2020-07-09 12:49:43,499 [50] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:52:33,311 [54] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 12:52:33,923 [54] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 12:52:33,954 [54] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 12:52:33,960 [54] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 12:52:33,961 [54] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 12:52:33,966 [54] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 12:52:33,974 [54] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 12:52:33,975 [54] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 12:52:33,979 [54] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 12:52:33,979 [54] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 12:52:33,979 [54] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 12:52:33,980 [54] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 12:52:33,982 [54] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 12:52:34,129 [54] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:52:34,129 [54] DEBUG : objectID:1483204384
+2020-07-09 12:52:34,130 [54] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:52:35,739 [54] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:52:35,739 [54] DEBUG : objectID:1483204384
+2020-07-09 12:52:35,740 [54] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 12:56:05,026 [64] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 12:56:05,037 [64] DEBUG : objectID:1483204384
+2020-07-09 12:56:05,037 [64] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:08:51,316 [81] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 14:08:51,331 [81] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 14:08:51,356 [81] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 14:08:51,359 [81] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 14:08:51,360 [81] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 14:08:51,365 [81] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 14:08:51,370 [81] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 14:08:51,371 [81] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 14:08:51,375 [81] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 14:08:51,375 [81] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 14:08:51,375 [81] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 14:08:51,375 [81] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 14:08:51,379 [81] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 14:08:51,406 [81] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:08:51,406 [81] DEBUG : objectID:1483204384
+2020-07-09 14:08:51,406 [81] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:09:00,169 [81] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:09:00,169 [81] DEBUG : objectID:1483204384
+2020-07-09 14:09:00,169 [81] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:26:40,011 [11] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 14:26:40,011 [11] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 14:26:40,018 [11] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 14:26:40,019 [11] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 14:26:40,019 [11] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 14:26:40,019 [11] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 14:26:40,020 [11] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 14:26:40,021 [11] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 14:26:40,029 [11] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 14:26:40,029 [11] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 14:26:40,029 [11] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 14:26:40,029 [11] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 14:26:40,029 [11] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 14:26:40,053 [11] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:26:40,053 [11] DEBUG : objectID:1483204384
+2020-07-09 14:26:40,053 [11] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:26:41,646 [11] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:26:41,647 [11] DEBUG : objectID:1483204384
+2020-07-09 14:26:41,647 [11] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:36:20,110 [33] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 14:36:20,110 [33] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 14:36:20,120 [33] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 14:36:20,120 [33] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 14:36:20,120 [33] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 14:36:20,121 [33] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 14:36:20,122 [33] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 14:36:20,122 [33] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 14:36:20,123 [33] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 14:36:20,123 [33] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 14:36:20,123 [33] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 14:36:20,123 [33] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 14:36:20,123 [33] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 14:36:20,137 [33] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:36:20,138 [33] DEBUG : objectID:1483204384
+2020-07-09 14:36:20,138 [33] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:36:21,367 [33] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:36:21,368 [33] DEBUG : objectID:1483204384
+2020-07-09 14:36:21,368 [33] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:36:40,615 [34] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:36:40,615 [34] DEBUG : objectID:1483204384
+2020-07-09 14:36:40,615 [34] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:39:18,041 [34] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 14:39:18,041 [34] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 14:39:18,044 [34] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 14:39:18,045 [34] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 14:39:18,045 [34] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 14:39:18,045 [34] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 14:39:18,046 [34] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 14:39:18,047 [34] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 14:39:18,047 [34] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 14:39:18,047 [34] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 14:39:18,047 [34] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 14:39:18,047 [34] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 14:39:18,047 [34] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 14:39:18,059 [34] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:39:18,060 [34] DEBUG : objectID:1483204384
+2020-07-09 14:39:18,060 [34] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:39:19,501 [34] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:39:19,501 [34] DEBUG : objectID:1483204384
+2020-07-09 14:39:19,501 [34] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:39:47,761 [32] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:39:47,762 [32] DEBUG : objectID:1483204384
+2020-07-09 14:39:47,762 [32] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:42:49,247 [31] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:42:49,248 [31] DEBUG : objectID:1483204384
+2020-07-09 14:42:49,248 [31] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:43:18,072 [30] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:43:18,073 [30] DEBUG : objectID:1483204384
+2020-07-09 14:43:18,073 [30] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:44:13,627 [21] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:44:13,628 [21] DEBUG : objectID:1483204384
+2020-07-09 14:44:13,628 [21] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:44:18,493 [21] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:44:18,493 [21] DEBUG : objectID:1483204384
+2020-07-09 14:44:18,493 [21] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:45:41,087 [29] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:45:41,088 [29] DEBUG : objectID:1483204384
+2020-07-09 14:45:41,088 [29] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:46:04,121 [29] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 14:46:04,121 [29] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 14:46:04,125 [29] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 14:46:04,126 [29] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 14:46:04,126 [29] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 14:46:04,127 [29] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 14:46:04,128 [29] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 14:46:04,129 [29] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 14:46:04,130 [29] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 14:46:04,130 [29] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 14:46:04,130 [29] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 14:46:04,130 [29] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 14:46:04,130 [29] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 14:46:04,146 [29] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:46:04,146 [29] DEBUG : objectID:1483204384
+2020-07-09 14:46:04,146 [29] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:46:05,363 [25] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:46:05,365 [25] DEBUG : objectID:1483204384
+2020-07-09 14:46:05,365 [25] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:49:31,051 [25] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 14:49:31,053 [25] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 14:49:31,057 [25] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 14:49:31,058 [25] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 14:49:31,058 [25] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 14:49:31,059 [25] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 14:49:31,059 [25] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 14:49:31,060 [25] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 14:49:31,060 [25] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 14:49:31,060 [25] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 14:49:31,060 [25] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 14:49:31,060 [25] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 14:49:31,060 [25] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 14:49:31,074 [25] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:49:31,075 [25] DEBUG : objectID:1483204384
+2020-07-09 14:49:31,075 [25] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:49:32,568 [25] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:49:32,569 [25] DEBUG : objectID:1483204384
+2020-07-09 14:49:32,569 [25] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:51:33,061 [25] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 14:51:33,061 [25] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 14:51:33,066 [25] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 14:51:33,066 [25] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 14:51:33,066 [25] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 14:51:33,067 [25] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 14:51:33,067 [25] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 14:51:33,069 [25] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 14:51:33,070 [25] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 14:51:33,070 [25] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 14:51:33,070 [25] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 14:51:33,070 [25] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 14:51:33,070 [25] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 14:51:33,081 [25] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:51:33,082 [25] DEBUG : objectID:1483204384
+2020-07-09 14:51:33,082 [25] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:51:34,666 [25] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:51:34,666 [25] DEBUG : objectID:1483204384
+2020-07-09 14:51:34,666 [25] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:58:50,191 [28] DEBUG : BT_SYS_LoginOfPUserByHisCode:hisWardCode:12,hisDeptCode:82,hisDoctorCode:10002
+2020-07-09 14:58:50,191 [28] DEBUG : 按传入的HIS编码为:10002,获取PUser的hql(puser.Code1 = '10002' or  puser.Code2 = '10002' or puser.Code3= '10002' or puser.Code4= '10002' or puser.Code5= '10002')
+2020-07-09 14:58:50,202 [28] ERROR : 传入的HIS医生编码为:10002,在LIS获取PUser的编码为:20002!
+2020-07-09 14:58:50,203 [28] DEBUG : HIS传入的医生编码为:10002,获取到LIS医生编码为:2
+2020-07-09 14:58:50,203 [28] DEBUG : 按传入HIS病区编码为:12,获取Department的hql: department.Visible=1 and (department.Code1='12' or department.Code2='12' or department.Code3='12' or department.Code4='12' or department.Code5='12')
+2020-07-09 14:58:50,204 [28] ERROR : 传入的HIS病区编码为:12,在LIS获取到病区编码为:245!
+2020-07-09 14:58:50,205 [28] DEBUG : 按传入HIS科室编码为:82,获取Department的hql: department.Visible=1 and (department.Code1='82' or department.Code2='82' or department.Code3='82' or department.Code4='82' or department.Code5='82')
+2020-07-09 14:58:50,206 [28] ERROR : 传入的HIS科室编码为:82,在LIS获取到科室编码为:758!
+2020-07-09 14:58:50,206 [28] DEBUG : 登录员工信息:PUser.Id:20002,PUser.CName:许有刚
+2020-07-09 14:58:50,206 [28] DEBUG : 登录所属病区信息:Ward.Id:245,Ward.CName:十二病区
+2020-07-09 14:58:50,206 [28] DEBUG : 登录所属科室信息:Department.Id:758,Department.CName:血液科二住院
+2020-07-09 14:58:50,206 [28] DEBUG : 登录员工绑定医生信息:Doctor.Id:2,Doctor.CName:许有刚
+2020-07-09 14:58:50,206 [28] DEBUG : HIS传入的医生编码为:10002,在LIS未设置医生的所属等级信息
+2020-07-09 14:58:50,224 [28] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:58:50,225 [28] DEBUG : objectID:1483204384
+2020-07-09 14:58:50,225 [28] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 14:58:51,692 [28] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 14:58:51,693 [28] DEBUG : objectID:1483204384
+2020-07-09 14:58:51,693 [28] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-07-09 15:02:32,400 [7] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-07-09 15:02:32,401 [7] DEBUG : objectID:1483204384
+2020-07-09 15:02:32,401 [7] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'

@@ -1,0 +1,15 @@
+
+Weblis升级
+
+B_Lab_SampleTyper的SampleTypeID需要设置为自增长
+B_Lab_Doctor的DoctorID需要设置为自增长
+
+GroupItem的PItemNo需要手工修改数据类型为varchar(50)
+GroupItem的ItemNo需要手工修改数据类型为varchar(50)
+
+TestItem的ItemNo需要手工修改数据类型为varchar(50)
+NRequestItem的ParItemNo需要手工修改数据类型为varchar(50)
+NRequestItem的CombiItemNo需要手工修改数据类型为varchar(50)
+ReportItemFull的FORMNO由int修改为varchar(100)
+
+建议给GroupItem表的添加PItemNo的非聚集索引

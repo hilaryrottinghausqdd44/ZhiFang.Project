@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE8B6CCD-1306-4F9C-BB0E-76F9EF2E397E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.ReportFormQueryPrint.DAL.MSSQL</RootNamespace>
+    <AssemblyName>ZhiFang.ReportFormQueryPrint.DAL.MSSQL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ReportFormQueryPrint\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backups\BackupsReportForm.cs" />
+    <Compile Include="Backups\BackupsReportItem.cs" />
+    <Compile Include="Backups\BackupsReportMarrow.cs" />
+    <Compile Include="Backups\BackupsReportMicro.cs" />
+    <Compile Include="Backups\PUser.cs" />
+    <Compile Include="Backups\RFGraphData.cs" />
+    <Compile Include="History\HistoryReportForm.cs" />
+    <Compile Include="History\HistoryReportItem.cs" />
+    <Compile Include="History\HistoryReportMarrow.cs" />
+    <Compile Include="History\HistoryReportMicro.cs" />
+    <Compile Include="History\PUser.cs" />
+    <Compile Include="History\RFGraphData.cs" />
+    <Compile Include="LabStar\ALLReport.cs" />
+    <Compile Include="MSSQL66\ALLReportForm.cs" />
+    <Compile Include="MSSQL66\BModuleFormControlList.cs" />
+    <Compile Include="MSSQL66\BModuleFormControlSet.cs" />
+    <Compile Include="MSSQL66\BModuleFormList.cs" />
+    <Compile Include="MSSQL66\BModuleGridControlList.cs" />
+    <Compile Include="MSSQL66\BModuleGridControlSet.cs" />
+    <Compile Include="MSSQL66\BModuleGridList.cs" />
+    <Compile Include="MSSQL66\BModuleModuleFormGridLink.cs" />
+    <Compile Include="MSSQL66\B_ColumnsSetting.cs" />
+    <Compile Include="MSSQL66\B_ColumnsUnit.cs" />
+    <Compile Include="MSSQL66\B_Parameter.cs" />
+    <Compile Include="MSSQL66\B_SearchSetting.cs" />
+    <Compile Include="MSSQL66\B_SearchUnit.cs" />
+    <Compile Include="MSSQL66\ChargeType.cs" />
+    <Compile Include="MSSQL66\CLIENTELE.cs" />
+    <Compile Include="MSSQL66\Department.cs" />
+    <Compile Include="MSSQL66\District.cs" />
+    <Compile Include="MSSQL66\Doctor.cs" />
+    <Compile Include="MSSQL66\EmpDeptLinks.cs" />
+    <Compile Include="MSSQL66\NRequestItem.cs" />
+    <Compile Include="MSSQL66\NRequestForm.cs" />
+    <Compile Include="MSSQL66\PGroup.cs" />
+    <Compile Include="MSSQL66\PGroupPrint.cs" />
+    <Compile Include="MSSQL66\PrintFormat.cs" />
+    <Compile Include="MSSQL66\PrintHtml.cs" />
+    <Compile Include="MSSQL66\PUser.cs" />
+    <Compile Include="MSSQL66\ME_GroupSampleForm.cs" />
+    <Compile Include="MSSQL66\RequestForm.cs" />
+    <Compile Include="MSSQL66\ReportForm.cs" />
+    <Compile Include="MSSQL66\RequestItem.cs" />
+    <Compile Include="MSSQL66\ReportItem.cs" />
+    <Compile Include="MSSQL66\RequestMarrow.cs" />
+    <Compile Include="MSSQL66\ReportMarrow.cs" />
+    <Compile Include="MSSQL66\RequestMicro.cs" />
+    <Compile Include="MSSQL66\ReportMicro.cs" />
+    <Compile Include="MSSQL66\RFGraphData.cs" />
+    <Compile Include="MSSQL66\RFPReportFormPrintOperation.cs" />
+    <Compile Include="MSSQL66\SampleType.cs" />
+    <Compile Include="MSSQL66\SectionPrint.cs" />
+    <Compile Include="MSSQL66\SickType.cs" />
+    <Compile Include="MSSQL66\SiteOperationRecords.cs" />
+    <Compile Include="MSSQL66\Station_PrinterList.cs" />
+    <Compile Include="MSSQL66\S_RequestVItem.cs" />
+    <Compile Include="MSSQL66\TestItem.cs" />
+    <Compile Include="MSSQL66\WardType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportCenter\ALLReportForm.cs" />
+    <Compile Include="ReportCenter\BModuleFormControlList.cs" />
+    <Compile Include="ReportCenter\BModuleFormControlSet.cs" />
+    <Compile Include="ReportCenter\BModuleFormList.cs" />
+    <Compile Include="ReportCenter\BModuleGridControlList.cs" />
+    <Compile Include="ReportCenter\BModuleGridControlSet.cs" />
+    <Compile Include="ReportCenter\BModuleGridList.cs" />
+    <Compile Include="ReportCenter\BModuleModuleFormGridLink.cs" />
+    <Compile Include="ReportCenter\B_ColumnsSetting.cs" />
+    <Compile Include="ReportCenter\B_ColumnsUnit.cs" />
+    <Compile Include="ReportCenter\B_Parameter.cs" />
+    <Compile Include="ReportCenter\B_SearchSetting.cs" />
+    <Compile Include="ReportCenter\B_SearchUnit.cs" />
+    <Compile Include="ReportCenter\ChargeType.cs" />
+    <Compile Include="ReportCenter\CLIENTELE.cs" />
+    <Compile Include="ReportCenter\SC_Operation.cs" />
+    <Compile Include="ReportCenter\ReportDBUpdate.cs" />
+    <Compile Include="ReportCenter\Department.cs" />
+    <Compile Include="ReportCenter\District.cs" />
+    <Compile Include="ReportCenter\EmpDeptLinks.cs" />
+    <Compile Include="ReportCenter\PUser.cs" />
+    <Compile Include="ReportCenter\ReportDrugGene.cs" />
+    <Compile Include="ReportCenter\ReportForm.cs" />
+    <Compile Include="ReportCenter\ReportItem.cs" />
+    <Compile Include="ReportCenter\ReportMarrow.cs" />
+    <Compile Include="ReportCenter\ReportMicro.cs" />
+    <Compile Include="ReportCenter\ReportResults.cs" />
+    <Compile Include="ReportCenter\RFGraphData.cs" />
+    <Compile Include="ReportCenter\PGroup.cs" />
+    <Compile Include="ReportCenter\RFPReportFormPrintOperation.cs" />
+    <Compile Include="ReportCenter\SiteOperationRecords.cs" />
+    <Compile Include="ReportCenter\TestItem.cs" />
+    <Compile Include="ReportCenter\WardType.cs" />
+    <Compile Include="ReportCenter\SampleType.cs" />
+    <Compile Include="ReportCenter\SectionPrint.cs" />
+    <Compile Include="ReportCenter\SickType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Common\ZhiFang.ReportFormQueryPrint.Common.csproj">
+      <Project>{4c18e3ba-35ee-478b-be4a-3ae1da33fe2a}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.DBUtility\ZhiFang.ReportFormQueryPrint.DBUtility.csproj">
+      <Project>{d161060b-8286-476b-a72f-3c6b8e59682c}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.IDAL\ZhiFang.ReportFormQueryPrint.IDAL.csproj">
+      <Project>{0387526f-984f-460b-a4a3-18ad0ee02218}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ReportFormQueryPrint.Model\ZhiFang.ReportFormQueryPrint.Model.csproj">
+      <Project>{3526d8d8-cf44-4c52-bcef-a1812715e240}</Project>
+      <Name>ZhiFang.ReportFormQueryPrint.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="PhrasesWatchClass" table="[dbo].[PhrasesWatchClass]">
+    <id name="Id" column="[PhrasesWatchClassID]" type="Int64">
+      <generator class="native" />
+    </id>
+    <!--<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />-->
+    <property name="QIndicatorTypeId" column="[QIndicatorTypeId]" type="Int64" not-null="false" length="8" />
+    <property name="QIndicatorTypeCName" column="[QIndicatorTypeCName]" type="String" not-null="false" length="80" />
+    <property name="ParentID" column="[ParentID]" type="Int64" not-null="false" length="8" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="500" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="50" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="50" />
+    <property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+    <property name="DispOrder" column="[DispOrder]" type="String" not-null="false" length="20" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+  </class>
+</hibernate-mapping>

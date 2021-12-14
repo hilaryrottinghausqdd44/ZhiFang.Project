@@ -1,0 +1,6 @@
+if not exists (select * from Nursepara where nodename='ALLNODE' and ParaNo='82089')
+begin
+  INSERT INTO dbo.Nursepara (ModuleNo, ParaNo, ParaName, ParaValue, ParaDesc, nodename)
+  VALUES (2, 82089, '常规检验审核调存储过程', '', '常规检验审核调存储过程,不用写exec；多存储过程用竖杠|隔开，参数用中括号[]括起来；例：AAA [GroupSampleFormID]|BBB [SerialNo]', 'ALLNODE');
+  Insert Into NurseParaGroupItem(NPGID,ParaNo) Values(92,82089)
+end

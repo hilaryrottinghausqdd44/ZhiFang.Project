@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>选择项目 </title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+  <style>
+		/*input前存在icon 则加到input里面*/
+        .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #c2c2c2; }
+	    /*两个选择按钮居中显示*/
+	    .buttonBox { position: relative;top: 50%;margin-top: -50px;}
+        .buttonStyle { text-align: center;margin:10px 0;}
+        /*页面*/
+        .box{display:flex;margin:1px;}
+		.left{width:300px;height:100%;margin:1px;}
+		.left1{width:70px;height:100%;margin:1px;}
+		.center{flex:1;height:100%;margin:1px;}
+		
+		 /*组合项目与子项目*/
+        .itembox{display:flex;margin:1px;}
+		.itemright{width:250px;height:100%;margin:1px;}
+		.itemcenter{flex:1;height:100%;margin:1px;}
+
+	</style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="margin-bottom:0;"> 
+   <div class="box"> 
+    <div class="left"> 
+     <div style="padding-top: 15px;"> 
+      <input type="text" name="search_text" placeholder="项目名称/项目简称/用户代码/拼音字头" autocomplete="off" class="layui-input" /> 
+     </div> 
+     <table class="layui-hide" id="table" lay-filter="table"> 
+     </table> 
+    </div> 
+    <div class="left1"> 
+     <div class="fiexdHeight"> 
+      <div class="buttonBox"> 
+       <div class="layui-row"> 
+        <div class="layui-col-xs12 buttonStyle"> 
+         <button class="layui-btn layui-btn-xs" id="left"> <i class="iconfont"></i>&nbsp;选择</button> 
+        </div> 
+        <div class="layui-col-xs12 buttonStyle"> 
+         <button class="layui-btn layui-btn-xs" id="right"> <i class="iconfont"></i>&nbsp;选择</button> 
+        </div> 
+        <div class="layui-col-xs12 buttonStyle"> 
+         <button class="layui-btn layui-btn-xs" id="accept"> <i class="iconfont"></i>&nbsp;确定</button> 
+        </div> 
+        <div class="layui-col-xs12 buttonStyle"> 
+         <button class="layui-btn layui-btn-xs layui-btn-primary" id="cancel"> <i class="layui-icon layui-icon-refresh"></i>取消</button> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="center"> 
+     <div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="tabs"> 
+      <ul class="layui-tab-title"> 
+       <li lay-id="OrderItem"  class="layui-this">医嘱项目</li> 
+       <li lay-id="GroupItem" >组合项目</li> 
+       <li lay-id="Item">全部项目</li> 
+      </ul> 
+      <div class="layui-tab-content" style=" margin-bottom: 0px;padding-bottom: 0px;"> 
+       <div class="layui-tab-item  layui-show"> 
+       	<div class="layui-row">
+       		<div class="layui-inline" style="width: 90%;">
+       	 <input type="text" name="orderitem_text" placeholder="项目名称/项目简称/用户代码/拼音字头" autocomplete="off" class="layui-input" /> 
+       	</div>
+       	<div class="layui-inline">
+       		<button class="layui-btn layui-btn-xs " id="orderitem_search"> <i class="layui-icon layui-icon-search"></i></button> 
+       	</div>
+       	</div>
+       	
+        <table class="layui-hide" id="orderitem_table" lay-filter="orderitem_table"> 
+        </table> 
+       </div> 
+       <div class="layui-tab-item"> 
+       	<div class="layui-row">
+       		<div class="layui-inline" style="width: 90%;">
+        <input type="text" name="groupitem_text" placeholder="项目名称/项目简称/用户代码/拼音字头" autocomplete="off" class="layui-input" />
+       	</div>
+       	<div class="layui-inline">
+       		<button class="layui-btn layui-btn-xs " id="groupitem_search"> <i class="layui-icon layui-icon-search"></i></button> 
+       	</div>
+       	</div>
+        <div class="layui-col-xs7"> 
+         <table class="layui-hide" id="groupitem_table" lay-filter="groupitem_table"> 
+         </table> 
+        </div> 
+        <div class="layui-col-xs5"> 
+         <table class="layui-hide" id="child_table" lay-filter="child_table"> 
+         </table> 
+        </div> 
+       </div> 
+       <div class="layui-tab-item"> 
+       		<div class="layui-row">
+       		<div class="layui-inline" style="width: 90%;">
+        <input type="text" name="item_text" placeholder="项目名称/项目简称/用户代码/拼音字头" autocomplete="off" class="layui-input" /> 
+       	</div>
+       	<div class="layui-inline">
+       		<button class="layui-btn layui-btn-xs " id="item_search"> <i class="layui-icon layui-icon-search"></i></button> 
+       	</div>
+       	</div>
+        <table class="layui-hide" id="item_table" lay-filter="item_table"> 
+        </table> 
+       </div> 
+
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>  
+ </body>
+</html>

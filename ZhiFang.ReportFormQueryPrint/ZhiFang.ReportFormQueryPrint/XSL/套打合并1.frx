@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ConvertNulls="false" ReportInfo.Created="04/02/2011 15:47:04" ReportInfo.Modified="05/31/2011 23:36:24" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string receivedate=&quot;&quot;;
+    string coldate=&quot;&quot;;
+    string coltime=&quot;&quot;;
+    string checkdate=&quot;&quot;;
+    string checktime=&quot;&quot;;    
+
+    private void GroupHeader1_BeforePrint(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void Text6_BeforePrint(object sender, EventArgs e)
+    { 
+    }
+
+    private void Textectiontype_AfterData(object sender, EventArgs e)
+    {
+      if(Convert.ToInt32(Textsectiontype.Text.Trim())==2 ||Convert.ToInt32(Textsectiontype.Text.Trim())==4 )
+      {
+        TextItemtxt.Visible=false;
+        TextMicroItemtxt.Visible=true;
+        Textitemenname.Visible=false;
+        TextitemennameMicro.Visible=false;
+        TextSusQuan.Visible=true;
+        Textunit.Visible=false;
+        Text3.Visible=false;
+        Text7.Visible=false;
+        Text38.Visible=false;
+        Text39.Visible=false;
+        Text40.Visible=false;
+        Text41.Visible=false;
+        Text42.Visible=false;
+        //Data1.Height=1;
+        GroupHeader2.Height=1;
+      }
+      else
+      {
+        TextItemtxt.Visible=true;
+        TextMicroItemtxt.Visible=false;
+        Textitemenname.Visible=true;
+        TextitemennameMicro.Visible=false;
+        TextSusQuan.Visible=false;
+        Textunit.Visible=true;
+        Data1.Height=0;
+        GroupHeader2.Height=0;
+        GroupHeader3.Height=0;
+        Text3.Visible=true;
+        Text7.Visible=true;
+        Text38.Visible=true;
+        Text39.Visible=true;
+        Text40.Visible=true;
+        Text41.Visible=true;
+        Text42.Visible=true;
+      }
+    }
+
+
+    private void GroupHeader2_AfterData(object sender, EventArgs e)
+    {
+    }
+
+    private void TextSickType_AfterData(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetColumnValue(&quot;frformall.SickTypeNo&quot;))==1)
+      {
+        TextSickType.Text=&quot;住 院 号：&quot;;
+      }
+      else
+      {
+        if (((Int32)Report.GetColumnValue(&quot;frformall.SickTypeNo&quot;))==2)
+        {
+          TextSickType.Text=&quot;门 诊 号：&quot;;
+        }
+        else
+        {
+          //if (TextSickTypeNo.Text.ToString().Trim()==&quot;1&quot;)
+          //{
+          TextSickType.Text=&quot;体 检 号：&quot;;
+          //}
+        }
+      }
+    }
+
+
+    private void TextFormMemo_BeforePrint(object sender, EventArgs e)
+    { 
+      if(TextSectionNo.Text.Trim()==&quot;14&quot;)
+      {
+        TextFormMemo.Text=&quot;PCR检测&quot;;
+      }
+      else
+      {
+        TextFormMemo.Text=((string)Report.GetColumnValue(&quot;frformall.FormMemo&quot;));
+      }
+    }
+
+    private void TextItemResult_BeforePrint(object sender, EventArgs e)
+    {
+      int itemno=((Int32)Report.GetColumnValue(&quot;frformall.ItemNo&quot;));
+      double itemvalue;
+      String itemvaluestr;
+      if(((String)Report.GetColumnValue(&quot;frformall.ReportDesc&quot;))!=&quot;&quot;)
+      {
+        TextItemResult.Text= ((String)Report.GetColumnValue(&quot;frformall.ReportDesc&quot;));
+      }
+      else
+      {
+        try
+        {
+          itemvalue= ((double)Report.GetColumnValue(&quot;frformall.reportvalue&quot;));
+        }
+        catch
+        {
+          itemvalue=0;
+        }
+        itemvaluestr=((String)Report.GetColumnValue(&quot;frformall.reportvalue&quot;));
+        if (((Int32)Report.GetColumnValue(&quot;frformall.clientno&quot;))==11000030 &amp;&amp; itemvalue!=0)
+        {
+          if (itemno==10592)
+          {
+            itemvaluestr= Math.Round(Convert.ToDouble((itemvalue*18)),2).ToString();                                                                              
+          }
+          if (itemno==10450) 
+          {
+            itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.357)),2).ToString();                                                                                     
+          }
+          if (itemno==10430)
+          {
+            itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/88.402)),2).ToString();                                                                                    
+          }
+          if (itemno==10470) 
+          {
+            itemvaluestr=Math.Round(Convert.ToDouble((itemvalue*0.0168)),2).ToString();                                                                                     
+          }
+          if (itemno==10630) 
+          {
+            itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.015)),2).ToString();                                                                                     
+          }
+          if (itemno==10601) 
+          {
+            itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.0258)),2).ToString();                                                                                     
+          }
+          if (itemno==10640) 
+          {
+            itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.0258)),2).ToString();                                                                                    
+          }
+          if (itemno==10650) 
+          {
+            itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.0258)),2).ToString();                                                                                    
+          }
+        }
+        TextItemResult.Text= itemvaluestr;
+      }        
+    }
+
+    private void Textstatus_BeforePrint(object sender, EventArgs e)
+    {    
+      if (((String)Report.GetColumnValue(&quot;frformall.ResultStatus1&quot;)).Trim()==&quot;H&quot;)
+      {
+        Textstatus.Text=&quot;↑&quot;;
+      }
+      else
+      {
+        if (((String)Report.GetColumnValue(&quot;frformall.ResultStatus1&quot;)).Trim()==&quot;L&quot;)
+        {
+          Textstatus.Text=&quot;↓&quot;;
+        }
+        else
+        {
+          Textstatus.Text=((String)Report.GetColumnValue(&quot;frformall.ResultStatus1&quot;)).Trim();
+        }
+      } 
+    }
+
+    private void TextRefRange_BeforePrint(object sender, EventArgs e)
+    {
+      string s;
+      //int c;
+      int itemno;
+      if(((Int32)Report.GetColumnValue(&quot;frformall.SectionNo&quot;))==14)
+      {
+        //TextRefRange.Text=((String)Report.GetColumnValue(&quot;frformall.lowvalue&quot;)).Trim(); //*************************
+      }
+      else
+      {
+        
+        itemno=((Int32)Report.GetColumnValue(&quot;frformall.ItemNo&quot;));
+        if(((Int32)Report.GetColumnValue(&quot;frformall.clientno&quot;))==11000030)
+        {
+          if (itemno==10592) {
+            TextRefRange.Text=&quot;70-110&quot; ;                                                                             
+          }else{ if (itemno==10450) {
+              TextRefRange.Text=&quot;8.40-21.01&quot;;
+            }else{ if (itemno==10430) {
+                TextRefRange.Text=&quot;0.34-1.24&quot;;
+              }else{ if (itemno==10470) {
+                  TextRefRange.Text=&quot;2.39-6.99&quot;;
+                }else{ if (itemno==10630) {
+                    TextRefRange.Text=&quot;&lt;151&quot;;
+                  }else{ if (itemno==10601) {
+                      TextRefRange.Text=&quot;&lt;202&quot;;
+                    }else{ if (itemno==10640) {
+                        TextRefRange.Text=&quot;&gt;40&quot;;
+                      }else{ if (itemno==10650) {
+                          TextRefRange.Text=&quot;&lt;131&quot;;
+                        }else{
+                          s= ((String)Report.GetColumnValue(&quot;frformall.RefRange&quot;));
+                          s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+                          //while pos(';',s)do
+            
+                          // c:==pos(';',s);
+                          //s:==copy(s,1,c-1)+#10+copy(s,c+1,(length(s)-c-1));
+                                           //***********************
+                          TextRefRange.Text=s;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        else
+        {
+          s= ((String)Report.GetColumnValue(&quot;frformall.RefRange&quot;));
+          s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+          TextRefRange.Text=s;TextRefRange.Height=500;
+          //s:=&lt;fritem.&quot;RefRange&quot;&gt;;
+          //while pos(';',s)do
+          //    begin
+          //  c:=pos(';',s);
+          // s:=copy(s,1,c-1)+#10+copy(s,c+1,(length(s)-c-1));
+          //  end;
+          //RefRangetext.memo.text:=s;
+        } 
+      }
+    }
+
+    private void Textunit_BeforePrint(object sender, EventArgs e)
+    {
+      int itemno;
+      string  itemvaluestr;
+      itemno = ((Int32)Report.GetColumnValue(&quot;frformall.ItemNo&quot;));
+      itemvaluestr= ((String)Report.GetColumnValue(&quot;frformall.itemunit&quot;));
+      if(((Int32)Report.GetColumnValue(&quot;frformall.clientno&quot;))==11000030)
+      {
+        if(itemno==10592)
+        {
+          itemvaluestr=&quot;mg/dL&quot;; 
+        }
+        if(itemno==10450)
+        {
+          itemvaluestr=&quot;mg/dL&quot;; 
+        }
+        if(itemno==10430)
+        {
+          itemvaluestr=&quot;mg/dL&quot;; 
+        }
+        if(itemno==10470)
+        {
+          itemvaluestr=&quot;mg/dL&quot;; 
+        }
+        if(itemno==10630)
+        {
+          itemvaluestr=&quot;mg/dL&quot;; 
+        }
+        if(itemno==10601)
+        {
+          itemvaluestr=&quot;mg/dL&quot;; 
+        }
+        if(itemno==10640)
+        {
+          itemvaluestr=&quot;mg/dL&quot;; 
+        }
+        if(itemno==10650)
+        {
+          itemvaluestr=&quot;mg/dL&quot;; 
+        }
+      }
+      Textunit.Text=itemvaluestr;
+    }
+    private void TextCollectDate_BeforePrint(object sender, EventArgs e)
+    {
+      TextCollectDate.Text=coldate;
+    }
+
+    private void TextCollectTime_BeforePrint(object sender, EventArgs e)
+    {
+      TextCollectTime.Text=coltime;//((DateTime)Report.GetColumnValue(&quot;frformall.CollectTime&quot;)).ToString(&quot;HH:mm:ss&quot;);
+    }
+
+    private void TextCheckDate_BeforePrint(object sender, EventArgs e)
+    {
+      TextCheckDate.Text=checkdate;//((DateTime)Report.GetColumnValue(&quot;frformall.CheckDate&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+    }
+    
+    private void TextReceiveDate_BeforePrint(object sender, EventArgs e)
+    {
+      TextReceiveDate.Text=receivedate;//((DateTime)Report.GetColumnValue(&quot;frformall.CheckDate&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+    }
+
+    private void TextCheckTime_BeforePrint(object sender, EventArgs e)
+    {
+      TextCheckTime.Text=checktime;//((DateTime)Report.GetColumnValue(&quot;frformall.CheckTime&quot;)).ToString(&quot;HH:mm:ss&quot;);
+    }
+    
+
+    private void PageHeader1_AfterData(object sender, EventArgs e)
+    {
+      if(receivedate.Trim().Length&lt;=0)
+      {
+        receivedate=((DateTime)Report.GetColumnValue(&quot;frformall.receivedate&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+      }
+      if(coldate.Trim().Length&lt;=0)
+      {
+        coldate=((DateTime)Report.GetColumnValue(&quot;frformall.CollectDate&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+      }
+      if(coltime.Trim().Length&lt;=0)
+      {
+        coltime=((DateTime)Report.GetColumnValue(&quot;frformall.CollectTime&quot;)).ToString(&quot;HH:mm:ss&quot;);
+      }
+      if(checkdate.Trim().Length&lt;=0)
+      {
+        checkdate=((DateTime)Report.GetColumnValue(&quot;frformall.CheckDate&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+      }
+      if(checktime.Trim().Length&lt;=0)
+      {
+        checktime=((DateTime)Report.GetColumnValue(&quot;frformall.CheckTime&quot;)).ToString(&quot;HH:mm:ss&quot;);
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="frformall" ReferenceName="Data.frformall" DataType="System.Int32" Enabled="true" SelectCommand="SELECT b.itemcname as itemcname2, a.sectiontype,c.itemcname AS microitemcname, a.ReceiveDate, a.SectionNo, a.TestTypeNo, a.SampleNo, a.StatusNo, a.SampleTypeNo, a.PatNo, a.CName, a.GenderNo, a.Birthday, a.Age, a.AgeUnitNo, a.FolkNo, a.DistrictNo, a.WardNo, a.Bed, a.DeptNo, a.Doctor, a.ChargeNo, a.Charge, a.Collecter,       a.CollectDate, a.CollectTime, a.FormMemo, a.Technician, a.TestDate, a.TestTime, a.Operator, a.OperDate, a.OperTime, a.Checker, a.CheckDate,       a.CheckTime, a.SerialNo, a.BarCode, a.RequestSource, a.DiagNo, a.PrintTimes, a.SickTypeNo, a.FormComment, a.ZDY1, a.ZDY2, a.ZDY3, a.ZDY4,       a.ZDY5, a.inceptdate, a.incepttime, a.incepter, a.onlinedate, a.onlinetime, a.bmanno, a.clientno, a.chargeflag, a.isReceive, a.ReceiveMan,       a.ReceiveTime, a.concessionNum, a.Sender2, a.SenderTime2, a.resultstatus, a.testaim, a.resultprinttimes, a.paritemname, a.clientprint, a.resultsend,       a.reportsend, a.CountNodesFormSource, a.commsendflag, a.zdy6, a.PrintDateTime, a.PrintOper, a.FormNo, a.FormStateNo, a.OldSerialNo,       a.mresulttype, a.Diagnose, a.TestPurpose, a.IsFree, a.WebLisFlag, a.WebLisOpTime, a.WebLiser, a.WebLisDescript, a.WebLisOrgID,       a.WebLisIsReply, a.WebLisReplyDate, a.WebLisUploadTime, a.WebLisUploadStatus, a.WebLisUploadTestStatus, a.WebLisUploader,       a.WebLisUploadDes, a.IsReview, a.Reviewer, a.ReviewTime, a.IsRequestChange, a.FromQCL, a.EPosition, a.ESend, a.IsDel, a.EAchivPosition,       a.FenzhuDatetime, a.EQCLPosition, a.NOperator, a.NOperDate, a.NOperTime, a.PathologyNo, a.SampleUnion, a.Gender, a.sick, a.sampletype, a.folk,       a.Dept, a.district, a.ward, a.AgeUnit, a.TestType, a.diag, a.client, a.clientstyle, a.clientename, a.clientcode, a.clientarea, a.ClientReportTitle, a.czdy1,       a.czdy2, a.czdy3, a.czdy4, a.czdy5, a.czdy6, a.sectionname, a.sectiondesc, a.sectioncode, a.Ptechnician, a.PChecker, a.POperator, a.Pincepter,       b.ParItemNo, b.ItemNo, b.OriginalValue, b.reportvalue, b.OriginalDesc, b.ReportDesc, b.StatusNo AS StatusNo1, b.RefRange,       b.EquipNo, b.Modified, b.ItemDate, b.ItemTime, b.IsMatch, b.ResultStatus AS ResultStatus1, b.HisValue, b.HisComp,       b.isReceive AS isReceive1, b.CountNodesItemSource, b.Unit, b.FormNo AS FormNo1, b.PlateNo, b.PositionNo, b.TollItemNo, b.itemdesc,       b.OldSerialNo AS OldSerialNo1, b.itemcname AS itemcname, b.itemename, b.itemunit, b.Prec, c.ResultNo, c.ItemNo AS ItemNo1, c.DescNo, c.MicroNo,       c.MicroDesc, c.AntiNo, c.Suscept, c.SusQuan, c.SusDesc, c.RefRange AS RefRange1, c.ItemDate AS ItemDate1, c.ItemTime AS ItemTime1, c.ItemDesc AS ItemDesc1,       c.EquipNo AS EquipNo1, c.Modified AS Modified1, c.IsMatch AS IsMatch1, c.CheckType, c.isReceive AS isReceive2, c.FormNo AS FormNo2, c.microcountdesc,       c.mresulttype AS mresulttype1, c.itemcname AS itemcname1, c.itemename AS itemename1, c.Microcname, c.Microename, c.descname, c.descename, c.Anticname,       c.Antiename from (select RF.* ,GT.cname Gender,ST.cname sick,SPT.cname sampletype,FT.cname folk,DM.cname Dept,DT.cname district,WT.cname ward,AU.cname AgeUnit,TT.cname TestType,ds.cname diag,cn.cname client,cn.clientstyle,cn.ename clientename,cn.shortcode clientcode,clientarea,ClientReportTitle,czdy1,czdy2,czdy3,czdy4,czdy5,czdy6 ,pg.cname sectionname,pg.sectiondesc sectiondesc,pg.shortcode sectioncode,pg.SectionType sectiontype,PU1.userimage Ptechnician ,PU2.userimage PChecker ,PU3.userimage POperator ,PU4.userimage Pincepter  from (select * from reportform where formno in (615788,616170,615741,615898,579)) RF  left join  GenderType GT on(GT.GenderNo=RF.GenderNo) left join  SickType ST on(ST.sickTypeNo=RF.sickTypeNo) left join  sampletype SPT on(SPT.sampletypeNo=RF.sampletypeNo) left join  folktype FT on(FT.folkNo=RF.folkNo) left join  DepartMent DM on(DM.DeptNo=RF.DeptNo) left join  district DT on(DT.districtNo=RF.districtNo) left join  wardtype WT on(WT.wardNo=RF.wardNo) left join  AgeUnit AU on(AU.AgeUnitNo=RF.AgeUnitNo) left join  TestType TT on(TT.TestTypeNo=RF.TestTypeNo) left join  diagnosis ds on(ds.diagno=RF.diagno) left join  clientele cn on(cn.clientno=RF.clientno) left join  pgroup pg on(pg.sectionno=RF.sectionno) left join  puser PU1 on(PU1.cname=RF.technician) left join  puser PU2 on(PU2.cname=RF.Checker) left join  puser PU3 on(PU3.cname=RF.Operator) left join  puser PU4 on(PU4.cname=RF.incepter))  a  left join(select RI.* ,TI.cname itemcname,TI.ename itemename,TI.unit itemunit,ti.prec  from (select * from v_reportitem ) RI   left join   (select * from TestItem where (testitem.secretgrade&lt;&gt;2 or testitem.secretgrade is null)) TI on(TI.itemNo=RI.itemNo)  where ri.formno in(615788,616170,615741,615898,579)) b on (a.formno=b.formno)  left join(select RM.* ,TI.cname itemcname,TI.ename itemename ,MI.cname Microcname,MI.ename Microename ,mp.cname descname,mp.ename descename  ,AB.CName Anticname,AB.EName Antiename from (select DISTINCT * from  reportmicro b where b.formno in (615788,616170,615741,615898,579) ) RM   left join   TestItem TI on(TI.itemNo=RM.itemNo) left join  MicroItem MI on(MI.MicroNo=RM.MicroNo) left join  microphrase mp on(MP.descNo=RM.descno) left join  AntiBiotic AB on(AB.AntiNo=RM.AntiNo) ) c on (a.formno=c.formno)">
+      <Column Name="itemcname2" DataType="System.String"/>
+      <Column Name="sectiontype" DataType="System.Int32"/>
+      <Column Name="microitemcname" DataType="System.String"/>
+      <Column Name="ReceiveDate" DataType="System.DateTime"/>
+      <Column Name="SectionNo" DataType="System.Int32"/>
+      <Column Name="TestTypeNo" DataType="System.Int32"/>
+      <Column Name="SampleNo" DataType="System.String"/>
+      <Column Name="StatusNo" DataType="System.Int32"/>
+      <Column Name="SampleTypeNo" DataType="System.Int32"/>
+      <Column Name="PatNo" DataType="System.String"/>
+      <Column Name="CName" DataType="System.String"/>
+      <Column Name="GenderNo" DataType="System.Int32"/>
+      <Column Name="Birthday" DataType="System.DateTime"/>
+      <Column Name="Age" DataType="System.Double"/>
+      <Column Name="AgeUnitNo" DataType="System.Int32"/>
+      <Column Name="FolkNo" DataType="System.Int32"/>
+      <Column Name="DistrictNo" DataType="System.Int32"/>
+      <Column Name="WardNo" DataType="System.Int32"/>
+      <Column Name="Bed" DataType="System.String"/>
+      <Column Name="DeptNo" DataType="System.Int32"/>
+      <Column Name="Doctor" DataType="System.String"/>
+      <Column Name="ChargeNo" DataType="System.Int32"/>
+      <Column Name="Charge" DataType="System.Decimal"/>
+      <Column Name="Collecter" DataType="System.String"/>
+      <Column Name="CollectDate" DataType="System.DateTime"/>
+      <Column Name="CollectTime" DataType="System.DateTime"/>
+      <Column Name="FormMemo" DataType="System.String"/>
+      <Column Name="Technician" DataType="System.String"/>
+      <Column Name="TestDate" DataType="System.DateTime"/>
+      <Column Name="TestTime" DataType="System.DateTime"/>
+      <Column Name="Operator" DataType="System.String"/>
+      <Column Name="OperDate" DataType="System.DateTime"/>
+      <Column Name="OperTime" DataType="System.DateTime"/>
+      <Column Name="Checker" DataType="System.String"/>
+      <Column Name="CheckDate" DataType="System.DateTime"/>
+      <Column Name="CheckTime" DataType="System.DateTime"/>
+      <Column Name="SerialNo" DataType="System.String"/>
+      <Column Name="BarCode" DataType="System.String"/>
+      <Column Name="RequestSource" DataType="System.String"/>
+      <Column Name="DiagNo" DataType="System.Int32"/>
+      <Column Name="PrintTimes" DataType="System.Int32"/>
+      <Column Name="SickTypeNo" DataType="System.Int32"/>
+      <Column Name="FormComment" DataType="System.String"/>
+      <Column Name="ZDY1" DataType="System.String"/>
+      <Column Name="ZDY2" DataType="System.String"/>
+      <Column Name="ZDY3" DataType="System.String"/>
+      <Column Name="ZDY4" DataType="System.String"/>
+      <Column Name="ZDY5" DataType="System.String"/>
+      <Column Name="inceptdate" DataType="System.DateTime"/>
+      <Column Name="incepttime" DataType="System.DateTime"/>
+      <Column Name="incepter" DataType="System.String"/>
+      <Column Name="onlinedate" DataType="System.DateTime"/>
+      <Column Name="onlinetime" DataType="System.DateTime"/>
+      <Column Name="bmanno" DataType="System.Int32"/>
+      <Column Name="clientno" DataType="System.Int32"/>
+      <Column Name="chargeflag" DataType="System.String"/>
+      <Column Name="isReceive" DataType="System.Int32"/>
+      <Column Name="ReceiveMan" DataType="System.String"/>
+      <Column Name="ReceiveTime" DataType="System.DateTime"/>
+      <Column Name="concessionNum" DataType="System.String"/>
+      <Column Name="Sender2" DataType="System.String"/>
+      <Column Name="SenderTime2" DataType="System.DateTime"/>
+      <Column Name="resultstatus" DataType="System.Int32"/>
+      <Column Name="testaim" DataType="System.String"/>
+      <Column Name="resultprinttimes" DataType="System.Int32"/>
+      <Column Name="paritemname" DataType="System.String"/>
+      <Column Name="clientprint" DataType="System.String"/>
+      <Column Name="resultsend" DataType="System.String"/>
+      <Column Name="reportsend" DataType="System.String"/>
+      <Column Name="CountNodesFormSource" DataType="System.String"/>
+      <Column Name="commsendflag" DataType="System.Int32"/>
+      <Column Name="zdy6" DataType="System.String"/>
+      <Column Name="PrintDateTime" DataType="System.DateTime"/>
+      <Column Name="PrintOper" DataType="System.String"/>
+      <Column Name="FormNo" DataType="System.Int32"/>
+      <Column Name="FormStateNo" DataType="System.Int32"/>
+      <Column Name="OldSerialNo" DataType="System.String"/>
+      <Column Name="mresulttype" DataType="System.Int32"/>
+      <Column Name="Diagnose" DataType="System.String"/>
+      <Column Name="TestPurpose" DataType="System.String"/>
+      <Column Name="IsFree" DataType="System.Int32"/>
+      <Column Name="WebLisFlag" DataType="System.Int32"/>
+      <Column Name="WebLisOpTime" DataType="System.DateTime"/>
+      <Column Name="WebLiser" DataType="System.String"/>
+      <Column Name="WebLisDescript" DataType="System.String"/>
+      <Column Name="WebLisOrgID" DataType="System.String"/>
+      <Column Name="WebLisIsReply" DataType="System.Int32"/>
+      <Column Name="WebLisReplyDate" DataType="System.String"/>
+      <Column Name="WebLisUploadTime" DataType="System.DateTime"/>
+      <Column Name="WebLisUploadStatus" DataType="System.Int32"/>
+      <Column Name="WebLisUploadTestStatus" DataType="System.Int32"/>
+      <Column Name="WebLisUploader" DataType="System.String"/>
+      <Column Name="WebLisUploadDes" DataType="System.String"/>
+      <Column Name="IsReview" DataType="System.Int32"/>
+      <Column Name="Reviewer" DataType="System.String"/>
+      <Column Name="ReviewTime" DataType="System.DateTime"/>
+      <Column Name="IsRequestChange" DataType="System.Int32"/>
+      <Column Name="FromQCL" DataType="System.String"/>
+      <Column Name="EPosition" DataType="System.String"/>
+      <Column Name="ESend" DataType="System.String"/>
+      <Column Name="IsDel" DataType="System.Int32"/>
+      <Column Name="EAchivPosition" DataType="System.String"/>
+      <Column Name="FenzhuDatetime" DataType="System.DateTime"/>
+      <Column Name="EQCLPosition" DataType="System.String"/>
+      <Column Name="NOperator" DataType="System.String"/>
+      <Column Name="NOperDate" DataType="System.DateTime"/>
+      <Column Name="NOperTime" DataType="System.DateTime"/>
+      <Column Name="PathologyNo" DataType="System.String"/>
+      <Column Name="SampleUnion" DataType="System.Int32"/>
+      <Column Name="Gender" DataType="System.String"/>
+      <Column Name="sick" DataType="System.String"/>
+      <Column Name="sampletype" DataType="System.String"/>
+      <Column Name="folk" DataType="System.String"/>
+      <Column Name="Dept" DataType="System.String"/>
+      <Column Name="district" DataType="System.String"/>
+      <Column Name="ward" DataType="System.String"/>
+      <Column Name="AgeUnit" DataType="System.String"/>
+      <Column Name="TestType" DataType="System.String"/>
+      <Column Name="diag" DataType="System.String"/>
+      <Column Name="client" DataType="System.String"/>
+      <Column Name="clientstyle" DataType="System.String"/>
+      <Column Name="clientename" DataType="System.String"/>
+      <Column Name="clientcode" DataType="System.String"/>
+      <Column Name="clientarea" DataType="System.String"/>
+      <Column Name="ClientReportTitle" DataType="System.String"/>
+      <Column Name="czdy1" DataType="System.String"/>
+      <Column Name="czdy2" DataType="System.String"/>
+      <Column Name="czdy3" DataType="System.String"/>
+      <Column Name="czdy4" DataType="System.String"/>
+      <Column Name="czdy5" DataType="System.String"/>
+      <Column Name="czdy6" DataType="System.String"/>
+      <Column Name="sectionname" DataType="System.String"/>
+      <Column Name="sectiondesc" DataType="System.String"/>
+      <Column Name="sectioncode" DataType="System.String"/>
+      <Column Name="Ptechnician" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="PChecker" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="POperator" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Pincepter" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="ParItemNo" DataType="System.Int32"/>
+      <Column Name="ItemNo" DataType="System.Int32"/>
+      <Column Name="OriginalValue" DataType="System.Double"/>
+      <Column Name="reportvalue" DataType="System.String"/>
+      <Column Name="OriginalDesc" DataType="System.String"/>
+      <Column Name="ReportDesc" DataType="System.String"/>
+      <Column Name="StatusNo1" DataType="System.Int32"/>
+      <Column Name="RefRange" DataType="System.String"/>
+      <Column Name="EquipNo" DataType="System.Int32"/>
+      <Column Name="Modified" DataType="System.Int32"/>
+      <Column Name="ItemDate" DataType="System.DateTime"/>
+      <Column Name="ItemTime" DataType="System.DateTime"/>
+      <Column Name="IsMatch" DataType="System.Int32"/>
+      <Column Name="ResultStatus1" DataType="System.String"/>
+      <Column Name="HisValue" DataType="System.String"/>
+      <Column Name="HisComp" DataType="System.String"/>
+      <Column Name="isReceive1" DataType="System.Int32"/>
+      <Column Name="CountNodesItemSource" DataType="System.String"/>
+      <Column Name="Unit" DataType="System.String"/>
+      <Column Name="FormNo1" DataType="System.Int32"/>
+      <Column Name="PlateNo" DataType="System.Int32"/>
+      <Column Name="PositionNo" DataType="System.Int32"/>
+      <Column Name="TollItemNo" DataType="System.Int32"/>
+      <Column Name="itemdesc" DataType="System.String"/>
+      <Column Name="OldSerialNo1" DataType="System.String"/>
+      <Column Name="itemcname" DataType="System.String"/>
+      <Column Name="itemename" DataType="System.String"/>
+      <Column Name="itemunit" DataType="System.String"/>
+      <Column Name="Prec" DataType="System.Int32"/>
+      <Column Name="ResultNo" DataType="System.Int32"/>
+      <Column Name="ItemNo1" DataType="System.Int32"/>
+      <Column Name="DescNo" DataType="System.Int32"/>
+      <Column Name="MicroNo" DataType="System.Int32"/>
+      <Column Name="MicroDesc" DataType="System.String"/>
+      <Column Name="AntiNo" DataType="System.Int32"/>
+      <Column Name="Suscept" DataType="System.String"/>
+      <Column Name="SusQuan" DataType="System.Double"/>
+      <Column Name="SusDesc" DataType="System.String"/>
+      <Column Name="RefRange1" DataType="System.String"/>
+      <Column Name="ItemDate1" DataType="System.DateTime"/>
+      <Column Name="ItemTime1" DataType="System.DateTime"/>
+      <Column Name="ItemDesc1" DataType="System.String"/>
+      <Column Name="EquipNo1" DataType="System.Int32"/>
+      <Column Name="Modified1" DataType="System.Int32"/>
+      <Column Name="IsMatch1" DataType="System.Int32"/>
+      <Column Name="CheckType" DataType="System.Int32"/>
+      <Column Name="isReceive2" DataType="System.Int32"/>
+      <Column Name="FormNo2" DataType="System.Int32"/>
+      <Column Name="microcountdesc" DataType="System.String"/>
+      <Column Name="mresulttype1" DataType="System.Int32"/>
+      <Column Name="itemcname1" DataType="System.String"/>
+      <Column Name="itemename1" DataType="System.String"/>
+      <Column Name="Microcname" DataType="System.String"/>
+      <Column Name="Microename" DataType="System.String"/>
+      <Column Name="descname" DataType="System.String"/>
+      <Column Name="descename" DataType="System.String"/>
+      <Column Name="Anticname" DataType="System.String"/>
+      <Column Name="Antiename" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Guides="49.14,653.94,61.61,140.99,130.79,241.17,253.26,322.43,321.3,420.71,326.21,347.76,430.16,509.54,504.63,615.01,700.06,28.35,670.95,519.75,689.85,35.91,139.1,175.77,515.97,0,94.5,71.06,647.51,82.78,148.93,155.74,218.87,189,207.9,453.6,642.6,243.43,319.03,316.39,429.79,529.2,639.58,66.15,92.61,245.7,338.31,359.1,461.16,463.05,498.96,500.85,593.46,595.35,640.71,122.85,650.16,491.4,444.15,85.05,274.05,75.6,311.85,546.21,236.25,368.55,623.7,151.2,141.75,340.2,330.75,438.48,510.3,608.58,26.46,272.16,395.01,349.65,425.25">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2"/>
+    <PageHeaderBand Name="PageHeader1" Top="4" Width="718.2" Height="160.65" AfterDataEvent="PageHeader1_AfterData" Guides="132.3,151.2,83.16,102.06,120.96,139.86,75.6,94.5,113.4,100.55,119.45,64.26,56.7,47.25,35.91,54.81,5.67,45.74,23.44,61.24">
+      <ShapeObject Name="Shape1" Left="49.14" Top="138.3" Width="604.8" Height="18.9"/>
+      <TextObject Name="Text22" Left="80.61" Top="82.16" Width="79.38" Height="18.9" Text="性    别：" Font="宋体, 10pt"/>
+      <TextObject Name="Text23" Left="80.61" Top="101.06" Width="79.38" Height="18.9" Text="年    龄：" Font="宋体, 10pt"/>
+      <TextObject Name="Text24" Left="80.61" Top="120.96" Width="79.38" Height="18.9" Text="病 人 ID：" Font="宋体, 10pt"/>
+      <TextObject Name="TextGender" Left="149.79" Top="79.6" Width="110.38" Height="18.9" Text="[frformall.Gender]" Font="宋体, 10pt"/>
+      <TextObject Name="TextAge" Left="149.79" Top="97.5" Width="110.38" Height="18.9" Text="[frformall.Age] [frformall.AgeUnit]" Font="宋体, 10pt"/>
+      <TextObject Name="Text27" Left="149.79" Top="118.4" Width="110.38" Height="18.9" Font="宋体, 10pt"/>
+      <TextObject Name="Text2" Left="272.26" Top="79.6" Width="78.62" Height="18.9" Text="报告编号：" Font="宋体, 10pt"/>
+      <TextObject Name="TextSerialNo" Left="343.3" Top="78.6" Width="108.86" Height="18.9" Text="[frformall.SerialNo]" Font="宋体, 10pt"/>
+      <TextObject Name="TextSickType" Left="272.26" Top="102.55" Width="72.95" Height="18.9" AfterDataEvent="TextSickType_AfterData" HorzAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text29" Left="344.3" Top="102.55" Width="99.41" Height="18.9" Text="[frformall.PatNo]" Font="宋体, 10pt"/>
+      <TextObject Name="TextSickTypeNo" Left="272.26" Top="120.4" Width="94.5" Height="18.9" Visible="false" Text="[frformall.SickTypeNo]" HorzAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text31" Left="449.16" Top="83.16" Width="79.38" Height="18.9" Text="送检医师：" Font="宋体, 10pt"/>
+      <TextObject Name="Text32" Left="448.16" Top="102.06" Width="79.38" Height="18.9" Text="科    别：" Font="宋体, 10pt"/>
+      <TextObject Name="Text33" Left="448.16" Top="120.96" Width="79.38" Height="18.9" Text="床    号：&#13;&#10;" Font="宋体, 10pt"/>
+      <TextObject Name="TextDoctor" Left="523.63" Top="81.6" Width="110.38" Height="18.9" Text="[frformall.Doctor]" Font="宋体, 10pt"/>
+      <TextObject Name="TextDept" Left="523.63" Top="101.5" Width="110.38" Height="18.9" Text="[frformall.Dept]" Font="宋体, 10pt"/>
+      <TextObject Name="TextBed" Left="523.63" Top="120.4" Width="110.38" Height="18.9" Text="[frformall.Bed]" Font="宋体, 10pt"/>
+      <TextObject Name="Text1" Left="80.61" Top="62.26" Width="79.38" Height="18.9" Text="姓    名：" Font="宋体, 10pt"/>
+      <TextObject Name="TextCName" Left="149.79" Top="62.7" Width="214.33" Height="18.9" Text="[frformall.CName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text30" Left="449.16" Top="63.26" Width="79.38" Height="18.9" Text="送检单位：" Font="宋体, 10pt"/>
+      <TextObject Name="Textclient" Left="523.63" Top="64.7" Width="195.43" Height="18.9" Text="[frformall.client]" Font="宋体, 10pt"/>
+      <TextObject Name="Text5" Left="552.75" Top="28.91" Width="170.1" Height="18.9" Text="第[Page#]页共[TotalPages#]页" Font="宋体, 9pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="168.65" Width="718.2" Height="18.9" BeforePrintEvent="GroupHeader1_BeforePrint" Guides="0,18.9,20.79,39.69,37.8,56.7" Condition="[frformall.SectionNo]">
+      <TextObject Name="TextSectionNo" Width="94.5" Height="18.9" Visible="false" Text="[[frformall.SectionNo]]" Font="宋体, 10pt"/>
+      <TextObject Name="TextSectionname" Left="52.16" Width="595.35" Height="18.9" Fill.Color="Silver" Text="[frformall.Sectionname]" HorzAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Textsectiontype" Left="453.6" Width="189" Height="18.9" Visible="false" AfterDataEvent="Textectiontype_AfterData" Text="[frformall.sectiontype]" HorzAlign="Center" Font="宋体, 9pt"/>
+      <GroupHeaderBand Name="GroupHeadery" Top="191.55" Width="718.2" Height="44.8" CanGrow="true" CanShrink="true" Guides="0,18.9,20.79,39.69,37.8,56.9" Condition="[frformall.SampleNo]">
+        <TextObject Name="Text12" Left="53.78" Top="1.89" Width="66.15" Height="18.9" Text="标本号：" HorzAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="TextSampleTypeNo" Left="112.74" Top="1.89" Width="110.38" Height="18.9" Text="[frformall.SampleNo]" Font="宋体, 9pt"/>
+        <TextObject Name="TextItemtxt" Left="94.5" Top="25.9" Width="94.5" Height="18.9" BeforePrintEvent="Text6_BeforePrint" Text="项目名称" Font="宋体, 10pt"/>
+        <TextObject Name="TextMicroItemtxt" Left="94.5" Top="24.55" Width="113.4" Height="13.23" Text="检验项目：" Font="宋体, 10pt"/>
+        <TextObject Name="Text34" Left="248.43" Top="1.89" Width="75.6" Height="18.9" Text="标本种类：" HorzAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="Text35" Left="319.39" Top="1.89" Width="113.4" Height="18.9" Text="[frformall.sampletype]" Font="宋体, 9pt"/>
+        <TextObject Name="Text36" Left="450.6" Top="1.89" Width="66.15" Height="18.9" Text="备   注：" HorzAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="TextFormMemo" Left="514.2" Top="1.89" Width="110.38" Height="18.9" BeforePrintEvent="TextFormMemo_BeforePrint" Text="[frformall.FormMemo]" Font="宋体, 9pt"/>
+        <TextObject Name="Text3" Left="66.15" Top="25.9" Width="26.46" Height="13.23" Text="No" HorzAlign="Center" Font="宋体, 10pt"/>
+        <TextObject Name="Text38" Left="245.7" Top="25.9" Width="92.61" Height="13.23" Text="简称" Font="宋体, 10pt"/>
+        <TextObject Name="Text39" Left="359.1" Top="25.9" Width="102.06" Height="13.23" Text="结果&#13;&#10;" Font="宋体, 10pt"/>
+        <TextObject Name="Text40" Left="463.05" Top="25.9" Width="35.91" Height="13.23" Text="提示&#13;&#10;" Font="宋体, 10pt"/>
+        <TextObject Name="Text41" Left="500.85" Top="25.9" Width="92.61" Height="13.23" Text="参考值" Font="宋体, 10pt"/>
+        <TextObject Name="Text42" Left="595.35" Top="25.9" Width="45.36" Height="13.23" Text="单位" Font="宋体, 10pt"/>
+        <TextObject Name="Textmicroitemcname" Left="168.45" Top="24.9" Width="151.2" Height="18.9" Text="[frformall.microitemcname]" Font="宋体, 10pt"/>
+        <GroupHeaderBand Name="GroupHeader2" Top="240.35" Width="718.2" Height="19.9" CanGrow="true" CanShrink="true" AfterDataEvent="GroupHeader2_AfterData" Guides="0,18.9,28.35,37.8" Condition="[frformall.ItemNo1]+'_'+[frformall.ItemNo]">
+          <TextObject Name="ItemNo1" Width="37.8" Height="18.9" Visible="false" Text="[frformall.ItemNo1]" Font="宋体, 10pt"/>
+          <TextObject Name="Textunit" Left="595.35" Width="54.81" Height="18.9" BeforePrintEvent="Textunit_BeforePrint" AutoWidth="true" Font="宋体, 10pt"/>
+          <TextObject Name="Textitemenname" Left="245.7" Width="113.4" Height="18.9" Text="[frformall.itemename]" Font="宋体, 10pt"/>
+          <TextObject Name="TextItemResult" Left="359.1" Width="103.95" Height="18.9" BeforePrintEvent="TextItemResult_BeforePrint" Font="宋体, 10pt"/>
+          <TextObject Name="Textstatus" Left="463.05" Width="28.35" Height="18.9" BeforePrintEvent="Textstatus_BeforePrint" Font="宋体, 10pt"/>
+          <TextObject Name="TextRefRange" Left="482.85" Width="113.4" Height="18.9" CanGrow="true" CanShrink="true" BeforePrintEvent="TextRefRange_BeforePrint" Font="宋体, 10pt"/>
+          <TextObject Name="Textitemcname" Left="87.5" Width="198.45" Height="18.9" Text="[frformall.itemcname]" Font="宋体, 10pt"/>
+          <TextObject Name="TextitemennameMicro" Left="245.7" Width="255.15" Height="18.9" Text="[frformall.itemename1]" Font="宋体, 10pt"/>
+          <TextObject Name="Text7" Left="66.8" Width="28.35" Height="18.9" Text="[Row#]" Font="宋体, 10pt"/>
+          <GroupHeaderBand Name="GroupHeader3" Top="264.25" Width="718.2" Height="37.8" Guides="28.35,47.25,0,18.9" Condition="[frformall.MicroNo]+'_'+[frformall.DescNo]">
+            <TextObject Name="TextMicrocname" Left="74.05" Top="15.45" Width="189" Height="18.9" Text="[frformall.Microcname]" Font="宋体, 11.25pt, style=Bold"/>
+            <TextObject Name="Textdescname" Left="75.15" Top="16.8" Width="189" Height="18.9" Text="[frformall.descname]" Font="宋体, 11.25pt, style=Bold"/>
+            <TextObject Name="Text18" Width="75.6" Height="18.9" Visible="false" Text="[[frformall.MicroNo]]"/>
+            <TextObject Name="Text4" Left="300.85" Top="17" Width="234.36" Height="18.9" Text="[frformall.microcountdesc]" Font="宋体, 11pt, style=Bold"/>
+            <DataBand Name="Data1" Top="306.05" Width="718.2" Height="18.9" Guides="0,28.35,18.9" DataSource="frformall">
+              <TextObject Name="TextAnticname" Left="72.05" Width="189" Height="18.9" CanGrow="true" CanShrink="true" Text="[frformall.Anticname]" WordWrap="false" Font="宋体, 9pt"/>
+              <TextObject Name="TextAntiename" Left="261.25" Width="226.8" Height="18.9" Text="[frformall.Antiename]" WordWrap="false" Font="宋体, 9pt"/>
+              <TextObject Name="TextSuscept" Left="488.55" Width="66.15" Height="18.9" Text="[frformall.Suscept]" HorzAlign="Center" Font="宋体, 9pt"/>
+              <TextObject Name="TextSusQuan" Left="555.4" Width="94.5" Height="18.9" Text="[frformall.SusQuan]" HorzAlign="Center" Font="宋体, 9pt"/>
+            </DataBand>
+            <GroupFooterBand Name="GroupFooter3" Top="328.95" Width="718.2"/>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter2" Top="332.95" Width="718.2"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFootery" Top="336.95" Width="718.2" Height="18.9" Guides="0,18.9">
+          <TextObject Name="TextReceiveDatetxt" Left="65.6" Width="75.6" Height="18.9" Text="检验日期：" Font="宋体, 9pt"/>
+          <TextObject Name="TextReceiveDate" Left="131.75" Width="103.95" Height="18.9" Text="[frformall.ReceiveDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+          <TextObject Name="TextTechniciantxt" Left="265.05" Width="66.15" Height="18.9" Text="检验者：" Font="宋体, 9pt"/>
+          <TextObject Name="TextTechnician" Left="321.75" Width="88.83" Height="18.9" Text="[frformall.Technician]" Font="宋体, 9pt"/>
+          <TextObject Name="TextCheckertxt" Left="440.15" Width="66.15" Height="18.9" Text="审核者：" Font="宋体, 9pt"/>
+          <TextObject Name="Text11" Left="496.85" Width="79.38" Height="18.9" Text="[frformall.Checker]" Font="宋体, 9pt"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="359.85" Width="718.2"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="363.85" Width="718.2" Height="94.5" Guides="9.45,103.95,7.56,55.94,66.15,85.05,26.46,35.91,54.81">
+      <TextObject Name="Text9" Left="380.05" Top="26.56" Width="75.6" Height="18.9" Text="收集时间：" Font="宋体, 9pt"/>
+      <TextObject Name="Text47" Left="380.05" Top="54.91" Width="75.6" Height="18.9" Text="报告时间：&#13;&#10;" Font="宋体, 9pt"/>
+      <TextObject Name="TextCollectDate" Left="446.2" Top="26.56" Width="85.05" Height="18.9" BeforePrintEvent="TextCollectDate_BeforePrint" Text="[frformall.CollectDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="TextCheckDate" Left="446.2" Top="54.91" Width="85.05" Height="18.9" BeforePrintEvent="TextCheckDate_BeforePrint" Text="[frformall.CheckDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="TextCollectTime" Left="531.25" Top="26.56" Width="66.15" Height="18.9" BeforePrintEvent="TextCollectTime_BeforePrint" Text="[frformall.CollectTime]" Format="Time" Format.Format="T" Font="宋体, 9pt"/>
+      <TextObject Name="TextCheckTime" Left="531.25" Top="54.91" Width="66.15" Height="18.9" BeforePrintEvent="TextCheckTime_BeforePrint" Text="[frformall.CheckTime]" Format="Time" Format.Format="T" Font="宋体, 9pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

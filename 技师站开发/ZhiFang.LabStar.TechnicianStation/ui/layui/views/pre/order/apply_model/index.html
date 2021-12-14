@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>医嘱录入</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+</head>
+<body>
+	<div class="layui-fluid body">
+		<!--功能按钮栏-->
+		<div id="toolbar" class="toolbar"></div>
+		<div class="layui-row">
+			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+				<!--医嘱单列表-->
+				<div id="OrderTable"></div>
+			</div>
+			<div class="layui-col-xs6 layui-col-sm6 layui-col-md8 order-info">
+				<div class="layui-collapse">
+					<div class="layui-colla-item">
+						<h2 class="layui-colla-title">患者就诊信息</h2>
+						<div class="layui-colla-content layui-show">
+							<!--医嘱单-病人信息-->
+							<div id="OrderForm"></div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-collapse">
+					<div class="layui-colla-item">
+						<h2 class="layui-colla-title">医嘱单项目</h2>
+						<div class="layui-colla-content layui-show">
+							<!--选中的项目-->
+							<div id="OrderItems"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui("2.5.6");
+		UIVersion.getCSS('../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>
+	<style type="text/css">
+		.layui-table-view{margin:0;}
+		.body{padding:2px;}
+		.toolbar{padding:2px;margin-bottom:2px;border:1px solid #e6e6e6;}
+		.order-info{padding-left:2px;}
+        .layui-form-select dl{ top:28px!important; }
+		.layui-table-hover{background-color:#5FB878!important;color:#fff;}
+	</style>
+</body>
+</html>

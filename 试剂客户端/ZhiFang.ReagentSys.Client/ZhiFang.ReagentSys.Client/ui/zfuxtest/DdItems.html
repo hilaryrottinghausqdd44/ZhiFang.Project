@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+ <title>双表数据移动</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	 <link rel="stylesheet" type="text/css" href="../css/icon.css"/> 
+     <script type="text/javascript" src="../util/util.js"></script>
+	
+<script src="../zhifangux/DdItems.js" type="text/javascript"></script>
+
+
+<script language="javascript" type="text/javascript">
+    Ext.onReady(function () {
+        var form1 = Ext.create('Ext.panel.Panel', {
+        layout:'border',
+        containerScroll : true,//是否支持滚动条 
+        renderTo: Ext.getBody(),
+        title: '',
+        height:850,
+        border:false,
+        width:1370,
+      
+        items: [
+            {xtype:'panel', region: 'west',width: 670,height:500,title: '不带复选', split: true,id:'com',
+                 items:[
+                 { xtype: 'dditems',	SearchField:'L2',SelectType:1, DataServerUrl:'server/leftSelectList.json',id:'left',
+               SaveServerUrl:'server/leftSelectList.json',
+               border:false,
+               ValueField:[
+		       {text:'id',dataIndex:'id',width:100,align: 'center',hidden:true},
+		       {text:'检验项目',dataIndex:'L1',width:100,align: 'center'},
+		       {text:'项目名称',dataIndex:'L2',width:100,align: 'center'},
+		       {text:'缩写',dataIndex:'L3',width:60,align: 'center'},
+		       {text:'录入代码',dataIndex:'L4',width:80,align: 'center'},
+		       {text:'XXX',dataIndex:'L5',width:80,align: 'center'},
+		       {text:'LLLxxx',dataIndex:'L6',width:80,align: 'center'}
+              ]//数据列表值字段,可以是外面做好数据适配后传进来
+              }]
+           },
+           {
+               xtype: 'panel',
+               region: 'center',
+               title: '带复选',
+               width: 670,height:500,
+               items:[
+               { xtype: 'dditems',	SearchField:'L2',SelectType:0, DataServerUrl:'server/leftSelectList.json',id:'right',
+               SaveServerUrl:'server/bmtree.json',
+               border:false,
+               ValueField:[
+		       {text:'id',dataIndex:'id',width:100,align: 'center',hidden:true},
+		       {text:'检验项目',dataIndex:'L1',width:100,align: 'center'},
+		       {text:'项目名称',dataIndex:'L2',width:100,align: 'center'},
+		       {text:'缩写',dataIndex:'L3',width:60,align: 'center'},
+		       {text:'录入代码',dataIndex:'L4',width:80,align: 'center'},
+		       {text:'XXX',dataIndex:'L5',width:80,align: 'center'},
+		       {text:'LLLxxx',dataIndex:'L6',width:80,align: 'center'}
+              ]//数据列表值字段,可以是外面做好数据适配后传进来
+              }]
+               
+           },{
+               xtype: 'panel',
+               region: 'south',
+               title: '双表数据公开方法测试用列,以不带复选框为例',
+               width:1370,
+               layout:'absolute',
+               border:false,
+               height:150,
+                items: [
+                {
+                    xtype: 'button',
+                    x: 10,
+                    y: 10,
+                    text: '设置多选方式',
+                    handler: function(){
+                        alert("dsad");
+                    }
+                },
+                {
+                    xtype: 'button',
+                    x: 120,
+                    y: 10,
+                    text: '获取多选方式'
+                },
+                {
+                    xtype: 'button',
+                    x: 250,
+                    y: 10,
+                    text: '保存列表对象'
+                },
+                {
+                    xtype: 'button',
+                    x: 10,
+                    y: 50,
+                    text: '重载列表对象'
+                },
+                {
+                    xtype: 'button',
+                    x: 120,
+                    y: 50,
+                    text: '设置列表列'
+                },
+                {
+                    xtype: 'button',
+                    x: 250,
+                    y: 50,
+                    text: '获取列表列'
+                },
+                {
+                    xtype: 'button',
+                    x: 350,
+                    y: 10,
+                    text: '设置左列表'
+                },
+                {
+                    xtype: 'button',
+                    x: 350,
+                    y: 50,
+                    text: '获取左列表'
+                },
+                {
+                    xtype: 'button',
+                    x: 440,
+                    y: 10,
+                    text: '设置右列表'
+                },
+                {
+                    xtype: 'button',
+                    x: 440,
+                    y: 50,
+                    text: '获取右列表'
+                }
+            ]
+            },{
+               xtype: 'panel',
+               region: 'south',
+               title: '双表数据公开事件测试用列',
+               width:1370,
+               height:150
+            }
+           
+       ]
+    })
+ });
+ </script>
+</head>
+<body style="text-align:center;">
+<center> 
+</center> 
+</body>
+</html>

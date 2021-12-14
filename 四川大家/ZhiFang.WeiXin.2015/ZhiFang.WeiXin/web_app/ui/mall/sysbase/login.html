@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="application/javascript">
+
+        //加载版本号
+        document.write(
+            "<script type='text/javascript' src='../../config/version.js?t=" +
+                new Date().getTime() + "'><\/script>"
+        );
+    </script>
+
+    <script type="application/javascript">
+
+        //加载公众号Title
+        document.write(
+            "<title>"+JcallShell.System.SysHtmlTitle +"</title>"
+        );
+    </script>  
+
+    <link rel="stylesheet" href="../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/login.css" />
+</head>
+<body>
+    <div class="login-div">
+        <div class="login-head-div">
+            <img src="../../images/default/logo_128.png"></img>
+            <div>大家检验</div>
+        </div>
+        <div id="error" class="login-error-div" hidden="hidden"></div>
+        <div class="input-div login-account-div">
+            <input id="account" type="text" class="form-control" placeholder="请输入账号 ">
+            <div id="account-button" class="input-group-btn" style="left:-1000px;">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul id="account-menu" class="dropdown-menu pull-right"></ul>
+            </div>
+        </div>
+        <div class="input-div login-password-div">
+            <input id="password" type="password" placeholder="请输入密码 ">
+        </div>
+
+        <div class="button-div login-button-div">
+            <button id="submit">确定</button>
+        </div>
+
+        <div id="version" class="login-version-div">版本:20161207</div>
+    </div>
+    <!-- 模态框-加载中 -->
+    <style type='text/css'>.modal-backdrop.in {filter:alpha(opacity=1);opacity:1;}</style>
+    <div class="modal fade" id="loading-div" style="opacity:0.5;">
+        <div class="loading-div"></div>
+    </div>
+
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="../../util/JcallShell.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../localStorage/User.js"></script>
+    <script type="text/javascript" charset="utf-8" src="login.js"></script>
+</body>
+</html>

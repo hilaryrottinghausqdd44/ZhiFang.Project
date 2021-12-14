@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>模块表单表格配置应用关系</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+</head>
+<body>
+    <div class="layui-fluid myStyle">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-col-sm3" style="border-width: 1px;border-style: solid;border-color: #e6e6e6;margin-top: 13px;">
+                <!-- <div class="layui-card"> -->
+                    <div class=" cardHeight" style="overflow:auto;">
+                        <div id="moduleTree"></div>
+                    </div>
+                <!-- </div> -->
+            </div>
+            <div class="layui-col-sm9">
+                <!-- <div class="layui-card">
+                    <div class="layui-card-body"> -->
+                        <table id="mainTable" lay-filter="mainTable"></table>
+                    <!-- </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!--新增配置项-->
+    <div id="addModal" style="display:none;padding:15px;">
+        <form class="layui-form" id="addModalForm" lay-filter="addModalForm">
+            <div class="layui-row">
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">实验室</label>
+                        <div class="layui-input-block">
+                            <select name="LabID" lay-filter="LabID" id="LabID" lay-search="">
+                                <option value="">直接选择或搜索选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="color:red;">表单集合</label>
+                        <div class="layui-input-block">
+                            <select name="FormID" lay-filter="FormID" id="FormID" lay-search="">
+                                <option value="">直接选择或搜索选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="color:red;">表格集合</label>
+                        <div class="layui-input-block">
+                            <select name="GridID" lay-filter="GridID" id="GridID" lay-search="">
+                                <option value="">直接选择或搜索选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="color:red;">图表集合</label>
+                        <div class="layui-input-block">
+                            <select name="ChartID" lay-filter="ChartID" id="ChartID" lay-search="">
+                                <option value="">直接选择或搜索选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">显示次序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="DispOrder" id="DispOrder" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否启用</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="IsUse" id="IsUse" lay-skin="primary" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12 layui-hide">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">主键Id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Id" id="Id" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--新增集合-->
+    <div id="addListModal" style="display:none;padding:15px;">
+        <form class="layui-form" id="addListModalForm" lay-filter="addListModalForm">
+            <div class="layui-row">
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">实验室</label>
+                        <div class="layui-input-block">
+                            <select name="addListModalFormLabID" lay-filter="addListModalFormLabID" id="addListModalFormLabID" lay-search="">
+                                <option value="">直接选择或搜索选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">集合类型</label>
+                        <div class="layui-input-block">
+                            <select name="addListModalFormListType" lay-filter="addListModalFormListType" id="addListModalFormListType">
+                                <option value="FormCode">表单集合</option>
+                                <option value="GridCode">列表集合</option>
+                                <option value="ChartCode">图表集合</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">代码</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="addListModalFormCode" id="addListModalFormCode" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="addListModalFormCName" id="addListModalFormCName" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">简码</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="addListModalFormShortCode" id="addListModalFormShortCode" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">简称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="addListModalFormShortName" id="addListModalFormShortName" placeholder="用于对应页面内容" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+                            <select name="addListModalFormTypeID" lay-filter="addListModalFormTypeID" id="addListModalFormTypeID">
+                                <option value="">请选择</option>
+                                <option value="1">查询</option>
+                                <option value="2">编辑</option>
+                                <option value="3">交互</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">样式类型</label>
+                        <div class="layui-input-block">
+                            <select name="addListModalFormClassID" lay-filter="addListModalFormClassID" id="addListModalFormClassID">
+                                <option value="">请选择</option>
+                                <option value="1">普通</option>
+                                <option value="2">收缩</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">显示次序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="addListModalFormDispOrder" id="addListModalFormDispOrder" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否启用</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="addListModalFormIsUse" id="addListModalFormIsUse" lay-skin="primary" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">源代码地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="SourceCodeUrl" id="SourceCodeUrl" class="layui-input" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">源代码内容</label>
+                        <div class="layui-input-block">
+                            <textarea name="SourceCode" id="SourceCode" placeholder="请输入正确代码" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--表格头工具 -->
+    <script type="text/html" id="Toolbar">
+        <button class="layui-btn layui-btn-sm" lay-event="add">新增配置项</button>
+        <button class="layui-btn layui-btn-sm layui-bg-blue" lay-event="edit">修改勾选项</button>
+        <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="del">删除勾选项</button>
+        <!-- <button class="layui-btn layui-btn-sm" lay-event="addList">新增集合</button>
+        <button class="layui-btn layui-btn-sm layui-bg-blue" lay-event="editList">修改勾选集合</button> -->
+    </script>
+    <!--表格行工具 -->
+    <script type="text/html" id="tableOperation">
+        <a class="layui-btn layui-bg-blue layui-btn-xs" lay-event="set">设置配置项</a>
+    </script>
+    <script type="text/javascript">
+        UIVersion.loadLayui('2.5.6');
+        UIVersion.getJS('app.js');
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="MEGroupSampleReCheckItem" table="[dbo].[ME_GroupSampleReCheckItem]">
+		<id name="Id" column="[ReCheckItemID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="TestType" column="[TestType]" type="Int32" not-null="false" length="4" />
+		<property name="SampleItemID" column="[SampleItemID]" type="Int64" not-null="false" length="8" />
+		<property name="ParentResultID" column="[ParentResultID]" type="Int64" not-null="false" length="8" />
+		<property name="EquipResultID" column="[EquipResultID]" type="Int64" not-null="false" length="8" />
+		<property name="OriglValue" column="[OriglValue]" type="String" not-null="false" length="40" />
+		<property name="ValueType" column="[ValueType]" type="Int32" not-null="false" length="4" />
+		<property name="ReportValue" column="[ReportValue]" type="String" not-null="false" length="300" />
+		<property name="ResultStatus" column="[ResultStatus]" type="String" not-null="false" length="10" />
+		<property name="QuanValue" column="[QuanValue]" type="Double" not-null="false" length="8" />
+		<property name="QuanValue2" column="[QuanValue2]" type="Double" not-null="false" length="8" />
+		<property name="QuanValue3" column="[QuanValue3]" type="Double" not-null="false" length="8" />
+		<property name="Units" column="[Units]" type="String" not-null="false" length="50" />
+		<property name="RefRange" column="[RefRange]" type="String" not-null="false" length="200" />
+		<property name="PreValue" column="[PreValue]" type="String" not-null="false" length="300" />
+		<property name="PreValueComp" column="[PreValueComp]" type="String" not-null="false" length="50" />
+		<property name="PreCompStatus" column="[PreCompStatus]" type="String" not-null="false" length="20" />
+		<property name="TestMethod" column="[TestMethod]" type="String" not-null="false" length="50" />
+		<property name="AlarmLevel" column="[AlarmLevel]" type="Int32" not-null="false" length="4" />
+		<property name="ResultLinkType" column="[ResultLinkType]" type="Int32" not-null="false" length="4" />
+		<property name="ResultLink" column="[ResultLink]" type="String" not-null="false" length="100" />
+		<property name="SimpleResultLink" column="[SimpleResultLink]" type="String" not-null="false" length="100" />
+		<property name="ResultComment" column="[ResultComment]" type="String" not-null="false" length="16" />
+		<property name="ZDY1" column="[ZDY1]" type="String" not-null="false" length="200" />
+		<property name="ZDY2" column="[ZDY2]" type="String" not-null="false" length="200" />
+		<property name="ZDY3" column="[ZDY3]" type="String" not-null="false" length="200" />
+		<property name="ZDY4" column="[ZDY4]" type="String" not-null="false" length="200" />
+		<property name="ZDY5" column="[ZDY5]" type="String" not-null="false" length="200" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ReCheckTime" column="[ReCheckTime]" type="DateTime" not-null="false" length="8" />
+		<property name="UseFlag" column="[UseFlag]" type="Boolean" not-null="false" length="1" />
+		<many-to-one name="ItemAllItem" class="ItemAllItem" lazy="false">
+			<column name="[ItemID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEGroupSampleReCheckForm" class="MEGroupSampleReCheckForm" lazy="false">
+			<column name="[ReCheckFormID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

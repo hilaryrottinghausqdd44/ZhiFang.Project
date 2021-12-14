@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>帮助文档</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.checked-li{color:#009E94;font-weight:bold;}
+		.content-iframe{position:absolute;width:100%;height:100%;left:0;top:0;right:0;bottom:0;}
+	</style>
+</head>
+<body>
+	<!--<div class="layui-header header header-doc" summer>
+		<div class="layui-main">
+			<a class="logo" style="color:#eeeeee;font-size:18px;">帮助文档</a>
+		</div>
+	</div>-->
+	<div class="layui-main site-inline">
+		<div class="site-tree" id="modules" style="min-height:700px;">
+			
+		</div>
+		<div class="site-content" id="content" style="min-height:700px;position:absolute;">
+			<iframe id="contentIframe" src="" class="content-iframe" frameborder="0"></iframe>
+		</div>
+	</div>
+	
+	<div class="site-tree-mobile layui-hide">
+		<i class="layui-icon"></i>
+	</div>
+	<div class="site-mobile-shade"></div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		//UIVersion.getCSS('"../../src/layui/src/css/modules/code.css');
+		UIVersion.getCSS('style.css');
+		UIVersion.getJS('index.js');
+	</script>
+</body>
+</html>

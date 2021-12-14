@@ -1,0 +1,15 @@
+
+
+IF NOT EXISTS(SELECT * FROM B_DictType WHERE [DCId] = 5253700719899753669) INSERT [B_DictType]([LabID],[DCId],[CName],[DispOrder],[Memo],[IsUse],[DataAddTime],[DictTypeCode]) VALUES ( 0,5253700719899753669,N'血液外观',300,N'血液制品交接的血液外观',1,N'2020-02-12 17:37:24',N'BloodAppearance'); 
+
+ IF NOT EXISTS(SELECT * FROM B_DictType WHERE [DCId] = 5579397214888897985) INSERT [B_DictType]([LabID],[DCId],[CName],[DispOrder],[Memo],[IsUse],[DataAddTime],[DictTypeCode]) VALUES ( 0,5579397214888897985,N'血液完整性',400,N'血液制品交接',1,N'2020-02-12 17:38:34',N'BloodIntegrity'); 
+
+ IF NOT EXISTS(SELECT * FROM B_Dict WHERE [DID] = 4713710510004576645) INSERT [B_Dict]([LabID],[DID],[DCId],[CName],[DispOrder],[Memo],[IsUse],[DataAddTime]) VALUES ( 0,5604792992372522814,5253700719899753669,N'正常',10,N'正常',1,N'2020-02-12 17:39:12'); 
+
+ IF NOT EXISTS(SELECT * FROM B_Dict WHERE [DID] = 5743312823943732018) INSERT [B_Dict]([LabID],[DID],[DCId],[CName],[DispOrder],[Memo],[IsUse],[DataAddTime]) VALUES ( 0,5743312823943732018,5253700719899753669,N'不正常',20,N'不正常',1,N'2020-02-12 17:39:27'); 
+
+ IF NOT EXISTS(SELECT * FROM B_Dict WHERE [DID] = 5340449447509386973) INSERT [B_Dict]([LabID],[DID],[DCId],[CName],[DispOrder],[Memo],[IsUse],[DataAddTime]) VALUES ( 0,5340449447509386973,5579397214888897985,N'无破损',10,N'无破损',1,N'2020-02-12 17:39:45'); 
+
+ IF NOT EXISTS(SELECT * FROM B_Dict WHERE [DID] = 4729701409042549644) INSERT [B_Dict]([LabID],[DID],[DCId],[CName],[DispOrder],[Memo],[IsUse],[DataAddTime]) VALUES ( 0,4729701409042549644,5579397214888897985,N'有渗漏',20,N'有渗漏',1,N'2020-02-12 17:40:00'); 
+
+ IF COL_LENGTH('Blood_TransRecordType', 'TransRecordType') IS NOT NULL exec sp_rename 'Blood_TransRecordType.TransRecordType','CName'; 

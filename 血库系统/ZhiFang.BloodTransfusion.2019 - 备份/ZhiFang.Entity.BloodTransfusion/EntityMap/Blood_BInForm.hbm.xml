@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodBInForm" table="[dbo].[Blood_BInForm]">
+    <id name="Id" column="[BInFormID]" type="String">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="OperTime" column="[OperTime]" type="DateTime" not-null="true" length="8" />
+    <property name="CheckTime" column="[CheckTime]" type="DateTime" not-null="false" length="8" />
+    <property name="OperatorID" column="[OperatorID]" type="Int32" not-null="true" length="4" />
+    <property name="Checker" column="[Checker]" type="Int32" not-null="false" length="4" />
+    <property name="CheckFlag" column="[CheckFlag]" type="Int32" not-null="false" length="4" />
+    <property name="BSourceID" column="[BSourceID]" type="Int32" not-null="false" length="4" />
+    <property name="InType" column="[InType]" type="String" not-null="false" length="20" />
+    <property name="InFileName" column="[InFileName]" type="String" not-null="false" length="50" />
+    <property name="PrintTime" column="[PrintTime]" type="DateTime" not-null="false" length="8" />
+    <property name="PrintCount" column="[PrintCount]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+    <!--<property name="Zx1" column="[zx1]" type="String" not-null="false" length="50" />
+    <property name="Zx2" column="[zx2]" type="String" not-null="false" length="50" />
+    <property name="Zx3" column="[zx3]" type="String" not-null="false" length="50" />-->
+    <property name="YqCode" column="[yqCode]" type="String" not-null="false" length="20" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+  </class>
+</hibernate-mapping>

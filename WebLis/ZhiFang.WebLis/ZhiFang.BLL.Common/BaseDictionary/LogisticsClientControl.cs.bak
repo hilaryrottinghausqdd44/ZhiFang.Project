@@ -1,0 +1,193 @@
+﻿using System;
+using System.Data;
+using System.Collections.Generic;
+using ZhiFang.Common;
+using ZhiFang.Model;
+using ZhiFang.IDAL;
+using ZhiFang.IBLL.Common;
+using ZhiFang.IBLL.Common.BaseDictionary;
+namespace ZhiFang.BLL.Common.BaseDictionary
+{
+    //LogisticsClientControl		
+    public partial class LogisticsClientControl : IBLogisticsClientControl, IBBatchCopy
+    {
+        IDAL.IDLogisticsClientControl dal;
+        IDAL.IDBatchCopy dalCopy;
+
+        public LogisticsClientControl()
+		{
+            if (ZhiFang.Common.Public.ConfigHelper.GetConfigString("DBSourceType").Trim().IndexOf("2009") >= 0 || ZhiFang.Common.Public.ConfigHelper.GetConfigString("DBSourceType").Trim().IndexOf("66") >= 0 || ZhiFang.Common.Public.ConfigHelper.GetConfigString("DBSourceType").ToLower().IndexOf("weblis") >= 0)
+            {
+                dal = DALFactory.DalFactory<IDAL.IDLogisticsClientControl>.GetDal("LogisticsClientControl", ZhiFang.Common.Dictionary.DBSource.LisDB());
+            }
+            else
+            {
+                dal = DALFactory.DalFactory<IDAL.IDLogisticsClientControl>.GetDal("LogisticsClientControl", ZhiFang.Common.Dictionary.DBSource.LisDB());
+                dalCopy = DALFactory.DalFactory<IDAL.IDBatchCopy>.GetDal("B_LogisticsClientControl", ZhiFang.Common.Dictionary.DBSource.LisDB());
+            }
+        }
+
+        #region  Method
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(string Account, string ClientNo)
+        {
+            return dal.Exists(Account, ClientNo);
+        }
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public int Add(ZhiFang.Model.LogisticsClientControl  model)
+        {
+            return dal.Add(model);
+        }
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public int Update(ZhiFang.Model.LogisticsClientControl  model)
+        {
+            return dal.Update(model);
+        }
+
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public int Delete(string Account, string ClientNo)
+        {
+            return dal.Delete(Account, ClientNo);
+        }
+
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public ZhiFang.Model.LogisticsClientControl  GetModel(string Account, string ClientNo)
+        {
+            return dal.GetModel(Account, ClientNo);
+        }
+
+        /// <summary>
+        /// 得到一个对象实体，从缓存中
+        /// </summary>
+        public ZhiFang.Model.LogisticsClientControl  GetModelByCache(string Account, string ClientNo)
+        {
+
+            string CacheKey = "LogisticsClientControlModel-" + Account + ClientNo;
+            object objModel = ZhiFang.Common.Public.DataCache.GetCache(CacheKey);
+            if (objModel == null)
+            {
+                try
+                {
+                    objModel = dal.GetModel(Account, ClientNo);
+                    if (objModel != null)
+                    {
+                        int ModelCache = ZhiFang.Common.Public.ConfigHelper.GetConfigInt("ModelCache");
+                        ZhiFang.Common.Public.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
+                    }
+                }
+                catch { }
+            }
+            return (ZhiFang.Model.LogisticsClientControl )objModel;
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public List<ZhiFang.Model.LogisticsClientControl > DataTableToList(DataTable dt)
+        {
+            List<ZhiFang.Model.LogisticsClientControl > modelList = new List<ZhiFang.Model.LogisticsClientControl >();
+            int rowsCount = dt.Rows.Count;
+            if (rowsCount > 0)
+            {
+                ZhiFang.Model.LogisticsClientControl  model;
+                for (int n = 0; n < rowsCount; n++)
+                {
+                    model = new ZhiFang.Model.LogisticsClientControl ();
+                    if (dt.Rows[n]["Id"].ToString() != "")
+                    {
+                        model.Id = int.Parse(dt.Rows[n]["Id"].ToString());
+                    }
+                    model.Account = dt.Rows[n]["Account"].ToString();
+                    model.ClientNo = dt.Rows[n]["ClientNo"].ToString();
+                    if (dt.Rows[n]["AddTime"].ToString() != "")
+                    {
+                        model.AddTime = DateTime.Parse(dt.Rows[n]["AddTime"].ToString());
+                    }
+
+
+                    modelList.Add(model);
+                }
+            }
+            return modelList;
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetAllList()
+        {
+            return dal.GetAllList();
+        }
+        /// <summary>
+        /// 根据实体获取DataSet
+        /// </summary>
+        public DataSet GetList(ZhiFang.Model.LogisticsClientControl  model)
+        {
+            return dal.GetList(model);
+        }
+        public int GetTotalCount()
+        {
+            return dal.GetTotalCount();
+        }
+        public int GetTotalCount(ZhiFang.Model.LogisticsClientControl  model)
+        {
+            return dal.GetTotalCount(model);
+        }
+        public DataSet GetListByPage(ZhiFang.Model.LogisticsClientControl  model, int nowPageNum, int nowPageSize)
+        {
+            return dal.GetListByPage(model, nowPageNum, nowPageSize);
+        }
+
+        public bool CopyToLab(List<string> lst)
+        {
+            return dalCopy.CopyToLab(lst);
+        }
+        #endregion
+
+        #region IBLogisticsClientControl 成员
+
+        public string GetClientList_String(Model.LogisticsClientControl l_m)
+        {
+            DataSet ds=this.GetList(l_m);
+            string ClientListStr = "";
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    ClientListStr += dr["ClientNo"] + ",";
+                }
+            }
+            if (ClientListStr.Trim().Length > 0)
+                ClientListStr = ClientListStr.Substring(0, ClientListStr.Length - 1);
+            return ClientListStr;
+        }
+
+        public DataSet GetClientList_DataSet(Model.LogisticsClientControl l_m)
+        {
+            DataSet ds = this.GetList(l_m);
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                return ds;
+            }
+            return new DataSet();
+        }
+
+        public bool Add(List<Model.LogisticsClientControl> l)
+        {
+            return dal.Add(l);
+        }
+
+        #endregion
+    }
+}

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Tables>
+  <Table TableCName="质量手册" EName="QualityBook">
+    <tr>
+      <td ColumnCName="序号" ColumnEName="EName1" ColumnAbrvName="Abr" ColumnType="1" ColumnPrecision="0" ColumnDefault="自动编号()" ReadOnly="No" KeyIndex="Yes" DisplayOrder="1" Index="No" AllowNull="No">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="标题" ColumnEName="EName2" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="文件编号" ColumnEName="EName3" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="版本号" ColumnEName="EName4" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="修订号" ColumnEName="EName5" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="生效日期" ColumnEName="EName6" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="页码" ColumnEName="EName23" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="主要内容" ColumnEName="EName7" ColumnAbrvName="Abr" ColumnType="4" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="文件状态" ColumnEName="EName24" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="Fixed" DataSourceName="起草状态:待审状态:待批状态:修订状态:正式启用" />
+      </td>
+      <td ColumnCName="发布部门" ColumnEName="EName8" ColumnAbrvName="Abr" ColumnType="6" ColumnPrecision="2" ColumnDefault="登录者部门()" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="0" DataSourceName="" />
+      </td>
+      <td ColumnCName="发布人" ColumnEName="EName9" ColumnAbrvName="Abr" ColumnType="6" ColumnPrecision="2" ColumnDefault="登录者姓名()" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="" DataSourceName="" />
+      </td>
+      <td ColumnCName="发布时间" ColumnEName="EName10" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="编制人" ColumnEName="EName11" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="最后修订人" ColumnEName="EName25" ColumnAbrvName="Abr" ColumnType="6" ColumnPrecision="1" ColumnDefault="登录者姓名()" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="" DataSourceName="" />
+      </td>
+      <td ColumnCName="最后修订时间" ColumnEName="EName26" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="修订说明" ColumnEName="EName27" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="审核人" ColumnEName="EName12" ColumnAbrvName="Abr" ColumnType="6" ColumnPrecision="1" ColumnDefault="登录者姓名()" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="" DataSourceName="" />
+      </td>
+      <td ColumnCName="审核时间" ColumnEName="EName13" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="审核结果" ColumnEName="EName14" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="Fixed" DataSourceName="审核通过:审核未通过" />
+      </td>
+      <td ColumnCName="审核意见" ColumnEName="EName15" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="批准人" ColumnEName="EName16" ColumnAbrvName="Abr" ColumnType="6" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="" DataSourceName="" />
+      </td>
+      <td ColumnCName="批准时间" ColumnEName="EName17" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="批准结果" ColumnEName="EName18" ColumnAbrvName="Abr" ColumnType="5" ColumnPrecision="1" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="Fixed" DataSourceName="" />
+      </td>
+      <td ColumnCName="批准意见" ColumnEName="EName19" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="评审人" ColumnEName="EName20" ColumnAbrvName="Abr" ColumnType="6" ColumnPrecision="1" ColumnDefault="登录者姓名()" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+        <Dictionary DataSource="" DataSourceName="" />
+      </td>
+      <td ColumnCName="评审时间" ColumnEName="EName21" ColumnAbrvName="Abr" ColumnType="2" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+      <td ColumnCName="评审意见" ColumnEName="EName22" ColumnAbrvName="Abr" ColumnType="0" ColumnPrecision="0" ColumnDefault="" ReadOnly="No" KeyIndex="No" DisplayOrder="1" Index="No" AllowNull="Yes">
+        <Query DisplayOnQuery="No" ColumnHeight="1" FunctionOnQuery="" DisplayLength="" ColumnWidth="100%">
+        </Query>
+        <Input DisplayOnInput="Yes" ColumnHeight="1" FunctionOnInput="">
+        </Input>
+        <Brief DisplayOnBrief="No" DisplayLength="33">
+        </Brief>
+      </td>
+    </tr>
+  </Table>
+</Tables>

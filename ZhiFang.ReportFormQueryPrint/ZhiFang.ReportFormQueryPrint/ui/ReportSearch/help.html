@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>结果查询帮助文档</title>
+    <style type='text/css'>
+        .title {
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #ffffff;
+            color: #000000;
+            text-align:center;
+        }
+        .div {
+            margin:10px;
+        }
+        .div_title {
+            padding: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #E0E0E0;
+            color: #ffffff;
+            border: 1px solid #E0E0E0;
+        }
+        .div_content {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #E0E0E0;
+        }
+    </style>
+</head>
+<body style="MARGIN:0;PADDING:0;">
+    <div class="title">结果查询帮助文档</div>
+    <div class="div">
+        <div class="div_title">参数说明</div>
+        <div class="div_content">
+            可选参数共5个:SERIALNO(申请单号)，patno(病历号)，zdy4（病人就诊号），zdy5（病人编号），RECEIVEDATE(核收日期)</br>
+            RECEIVEDATE(核收日期)作为减小检索范围的一个优化参数</br>
+            参数RECEIVEDATE的格式说明:RECEIVEDATE=2014-01-01;2014-08-01,以英文分号(;)分隔,分号前为开始日期,分号后为结束日期。</br>
+            RECEIVEDATE=2014-01-01,表示只有开始日期,没有结束日期;</br>
+            RECEIVEDATE=;2014-08-01,表示只有结束日期,没有开始日期。</br>
+        </div>
+    </div>
+</body>
+</html>

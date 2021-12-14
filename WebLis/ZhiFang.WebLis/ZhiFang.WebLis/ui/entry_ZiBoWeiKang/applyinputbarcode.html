@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>申请录入</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--不缓存缓存页面-->
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script type="text/javascript" src="../util/common.js"></script>
+    <script type="text/javascript" src="applyinputbarcode.js?v=10"></script>
+</head>
+
+<body class="easyui-layout" onkeydown="if(event.keyCode==116){event.keyCode=0;return false;}">
+    <!-- 申请录入 -->
+    <div id="info" class="easyui-panel" data-options="region:'north',title:''" style="height:120px;padding:4px">
+        <table width="100%" border="0">
+            <tr>
+                <td width="20%">送检单位:&nbsp;<select id="form_ClientNo" style="width:155px;"></select></td>
+                <td width="20%">实验编号:&nbsp;<input id="form_zdy7" style="width:100px;" /></td>
+                <td width="19%">姓&nbsp;&nbsp;&nbsp;&nbsp;名:&nbsp;<input id="form_CName" style="width:60px;" /></input></td>
+                <td width="19%">身&nbsp;份&nbsp;证:<input class="easyui-textbox" id="form_PersonID" style="width:155px;" /></td>
+                <td width="12%">
+                    年&nbsp;&nbsp;&nbsp;&nbsp;龄:&nbsp;<input id="form_Age" style="width:35px;" /></input>
+                    <select id="form_AgeUnitNo" style="width:45px;"></select>
+                    <input type="radio" name="ageRadio" value="1" style="display:none" /></input>
+                    <!--<input id="form_Age" style="width:95px;"></input>
+                    <select id="form_AgeUnitNo" style="width:60px;"></select>-->
+                </td>
+                <td width="10%">性&nbsp;&nbsp;&nbsp;&nbsp;别:&nbsp;<select id="form_GenderNo" style="width:45px;"></select></td>
+            </tr>
+            <tr>
+                <td style="display:none">区域:</td>
+                <td style="display:none"><select id="form_AreaNo" style="width:155px;"></select></td>
+                <td>体&nbsp;&nbsp;&nbsp;&nbsp;重:&nbsp;<input id="form_zdy8" style="width:100px;" /></input>KG</td>
+                <td>末次月经:&nbsp;<input id="form_zdy3" style="width:100px;" /></input></td>
+                <td>孕&nbsp;&nbsp;&nbsp;&nbsp;周:&nbsp;<input id="form_zdy4" style="width:50px;" />+<input id="form_zdy5" style="width:50px;" /></td>
+                <td>电&nbsp;&nbsp;&nbsp;&nbsp;话:&nbsp;<input id="form_Bed" style="width:100px;" /></input></td>
+                <td colspan="3">通讯地址:&nbsp;<input id="form_zdy10" style="width:150px;" /></input></td>
+            </tr>
+            <tr>
+                <td>收&nbsp;&nbsp;&nbsp;&nbsp;费:&nbsp;<input id="form_Charge" style="width:155px;" /></input><div style="display:none"><select id="form_DeptNo" style="width:155px;"></select></div></td>
+                <td>临床所见:&nbsp;<input id="form_Diag" style="width:150px;" /></input></td>
+                <td>样本状态:&nbsp;
+                    <select id="form_zdy6" class="easyui-combobox" name="dept" style="width:100px;">
+                        <option value="正常">正常</option>
+                        <option value="不正常">不正常</option>
+                        <option value="重采血">重采血</option>
+                    </select>
+                </td>
+                <td colspan="3">户&nbsp;&nbsp;&nbsp;&nbsp;籍:&nbsp;
+                <input type="radio" name="form_zdy9" value="男方" />男方<input type="radio" name="form_zdy9" value="女方" />女方<input id="form_WardNo" style="width:300px;" /></input></td>
+
+            </tr>
+            <tr>
+                <td>就诊类型:&nbsp;<select id="form_jztype" style="width:155px;"></select></td>
+                <td>检验类型:&nbsp;<select id="form_TestTypeNo" style="width:100px;"></select></td>
+                <td>医&nbsp;&nbsp;&nbsp;&nbsp;生:&nbsp;
+                    <select id="form_Doctor" style="width:70px;"></select>
+                    <a id="form_Doctor_Add" href="#" class="easyui-linkbutton"
+                       title="添加医生" data-options="iconCls:'icon-add'"></a>
+                    <a id="form_Doctor_Del" href="#" class="easyui-linkbutton"
+                       title="删除医生" data-options="iconCls:'icon-remove'"></a>
+                    <div id="form_Doctor_Add_Win" class="easyui-dialog"
+                         style="width:260px;height:200px;padding:10px;" title="添加医生"
+                         data-options="modal:true,closed:true,iconCls:'icon-add',buttons:'#form_Doctor_Add_Win_Buttons'">
+                        <div style="padding:5px 0;">
+                            姓名：&nbsp;
+                            <input id="form_Doctor_Add_Name" class="easyui-textbox"
+                                   data-options="prompt:'必填',missingMessage:'必填',required:true,validType:['length[0,20]']" /></input>
+                        </div>
+                        <div style="padding:5px 0;">
+                            编号：&nbsp;
+                            <input id="form_Doctor_Add_No" class="easyui-numberbox"
+                                   type="text" data-options="prompt:'必填',missingMessage:'必填',required:true,min:0,precision:0" /></input>
+                        </div>
+                        <div style="padding:5px 0;">
+                            简称：&nbsp;
+                            <input id="form_Doctor_Add_ShortCode" class="easyui-textbox"
+                                   data-options="prompt:'必填',missingMessage:'必填',required:true,validType:['length[0,20]']" /></input>
+                        </div>
+                    </div>
+                    <div id="form_Doctor_Add_Win_Buttons">
+                        <a id="form_Doctor_Add_Win_Buttons_Save" href="#" class="easyui-linkbutton"
+                           data-options="iconCls:'icon-save',plain:true">保存</a>
+                        <a id="form_Doctor_Add_Win_Buttons_Cancel" href="#" class="easyui-linkbutton">取消</a>
+                    </div>
+                    <div id="dlg_Doctor" class="easyui-dialog" style="width:580px;height:350px;margin: auto;" closed="true">
+                        <table id="dgdoctor"></table>
+                        <div id="toolbardoctor" style="height:28px;width: 100%;background: #eeeeee ">
+                            <div style="float: left; ">
+                                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="refreshunc()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+                                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg_Doctor').dialog('close')" plain="true" data-options="iconCls:'icon-remove'">关闭</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>采样时间:&nbsp;<input id="form_CollectDate" style="width:155px;" /></input></td>
+                <td  colspan="3">接收日期:&nbsp;
+                    <input id="form_ReceiveDate" style="width:125px" /><div style="display:none"><input id="form_OperDate" style="width:125px" /></div></input>
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td>民族:</td>
+                <td><select id="form_FolkNo" style="width:155px;"></select></td>
+                <td>病区:</td>
+                <td><select id="form_DistrictNo" style="width:155px;"></select></td>
+
+                <!--<td>样本类型:</td><td><select id="form_SampleTypeNo" style="width:155px;"></select></td>-->
+                <td>病历号:</td>
+                <td><input id="form_PatNo" style="width:155px;" /></input></td>
+                <td></td>
+                <td></td>
+                <td>采样人:</td>
+                <td><input id="form_Operator" style="width:155px;" /></input></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr style="display:none">
+                <td><a style="color:red;">备注</a>:</td>
+                <td colspan="9"><input id="form_FormMemo" style="width:550px" /></input></td>
+            </tr>
+            <tr>
+                <td><a style="color:red;">申请号</a>:</td>
+                <td><input id="form_NRequestFormNo" style="width:155px" /></input></td>
+            </tr>
+        </table>
+    </div>
+
+    <div data-options="region:'west',title:'项目类型',closed:true,split:true" style="width:200px;">
+        <table id="itemtype_grid"></table>
+    </div>
+    <div id="itemtype_toolbar">
+        <a id="itemtype_toolbar_reload" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true">刷新</a>
+    </div>
+
+    <div id="center" data-options="region:'center'" style="padding:1px">
+        <div class="easyui-layout" data-options="fit:true" style="border:0">
+            <div data-options="region:'center'" style="border:0">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div id="uncheck_grid_toolbar" data-options="region:'north'" style="height:28px;background:#efefef;padding:1px;">
+                        <div id="uncheck_grid_search"></div>
+                    </div>
+                    <div id="uncheck_grid" data-options="region:'center'"></div>
+                    <div id="uncheck_grid_pagination" data-options="region:'south'" style="height:32px;background:#efefef;"></div>
+                </div>
+            </div>
+            <!-- 已选组合项目 -->
+            <div id="checked" data-options="region:'east',title:''" style="width:200px;">
+                <table id="checked_grid"></table>
+            </div>
+            <div id="checked_grid_toolbar" style="padding:5.5px">
+                <a>固定项目</a>
+                <input id="markItems" type="checkbox" />
+            </div>
+        </div>
+    </div>
+    <!-- 条码 -->
+    <div data-options="region:'east',title:'',split:true" style="width:300px;padding:1px;">
+        <table id="barcode_grid"></table>
+
+    </div>
+
+    <!--<div data-options="region:'east'" style="width: 190px;padding: 1px;">-->
+    <!--<table id="grid_col"></table>-->
+    <!--</div>-->
+</body>
+</html>

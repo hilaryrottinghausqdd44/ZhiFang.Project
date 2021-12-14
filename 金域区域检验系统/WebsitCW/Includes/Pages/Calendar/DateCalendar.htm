@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0041)http://61.49.38.1/wssp/JS/calendardlg.jsp -->
+<HTML><HEAD><TITLE>:::::::日期选择::::::</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.3790.4470" name=GENERATOR>
+<SCRIPT language=JavaScript src="jsFiles/calendar.script"></SCRIPT>
+
+</HEAD>
+<BODY bgColor=#c0c0c0 onload=fload()>
+<SCRIPT>
+function fload()
+{
+	fPopCalendar(document.all.txt1, document.all.txt1);
+}
+
+function fkeydown()
+{
+	if(event.keyCode==27){
+		event.returnValue = null;
+		window.returnValue = null;
+		window.close();
+	}
+}
+
+document.onkeydown=fkeydown;
+
+</SCRIPT>
+<INPUT id=txt1 style="DISPLAY: none" type=button> </BODY></HTML>

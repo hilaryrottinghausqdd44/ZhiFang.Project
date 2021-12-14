@@ -1,0 +1,405 @@
+/******************************************************************************/
+/*单表系统风格文件命名约定规则:												  */
+/*摘要：整个单表系统应用一个CSS文件，每个要求设计的标记称为一个元素，与CSS文件*/
+/*		中的要素相对应,任何要素不可随意删除									  */
+/*风格色调:淡蓝															
+
+	  */
+/*创建日期:2005-08-09														
+
+  */
+/*作者:智方															
+
+		  */
+/*内容:主色调,skyBlue														
+
+  */
+/*		范围,深#6600FF-#00CCFF												
+
+  */
+/*		范围,浅#778588-#7E7788												
+
+  */
+/******************************************************************************/
+
+							
+/******************************************************************************/
+/*整体要素,(可选)	边距，字体, 整体背景颜色								  */
+/******************************************************************************/
+body
+	{
+		color: #2B2869;
+		margin-top: 0px;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px; 
+	}
+
+a:link
+	{ 
+		color: #ff0000;
+font-weight:bold;
+	}
+	+
+a:visited
+	{
+		color: #003399;
+
+	}
+	
+a:active					  
+	{ 
+		color: #000000;
+
+	}
+	
+a:hover
+	{
+		color: #CC3300;
+	}
+							
+/******************************************************************************/
+/*主表,(必选)	背景，字体及颜色						*/
+/*说明　图片尺寸:291*25 或 97*25						*/
+
+/******************************************************************************/
+.daohang1Body
+	{
+		FONT-SIZE: 10pt; 
+		FONT-FAMILY: 宋体,Arial;
+		font-weight: normal;
+		
+		background-color:#9accec;
+	}
+.daohang1
+	{
+		background-image:url(../../image/middle/Apple02.jpg);
+                  height:30px;
+	}
+.daohang1 TD
+	{
+		text-align:center;
+		vertical-align:middle;
+		width:120px;
+		/*border-left:solid 1pt gray;*/
+	}
+.daohang1Font
+	{
+		FONT-FAMILY: 宋体,Arial;
+		font-size: 14px;
+		font-weight: bold;
+		color: #000000;
+		text-decoration: none;
+		white-space:nowrap;
+	}
+.daohang1Font:hover
+	{
+		FONT-FAMILY: 宋体,Arial;
+		font-size: 14px;
+		font-weight: bold;
+		color: red;
+		text-decoration: none;
+	}
+/******************************************************************************/
+/*子表,(必选)(开发未完成)	背景，字体及颜色								  */
+/*说明　图片尺寸:291*25 或 97*25											  */
+
+/******************************************************************************/
+.daohang2
+	{
+		background-image:url(../../image/middle/new2.3_r2_c4.jpg);
+	}
+.daohang2Font
+	{
+		font-size: 14px;
+		font-weight: bold;
+		color: #0066CC;
+		text-decoration: none;
+	}
+.daohang2Font:hover
+	{
+		font-size: 14px;
+		font-weight: bold;
+		color: blue;
+		text-decoration: none;
+	}
+/******************************************************************************/
+/*子子表,(必选)(开发未完成)	背景，字体及颜色								  */
+/*说明　图片尺寸:291*25 或 97*25											  */
+
+/******************************************************************************/
+.daohang3
+	{
+		background-image:url(../../image/middle/new2.3_r2_c4.jpg);
+	}
+.daohang3Font
+	{
+		font-size: 14px;
+		font-weight: bold;
+		color: #0066CC;
+		text-decoration: none;
+	}
+.daohang3Font:hover
+	{
+		font-size: 14px;
+		font-weight: bold;
+		color: blue;
+		text-decoration: none;
+	}
+/******************************************************************************/
+/*分隔线,(必选)	背景颜色　分隔线的高度 (以表格的TD处理)						  */
+/******************************************************************************/
+.spLine
+	{
+		background-color:#d3e7f4;
+		height:5px;
+	}
+/******************************************************************************/
+/*查询页面,(必选)	背景颜色 字体　 (以表格的TD处理)						  */
+/******************************************************************************/
+.Query
+	{
+		
+		FONT-SIZE: 9pt; 
+		/*color: #000000;*/
+		text-decoration: none;
+		position:relative;
+		top:2px;
+	}
+.Query input
+	{
+		/*表格线的颜色*/
+		/*background-color:gray;*/
+		border:solid 1pt gray;
+		text-align:left;
+		width:90pt;
+		FONT-SIZE: 9pt; 
+		FONT-FAMILY: 宋体,Arial;
+		font-weight: normal;
+		height:20px;
+
+	}
+
+.QueryBody
+	{
+		background-color:#eef7fd;
+		FONT-FAMILY: 宋体,Arial;
+		color:#000000;
+                  font-weight: normal;
+	}
+.QueryButtQuery /*查询 63*22*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+.QueryButtReset /*查询*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+.QueryGroup:link
+{
+ Font-Size:9pt;
+text-decoration: none;
+}
+.QueryGroup:visited
+{
+ Font-Size:9pt;
+text-decoration: none;
+}
+
+/******************************************************************************/
+/*折叠或展开列表,(必选)	背景颜色 字体　 (以表格的TD处理)					  */
+/******************************************************************************/
+.ListTable
+	{
+		/*表格线的颜色*/
+		/*background-color:gray;*/
+		border-top:solid 1pt gray;
+		border-left:solid 1pt gray;
+		font-size:9pt;
+		position:relative;
+		cell-padding:1px;
+		top:5px;
+		left:5px;
+		/*width:10px;*/
+	}
+.ListTable TD
+	{
+		/*表格线的颜色*/
+		/*background-color:gray;*/
+		border-bottom:solid 1pt gray;
+		border-right:solid 1pt gray;
+		text-align:left;
+		FONT-FAMILY: 宋体;
+		font-size:9pt;
+	
+	}
+.ListHeader /*表格标题行*/
+	{
+		background-color:#eef7fd;
+		
+	}
+.ListHeader TD /*表格标题行列风格*/
+	{
+		background-color:#e8e7e7;
+		color:#000000;
+		text-align:center;
+		FONT-FAMILY: 宋体,Arial;
+		font-size: 9pt;
+
+	}
+
+.ListRecord /*数据行风格*/
+	{
+		font-weight: bold;
+		color: #FD0208;
+		text-decoration: none;
+                  font-size: 9pt;
+	}
+
+.ListBody
+	{
+		background-color:#eef7fd;
+		FONT-SIZE: 9pt;     
+		FONT-FAMILY: 宋体,Arial;
+		font-weight: normal;
+	}
+
+
+/******************************************************************************/
+/*子表界面的父表信息,(必选)	背景颜色 字体　 (以表格的TD处理)					  */
+/******************************************************************************/
+.AssessorTable
+	{
+		/*表格线的颜色*/
+		/*background-color:C5C5C5; #ff99aa;red;rgb(255,245,33)*/
+		border-top:solid 2pt FFFFFF;
+                  border-top-color:blue;
+                  width:85%;
+		color:#ffffff;
+		position:relative;
+		top:10px;
+	}
+.AssessorTable TD
+	{
+		/*表格线的颜色*/
+		/*background-color:C5C5C5;*/
+                  FONT-FAMILY: 宋体,Arial;
+                  color:#99007B;
+                  border-bottom:solid 2pt FFFFFF;
+                  border-bottom-color:blue;
+                  /*border-right:solid 3pt C5C5C5;*/
+		font-weight: bold;
+		font-size:10pt;
+		height:25px;
+		font-decoration:none;
+		width:12%;
+		text-align:center;
+		vertical-align:middle;
+		white-space:nowrap;
+                
+	}
+
+.AssessorTable div
+	{
+		/*表格线的颜色*/
+		color:#ffffff;
+		/*background-color:skyblue;*/
+		FONT-FAMILY: 宋体,Arial;
+                  font-weight: normal;
+		font-size:10pt;
+		text-align:center;
+		width:160;
+		/*height:20px;*/
+	}
+
+/******************************************************************************/
+/*录入界面,(必选)	背景颜色 字体　 (以表格的TD处理)						  */
+/******************************************************************************/
+.InputBody
+	{
+		background-color:#f6f6f6;
+                  /*background-image:url(../../../image/middle/new2.3_r2_c4.jpg);*/
+		font-weight: normal;
+	}	
+
+.InputTable
+	{
+		/*表格线的颜色*/
+		/*background-color:gray;*/
+		/*background-image:;*/
+		width:100%;
+		color:#000000;
+		position:relative;
+		top:5px;
+		left:5px;
+	}
+
+.InputTable TABLE
+	{
+		width:100%;
+	}
+.InputTable TD
+	{
+		/*表格线的颜色*/
+		/*background-color:gray;*/
+
+		FONT-FAMILY: 宋体,Arial;
+		font-size:9pt;
+		color:#000000;
+		
+	}
+
+.InputTable input
+	{
+		/*表格线的颜色*/
+		/*background-color:gray;*/
+		border:solid 1pt #B4B4B4;
+		FONT-FAMILY: 宋体,Arial;
+		FONT-SIZE: 10pt; 
+		text-align:left;
+		width:90pt;
+                  background-color:bluesky;/*#FFFFCA;*/
+	}
+/******************************************************************************/
+/*按钮组,(必选)(开发未完成)	图片　 (以单个图片处理)	大小79*24				  */
+/* 注意，各种风格图片不能重名
+/******************************************************************************/
+
+.ButtBatch /*批增*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+.ButtAdd /*增加*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+								
+
+.ButtDelete /*删除*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+  
+
+.ButtCopy /*复制*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+
+.ButtModify /*修改*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+
+.ButtSave /*保存*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+.ButtCancel /*取消*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}
+.ButtImExport /*导入导出*/
+	{
+		/*src=../../image/middle/add.jgp;*/
+	}

@@ -1,0 +1,56 @@
+ 说明
+layui是提供第三方系统或第三方接口访问调用的入口;
+1.基于6.6数据库登录;
+2.提供HIS调用
+
+一.子系统编码约定:sysCode;
+		医生站:doctorStation;
+		护士站:nurseStation;
+		输血科:bloodtransfusion;
+		统计和报表:statistics;
+二.调用入口参数约定:
+	1.医生站入口参数
+		所属系统编码:sysCode=doctorStation;
+		功能模块编码:moduleCode;
+		his医生Id:doctorId;
+		his就诊号:admId;
+		his患者Id:patId;
+		his患者病历号:patNo;
+		his科室Id:deptId;
+	2.护士站入口参数
+		所属系统编码:sysCode=nurseStation;
+		功能模块编码:moduleCode;
+		his护士Id:doctorId;
+		his患者就诊号:admId;
+		his患者Id:patId;
+		his患者病历号:patNo;
+		his科室Id:deptId;
+	3.输血科入口参数
+		所属系统编码:sysCode=bloodtransfusion;
+		功能模块编码:moduleCode;
+		his技师Id:doctorId;
+		his患者就诊号:admId;
+		his患者Id:patId;
+		his患者病历号:patNo;
+		his科室Id:deptId;
+	3.统计和报表入口参数
+		所属系统编码:sysCode=statistics;
+		功能模块编码:moduleCode;
+		his用户Id:doctorId;
+		his患者就诊号:admId;
+		his患者Id:patId;
+		his患者病历号:patNo;
+		his科室Id:deptId;	
+三.各子系统的传入模块编码约定
+	1.医生站功能模块编码:moduleCode;
+		apply:医嘱申请;
+		applyandreview:医嘱申请+;包含医嘱申请,上级审核,科主任审核;
+		senior:上级审核;
+		director:科主任审核;
+		medical:医务处审核;
+	2.护士站功能模块编码:moduleCode;
+		bloodprohandover:血袋接收;
+		transrecord:输血过程记录;
+		bloodbagretrieve:血袋回收;
+	3.统计和服务功能模块编码:moduleCode;
+		reqntegrated:输血综合查询;

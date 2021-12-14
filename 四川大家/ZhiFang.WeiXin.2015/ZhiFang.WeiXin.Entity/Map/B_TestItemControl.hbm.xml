@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BTestItemControl" table="[dbo].[B_TestItemControl]">
+		<id name="Id" column="[Id]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DTimeStampe]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="ItemControlNo" column="[ItemControlNo]" type="String" not-null="false" length="255" />
+    <property name="ItemNo" column="[ItemNo]" type="String" not-null="false" length="255" />
+    <property name="ControlLabNo" column="[ControlLabNo]" type="String" not-null="false" length="255" />
+    <property name="ControlItemNo" column="[ControlItemNo]" type="String" not-null="false" length="255" />
+    <property name="DataAddTime" column="[AddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="UseFlag" column="[UseFlag]" type="Int32" not-null="false" length="4" />
+	</class>
+</hibernate-mapping>

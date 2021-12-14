@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>加班申请</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+    <link href="../src/datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
+    <link href="../src/select/css/bootstrap-select.css" rel="stylesheet" media="screen">
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../src/datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="../src/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="../src/select/js/bootstrap-select.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="js/Common/ATCommon.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/EmpOvertimeEventAdd.js" type="text/javascript" charset="UTF-8"></script>
+    <style>
+        .btn-circle {
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">加班申请</div>
+        <table class="table table-bordered">
+            <tr>
+                <td style="width:90px;padding-top:15px;" valign="middle">开始时间：</td>
+                <td class="text-center">
+                    <div id="datetimepickstart" class="input-group date form_datetime col-md-5" data-date="" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+                        <input id="datetimepickstartinput" class="form-control" size="16" type="text" value="" style="background-color:transparent" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:90px;padding-top:15px;" valign="middle">结束时间：</td>
+                <td class="text-center">
+                    <div id="datetimepickend" class="input-group date form_datetime col-md-5" data-date="" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+                        <input id="datetimepickendinput" class="form-control" size="16" type="text" value="" style="background-color:transparent" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:90px;padding-top:15px;" valign="middle">加班时长：</td>
+                <td class="text-center">
+                    <table width="100%" border=0><tr><td><input id="evenlength" type="text" class="form-control" value='' /></td><td width="50px" style="padding:0px 5px 0px 5px">小时</td></tr></table>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:90px;padding-top:15px;" valign="middle">加班事由：</td>
+                <td class="text-center">
+                    <textarea id="overtimeeventmemo" class="form-control" rows="3"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:90px;padding-top:15px;" valign="middle">下一步：</td>
+                <td class="text-center">
+                    <input id="approve" type="text" class="form-control" placeholder="" />
+                    <input id="approveid" type="text" style="display:none" class="form-control" placeholder="" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--<select id="aaa" class="show-tick form-control">
+    </select>-->
+    <div class="shell_form_button_div" style="margin:50px 20%;">
+        <button id="save_btn">提交</button>
+    </div>
+</body>
+</html>

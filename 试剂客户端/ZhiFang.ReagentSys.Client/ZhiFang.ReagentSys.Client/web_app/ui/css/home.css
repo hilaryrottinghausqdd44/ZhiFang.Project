@@ -1,0 +1,96 @@
+﻿body {
+    padding-bottom: 60px;
+}
+
+/**功能DIV默认样式*/
+.home-div-default {
+    display:none;
+}
+
+/**主页顶部DIV*/
+.home-top-div {
+    height:120px;
+    /*background-color:#3cc51f;*/
+    text-align:center;
+    color:#ffffff;
+}
+/**模块DIV*/
+.home-module-div {
+    height:100px;
+    border:1px solid #3cc51f;
+    padding:10px;
+    margin-top:15px;
+    text-align:center;
+}
+
+/**四部功能按钮栏*/
+.navbar-bottom {
+    height:55px;
+    padding: 0 5px;
+    margin-top:5px;
+    border-top:1px solid #e0e0e0;
+    background-color:#ffffff;
+    color:#999999;
+}
+.navbar-bottom li {
+    float: left;
+    width: 20%;
+    height: 50px;
+    padding: 5px;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #ffffff;
+    padding-left: 0;
+    list-style: none;
+}
+.navbar-bottom-icon {
+    /*margin-top: 5px;
+    margin-bottom: 5px;*/
+    font-size: 24px;
+}
+.navbar-bottom-text{
+	display: block;
+    text-align: center;
+    word-wrap: break-word;
+}
+.navbar-bottom-li-touch{
+	color:#3cc51f;
+}
+
+/**主页用户信息DIV*/
+.home-user-info-div {
+    height:120px;
+    width:100%;
+    background-color:#37c3bc;
+    color:#ffffff;
+}
+.home-user-info-div-head {
+    width:120px;
+    text-align:center;
+}
+.home-user-info-div-head img{
+    margin:14px 28px;
+    width:64px;
+    height:64px;
+}
+.home-user-info-div-head span{
+	font-size:11px;
+}
+
+/**主页用户操作DIV*/
+.home-user-config-div {
+    padding:10px 5px;
+}
+.home-user-config-div li{
+    padding:15px 10px;
+    border-bottom:1px solid #ddd;
+}
+.home-user-config-div li .right{
+    float:right;
+	color:#ddd;
+    font-weight:bold;
+}
+.home-user-config-div-li-touch{
+    background-color:#e0e0e0;
+}

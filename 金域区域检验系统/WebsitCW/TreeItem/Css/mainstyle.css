@@ -1,0 +1,1106 @@
+/*********************/
+/*
+0 main control
+1 main page
+2 main layer
+3 generic layer
+
+5 HTML label style
+9 colors
+*/
+/*********************/
+/******0 Main Control***/
+* {
+	padding:0;
+	margin:0;
+}
+body {
+	height:100%;
+	background-color:#fff;
+	font-size:11px;
+	min-width:1000px;
+	font-family:Verdana;
+}
+ul {
+	list-style:none;
+}
+img {
+	border:0;
+}
+a {
+	color:#333;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+h4 {
+	border-top:1px solid #fff;
+	border-bottom:1px solid #ccc;
+	font-size:12px;
+	font-weight:bold;
+	padding-left:50px;
+	line-height:2.4em;
+	background:#f7f7f7 url(../images/SideBarIcons.gif) no-repeat left bottom;
+}
+h5 {
+	font-size:12px;
+	font-weight:bold;
+	line-height:2em;
+}
+/**************for IE7*********************/
+*+html .QuickAddButtom, *+html .ToolBar {
+	height:auto;
+}
+*+html .Search select {
+	height:auto;
+}
+*+html .QuickAddButtom table {
+	height:70px;
+}
+/**************for IE6*********************/
+* html .WeekTable td {
+	padding:2px;
+}
+* html .MonthTable td {
+	width:14%;
+	height:80px;
+	padding:0;
+}
+* html .MonthTable h6 {
+	background:#566F48;
+	padding-right:1em;
+	text-align:right;
+	line-height:13px;
+	font-size:9px;
+	font-family:Verdana;
+	color:#fff;
+}
+/***************5 input maincontrol**************/
+input.text, input.member, input.date {
+	height:16px;
+}
+input.member {
+	width:80px;
+}
+input.date {
+	width:65px;
+}
+input.searchin {
+	background:#fff url(../images/SearchBlockBg.gif) no-repeat 2px center;
+	padding-left:20px;
+	color:#AAA;
+}
+.selectin {
+	background:#eee;
+	width:100px;
+}
+/******1 Login Control***/
+.LoginContainer {
+	border-top:5px solid #C6C6C6;
+	border-bottom:5px solid #C6C6C6;
+	position:absolute;
+	top:40%;
+	margin-top:-75px;
+	width:100%;
+	height:150px;
+	padding:5px 0;
+	background:url(../images/LoginContainerBg.png) no-repeat center center;
+}
+.LoginMain {
+	margin:0 auto;
+	width:895px;
+	height:150px;
+	background:url(../images/LoginMainBg.png) no-repeat center top;
+}
+.LoginLogo {
+	width:254px;
+	height:44px;
+	float:left;
+	position:relative;
+	top:50px;
+	left:110px;
+}
+.LoginInput {
+	width:250px;
+	height:60px;
+	float:right;
+	position:relative;
+	top:20px;
+	right:100px;
+}
+.LoginInput div {
+	margin:6px 0;
+}
+.LoginInput {
+	color:#fff;
+}
+.LoginInput input.text, .LoginInput select {
+	color:#333;
+	width:160px;
+	margin-left:8px;
+	border:1px solid #666;
+}
+.LoginInput input.text {
+	height:16px;
+}
+input.text:focus {
+	background:#DAE2E9;
+}
+.LoginInput input.buttom {
+	width:80px;
+	height:20px;
+	margin:10px 0 0 80px;
+}
+/******2 Header***/ 
+#Header {
+	height:106px;
+	background:#fff url(../images/HeaderBg.png) repeat-x left top;
+}
+.Logo {
+	position:absolute;
+	top:12px;
+	left:30px;
+	width:202px;
+	height:40px;
+}
+.UserInfor {
+	position:absolute;
+	top:5px;
+	right:20px;
+}
+.UserInfor a {
+	text-decoration:underline;
+	color:#FF9900;
+}
+.UserInfor a:hover {
+	text-decoration:none;
+}
+.Nav {
+	position:relative;
+	top:42px;
+	width:100%;
+	border-bottom:6px solid #DBDBDB;
+}
+/******3 Main Nav*****/
+ul.MainNav {
+	width:455px;
+	height:29px;
+	margin:0 auto;
+}
+ul.MainNav li {
+	float:left;
+	margin-right:1px;
+}
+ul.MainNav li a {
+	display:block;
+	width:89px;
+	height:21px;
+	padding-top:8px;
+	text-align:center;
+	color:#333;
+	font-size:13px;
+	font-weight:bold;
+	font-family:Verdana;
+	background:url(../images/MainNav.png) no-repeat left top;
+}
+ul.MainNav li a:hover {
+	text-decoration:none;
+	color:#fff;
+}
+ul.MainNav li a#MainCurrent {
+	color:#fff;
+}
+ul.MainNav li a#MainCurrent:hover {
+	color:#fff;
+	text-decoration:underline;
+}
+li.Link1 a:hover, li.Link1 a#MainCurrent {
+	background-position:-90px top;
+}
+li.Link2 a:hover, li.Link2 a#MainCurrent, #hrm-admin ul.MainNav li a:hover, #hrm-admin ul.MainNav li a#MainCurrent,#hrm-user ul.MainNav li a:hover, #hrm-user ul.MainNav li a#MainCurrent {
+	background-position:-180px top;
+}
+li.Link3 a:hover, li.Link3 a#MainCurrent {
+	background-position:-270px top;
+}
+li.Link4 a:hover, li.Link4 a#MainCurrent {
+	background-position:-360px top;
+}
+li.Link5 a:hover, li.Link5 a#MainCurrent {
+	background-position:-450px top;
+}
+/******3 Sub Nav*****/
+.SubNav {
+	width:100%;
+	text-align: center;
+	height:26px;
+}
+.SubNav td {
+	padding:0 6px;
+}
+a#SubCurrent {
+	color:#333;
+}
+.SubNav a#SubCurrent span {
+	display:block;
+	border:1px solid #333;
+	height:18px;
+}
+.SubNav strong {
+	font-weight:normal;
+}
+.SubNav a#SubCurrent span strong {
+	display:block;
+	background:url(../images/SubMenuBg.png) repeat-x left center;
+	padding:2px 10px 0;
+	border:1px solid #fff;
+	height:14px;
+}
+.SubNav table {
+	display:inline;
+}
+.SubNav td a {
+	color:#fff;
+	display:block;
+	padding:4px;
+	font-size:12px;
+	font-family:Verdana;
+}
+/********9 Sub nav background colo*************/
+.color1 div.SubNav {
+	background-color:#638658;
+}
+.color2 div.SubNav {
+	background-color:#466B86;
+}
+.color3 div.SubNav {
+	background-color:#9C2323;
+}
+.color4 div.SubNav {
+	background-color:#AC6402
+}
+.color5 div.SubNav {
+	background-color:#6A6A6A;
+}
+/******2 Main***/
+#Header, #Main, #Footer {
+	position:relative;
+	min-width:1000px;
+	width:100%;
+}
+/******2 Wrap***/
+#Wrap {
+	padding-right:2%;
+	width: 80%;
+	float:left;
+}
+.Inner {
+	margin-left:1em;
+	padding-bottom:2em;
+}
+/**************3 ToolBar start*******************/
+.ToolBar {
+	height:20px;
+	margin:10px auto;
+	background:url(../images/WrapToolBarBg.png) repeat-x;
+	padding:8px 0 8px 20px;
+	border-style:solid;
+	border-width:1px 0;
+}
+.print {
+	padding-left: 18px;
+	background: url(../images/popup-toolbar-ico.gif) no-repeat 0 -248px;
+}
+.color1 .ToolBar a.print {
+	margin:0 5px;
+	display:block;
+	padding:4px 4px 4px 20px;
+	float:right;
+	border:1px solid transparent;
+}
+.color1 .ToolBar a.print:hover {
+	border:1px solid #95AD8D;
+	background-color:#D5E0D1;
+}
+.ToolBar .WhereAmI {
+	margin-top:5px;
+}
+.ToolBar .WhereAmI a {
+	margin:0 3px;
+	text-decoration:underline;
+	color:#666;
+}
+.ToolBar .WhereAmI a:hover {
+	color:#000;
+}
+.ToolBar table select {
+	margin-right:1em;
+}
+/************9 ToolBar color***********/
+.color1 div.ToolBar {
+	background-position:0 0;
+	border-color:#D6DED1;
+}
+.color2 div.ToolBar {
+	background-position:0 -100px;
+	border-color:#CCD7DD;
+}
+.color3 div.ToolBar {
+	background-position:0 -200px;
+	border-color:#F2C6C6;
+}
+.color4 div.ToolBar {
+	background-position:0 -300px;
+	border-color:#F9DAB0;
+}
+.color5 div.ToolBar {
+	background-position:0 -400px;
+	border-color:#D9D9D9;
+}
+.ToolBar select {
+	width:100px;
+}
+.ToolBar input {
+	margin:0 3px;
+}
+.ToolBar input.searchin {
+	width:100px;
+}
+.select_member a {
+	padding:3px 3px 3px 18px;
+	background:url(../images/member.gif) no-repeat 2px 2px;
+}
+/**************3 ToolBar end*******************/
+
+/**************3 QuickAdd start*******************/
+.QuickAddButtom {
+	height:30px;
+	margin:10px auto;
+}
+.QuickAddButtom input {
+	margin:0 10px;
+	background:url(../images/Buttom2Bg.png) no-repeat right bottom;
+	padding:4px 4px 6px;
+	height:22px;
+	border:0;
+}
+.QuickAdd, .Search {
+	border-bottom:1px solid #ddd;
+}
+.Search input.searchin, .Search select {
+	width:120px;
+	height:16px;
+	margin-left:8px;
+	border:1px solid #999;
+}
+.QuickAdd select {
+	width:140px;
+	margin:10px 14px;
+}
+.QuickAddButtom .view {
+	position:relative;
+	top:5px;
+	left:30px;
+	width:400px;
+	float: left;
+}
+.view a {
+	margin:0 8px;
+	color:#638658;
+	text-decoration:underline;
+}
+.view a:hover {
+	text-decoration:none;
+}
+.view a.select {
+	font-weight:bold;
+}
+.ChangeView {
+	float:right;
+	position:relative;
+	right:10px;
+	background:url(../images/view.gif) no-repeat left center;
+	padding-left:26px;
+}
+.ToolBlock {
+	float:right;
+	position:relative;
+	right:10px;
+	width: 200px;
+}
+/**************3 QuickAdd end*******************/
+
+/************3 table view***************/
+.DataTable {
+	color:#555;
+	margin:10px auto;
+}
+.DataTable td a {
+	text-decoration:underline;
+}
+.DataTable td a:hover {
+	text-decoration:none;
+}
+.DataTable td {
+	word-break: break-all;
+}
+.NormalTable {
+	margin:0 auto;
+	width:80%;
+}
+.NormalTable td {
+	padding:2px;
+	margin:3px 0;
+}
+.NormalTable input.text, .NormalTable textarea {
+	width:400px;
+}
+.NormalTable fieldset {
+	padding:4px;
+}
+.NormalTable legend {
+	color:#58150E;
+}
+.NormalTable td.title {
+	width:100px;
+}
+/***************9 DataTable asc desc color*******************/
+.DataTable th a.desc, .DataTable th a.asc {
+	background:url(../images/ArrowTitle.gif) no-repeat;
+	padding-left:10px;
+}
+.color1 table.DataTable th a.asc {
+	background-position:0 3px;
+}
+.color1 table.DataTable th a.desc {
+	background-position:0 -197px;
+}
+.color2 table.DataTable th a.asc {
+	background-position:0 -37px;
+}
+.color2 table.DataTable th a.desc {
+	background-position:0 -237px;
+}
+.color3 table.DataTable th a.asc {
+	background-position:0 -77px;
+}
+.color3 table.DataTable th a.desc {
+	background-position:0 -277px;
+}
+.color4 table.DataTable th a.asc {
+	background-position:0 -117px;
+}
+.color4 table.DataTable th a.desc {
+	background-position:0 -317px;
+}
+.color5 table.DataTable th a.asc {
+	background-position:0 -157px;
+}
+.color5 table.DataTable th a.desc {
+	background-position:0 -357px;
+}
+.color1 table.DataTable th a {
+	color:#556749;
+}
+.color2 table.DataTable th a {
+	color:#4B6A7A;
+}
+.color3 table.DataTable th a {
+	color:#913E3E;
+}
+.color4 table.DataTable th a {
+	color:#9E6516;
+}
+.color5 table.DataTable th a {
+	color:#5D5D5D;
+}
+.DataTable th, .DataTable td, .MonthTable th {
+	line-height:1.8em;
+}
+.DataTable th, .DataTable tr.thtitle td {
+	text-align:center;
+	background:url(../images/WrapToolBarBg.png) repeat-x;
+}
+.DataTable tr.thtitle td {
+	font-weight:bold;
+}
+.DataTable tr:hover {
+	background:#ccc;
+}
+.DataTable td {
+	text-align:center;
+	background:#fff;
+}
+/************9 DataTable colo************/
+.color1 table.DataTable {
+	border:1px solid #D6DED1;
+	background:#D6DED1;
+}
+.color2 table.DataTable {
+	border:1px solid #CCD7DD;
+	background:#CCD7DD;
+}
+.color3 table.DataTable {
+	border:1px solid #F0BBBB;
+	background:#F0BBBB;
+}
+.color4 table.DataTable {
+	border:1px solid #F9DAB0;
+	background:#F9DAB0;
+}
+.color5 table.DataTable {
+	border:1px solid #D9D9D9;
+	background:#D9D9D9;
+}
+.color1 table.DataTable th, .color1 .DataTable tr.thtitle td {
+	background-position:0 -5px;
+	color:#556749;
+}
+.color2 table.DataTable th, .color2 .DataTable tr.thtitle td {
+	background-position:0 -105px;
+	color:#4B6A7A;
+}
+.color3 table.DataTable th, .color3 .DataTable tr.thtitle td {
+	background-position:0 -205px;
+	color:#913E3E;
+}
+.color4 table.DataTable th, .color4 .DataTable tr.thtitle td {
+	background-position:0 -305px;
+	color:#9E6516;
+}
+.color5 table.DataTable th, .color5 .DataTable tr.thtitle td {
+	background-position:0 -405px;
+	color:#5D5D5D;
+}
+.PageNum {
+	margin:20px auto;
+	padding-top:4px;
+	height:20px;
+	text-align: center;
+}
+.PageNum a {
+	font-family:Verdana;
+	font-size:10px;
+	padding:0 6px;
+	background:#E8E8E8;
+	line-height:2em;
+	border:1px solid #fff;
+}
+.PageNum a:hover {
+	border:1px solid #ccc;
+}
+.OtherInfor {
+	margin:10px 0;
+	padding-bottom:4px;
+}
+.color1 div.OtherInfor {
+	background-color:#F6F8F5;
+}
+.color2 div.OtherInfor {
+	background-color:#F5F7F9;
+}
+.color3 div.OtherInfor {
+	background-color:#FAF2F2;
+}
+.color4 div.OtherInfor {
+	background-color:#FDF7F0;
+}
+.color5 div.OtherInfor {
+	background-color:#F7F7F7;
+}
+.OtherInfor a {
+	margin:0 0.5em;
+	line-height:1.5em;
+}
+.OtherInfor p {
+	margin:4px 0;
+	padding:0 1em;
+}
+.SearchBlock, .CalView {
+	float:right;
+	position:relative;
+	height: 20px;
+	top: 2px;
+	width: 200px;
+}
+.SearchBlock input {
+	margin:0 5px;
+}
+.SearchBlock input.searchin {
+	width:70px;
+}
+div.SearchBlock input.buttom {
+	height:18px;
+	padding:0 3px;
+}
+div.ToolBar input.buttom {
+	padding:0 3px;
+}
+/**************5 ArrowTitle****************/
+h5.ArrowTitle {
+	padding-left:20px;
+	background-image:url(../images/ArrowTitle.gif);
+	background-repeat:no-repeat;
+}
+/**************9 ArrowTitle color****************/
+.color1 h5.ArrowTitle {
+	color:#556749;
+	border-top:1px solid #556749;
+	background-color:#E0E7DE;
+	background-position:10px 8px;/*background:#E0E7DE url(../images/ArrowTitle.gif) no-repeat 10px 8px;*/
+}
+.color2 h5.ArrowTitle {
+	color:#4B6A7A;
+	border-top:1px solid #4B6A7A;
+	background-color:#DDE5EA;
+	background-position:10px -32px;/*background:#DDE5EA url(../images/ArrowTitle.gif) no-repeat 10px -32px;*/
+}
+.color3 h5.ArrowTitle {
+	color:#913E3E;
+	border-top:1px solid #913E3E;
+	background-color:#EDD4D4;
+	background-position:10px -72px;/*background:#EDD4D4 url(../images/ArrowTitle.gif) no-repeat 10px -72px;*/
+}
+.color4 h5.ArrowTitle {
+	color:#9E6516;
+	border-top:1px solid #9E6516;
+	background-color:#F8E6CE;
+	background-position:10px -112px;/*background:#F8E6CE url(../images/ArrowTitle.gif) no-repeat 10px -112px;*/
+}
+.color5 h5.ArrowTitle {
+	color:#5D5D5D;
+	border-top:1px solid #5D5D5D;
+	background-color:#E4E4E4;
+	background-position:10px -152px;/*background:#E4E4E4 url(../images/ArrowTitle.gif) no-repeat 10px -152px;*/
+}
+/*************9 input color******************/
+.color1 div.SearchBlock input, .color1 div.ToolBar input {
+	border:1px solid #BDCCB9;
+}
+.color1 div.SearchBlock input.buttom, .color1 div.ToolBar input.buttom {
+	color:#556749;
+	background:#F6F8F5;
+}
+.color2 div.SearchBlock input, .color2 div.ToolBar input {
+	border:1px solid #AFC2CD;
+}
+.color2 div.SearchBlock input.buttom, .color2 div.ToolBar input.buttom {
+	color:#4B6A7A;
+	background:#F5F7F9;
+}
+.color3 div.SearchBlock input, .color3 div.ToolBar input {
+	border:1px solid #DFB3B3;
+}
+.color3 div.SearchBlock input.buttom, .color3 div.ToolBar input.buttom {
+	color:#913E3E;
+	background:#FAF2F2;
+}
+.color4 div.SearchBlock input, .color4 div.ToolBar input {
+	border:1px solid #EEC186;
+}
+.color4 div.SearchBlock input.buttom, .color4 div.ToolBar input.buttom {
+	color:#9E6516;
+	background:#FDF7F0;
+}
+.color5 div.SearchBlock input, .color5 div.ToolBar input {
+	border:1px solid #C3C3C3;
+}
+.color5 div.SearchBlock input.buttom, .color5 div.ToolBar input.buttom {
+	color:#5D5D5D;
+	background:#F7F7F7;
+}
+/******2 SideBar***/
+#SideBar {
+	width:220px;
+	float: right;
+	position:relative;
+	border-left:1px solid #bbb;
+	padding-left:1px;
+	height:auto;
+}
+#SideBar .Inner {
+	margin-left:0;
+	padding:10px 0 30px;
+	border-left:1px solid #ddd;
+	background-color:#fff;
+	height:100%;
+}
+.Search table {
+	margin:8px 0;
+}
+.Search table td {
+	padding:3px;
+}
+.Search input.buttom {
+	background:url(../images/Buttom2Bg.png) no-repeat right bottom;
+	border:0;
+}
+h4.SearchTitle {
+	background-position:14px 4px;
+}
+h4.QuickAddTitle {
+	background-position:14px -42px;
+}
+h4.CalendarTitle {
+	background-position:14px -85px;
+}
+.Search, .QuickAdd, .Calendar {
+	width:100%;
+	padding-bottom:16px;
+}
+.sbCalLayer {
+	padding:6px 3px;
+	border: 1px solid #DFD0B0;
+	background: #FFF;
+	width: 180px; 
+	margin:10px 0 0 14px;
+}
+.sbCalTitleBg {
+	height: 30px;
+	border: 1px solid #EADEC8;
+	background-color: #F8F4ED;
+}
+.sbCalTitle, .sbCalNav {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+.sbCalNav {
+	color: #336;
+	text-decoration: none;
+}
+.sbCalNav:hover {
+	color: #C30;
+	text-decoration: none;
+}
+.sbCalDay, .sbCalWeekDay, .sbCalWeekEnd {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #336;
+	text-decoration: none;
+}
+.sbCalDay:hover {
+	color: #C30;
+}
+.sbCalWeekDay {
+	color: #999;
+}
+.sbCalCurrDay {
+	border: 1px solid #EADEC8;
+	background-color: #F8F4ED;
+}
+.sbCalWeekEnd {
+	color: #F00;
+}
+.sbCalDay:hover, .sbCalCurrDay:hover, .sbCalWeekEnd:hover {
+	text-decoration: underline;
+}
+/***********3 calendar**********************/
+table.cal {
+	background-color: #eee;
+	width:200px;
+	border:1px solid #eee;
+	margin:10px 0 0 10px;
+}
+table.cal a, table.cal span {
+	text-align:center;
+}
+table.cal th, table.cal tr, table.cal td {
+	background-color:#fff;
+	padding:1px;
+}
+table.cal td a, table.cal td a:visited {
+	color:#bbb;
+	display:block;
+	width:100%;
+}
+table.cal td a:hover {
+	color:#333;
+	background:#eee;
+}
+table.cal #today {
+	color:#fff;
+	background-color:#333;
+	display:block;
+}
+table.cal table span.thismonth {
+	color:#333;
+	background:#eee;
+	font-weight:bold;
+	width:120px;
+	margin:0 2px;
+	display:block;
+}
+table.cal table a, table.cal table a:visited {
+	padding:2px 1px;
+	color:#333;
+	display:block;
+	width:40px;
+}
+table.cal table a:hover {
+	color:#fff;
+	background:#444;
+}
+/******2 Footer***/
+#Footer {
+	height:40px;
+	border-top:1px solid #D5D5D5;
+	background-color: #F6F6F6;
+	clear:both;
+}
+#Copyright {
+	height:20px;
+	margin:10px auto 0;
+	font-family:Verdana;
+	text-align: center;
+	font-size: 10px;
+}
+/**********************1 Work Page********************************/
+ul.TaskToolbar {
+	width:500px;
+	position:relative;
+	top:2px;
+	float: left;
+}
+ul.TaskToolbar li, .ToolBlock li {
+	float:left;
+	margin:0 5px;
+}
+ul.TaskToolbar li a, .ToolBlock a {
+	background:#fff url(../images/TaskToolbar.gif) no-repeat;
+	display:block;
+	padding:4px 5px 4px 22px;
+	border:1px solid #fff;
+}
+ul.TaskToolbar li a:hover, .ToolBlock li a:hover {
+	background-color:#eee;
+	border:1px solid #999;
+}
+ul.TaskToolbar li.new a, .ToolBlock .new a {
+	background-position:4px 3px;
+}
+ul.TaskToolbar li.task a, .ToolBlock .task a {
+	background-position:4px -27px;
+}
+ul.TaskToolbar li.phone a, .ToolBlock .phone a {
+	background-position:4px -57px;
+}
+ul.TaskToolbar li.fax a, .ToolBlock .fax a {
+	background-position:4px -87px;
+}
+ul.TaskToolbar li.mail a, .ToolBlock .mail a {
+	background-position:4px -115px;
+}
+ul.TaskToolbar li.sms a, .ToolBlock .sms a {
+	background-position:4px -147px;
+}
+ul.TaskToolbar li.appointmen a, .ToolBlock .appointmen a {
+	background-position:4px -177px;
+}
+/**************department page***************/
+#Tree {
+	float:left;
+	width:200px;
+	overflow:auto;
+	margin:0 6px;
+}
+/**************cal page***************/
+.CalToday {
+	padding-left: 20px;
+}
+.CalView li {
+	float:left;
+	margin:0 5px;
+}
+.CalView li a {
+	background:url(../images/CalView.gif) no-repeat;
+	display:block;
+	width:16px;
+	height:18px;
+	text-indent:-1000em;
+}
+.CalView li.CalDay a {
+	background-position:0 0;
+}
+.CalView li.CalDay a:hover {
+	background-position:0 -50px;
+}
+.CalView li.CalWeek a {
+	background-position:0 -100px;
+}
+.CalView li.CalWeek a:hover {
+	background-position:0 -150px;
+}
+.CalView li.CalMonth a {
+	background-position:0 -200px;
+}
+.CalView li.CalMonth a:hover {
+	background-position:0 -250px;
+}
+.CalTable {
+	background-color:#D5EC9F;
+}
+.CalTable td {
+	padding:4px;
+	background-color:#FFF0D9;
+}
+.CalTable td.time {
+	width:80px;
+	text-align:center;
+	background-color:#EEF7D9;
+}
+.CalContent {
+	padding:4px;
+}
+.CalContent li {
+	margin:5px 0;
+	padding:3px;
+}
+.color1 h3.daytime {
+	line-height:1.4em;
+	text-indent:1em;
+	background-color:#C6D6C0;
+	color:#333;
+	font-weight:normal;
+}
+.color1 h3.daytime a {
+	color:#333;
+	font-size:11px;
+	font-weight:bold;
+}
+.WeekTable .CalToday, .MonthTable .CalToday {
+	background:#FFF0D9;
+}
+.ChangeMonth {
+	width:100px;
+	height:20px;
+	float:left;
+	position:relative;
+	top:-2px;
+}
+.ChangeMonth li {
+	float:left;
+	margin:0 3px;
+}
+li.Prev a, li.Next a {
+	background:url(../images/CalNext.gif) no-repeat;
+	width:40px;
+	height:20px;
+	display:block;
+	text-indent:-1000em;
+}
+li.Prev a:hover {
+	background-position:0 -100px;
+}
+li.Next a {
+	background-position:0 -50px;
+}
+li.Next a:hover {
+	background-position:0 -150px;
+}
+.CalTable caption {
+	font-weight:bold;
+	font-size:12px;
+	padding:5px 0;
+}
+
+/****************home*********************/
+.Announcements {
+	background:url(../images/AnnouncementsBg.png) no-repeat;
+	width:197px;
+	height:180px;
+	float:left;
+}
+.Announcements h4 {
+	background-color:transparent;
+	border-bottom:0;
+	background-position:3px -145px;
+}
+.Announcements ul, .Customer ul {
+
+margin:5px 16px 5px 10px;
+line-height:1.6em;
+}
+.Announcements ul a {
+	color:#95916A;
+	background:url(../images/ArrowTitle.gif) no-repeat 0 -477px;
+	padding-left:10px;
+}
+.Announcements ul a:hover {
+	color:#5F5B43;
+	background:url(../images/ArrowTitle.gif) no-repeat 0 -517px;
+}
+.Announcements a.more {
+	background:url(../images/ArrowTitle.gif) no-repeat 0 -394px;
+	color:#FF6600;
+	padding-left:10px;
+	position:absolute;
+	font-family:"Arial Black";
+	top:140px;
+	left:144px;
+	font-size:10px;
+}
+.Announcements a.more:hover {
+	background:url(../images/ArrowTitle.gif) no-repeat 0 -434px;
+	color:#B54800;
+	text-decoration:none;
+}
+img.new {
+	position:relative;
+	top:-5px;
+	left:3px;
+}
+.Customer {
+	width:500px;
+	height:180px;
+	float:right;
+	line-height:16px;
+	border-bottom:2px solid #638658;
+}
+.Customer h4 {
+	background-position:0 -194px;
+}
+.Customer li {
+	padding-left:20px;
+	background:url(../images/TaskToolbar.gif) no-repeat 0 -210px;
+}
+.Customer .birthday {
+	background:url(../images/TaskToolbar.gif) no-repeat 0 -240px;
+}
+.Task {
+	padding-top:20px;
+	clear:both;
+	width:100%;
+	border-bottom:2px solid #638658;
+}
+.Task h4 {
+	background-position:0 -245px;
+}
+.Task h4 a {
+	float:right;
+	padding-right:20px;
+	font-size:10px;
+	text-decoration:underline;
+}
+/****************404*********************/
+.left404,.right404{
+float:left;
+margin-top:30px;
+margin-left:20px;
+}
+.right404 ul{
+margin:10px 0 0 20px;
+}
+.right404 li{
+line-height:2em;
+}
+.right404 ul a {
+	color:#95916A;
+	background:url(../images/ArrowTitle.gif) no-repeat 0 -475px;
+	padding-left:10px;
+}
+.right404 ul a:hover {
+	color:#5F5B43;
+	background:url(../images/ArrowTitle.gif) no-repeat 0 -515px;
+}

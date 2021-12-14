@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   
+    <title></title>
+
+    <script src="../../../util/common.js"></script>
+    <script src="mbgl.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #fm {
+            margin: 0;
+            padding: 10px 30px 1px 30px;
+           
+        }
+        .fTitle { font-size: 14px; font-weight: bold; padding: 5px 0; margin-bottom: 10px;border-bottom: 1px solid #cccccc;}
+        .fItem {
+            margin-bottom: 5px;
+            
+        }
+        .fItem label {
+            display: inline-block;
+            
+            width: 80px;
+
+        }
+           
+    </style >
+</head>
+
+<body> 
+        <table id="dg"></table> 
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+        <div style="float: left; padding-top: 3px; display: inline">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" plain="true" onclick="updateuser()">刷新</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add'" plain="true" onclick="addRow()">新增</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" plain="true" onclick="delRow()">删除</a>
+        </div>
+
+        <div style=" float: right; margin-right: 10px; padding-top: 3px; display: inline">
+            <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入模版名称',searcher:doSearch" style="width:160px; ">
+        </div>
+        </div>          
+    <div id="dlg" class="easyui-dialog" style="width:370px;height:380px;margin: auto;"  closed="true" resizable="true" buttons="#dlgButtons">
+        <form id="fm">
+            <div class="fItem">
+                <input id='Id' name="Id" class="easyui-validatebox" style="width: 200px;display: none">
+            </div>
+            <div class="fItem">
+                <label>模版名称:</label>
+                <input id="PrintFormatName" type="text" name="PrintFormatName" class="easyui-textbox" style="width: 200px;" data-options="required:true" />
+            </div>
+            <div class="fItem">
+                <label>模板存放地址:</label>
+                <input id="PintFormatAddress" type="text" name="PintFormatAddress" class="easyui-textbox" style="width: 200px;" data-options="required:true">
+            </div>
+            <div class="fItem">
+                <label>模板文件名:</label>
+                <input id="PintFormatFileName" type="text" name="PintFormatFileName" class="easyui-textbox" style="width: 200px;" data-options="required:true" />
+            </div>
+            <div class="fItem">
+                <label>项目或图片数:</label>
+                <input id="ItemParaLineNum" type="text" name="ItemParaLineNum" class="easyui-textbox" style="width: 200px;" data-options="required:true" />
+            </div>
+
+            <div class="fItem">
+                <label>纸张大小:</label>
+                <input id="PaperSize" type="text" name="PaperSize" class="easyui-textbox" style="width: 200px;" data-options="required:true" />
+            </div>
+            <div class="fItem">
+                <label>模板描述:</label>
+                <input id="PrintFormatDesc" name="PrintFormatDesc" style="width:200px;" class="easyui-textbox" />
+            </div>
+            <div class="fItem">
+                <label>套打标志:</label>
+                <select id="cbBatchPrint" name="BatchPrint" class="easyui-combobox"
+                        data-options="required:true" editable="false" panelheight=auto style="width: 200px; height: auto">
+                    <option value="0">否</option>
+                    <option value="1">是</option>
+                </select>
+            </div>
+            <div class="fItem">
+                <label>是否带图:</label>
+
+                <select id="ImageFlag" name="ImageFlag" class="easyui-combobox" panelheight=auto style="width: 200px; height: auto" editable="false">
+                    <option value="0" selected="selected">否</option>
+                    <option value="1">是</option>
+                </select>
+            </div>
+            <div class="fItem">
+                <label>是否有坑生素:</label>
+                <select id="test" class="easyui-combobox" panelheight=auto style="width: 200px; height: auto" editable="false">
+                    <option value="0" selected="selected">否</option>
+                    <option value="1">是</option>
+                </select>
+            </div>
+
+
+        </form>
+        
+            <div class="fItem" style="display: inline-block; margin: 0; padding: 0px 30px 10px 30px; display: inline; display: table;">
+                <label>模板文件:</label>
+                <form id="FileUploadForm" method="post" name="FileUploadForm" enctype="multipart/form-data" style="display: inline; padding-left: 7px; float: right">
+                    <input type="file" id="FileUpload1" name="FileUpload1" style="width:200px" buttontext='选择文件' />
+                </form>
+           </div>
+       
+    </div>       
+        <div id="dlgButtons">        
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">取消</a>       
+        </div>
+      
+</body>
+
+</html>

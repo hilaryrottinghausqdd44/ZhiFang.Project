@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="VBloodLisResult" table="[dbo].[v_blood_lisresult]">
+    <!--<id name="Id" column="[BarCode]" type="String">
+      <generator class="assigned" />
+    </id>-->
+    <!--联合ID //name为主实体类的属性名-->
+    <composite-id>
+      <key-property name="BarCode" column="BarCode" type="String" />
+      <key-property name="ItemNo" column="ItemNo"  type="String" />
+    </composite-id>
+    <!--<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />-->
+    <property name="BarCode" column="[BarCode]" type="String" not-null="false" length="50" />
+    <property name="ItemNo" column="[ItemNo]" type="String" not-null="false" length="50" />
+    <property name="ReceiveDate" column="[ReceiveDate]" type="DateTime" not-null="false" length="8" />
+    <property name="ParItemNo" column="[ParItemNo]" type="String" not-null="false" length="50" />
+    <property name="ReportDesc" column="[ReportDesc]" type="String" not-null="false" length="800" />
+    <property name="B3code" column="[b3code]" type="String" not-null="false" length="50" />
+    <property name="CheckDateTime" column="[CheckDateTime]" type="String" not-null="false" length="30" />
+    <property name="Checker" column="[Checker]" type="String" not-null="false" length="50" />
+    <property name="PatName" column="[PatName]" type="String" not-null="false" length="50" />
+    <property name="SampleNo" column="[SampleNo]" type="String" not-null="false" length="50" />
+    <property name="SectionNo" column="[SectionNo]" type="String" not-null="false" length="50" />
+    <property name="TestTypeNo" column="[TestTypeNo]" type="String" not-null="false" length="50" />
+    <property name="PatNo" column="[PatNo]" type="String" not-null="false" length="50" />
+    <property name="Itemtesttime" column="[itemtesttime]" type="String" not-null="false" length="50" />
+    <property name="ItemResult" column="[ItemResult]" type="String" not-null="false" length="50" />    
+    <property name="ItemName" column="[ItemName]" type="String" not-null="false" length="150" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="150" />
+    <property name="ItemUnit" column="[ItemUnit]" type="String" not-null="false" length="250" />
+  </class>
+</hibernate-mapping>

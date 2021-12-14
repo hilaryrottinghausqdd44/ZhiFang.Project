@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="../../extjs/zhifangux/ColumnCondition.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css"/> 
+        <link rel="stylesheet" type="text/css" href="../../extjs/ux/css/CheckHeader.css" />
+
+     <script type="text/javascript">
+    Ext.onReady(function(){
+     //一 生成组件
+	     var vartestobj=Ext.create('Ext.zhifangux.ColumnCondition', {
+	         renderTo: Ext.getBody(),
+	         margin :  '11 10 10 10',
+	         id:'lie',
+	         width:700,
+	         height:450,
+			 DataServerUrl:'server/ConditionList.json',depDataServerUrl:'server/bmtree.json',
+             UsersValueField:[
+		        { text: '部门Id',dataIndex: 'DeptpId',hidden:true},
+		        { text: '所属部门',dataIndex: 'DeptpName'},
+				{ text: '帐号',  dataIndex: 'userId'},
+		        { text: '姓名',  dataIndex: 'name'},
+		        { text: 'Email', dataIndex: 'email'},
+		        { text: '联系电话', dataIndex: 'phone'}
+	         ],
+			UsersDeptValueField:[
+		        { text: 'DeptpId',  dataIndex: 'DeptpId'},
+		        { text: 'DeptpName',dataIndex: 'DeptpName'}
+	        ],
+			UsersId:'userId',      //匹配部门人员选择器的返回结果里的人员Id值字段
+		    UsersName:'name',   //匹配部门人员选择器的返回结果里的人员名称值字
+			UsersDataServerUrl: 'server/PeoplePicker.json', //人员后台查询服务地址
+			UsersDeptDataServerUrl:'server/PeoplePicker2.json', //部门后台查询服务地址
+			UsersDeptId:'DeptpId',      //匹配部门人员选择器的人员部门Id
+			UsersDeptName:'DeptpName', //匹配部门人员选择器的人员部门名称 
+			
+			UserRoot:'ResultDataValue',//部门人员获取/读取后台数据时的根节点
+			DeptRoot:'ResultDataValue',//部门获取/读取后台数据时的根节点
+			
+			DataServerUrl:'server/ConditionList.json',
+			depDataServerUrl:'server/MenuTree.json'	,
+			UsersId:'DeptpId',      //匹配部门人员选择器的返回结果里的人员Id值字段
+	            UsersName:'DeptpName', 
+	            Name:'text',//查询文本框名称项
+	            ID:'pid',//查询文本框ID项 
+	            ValueField:[
+		            { text: 'id', dataIndex: 'id', width: 30, align: 'center' ,hidden:true},
+		            { text: '列名', dataIndex: 'L1', width: 100, align: 'center' },
+	                {text: '可见',dataIndex: 'KJ',width: 60,align: 'center',
+			         xtype: 'checkcolumn',
+		             editor: {
+		                  xtype: 'checkbox',
+		                  cls: 'x-grid-checkheader-editor'
+		                }
+		             },
+			        {text: '可编辑',dataIndex: 'KBJ',width: 60,align: 'center',
+					  xtype: 'checkcolumn',
+			             editor: {
+			               xtype: 'checkbox',
+			               cls: 'x-grid-checkheader-editor'
+			             }
+				    }
+				],
+		    //岗位
+		    postDataServerUrl: 'server/CheckboxGroup.json',
+	           postradiogroupName:'rb',
+	           PostName:'rb',
+	           PostID:'rb',
+	          //职位
+	           PositionDataServerUrl:'server/post.json',
+	           PositionradiogroupName:'rb',
+	           
+	           //保存路径
+	           SaveServerUrl:'server/ConditionList.json',
+	           listeners:{
+				   OnSave:function(){
+				       alert("触发了保存事件,好像没什么用");
+				   },
+				   OnCancel:function(){
+				       alert("触发了取消事件,好像没什么用");
+				   }			  
+			   }
+	
+		});
+		
+	
+		//属性设置,服务地址
+		var SelectType=Ext.create('Ext.Button', {
+			text: '设置服务地址',
+			handler: function() {
+			    var left=Ext.getCmp('leftf');
+			    var LL1=Ext.getCmp('LL1').value;
+			   
+	       }
+        });  
+
+	    //属性设置:
+		var mysetTitle=Ext.create('Ext.toolbar.Toolbar', {
+	    width   : 300,
+		height:25,
+		bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+		cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+		border : 0,//边框线显示 true,或隐藏false
+	    items: [
+	        {
+	            xtype    : 'textfield',
+	            name     : 'field1',
+				id:"LL1",
+	            emptyText: '服务地址'
+	        },
+			 {
+	            xtype: SelectType,
+	        }
+	    ]
+		});	
+	    //属性设置:保存地址
+		var DataServerUrl =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype : 'textfield',id:"L2",emptyText: '设置保存地址'},
+			    { xtype : 'button', text: '保存地址',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+	
+		 //属性设置:主键值
+		var mysetHeight =Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        {xtype    : 'textfield',id:"my_setHeight",emptyText: '设置主键值'},
+				{ xtype: 'button',text: '主键值',border : true,//边框线显示 true,或隐藏false
+				 handler: function() {
+			
+					}
+		        }
+	        ]
+		});	
+		//属性设置:字段值
+		var  SearchField=Ext.create('Ext.toolbar.Toolbar', {
+		    width   :300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L5",emptyText: '字段值'},
+			    { xtype: 'button', text: '字段值',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var y=  Ext.getCmp('leftf');
+					 var  t1=Ext.getCmp('L5').getValue();
+					 var tt=parseInt(t1);
+				    // y.setWidth(t1);
+				     y.Width=tt;
+					 y.insert();
+
+				 }
+		        }
+		    ]
+		});	
+
+		//属性设置:值字段
+		var  KeyField=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L6",emptyText: '值字段'},
+			    { xtype: 'button', text: '值字段',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var y=  Ext.getCmp('leftf');
+					 var  t1=Ext.getCmp('L6').getValue();
+					 y.Width=parseInt(t1);
+				
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:是否显示根节点
+		var  ValueField=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype  : 'textfield',id:"L7",emptyText: '是否显示根节点'},
+			    { xtype  : 'button', text: '是否显示根节点',border : true,//边框线显示 true,或隐藏false
+			     handler : function() {
+				    
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:读取数据时的根节点
+		var  DefaultRootProperty=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L8",emptyText: '读取数据时的根节点'},
+			    { xtype: 'button', text: '读取数据时的根节点',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+	
+	    //属性设置:文本（保存）
+		var  okText=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L9",emptyText: '文本（确定）'},
+			    { xtype: 'button', text: '文本（确定）',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				    var mytest=Ext.getCmp("lie");
+					var setWidth=Ext.getCmp("L9").getValue();
+					mytest.okText=setWidth;
+					mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+	
+	      //属性设置:文本（取消）
+		var  cancelText=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L10",emptyText: '文本（取消）'},
+			    { xtype: 'button', text: '文本（取消）',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L10").getValue();
+					 mytest.cancelText=setWidth;
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+		
+	   //属性设置:窗体宽
+		var  WinWidth=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L11",emptyText: '窗体宽'},
+			    { xtype: 'button', text: '窗体宽',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L11").getValue();
+					 mytest.width=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+			
+	   //属性设置:窗体高
+		var  WinHight=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L12",emptyText: '窗体高'},
+			    { xtype: 'button', text: '窗体高',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setHeight=Ext.getCmp("L12").getValue();
+					 mytest.height=parseInt(setHeight);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+		   //属性设置:部门服务地址
+		var  depDataServerUrl=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L13",emptyText: '部门服务地址'},
+			    { xtype: 'button', text: '部门服务地址',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+	 
+	       //属性设置:部门查询文本框名称项
+		var  Name=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L14",emptyText: '部门查询文本框名称项'},
+			    { xtype: 'button', text: '部门查询文本框名称项',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		
+		     //属性设置:部门文本框ID项
+		var  ID=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L15",emptyText: '部门文本框ID项'},
+			    { xtype: 'button', text: '部门文本框ID项',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		
+		     //属性设置:部门选择器宽
+		var  DepWidth=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L16",emptyText: '部门选择器宽'},
+			    { xtype: 'button', text: '部门选择器宽',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L16").getValue();
+					 mytest.DepWidth=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+		
+			     //属性设置:部门选择器高
+		var  DepHeight=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L17",emptyText: '部门选择器高'},
+			    { xtype: 'button', text: '部门选择器高',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L17").getValue();
+					 mytest.DepHeight=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+		
+				     //属性设置:人员选择器--人员部门数据列表值字段,需要外部传入数据适配
+		var  UsersValueField=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L18",emptyText: '人员选择器--人员部门数据列表值字段,需要外部传入数据适配'},
+			    { xtype: 'button', text: '人员选择器数据列表值字段',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		//属性设置:部门下拉绑定树选择器--数据列表值字段,需要外部传入数据适配
+		var  UsersDeptValueField=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L19",emptyText: '部门下拉绑定树选择器'},
+			    { xtype: 'button', text: '部门下拉绑定树数据列表值字段',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		
+			//属性设置:部门人员选择器--人员后台查询服务地址
+		var  UsersDataServerUrl=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L20",emptyText: '部门人员选择器--人员后台查询服务地址'},
+			    { xtype: 'button', text: '部门人员选择器--人员后台查询服务地址',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+	   //属性设置:部门下拉绑定树选择器--部门后台服务查询地址
+		var  UsersDeptDataServerUrl=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L21",emptyText: '部门下拉绑定树后台服务查询地址'},
+			    { xtype: 'button', text: '部门下拉绑定树后台服务查询地址',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		 //属性设置:人员部门Id
+		var  UsersDeptId=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L22",emptyText: '人员部门Id'},
+			    { xtype: 'button', text: '人员部门Id',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:人员部门名称
+		var  UsersDeptpName=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L23",emptyText: '人员部门名称'},
+			    { xtype: 'button', text: '人员部门名称',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:匹配部门人员选择器的返回结果里的人员Id值字段
+		var  UsersId=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L24",emptyText: '匹配部门人员选择器的返回结果里的人员'},
+			    { xtype: 'button', text: '匹配部门人员选择器的返回结果里的人员',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});
+			//属性设置:匹配部门人员选择器的返回结果里的人员名称值字段
+		var  UsersName=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L25",emptyText: '匹配部门人员名称值字段'},
+			    { xtype: 'button', text: '匹配部门人员名称值字段',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:人员选择器宽
+		var  UsersWidth=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L26",emptyText: '人员选择器宽'},
+			    { xtype: 'button', text: '人员选择器宽',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L26").getValue();
+					 mytest.UsersWidth=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:人员选择器高
+		var  UsersHeight=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L27",emptyText: '人员选择器高'},
+			    { xtype: 'button', text: '人员选择器高',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L27").getValue();
+					 mytest.UsersHeight=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+		
+			//属性设置:岗位服务地址
+		var  postDataServerUrl=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L28",emptyText: '岗位服务地址'},
+			    { xtype: 'button', text: '岗位服务地址',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     
+				 }
+		        }
+		    ]
+		});	
+		
+				//属性设置:岗位选择器宽
+		var  postWidth=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L29",emptyText: '岗位选择器宽'},
+			    { xtype: 'button', text: '岗位选择器宽',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L29").getValue();
+					 mytest.postWidth=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});	
+		
+		//属性设置:岗位选择器宽
+		var  postHeight=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L30",emptyText: '岗位选择器高'},
+			    { xtype: 'button', text: '岗位选择器高',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				      var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L30").getValue();
+					 mytest.postHeight=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});
+		
+			
+		//属性设置:职位服务地址
+		var  PositionDataServerUrl=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L31",emptyText: '职位服务地址'},
+			    { xtype: 'button', text: '职位服务地址',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				   
+				 }
+		        }
+		    ]
+		});
+		
+			//属性设置:职位选择器宽
+		var  PositionWidth=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L32",emptyText: '职位选择器宽'},
+			    { xtype: 'button', text: '职位选择器宽',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L32").getValue();
+					 mytest.PositionWidth=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});
+		
+				//属性设置:职位选择器高
+		var  PositionHeight=Ext.create('Ext.toolbar.Toolbar', {
+		    width   : 300,
+			height:25,
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : 0,//边框线显示 true,或隐藏false
+		    items: [
+		        { xtype    : 'textfield',id:"L33",emptyText: '职位选择器高'},
+			    { xtype: 'button', text: '职位选择器高',border : true,//边框线显示 true,或隐藏false
+			     handler: function() {
+				     var mytest=Ext.getCmp("lie");
+					 var setWidth=Ext.getCmp("L33").getValue();
+					 mytest.PositionHeight=parseInt(setWidth);
+					 mytest.insert();
+				 }
+		        }
+		    ]
+		});
+		//三:呈现视图
+		var viewport=Ext.create("Ext.container.Viewport",{
+			layout:  'border',//Border布局
+			bodyCls:'bg-white',//控件主体背景样式,默认值'bg-white',为"css/icon.css"里的.bg-white
+			cls:'bg-white',//控件样式设置,默认值'bg-white',为"css/icon.css"里的.bg-white
+			border : false,//边框线显示 true,或隐藏false
+	        items: [
+			   {region: 'center',border : false,//边框线显示 true,或隐藏false
+			   layout:'column',
+			       items:[
+				       { xtype:vartestobj}
+				    ]
+	           },{
+				region: 'east',layout: 'accordion', frame: true,collapsible: true,split: true,width: 320,border : true,//边框线显示 true,或隐藏false
+				items:[
+				    {xtype: 'form',id: 'formtest_Property',autoScroll: true,bodyPadding: 10,collapsed: true,
+					layout: 'column',title: '属性设置,单选为列,测试用例未实现,可配置',
+			        items: [
+		               {xtype: mysetTitle,anchor: '100%'},
+                       {xtype:mysetHeight,anchor: '100%'},
+				       {xtype:DataServerUrl,anchor: '100%'},
+				       {xtype:SearchField,anchor: '100%'},
+				       {xtype:KeyField,anchor: '100%'},
+				       {xtype:ValueField,anchor: '100%'},
+				       {xtype:DefaultRootProperty,anchor: '100%'},
+				       {xtype:okText,anchor: '100%'},
+				       {xtype:cancelText,anchor: '100%'},
+				       {xtype:WinWidth,anchor: '100%'},
+				       {xtype:WinHight,anchor: '100%'},
+				       {xtype:depDataServerUrl,anchor: '100%'},
+				       {xtype:Name,anchor: '100%'},
+				       {xtype:ID,anchor: '100%'},
+				       {xtype:DepWidth,anchor: '100%'},
+				       {xtype:DepHeight,anchor: '100%'},
+				       {xtype:UsersValueField,anchor: '100%'},
+				       {xtype:UsersDeptValueField,anchor: '100%'},
+				       {xtype:UsersDataServerUrl,anchor: '100%'},
+				       {xtype:UsersDeptDataServerUrl,anchor: '100%'},
+				       {xtype:UsersDeptId,anchor: '100%'},
+				       {xtype:UsersDeptpName,anchor: '100%'},
+				       {xtype:UsersId,anchor: '100%'},
+				       {xtype:UsersName,anchor: '100%'},
+				       {xtype:UsersWidth,anchor: '100%'},
+				       {xtype:UsersHeight,anchor: '100%'},
+				       {xtype:postDataServerUrl,anchor: '100%'},
+				       {xtype:postWidth,anchor: '100%'},
+				       {xtype:postHeight,anchor: '100%'},
+				       {xtype:DepHeight,anchor: '100%'},
+				       {xtype:PositionDataServerUrl,anchor: '100%'},
+				       {xtype:PositionWidth,anchor: '100%'},
+				       {xtype:PositionHeight,anchor: '100%'}
+				    ]},
+				    //事件设置
+			        {xtype: 'form',id: 'formtest_Event',autoScroll: true,bodyPadding: 10,collapsed: true, title: '事件设置',
+			        items: [
+			       
+					]}
+				]}
+			]
+	    });
+				
+     });
+
+    </script>
+</head>
+<body>
+</body>
+</html>

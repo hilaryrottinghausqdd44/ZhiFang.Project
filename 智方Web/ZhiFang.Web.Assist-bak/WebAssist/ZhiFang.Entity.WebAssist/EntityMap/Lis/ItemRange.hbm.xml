@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="ItemRange" table="[dbo].[ItemRange]">
+    <id name="Id" column="[ItemNo]" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <!--<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />-->
+    <property name="SampleTypeNo" column="[SampleTypeNo]" type="Int32" not-null="false" length="4" />
+    <property name="GenderNo" column="[GenderNo]" type="Int32" not-null="false" length="4" />
+    <property name="AgeUnitNo" column="[AgeUnitNo]" type="Int32" not-null="false" length="4" />
+    <property name="LowAge" column="[LowAge]" type="Double" not-null="false" length="8" />
+    <property name="HighAge" column="[HighAge]" type="Double" not-null="false" length="8" />
+    <property name="LowValue" column="[LowValue]" type="Double" not-null="false" length="8" />
+    <property name="HighValue" column="[HighValue]" type="Double" not-null="false" length="8" />
+    <property name="AbLow" column="[AbLow]" type="Double" not-null="false" length="8" />
+    <property name="AbHigh" column="[AbHigh]" type="Double" not-null="false" length="8" />
+    <property name="RefRange" column="[RefRange]" type="String" not-null="false" length="400" />
+    <property name="IsDefault" column="[IsDefault]" type="Int32" not-null="false" length="4" />
+    <property name="SectionNo" column="[SectionNo]" type="Int32" not-null="false" length="4" />
+    <property name="HighDesc" column="[HighDesc]" type="String" not-null="false" length="100" />
+    <property name="LowDesc" column="[LowDesc]" type="String" not-null="false" length="100" />
+    <property name="NaturalDesc" column="[NaturalDesc]" type="String" not-null="false" length="100" />
+    <property name="UserDesc" column="[UserDesc]" type="Int32" not-null="false" length="4" />
+    <property name="EquipNo" column="[EquipNo]" type="Int32" not-null="false" length="4" />
+    <property name="Unit" column="[Unit]" type="String" not-null="false" length="50" />
+    <property name="RefDesc" column="[RefDesc]" type="String" not-null="false" length="100" />
+    <property name="HasResultDesc" column="[HasResultDesc]" type="String" not-null="false" length="10" />
+    <property name="HighStatus" column="[HighStatus]" type="String" not-null="false" length="10" />
+    <property name="LowStatus" column="[LowStatus]" type="String" not-null="false" length="10" />
+    <property name="NaturalStatus" column="[NaturalStatus]" type="String" not-null="false" length="10" />
+    <property name="HHDesc" column="[HHDesc]" type="String" not-null="false" length="100" />
+    <property name="HHStatus" column="[HHStatus]" type="String" not-null="false" length="10" />
+    <property name="LLDesc" column="[LLDesc]" type="String" not-null="false" length="100" />
+    <property name="LLStatus" column="[LLStatus]" type="String" not-null="false" length="10" />
+    <property name="BCollectTime" column="[bCollectTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ECollectTime" column="[eCollectTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DeptNo" column="[DeptNo]" type="Int32" not-null="false" length="4" />
+    <property name="RedoVLow" column="[RedoVLow]" type="Double" not-null="false" length="8" />
+    <property name="RedoVHigh" column="[RedoVHigh]" type="Double" not-null="false" length="8" />
+    <property name="AppendUserDesc" column="[AppendUserDesc]" type="Int32" not-null="false" length="4" />
+    <property name="AbLowStateDesc" column="[AbLowStateDesc]" type="String" not-null="false" length="500" />
+    <property name="AbHighStateDesc" column="[AbHighStateDesc]" type="String" not-null="false" length="500" />
+    <property name="LowStateDesc" column="[LowStateDesc]" type="String" not-null="false" length="500" />
+    <property name="HighStateDesc" column="[HighStateDesc]" type="String" not-null="false" length="500" />
+    <property name="ParitemNo" column="[ParitemNo]" type="Int32" not-null="false" length="4" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,102 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTBChargeByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTBChargeById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelMEPTBCharge',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddMEPTBCharge',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTBChargeByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTBCharge',
+
+    		//费用表对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'MEPTBCharge_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'MEPTBCharge_Id',value:'费用ID'},						 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_ChargeTypeID',value:'费用类型ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_HisCode',value:'HIS对照码'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_ChargeValue',value:'费用'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_CName',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_EName',value:'英文名称'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_DispOrder',value:'显示次序'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_Comment1',value:'备注1'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_Comment2',value:'备注2'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_Comment3',value:'备注3'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'MEPTBCharge_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'MEPTBCharge_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'费用表',
+    		//主键字段
+    		key:'MEPTBCharge_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

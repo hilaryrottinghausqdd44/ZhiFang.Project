@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="BLaboratory" table="[dbo].[B_Laboratory]">
+    <cache usage="read-write"/>
+    <id name="Id" column="[LabID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="50" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="40" />
+    <property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="40" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+    <property name="LinkMan" column="[LinkMan]" type="String" not-null="false" length="40" />
+    <property name="PhoneNum1" column="[PhoneNum1]" type="String" not-null="false" length="40" />
+    <property name="Address" column="[Address]" type="String" not-null="false" length="40" />
+    <property name="MailNo" column="[MailNo]" type="String" not-null="false" length="40" />
+    <property name="Emall" column="[Emall]" type="String" not-null="false" length="40" />
+    <property name="Principal" column="[Principal]" type="String" not-null="false" length="40" />
+    <property name="PhoneNum2" column="[PhoneNum2]" type="String" not-null="false" length="40" />
+    <property name="ClientType" column="[ClientType]" type="Int32" not-null="false" length="4" />
+    <property name="BmanNo" column="[BmanNo]" type="Int32" not-null="false" length="4" />
+    <property name="Romark" column="[Romark]" type="String" not-null="false" length="200" />
+    <property name="TitleType" column="[TitleType]" type="Int32" not-null="false" length="4" />
+    <property name="UploadType" column="[UploadType]" type="Int32" not-null="false" length="4" />
+    <property name="PrintType" column="[PrintType]" type="Int32" not-null="false" length="4" />
+    <property name="InputDataType" column="[InputDataType]" type="Int32" not-null="false" length="4" />
+    <property name="ReportPageType" column="[ReportPageType]" type="Int32" not-null="false" length="4" />
+    <property name="ClientArea" column="[ClientArea]" type="String" not-null="false" length="40" />
+    <property name="ClientStyle" column="[ClientStyle]" type="String" not-null="false" length="40" />
+    <property name="RelationName" column="[RelationName]" type="String" not-null="false" length="50" />
+    <property name="WebLisSourceOrgID" column="[WebLisSourceOrgID]" type="String" not-null="false" length="10" />
+    <property name="GroupName" column="[GroupName]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

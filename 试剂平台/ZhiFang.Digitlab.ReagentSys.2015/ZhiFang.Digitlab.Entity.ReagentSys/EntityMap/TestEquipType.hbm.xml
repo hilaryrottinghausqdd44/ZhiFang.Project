@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+	<class name="TestEquipType" table="[dbo].[TestEquipType]">
+		<id name="Id" column="[TestEquipTypeID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="CName" column="[CName]" type="String" not-null="true" length="300" />
+		<property name="EName" column="[EName]" type="String" not-null="false" length="200" />
+		<property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="100" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+		<property name="Visible" column="[Visible]" type="Int32" not-null="false" length="4" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<bag name="TestEquipLabList" inverse="true" cascade="save-update" lazy="true">
+			<key>
+                <column name="[TestEquipTypeID]" />
+            </key>
+			<one-to-many class="TestEquipLab"/>
+		</bag>
+		<bag name="TestEquipProdList" inverse="true" cascade="save-update" lazy="true">
+			<key>
+                <column name="[TestEquipTypeID]" />
+            </key>
+			<one-to-many class="TestEquipProd"/>
+		</bag>
+	</class>
+</hibernate-mapping>

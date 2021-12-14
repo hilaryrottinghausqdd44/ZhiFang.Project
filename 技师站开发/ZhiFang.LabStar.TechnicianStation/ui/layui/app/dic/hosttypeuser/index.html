@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>站点类型关系维护</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+  	</script> 
+  <style>
+  	  	 body{background-color: #FFFFFF;}
+    	 /*重置表单控件上下间距*/
+        .layui-form-item { margin-bottom: 5px; }
+		.layui-table-view{margin: 1px 0;}
+    </style> 
+ </head> 
+ <body> 
+ <div class="layui-card" style="padding:0px 15px;margin: 0px;"> 
+ 	<div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="tab">
+		  <ul class="layui-tab-title">
+		    <li class="layui-this">站点类型与人员关系</li>
+		    <li>人员与站点类型关系</li>
+		  </ul>
+		  <div class="layui-tab-content">
+		    <div class="layui-tab-item layui-show">
+		     <div class="layui-col-md3 layui-col-sm3"> 
+		      <table class="layui-hide" id="table" lay-filter="table"> 
+		      </table> 
+		     </div> 
+		     <div class="layui-col-md3 layui-col-sm3" style="padding-left: 5px;"> 
+		      <table class="layui-hide" id="para_table" lay-filter="para_table"> 
+		      </table> 
+		     </div> 
+		     <div class="layui-col-md6 layui-col-sm6" style="padding-left: 5px;"> 
+		     <div class="layui-btn-group HostTypeUser"> 
+                <button class="layui-btn layui-btn-xs"  data-type='add' id="add"><i class="iconfont"></i>&nbsp;选择人员</button> 
+		        <button class="layui-btn layui-btn-xs layui-bg-orange" data-type='del' id="del"><i class="layui-icon"></i>删除</button> 
+		     </div>
+		     <table class="layui-hide" id="emp_table" lay-filter="emp_table"> </table> 
+		     </div> 
+		    </div>
+		    <div class="layui-tab-item">
+		     <div class="layui-col-md5 layui-col-sm5" style="padding-left: 5px;"> 
+		      <table class="layui-hide" id="hemp_table" lay-filter="hemp_table"> 
+		      </table> 
+		     </div> 
+		     <div class="layui-col-md7 layui-col-sm7" style="padding-left: 5px;"> 
+		     <div class="layui-btn-group UserHostType"> 
+                <button class="layui-btn layui-btn-xs"  data-type='add'><i class="iconfont"></i>&nbsp;选择站点类型</button> 
+		        <button class="layui-btn layui-btn-normal layui-btn-xs" data-type="copy"><i class="iconfont"></i>&nbsp;复制个人站点类型</button> 
+		        <button class="layui-btn layui-btn-xs layui-bg-orange" data-type='del'><i class="layui-icon"></i>删除</button> 
+		     </div>
+		     <table class="layui-hide" id="emp_hosttype_table" lay-filter="emp_hosttype_table"> </table> 
+		     </div> 
+		    </div>
+		  </div>
+		</div>
+		
+   </div> 
+    <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>  
+	<style>
+	 .layui-table-view{margin: 1px 0px; }
+	</style>
+ </body>
+</html>

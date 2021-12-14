@@ -1,0 +1,363 @@
+2017-10-23 13:39:07,406 [9088] INFO  : LisDB
+2017-10-23 13:39:07,599 [9088] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:07,620 [9088] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:07,638 [9088] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:39:07,710 [9088] INFO  : LisDB
+2017-10-23 13:39:07,714 [9088] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:07,717 [9088] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:07,717 [9088] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:39:10,098 [8488] INFO  : LisDB
+2017-10-23 13:39:10,101 [8488] INFO  :  SELECT count(*) FROM dbo.BarCodeForm INNER JOIN dbo.NRequestItem ON dbo.BarCodeForm.BarCodeFormNo = dbo.NRequestItem.BarCodeFormNo INNER JOIN dbo.NRequestForm ON dbo.NRequestItem.NRequestFormNo = dbo.NRequestForm.NRequestFormNo    where NRequestForm.NRequestFormno=5470791261895568979 and BarCodeForm.weblisflag=5  
+2017-10-23 13:39:10,162 [8488] INFO  : LisDB
+2017-10-23 13:39:10,167 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:10,170 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:10,170 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:39:12,874 [8488] INFO  : LisDB
+2017-10-23 13:39:12,875 [8488] INFO  :  SELECT count(*) FROM dbo.BarCodeForm INNER JOIN dbo.NRequestItem ON dbo.BarCodeForm.BarCodeFormNo = dbo.NRequestItem.BarCodeFormNo INNER JOIN dbo.NRequestForm ON dbo.NRequestItem.NRequestFormNo = dbo.NRequestForm.NRequestFormNo    where NRequestForm.NRequestFormno=4638176814030679018 and BarCodeForm.weblisflag=5  
+2017-10-23 13:39:12,987 [8488] INFO  : LisDB
+2017-10-23 13:39:12,990 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:12,994 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:12,995 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:39:15,537 [8488] INFO  : LisDB
+2017-10-23 13:39:15,538 [8488] INFO  :  SELECT count(*) FROM dbo.BarCodeForm INNER JOIN dbo.NRequestItem ON dbo.BarCodeForm.BarCodeFormNo = dbo.NRequestItem.BarCodeFormNo INNER JOIN dbo.NRequestForm ON dbo.NRequestItem.NRequestFormNo = dbo.NRequestForm.NRequestFormNo    where NRequestForm.NRequestFormno=5523928531031695497 and BarCodeForm.weblisflag=5  
+2017-10-23 13:39:15,587 [8488] INFO  : LisDB
+2017-10-23 13:39:15,591 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:15,593 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:15,597 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:39:18,233 [8488] INFO  : LisDB
+2017-10-23 13:39:18,234 [8488] INFO  :  SELECT count(*) FROM dbo.BarCodeForm INNER JOIN dbo.NRequestItem ON dbo.BarCodeForm.BarCodeFormNo = dbo.NRequestItem.BarCodeFormNo INNER JOIN dbo.NRequestForm ON dbo.NRequestItem.NRequestFormNo = dbo.NRequestForm.NRequestFormNo    where NRequestForm.NRequestFormno=5157777595304211670 and BarCodeForm.weblisflag=5  
+2017-10-23 13:39:18,304 [8488] INFO  : LisDB
+2017-10-23 13:39:18,309 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:18,315 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:18,318 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:39:20,865 [8488] INFO  : LisDB
+2017-10-23 13:39:20,866 [8488] INFO  :  SELECT count(*) FROM dbo.BarCodeForm INNER JOIN dbo.NRequestItem ON dbo.BarCodeForm.BarCodeFormNo = dbo.NRequestItem.BarCodeFormNo INNER JOIN dbo.NRequestForm ON dbo.NRequestItem.NRequestFormNo = dbo.NRequestForm.NRequestFormNo    where NRequestForm.NRequestFormno=5352370245560339969 and BarCodeForm.weblisflag=5  
+2017-10-23 13:39:20,934 [8488] INFO  : LisDB
+2017-10-23 13:39:20,937 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:20,940 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:20,944 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:39:24,089 [8488] INFO  : LisDB
+2017-10-23 13:39:24,090 [8488] INFO  :  SELECT count(*) FROM dbo.BarCodeForm INNER JOIN dbo.NRequestItem ON dbo.BarCodeForm.BarCodeFormNo = dbo.NRequestItem.BarCodeFormNo INNER JOIN dbo.NRequestForm ON dbo.NRequestItem.NRequestFormNo = dbo.NRequestForm.NRequestFormNo    where NRequestForm.NRequestFormno=5217538570957043507 and BarCodeForm.weblisflag=5  
+2017-10-23 13:39:24,142 [8488] INFO  : LisDB
+2017-10-23 13:39:24,146 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:24,149 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:24,152 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:39:24,177 [8488] INFO  : LisDB
+2017-10-23 13:39:24,180 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:39:24,183 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:39:24,184 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:41:00,189 [8488] INFO  : LisDB
+2017-10-23 13:41:00,192 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:41:00,199 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:41:00,201 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:41:00,252 [8488] INFO  : LisDB
+2017-10-23 13:41:00,256 [8488] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:41:00,258 [8488] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:41:00,259 [8488] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:41:02,683 [8488] INFO  : LisDB
+2017-10-23 13:41:02,684 [8488] INFO  :  SELECT count(*) FROM dbo.BarCodeForm INNER JOIN dbo.NRequestItem ON dbo.BarCodeForm.BarCodeFormNo = dbo.NRequestItem.BarCodeFormNo INNER JOIN dbo.NRequestForm ON dbo.NRequestItem.NRequestFormNo = dbo.NRequestForm.NRequestFormNo    where NRequestForm.NRequestFormno=5546182483118005685 and BarCodeForm.weblisflag=5  
+2017-10-23 13:41:03,416 [7692] INFO  : SQL:select  AgeUnitNo,CName  FROM AgeUnit where 1=1   order by AgeUnitNo,CName
+2017-10-23 13:41:03,417 [7692] INFO  : tableName:AgeUnit |fields:AgeUnitNo,CName |filerValue:
+2017-10-23 13:41:03,480 [7692] INFO  : SQL:select  TestTypeNo,CName  FROM TestType where 1=1   order by TestTypeNo,CName
+2017-10-23 13:41:03,481 [7692] INFO  : tableName:TestType |fields:TestTypeNo,CName |filerValue:
+2017-10-23 13:41:03,491 [7692] INFO  : SQL:select  AreaID,AreaCName,ClientNo  FROM ClientEleArea where 1=1   order by AreaID,AreaCName,ClientNo
+2017-10-23 13:41:03,494 [7692] INFO  : tableName:ClientEleArea |fields:AreaID,AreaCName,ClientNo |filerValue:
+2017-10-23 13:41:03,552 [7692] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:41:03,555 [7692] INFO  : BusinessLogicClientControl:GetListByPageselect top 1000  dbo.BusinessLogicClientControl.Account, dbo.CLIENTELE.* from  dbo.BusinessLogicClientControl INNER JOIN  dbo.CLIENTELE ON dbo.BusinessLogicClientControl.ClientNo = dbo.CLIENTELE.ClIENTNO where BusinessLogicClientControl.Account+'_'+BusinessLogicClientControl.ClientNo not in  (select top 0 BusinessLogicClientControl.Account+'_'+BusinessLogicClientControl.ClientNo from  dbo.BusinessLogicClientControl INNER JOIN   dbo.CLIENTELE ON dbo.BusinessLogicClientControl.ClientNo = dbo.CLIENTELE.ClIENTNO where 1=1  and  BusinessLogicClientControl.Account='1001' and dbo.BusinessLogicClientControl.Flag=0   order by BusinessLogicClientControl.Account,BusinessLogicClientControl.ClientNo) and  BusinessLogicClientControl.Account='1001' and dbo.BusinessLogicClientControl.Flag=0  order by BusinessLogicClientControl.Account,BusinessLogicClientControl.ClientNo  
+2017-10-23 13:41:03,831 [7692] INFO  : SQL:select  DistrictNo,CName  FROM District where 1=1   order by DistrictNo,CName
+2017-10-23 13:41:03,831 [7692] INFO  : tableName:District |fields:DistrictNo,CName |filerValue:
+2017-10-23 13:41:03,871 [7692] INFO  : SQL:select  FolkNo,CName  FROM FolkType where 1=1   order by FolkNo,CName
+2017-10-23 13:41:03,872 [7692] INFO  : tableName:FolkType |fields:FolkNo,CName |filerValue:
+2017-10-23 13:41:03,910 [7692] INFO  : SQL:select  SickTypeNo,CName  FROM SickType where 1=1   order by SickTypeNo,CName
+2017-10-23 13:41:03,911 [7692] INFO  : tableName:SickType |fields:SickTypeNo,CName |filerValue:
+2017-10-23 13:41:04,102 [7692] INFO  : LisDB
+2017-10-23 13:41:04,139 [7692] INFO  : select   dbo.TestItem.CName, dbo.TestItem.EName, dbo.TestItem.ShortName, dbo.TestItem.ShortCode, dbo.TestItem.IsDoctorItem, dbo.TestItem.IschargeItem, dbo.TestItem.isCombiItem, dbo.TestItem.IsProfile, dbo.TestItem.ItemNo , dbo.NRequestItem.*  FROM  dbo.TestItem RIGHT OUTER JOIN  dbo.NRequestItem ON dbo.TestItem.ItemNo = dbo.NRequestItem.CombiItemNo where 1=1  and PartFlag=0  and NRequestFormNo='5546182483118005685'  order by CombiItemNo,ParItemNo 
+2017-10-23 13:41:04,164 [7692] INFO  : B_Lab_TestItem----GetTotalCount：select count(*) FROM B_Lab_TestItem where 1=1 and ItemID is not null  and LabCode='1' 
+2017-10-23 13:41:04,208 [7692] ERROR : ZhiFang.DAL.MsSql.Weblis.B_TestItemControl.GetLabItemCodeMapListByNRequestLabCodeAndFormNo--strSql:SELECT  dbo.B_Lab_TestItem.CName, dbo.B_TestItemControl.ControlLabNo, dbo.B_TestItemControl.ControlItemNo, dbo.B_Lab_TestItem.Color, dbo.B_TestItemControl.ItemNo,dbo.B_Lab_TestItem.price FROM         dbo.B_Lab_TestItem INNER JOIN dbo.B_TestItemControl ON dbo.B_Lab_TestItem.ItemNo = dbo.B_TestItemControl.ControlItemNo AND dbo.B_Lab_TestItem.LabCode = dbo.B_TestItemControl.ControlLabNo where (B_TestItemControl.ItemNo in (select ParItemNo from nrequestitem where  nrequestitem.nrequestformno=5546182483118005685)or B_TestItemControl.ItemNo in (select CombiItemNo from nrequestitem where  nrequestitem.nrequestformno=5546182483118005685)) and B_TestItemControl.ControlLabNo='1' 
+2017-10-23 13:41:04,219 [7692] INFO  : barCodeFormNo:5034395000484031516
+2017-10-23 13:41:04,219 [7692] INFO  : drsItem.Length:8
+2017-10-23 13:41:04,382 [7692] INFO  : SQL:select  GenderNo,CName  FROM GenderType where 1=1   order by GenderNo,CName
+2017-10-23 13:41:04,382 [7692] INFO  : tableName:GenderType |fields:GenderNo,CName |filerValue:
+2017-10-23 13:41:04,420 [7692] INFO  : SQL:select  LabDoctorNo,CName,ShortCode  FROM B_Lab_Doctor where 1=1   and labcode ='1'  order by LabDoctorNo,CName,ShortCode
+2017-10-23 13:41:04,421 [7692] INFO  : tableName:B_Lab_Doctor |fields:LabDoctorNo,CName,ShortCode |filerValue:
+2017-10-23 13:41:04,806 [7692] INFO  : B_Lab_TestItem---GetListByPage:select top 1 '('+convert(varchar(50),ItemNo)+')'+CName as ItemNoName,ItemNo as LabItemNo,* from B_Lab_TestItem where 1=1 and ItemID is not null   and LabCode='1'  and UseFlag='1'   and ItemID not in (select top 0 ItemID from B_Lab_TestItem where 1=1 and (isCombiItem=1 or IsProfile=1 ) and ItemID is not null  and LabCode='1'  and UseFlag='1'  order by ItemNo desc )  and (isCombiItem=1 or IsProfile=1) order by ItemNo desc 
+2017-10-23 13:41:04,812 [7692] INFO  : B_Lab_TestItem----GetTotalCount：select count(*) FROM B_Lab_TestItem where 1=1  and (isCombiItem=1 or IsProfile=1) and ItemID is not null  and LabCode='1'  and UseFlag=1
+2017-10-23 13:41:04,832 [7692] INFO  : SQL:select  DeptNo,CName  FROM Department where 1=1   order by DeptNo,CName
+2017-10-23 13:41:04,833 [7692] INFO  : tableName:Department |fields:DeptNo,CName |filerValue:
+2017-10-23 13:41:04,841 [7692] INFO  : B_Lab_TestItem---GetListByPage:select top 100 '('+convert(varchar(50),ItemNo)+')'+CName as ItemNoName,ItemNo as LabItemNo,* from B_Lab_TestItem where 1=1 and ItemID is not null   and LabCode='1'  and UseFlag='1'   and ItemID not in (select top 0 ItemID from B_Lab_TestItem where 1=1 and (isCombiItem=1 or IsProfile=1 ) and ItemID is not null  and LabCode='1'  and UseFlag='1'  order by ItemNo desc )  and (isCombiItem=1 or IsProfile=1) order by ItemNo desc 
+2017-10-23 13:41:04,854 [7692] INFO  : B_Lab_TestItem----GetTotalCount：select count(*) FROM B_Lab_TestItem where 1=1  and (isCombiItem=1 or IsProfile=1) and ItemID is not null  and LabCode='1'  and UseFlag=1
+2017-10-23 13:41:07,309 [7692] INFO  : LisDB
+2017-10-23 13:41:07,313 [7692] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:41:07,318 [7692] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:41:07,318 [7692] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 
+2017-10-23 13:42:54,037 [7692] INFO  : SQL:select  AgeUnitNo,CName  FROM AgeUnit where 1=1   order by AgeUnitNo,CName
+2017-10-23 13:42:54,038 [7692] INFO  : tableName:AgeUnit |fields:AgeUnitNo,CName |filerValue:
+2017-10-23 13:42:54,068 [7692] INFO  : SQL:select  DistrictNo,CName  FROM District where 1=1   order by DistrictNo,CName
+2017-10-23 13:42:54,068 [7692] INFO  : tableName:District |fields:DistrictNo,CName |filerValue:
+2017-10-23 13:42:54,091 [6412] INFO  : SQL:select  GenderNo,CName  FROM GenderType where 1=1   order by GenderNo,CName
+2017-10-23 13:42:54,092 [6412] INFO  : tableName:GenderType |fields:GenderNo,CName |filerValue:
+2017-10-23 13:42:54,102 [7692] INFO  : SQL:select  FolkNo,CName  FROM FolkType where 1=1   order by FolkNo,CName
+2017-10-23 13:42:54,103 [7692] INFO  : tableName:FolkType |fields:FolkNo,CName |filerValue:
+2017-10-23 13:42:54,111 [7692] INFO  : SQL:select  SickTypeNo,CName  FROM SickType where 1=1   order by SickTypeNo,CName
+2017-10-23 13:42:54,117 [7692] INFO  : tableName:SickType |fields:SickTypeNo,CName |filerValue:
+2017-10-23 13:42:54,124 [7692] INFO  : SQL:select  TestTypeNo,CName  FROM TestType where 1=1   order by TestTypeNo,CName
+2017-10-23 13:42:54,124 [7692] INFO  : tableName:TestType |fields:TestTypeNo,CName |filerValue:
+2017-10-23 13:42:54,227 [7692] INFO  : SQL:select  AreaID,AreaCName,ClientNo  FROM ClientEleArea where 1=1   order by AreaID,AreaCName,ClientNo
+2017-10-23 13:42:54,228 [7692] INFO  : tableName:ClientEleArea |fields:AreaID,AreaCName,ClientNo |filerValue:
+2017-10-23 13:42:54,326 [7692] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:42:54,326 [7692] INFO  : BusinessLogicClientControl:GetListByPageselect top 1000  dbo.BusinessLogicClientControl.Account, dbo.CLIENTELE.* from  dbo.BusinessLogicClientControl INNER JOIN  dbo.CLIENTELE ON dbo.BusinessLogicClientControl.ClientNo = dbo.CLIENTELE.ClIENTNO where BusinessLogicClientControl.Account+'_'+BusinessLogicClientControl.ClientNo not in  (select top 0 BusinessLogicClientControl.Account+'_'+BusinessLogicClientControl.ClientNo from  dbo.BusinessLogicClientControl INNER JOIN   dbo.CLIENTELE ON dbo.BusinessLogicClientControl.ClientNo = dbo.CLIENTELE.ClIENTNO where 1=1  and  BusinessLogicClientControl.Account='1001' and dbo.BusinessLogicClientControl.Flag=0   order by BusinessLogicClientControl.Account,BusinessLogicClientControl.ClientNo) and  BusinessLogicClientControl.Account='1001' and dbo.BusinessLogicClientControl.Flag=0  order by BusinessLogicClientControl.Account,BusinessLogicClientControl.ClientNo  
+2017-10-23 13:42:54,605 [7692] INFO  : SQL:select  LabDoctorNo,CName,ShortCode  FROM B_Lab_Doctor where 1=1   and labcode ='1'  order by LabDoctorNo,CName,ShortCode
+2017-10-23 13:42:54,605 [7692] INFO  : tableName:B_Lab_Doctor |fields:LabDoctorNo,CName,ShortCode |filerValue:
+2017-10-23 13:42:54,971 [7692] INFO  : B_Lab_TestItem---GetListByPage:select top 1 '('+convert(varchar(50),ItemNo)+')'+CName as ItemNoName,ItemNo as LabItemNo,* from B_Lab_TestItem where 1=1 and ItemID is not null   and LabCode='1'  and UseFlag='1'   and ItemID not in (select top 0 ItemID from B_Lab_TestItem where 1=1 and (isCombiItem=1 or IsProfile=1 ) and ItemID is not null  and LabCode='1'  and UseFlag='1'  order by ItemNo desc )  and (isCombiItem=1 or IsProfile=1) order by ItemNo desc 
+2017-10-23 13:42:54,976 [7692] INFO  : B_Lab_TestItem----GetTotalCount：select count(*) FROM B_Lab_TestItem where 1=1  and (isCombiItem=1 or IsProfile=1) and ItemID is not null  and LabCode='1'  and UseFlag=1
+2017-10-23 13:42:55,001 [7692] INFO  : B_Lab_TestItem---GetListByPage:select top 100 '('+convert(varchar(50),ItemNo)+')'+CName as ItemNoName,ItemNo as LabItemNo,* from B_Lab_TestItem where 1=1 and ItemID is not null   and LabCode='1'  and UseFlag='1'   and ItemID not in (select top 0 ItemID from B_Lab_TestItem where 1=1 and (isCombiItem=1 or IsProfile=1 ) and ItemID is not null  and LabCode='1'  and UseFlag='1'  order by ItemNo desc )  and (isCombiItem=1 or IsProfile=1) order by ItemNo desc 
+2017-10-23 13:42:55,012 [7692] INFO  : B_Lab_TestItem----GetTotalCount：select count(*) FROM B_Lab_TestItem where 1=1  and (isCombiItem=1 or IsProfile=1) and ItemID is not null  and LabCode='1'  and UseFlag=1
+2017-10-23 13:42:59,067 [7692] INFO  : SQL:select  DeptNo,CName  FROM Department where 1=1   order by DeptNo,CName
+2017-10-23 13:42:59,068 [7692] INFO  : tableName:Department |fields:DeptNo,CName |filerValue:
+2017-10-23 13:43:48,170 [8236] INFO  : LisDB
+2017-10-23 13:43:48,270 [8236] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:43:48,272 [8236] INFO  : 初始化WeblisOrgId:Account =1001, SelectedFlag = true, Flag = 1
+2017-10-23 13:43:48,273 [8236] INFO  : select blcc.Id,blcc.Account,cle.ClIENTNO,cle.CNAME,cle.ENAME,cle.SHORTCODE,cle.ISUSE,cle.LINKMAN,cle.ADDRESS,cle.EMAIL,cle.WebLisSourceOrgID ,cle.Doctor,cle.Groupname,cle.RelationName,cle.AreaID  FROM dbo.BusinessLogicClientControl blcc INNER JOIN  dbo.CLIENTELE cle ON blcc.ClientNo = cle.ClIENTNO where 1=1  and blcc.Account='1001'  and blcc.Flag=1  order by cle.ClIENTNO
+2017-10-23 13:43:48,273 [8236] INFO  : 初始化WeblisOrgId:tmpds.Tables.Count =1, tmpds.Tables[0].Rows.Count=1
+2017-10-23 13:43:48,273 [8236] INFO  : 初始化WeblisOrgId:ClientNo =1, CName=智方科技测试用户
+2017-10-23 13:43:48,289 [8236] INFO  : 查询条码表信息SQL:select *  FROM BarCodeForm where 1=1  and BarCode='111111111111' 
+2017-10-23 13:43:48,296 [8236] INFO  : select *  FROM B_TestItemControl where 1=1  and ControlLabNo='1'  and ControlItemNo='99000029' 
+2017-10-23 13:43:48,310 [8236] INFO  : select *  FROM B_TestItemControl where 1=1  and ControlLabNo='1'  and ControlItemNo='99000029' 
+2017-10-23 13:43:48,314 [8236] INFO  : select *  FROM B_TestItemControl where 1=1  and ControlLabNo='1'  and ControlItemNo='10020050' 
+2017-10-23 13:43:48,315 [8236] INFO  : select *  FROM B_TestItemControl where 1=1  and ControlLabNo='1'  and ControlItemNo='99000029' 
+2017-10-23 13:43:48,320 [8236] INFO  : insert into NRequestItem(HISCharge,ItemCharge,SampleTypeNo,zdy1,zdy2,SerialNo,zdy3,zdy4,zdy5,DeleteFlag,ItemSource,OldSerialNo,CountNodesItemSource,ReportFlag,PartFlag,WebLisOrgID,WebLisSourceOrgID,WebLisSourceOrgName,ClientNo,ClientName,NRequestFormNo,BarCodeFormNo,FormNo,TollItemNo,ParItemNo,IsCheckFee,ReceiveFlag,CombiItemNo,SampleType,CheckType,CheckTypeName,price ) values (@HISCharge,@ItemCharge,@SampleTypeNo,@zdy1,@zdy2,@SerialNo,@zdy3,@zdy4,@zdy5,@DeleteFlag,@ItemSource,@OldSerialNo,@CountNodesItemSource,@ReportFlag,@PartFlag,@WebLisOrgID,@WebLisSourceOrgID,@WebLisSourceOrgName,@ClientNo,@ClientName,@NRequestFormNo,@BarCodeFormNo,@FormNo,@TollItemNo,@ParItemNo,@IsCheckFee,@ReceiveFlag,@CombiItemNo,@SampleType,@CheckType,@CheckTypeName,@price) 
+2017-10-23 13:43:48,320 [8236] INFO  : 插入NRequestItem的数据：@PartFlag=0,@WebLisOrgID=1,@WebLisSourceOrgID=1,@WebLisSourceOrgName=智方科技测试用户,@ClientNo=1,@ClientName=智方科技测试用户,@NRequestFormNo=5602076665710215611,@BarCodeFormNo=4834038426030853205,@ParItemNo=10020050,@CombiItemNo=1001528,@price=0,
+2017-10-23 13:43:48,321 [8236] INFO  : select *  FROM B_TestItemControl where 1=1  and ControlLabNo='1'  and ControlItemNo='10020060' 
+2017-10-23 13:43:48,324 [8236] INFO  : select *  FROM B_TestItemControl where 1=1  and ControlLabNo='1'  and ControlItemNo='99000029' 
+2017-10-23 13:43:48,325 [8236] INFO  : insert into NRequestItem(HISCharge,ItemCharge,SampleTypeNo,zdy1,zdy2,SerialNo,zdy3,zdy4,zdy5,DeleteFlag,ItemSource,OldSerialNo,CountNodesItemSource,ReportFlag,PartFlag,WebLisOrgID,WebLisSourceOrgID,WebLisSourceOrgName,ClientNo,ClientName,NRequestFormNo,BarCodeFormNo,FormNo,TollItemNo,ParItemNo,IsCheckFee,ReceiveFlag,CombiItemNo,SampleType,CheckType,CheckTypeName,price ) values (@HISCharge,@ItemCharge,@SampleTypeNo,@zdy1,@zdy2,@SerialNo,@zdy3,@zdy4,@zdy5,@DeleteFlag,@ItemSource,@OldSerialNo,@CountNodesItemSource,@ReportFlag,@PartFlag,@WebLisOrgID,@WebLisSourceOrgID,@WebLisSourceOrgName,@ClientNo,@ClientName,@NRequestFormNo,@BarCodeFormNo,@FormNo,@TollItemNo,@ParItemNo,@IsCheckFee,@ReceiveFlag,@CombiItemNo,@SampleType,@CheckType,@CheckTypeName,@price) 
+2017-10-23 13:43:48,325 [8236] INFO  : 插入NRequestItem的数据：@PartFlag=0,@WebLisOrgID=1,@WebLisSourceOrgID=1,@WebLisSourceOrgName=智方科技测试用户,@ClientNo=1,@ClientName=智方科技测试用户,@NRequestFormNo=5602076665710215611,@BarCodeFormNo=4834038426030853205,@ParItemNo=10020060,@CombiItemNo=1001528,@price=0,
+2017-10-23 13:43:48,330 [8236] INFO  : insert into BarCodeForm(BarCodeFormNo,Collecter,CollecterID,CollectDate,CollectTime,refuseUser,refuseopinion,refusereason,refuseTime,signflag,incepter,BarCode,inceptTime,inceptDate,ReceiveMan,ReceiveDate,ReceiveTime,PrintInfo,PrintCount,Dr2Flag,FlagDateDelete,DispenseFlag,SamplingGroupNo,SerialScanTime,BarCodeSource,DeleteFlag,SendOffFlag,SendOffMan,EMSMan,SendOffDate,ReportSignMan,ReportSignDate,RefuseIncepter,IsPrep,RefuseIncepterMemo,ReportFlag,SendOffMemo,SampleTypeNo,SampleSendNo,WebLisFlag,WebLisOpTime,WebLiser,WebLisDescript,WebLisOrgID,isSpiltItem,WebLisIsReply,WebLisReplyDate,WebLisSourceOrgId,WebLisUploadTime,WebLisUploadStatus,WebLisUploadTestStatus,WebLisUploader,WebLisUploadDes,WebLisSourceOrgName,ClientNo,IsAffirm,ClientName,ReceiveFlag,SampleCap,ClientHost,WebLisOrgName,color,ItemName,ItemNo,SampleTypeName) values (@BarCodeFormNo,@Collecter,@CollecterID,@CollectDate,@CollectTime,@refuseUser,@refuseopinion,@refusereason,@refuseTime,@signflag,@incepter,@BarCode,@inceptTime,@inceptDate,@ReceiveMan,@ReceiveDate,@ReceiveTime,@PrintInfo,@PrintCount,@Dr2Flag,@FlagDateDelete,@DispenseFlag,@SamplingGroupNo,@SerialScanTime,@BarCodeSource,@DeleteFlag,@SendOffFlag,@SendOffMan,@EMSMan,@SendOffDate,@ReportSignMan,@ReportSignDate,@RefuseIncepter,@IsPrep,@RefuseIncepterMemo,@ReportFlag,@SendOffMemo,@SampleTypeNo,@SampleSendNo,@WebLisFlag,@WebLisOpTime,@WebLiser,@WebLisDescript,@WebLisOrgID,@isSpiltItem,@WebLisIsReply,@WebLisReplyDate,@WebLisSourceOrgId,@WebLisUploadTime,@WebLisUploadStatus,@WebLisUploadTestStatus,@WebLisUploader,@WebLisUploadDes,@WebLisSourceOrgName,@ClientNo,@IsAffirm,@ClientName,@ReceiveFlag,@SampleCap,@ClientHost,@WebLisOrgName,@color,@ItemName,@ItemNo,@SampleTypeName) 
+2017-10-23 13:43:48,337 [8236] INFO  : insert into NRequestForm(ClientNo,TestTypeName,CName,DoctorName,CollecterName,SampleTypeName,SerialNo,ReceiveFlag,StatusNo,SampleTypeNo,PatNo,ClientName,GenderNo,Birthday,Age,AgeUnitNo,FolkNo,DistrictNo,WardNo,Bed,DeptNo,Doctor,AgeUnitName,DiagNo,Diag,ChargeNo,Charge,Chargeflag,CountNodesFormSource,IsCheckFee,Operator,OperDate,OperTime,GenderName,FormMemo,RequestSource,SickOrder,jztype,zdy1,zdy2,zdy3,zdy4,zdy5,FlagDateDelete,DeptName,NurseFlag,IsByHand,TestTypeNo,ExecDeptNo,CollectDate,CollectTime,Collecter,LABCENTER,NRequestFormNo,CheckNo,DistrictName,CheckName,WebLisSourceOrgID,WebLisSourceOrgName,WardName,FolkName,ClinicTypeName,PersonID,SampleType,TelNo,WebLisOrgID,WebLisOrgName,STATUSName,jztypeName,barcode,CombiItemName,printTimes,price,zdy6,zdy7,zdy8,zdy9,zdy10) values (@ClientNo,@TestTypeName,@CName,@DoctorName,@CollecterName,@SampleTypeName,@SerialNo,@ReceiveFlag,@StatusNo,@SampleTypeNo,@PatNo,@ClientName,@GenderNo,@Birthday,@Age,@AgeUnitNo,@FolkNo,@DistrictNo,@WardNo,@Bed,@DeptNo,@Doctor,@AgeUnitName,@DiagNo,@Diag,@ChargeNo,@Charge,@Chargeflag,@CountNodesFormSource,@IsCheckFee,@Operator,@OperDate,@OperTime,@GenderName,@FormMemo,@RequestSource,@SickOrder,@jztype,@zdy1,@zdy2,@zdy3,@zdy4,@zdy5,@FlagDateDelete,@DeptName,@NurseFlag,@IsByHand,@TestTypeNo,@ExecDeptNo,@CollectDate,@CollectTime,@Collecter,@LABCENTER,@NRequestFormNo,@CheckNo,@DistrictName,@CheckName,@WebLisSourceOrgID,@WebLisSourceOrgName,@WardName,@FolkName,@ClinicTypeName,@PersonID,@SampleType,@TelNo,@WebLisOrgID,@WebLisOrgName,@STATUSName,@jztypeName,@barcode,@CombiItemName,@printTimes,@price,@zdy6,@zdy7,@zdy8,@zdy9,@zdy10) 
+2017-10-23 13:43:51,652 [7692] INFO  : LisDB
+2017-10-23 13:43:51,656 [7692] INFO  : userinfo:<NewDataSet>
+  <Table>
+    <ID>557</ID>
+    <SN>012</SN>
+    <NameL>李</NameL>
+    <NameF>医生</NameF>
+    <Sex>男</Sex>
+    <Country>中国</Country>
+    <MaritalStatus>已婚</MaritalStatus>
+    <Enabled>1</Enabled>
+    <DesktopTheme>31</DesktopTheme>
+    <EmplName>李医生</EmplName>
+    <Account>1001</Account>
+  </Table>
+</NewDataSet>
+2017-10-23 13:43:51,661 [7692] INFO  :  select count(*) FROM NRequestForm where 1=1      and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    
+2017-10-23 13:43:51,665 [7692] INFO  :  select * from ( SELECT top 10 NRequestForm.NRequestFormNo, NRequestForm.CName as CName,NRequestForm.DoctorName as DoctorName,NRequestForm.DeptName as DeptName,NRequestForm.WebLisSourceOrgID,NRequestForm.WebLisSourceOrgName as WebLisSourceOrgName,NRequestForm.ClientNo,NRequestForm.jztype,NRequestForm.jztypeName,NRequestForm.PatNo,NRequestForm.ClientName as ClientName,NRequestForm.AgeUnitName as AgeUnitName,NRequestForm.Diag as Diag,GenderType.CName AS Sex,NRequestForm.Age as Age, SampleType.CName AS SampleName,Convert(varchar(10),NRequestForm.operdate,21)+' '+Convert(varchar(10),NRequestForm.opertime,8)as incepttime,Convert(varchar(10),NRequestForm.CollectDate,21)+' '+Convert(varchar(10),NRequestForm.CollectTime,8)as CollectTime,NRequestForm.OperDate as OperDate,NRequestForm.OperTime as OperTime,PatDiagInfo.DiagDesc as DiagDesc,NRequestForm.zdy5 FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where NRequestForm.NRequestFormNo not in (  select top 0 NRequestForm.NRequestFormNo FROM dbo.GenderType RIGHT OUTER JOIN dbo.NRequestForm LEFT OUTER JOIN dbo.PatDiagInfo ON dbo.NRequestForm.DiagNo = dbo.PatDiagInfo.DiagNo LEFT OUTER JOIN dbo.SampleType ON dbo.NRequestForm.SampleTypeNo = dbo.SampleType.SampleTypeNo ON dbo.GenderType.GenderNo = dbo.NRequestForm.GenderNo where  1=1  and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'    order by NRequestForm.OperDate desc,NRequestForm.OperTime desc )     and NRequestForm.ClientNo='1'  and NRequestForm.OperDate >='2017-10-16'   and NRequestForm.OperDate <='2017-10-27 23:59:59'     order by NRequestForm.OperDate desc,NRequestForm.OperTime desc ) aa order by aa.OperDate desc,aa.OperTime desc 

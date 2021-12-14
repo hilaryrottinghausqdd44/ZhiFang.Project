@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ProjectProgressMonitorManage" assembly="ZhiFang.Entity.ProjectProgressMonitorManage">
+	<class name="PWorkWeekLog" table="[dbo].[P_WorkWeekLog]">
+		<id name="Id" column="[WorkWeekLogID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="EmpID" column="[EmpID]" type="Int64" not-null="false" length="8" />
+		<property name="EmpName" column="[EmpName]" type="String" not-null="false" length="50" />
+		<property name="ToDayContent" column="[ToWeekContent]" type="String" not-null="false" />
+		<property name="NextDayContent" column="[NextWeekContent]" type="String" not-null="false" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DateCode" column="[WeekCode]" type="String" not-null="false" length="100" />
+    <property name="Image1" column="[Image1]" type="String" not-null="false" length="1000" />
+    <property name="Image2" column="[Image2]" type="String" not-null="false" length="1000" />
+    <property name="Image3" column="[Image3]" type="String" not-null="false" length="1000" />
+    <property name="Image4" column="[Image4]" type="String" not-null="false" length="1000" />
+    <property name="Image5" column="[Image5]" type="String" not-null="false" length="1000" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+    <property name="Status" column="[Status]" type="Boolean" not-null="false" length="1" />
+    <property name="WorkLogExportLevel" column="[WorkLogExportLevel]" type="ZhiFang.Entity.ProjectProgressMonitorManage.WorkLogExportLevel,ZhiFang.Entity.ProjectProgressMonitorManage" not-null="false" />
+    <property name="LikeCount" column="[LikeCount]" type="Int64" not-null="false" length="8" />
+    <bag name="PProjectAttachmentList" inverse="true"  lazy="true">
+      <key>
+        <column name="[WorkDayLogID]" />
+      </key>
+      <one-to-many class="PProjectAttachment"/>
+    </bag>
+	</class>
+</hibernate-mapping>

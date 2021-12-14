@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/08/2011 14:38:38" ReportInfo.Modified="03/26/2014 10:31:25" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string hssj;
+    string hsrq;
+    string bgsj;
+    string bgrq;
+    string jyz;
+    string shz;
+
+    private void TextSickType_BeforePrint(object sender, EventArgs e)
+    {      
+      string flag=Report.GetColumnValue(&quot;frform.SICKTYPENO&quot;).ToString() ;
+      if(flag==&quot;1&quot;)
+      {
+        TextSickType.Text= &quot;住 院 号：&quot;;
+      }
+      else
+      {
+        if(flag==&quot;2&quot;)
+        {
+          TextSickType.Text= &quot;门 诊 号：&quot;;
+        }
+        else
+        {
+          //if(flag==&quot;&quot;)
+          //{
+          TextSickType.Text= &quot;体 检 号：&quot;;
+          //}
+          //else
+          //{
+          //  TextSickType.Text= &quot;     &quot;;
+          //}
+        }
+      }
+    }
+
+    private void PageHeader1_AfterData(object sender, EventArgs e)
+    {
+      hsrq=((DateTime)Report.GetColumnValue(&quot;frform.COLLECTDATE&quot;)).ToString(&quot;yyyy-MM-dd&quot;);
+      hssj=((DateTime)Report.GetColumnValue(&quot;frform.OPERTIME&quot;)).ToString(&quot;HH:mm:ss&quot;);
+      bgrq=((DateTime)Report.GetColumnValue(&quot;frform.CHECKDATE&quot;)).ToString(&quot;yyyy-MM-dd&quot;);
+      bgsj=((DateTime)Report.GetColumnValue(&quot;frform.CHECKTIME&quot;)).ToString(&quot;HH:mm:ss&quot;);  
+      jyz=((String)Report.GetColumnValue(&quot;frform.TECHNICIAN&quot;));   
+      shz=((String)Report.GetColumnValue(&quot;frform.CHECKER&quot;)); 
+    }
+
+    private void TextValueText_BeforePrint(object sender, EventArgs e)
+    {                                                                                
+      string v1=((String)Report.GetColumnValue(&quot;fritem.REPORTVALUE&quot;));
+      string v2=((String)Report.GetColumnValue(&quot;fritem.REPORTDESC&quot;));
+      if(v2.Trim().Length&gt;0)
+      {
+        TextValueText.Text=v2;
+      }
+      else
+      {
+        if(v1.Trim().Length&gt;6)
+        {
+          v1=Math.Round((Convert.ToDouble(v1)),2).ToString();          
+        }
+        TextValueText.Text=v1;
+      }      
+    }
+                                                   
+    private void TextStatusText_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;fritem.RESULTSTATUS&quot;)).Trim()==&quot;H&quot;)
+      {
+        TextStatusText.Text=&quot;↑&quot;;
+      }
+      else
+      {
+        if(((String)Report.GetColumnValue(&quot;fritem.RESULTSTATUS&quot;)).Trim()==&quot;L&quot;)
+        {
+          TextStatusText.Text=&quot;↓&quot;;
+        }
+        else
+        {
+          TextStatusText.Text=((String)Report.GetColumnValue(&quot;fritem.RESULTSTATUS&quot;)).Trim();
+        }
+      }
+    }                                                                     
+
+    private void TextRefRangeText_BeforePrint(object sender, EventArgs e)
+    {
+      string s= ((String)Report.GetColumnValue(&quot;fritem.REFRANGE&quot;));
+      int i=s.Split(';').Length;
+      s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+      TextRefRangeText.Text=s;
+      TextRefRangeText.Height=TextRefRangeText.Height+100;
+    }
+
+   // private void TextCollectDate_BeforePrint(object sender, EventArgs e)
+  //  {
+   //   TextCollectDate.Text=hsrq;
+  //  }
+
+   // private void TextOperTime_BeforePrint(object sender, EventArgs e)
+  //  {
+  //    TextOperTime.Text=hssj;
+  //  }
+
+    private void TextCheckDate_BeforePrint(object sender, EventArgs e)
+    {
+      TextCheckDate.Text=bgrq;
+    }
+
+  //  private void TextCheckTime_BeforePrint(object sender, EventArgs e)
+  //  {
+   //   TextCheckTime.Text=bgsj;
+  //  }
+
+   // private void TextTechnician_BeforePrint(object sender, EventArgs e)
+   // {
+    //  TextTechnician.Text=jyz;
+  //  }
+  //  private void TextChecker_BeforePrint(object sender, EventArgs e)
+   // {
+   //   TextChecker.Text=shz;
+  //  }
+    private void Textitemname1_BeforePrint(object sender, EventArgs e)
+    {        
+      if (((String)Report.GetColumnValue(&quot;fritem1.TESTITEMSNAME&quot;)).Trim()==&quot;&quot;)
+      {                                                                            
+        Textitemname1.Text=((String)Report.GetColumnValue(&quot;fritem1.TESTITEMNAME&quot;));
+      }
+      else
+      {
+        Textitemname1.Text=  ((String)Report.GetColumnValue(&quot;fritem1.TESTITEMNAME&quot;))+&quot;(&quot;+((String)Report.GetColumnValue(&quot;fritem1.TESTITEMSNAME&quot;))+&quot;)&quot;;
+      }
+    }
+
+    private void TextItemValue1_BeforePrint(object sender, EventArgs e)
+    {
+      string v1;
+      string v2;
+      v1=((String)Report.GetColumnValue(&quot;fritem1.REPORTVALUE&quot;));
+      v2=((String)Report.GetColumnValue(&quot;fritem1.REPORTDESC&quot;));
+      if(v2.Trim()!=&quot;&quot;)
+      {
+        TextItemValue1.Text=v2;
+      }
+      else
+      {
+        TextItemValue1.Text=v1;
+      }
+    }
+
+    private void TextResultStatus1_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;fritem1.RESULTSTATUS&quot;)).Trim()==&quot;H&quot;)
+      {
+        TextResultStatus1.Text=&quot;↑&quot;;
+      }
+      else
+      {
+        if(((String)Report.GetColumnValue(&quot;fritem1.RESULTSTATUS&quot;)).Trim()==&quot;L&quot;)
+        {
+          TextResultStatus1.Text=&quot;↓&quot;;
+        }
+        else
+        {
+          TextResultStatus1.Text=((String)Report.GetColumnValue(&quot;fritem1.RESULTSTATUS&quot;)).Trim();
+        }
+      }
+    }
+
+    private void TextRefRange1_BeforePrint(object sender, EventArgs e)
+    {
+      //string s= ((String)Report.GetColumnValue(&quot;fritem1.RefRange&quot;));
+      //s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+      //TextRefRange1.Text=s;
+      //TextRefRange1.Height=TextRefRange1.Height+100;
+      //int i=s.Split(';').Length;
+      //Data3.Height=Data3.Height+i*20;
+      
+      string s= ((String)Report.GetColumnValue(&quot;fritem1.REFRANGE&quot;));
+      int i=s.Split(';').Length;
+      s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+      TextRefRange1.Text=s;
+      TextRefRange1.Height=TextRefRange1.Height+100;
+    }
+    
+    private void Textitemname2_BeforePrint(object sender, EventArgs e)
+    {        
+      if (((String)Report.GetColumnValue(&quot;fritem2.TESTITEMSNAME&quot;)).Trim()==&quot;&quot;)
+      {
+        Textitemname2.Text=((String)Report.GetColumnValue(&quot;fritem2.TESTITEMNAME&quot;));
+      }
+      else
+      {
+        Textitemname2.Text=  ((String)Report.GetColumnValue(&quot;fritem2.TESTITEMNAME&quot;))+&quot;(&quot;+((String)Report.GetColumnValue(&quot;fritem2.TESTITEMSNAME&quot;))+&quot;)&quot;;
+      }
+    }
+
+    private void TextItemValue2_BeforePrint(object sender, EventArgs e)
+    {
+      string v1;
+      string v2;
+      v1=((String)Report.GetColumnValue(&quot;fritem2.REPORTVALUE&quot;));
+      v2=((String)Report.GetColumnValue(&quot;fritem2.REPORTDESC&quot;));
+      if(v2.Trim()!=&quot;&quot;)
+      {
+        TextItemValue2.Text=v2;
+      }
+      else
+      {
+        TextItemValue2.Text=v1;
+      }
+    }
+
+    private void TextResultStatus2_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;fritem2.RESULTSTATUS&quot;)).Trim()==&quot;H&quot;)
+      {
+        TextResultStatus2.Text=&quot;↑&quot;;
+      }
+      else
+      {
+        if(((String)Report.GetColumnValue(&quot;fritem2.RESULTSTATUS&quot;)).Trim()==&quot;L&quot;)
+        {
+          TextResultStatus2.Text=&quot;↓&quot;;
+        }
+        else
+        {
+          TextResultStatus2.Text=((String)Report.GetColumnValue(&quot;fritem2.RESULTSTATUS&quot;)).Trim();
+        }
+      }
+    }
+
+    private void TextRefRange2_BeforePrint(object sender, EventArgs e)
+    {
+      //string s= ((String)Report.GetColumnValue(&quot;fritem2.RefRange&quot;));
+      //s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+      //TextRefRange2.Text=s;
+      //TextRefRange2.Height=TextRefRange2.Height+100;
+      //int i=s.Split(';').Length;
+      //Data4.Height=Data4.Height+i*20;
+      
+      string s= ((String)Report.GetColumnValue(&quot;fritem2.REFRANGE&quot;));
+      int i=s.Split(';').Length;
+      s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+      TextRefRange2.Text=s;
+      TextRefRange2.Height=TextRefRange2.Height+100;
+      
+    }  
+    private void PageHeader1_BeforePrint(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void TextRFlag_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Int32)Report.GetColumnValue(&quot;frform.PRINTTIMES&quot;))&gt;=1)
+      {
+        TextRFlag.Visible=true;
+      }
+      else
+      {
+        TextRFlag.Visible=false;
+      }
+        
+    }
+    
+
+    private void NameImageTechnician_BeforePrint(object sender, EventArgs e)
+    {
+      if (logo.Visible==false)
+      {
+        NameImageTechnician.Visible=false;
+        NameImageOperator.Visible=false;
+        NameImageSender2.Visible=false;
+        Text1.Visible=false;
+        Text3.Visible=false;
+        //Textclient.Text=&quot;&quot;;
+        //Text16.Visible =false;
+      }
+      else
+      {
+        NameImageTechnician.Visible=true ;
+        NameImageOperator.Visible=true;
+        NameImageSender2.Visible=true;
+        Text1.Visible=true;
+        Text3.Visible=true;
+        //Textclient.Visible =true;
+        //Text16.Visible =true;
+      }
+
+      }
+
+    private void Text16_BeforePrint(object sender, EventArgs e)
+    {
+      if (logo.Visible==false)
+      { 
+        Textclient.Text=&quot;&quot;;
+        Text16.Visible =false;
+      }
+      else
+      {
+        Textclient.Visible =true;
+        Text16.Visible =true;
+      }
+    }
+    //////////////////biaoti//////////////////////////
+    private void TextTitle_BeforePrint(object sender, EventArgs e)
+    {
+     TextTitle.Text=&quot;翼州长庚医院检验报告单&quot;; 
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="frform" ReferenceName="Data.frform" DataType="System.Int32" Enabled="true" SelectCommand="select * from reportformfull">
+      <Column Name="ReportFormID" DataType="System.String"/>
+      <Column Name="CLIENTNO" DataType="System.String"/>
+      <Column Name="CNAME" DataType="System.String"/>
+      <Column Name="AGEUNITNAME" DataType="System.String"/>
+      <Column Name="GENDERNAME" DataType="System.String"/>
+      <Column Name="DEPTNAME" DataType="System.String"/>
+      <Column Name="DOCTORNAME" DataType="System.String"/>
+      <Column Name="DISTRICTNAME" DataType="System.String"/>
+      <Column Name="WARDNAME" DataType="System.String"/>
+      <Column Name="FOLKNAME" DataType="System.String"/>
+      <Column Name="SICKTYPENAME" DataType="System.String"/>
+      <Column Name="SAMPLETYPENAME" DataType="System.String"/>
+      <Column Name="SECTIONNAME" DataType="System.String"/>
+      <Column Name="TESTTYPENAME" DataType="System.String"/>
+      <Column Name="RECEIVEDATE" DataType="System.DateTime"/>
+      <Column Name="SECTIONNO" DataType="System.String"/>
+      <Column Name="TESTTYPENO" DataType="System.String"/>
+      <Column Name="SAMPLENO" DataType="System.String"/>
+      <Column Name="STATUSNO" DataType="System.Int32"/>
+      <Column Name="SAMPLETYPENO" DataType="System.Int32"/>
+      <Column Name="PATNO" DataType="System.String"/>
+      <Column Name="GENDERNO" DataType="System.Int32"/>
+      <Column Name="BIRTHDAY" DataType="System.DateTime"/>
+      <Column Name="AGE" DataType="System.String"/>
+      <Column Name="AGEUNITNO" DataType="System.Int32"/>
+      <Column Name="FOLKNO" DataType="System.String"/>
+      <Column Name="DISTRICTNO" DataType="System.String"/>
+      <Column Name="WARDNO" DataType="System.String"/>
+      <Column Name="BED" DataType="System.String"/>
+      <Column Name="DEPTNO" DataType="System.Int32"/>
+      <Column Name="DOCTOR" DataType="System.String"/>
+      <Column Name="CHARGENO" DataType="System.String"/>
+      <Column Name="CHARGE" DataType="System.String"/>
+      <Column Name="COLLECTER" DataType="System.String"/>
+      <Column Name="COLLECTDATE" DataType="System.DateTime"/>
+      <Column Name="COLLECTTIME" DataType="System.DateTime"/>
+      <Column Name="FORMMEMO" DataType="System.String"/>
+      <Column Name="TECHNICIAN" DataType="System.String"/>
+      <Column Name="TESTDATE" DataType="System.DateTime"/>
+      <Column Name="TESTTIME" DataType="System.DateTime"/>
+      <Column Name="OPERATOR" DataType="System.String"/>
+      <Column Name="OPERDATE" DataType="System.DateTime"/>
+      <Column Name="OPERTIME" DataType="System.DateTime"/>
+      <Column Name="CHECKER" DataType="System.String"/>
+      <Column Name="PRINTTIMES" DataType="System.Int32"/>
+      <Column Name="resultfile" DataType="System.String"/>
+      <Column Name="CHECKDATE" DataType="System.DateTime"/>
+      <Column Name="CHECKTIME" DataType="System.DateTime"/>
+      <Column Name="SERIALNO" DataType="System.String"/>
+      <Column Name="REQUESTSOURCE" DataType="System.String"/>
+      <Column Name="DIAGNO" DataType="System.String"/>
+      <Column Name="SICKTYPENO" DataType="System.String"/>
+      <Column Name="FORMCOMMENT" DataType="System.String"/>
+      <Column Name="ARTIFICERORDER" DataType="System.String"/>
+      <Column Name="SICKORDER" DataType="System.String"/>
+      <Column Name="SICKTYPE" DataType="System.String"/>
+      <Column Name="CHARGEFLAG" DataType="System.String"/>
+      <Column Name="TESTDEST" DataType="System.String"/>
+      <Column Name="SLABLE" DataType="System.String"/>
+      <Column Name="ZDY1" DataType="System.String"/>
+      <Column Name="ZDY2" DataType="System.String"/>
+      <Column Name="ZDY3" DataType="System.String"/>
+      <Column Name="ZDY4" DataType="System.String"/>
+      <Column Name="ZDY5" DataType="System.String"/>
+      <Column Name="INCEPTDATE" DataType="System.DateTime"/>
+      <Column Name="INCEPTTIME" DataType="System.DateTime"/>
+      <Column Name="INCEPTER" DataType="System.String"/>
+      <Column Name="ONLINEDATE" DataType="System.DateTime"/>
+      <Column Name="ONLINETIME" DataType="System.DateTime"/>
+      <Column Name="BMANNO" DataType="System.String"/>
+      <Column Name="FILETYPE" DataType="System.String"/>
+      <Column Name="JPGFILE" DataType="System.String"/>
+      <Column Name="PDFFILE" DataType="System.String"/>
+      <Column Name="FORMNO" DataType="System.Int32"/>
+      <Column Name="CHILDTABLENAME" DataType="System.String"/>
+      <Column Name="PRINTEXEC" DataType="System.String"/>
+      <Column Name="LABCENTER" DataType="System.String"/>
+      <Column Name="PRINTTEXEC" DataType="System.String"/>
+      <Column Name="SECTIONTYPE" DataType="System.String"/>
+      <Column Name="BARCODE" DataType="System.String"/>
+      <Column Name="SECTIONSHORTNAME" DataType="System.String"/>
+      <Column Name="SECTIONSHORTCODE" DataType="System.String"/>
+      <Column Name="DIAGNOSE" DataType="System.String"/>
+      <Column Name="CLIENTNAME" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="fritem" ReferenceName="Data.fritem" DataType="System.Int32" Enabled="true" SelectCommand="select * from reportitemfull">
+      <Column Name="ItemRanNum" DataType="System.Int64"/>
+      <Column Name="ReportFormID" DataType="System.String"/>
+      <Column Name="ReportItemID" DataType="System.Int32"/>
+      <Column Name="TESTITEMNAME" DataType="System.String"/>
+      <Column Name="TESTITEMSNAME" DataType="System.String"/>
+      <Column Name="RECEIVEDATE" DataType="System.DateTime"/>
+      <Column Name="SECTIONNO" DataType="System.String"/>
+      <Column Name="TESTTYPENO" DataType="System.String"/>
+      <Column Name="SAMPLENO" DataType="System.String"/>
+      <Column Name="PARITEMNO" DataType="System.String"/>
+      <Column Name="ITEMNO" DataType="System.String"/>
+      <Column Name="ORIGINALVALUE" DataType="System.String"/>
+      <Column Name="REPORTVALUE" DataType="System.String"/>
+      <Column Name="ORIGINALDESC" DataType="System.String"/>
+      <Column Name="REPORTDESC" DataType="System.String"/>
+      <Column Name="STATUSNO" DataType="System.String"/>
+      <Column Name="EQUIPNO" DataType="System.String"/>
+      <Column Name="MODIFIED" DataType="System.String"/>
+      <Column Name="REFRANGE" DataType="System.String"/>
+      <Column Name="ITEMDATE" DataType="System.DateTime"/>
+      <Column Name="ITEMTIME" DataType="System.DateTime"/>
+      <Column Name="ISMATCH" DataType="System.String"/>
+      <Column Name="RESULTSTATUS" DataType="System.String"/>
+      <Column Name="TESTITEMDATETIME" DataType="System.DateTime"/>
+      <Column Name="REPORTVALUEALL" DataType="System.String"/>
+      <Column Name="PARITEMNAME" DataType="System.String"/>
+      <Column Name="PARITEMSNAME" DataType="System.String"/>
+      <Column Name="DISPORDER" DataType="System.String"/>
+      <Column Name="ITEMORDER" DataType="System.String"/>
+      <Column Name="UNIT" DataType="System.String"/>
+      <Column Name="SERIALNO" DataType="System.String"/>
+      <Column Name="ZDY1" DataType="System.String"/>
+      <Column Name="ZDY2" DataType="System.String"/>
+      <Column Name="ZDY3" DataType="System.String"/>
+      <Column Name="ZDY4" DataType="System.String"/>
+      <Column Name="ZDY5" DataType="System.String"/>
+      <Column Name="HISORDERNO" DataType="System.String"/>
+      <Column Name="FORMNO" DataType="System.Int32"/>
+      <Column Name="TECHNICIAN" DataType="System.String"/>
+      <Column Name="OLDSERIALNO" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="fritem1" ReferenceName="Data.fritem1" DataType="System.Int32" Enabled="true" SelectCommand="select 1 as RowId, * from reportitemfull">
+      <Column Name="ItemRanNum" DataType="System.Int64"/>
+      <Column Name="ReportFormID" DataType="System.String"/>
+      <Column Name="ReportItemID" DataType="System.Int32"/>
+      <Column Name="TESTITEMNAME" DataType="System.String"/>
+      <Column Name="TESTITEMSNAME" DataType="System.String"/>
+      <Column Name="RECEIVEDATE" DataType="System.DateTime"/>
+      <Column Name="SECTIONNO" DataType="System.String"/>
+      <Column Name="TESTTYPENO" DataType="System.String"/>
+      <Column Name="SAMPLENO" DataType="System.String"/>
+      <Column Name="PARITEMNO" DataType="System.String"/>
+      <Column Name="ITEMNO" DataType="System.String"/>
+      <Column Name="ORIGINALVALUE" DataType="System.String"/>
+      <Column Name="REPORTVALUE" DataType="System.String"/>
+      <Column Name="ORIGINALDESC" DataType="System.String"/>
+      <Column Name="REPORTDESC" DataType="System.String"/>
+      <Column Name="STATUSNO" DataType="System.String"/>
+      <Column Name="EQUIPNO" DataType="System.String"/>
+      <Column Name="MODIFIED" DataType="System.String"/>
+      <Column Name="REFRANGE" DataType="System.String"/>
+      <Column Name="ITEMDATE" DataType="System.DateTime"/>
+      <Column Name="ITEMTIME" DataType="System.DateTime"/>
+      <Column Name="ISMATCH" DataType="System.String"/>
+      <Column Name="RESULTSTATUS" DataType="System.String"/>
+      <Column Name="TESTITEMDATETIME" DataType="System.DateTime"/>
+      <Column Name="REPORTVALUEALL" DataType="System.String"/>
+      <Column Name="PARITEMNAME" DataType="System.String"/>
+      <Column Name="PARITEMSNAME" DataType="System.String"/>
+      <Column Name="DISPORDER" DataType="System.String"/>
+      <Column Name="ITEMORDER" DataType="System.String"/>
+      <Column Name="UNIT" DataType="System.String"/>
+      <Column Name="SERIALNO" DataType="System.String"/>
+      <Column Name="ZDY1" DataType="System.String"/>
+      <Column Name="ZDY2" DataType="System.String"/>
+      <Column Name="ZDY3" DataType="System.String"/>
+      <Column Name="ZDY4" DataType="System.String"/>
+      <Column Name="ZDY5" DataType="System.String"/>
+      <Column Name="HISORDERNO" DataType="System.String"/>
+      <Column Name="FORMNO" DataType="System.Int32"/>
+      <Column Name="TECHNICIAN" DataType="System.String"/>
+      <Column Name="OLDSERIALNO" DataType="System.String"/>
+      <Column Name="RowId" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="fritem2" ReferenceName="Data.fritem2" DataType="System.Int32" Enabled="true" SelectCommand="select 1 as RowId,* from reportitemfull">
+      <Column Name="ItemRanNum" DataType="System.Int64"/>
+      <Column Name="ReportFormID" DataType="System.String"/>
+      <Column Name="ReportItemID" DataType="System.Int32"/>
+      <Column Name="TESTITEMNAME" DataType="System.String"/>
+      <Column Name="TESTITEMSNAME" DataType="System.String"/>
+      <Column Name="RECEIVEDATE" DataType="System.DateTime"/>
+      <Column Name="SECTIONNO" DataType="System.String"/>
+      <Column Name="TESTTYPENO" DataType="System.String"/>
+      <Column Name="SAMPLENO" DataType="System.String"/>
+      <Column Name="PARITEMNO" DataType="System.String"/>
+      <Column Name="ITEMNO" DataType="System.String"/>
+      <Column Name="ORIGINALVALUE" DataType="System.String"/>
+      <Column Name="REPORTVALUE" DataType="System.String"/>
+      <Column Name="ORIGINALDESC" DataType="System.String"/>
+      <Column Name="REPORTDESC" DataType="System.String"/>
+      <Column Name="STATUSNO" DataType="System.String"/>
+      <Column Name="EQUIPNO" DataType="System.String"/>
+      <Column Name="MODIFIED" DataType="System.String"/>
+      <Column Name="REFRANGE" DataType="System.String"/>
+      <Column Name="ITEMDATE" DataType="System.DateTime"/>
+      <Column Name="ITEMTIME" DataType="System.DateTime"/>
+      <Column Name="ISMATCH" DataType="System.String"/>
+      <Column Name="RESULTSTATUS" DataType="System.String"/>
+      <Column Name="TESTITEMDATETIME" DataType="System.DateTime"/>
+      <Column Name="REPORTVALUEALL" DataType="System.String"/>
+      <Column Name="PARITEMNAME" DataType="System.String"/>
+      <Column Name="PARITEMSNAME" DataType="System.String"/>
+      <Column Name="DISPORDER" DataType="System.String"/>
+      <Column Name="ITEMORDER" DataType="System.String"/>
+      <Column Name="UNIT" DataType="System.String"/>
+      <Column Name="SERIALNO" DataType="System.String"/>
+      <Column Name="ZDY1" DataType="System.String"/>
+      <Column Name="ZDY2" DataType="System.String"/>
+      <Column Name="ZDY3" DataType="System.String"/>
+      <Column Name="ZDY4" DataType="System.String"/>
+      <Column Name="ZDY5" DataType="System.String"/>
+      <Column Name="HISORDERNO" DataType="System.String"/>
+      <Column Name="FORMNO" DataType="System.Int32"/>
+      <Column Name="TECHNICIAN" DataType="System.String"/>
+      <Column Name="OLDSERIALNO" DataType="System.String"/>
+      <Column Name="RowId" DataType="System.Int32"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="210.1" PaperHeight="148.1" TopMargin="1" BottomMargin="2">
+    <ReportTitleBand Name="ReportTitle1" Width="718.58"/>
+    <PageHeaderBand Name="PageHeader1" Top="4" Width="718.58" Height="134.56" BeforePrintEvent="PageHeader1_BeforePrint" AfterDataEvent="PageHeader1_AfterData">
+      <TextObject Name="TextTitle" Left="137.74" Top="14.17" Width="511.06" Height="28.35" BeforePrintEvent="TextTitle_BeforePrint" HorzAlign="Center" VertAlign="Bottom" Font="Microsoft Sans Serif, 16pt, style=Bold"/>
+      <LineObject Name="Line2" Top="134.56" Width="718.58" Dock="Bottom"/>
+      <TextObject Name="Text4" Left="18.9" Top="66.15" Width="69.93" Height="17.01" Text="姓    名：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text16" Left="173.4" Top="85.05" Width="79.38" Height="17.01" Visible="false" BeforePrintEvent="Text16_BeforePrint" Text="送检单位：" Font="宋体, 9pt"/>
+      <TextObject Name="TextCName" Left="82.05" Top="65.7" Width="107.73" Height="17.01" Text="[frform.CName]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Textclient" Left="250.86" Top="85.05" Width="154.98" Height="17.01" Visible="false" Text="[frform.CLIENTNAME]" Font="宋体, 9pt"/>
+      <TextObject Name="Text13" Left="379.08" Top="66.15" Width="79.38" Height="17.01" Text="标本类型：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text17" Left="174.18" Top="105.4" Width="79.38" Height="17.01" Text="送检医师：&#13;&#10;" Font="宋体, 9pt"/>
+      <TextObject Name="TextSampleType" Left="458.45" Top="66.15" Width="69.93" Height="17.01" Text="[frform.SAMPLETYPENAME]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="TextDoctor" Left="251.35" Top="105.4" Width="117.18" Height="17.01" Text="[frform.Doctor]" Font="宋体, 9pt"/>
+      <TextObject Name="Text14" Left="379.68" Top="86.15" Width="79.38" Height="17.01" Text="临床诊断：" Font="宋体, 9pt"/>
+      <TextObject Name="TextDiagnose" Left="458.05" Top="85.15" Width="69.93" Height="17.01" Text="[frform.Diagnose]&#13;&#10;" Font="宋体, 9pt"/>
+      <PictureObject Name="logo" Left="21.35" Top="5" Width="112.64" Height="49.52" Visible="false" Image="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"/>
+      <TextObject Name="Text51" Left="577.8" Top="66.15" Width="126.63" Height="17.01" Text="[frform.OldSerialno]" Font="宋体, 9pt"/>
+      <TextObject Name="Text52" Left="528.75" Top="67.15" Width="60.48" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" Text="条形号：" Font="宋体, 9pt"/>
+      <TextObject Name="Text5" Left="18.9" Top="85.05" Width="69.93" Height="17.01" Text="性    别：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text21" Left="85.5" Top="85.05" Width="32.13" Height="17.01" Text="[frform.GENDERNAME]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text22" Left="91.5" Top="103.95" Width="60.48" Height="17.01" Text="[frform.Age]  [frform.AGEUNITNAME]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Left="18.9" Top="103.95" Width="69.93" Height="17.01" Text="年  龄：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text57" Left="601.1" Top="107.64" Width="88.83" Height="17.01" Text="[frform.bed]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="Text58" Left="529.28" Top="107.64" Width="69.93" Height="17.01" Text="床　　号：" Font="宋体, 9pt"/>
+      <TextObject Name="TextRFlag" Left="670.95" Width="18.9" Height="18.9" Visible="false" BeforePrintEvent="TextRFlag_BeforePrint" Font="Microsoft Sans Serif, 10pt"/>
+      <LineObject Name="Line1" Top="60.37" Width="718.2"/>
+      <TextObject Name="TextSickType" Left="172.9" Top="64.15" Width="79.38" Height="17.01" BeforePrintEvent="TextSickType_BeforePrint" Text="病 例 号：" Font="宋体, 9pt"/>
+      <TextObject Name="TextPatNo" Left="251.85" Top="64.15" Width="79.38" Height="17.01" Text="[frform.PatNo]" Font="宋体, 9pt"/>
+      <TextObject Name="Text64" Left="379" Top="103.95" Width="79.38" Height="17.01" Text="标本性状：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text65" Left="458.37" Top="103.95" Width="69.93" Height="17.01" Text="[frform.zdy2]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="TextDept" Left="594.8" Top="86.5" Width="79.38" Height="17.01" Text="[frform.DEPTNAME]" Font="宋体, 10pt"/>
+      <TextObject Name="Text9" Left="528.2" Top="86.5" Width="79.38" Height="17.01" Text="科室/病区：&#13;&#10;" Font="宋体, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="142.56" Width="718.58" Height="151.2">
+      <SubreportObject Name="Subreport1" Width="718.2" Height="151.2" Visible="false" ReportPage="Page2"/>
+      <SubreportObject Name="Subreport3" Left="358.65" Width="357.21" Height="151.2" ReportPage="Page4"/>
+      <SubreportObject Name="Subreport2" Width="357.21" Height="151.2" ReportPage="Page3"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="297.76" Width="718.58" Height="107.4" BeforePrintEvent="PageFooter1_BeforePrint">
+      <TextObject Name="Text15" Left="1.9" Top="26.13" Width="75.6" Height="15.12" Text="接收时间:" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="TextCheckDate" Left="61.5" Top="27.13" Width="75.6" Height="15.12" BeforePrintEvent="TextCheckDate_BeforePrint" Text="[frform.CollectDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="Text20" Left="546.45" Top="27.13" Width="66.15" Height="15.12" Text="审核者:" Font="宋体, 9pt"/>
+      <LineObject Name="Line3" Width="718.58" Dock="Top"/>
+      <LineObject Name="Line4" Top="19.57" Width="718.58"/>
+      <TextObject Name="Text3" Left="1.9" Top="43.8" Width="491.4" Height="18.9" Text="本报告仅对此样本负责，如有疑问请在当日内与检验中心联系！" VertAlign="Bottom" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text59" Top="3" Width="47.25" Height="15.12" Text="备注:" Font="宋体, 9pt"/>
+      <TextObject Name="Text60" Left="47.25" Top="3" Width="576.45" Height="15.12" BeforePrintEvent="TextCollectDate_BeforePrint" Text="[frform.FORMMEMO]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="Text61" Left="203.4" Top="26.13" Width="66.15" Height="15.12" Text="报告时间:" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text63" Left="330.7" Top="28.13" Width="75.6" Height="15.12" BeforePrintEvent="TextCheckDate_BeforePrint" Text="[frform.CheckTime]" Format="Time" Format.Format="T" Font="宋体, 9pt"/>
+      <TextObject Name="Text1" Left="1.9" Top="65.6" Width="670.95" Height="18.9" Visible="false" Text="地址：北京市亦庄经济技术开发区科创六街88号A3座201    邮编：101111  " VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text19" Left="445.15" Top="65.6" Width="207.9" Height="18.9" Visible="false" Text=" 网址：www.biochainbj.com" Font="宋体, 10pt"/>
+      <TextObject Name="Text18" Left="4.2" Top="88.5" Width="689.85" Height="18.9" Visible="false" Text="电话：010-56315063                       传真：56315065" Font="宋体, 10pt"/>
+      <TextObject Name="Text53" Left="137.1" Top="25.94" Width="79.38" Height="17.01" Visible="false" Text="[frform.CollectTime]" Format="Time" Format.Format="T" Font="宋体, 9pt"/>
+      <TextObject Name="Text8" Left="409.05" Top="26.13" Width="75.6" Height="15.12" Text="检验者:" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text28" Left="458.85" Top="25.35" Width="85.05" Height="18.9" Text="[frform.TECHNICIAN]" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text66" Left="595.35" Top="26.35" Width="122.85" Height="18.9" Text="[frform.CHECKER]" Font="宋体, 9pt"/>
+      <TextObject Name="Text67" Left="267.05" Top="27.35" Width="75.6" Height="15.12" BeforePrintEvent="TextCheckDate_BeforePrint" Text="[frform.CHECKDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+    </PageFooterBand>
+    <OverlayBand Name="Overlay1" Top="409.16" Width="718.58" Height="519.56">
+      <TextObject Name="Text2" Left="439.9" Top="37.69" Width="245.7" Height="41.58" Visible="false" Text="地址：上海市长宁区清池路74号&#13;&#10;电话：800-820-7952 传真：021-62385566-8200&#13;&#10;医疗机构执业许可证登记号：PDY0638623101051791102&#13;&#10;" Font="宋体, 7pt"/>
+      <TextObject Name="Text23" Left="100.95" Top="89.2" Width="126.63" Height="17.01" Visible="false" Text="[frform.SampleNo]" AutoWidth="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text7" Left="37.8" Top="89.2" Width="69.93" Height="17.01" Visible="false" Text="样 本 号：&#13;&#10;" Font="宋体, 9pt"/>
+      <TextObject Name="TextSerialNo" Left="288.25" Top="85.05" Width="79.38" Height="17.01" Visible="false" Text="[frform.SerialNo]" Font="宋体, 9pt"/>
+      <TextObject Name="Text12" Left="227.88" Top="85.05" Width="69.93" Height="17.01" Visible="false" Text="报告编号：&#13;&#10;" Font="宋体, 9pt"/>
+      <TextObject Name="TextFormMemo" Left="248.45" Top="23.05" Width="211.68" Height="17.01" Visible="false" Text="[frform.FormMemo]&#13;&#10;" AutoWidth="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text11" Left="187.08" Top="23.05" Width="79.38" Height="17.01" Visible="false" Text="备    注：&#13;&#10;" Font="宋体, 9pt"/>
+      <TextObject Name="TextBed" Left="87.8" Top="232.84" Width="79.38" Height="17.01" Visible="false" Text="[frform.CollectDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="Text10" Left="28.35" Top="232.84" Width="69.93" Height="17.01" Visible="false" Text="申请日期：" Font="宋体, 9pt"/>
+      <TextObject Name="Text54" Left="211.15" Top="128.89" Width="79.38" Height="17.01" Visible="false" Text="[frform.CollectDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="Text55" Left="144.55" Top="128.89" Width="69.93" Height="17.01" Visible="false" Text="采样日期：" Font="宋体, 9pt"/>
+      <PictureObject Name="NameImageTechnician" Left="122.85" Top="200.45" Width="47.25" Height="26.46" BeforePrintEvent="NameImageTechnician_BeforePrint"/>
+      <PictureObject Name="NameImageOperator" Left="292.95" Top="191" Width="47.25" Height="37.8"/>
+      <PictureObject Name="RFGraphData1" Left="387.45" Top="179.55" Width="75.6" Height="66.15"/>
+      <PictureObject Name="NameImageSender2" Left="500.85" Top="191" Width="47.25" Height="37.8"/>
+    </OverlayBand>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <DataBand Name="Data2" Top="27.35" Width="718.2" Height="15.12" CanGrow="true" CanShrink="true" DataSource="fritem" KeepTogether="true">
+      <TextObject Name="Text32" Left="5.9" Width="28.35" Height="13.23" Text="[Row#]" Font="宋体, 9pt"/>
+      <TextObject Name="Text33" Left="31.25" Width="170.1" Height="13.23" Text="[fritem.TESTITEMNAME]&#13;&#10;" Font="宋体, 9pt"/>
+      <TextObject Name="Text34" Left="198.45" Width="94.5" Height="13.23" Text="[fritem.TESTITEMSNAME]" Font="宋体, 9pt"/>
+      <TextObject Name="TextValueText" Left="292.95" Width="85.43" Height="13.23" BeforePrintEvent="TextValueText_BeforePrint" Font="宋体, 9pt"/>
+      <TextObject Name="TextStatusText" Left="381.45" Width="26.08" Height="13.23" BeforePrintEvent="TextStatusText_BeforePrint" Font="宋体, 9pt"/>
+      <TextObject Name="TextRefRangeText" Left="447.05" Width="136.46" Height="13.23" CanGrow="true" CanShrink="true" BeforePrintEvent="TextRefRangeText_BeforePrint" AutoWidth="true" Font="宋体, 9pt"/>
+      <TextObject Name="TextItemUnit" Left="604.8" Width="94.5" Height="13.23" Text="[fritem.UNIT]" Font="宋体, 9pt"/>
+      <DataHeaderBand Name="DataHeader1" Width="718.2" Height="23.35">
+        <TextObject Name="Text24" Left="18.9" Top="1.45" Width="151.2" Height="18.9" Text="    检验项目" Font="宋体, 9pt"/>
+        <TextObject Name="Text25" Left="198.45" Top="1.45" Width="94.5" Height="18.9" Text="英文简称" Font="宋体, 9pt"/>
+        <TextObject Name="Text27" Left="295.95" Top="2.45" Width="122.85" Height="18.9" Text="结果          提示" Font="宋体, 9pt"/>
+        <TextObject Name="Text30" Left="450.95" Top="1.45" Width="103.95" Height="18.9" Text="参考值&#13;&#10;" Font="宋体, 9pt"/>
+        <TextObject Name="Text31" Left="607.15" Top="1.45" Width="66.15" Height="18.9" Text="单位&#13;&#10;" Font="宋体, 9pt"/>
+        <LineObject Name="Line8" Left="0.45" Top="17.45" Width="718.2"/>
+      </DataHeaderBand>
+      <DataFooterBand Name="DataFooter1" Top="46.47" Width="718.2" Height="23.8">
+        <TextObject Name="Text36" Left="18.9" Top="4.9" Width="94.5" Height="18.9" Visible="false" Text="打印行数:" Font="宋体, 9pt"/>
+        <TextObject Name="Row" Left="113.4" Top="4.9" Width="94.5" Height="18.9" Visible="false" Text="16" Font="宋体, 9pt"/>
+      </DataFooterBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page3">
+    <DataBand Name="Data3" Top="23.41" Width="718.2" Height="15.12" CanGrow="true" CanShrink="true" Guides="9.45" DataSource="fritem1" KeepTogether="true">
+      <TextObject Name="TextRowId1" Left="3.45" Top="2.45" Width="28.35" Height="11.34" Text="[fritem1.RowId]" Font="宋体, 9pt"/>
+      <TextObject Name="Textitemname1" Left="23.35" Top="2.45" Width="160.65" Height="11.34" BeforePrintEvent="Textitemname1_BeforePrint" Text="[fritem1.TESTITEMNAME]([fritem1.TESTITEMSNAME])" Font="宋体, 9pt"/>
+      <TextObject Name="TextItemValue1" Left="171.3" Top="2.45" Width="60.86" Height="11.34" BeforePrintEvent="TextItemValue1_BeforePrint" Font="宋体, 9pt"/>
+      <TextObject Name="TextResultStatus1" Left="233.8" Top="2.45" Width="15.12" Height="11.34" BeforePrintEvent="TextResultStatus1_BeforePrint" Font="宋体, 9pt"/>
+      <TextObject Name="TextRefRange1" Left="251.93" Top="2.45" Width="75.6" Height="11.34" CanGrow="true" CanShrink="true" BeforePrintEvent="TextRefRange1_BeforePrint" Font="宋体, 9pt"/>
+      <TextObject Name="Textitemunit1" Left="307.69" Top="2.45" Width="49.9" Height="11.34" Text="[fritem1.UNIT]" Font="宋体, 9pt"/>
+      <DataHeaderBand Name="DataHeader2" Width="718.2" Height="19.41">
+        <TextObject Name="Text29" Left="5.45" Top="2.45" Width="151.2" Height="15.12" Text="NO 检验项目（英文简称）" Font="宋体, 9pt"/>
+        <TextObject Name="Text37" Left="161.2" Top="2.45" Width="75.6" Height="15.12" Text="    结果" Font="宋体, 9pt"/>
+        <TextObject Name="Text38" Left="226.8" Top="2.45" Width="34.02" Height="15.12" Text="提示&#13;&#10;" Font="宋体, 9pt"/>
+        <TextObject Name="Text39" Left="255.93" Top="2.45" Width="75.6" Height="15.12" Text="参考值&#13;&#10;" Font="宋体, 9pt"/>
+        <TextObject Name="Text40" Left="312.3" Top="2.45" Width="34.02" Height="15.12" Text="单位" Font="宋体, 9pt"/>
+        <LineObject Name="Line9" Top="19.41" Width="368.55"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page4">
+    <DataBand Name="Data4" Top="25.35" Width="718.2" Height="13.79" CanGrow="true" CanShrink="true" Guides="0" DataSource="fritem2" KeepTogether="true">
+      <TextObject Name="TextRowId2" Left="8.32" Top="2.45" Width="28.35" Height="11.34" Text="[fritem2.RowId]" Padding="0, 0, 0, 0" Font="宋体, 9pt"/>
+      <TextObject Name="Textitemname2" Left="32.8" Top="2.45" Width="160.65" Height="11.34" BeforePrintEvent="Textitemname2_BeforePrint" Text="[fritem2.TESTITEMNAME]([fritem2.TESTITEMSNAME])" Font="宋体, 9pt"/>
+      <TextObject Name="TextItemValue2" Left="182.65" Top="2.45" Width="66.53" Height="11.34" BeforePrintEvent="TextItemValue2_BeforePrint" Font="宋体, 9pt"/>
+      <TextObject Name="TextResultStatus2" Left="229.25" Top="2.45" Width="24.57" Height="11.34" BeforePrintEvent="TextResultStatus2_BeforePrint" Font="宋体, 9pt"/>
+      <TextObject Name="TextRefRange2" Left="250.38" Top="2.45" Width="72.2" Height="11.34" CanGrow="true" CanShrink="true" BeforePrintEvent="TextRefRange2_BeforePrint" Font="宋体, 9pt"/>
+      <TextObject Name="Textitemunit2" Left="309.08" Top="2.45" Width="63.13" Height="11.34" Text="[fritem2.UNIT]" Font="宋体, 9pt"/>
+      <DataHeaderBand Name="DataHeader3" Width="718.2" Height="21.35">
+        <TextObject Name="Text46" Left="8.32" Top="2.45" Width="151.2" Height="15.12" Text="NO 检验项目（英文简称）" Padding="0, 0, 0, 0" Font="宋体, 9pt"/>
+        <TextObject Name="Text47" Left="160.65" Top="2.45" Width="75.6" Height="15.12" Text="    结果" Font="宋体, 9pt"/>
+        <TextObject Name="Text48" Left="229.25" Top="2.45" Width="34.02" Height="18.9" Text="提示&#13;&#10;" Font="宋体, 9pt"/>
+        <TextObject Name="Text49" Left="258.38" Top="2.45" Width="75.6" Height="15.12" Text="参考值&#13;&#10;" Font="宋体, 9pt"/>
+        <TextObject Name="Text50" Left="315.53" Top="2.45" Width="34.02" Height="15.12" Text="单位" Font="宋体, 9pt"/>
+        <LineObject Name="Line10" Left="-16.9" Top="19.28" Width="359.1"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+</Report>

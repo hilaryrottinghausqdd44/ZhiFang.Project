@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>就诊信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../css/layui.sm.all.css");
+    </script>
+</head>
+<body>
+    <div class="myStyle">
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <div class="layui-form">
+                    <div class="layui-inline">
+                        病历号:
+                    </div>
+                    <div class="layui-inline">
+                        <input type="text" id="PatNo" name="PatNo" autocomplete="off" class="layui-input" />
+                    </div>
+                    <div class="layui-inline">
+                        姓名:
+                    </div>
+                    <div class="layui-inline">
+                        <input type="text" id="CName" name="CName" autocomplete="off" class="layui-input" />
+                    </div>
+                    <div class="layui-inline">
+                        <input type="checkbox" name="isLike" id="isLike" title="模糊匹配" lay-skin="primary">
+                    </div>
+                    <div class="layui-inline">
+                        <button type="button" class="layui-btn layui-btn-xs layui-btn-primary" id="search"><i class="layui-icon layui-icon-search"></i>查询</button>
+                    </div>
+                    <div class="layui-inline" style="position:absolute;right:10px;">
+                        <div class="layui-inline">
+                            就诊信息替换方式:
+                        </div>
+                        <div class="layui-inline">
+                            <select name='Type' id="Type" lay-filter="Type">
+                                <option value="1">完全替换</option>
+                                <option value="2">已有信息不替换</option>
+                                <option value="3">不替换</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <table id="mainTable" lay-filter="mainTable"></table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('index.js');
+    </script>
+</body>
+</html>

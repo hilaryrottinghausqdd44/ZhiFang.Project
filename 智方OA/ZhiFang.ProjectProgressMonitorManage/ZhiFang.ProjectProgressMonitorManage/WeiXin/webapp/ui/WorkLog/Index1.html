@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>工作日志</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Index.js" type="text/javascript" charset="UTF-8"></script>
+    <style type="text/css" media="all">
+        .scroller li {
+            background-color: #fff;
+        }
+
+        .game-info {
+            padding: 2px 2px;
+            line-height: 30px;
+            color: #333;
+        }
+
+            .game-info p {
+                color: #999;
+            }
+    </style>
+    <script>
+        function changdiv()
+        {
+            //alert(document.body.clientHeight);
+            //alert($("#panel-head").outerHeight(true));
+            //alert($("#tabs").outerHeight(true));
+            var h = document.body.clientHeight - $("#panel-head").outerHeight(true)-1 - $("#tabs").outerHeight(true)-1;
+            //$("#div_content").height(h);
+            $("#iframe_content").height(h-5);
+        }
+    </script>
+</head>
+<body onload="changdiv();" onresize="changdiv();">
+    <div class="panel panel-default" style="margin:0px;">
+        <div id="panel-head" class="panel-heading text-center">工作日志<img id="worklogaddi" src="../img/icon/add.png" style="width:22px;height:22px;float:right;margin-top:2px;border:solid 0px" data-url="WorkLogTypeListChoose.html" /></div>
+        <ul id="tabs" class="nav nav-tabs">
+            <li id="alll" role="presentation" class="active"><a href="#" id="all">全部</a></li>
+            <li id="copyformel" role="presentation"><a href="#" id="copyforme">@我</a></li>
+            <li id="sendformel" role="presentation"><a href="#" id="sendforme">下属</a></li>
+            <li id="meownl" role="presentation"><a href="#" id="meown">我的</a></li>
+        </ul>
+        <iframe id="iframe_content" class="embed-responsive-item" frameborder="0" scrolling="no" style="width:100%;margin:0px"></iframe>
+    </div>
+    <div id="footer" class="container">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="navbar-inner navbar-content-center">
+                <table class="table-bordered" width="100%" height="30" border="1">
+                    <tr>
+                        <td id='applog' class="text-center" style="padding: 2px;" width="25%" data-url="../index.html">
+                            <img id="appi" src="../img/icon/unapp.png" style="width:32px;height:32px" />
+                            <div id="appt" style="color:#a9b7b7">控制台</div>
+                        </td>
+                        <td id='messagelog' class="text-center" width="25%">
+                            <img id="messagei" src="../img/icon/unmessage.png" style="width:32px;height:32px" />
+                            <div id="messaget" style="color:#a9b7b7">消息</div>
+                        </td>
+                        <td id='workdaylog' class="text-center" width="25%">
+                            <img id="workdayi" src="../img/icon/workday.png" style="width:32px;height:32px" />
+                            <div id="workdayt" style="color:#56abe4">日报</div>
+                        </td>
+                        <td id='myinfo' class="text-center" width="25%">
+                            <img id="myinfoi" src="../img/icon/unuser.png" style="width:32px;height:32px" />
+                            <div id="myinfot" style="color:#a9b7b7">我</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
+

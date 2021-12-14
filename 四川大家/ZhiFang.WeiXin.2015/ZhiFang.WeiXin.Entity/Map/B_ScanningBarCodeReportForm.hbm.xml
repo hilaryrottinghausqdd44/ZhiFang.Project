@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="BScanningBarCodeReportForm" table="[dbo].[B_ScanningBarCodeReportForm]">
+		<id name="Id" column="[SBarCodeRFID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="HospitalCode" column="[HospitalCode]" type="String" not-null="false" length="20" />
+		<property name="WeiXinUserID" column="[WeiXinUserID]" type="Int64" not-null="false" length="8" />
+    <property name="WeiXinAccount" column="[WeiXinAccount]" type="String" not-null="false" length="50" />
+		<!--<property name="ReportFormIndexID" column="[ReportFormIndexID]" type="Int64" not-null="false" length="8" />-->
+		<property name="BarCode" column="[BarCode]" type="String" not-null="false" length="20" />
+		<property name="Name" column="[Name]" type="String" not-null="false" length="20" />
+		<property name="Age" column="[Age]" type="Int32" not-null="false" length="4" />
+		<property name="AgeUnit" column="[AgeUnit]" type="String" not-null="false" length="20" />
+		<property name="Sex" column="[Sex]" type="String" not-null="false" length="20" />
+		<property name="ReportFormTime" column="[ReportFormTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ReadedFlag" column="[ReadedFlag]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

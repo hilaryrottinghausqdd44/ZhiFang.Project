@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+    <style>
+        .layui-form label {
+            padding: 9px 0;
+            width: 170px;
+        }
+        .layui-input-block {
+            margin-left: 180px !important;
+        }
+        #conditionsForm .layui-form-label{
+            width: 37px !important;
+        }
+        .layui-btn {
+            
+            margin-bottom: 2px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-bg-gray">
+        <div class="layui-row">
+            <div class="layui-col-md6">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <table class="layui-table layui-hide" id="userTableLeft" lay-filter="userTableLeft"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <table class="layui-table layui-hide" id="deptTableRight" lay-filter="deptTableRight"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;margin-left: 29px;margin-top: 10px;" id="addUserDeptDiv"></div>
+    <script type="text/html" id="toolbarUserLeft">
+        <form id="conditionsForm" class="layui-form" action="" lay-filter="conditionsForm"  style="float: left;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">姓名：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="CName" id="CName"  autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                
+                
+            </div>
+        </form>
+        <div class="layui-btn-container" style="float: left;">
+            
+            <button id="searchUser" class="layui-btn layui-btn-xs" lay-event="search"><i class="layui-icon">&#xe615;</i>查询</button>
+        </div>    
+    </script>
+    <script type="text/html" id="toolbarDeptRight">
+        <div class="layui-btn-container" >
+            <button class="layui-btn layui-btn-xs" lay-event="addUserDept"><i class="layui-icon">&#xe608;</i>添加</button>
+            <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="deleteUserDept"><i class="layui-icon">&#xe640;</i>删除</button>
+            
+        </div>    
+    </script>        
+    <script type="text/javascript">
+        UIVersion.loadLayui('2.5.6');
+        UIVersion.getJS('empDeptLinks.js');
+        UIVersion.getCSS('../../../../../../web_src/layui/css/layui.sm.all.css');
+    </script>
+</body>
+</html>

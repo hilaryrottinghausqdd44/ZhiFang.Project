@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="ZhiFang.BloodTransfusion.ServerWCF.RBACService" type="ZhiFang.BloodTransfusion.ServerWCF.RBACService,ZhiFang.BloodTransfusion"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <!--<property name="IBImportFile" ref="BImportFile"/>-->
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHRPosition" ref="BHRPosition"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <!--<property name="IBSLog" ref="BSLog"/>-->
+    <property name="IBDepartment" ref="BDepartment"/>
+    <property name="IBPUser" ref="BPUser"/>
+  </object>
+
+  <object id="ZhiFang.BloodTransfusion.ServerWCF.SingleTableService" type="ZhiFang.BloodTransfusion.ServerWCF.SingleTableService,ZhiFang.BloodTransfusion"  singleton="true">
+    <!--<property name="IBBHealthStatus" ref="BBHealthStatus"/>-->
+    <!--<property name="IBBMaritalStatus" ref="BBMaritalStatus"/>
+    <property name="IBBNationality" ref="BBNationality"/>-->
+    <property name="IBBParameter" ref="BBParameter"/>
+    <!--<property name="IBBProvince" ref="BBProvince"/>
+    <property name="IBBObjectOperate" ref="BBObjectOperate"/>
+    <property name="IBBObjectOperateType" ref="BBObjectOperateType"/>
+    <property name="IBSTypeDetail" ref="BSTypeDetail"/>
+    <property name="IBSType" ref="BSType"/>-->
+    <property name="IBBCountry" ref="BBCountry"/>
+    <!--<property name="IBBPoliticsStatus" ref="BBPoliticsStatus"/>-->
+    <!--<property name="IBBDegree" ref="BBDegree"/>
+    <property name="IBBCity" ref="BBCity"/>
+    <property name="IBBProfessionalAbility" ref="BBProfessionalAbility"/>-->
+    <property name="IBBDict" ref="BBDict"/>
+    <property name="IBBDictType" ref="BBDictType"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+  </object>
+
+  <object id="ZhiFang.BloodTransfusion.ServerWCF.CommonService" type="ZhiFang.BloodTransfusion.ServerWCF.CommonService,ZhiFang.BloodTransfusion"  singleton="true">
+    <property name="IBFFile" ref="BFFile"/>
+    <property name="IBFFileAttachment" ref="BFFileAttachment"/>
+    <property name="IBFFileCopyUser" ref="BFFileCopyUser"/>
+    <property name="IBFFileInteraction" ref="BFFileInteraction"/>
+    <property name="IBFFileOperation" ref="BFFileOperation"/>
+    <property name="IBFFileReadingLog" ref="BFFileReadingLog"/>
+    <property name="IBFFileReadingUser" ref="BFFileReadingUser"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+  </object>
+
+  <object id="ZhiFang.BloodTransfusion.ServerWCF.BloodTransfusionManageService" type="ZhiFang.BloodTransfusion.ServerWCF.BloodTransfusionManageService,ZhiFang.BloodTransfusion"  singleton="true">
+    <property name="IBBUserUIConfig" ref="BBUserUIConfig"/>
+    <property name="IBBloodBReqForm" ref="BBloodBReqForm"/>
+    <property name="IBBloodBReqItem" ref="BBloodBReqItem"/>
+    <property name="IBBloodBTestItem" ref="BBloodBTestItem"/>
+    <property name="IBBloodClass" ref="BBloodClass"/>
+    <property name="IBBloodLargeUseItem" ref="BBloodLargeUseItem"/>
+    <property name="IBBloodStyle" ref="BBloodStyle"/>
+    <property name="IBBloodUnit" ref="BBloodUnit"/>
+    <property name="IBBloodDocGrade" ref="BBloodDocGrade"/>
+    <property name="IBDepartment" ref="BDepartment"/>
+    <property name="IBPUser" ref="BPUser"/>
+    <property name="IBBloodUseDesc" ref="BBloodUseDesc"/>
+    <property name="IBBloodBReqFormResult" ref="BBloodBReqFormResult"/>
+    <property name="IBBloodABO" ref="BBloodABO"/>
+    <property name="IBBloodBOutForm" ref="BBloodBOutForm"/>
+    <property name="IBBloodBOutItem" ref="BBloodBOutItem"/>
+    <property name="IBBloodBPreForm" ref="BBloodBPreForm"/>
+    <property name="IBBloodBPreItem" ref="BBloodBPreItem"/>
+    <property name="IBBloodTransForm" ref="BBloodTransForm"/>
+    <property name="IBBloodTransItem" ref="BBloodTransItem"/>
+    <property name="IBBloodBagProcess" ref="BBloodBagProcess"/>
+    <property name="IBBloodBagProcessType" ref="BBloodBagProcessType"/>
+    <property name="IBBloodBagProcessTypeQry" ref="BBloodBagProcessTypeQry"/>
+    <property name="IBBloodBInForm" ref="BBloodBInForm"/>
+    <property name="IBBloodBInItem" ref="BBloodBInItem"/>
+    <property name="IBBloodAggluItem" ref="BBloodAggluItem"/>
+    <property name="IBBloodRecei" ref="BBloodRecei"/>
+    <property name="IBBloodReceiItem" ref="BBloodReceiItem"/>
+    <property name ="IBDepartmentUser" ref="BDepartmentUser"/>
+    <property name ="IBSCOperation" ref="BSCOperation"/>
+    <property name="IBBTemplate" ref="BBTemplate"/>
+    <property name="IBBloodBagRecordType" ref="BBloodBagRecordType"/>
+    <property name="IBBloodBagRecordItem" ref="BBloodBagRecordItem"/>
+    <property name="IBBloodBUnit" ref="BBloodBUnit"/>
+    <property name="IBBloodChargeItemType" ref="BBloodChargeItemType"/>
+    <property name="IBBloodChargeItem" ref="BBloodChargeItem"/>
+    <property name="IBBloodChargeGroupItem" ref="BBloodChargeGroupItem"/>
+    <property name="IBBloodBagChargeLink" ref="BBloodBagChargeLink"/>
+    <property name="IBBloodClassUnitLink" ref="BBloodClassUnitLink"/>
+    <property name="IBBloodLisResult" ref="BBloodLisResult"/>
+    <property name="IBBloodInterfaceMaping" ref="BBloodInterfaceMaping"/>
+    <property name="IBBloodChargeItemLink" ref="BBloodChargeItemLink"/>
+    <property name="IBBloodSetQtyAlertColor" ref="BBloodSetQtyAlertColor"/>
+    <property name="IBBloodSetQtyAlertInfo" ref="BBloodSetQtyAlertInfo"/>
+    <property name="IBSCBagOperation" ref="BSCBagOperation"/>
+    <property name="IBBloodSelfBlood" ref="BBloodSelfBlood"/>
+    <property name="IBBloodQtyDtl" ref="BBloodQtyDtl"/>
+    <property name="IBBloodPatinfo" ref="BBloodPatinfo"/>
+    
+    <property name="IBBloodInterfaceTransport" ref="BBloodInterfaceTransport"/>
+    <property name="IBBloodInCheckedItem" ref="BBloodInCheckedItem"/>
+    <property name="IBBloodInCheckedCurrent" ref="BBloodInCheckedCurrent"/>
+    <property name="IBBloodInChecked" ref="BBloodInChecked"/>
+    <property name="IBBloodChargeMoney" ref="BBloodChargeMoney"/>
+    
+    <property name="IBBloodBagRecordDtl" ref="BBloodBagRecordDtl"/>
+    <property name="IBBloodBagHandoverOper" ref="BBloodBagHandoverOper"/>
+  
+  </object>
+
+</objects>

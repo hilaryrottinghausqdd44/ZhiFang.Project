@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+	<object id="ZhiFang.Digitlab.ReagentSys.RBACService" type="ZhiFang.Digitlab.ReagentSys.RBACService,ZhiFang.Digitlab.ReagentSys"  singleton="true">
+		<property name="IBRBACUser" ref="BRBACUser"/>
+		<property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+		<property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+		<property name="IBRBACRole" ref="BRBACRole"/>
+		<property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+		<property name="IBRBACModule" ref="BRBACModule"/>
+		<property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+		<property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+		<property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+		<property name="IBImportFile" ref="BImportFile"/>
+		<property name="IBHRDept" ref="BHRDept"/>
+		<property name="IBHRPosition" ref="BHRPosition"/>
+		<property name="IBHREmployee" ref="BHREmployee"/>
+		<property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+		<property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+		<property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+		<property name="IBSLog" ref="BSLog"/>
+	</object>
+
+	<object id="ZhiFang.Digitlab.ReagentSys.ConstructionService" type="ZhiFang.Digitlab.ReagentSys.ConstructionService,ZhiFang.Digitlab.ReagentSys"  singleton="true">
+		<property name="IBBTDAppComponents" ref="BBTDAppComponents"/>
+		<property name="IBBTDAppPicture" ref="BBTDAppPicture"/>
+		<property name="IBBTDModuleType" ref="BBTDModuleType"/>
+		<property name="IBBTDPictureType" ref="BBTDPictureType"/>
+		<property name="IBBTDPictureTypeCon" ref="BBTDPictureTypeCon"/>
+		<property name="IBBTDMacroCommand" ref="BBTDMacroCommand"/>
+		<property name="IBBTDAppComponentsOperate" ref="BBTDAppComponentsOperate"/>
+		<property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+	</object>
+
+	<object id="ZhiFang.Digitlab.ReagentSys.SingleTableService" type="ZhiFang.Digitlab.ReagentSys.SingleTableService,ZhiFang.Digitlab.ReagentSys"  singleton="true">
+		<property name="IBBLaboratory" ref="BBLaboratory"/>
+		<property name="IBBAgeUnit" ref="BBAgeUnit"/>
+		<property name="IBBAttendanceType" ref="BBAttendanceType"/>
+		<property name="IBBBackSectionState" ref="BBBackSectionState"/>
+		<property name="IBBBusinessType" ref="BBBusinessType"/>
+		<property name="IBBCheckStatus" ref="BBCheckStatus"/>
+		<property name="IBBConstellation" ref="BBConstellation"/>
+		<property name="IBBDiag" ref="BBDiag"/>
+		<property name="IBBEducationLevel" ref="BBEducationLevel"/>
+		<property name="IBBExecutionState" ref="BBExecutionState"/>
+		<property name="IBBFileGroup" ref="BBFileGroup"/>
+		<property name="IBBFileType" ref="BBFileType"/>
+		<property name="IBBFinancial" ref="BBFinancial"/>
+		<property name="IBBHealthStatus" ref="BBHealthStatus"/>
+		<property name="IBBProjectType" ref="BBProjectType"/>
+		<property name="IBBLeaveType" ref="BBLeaveType"/>
+		<property name="IBBLevel" ref="BBLevel"/>
+		<property name="IBBMaritalStatus" ref="BBMaritalStatus"/>
+		<property name="IBBNationality" ref="BBNationality"/>
+		<property name="IBBNodeTable" ref="BBNodeTable"/>
+		<property name="IBBParameter" ref="BBParameter"/>
+		<property name="IBBPaymentType" ref="BBPaymentType"/>
+		<property name="IBBProduce" ref="BBProduce"/>
+		<property name="IBBProvince" ref="BBProvince"/>
+		<property name="IBBReimbursementState" ref="BBReimbursementState"/>
+		<property name="IBBReimbursementType" ref="BBReimbursementType"/>
+		<property name="IBBReportCycle" ref="BBReportCycle"/>
+		<property name="IBBReportStatus" ref="BBReportStatus"/>
+		<property name="IBBReportType" ref="BBReportType"/>
+		<property name="IBBSampleType" ref="BBSampleType"/>
+		<property name="IBBSex" ref="BBSex"/>
+		<property name="IBBSickType" ref="BBSickType"/>
+		<property name="IBBStatus" ref="BBStatus"/>
+		<property name="IBBStorageType" ref="BBStorageType"/>
+		<property name="IBBStorehouse" ref="BBStorehouse"/>
+		<property name="IBBSubject" ref="BBSubject"/>
+		<property name="IBBSupplier" ref="BBSupplier"/>
+		<property name="IBBSpecialty" ref="BBSpecialty"/>
+		<!--<property name="IBBSpecialtyItem" ref="BBSpecialtyItem"/>-->
+		<property name="IBBTestType" ref="BBTestType"/>
+		<property name="IBBTimeUnit" ref="BBTimeUnit"/>
+		<property name="IBBURLGroup" ref="BBURLGroup"/>
+		<property name="IBBURLType" ref="BBURLType"/>
+		<property name="IBBPatientInfo" ref="BBPatientInfo"/>
+		<property name="IBBSampleOperate" ref="BBSampleOperate"/>
+		<property name="IBBSampleOperateType" ref="BBSampleOperateType"/>
+		<property name="IBBSampleStatus" ref="BBSampleStatus"/>
+		<property name="IBBSampleStatusType" ref="BBSampleStatusType"/>
+		<property name="IBBOperateObjectType" ref="BBOperateObjectType"/>
+		<property name="IBItemAllItem" ref="BItemAllItem"/>
+		<property name="IBItemItemCon" ref="BItemItemCon"/>
+		<property name="IBEPBEquip" ref="BEPBEquip"/>
+		<property name="IBEPEquipItem" ref="BEPEquipItem"/>
+		<property name="IBEPModule" ref="BEPModule"/>
+		<property name="IBBPhrase" ref="BBPhrase"/>
+		<property name="IBBPhraseType" ref="BBPhraseType"/>
+		<property name="IBSTypeDetail" ref="BSTypeDetail"/>
+		<property name="IBSType" ref="BSType"/>
+		<property name="IBGMGroupType" ref="BGMGroupType"/>
+		<property name="IBGMGroup" ref="BGMGroup"/>
+		<property name="IBGMGroupItem" ref="BGMGroupItem"/>
+		<property name="IBGMGroupEquip" ref="BGMGroupEquip"/>
+		<property name="IBBNumberBuildRule" ref="BBNumberBuildRule"/>
+		<property name="IBBNumberBuildRuleCondition" ref="BBNumberBuildRuleCondition"/>
+		<property name="IBBMaxNumberToRule" ref="BBMaxNumberToRule"/>
+		<property name="IBBCountry" ref="BBCountry"/>
+		<property name="IBBPoliticsStatus" ref="BBPoliticsStatus"/>
+		<property name="IBBDegree" ref="BBDegree"/>
+		<property name="IBBCity" ref="BBCity"/>
+		<property name="IBBProfessionalAbility" ref="BBProfessionalAbility"/>
+		<property name="IBBDic" ref="BBDic"/>
+		<property name="IBBDicClass" ref="BBDicClass"/>
+	</object>
+	<object id="ZhiFang.Digitlab.ReagentSys.ReagentSysService" type="ZhiFang.Digitlab.ReagentSys.ReagentSysService,ZhiFang.Digitlab.ReagentSys"  singleton="true">
+		<property name="IBBmsCenOrderDoc" ref="BBmsCenOrderDoc"/>
+		<property name="IBBmsCenOrderDtl" ref="BBmsCenOrderDtl"/>
+		<property name="IBBmsCenSaleDoc" ref="BBmsCenSaleDoc"/>
+		<property name="IBBmsCenSaleDtl" ref="BBmsCenSaleDtl"/>
+		<property name="IBBmsCenSaleDtlBarCode" ref="BBmsCenSaleDtlBarCode"/>
+		<property name="IBCenOrg" ref="BCenOrg"/>
+		<property name="IBCenOrgCondition" ref="BCenOrgCondition"/>
+		<property name="IBCenOrgType" ref="BCenOrgType"/>
+		<property name="IBGoodsComp" ref="BGoodsComp"/>
+		<property name="IBGoodsLab" ref="BGoodsLab"/>
+		<property name="IBGoodsProd" ref="BGoodsProd"/>
+		<property name="IBGoods" ref="BGoods"/>
+		<property name="IBCenMsg" ref="BCenMsg"/>
+		<property name="IBCenQtyDtl" ref="BCenQtyDtl"/>
+		<property name="IBCenTestReaAdd" ref="BCenTestReaAdd"/>
+	</object>
+
+	<object id="ZhiFang.Digitlab.ReagentSys.ReagentService" type="ZhiFang.Digitlab.ReagentSys.ReagentService,ZhiFang.Digitlab.ReagentSys"  singleton="true">
+		<property name="IBBmsCenSaleDoc" ref="BBmsCenSaleDoc"/>
+		<property name="IBGoods" ref="BGoods"/>
+	</object>
+
+</objects>

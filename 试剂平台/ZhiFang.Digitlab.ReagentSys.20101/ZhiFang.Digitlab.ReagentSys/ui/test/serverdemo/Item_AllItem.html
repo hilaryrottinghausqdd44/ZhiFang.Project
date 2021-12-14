@@ -1,0 +1,123 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchItemAllItemByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchItemAllItemById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelItemAllItem',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddItemAllItem',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateItemAllItemByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateItemAllItem',
+
+    		//所有项目对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'ItemAllItem_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'ItemAllItem_Id',value:'项目ID'},						 
+						 		     
+				     												 
+						{ key:'ItemAllItem_CName',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_EName',value:'英文名称'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_ItemType',value:'项目类型   0：检验项目   1：开单项目(组套项目/医嘱项目)，   2：分样项目，'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_Unit',value:'结果单位'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_RefRange',value:'默认参考范围'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_ValueType',value:'结果类型   定性，定量，描述，图形等'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_SamplingRequire',value:'采样要求'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_ClinicalSignificance',value:'临床意义'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_ChargeType',value:'收费类型   0：不收费   1：收费'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_ItemCharge',value:'项目价格'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_Comment',value:'描述'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_DispOrder',value:'显示次序'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_UseCode',value:'代码'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_StandCode',value:'标准代码'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_DeveCode',value:'开发商标准代码'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_PinYinZiTou',value:'汉字拼音字头   主要用于录入方便'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'ItemAllItem_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'ItemAllItem_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'所有项目',
+    		//主键字段
+    		key:'ItemAllItem_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

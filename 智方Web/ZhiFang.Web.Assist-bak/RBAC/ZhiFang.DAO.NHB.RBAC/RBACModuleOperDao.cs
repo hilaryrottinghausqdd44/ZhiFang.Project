@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using ZhiFang.Entity.RBAC;
+using ZhiFang.IDAO.RBAC;
+using NHibernate;
+using NHibernate.Criterion;
+using ZhiFang.DAO.NHB.Base;
+
+namespace ZhiFang.DAO.NHB.RBAC
+{
+    public class RBACModuleOperDao : Base.BaseDaoNHBService<RBACModuleOper, long>, IDRBACModuleOperDao
+    {
+        #region IDRBACModuleOperDao 成员
+
+        public IList<RBACModuleOper> SearchModuleOperIDByModuleID(long longModuleID)
+        {
+            Dictionary<string, List<ICriterion>> dic = new Dictionary<string, List<ICriterion>>();
+            dic.Add("RBACModuleOper", null);
+            dic.Add("RBACModule", new List<ICriterion>() { Restrictions.Eq("Id", longModuleID) });
+
+            DaoNHBCriteriaAction<List<RBACModuleOper>, RBACModuleOper> action = new DaoNHBCriteriaAction<List<RBACModuleOper>, RBACModuleOper>(dic);
+
+            List<RBACModuleOper> l = base.HibernateTemplate.Execute<List<RBACModuleOper>>(action);
+            return l;
+        }
+
+        public IList<RBACModuleOper> SearchModuleOperByRoleID(long longRoleID)
+        {
+            Dictionary<string, List<ICriterion>> dic = new Dictionary<string, List<ICriterion>>();
+            dic.Add("RBACModuleOper", null);
+            dic.Add("RBACRoleRightList", null);
+            dic.Add("RBACRole", new List<ICriterion>() { Restrictions.Eq("Id", longRoleID) });
+
+            DaoNHBCriteriaAction<List<RBACModuleOper>, RBACModuleOper> action = new DaoNHBCriteriaAction<List<RBACModuleOper>, RBACModuleOper>(dic);
+
+            List<RBACModuleOper> l = base.HibernateTemplate.Execute<List<RBACModuleOper>>(action);
+            return l;
+        }
+
+        public IList<RBACModuleOper> SearchModuleOperByHREmpID(long longHREmpID)
+        {
+            Dictionary<string, List<ICriterion>> dic = new Dictionary<string, List<ICriterion>>();
+            dic.Add("RBACModuleOper", null);
+            dic.Add("RBACRoleRightList", null);
+            dic.Add("RBACRole", null);
+            dic.Add("RBACEmpRoleList", null);
+            dic.Add("PUser", new List<ICriterion>() { Restrictions.Eq("Id", longHREmpID) });//HREmployee
+
+            DaoNHBCriteriaAction<List<RBACModuleOper>, RBACModuleOper> action = new DaoNHBCriteriaAction<List<RBACModuleOper>, RBACModuleOper>(dic);
+
+            List<RBACModuleOper> l = base.HibernateTemplate.Execute<List<RBACModuleOper>>(action);
+            return l;
+        }
+
+        public IList<RBACModuleOper> SearchModuleOperByUserCode(string strUserCode)
+        {
+            Dictionary<string, List<ICriterion>> dic = new Dictionary<string, List<ICriterion>>();
+            dic.Add("RBACModuleOper", null);
+            dic.Add("RBACRoleRightList", null);
+            dic.Add("RBACRole", null);
+            dic.Add("RBACEmpRoleList", null);
+            dic.Add("PUser", null);//HREmployee
+            dic.Add("RBACUserList", new List<ICriterion>() { Restrictions.Eq("UseCode", strUserCode) });
+
+            DaoNHBCriteriaAction<List<RBACModuleOper>, RBACModuleOper> action = new DaoNHBCriteriaAction<List<RBACModuleOper>, RBACModuleOper>(dic);
+
+            List<RBACModuleOper> l = base.HibernateTemplate.Execute<List<RBACModuleOper>>(action);
+            return l;
+        }
+
+        #endregion
+    }
+}

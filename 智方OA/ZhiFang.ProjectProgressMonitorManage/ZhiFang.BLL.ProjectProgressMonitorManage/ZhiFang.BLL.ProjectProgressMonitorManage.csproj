@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C2CA15B-E93C-472B-9C21-C03CF2CCC717}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.ProjectProgressMonitorManage</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.ProjectProgressMonitorManage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ProjectProgressMonitorManage\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.1.40711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBEquip.cs" />
+    <Compile Include="BEParameter.cs" />
+    <Compile Include="BBParameter.cs" />
+    <Compile Include="BCUser.cs" />
+    <Compile Include="BEEquip.cs" />
+    <Compile Include="BEMaintenanceData.cs" />
+    <Compile Include="BEReportData.cs" />
+    <Compile Include="BEAttachment.cs" />
+    <Compile Include="BETemplet.cs" />
+    <Compile Include="BEResEmp.cs" />
+    <Compile Include="BETempletRes.cs" />
+    <Compile Include="BEResponsibility.cs" />
+    <Compile Include="BETempletEmp.cs" />
+    <Compile Include="BPContractFollow.cs" />
+    <Compile Include="BPContractFollowInteraction.cs" />
+    <Compile Include="BPProjectDocument.cs" />
+    <Compile Include="BPProjectTaskProgress.cs" />
+    <Compile Include="BPProjectTask.cs" />
+    <Compile Include="BPProject.cs" />
+    <Compile Include="BPSalesManClientLink.cs" />
+    <Compile Include="BPGMProgram.cs" />
+    <Compile Include="BPInvoice.cs" />
+    <Compile Include="BPFinanceReceive.cs" />
+    <Compile Include="BPCustomerService.cs" />
+    <Compile Include="BPCustomerServiceOperation.cs" />
+    <Compile Include="BPEmpFinanceAccount.cs" />
+    <Compile Include="BPExpenseAccount.cs" />
+    <Compile Include="BPLoanBill.cs" />
+    <Compile Include="BPRepayment.cs" />
+    <Compile Include="BPCustomerServiceAttachment.cs" />
+    <Compile Include="BPReceivePlan.cs" />
+    <Compile Include="BPReceive.cs" />
+    <Compile Include="BPCustomerServiceOperationLog.cs" />
+    <Compile Include="BPTaskTypeEmpLink.cs" />
+    <Compile Include="BFFile.cs" />
+    <Compile Include="BFFileAttachment.cs" />
+    <Compile Include="BFFileCopyUser.cs" />
+    <Compile Include="BFFileInteraction.cs" />
+    <Compile Include="BFFileOperation.cs" />
+    <Compile Include="BFFileReadingLog.cs" />
+    <Compile Include="BFFileReadingUser.cs" />
+    <Compile Include="BBDictTree.cs" />
+    <Compile Include="BPDict.cs" />
+    <Compile Include="BPDictType.cs" />
+    <Compile Include="BPInteraction.cs" />
+    <Compile Include="BPProjectAttachment.cs" />
+    <Compile Include="BPTask.cs" />
+    <Compile Include="BPTaskCopyFor.cs" />
+    <Compile Include="BPWorkDayLog.cs" />
+    <Compile Include="BPWorkLogCopyFor.cs" />
+    <Compile Include="BPWorkLogInteraction.cs" />
+    <Compile Include="BPWorkLogSendFor.cs" />
+    <Compile Include="BPWorkMonthLog.cs" />
+    <Compile Include="BSCAttachment.cs" />
+    <Compile Include="BSCInteraction.cs" />
+    <Compile Include="BSCOperation.cs" />
+    <Compile Include="BStoredProcedure.cs" />
+    <Compile Include="BPWorkWeekLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BPClient.cs" />
+    <Compile Include="BPClientLinker.cs" />
+    <Compile Include="BPContract.cs" />
+    <Compile Include="BPTaskOperLog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.DBUpdate.PM\ZhiFang.DBUpdate.PM.csproj">
+      <Project>{a1650855-b138-4898-91a2-019e04660a1b}</Project>
+      <Name>ZhiFang.DBUpdate.PM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.OA\ZhiFang.Entity.OA.csproj">
+      <Project>{4feeee53-1839-4db8-b7d7-79df2fc7506d}</Project>
+      <Name>ZhiFang.Entity.OA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.ProjectProgressMonitorManage\ZhiFang.Entity.ProjectProgressMonitorManage.csproj">
+      <Project>{e3b08151-fbe9-4e8e-b390-11bd9f7def4a}</Project>
+      <Name>ZhiFang.Entity.ProjectProgressMonitorManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.OA\ZhiFang.IBLL.OA.csproj">
+      <Project>{95ec9451-0ad9-41fa-9dda-21ef788cbf86}</Project>
+      <Name>ZhiFang.IBLL.OA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.ProjectProgressMonitorManage\ZhiFang.IBLL.ProjectProgressMonitorManage.csproj">
+      <Project>{f2fa3221-f587-4488-b441-7f38e9890a1e}</Project>
+      <Name>ZhiFang.IBLL.ProjectProgressMonitorManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{F5A15ED6-4EB8-4E39-8B19-357B799A1F10}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.OA\ZhiFang.IDAO.OA.csproj">
+      <Project>{6a7512c6-0610-49db-b805-81677767baf9}</Project>
+      <Name>ZhiFang.IDAO.OA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.ProjectProgressMonitorManage\ZhiFang.IDAO.ProjectProgressMonitorManage.csproj">
+      <Project>{418fc9a7-1313-47a8-b3e9-b1eb0fdc7d32}</Project>
+      <Name>ZhiFang.IDAO.ProjectProgressMonitorManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3e769f10-c35b-4db3-a375-578c4091e6b8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ProjectProgressMonitorManage.Common\ZhiFang.ProjectProgressMonitorManage.Common.csproj">
+      <Project>{63bbbf6c-b082-4ab9-8582-4dd2da3280d6}</Project>
+      <Name>ZhiFang.ProjectProgressMonitorManage.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550F2-BF83-4C13-9386-9ACF6E2AE591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

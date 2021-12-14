@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值消息内容</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.layui-colla-content{padding:10px;}
+		.footer{position:fixed;left:0;bottom:0;width:100%;height:68px;background-color:#ffffff;}
+		.footer div{position:fixed;right:0;bottom:0;padding:15px;}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid layui-form" style="padding:15px;">
+		<div class="layui-collapse" style="margin-bottom:55px;">
+			<div class="layui-colla-item">
+				<h2 class="layui-colla-title">处理信息</h2>
+				<div class="layui-colla-content layui-show">
+					<div class="layui-row layui-col-space5">
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">被通知医生：<span id="ConfirmNotifyDoctorName"></span></div>
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">通知操作人：<span id="NotifyDoctorByEmpName"></span></div>
+						<div class="layui-col-xs12 layui-col-sm4 layui-col-md3">通知次数：<span id="NotifyDoctorCount"></span></div>
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">最后通知时间：<span id="NotifyDoctorLastDateTime"></span></div>
+						
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">确认人：<span id="ConfirmerName"></span></div>
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">确认时间：<span id="ConfirmDateTime"></span></div>
+						<div class="layui-col-xs12 layui-col-sm4 layui-col-md6">确认备注：<span id="ConfirmMemo"></span></div>
+						
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">处理人：<span id="HandlerName"></span></div>
+						<div class="layui-col-xs6 layui-col-sm4 layui-col-md3">处理时间：<span id="HandleTime"></span></div>
+						<div class="layui-col-xs12 layui-col-sm4 layui-col-md6">处理备注 ：<span id="HandleMemo"></span></div>
+						<div class="layui-col-xs12 layui-col-sm12 layui-col-md12">处理意见 ：<span id="HandleDesc"></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-colla-item">
+				<h2 class="layui-colla-title">样本信息</h2>
+				<div class="layui-colla-content layui-show">
+					<div class="layui-row layui-col-space5">
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">患者：<span id="CNAME"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">年龄：<span id="AGE"></span><span id="AGEUNITNAME"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">性别：<span id="GENDERNAME"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">病历号：<span id="PATNO"></span></div>
+					</div>
+					<div class="layui-row layui-col-space5">
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">开单科室：<span id="DEPTNAME"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">开单医生：<span id="DOCTOR"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">就诊类型：<span id="SICKTYPENAME"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">条码号：<span id="SERIALNO"></span></div>
+					</div>
+					<div class="layui-row layui-col-space5">
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">审核人：<span id="CHECKER"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">审核时间：<span id="CHECKDATE"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">核收日期：<span id="RECEIVEDATE"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">样本号：<span id="SAMPLENO"></span></div>
+					</div>
+					<div class="layui-row layui-col-space5">
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">检测医生：<span id="TECHNICIAN"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">小组名称：<span id="SECTIONNAME"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">采样日期：<span id="COLLECTDATE"></span></div>
+						<div class="layui-col-xs6 layui-col-sm6 layui-col-md3">病床号：<span id="BED"></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-colla-item">
+				<h2 class="layui-colla-title">项目信息</h2>
+				<div class="layui-colla-content layui-show">
+					<table class="layui-hide" id="Items" lay-filter="Items"></table>
+				</div>
+			</div>
+			<div class="layui-colla-item">
+				<h2 class="layui-colla-title">消息内容</h2>
+				<div id="MsgContent" class="layui-colla-content layui-show"></div>
+			</div>
+		</div>
+		<div class="footer">
+			<div>
+				<button id="upload_button" class="layui-btn layui-btn-normal layui-hide" lay-submit lay-filter="upload_button">消息上报</button>
+				<button id="timeout_button" class="layui-btn layui-hide" lay-submit lay-filter="timeout_button">超时处理</button>
+				
+				<button id="confirm_button" class="layui-btn layui-btn-normal layui-hide" lay-submit lay-filter="confirm_button">消息确认</button>
+				<button id="confirm_again_button" class="layui-btn layui-btn-warm layui-hide" lay-submit lay-filter="confirm_button">再次确认并通知</button>
+				<button id="handle_button" class="layui-btn layui-hide" lay-submit lay-filter="handle_button">消息处理</button>
+				
+				<button id="cancel_button" class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel_button">取消</button>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('index.js');
+	</script>
+</body>
+</html>

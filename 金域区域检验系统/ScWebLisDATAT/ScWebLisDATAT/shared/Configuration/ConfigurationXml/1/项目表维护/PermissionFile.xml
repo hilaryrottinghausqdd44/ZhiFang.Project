@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Businesses>
+  <Business name="项目表维护">
+    <Table TableEName="TestItem">
+      <DFD>
+        <Condition comment="收费项目">
+          <Match field="IschargeItem" const="1" comp="equal" />
+        </Condition>
+      </DFD>
+    </Table>
+  </Business>
+</Businesses>

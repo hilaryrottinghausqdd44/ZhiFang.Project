@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>测试页面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css"/>
+    
+    <script type="text/javascript" src="dynamicgrid.js"></script>
+	<script type="text/javascript">
+	Ext.onReady(function(){	
+		Ext.QuickTips.init();//初始化后就会激活提示功能
+		Ext.Loader.setConfig({enabled: true});//允许动态加载
+		
+		var panel = Ext.create('Ext.zhifang.dynamicgrid',{
+			title:'动态列表测试',
+			width:600,
+			height:300,
+			url:'value.txt',
+			hasPagingtoolbar:true,
+			pageSize:4,
+			dockedItems:[{
+				xtype:'toolbar',
+				items:[{
+					xtype:'button',
+					text:'更新1',
+					handler:function(but){
+						but.ownerCt.ownerCt.url = "value.txt";
+						but.ownerCt.ownerCt.load();
+					}
+				},{
+					xtype:'button',
+					text:'更新2',
+					handler:function(but){
+						but.ownerCt.ownerCt.url = "value2.txt";
+						but.ownerCt.ownerCt.load();
+					}
+				},{
+					xtype:'button',
+					text:'改列头',
+					handler:function(but){
+						var list = but.ownerCt.ownerCt;
+						var columns = list.columns;
+						columns[1].setText("2012年度");
+						columns[2].setText("2013年度");
+					}
+				}]
+			}]
+		});
+		//总体布局
+		var viewport = Ext.create('Ext.container.Viewport',{
+			//layout:'fit',
+			items:[panel]
+		});
+	});
+	
+	</script>
+</head>
+<body>
+</body>
+</html>

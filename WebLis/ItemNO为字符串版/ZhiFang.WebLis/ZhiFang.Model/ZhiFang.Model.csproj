@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9828C326-B724-457E-A649-70850D5EA018}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Model</RootNamespace>
+    <AssemblyName>ZhiFang.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG; </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ZhiFang.WebLis\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgeUnit.cs" />
+    <Compile Include="BarCodeForm.cs" />
+    <Compile Include="barCodeSeq.cs" />
+    <Compile Include="BaseResult.cs" />
+    <Compile Include="BusinessLogicClientControl.cs" />
+    <Compile Include="BUSINESSMAN.cs" />
+    <Compile Include="BUSINESSMANControl.cs" />
+    <Compile Include="B_ClientPara.cs" />
+    <Compile Include="ClientEleArea.cs" />
+    <Compile Include="ClientProfile.cs" />
+    <Compile Include="DepartmentControl.cs" />
+    <Compile Include="DownloadDict\DownloadDictBase.cs" />
+    <Compile Include="DownloadDict\D_BLabFolkType.cs" />
+    <Compile Include="DownloadDict\D_BLabDoctor.cs" />
+    <Compile Include="DownloadDict\D_BLabSickType.cs" />
+    <Compile Include="DownloadDict\D_BPhysicalExamType.cs" />
+    <Compile Include="DownloadDict\D_ItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="DownloadDict\D_ItemColorDict.cs" />
+    <Compile Include="DownloadDict\D_Lab_TestItem.cs" />
+    <Compile Include="DownloadDict\DownloadDictEntity.cs" />
+    <Compile Include="DownloadDict\D_Lab_SampleType.cs" />
+    <Compile Include="DownloadReportParam.cs" />
+    <Compile Include="ItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="BPhysicalExamType.cs" />
+    <Compile Include="ItemColorDict.cs" />
+    <Compile Include="ItemMergeRule.cs" />
+    <Compile Include="Lab_Department.cs" />
+    <Compile Include="Lab_SickType.cs" />
+    <Compile Include="LocationbarCodePrintPamater.cs" />
+    <Compile Include="NRequetFormList.cs" />
+    <Compile Include="OSUserConsumerForm.cs" />
+    <Compile Include="OSUserConsumerItem.cs" />
+    <Compile Include="OSUserOrderItem.cs" />
+    <Compile Include="OSUserOrderForm.cs" />
+    <Compile Include="Other\ReportFormFull_VO.cs" />
+    <Compile Include="PGroupFormat.cs" />
+    <Compile Include="ReportFileModel.cs" />
+    <Compile Include="ResultTestItemControl.cs" />
+    <Compile Include="SamplingGroup.cs" />
+    <Compile Include="SearchReCheckLog.cs" />
+    <Compile Include="SendOrder.cs" />
+    <Compile Include="SickTypeControl.cs" />
+    <Compile Include="ChargeType.cs" />
+    <Compile Include="ChargeTypeControl.cs" />
+    <Compile Include="CLIENTELEControl.cs" />
+    <Compile Include="Diagnosis.cs" />
+    <Compile Include="DiagnosisControl.cs" />
+    <Compile Include="DistrictControl.cs" />
+    <Compile Include="DoctorControl.cs" />
+    <Compile Include="Equipment.cs" />
+    <Compile Include="EquipmentControl.cs" />
+    <Compile Include="FolkType.cs" />
+    <Compile Include="FolkTypeControl.cs" />
+    <Compile Include="GenderType.cs" />
+    <Compile Include="GroupItem.cs" />
+    <Compile Include="Lab_BUSINESSMAN.cs" />
+    <Compile Include="Lab_ChargeType.cs" />
+    <Compile Include="Lab_CLIENTELE.cs" />
+    <Compile Include="Lab_Diagnosis.cs" />
+    <Compile Include="Lab_District.cs" />
+    <Compile Include="Lab_Doctor.cs" />
+    <Compile Include="Lab_Equipment.cs" />
+    <Compile Include="Lab_FolkType.cs" />
+    <Compile Include="Lab_GroupItem.cs" />
+    <Compile Include="Lab_PGroup.cs" />
+    <Compile Include="Lab_SampleType.cs" />
+    <Compile Include="Lab_StatusType.cs" />
+    <Compile Include="Lab_SuperGroup.cs" />
+    <Compile Include="Lab_TestItem.cs" />
+    <Compile Include="MicroOperationStepFlow.cs" />
+    <Compile Include="MicroOperationStepLib.cs" />
+    <Compile Include="Modules.cs" />
+    <Compile Include="NRequestForm.cs" />
+    <Compile Include="NRequestItem.cs" />
+    <Compile Include="PGroupControl.cs" />
+    <Compile Include="SampleTypeControl.cs" />
+    <Compile Include="StaticPersonTestItemPrice.cs" />
+    <Compile Include="StaticRecOrgSamplePrice.cs" />
+    <Compile Include="StatusType.cs" />
+    <Compile Include="StatusTypeControl.cs" />
+    <Compile Include="SuperGroup.cs" />
+    <Compile Include="SuperGroupControl.cs" />
+    <Compile Include="GenderTypeControl.cs" />
+    <Compile Include="Lab_GenderType.cs" />
+    <Compile Include="TB_CheckClientAccount.cs" />
+    <Compile Include="TestItem.cs" />
+    <Compile Include="TestItemControl.cs" />
+    <Compile Include="CLIENTELE.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="District.cs" />
+    <Compile Include="Doctor.cs" />
+    <Compile Include="LabDownLoadInfo.cs" />
+    <Compile Include="LogInfo.cs" />
+    <Compile Include="Other\PatNo_Passwords.cs" />
+    <Compile Include="PGroup.cs" />
+    <Compile Include="PGroupPrint.cs" />
+    <Compile Include="PrintFormat.cs" />
+    <Compile Include="PrintHtml.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PUser.cs" />
+    <Compile Include="ReportForm.cs" />
+    <Compile Include="ReportFormFull.cs" />
+    <Compile Include="ReportItem.cs" />
+    <Compile Include="ReportItemFull.cs" />
+    <Compile Include="ReportMarrow.cs" />
+    <Compile Include="ReportMarrowFull.cs" />
+    <Compile Include="ReportMicro.cs" />
+    <Compile Include="ReportMicroFull.cs" />
+    <Compile Include="RFGraphData.cs" />
+    <Compile Include="SampleType.cs" />
+    <Compile Include="SickType.cs" />
+    <Compile Include="Station_PrinterList.cs" />
+    <Compile Include="TestItemTest.cs" />
+    <Compile Include="TestType.cs" />
+    <Compile Include="Tree.cs" />
+    <Compile Include="UiModel\ApplyInputItemEntity.cs" />
+    <Compile Include="UiModel\GroupItemEntity.cs" />
+    <Compile Include="UiModel\LogisticsEntity.cs" />
+    <Compile Include="UiModel\NrequestCombiItemBarCodeEntity.cs" />
+    <Compile Include="UiModel\OrderPrint.cs" />
+    <Compile Include="UiModel\SampleItemInfo.cs" />
+    <Compile Include="UiModel\SampleTypeBarCodeInfo.cs" />
+    <Compile Include="UiModel\SampleTypeDetail.cs" />
+    <Compile Include="UiModel\SuperGroupEntity.cs" />
+    <Compile Include="UiModel\TestItemDetail.cs" />
+    <Compile Include="UiModel\UIAESEntity.cs" />
+    <Compile Include="UiModel\UiBarCode.cs" />
+    <Compile Include="UiModel\UiCombiItem.cs" />
+    <Compile Include="UiModel\UiCombiItemDetail.cs" />
+    <Compile Include="UiModel\UiItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="UiModel\UiReportFormFull.cs" />
+    <Compile Include="UiModel\UiReportForm_N.cs" />
+    <Compile Include="UiModel\UiSubscriber.cs" />
+    <Compile Include="UiModel\UserOrderFormVO.cs" />
+    <Compile Include="VIEW_ReportItemFull.cs" />
+    <Compile Include="WardType.cs" />
+    <Compile Include="WhoNet_AntiData.cs" />
+    <Compile Include="WhoNet_FormData.cs" />
+    <Compile Include="WhoNet_MicroData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Common.Dictionary\ZhiFang.Common.Dictionary.csproj">
+      <Project>{4D598C7C-0592-4752-9CEA-5195F780C006}</Project>
+      <Name>ZhiFang.Common.Dictionary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Tools\ZhiFang.Tools.csproj">
+      <Project>{4A0D9BC5-645C-411D-B518-50DB2C34ACFC}</Project>
+      <Name>ZhiFang.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

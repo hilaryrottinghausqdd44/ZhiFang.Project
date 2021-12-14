@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="OtherCompanyMail" table="[dbo].[Other_CompanyMail]">
+    <id name="Id" column="[CompanyMailID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="Title" column="[Title]" type="String" not-null="false" length="100" />
+    <property name="Content" column="[Content]" type="String" not-null="false" length="16" />
+    <property name="CreatTime" column="[CreatTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SendTime" column="[SendTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ReceiveTime" column="[ReceiveTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Sender" column="[Sender]" type="String" not-null="false" length="40" />
+    <property name="ReceiveMan" column="[ReceiveMan]" type="String" not-null="false" length="200" />
+    <property name="CarbonCopy" column="[CarbonCopy]" type="String" not-null="false" length="400" />
+    <property name="BlankCarbonCopy" column="[BlankCarbonCopy]" type="String" not-null="false" length="400" />
+    <property name="IsHasAttachment" column="[IsHasAttachment]" type="Int32" not-null="false" length="4" />
+    <property name="IsRead" column="[IsRead]" type="Int32" not-null="false" length="4" />
+    <property name="Size" column="[Size]" type="Double" not-null="false" length="8" />
+    <property name="SenderID" column="[SenderID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="BMailFile" class="BMailFile" lazy="false">
+      <column name="[MailFileID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BImportance" class="BImportance" lazy="false">
+      <column name="[ImportanceID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BMailStatus" class="BMailStatus" lazy="false">
+      <column name="[MailStatusID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BMailType" class="BMailType" lazy="false">
+      <column name="[MailTypeID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

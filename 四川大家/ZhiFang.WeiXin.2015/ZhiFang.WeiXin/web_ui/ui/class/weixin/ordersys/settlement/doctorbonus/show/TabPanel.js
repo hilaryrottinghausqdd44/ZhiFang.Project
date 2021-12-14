@@ -1,0 +1,230 @@
+/**
+ * 医生奖金结算单查看
+ * @author longfc
+ * @version 2017-03-02
+ */
+Ext.define('Shell.class.weixin.ordersys.settlement.doctorbonus.show.TabPanel', {
+	extend: 'Ext.tab.Panel',
+	header: true,
+	activeTab: 0,
+	title: '医生奖金结算单信息',
+	border: false,
+	closable: true,
+
+	/**自定义按钮功能栏*/
+	buttonToolbarItems: null,
+	/**带功能按钮栏*/
+	hasButtontoolbar: true,
+	/**功能按钮栏位置*/
+	buttonDock: 'bottom',
+	hasLoadMask: true,
+
+	PK: '',
+	formtype: "show",
+	/**显示操作记录页签	,false不显示*/
+	hasOperation: true,
+	formLoaded: false,
+	hasExportExcel:false,
+	Status: 1,
+	OperationMemo: "",
+	StatusList: [],
+	StatusEnum: {},
+	StatusFColorEnum: {},
+	StatusBGColorEnum: {},
+	isLoadDetailPanel: false,
+	isLoadBonusGrid: false,
+	isattachmentLoad: false,
+	isLoadOperationPanel: false,
+	initComponent: function() {
+		var me = this;
+		me.bodyPadding = 1;
+		me.title = me.title || "";
+		me.setTitles();
+		me.dockedItems = me.createDockedItems();
+		me.items = me.createItems();
+		me.callParent(arguments);
+	},
+	afterRender: function() {
+		var me = this;
+		me.callParent(arguments);
+	},
+	/**设置各页签的显示标题*/
+	setTitles: function() {
+		var me = this;
+		me.title = "医生奖金结算单信息";
+	},
+
+	loadDetailPanel: function() {
+		var me = this;
+		if(me.isLoadDetailPanel == false) {
+			var Form = getComponent('DetailPanel');
+			Form.load(me.PK);
+		}
+		me.isLoadDetailPanel = true;
+	},
+	/**加载明细信息*/
+	loadBonusGrid: function() {
+		var me = this;
+		me.BonusGrid.PK = me.PK;
+		if(me.isBonusGridLoad == false) {
+			me.BonusGrid.defaultWhere = "OSDoctorBonusFormID=" + me.PK;
+			me.BonusGrid.load();
+		}
+		me.isBonusGridLoad = true;
+	},
+	loadOperationPanel: function() {
+		var me = this;
+		if(me.isLoadOperationPanel == false) {
+			me.OperationPanel.PK = me.PK;
+			me.OperationPanel.onLoadData();
+		}
+		me.isLoadOperationPanel = true;
+	},
+	/**加载附件信息*/
+	loadAttachment: function() {
+		var me = this;
+		if(me.isattachmentLoad == false) {
+			me.Attachment.PK = me.PK;
+			me.Attachment.load();
+		}
+		me.isattachmentLoad = true;
+	},
+	loadPreviewApp: function() {
+		var me = this;
+		if(me.formtype != "add")
+			me.PreviewApp.showPdf();
+	},
+	createItems: function() {
+		var me = this;
+		me.DetailPanel = Ext.create('Shell.class.weixin.ordersys.settlement.doctorbonus.show.DetailPanel', {
+			itemId: 'DetailPanel',
+			formtype: me.formtype,
+			border: false,
+			height: me.height,
+			width: me.width,
+			StatusList: me.StatusList,
+			StatusEnum: me.StatusEnum,
+			StatusFColorEnum: me.StatusFColorEnum,
+			StatusBGColorEnum: me.StatusBGColorEnum,
+			PK: me.PK
+		});
+
+		var items = [me.DetailPanel];
+
+		me.BonusGrid = Ext.create('Shell.class.weixin.ordersys.settlement.doctorbonus.show.BonusGrid', {
+			itemId: 'BonusGrid',
+			border: false,
+			hasExportExcel: me.hasExportExcel,
+			PK: me.PK
+		});
+		items.push(me.BonusGrid);
+
+		me.Attachment = Ext.create('Shell.class.weixin.ordersys.settlement.doctorbonus.attachment.Attachment', {
+			header: false,
+			height: me.height,
+			width: me.width,
+			title: '附件信息',
+			itemId: 'Attachment',
+			border: false,
+			defaultLoad: true,
+			PK: me.PK,
+			formtype: "show"
+		});
+		items.push(me.Attachment);
+
+		me.hasOperation = true;
+		me.OperationPanel = Ext.create('Shell.class.weixin.ordersys.settlement.doctorbonus.operation.Panel', {
+			header: false,
+			hasButtontoolbar: false,
+			hasPagingtoolbar: false,
+			defaultPageSize: 500,
+			hidden: !me.hasOperation,
+			itemId: 'OperationPanel',
+			PK: me.PK,
+			border: false,
+			StatusList: me.StatusList,
+			StatusEnum: me.StatusEnum,
+			StatusFColorEnum: me.StatusFColorEnum,
+			StatusBGColorEnum: me.StatusBGColorEnum,
+			isShowForm: false
+		});
+		items.push(me.OperationPanel);
+
+		me.PreviewApp = Ext.create('Shell.class.weixin.ordersys.settlement.doctorbonus.show.PreviewPDF', {
+			title: '预览PDF',
+			itemId: 'PreviewApp',
+			hasBtntoolbar: false,
+			defaultLoad: true,
+			border: false,
+			height: me.height,
+			width: me.width,
+			hidden: true,
+			PK: me.PK
+		});
+		items.push(me.PreviewApp);
+		return items;
+	},
+	/**创建挂靠功能栏*/
+	createDockedItems: function() {
+		var me = this,
+			items = me.dockedItems || [];
+		if(me.hasButtontoolbar) {
+			items = me.createButtontoolbar();
+		}
+		return Ext.create('Ext.toolbar.Toolbar', {
+			dock: 'bottom',
+			itemId: 'buttonsToolbar',
+			items: items
+		});
+	},
+	/**创建功能按钮栏*/
+	createButtontoolbar: function() {
+		var me = this,
+			items = [];
+		items.push('->', {
+			xtype: 'button',
+			itemId: 'btnColse',
+			iconCls: 'button-del',
+			text: "关闭",
+			tooltip: '关闭',
+			handler: function() {
+				me.onCloseClick();
+			}
+		});
+		return items;
+	},
+	/**页签切换事件处理*/
+	ontabchange: function() {
+		var me = this;
+		me.on({
+			tabchange: function(tabPanel, newCard, oldCard, eOpts) {
+				var oldItemId = null;
+				if(oldCard != null) {
+					oldItemId = oldCard.itemId
+				}
+				switch(newCard.itemId) {
+					case 'DetailPanel':
+						me.loadDetailPanel();
+						break;
+					case 'BonusGrid':
+						me.loadBonusGrid();
+						break;
+					case 'OperationPanel':
+						//me.loadOperationPanel();
+						break;
+					case 'PreviewApp':
+						me.loadPreviewApp();
+						break;
+					default:
+						break
+				}
+			}
+		});
+	},
+	/**关闭*/
+	onCloseClick: function() {
+		var me = this;
+		me.fireEvent('onCloseClick', me);
+		me.close();
+	}
+});

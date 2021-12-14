@@ -1,0 +1,1 @@
+IF COL_LENGTH('Blood_LargeUseItem', 'Id') IS NOT NULL alter table Blood_LargeUseItem drop column Id; ALTER TABLE Blood_LargeUseItem Add Id bigint IDENTITY(1,1) NOT NULL; 

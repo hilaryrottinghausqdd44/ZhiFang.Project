@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="RFReportItemFull" table="[dbo].[ReportItemFull]">
+		<id name="Id" column="[ReportItemIndexID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="ReportFormIndexID" column="[ReportFormIndexID]" type="Int64" not-null="false" length="8" />
+		<property name="ReportFormID" column="[ReportFormID]" type="String" not-null="false" length="50" />
+		<property name="ReportItemID" column="[ReportItemID]" type="Int32" not-null="true" length="4" />
+		<property name="TESTITEMNAME" column="[TESTITEMNAME]" type="String" not-null="false" length="200" />
+		<property name="TESTITEMSNAME" column="[TESTITEMSNAME]" type="String" not-null="false" length="200" />
+		<property name="RECEIVEDATE" column="[RECEIVEDATE]" type="DateTime" not-null="false" length="8" />
+		<property name="SECTIONNO" column="[SECTIONNO]" type="String" not-null="false" length="50" />
+		<property name="TESTTYPENO" column="[TESTTYPENO]" type="String" not-null="false" length="50" />
+		<property name="SAMPLENO" column="[SAMPLENO]" type="String" not-null="false" length="50" />
+		<property name="PARITEMNO" column="[PARITEMNO]" type="String" not-null="false" length="50" />
+		<property name="ITEMNO" column="[ITEMNO]" type="String" not-null="false" length="50" />
+		<property name="ORIGINALVALUE" column="[ORIGINALVALUE]" type="String" not-null="false" length="500" />
+		<property name="REPORTVALUE" column="[REPORTVALUE]" type="String" not-null="false" length="500" />
+		<property name="ORIGINALDESC" column="[ORIGINALDESC]" type="String" not-null="false" length="500" />
+		<property name="REPORTDESC" column="[REPORTDESC]" type="String" not-null="false" length="500" />
+		<property name="STATUSNO" column="[STATUSNO]" type="String" not-null="false" length="50" />
+		<property name="EQUIPNO" column="[EQUIPNO]" type="String" not-null="false" length="50" />
+		<property name="MODIFIED" column="[MODIFIED]" type="String" not-null="false" length="50" />
+		<property name="REFRANGE" column="[REFRANGE]" type="String" not-null="false" length="500" />
+		<property name="ITEMDATE" column="[ITEMDATE]" type="DateTime" not-null="false" length="8" />
+		<property name="ITEMTIME" column="[ITEMTIME]" type="DateTime" not-null="false" length="8" />
+		<property name="ISMATCH" column="[ISMATCH]" type="String" not-null="false" length="50" />
+		<property name="RESULTSTATUS" column="[RESULTSTATUS]" type="String" not-null="false" length="50" />
+		<property name="TESTITEMDATETIME" column="[TESTITEMDATETIME]" type="DateTime" not-null="false" length="8" />
+		<property name="REPORTVALUEALL" column="[REPORTVALUEALL]" type="String" not-null="false" length="200" />
+		<property name="PARITEMNAME" column="[PARITEMNAME]" type="String" not-null="false" length="500" />
+		<property name="PARITEMSNAME" column="[PARITEMSNAME]" type="String" not-null="false" length="500" />
+		<property name="DISPORDER" column="[DISPORDER]" type="String" not-null="false" length="50" />
+		<property name="ITEMORDER" column="[ITEMORDER]" type="String" not-null="false" length="50" />
+		<property name="UNIT" column="[UNIT]" type="String" not-null="false" length="50" />
+		<property name="SERIALNO" column="[SERIALNO]" type="String" not-null="false" length="50" />
+		<property name="ZDY1" column="[ZDY1]" type="String" not-null="false" length="50" />
+		<property name="ZDY2" column="[ZDY2]" type="String" not-null="false" length="50" />
+		<property name="ZDY3" column="[ZDY3]" type="String" not-null="false" length="50" />
+		<property name="ZDY4" column="[ZDY4]" type="String" not-null="false" length="50" />
+		<property name="ZDY5" column="[ZDY5]" type="String" not-null="false" length="50" />
+		<property name="HISORDERNO" column="[HISORDERNO]" type="String" not-null="false" length="100" />
+		<property name="FORMNO" column="[FORMNO]" type="String"  not-null="false" length="50" />
+		<property name="TECHNICIAN" column="[TECHNICIAN]" type="String" not-null="false" length="100" />
+		<property name="OLDSERIALNO" column="[OLDSERIALNO]" type="String" not-null="false" length="50" />
+		<property name="PREC" column="[PREC]" type="String" not-null="false" length="50" />
+		<property name="Itemunit" column="[itemunit]" type="String" not-null="false" length="40" />
+		<property name="Itemename" column="[itemename]" type="String" not-null="false" length="40" />
+		<property name="Secretgrade" column="[secretgrade]" type="Int32" not-null="false" length="4" />
+		<property name="Shortname" column="[shortname]" type="String" not-null="false" length="40" />
+		<property name="Shortcode" column="[shortcode]" type="String" not-null="false" length="40" />
+		<property name="Cuegrade" column="[cuegrade]" type="Int32" not-null="false" length="4" />
+		<property name="ZDY6" column="[ZDY6]" type="String" not-null="false" length="50" />
+		<property name="ZDY7" column="[ZDY7]" type="String" not-null="false" length="50" />
+		<property name="ZDY8" column="[ZDY8]" type="String" not-null="false" length="50" />
+		<property name="ZDY9" column="[ZDY9]" type="String" not-null="false" length="50" />
+		<property name="ZDY10" column="[ZDY10]" type="String" not-null="false" length="50" />
+		<property name="Curritemredo" column="[curritemredo]" type="Int32" not-null="false" length="4" />
+		<property name="Barcode" column="[Barcode]" type="String" not-null="false" length="20" />
+		<property name="SectionName" column="[SectionName]" type="String" not-null="false" length="20" />
+		<property name="EquipName" column="[EquipName]" type="String" not-null="false" length="40" />
+		<property name="CheckType" column="[CheckType]" type="Int32" not-null="false" length="4" />
+		<property name="CheckTypeName" column="[CheckTypeName]" type="String" not-null="false" length="40" />
+	</class>
+</hibernate-mapping>

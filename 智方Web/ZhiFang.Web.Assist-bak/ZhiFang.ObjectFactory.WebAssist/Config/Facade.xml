@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="ZhiFang.WebAssist.ServerWCF.RBACService" type="ZhiFang.WebAssist.ServerWCF.RBACService,ZhiFang.WebAssist"  singleton="true">
+    <property name="IBRBACUser" ref="BRBACUser"/>
+    <property name="IBRBACRoleRight" ref="BRBACRoleRight"/>
+    <property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+    <property name="IBRBACRole" ref="BRBACRole"/>
+    <property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+    <property name="IBRBACModule" ref="BRBACModule"/>
+    <property name="IBRBACEmpRoles" ref="BRBACEmpRoles"/>
+    <property name="IBRBACEmpOptions" ref="BRBACEmpOptions"/>
+    <property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+    <property name="IBImportFile" ref="BImportFile"/>
+    <property name="IBHRDept" ref="BHRDept"/>
+    <property name="IBHRPosition" ref="BHRPosition"/>
+    <property name="IBHREmployee" ref="BHREmployee"/>
+    <property name="IBHREmpIdentity" ref="BHREmpIdentity"/>
+    <property name="IBHRDeptIdentity" ref="BHRDeptIdentity"/>
+    <property name="IBHRDeptEmp" ref="BHRDeptEmp"/>
+    <property name="IBSLog" ref="BSLog"/>
+    <property name="IBDepartment" ref="BDepartment"/>
+    <property name="IBDoctor" ref="BDoctor"/>
+    <property name="IBPUser" ref="BPUser"/>
+  </object>
+
+  <object id="ZhiFang.WebAssist.ServerWCF.SingleTableService" type="ZhiFang.WebAssist.ServerWCF.SingleTableService,ZhiFang.WebAssist"  singleton="true">
+    <property name="IBBHealthStatus" ref="BBHealthStatus"/>
+    <property name="IBBMaritalStatus" ref="BBMaritalStatus"/>
+    <property name="IBBNationality" ref="BBNationality"/>
+    <property name="IBBParameter" ref="BBParameter"/>
+    <property name="IBBProvince" ref="BBProvince"/>
+    <property name="IBBSex" ref="BBSex"/>
+    <property name="IBBObjectOperate" ref="BBObjectOperate"/>
+    <property name="IBBObjectOperateType" ref="BBObjectOperateType"/>
+    <!--<property name="IBBOperateObjectType" ref="BBOperateObjectType"/>-->
+    <property name="IBSTypeDetail" ref="BSTypeDetail"/>
+    <property name="IBSType" ref="BSType"/>
+    <property name="IBBCountry" ref="BBCountry"/>
+    <property name="IBBPoliticsStatus" ref="BBPoliticsStatus"/>
+    <property name="IBBDegree" ref="BBDegree"/>
+    <property name="IBBCity" ref="BBCity"/>
+    <property name="IBBProfessionalAbility" ref="BBProfessionalAbility"/>
+    <property name="IBBDict" ref="BBDict"/>
+    <property name="IBBDictType" ref="BBDictType"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+  </object>
+
+  <object id="ZhiFang.WebAssist.ServerWCF.WeiXinAppService" type="ZhiFang.WebAssist.ServerWCF.WeiXinAppService,ZhiFang.WebAssist"  singleton="true">
+    <property name="IBBAccountType" ref="BBAccountType"/>
+    <property name="IBBWeiXinEmpLink" ref="BBWeiXinEmpLink"/>
+    <property name="IBBWeiXinAccount" ref="BBWeiXinAccount"/>
+    <property name="IBBWeiXinUserGroup" ref="BBWeiXinUserGroup"/>
+    <property name="IBBWeiXinPushMessageTemplate" ref="BBWeiXinPushMessageTemplate"/>
+    <!--<property name="IBReaBmsCenOrderDoc" ref="BReaBmsCenOrderDoc"/>-->
+  </object>
+
+  <object id="ZhiFang.WebAssist.ServerWCF.CommonService" type="ZhiFang.WebAssist.ServerWCF.CommonService,ZhiFang.WebAssist"  singleton="true">
+    <property name="IBFFile" ref="BFFile"/>
+    <property name="IBFFileAttachment" ref="BFFileAttachment"/>
+    <property name="IBFFileCopyUser" ref="BFFileCopyUser"/>
+    <property name="IBFFileInteraction" ref="BFFileInteraction"/>
+    <property name="IBFFileOperation" ref="BFFileOperation"/>
+    <property name="IBFFileReadingLog" ref="BFFileReadingLog"/>
+    <property name="IBFFileReadingUser" ref="BFFileReadingUser"/>
+    <property name="IBBDictTree" ref="BBDictTree"/>
+  </object>
+
+  <object id="ZhiFang.WebAssist.ServerWCF.StatisticalAnalysisService" type="ZhiFang.WebAssist.ServerWCF.StatisticalAnalysisService,ZhiFang.WebAssist"  singleton="true">
+    <!--LIS-->
+    <property name="IBAgeUnit" ref="BAgeUnit"/>
+    <property name="IBDistrict" ref="BDistrict"/>
+    <property name="IBDepartment" ref="BDepartment"/>
+    <property name="IBDoctor" ref="BDoctor"/>
+    <property name="IBPUser" ref="BPUser"/>
+    <property name="IBEmployee" ref="BEmployee"/>
+    <property name="IBEquipItem" ref="BEquipItem"/>
+    <property name="IBEquipment" ref="BEquipment"/>
+    <property name="IBFolkType" ref="BFolkType"/>
+    <property name="IBGenderType" ref="BGenderType"/>
+    <property name="IBGroupItem" ref="BGroupItem"/>
+    <property name="IBItemRange" ref="BItemRange"/>
+    <property name="IBItemType" ref="BItemType"/>
+    <property name="IBPGroup" ref="BPGroup"/>
+    <property name="IBSampleType" ref="BSampleType"/>
+    <property name="IBSickType" ref="BSickType"/>
+    <property name="IBSuperGroup" ref="BSuperGroup"/>
+    <property name="IBTestEquip" ref="BTestEquip"/>
+    <property name="IBTestItem" ref="BTestItem"/>
+    <property name="IBTestType" ref="BTestType"/>
+    <property name="IBWardType" ref="BWardType"/>
+    <property name="IBNRequestForm" ref="BNRequestForm"/>
+
+  </object>
+
+  <object id="ZhiFang.WebAssist.ServerWCF.WebAssistManageService" type="ZhiFang.WebAssist.ServerWCF.WebAssistManageService,ZhiFang.WebAssist"  singleton="true">     
+    <property name="IBDepartment" ref="BDepartment"/>
+    <property name="IBDoctor" ref="BDoctor"/>
+    <property name="IBPUser" ref="BPUser"/>
+    <property name="IBWardType" ref="BWardType"/>    
+    <property name="IBNPUser" ref="BNPUser"/>
+    <property name = "IBDepartmentUser" ref="BDepartmentUser"/>
+
+    <property name="IBBUserUIConfig" ref="BBUserUIConfig"/>
+    <property name = "IBSCOperation" ref="BSCOperation"/>
+    <property name="IBBTemplate" ref="BBTemplate"/>
+    <property name="IBSCRecordDtl" ref="BSCRecordDtl"/>
+    <property name="IBSCRecordPhrase" ref="BSCRecordPhrase"/>
+    <property name="IBSCRecordType" ref="BSCRecordType"/>
+    <property name="IBSCRecordTypeItem" ref="BSCRecordTypeItem"/>
+    <property name="IBSCRecordItemLink" ref="BSCRecordItemLink"/>
+    <property name="IBBLodopTemplet" ref="BBLodopTemplet"/>
+    <property name="IBSCBarCodeRules" ref="BSCBarCodeRules"/>
+    <property name="IBSCInterfaceMaping" ref="BSCInterfaceMaping"/>
+    
+    <property name="IBGKSampleRequestForm" ref="BGKSampleRequestForm"/>
+    <property name="IBGKDeptAutoCheckLink" ref="BGKDeptAutoCheckLink"/>
+    <property name="IBGKBarcode" ref="BGKBarcode"/>
+    <property name="IBPGroup" ref="BPGroup"/>
+    <property name="IBTestItem" ref="BTestItem"/>
+    <property name="IBSampleType" ref="BSampleType"/>
+
+    <property name="IBLisSyncHisData" ref="BLisSyncHisData"/>
+  
+  </object>
+
+  <object id="ZhiFang.WebAssist.ServerWCF.WebAssistLisService" type="ZhiFang.WebAssist.ServerWCF.WebAssistLisService,ZhiFang.WebAssist"  singleton="true">
+    <property name="IBDepartment" ref="BDepartment"/>
+    <property name="IBDoctor" ref="BDoctor"/>
+    <property name="IBPUser" ref="BPUser"/>
+    <property name="IBWardType" ref="BWardType"/>
+    <property name="IBNPUser" ref="BNPUser"/>
+    <property name = "IBDepartmentUser" ref="BDepartmentUser"/>
+
+    <property name="IBAntiGroup" ref="BAntiGroup"/>
+    <property name="IBChargeType" ref="BChargeType"/>
+    <property name="IBSamplingGroup" ref="BSamplingGroup"/>
+    <property name="IBSamplingitem" ref="BSamplingitem"/>
+    <property name="IBSectionItem" ref="BSectionItem"/>
+    <property name="IBStatusType" ref="BStatusType"/>
+    
+    <property name="IBMDMicroTestDevelop" ref="BMDMicroTestDevelop"/>
+    <property name="IBMDMicroTestValue" ref="BMDMicroTestValue"/>
+    <property name="IBMEMicroAppraisalValue" ref="BMEMicroAppraisalValue"/>
+    <property name="IBMEMicroDSTValue" ref="BMEMicroDSTValue"/>
+    <property name="IBMEMicroInoculant" ref="BMEMicroInoculant"/>
+    <property name="IBNRequestItem" ref="BNRequestItem"/>
+    <property name="IBPGroup" ref="BPGroup"/>
+    
+  </object>
+
+  <!--<object id="ZhiFang.Digitlab.ReagentSys.ReaADOService" type="ZhiFang.Digitlab.ReagentSys.ReaADOService,ZhiFang.Digitlab.ReagentSys"  singleton="true">
+    <property name="IBLabInStock" ref="BLabInStock"/>
+  </object>-->
+</objects>

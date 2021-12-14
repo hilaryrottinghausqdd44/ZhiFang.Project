@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="NRequestItem" table="[dbo].[NRequestItem]">
+    <id name="Id" column="[SerialNo]" type="String">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="OrderNo" column="[OrderNo]" type="String" not-null="false" length="60" />
+    <property name="SampleTypeNo" column="[SampleTypeNo]" type="String" not-null="false" length="20" />
+    <property name="ReceiveFlag" column="[ReceiveFlag]" type="Int32" not-null="false" length="4" />
+    <property name="BarCode" column="[BarCode]" type="String" not-null="false" length="50" />
+    <property name="ItemNo" column="[ItemNo]" type="Int32" not-null="false" length="4" />
+    <property name="FlagDateDelete" column="[FlagDateDelete]" type="DateTime" not-null="false" length="8" />
+    <property name="ItemDate" column="[ItemDate]" type="DateTime" not-null="true" length="8" />
+    <property name="Zdy1" column="[zdy1]" type="String" not-null="false" length="100" />
+    <property name="Zdy2" column="[zdy2]" type="String" not-null="false" length="100" />
+    <property name="Zdy3" column="[zdy3]" type="String" not-null="false" length="200" />
+    <property name="Zdy4" column="[zdy4]" type="String" not-null="false" length="100" />
+    <property name="Zdy5" column="[zdy5]" type="String" not-null="false" length="100" />
+    <property name="SamplingGroupNo" column="[SamplingGroupNo]" type="Int32" not-null="false" length="4" />
+    <property name="OldSerialNo" column="[OldSerialNo]" type="String" not-null="false" length="60" />
+    <property name="UniteName" column="[uniteName]" type="String" not-null="false" length="60" />
+    <property name="UniteItemNo" column="[uniteItemNo]" type="String" not-null="false" length="20" />
+    <property name="IsCheckFee" column="[IsCheckFee]" type="Int32" not-null="false" length="4" />
+    <property name="CountNodesItemSource" column="[CountNodesItemSource]" type="String" not-null="false" length="1" />
+    <property name="Charge" column="[charge]" type="Double" not-null="false" length="8" />
+    <property name="StateFlag" column="[StateFlag]" type="Int32" not-null="true" length="4" />
+    <property name="ItemDispenseFlag" column="[ItemDispenseFlag]" type="Int32" not-null="false" length="4" />
+    <property name="PItemCName" column="[PItemCName]" type="String" not-null="false" length="40" />
+    <property name="PItemNo" column="[PItemNo]" type="Int32" not-null="false" length="4" />
+    <property name="IsNurseDo" column="[IsNurseDo]" type="Int32" not-null="false" length="4" />
+    <property name="PrepaymentFlag" column="[PrepaymentFlag]" type="Int32" not-null="false" length="4" />
+    <property name="Balance" column="[Balance]" type="Double" not-null="false" length="8" />
+    <property name="SerialNoParent" column="[SerialNoParent]" type="String" not-null="false" length="60" />
+    <property name="ChargeFlag" column="[ChargeFlag]" type="Int32" not-null="false" length="4" />
+    <property name="Sampleno" column="[sampleno]" type="String" not-null="false" length="20" />
+    <property name="Mergeno" column="[Mergeno]" type="String" not-null="false" length="20" />
+    <property name="OldParItemno" column="[OldParItemno]" type="String" not-null="false" length="20" />
+    <property name="ReceiveDate" column="[ReceiveDate]" type="DateTime" not-null="false" length="8" />
+    <property name="SectionNo" column="[SectionNo]" type="Int32" not-null="false" length="4" />
+    <property name="TestTypeNo" column="[TestTypeNo]" type="Int32" not-null="false" length="4" />
+    <property name="NRequestItemNo" column="[NRequestItemNo]" type="String" not-null="false" length="50" />
+    <property name="OldNRequestItemNo" column="[OldNRequestItemNo]" type="String" not-null="false" length="50" />
+    <property name="CheckFlag" column="[CheckFlag]" type="Int32" not-null="false" length="4" />
+    <property name="CheckTime" column="[CheckTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ReportDateMemo" column="[ReportDateMemo]" type="String" not-null="false" length="500" />
+    <property name="FormFlagDateDelete" column="[FormFlagDateDelete]" type="DateTime" not-null="false" length="8" />
+    <property name="ReportDateGroup" column="[ReportDateGroup]" type="String" not-null="false" length="50" />
+    <property name="GroupItemList" column="[GroupItemList]" type="String" not-null="false" length="500" />
+    <property name="ItemGroupNo" column="[ItemGroupNo]" type="Int32" not-null="false" length="4" />
+    <property name="IAutoUnion" column="[iAutoUnion]" type="Int32" not-null="false" length="4" />
+    <property name="AutoUnionSNo" column="[AutoUnionSNo]" type="String" not-null="false" length="100" />
+    <property name="NItemID" column="[NItemID]" type="Int64" not-null="false" length="8" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="INeedUnionCount" column="[iNeedUnionCount]" type="Int32" not-null="false" length="4" />
+    <property name="NPItemNo" column="[NPItemNo]" type="Int32" not-null="false" length="4" />
+    <property name="Number" column="[Number]" type="Int32" not-null="false" length="4" />
+    <property name="CancelReason" column="[CancelReason]" type="String" not-null="false" length="200" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,295 @@
+/**
+ * 重写Ext基础文件内容
+ * @author Jcall
+ * @version 2018-02-01
+ */
+Ext.onReady(function(){	
+	
+	var Loader = Ext.Loader;
+	Ext.apply(Loader, {
+		loadScript: function (options) {
+			var config = Loader.getConfig(),
+                isString = typeof options == 'string',
+                url = isString ? options : options.url,
+                onError = !isString && options.onError,
+                onLoad = !isString && options.onLoad,
+                scope = !isString && options.scope,
+                onScriptError = function() {
+                    Loader.numPendingFiles--;
+                    Loader.scriptsLoading--;
+
+                    if (onError) {
+                        onError.call(scope, "Failed loading '" + url + "', please verify that the file exists");
+                    }
+
+                    if (Loader.numPendingFiles + Loader.scriptsLoading === 0) {
+                        Loader.refreshQueue();
+                    }
+                },
+                onScriptLoad = function () {
+                    Loader.numPendingFiles--;
+                    Loader.scriptsLoading--;
+
+                    if (onLoad) {
+                        onLoad.call(scope);
+                    }
+
+                    if (Loader.numPendingFiles + Loader.scriptsLoading === 0) {
+                        Loader.refreshQueue();
+                    }
+                },
+                src;
+
+            Loader.isLoading = true;
+            Loader.numPendingFiles++;
+            Loader.scriptsLoading++;
+
+            src = config.disableCaching ?
+                (url + '?' + config.disableCachingParam + '=' + Loader.config.getDisableCachingParamValue()) : url;
+
+            scriptElements[url] = Loader.injectScriptElement(src, onScriptLoad, onScriptError);
+		},
+		loadScriptFile: function(url, onLoad, onError, scope, synchronous) {
+            if (this.isFileLoaded[url]) {
+                return Loader;
+            }
+
+            var config = Loader.getConfig(),
+                noCacheUrl = url + (config.disableCaching ? ('?' + config.disableCachingParam + '=' + Loader.config.getDisableCachingParamValue()) : ''),
+                isCrossOriginRestricted = false,
+                xhr, status, onScriptError,
+                debugSourceURL = "";
+
+            scope = scope || Loader;
+
+            Loader.isLoading = true;
+
+            if (!synchronous) {
+                onScriptError = function() {
+                };
+
+                scriptElements[url] = Loader.injectScriptElement(noCacheUrl, onLoad, onScriptError, scope);
+            } else {
+                if (typeof XMLHttpRequest != 'undefined') {
+                    xhr = new XMLHttpRequest();
+                } else {
+                    xhr = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+
+                try {
+                    xhr.open('GET', noCacheUrl, false);
+                    xhr.send(null);
+                } catch (e) {
+                    isCrossOriginRestricted = true;
+                }
+
+                status = (xhr.status === 1223) ? 204 :
+                    (xhr.status === 0 && (self.location || {}).protocol == 'file:') ? 200 : xhr.status;
+
+                isCrossOriginRestricted = isCrossOriginRestricted || (status === 0);
+
+                if (isCrossOriginRestricted
+                ) {
+                }
+                else if ((status >= 200 && status < 300) || (status === 304)
+                ) {
+                    
+                    
+                    if (!Ext.isIE) {
+                        debugSourceURL = "\n//@ sourceURL=" + url;
+                    }
+
+                    Ext.globalEval(xhr.responseText + debugSourceURL);
+
+                    onLoad.call(scope);
+                }
+                else {
+                }
+
+                
+                xhr = null;
+            }
+        }
+	});
+	
+	Ext.define("Ext.data.Connection", {
+        override: "Ext.data.Connection",
+        request : function(options) {
+        	options = options || {};
+        	//options.headers = {zhifang:true};
+        	
+        	options.headers = options.headers || {};
+        	var headers = JcallShell.Server.HEADERS,
+        		len = headers.length;
+        	for(var i=0;i<len;i++){
+        		options.headers[headers[i].key] = headers[i].value;
+        	}
+        	
+        	return this.callParent(arguments);
+        },
+        onUploadComplete: function(frame, options) {
+        var me = this,
+            
+            response = {
+                responseText: '',
+                responseXML: null
+            }, doc, contentNode;
+
+        try {
+            doc = frame.contentWindow.document || frame.contentDocument || window.frames[frame.id].document;
+            if (doc) {
+                if (doc.body) {
+
+                    
+                    
+                    if ((contentNode = doc.body.firstChild) && /pre/i.test(contentNode.tagName)) {
+                        response.responseText = contentNode.innerText || contentNode.innerHTML;
+                    }
+
+                    
+                    
+                    else if (contentNode = doc.getElementsByTagName('textarea')[0]) {
+                        response.responseText = contentNode.value;
+                    }
+                    
+                    else {
+                        response.responseText = doc.body.textContent || doc.body.innerText;
+                    }
+                }
+                
+                response.responseXML = doc.XMLDocument || doc;
+            }
+        } catch (e) {
+        }
+
+        me.fireEvent('requestcomplete', me, response, options);
+
+        Ext.callback(options.success, options.scope, [response, options]);
+        Ext.callback(options.callback, options.scope, [options, true, response]);
+
+        setTimeout(function() {
+            Ext.removeNode(frame);
+        }, 100);
+    }
+    });
+    
+    Ext.define("Ext.AbstractComponent",{
+    	override: "Ext.AbstractComponent",
+    	addCls : function(cls) {
+        var me = this,
+            el = me.rendered ? me.el : me.protoEl;
+        //el.addCls.apply(el, arguments);
+        //新增if处理
+        if(el!=null){
+             el.addCls.apply(el, arguments);
+        }
+        return me;
+    }
+    });
+    
+    var Element = Ext.dom.AbstractElement;
+    Element.override({
+    	setStyle: function(prop, value) {
+            var me = this,
+                dom = me.dom,
+                hooks = me.styleHooks,
+                style = dom.style,
+                name = prop,
+                hook;
+
+            
+            if (typeof name == 'string') {
+                hook = hooks[name];
+                if (!hook) {
+                    hooks[name] = hook = { name: Element.normalize(name) };
+                }
+                value = (value == null) ? '' : value;
+                if (hook.set) {
+                    hook.set(dom, value, me);
+                } else {
+                    //style[hook.name] = value;
+                    if(typeof value == 'string' || !isNaN(value)){
+                    	style[hook.name] = value;
+                    }
+                }
+                if (hook.afterSet) {
+                    hook.afterSet(dom, value, me);
+                }
+            } else {
+                for (name in prop) {
+                    if (prop.hasOwnProperty(name)) {
+                        hook = hooks[name];
+                        if (!hook) {
+                            hooks[name] = hook = { name: Element.normalize(name) };
+                        }
+                        value = prop[name];
+                        value = (value == null) ? '' : value;
+                        if (hook.set) {
+                            hook.set(dom, value, me);
+                        } else {
+                            //style[hook.name] = value;
+                            if(typeof value == 'string' || !isNaN(value)){
+		                    	style[hook.name] = value;
+		                    }
+                        }
+                        if (hook.afterSet) {
+                            hook.afterSet(dom, value, me);
+                        }
+                    }
+                }
+            }
+
+            return me;
+        }
+    });
+	//屏蔽右键菜单
+	//Ext.getDoc().on("contextmenu",function(e){e.stopEvent();});
+	//键盘监听
+	if(document.addEventListener){
+		document.addEventListener("keydown",maskBackspace, true);
+	}else{
+		document.attachEvent("onkeydown",maskBackspace);
+	}
+	function maskBackspace(event){
+		var event = event || window.event; //标准化事件对象
+		var obj = event.target || event.srcElement;
+		var keyCode = event.keyCode ? event.keyCode : event.which ?
+				event.which : event.charCode;
+		if(keyCode == 8){
+			//元素存在&&元素标签名存在&&元素不能只读&&(元素标签名=(input || textarea))，当符合条件时，执行退格键操作，否则不处理
+			if(obj!=null && obj.tagName!=null && !obj.attributes.readonly && (obj.tagName.toLowerCase() == "input"
+				|| obj.tagName.toLowerCase() == "textarea")){
+				event.returnValue = true;//支持IE8及以下版本
+			}else{
+				if(window.event){
+					event.returnValue = false ;//or event.keyCode=0,支持IE8及以下版本
+					if(event.preventDefault){
+						event.preventDefault();//兼容IE9+
+					}
+				}else{
+					event.preventDefault();//for ff
+				}  
+			}  
+		}  
+	}
+	
+	var map = new Ext.KeyMap(document,[{
+		key:[116],//F5
+		fn:function(){},
+		stopEvent: true,
+		scope:this
+	},{
+		key:[37,39,115],//方向键左,右,F4
+		alt:true,
+		fn:function(){},
+		stopEvent:true,
+		scope:this
+	},{
+		key:[82],//ctrl + R
+		ctrl:true,  
+		fn:function(){},
+		stopEvent:true,
+		scope:this
+	}]);  
+	map.enable();
+});

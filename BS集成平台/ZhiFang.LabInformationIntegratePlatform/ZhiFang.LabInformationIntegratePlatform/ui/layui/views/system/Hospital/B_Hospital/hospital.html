@@ -1,0 +1,473 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>医院字典</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <link rel="stylesheet" href="../../../../../src/layui/dist/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../../../admin/layuiadmin/style/admin.css" media="all" />
+    <style>
+        .layui-form label {
+            padding: 9px 0;
+            width: 100px;
+        }
+
+        .tableHeight {
+            overflow: auto;
+        }
+
+        .layui-table-tool-temp {
+            padding-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space10">
+            <div class=" layui-col-md6 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="tableContainer">
+                            <table id="table" lay-filter="table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6 layui-col-xs12">
+                <div class="layui-card tableHeight">
+                    <div class="layui-card-body">
+                        <form class="layui-form" id='layForm' lay-filter='form'>
+                            <div class="layui-row">
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">主键id</label>
+                                        <div class="layui-input-block">
+                                            <input type="hidden" name='BHospital_Id' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_Name' id="CName" autocomplete="off" lay-verify='required' placeholder="必填项" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">英文名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_EName' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">简称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_SName' id="SName" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">区域名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_AreaName' id="AreaName" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">区域编号</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_AreaID' id="BHospital_AreaID" lay-filter="BHospital_AreaID" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">区域</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="AreaID" name="AreaID" lay-filter="AreaID" lay-verify='required' class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">医院级别</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_LevelID" id="LevelID" lay-verify='required' lay-filter='LevelID'></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">省份</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_ProvinceID" id="ProvinceID" lay-verify='required' lay-filter='ProvinceID'></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">医院级别名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_LevelName' id="LevelName" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">城市</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_CityID" id="CityID" lay-verify='required' lay-filter='CityID'></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">区县</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_CountyID" id="CountyID" lay-verify='required' lay-filter='CountyID' lay-search></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">区县名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_CountyName' id="CountyName" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">医院类别</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_HTypeID" id="HTypeID" lay-verify="" lay-filter='HTypeID'></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">快捷码</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_Shortcode' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">医院类别名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_HTypeName' id="HtypeName" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">拼音字头</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_PinYinZiTou' id="PinYinZiTou" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">医院编码</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_HospitalCode' autocomplete="off" lay-verify='required' placeholder="必填项" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">医院头像ID</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_IconsID' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">坐标位置</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_Postion' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">省份名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_ProvinceName' id="ProvinceName" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">城市名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_CityName' id="CityName" autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">经销商ID</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_DealerID' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">联系人</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_LinkMan' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="layui-col-md6 layui-col-xs12 ">
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系人职位</label>
+            <div class="layui-input-block">
+                <input type="text" name='BHospital_LinkManPosition' autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+    </div>-->
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">电话1</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_PhoneNum1' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="layui-col-md6 layui-col-xs12 ">
+        <div class="layui-form-item">
+            <label class="layui-form-label">电话2</label>
+            <div class="layui-input-block">
+                <input type="text" name='BHospital_PhoneNum2' autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+    </div>-->
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">EMALL</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_EMAIL' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">邮编</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_MAILNO' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="layui-col-md6 layui-col-xs12 ">
+        <div class="layui-form-item">
+            <label class="layui-form-label">传真</label>
+            <div class="layui-input-block">
+                <input type="text" name='BHospital_FaxNo' autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+    </div>-->
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">地址</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_Address' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="layui-col-md6 layui-col-xs12 ">
+        <div class="layui-form-item">
+            <label class="layui-form-label">自动传真</label>
+            <div class="layui-input-block">
+                <input type="text" name='BHospital_AutoFax' autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+    </div>-->
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">检验业务身份</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_LabIdentityTypeID" id="LabIdentityTypeID" lay-verify="required">
+                                                <option value="" selected>请选择(必填项)</option>
+                                                <option value="1">送检</option>
+                                                <option value="2">接检</option>
+                                                <option value="3">送检并接检</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">分公司</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_BranchId" id="BranchId" lay-verify="required" lay-filter='BranchId' lay-search></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">纳税人识别号</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_TINumber' lay-verify="required" autocomplete="off" class="layui-input" placeholder="必填项" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">对账日类型</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_BusinessAnalysisDateType" id="BusinessAnalysisDateType">
+                                                <option value="" selected>请选择</option>
+                                                <option value="1">送检日期</option>
+                                                <option value="2">审核日期</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">对账日期</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_BusinessAnalysisDate' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">对账单份数</label>
+                                        <div class="layui-input-block">
+                                            <select name="BHospital_BillNumber" id="BillNumber">
+                                                <option value="" selected>请选择</option>
+                                                <option value="1">一份对账单</option>
+                                                <option value="2">二份对账单(住院门诊合并，体检分开)</option>
+                                                <option value="3">三份对账单(住院、门诊、体检分开)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 layui-hide">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">人员固定支出</label>
+                                        <div class="layui-input-block">
+                                            <!-- <input type="text" name='BHospital_PersonFixedCharges' autocomplete="off" class="layui-input" /> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_Comment' autocomplete="off" class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">最后修改人</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_EditerName' class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">最后修改时间</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name='BHospital_DataUpdateTime' class="layui-input" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">是否采血点</label>
+                                        <div class="layui-input-block">
+                                            <input type="checkbox" id="IsBloodSamplingPoint" name='BHospital_IsBloodSamplingPoint' lay-skin='switch' checked lay-text="是|否" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">是否合作共建</label>
+                                        <div class="layui-input-block">
+                                            <input type="checkbox" id="IsCooperation" name='BHospital_IsCooperation' lay-skin='switch' checked lay-text="是|否" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12 ">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">是否接收标本</label>
+                                        <div class="layui-input-block">
+                                            <input type="checkbox" id="IsReceiveSamplePoint" name='BHospital_IsReceiveSamplePoint' lay-skin='switch' checked lay-text="是|否" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">是否启用</label>
+                                        <div class="layui-input-block">
+                                            <input type="checkbox" id="isUse" name='BHospital_IsUse' lay-skin='switch' checked lay-text="启用|禁用" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md10 layui-col-md-offset2 layui-col-xs12">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn layui-btn-disabled" disabled="disabled" lay-submit id="save" lay-filter='save'>保存</button>
+                                            <button id='cancel' type="button" lay-filter='reset' class="layui-btn layui-btn-primary">重置</button>
+                                            <button class="layui-btn layui-btn-warm" lay-submit id="setbusinessanalysis" lay-filter='setbusinessanalysis'>设置财务系统属性</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="toolbar">
+        <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+        <button class="layui-btn layui-btn-sm layui-bg-blue" lay-event="edit">编辑</button>
+        <button class="layui-btn layui-btn-sm layui-bg-red" lay-event="del">删除</button>
+        <div class="layui-input-inline" style="width:160px">
+            <input type="text" name='search' id="search" placeholder="名称/简称/拼音字头" autocomplete="off" class="layui-input" />
+        </div>
+        <div class="layui-input-inline" style="width:160px">
+            <select name="searchArea" id="searchArea" lay-verify="" lay-filter='searchArea' lay-search>
+                <option value="">区域选择</option>
+            </select>
+        </div>
+        <button class="layui-btn layui-btn-sm" lay-event="search">查询</button>
+    </script>
+    <script type="text/html" id="switchTp">
+        <input type="checkbox" name="isUse" value="{{d.BHospital_IsUse}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="tableSwitch" {{ d.BHospital_IsUse == "true" ? 'checked' : '' }}>
+    </script>
+
+    <script src="../../../../../src/layui/dist/layui.js"></script>
+    <script type="text/javascript">
+        UIVersion.getJS('../../../../config/system.js');
+        UIVersion.getJS('hospital.js');
+    </script>
+</body>
+</html>

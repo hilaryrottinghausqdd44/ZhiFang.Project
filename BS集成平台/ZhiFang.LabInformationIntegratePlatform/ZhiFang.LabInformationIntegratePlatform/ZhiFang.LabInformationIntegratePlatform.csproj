@@ -1,0 +1,1127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B69E2C23-48AA-4988-80D8-17C760AC6762}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.LabInformationIntegratePlatform</RootNamespace>
+    <AssemblyName>ZhiFang.LabInformationIntegratePlatform</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.1.3.42154, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\Lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.1.40711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Services">
+      <HintPath>..\Lib\Spring.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Ashx\Uediter\Config.cs" />
+    <Compile Include="Ashx\Uediter\ConfigHandler.cs" />
+    <Compile Include="Ashx\Uediter\CrawlerHandler.cs" />
+    <Compile Include="Ashx\Uediter\Handler.cs" />
+    <Compile Include="Ashx\Uediter\ListFileHandler.cs" />
+    <Compile Include="Ashx\Uediter\NotSupportedHandler.cs" />
+    <Compile Include="Ashx\Uediter\PathFormater.cs" />
+    <Compile Include="Ashx\Uediter\UploadHandler.cs" />
+    <Compile Include="BusinessObject\EncodeFileName.cs" />
+    <Compile Include="BusinessObject\ResponseResultStream.cs" />
+    <Compile Include="BusinessObject\Utils\IPHelper.cs" />
+    <Compile Include="BusinessObject\WeiXin\Mini\RequestVO.cs" />
+    <Compile Include="BusinessObject\WeiXin\Mini\ResponseVO.cs" />
+    <Compile Include="BusinessObject\WeiXin\Mini\WeiXinMiniBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HttpModule\WcfReadEntityBodyModeWorkaroundModule.cs" />
+    <Compile Include="LISCommonWCF\MsgCommonService\IMsgCommonService.cs" />
+    <Compile Include="LISCommonWCF\MsgCommonService\MsgCommonService.asmx.cs">
+      <DependentUpon>MsgCommonService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MessageHub\MainMessageHub.cs" />
+    <Compile Include="MessageHub\TestHub.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerContract\Customization\IRBACService_ZhuHai.cs" />
+    <Compile Include="ServerContract\Customization\IDicReceiveService.cs" />
+    <Compile Include="ServerContract\ICommonService.cs" />
+    <Compile Include="ServerContract\IConstructionService.cs" />
+    <Compile Include="ServerContract\IIMService.cs" />
+    <Compile Include="ServerContract\ILIIPCommonService.cs" />
+    <Compile Include="ServerContract\ILIIPService.cs" />
+    <Compile Include="ServerContract\ILIIPStaticService.cs" />
+    <Compile Include="ServerContract\IPublicService.cs" />
+    <Compile Include="ServerContract\IWXMiniService.cs" />
+    <Compile Include="ServerContract\IRBACService.cs" />
+    <Compile Include="ServerContract\ISingleTableService.cs" />
+    <Compile Include="ServerContract\IWXService.cs" />
+    <Compile Include="ServerWCF\CommonService.svc.cs">
+      <DependentUpon>CommonService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\ConstructionService.svc.cs">
+      <DependentUpon>ConstructionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\Customization\DicReceiveService.svc.cs">
+      <DependentUpon>DicReceiveService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\Customization\LISMessageWebService.asmx.cs">
+      <DependentUpon>LISMessageWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LISCommonWCF\MsgCommonService\MsgCommonService.svc.cs">
+      <DependentUpon>MsgCommonService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\Customization\RBACCloneService.svc.cs">
+      <DependentUpon>RBACCloneService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\Customization\RBACService_ZhuHai.svc.cs">
+      <DependentUpon>RBACService_ZhuHai.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\Customization\SystemCacheService.svc.cs">
+      <DependentUpon>SystemCacheService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\IMService.svc.cs">
+      <DependentUpon>IMService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\LIIPCommonService.svc.cs">
+      <DependentUpon>LIIPCommonService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\LIIPService.svc.cs">
+      <DependentUpon>LIIPService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\LIIPStaticService.svc.cs">
+      <DependentUpon>LIIPStaticService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\PublicService.svc.cs">
+      <DependentUpon>PublicService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\RBACService.svc.cs">
+      <DependentUpon>RBACService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\WXMiniService.svc.cs">
+      <DependentUpon>WXMiniService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\SingleTableService.svc.cs">
+      <DependentUpon>SingleTableService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServerWCF\WXService.svc.cs">
+      <DependentUpon>WXService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service1.svc.cs">
+      <DependentUpon>Service1.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ueditor\net\controller.ashx.cs">
+      <DependentUpon>controller.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="LISCommonWCF\MsgCommonService\MsgCommonService.asmx" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="ServerWCF\CommonService.svc" />
+    <Content Include="ServerWCF\ConstructionService.svc" />
+    <Content Include="ServerWCF\Customization\DicReceiveService.svc" />
+    <Content Include="ServerWCF\Customization\LISMessageWebService.asmx" />
+    <Content Include="LISCommonWCF\MsgCommonService\MsgCommonService.svc" />
+    <Content Include="ServerWCF\Customization\RBACCloneService.svc" />
+    <Content Include="ServerWCF\Customization\RBACService_ZhuHai.svc" />
+    <Content Include="ServerWCF\Customization\SystemCacheService.svc" />
+    <Content Include="ServerWCF\IMService.svc" />
+    <Content Include="ServerWCF\LIIPCommonService.svc" />
+    <Content Include="ServerWCF\LIIPService.svc" />
+    <Content Include="ServerWCF\LIIPStaticService.svc" />
+    <Content Include="ServerWCF\PublicService.svc" />
+    <Content Include="ServerWCF\RBACService.svc" />
+    <Content Include="ServerWCF\WXMiniService.svc" />
+    <Content Include="ServerWCF\SingleTableService.svc" />
+    <Content Include="ServerWCF\WXService.svc" />
+    <Content Include="Service1.svc" />
+    <Content Include="Test.html" />
+    <Content Include="ui\extjs\class\qms\basic\testUMditor.js" />
+    <Content Include="ui\extjs\class\qms\equip\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\CheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\deptemplink\CheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\deptemplink\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\deptemplink\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\emaintenancedata\AddPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\emaintenancedata\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\emaintenancedata\EditTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\emaintenancedata\RecordGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\emaintenancedata\ShowPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\eparameter\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\eparameter\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\eparameter\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\AddPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\AttachmentGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\Btn.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\EditTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\MemoForm.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\MemoTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\SimpleGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\StructGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\register\TBPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\dutyemp\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\dutyemp\DutyGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\dutyemp\EmpGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\dutytemplet\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\dutytemplet\DutyGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\dutytemplet\TempletGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\empduty\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\empduty\CheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\empduty\EmpGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\empduty\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\manage\basic\CheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\manage\basic\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\manage\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\manage\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\register\AdminApp.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\register\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\register\CheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\register\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\register\TempletGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\templetduty\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\templetduty\DutyGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\res\templetduty\TempletGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\SimpleGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\admin\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\admin\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\admin\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\attachment\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\attachment\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\basic\CheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\basic\CheckTree.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\basic\CheckTrigger.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\basic\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\DictCheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\EditForm.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\AddPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\AttachmentGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\Btn.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\EditTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\MemoForm.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\MemoTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\SimpleGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\StructGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\emaintenancedata\TempletGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\AttachmentGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\backexamine\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\CheckApp.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\checktype\CheckApp.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\checktype\ExamineGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\ExamineGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\PagingMemoryProxy.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\PdfPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\PreviewApp.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\ereportdata\SeachGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\CheckBoxGroup.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\ComBoxGroup.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\DataTimeForm.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\MenoPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\MultiComboBox.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\Number.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\RadioGroup.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\operate\TBPanel.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\SimpleGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\Tree.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\check\CheckApp.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\check\CheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\EmpbasicGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\EmpGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\EquipGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\Grid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\SimpleGrid.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\TempUserApp.js" />
+    <Content Include="ui\extjs\class\qms\equip\templet\user\UserTempApp.js" />
+    <Content Include="ui\extjs\class\qms\equip\user\App.js" />
+    <Content Include="ui\extjs\class\qms\equip\user\Form.js" />
+    <Content Include="ui\extjs\class\qms\equip\user\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\attachment\Upload.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\AddTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\App.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\AttachmentTab.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\ContentForm.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\DetailedContent.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\FFileDetailedForm.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\HistoryForm.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\ShowApp.js" />
+    <Content Include="ui\extjs\class\qms\file\basic\toolbarButtons.js" />
+    <Content Include="ui\extjs\class\qms\file\copyuser\CheckApp.js" />
+    <Content Include="ui\extjs\class\qms\file\copyuser\CheckDepGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\copyuser\CheckEmployeeRoleGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\copyuser\AreaCheckRoleGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\copyuser\CheckRoleGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\copyuser\DeptCheckTree.js" />
+    <Content Include="ui\extjs\class\qms\file\copyuser\userComboBox.js" />
+    <Content Include="ui\extjs\class\qms\file\file\approval\ApprovalGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\basic\AddTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\file\file\create\AddTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\file\file\create\CreateApp.js" />
+    <Content Include="ui\extjs\class\qms\file\file\create\Form.js" />
+    <Content Include="ui\extjs\class\qms\file\file\create\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\examine\ExamineGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\examine\Form.js" />
+    <Content Include="ui\extjs\class\qms\file\file\examine\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\invalid\App.js" />
+    <Content Include="ui\extjs\class\qms\file\file\invalid\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\manage\App.js" />
+    <Content Include="ui\extjs\class\qms\file\file\manage\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\myffile\MyCopyUserGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\myffile\MyReadingUserApp.js" />
+    <Content Include="ui\extjs\class\qms\file\file\myffile\MyReadingUserGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\release\ReleaseForm.js" />
+    <Content Include="ui\extjs\class\qms\file\file\release\ReleaseGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\revise\AddTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\file\file\revise\Form.js" />
+    <Content Include="ui\extjs\class\qms\file\file\revise\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\revise\ReviseApp.js" />
+    <Content Include="ui\extjs\class\qms\file\file\revise\ReviseRecGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\show\App.js" />
+    <Content Include="ui\extjs\class\qms\file\file\show\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\strict\approval\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\strict\draft\App.js" />
+    <Content Include="ui\extjs\class\qms\file\file\strict\examine\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\strict\invalid\App.js" />
+    <Content Include="ui\extjs\class\qms\file\file\strict\invalid\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\strict\release\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\file\strict\revise\App.js" />
+    <Content Include="ui\extjs\class\qms\file\help\basic\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\help\release\AddTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\file\help\release\App.js" />
+    <Content Include="ui\extjs\class\qms\file\help\release\Form.js" />
+    <Content Include="ui\extjs\class\qms\file\help\release\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\help\show\App.js" />
+    <Content Include="ui\extjs\class\qms\file\help\show\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\help\show\Panel.js" />
+    <Content Include="ui\extjs\class\qms\file\help\show\PanelForId.js" />
+    <Content Include="ui\extjs\class\qms\file\interaction\App.js" />
+    <Content Include="ui\extjs\class\qms\file\knowledgebase\manage\App.js" />
+    <Content Include="ui\extjs\class\qms\file\knowledgebase\manage\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\knowledgebase\release\App.js" />
+    <Content Include="ui\extjs\class\qms\file\knowledgebase\release\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\knowledgebase\show\App.js" />
+    <Content Include="ui\extjs\class\qms\file\knowledgebase\show\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\manage\EditTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\file\manage\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\manage\ManageApp.js" />
+    <Content Include="ui\extjs\class\qms\file\news\basic\AddTabPanel.js" />
+    <Content Include="ui\extjs\class\qms\file\news\basic\Form.js" />
+    <Content Include="ui\extjs\class\qms\file\news\basic\WeiXin.js" />
+    <Content Include="ui\extjs\class\qms\file\news\basic\WeiXinCheckGrid.js" />
+    <Content Include="ui\extjs\class\qms\file\news\basic\WeiXinContentForm.js" />
+    <Content Include="ui\extjs\class\qms\file\news\manage\App.js" />
+    <Content Include="ui\extjs\class\qms\file\news\manage\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\news\release\App.js" />
+    <Content Include="ui\extjs\class\qms\file\news\release\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\news\show\App.js" />
+    <Content Include="ui\extjs\class\qms\file\news\show\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\operation\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\readinglog\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\show\Grid.js" />
+    <Content Include="ui\extjs\class\qms\file\show\ShowTabPanel.js" />
+    <Content Include="ui\extjs\class\sysbase\interaction\model1\App.js" />
+    <Content Include="ui\extjs\class\sysbase\interaction\model1\Form.js" />
+    <Content Include="ui\extjs\class\sysbase\interaction\model1\List.js" />
+    <Content Include="ui\layui\admin\home\console.html" />
+    <Content Include="ui\layui\admin\home\console11.html" />
+    <Content Include="ui\layui\admin\home\首页.txt" />
+    <Content Include="ui\layui\admin\index.html" />
+    <Content Include="ui\layui\admin\index.js" />
+    <Content Include="ui\layui\admin\layuiadmin\config.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\console\prograss.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\console\top-card.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\console\top-search.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\content\comment.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\content\list.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\content\tags.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\forum\list.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\forum\replys.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\layer\photos.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\layim\getList.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\layim\getMembers.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\mall\order.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\menu.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\menu1.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\message\all.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\message\detail.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\message\direct.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\message\new.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\message\notice.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\table\demo.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\table\demo2.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\table\demo3.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\table\user.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\table\user30.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\upload\demo.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\useradmin\mangadmin.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\useradmin\role.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\useradmin\webuser.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\user\forget.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\user\login.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\user\logout.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\user\reg.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\user\resetpass.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\user\session.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\user\sms.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\workorder\demo.js" />
+    <Content Include="ui\layui\admin\layuiadmin\json\说明.txt" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\layui.css" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\layui.mobile.css" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\code.css" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layer\default\icon.png" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layer\default\layer.css" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\html\chatlog.html" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\html\find.html" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\html\msgbox.html" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\layim.css" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\mobile\layim.css" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\skin\1.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\skin\2.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\skin\3.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\skin\4.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\skin\5.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\skin\logo.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\voice\default.mp3" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\font\iconfont.svg" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\0.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\1.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\10.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\11.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\12.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\13.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\14.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\15.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\16.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\17.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\18.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\19.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\2.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\20.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\21.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\22.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\23.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\24.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\25.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\26.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\27.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\28.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\29.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\3.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\30.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\31.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\32.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\33.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\34.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\35.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\36.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\37.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\38.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\39.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\4.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\40.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\41.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\42.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\43.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\44.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\45.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\46.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\47.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\48.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\49.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\5.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\50.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\51.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\52.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\53.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\54.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\55.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\56.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\57.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\58.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\59.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\6.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\60.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\61.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\62.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\63.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\64.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\65.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\66.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\67.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\68.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\69.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\7.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\70.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\71.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\8.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\images\face\9.gif" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\layui.all.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\layui.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\carousel.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\code.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\colorpicker.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\element.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\flow.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\form.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\jquery.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\laydate.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\layedit.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\layer.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\layim.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\laypage.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\laytpl.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\mobile.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\rate.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\slider.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\table.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\tree.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\upload.js" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\lay\modules\util.js" />
+    <Content Include="ui\layui\admin\layuiadmin\lib\admin.js" />
+    <Content Include="ui\layui\admin\layuiadmin\lib\extend\echarts.js" />
+    <Content Include="ui\layui\admin\layuiadmin\lib\extend\echartsTheme.js" />
+    <Content Include="ui\layui\admin\layuiadmin\lib\index.js" />
+    <Content Include="ui\layui\admin\layuiadmin\lib\view.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\common.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\console.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\contlist.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\forum.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\im.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\message.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\sample.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\senior.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\set.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\user.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\useradmin.js" />
+    <Content Include="ui\layui\admin\layuiadmin\modules\workorder.js" />
+    <Content Include="ui\layui\admin\layuiadmin\style\admin.css" />
+    <Content Include="ui\layui\admin\layuiadmin\style\login.css" />
+    <Content Include="ui\layui\admin\layuiadmin\style\res\bg-none.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\style\res\layui-logo.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\style\res\logo-black.png" />
+    <Content Include="ui\layui\admin\layuiadmin\style\res\logo.png" />
+    <Content Include="ui\layui\admin\layuiadmin\style\res\template\character.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\style\res\template\huge.jpg" />
+    <Content Include="ui\layui\admin\layuiadmin\style\res\template\portrait.png" />
+    <Content Include="ui\layui\admin\layuiadmin\style\template.css" />
+    <Content Include="ui\layui\admin\layuiadmin\tpl\layim\demo.html" />
+    <Content Include="ui\layui\admin\layuiadmin\tpl\system\about.html" />
+    <Content Include="ui\layui\admin\layuiadmin\tpl\system\get.html" />
+    <Content Include="ui\layui\admin\layuiadmin\tpl\system\more.html" />
+    <Content Include="ui\layui\admin\layuiadmin\tpl\system\theme.html" />
+    <Content Include="ui\layui\admin\layuiadmin\tpl\system\说明.txt" />
+    <Content Include="ui\layui\admin\layuiadmin\tpl\说明.txt" />
+    <Content Include="ui\layui\admin\message\index.html" />
+    <Content Include="ui\layui\admin\message\index.js" />
+    <Content Include="ui\layui\admin\message\private\index.html" />
+    <Content Include="ui\layui\admin\message\private\index.js" />
+    <Content Include="ui\layui\admin\message\消息中心.txt" />
+    <Content Include="ui\layui\admin\user\forget.html" />
+    <Content Include="ui\layui\admin\user\login.html" />
+    <Content Include="ui\layui\admin\user\login.js" />
+    <Content Include="ui\layui\admin\user\reg.html" />
+    <Content Include="ui\layui\admin\user\reg.js" />
+    <Content Include="ui\layui\admin\views\app\content\comment.html" />
+    <Content Include="ui\layui\admin\views\app\content\contform.html" />
+    <Content Include="ui\layui\admin\views\app\content\list.html" />
+    <Content Include="ui\layui\admin\views\app\content\listform.html" />
+    <Content Include="ui\layui\admin\views\app\content\tags.html" />
+    <Content Include="ui\layui\admin\views\app\content\tagsform.html" />
+    <Content Include="ui\layui\admin\views\app\forum\list.html" />
+    <Content Include="ui\layui\admin\views\app\forum\listform.html" />
+    <Content Include="ui\layui\admin\views\app\forum\replys.html" />
+    <Content Include="ui\layui\admin\views\app\forum\replysform.html" />
+    <Content Include="ui\layui\admin\views\app\mall\category.html" />
+    <Content Include="ui\layui\admin\views\app\mall\list.html" />
+    <Content Include="ui\layui\admin\views\app\mall\specs.html" />
+    <Content Include="ui\layui\admin\views\app\message\detail.html" />
+    <Content Include="ui\layui\admin\views\app\message\index.html" />
+    <Content Include="ui\layui\admin\views\app\workorder\list.html" />
+    <Content Include="ui\layui\admin\views\app\workorder\listform.html" />
+    <Content Include="ui\layui\admin\views\app\说明.txt" />
+    <Content Include="ui\layui\admin\views\component\anim\index.html" />
+    <Content Include="ui\layui\admin\views\component\auxiliar\index.html" />
+    <Content Include="ui\layui\admin\views\component\badge\index.html" />
+    <Content Include="ui\layui\admin\views\component\button\index.html" />
+    <Content Include="ui\layui\admin\views\component\carousel\index.html" />
+    <Content Include="ui\layui\admin\views\component\code\index.html" />
+    <Content Include="ui\layui\admin\views\component\colorpicker\index.html" />
+    <Content Include="ui\layui\admin\views\component\flow\index.html" />
+    <Content Include="ui\layui\admin\views\component\form\element.html" />
+    <Content Include="ui\layui\admin\views\component\form\group.html" />
+    <Content Include="ui\layui\admin\views\component\grid\all.html" />
+    <Content Include="ui\layui\admin\views\component\grid\list.html" />
+    <Content Include="ui\layui\admin\views\component\grid\mobile-pc.html" />
+    <Content Include="ui\layui\admin\views\component\grid\mobile.html" />
+    <Content Include="ui\layui\admin\views\component\grid\speed-dial.html" />
+    <Content Include="ui\layui\admin\views\component\grid\stack.html" />
+    <Content Include="ui\layui\admin\views\component\laydate\demo1.html" />
+    <Content Include="ui\layui\admin\views\component\laydate\demo2.html" />
+    <Content Include="ui\layui\admin\views\component\laydate\index.html" />
+    <Content Include="ui\layui\admin\views\component\laydate\special-demo.html" />
+    <Content Include="ui\layui\admin\views\component\laydate\theme.html" />
+    <Content Include="ui\layui\admin\views\component\layer\list.html" />
+    <Content Include="ui\layui\admin\views\component\layer\special-demo.html" />
+    <Content Include="ui\layui\admin\views\component\layer\theme.html" />
+    <Content Include="ui\layui\admin\views\component\laypage\demo1.html" />
+    <Content Include="ui\layui\admin\views\component\laypage\demo2.html" />
+    <Content Include="ui\layui\admin\views\component\laypage\index.html" />
+    <Content Include="ui\layui\admin\views\component\laytpl\index.html" />
+    <Content Include="ui\layui\admin\views\component\nav\index.html" />
+    <Content Include="ui\layui\admin\views\component\panel\index.html" />
+    <Content Include="ui\layui\admin\views\component\progress\index.html" />
+    <Content Include="ui\layui\admin\views\component\rate\index.html" />
+    <Content Include="ui\layui\admin\views\component\slider\index.html" />
+    <Content Include="ui\layui\admin\views\component\table\auto.html" />
+    <Content Include="ui\layui\admin\views\component\table\cellEdit.html" />
+    <Content Include="ui\layui\admin\views\component\table\cellEvent.html" />
+    <Content Include="ui\layui\admin\views\component\table\checkbox.html" />
+    <Content Include="ui\layui\admin\views\component\table\data.html" />
+    <Content Include="ui\layui\admin\views\component\table\fixed.html" />
+    <Content Include="ui\layui\admin\views\component\table\form.html" />
+    <Content Include="ui\layui\admin\views\component\table\height.html" />
+    <Content Include="ui\layui\admin\views\component\table\index.html" />
+    <Content Include="ui\layui\admin\views\component\table\initSort.html" />
+    <Content Include="ui\layui\admin\views\component\table\onrow.html" />
+    <Content Include="ui\layui\admin\views\component\table\operate.html" />
+    <Content Include="ui\layui\admin\views\component\table\page.html" />
+    <Content Include="ui\layui\admin\views\component\table\parseData.html" />
+    <Content Include="ui\layui\admin\views\component\table\radio.html" />
+    <Content Include="ui\layui\admin\views\component\table\reload.html" />
+    <Content Include="ui\layui\admin\views\component\table\resetPage.html" />
+    <Content Include="ui\layui\admin\views\component\table\simple.html" />
+    <Content Include="ui\layui\admin\views\component\table\static.html" />
+    <Content Include="ui\layui\admin\views\component\table\style.html" />
+    <Content Include="ui\layui\admin\views\component\table\thead.html" />
+    <Content Include="ui\layui\admin\views\component\table\toolbar.html" />
+    <Content Include="ui\layui\admin\views\component\table\tostatic.html" />
+    <Content Include="ui\layui\admin\views\component\table\totalRow.html" />
+    <Content Include="ui\layui\admin\views\component\tabs\index.html" />
+    <Content Include="ui\layui\admin\views\component\temp.html" />
+    <Content Include="ui\layui\admin\views\component\timeline\index.html" />
+    <Content Include="ui\layui\admin\views\component\upload\demo1.html" />
+    <Content Include="ui\layui\admin\views\component\upload\demo2.html" />
+    <Content Include="ui\layui\admin\views\component\upload\index.html" />
+    <Content Include="ui\layui\admin\views\component\util\index.html" />
+    <Content Include="ui\layui\admin\views\component\说明.txt" />
+    <Content Include="ui\layui\admin\views\home\console.html" />
+    <Content Include="ui\layui\admin\views\home\homepage1.html" />
+    <Content Include="ui\layui\admin\views\home\homepage2.html" />
+    <Content Include="ui\layui\admin\views\iframe\layer\iframe.html" />
+    <Content Include="ui\layui\admin\views\senior\echarts\bar.html" />
+    <Content Include="ui\layui\admin\views\senior\echarts\line.html" />
+    <Content Include="ui\layui\admin\views\senior\echarts\map.html" />
+    <Content Include="ui\layui\admin\views\senior\im\index.html" />
+    <Content Include="ui\layui\admin\views\senior\说明.txt" />
+    <Content Include="ui\layui\admin\views\set\system\email.html" />
+    <Content Include="ui\layui\admin\views\set\system\website.html" />
+    <Content Include="ui\layui\admin\views\set\user\info.html" />
+    <Content Include="ui\layui\admin\views\set\user\password.html" />
+    <Content Include="ui\layui\admin\views\set\说明.txt" />
+    <Content Include="ui\layui\admin\views\system\about.html" />
+    <Content Include="ui\layui\admin\views\system\get.html" />
+    <Content Include="ui\layui\admin\views\system\more.html" />
+    <Content Include="ui\layui\admin\views\system\theme.html" />
+    <Content Include="ui\layui\admin\views\system\复制 about.html" />
+    <Content Include="ui\layui\admin\views\system\说明.txt" />
+    <Content Include="ui\layui\admin\views\template\addresslist.html" />
+    <Content Include="ui\layui\admin\views\template\caller.html" />
+    <Content Include="ui\layui\admin\views\template\goodslist.html" />
+    <Content Include="ui\layui\admin\views\template\msgboard.html" />
+    <Content Include="ui\layui\admin\views\template\personalpage.html" />
+    <Content Include="ui\layui\admin\views\template\search.html" />
+    <Content Include="ui\layui\admin\views\template\temp.html" />
+    <Content Include="ui\layui\admin\views\template\tips\404.html" />
+    <Content Include="ui\layui\admin\views\template\tips\error.html" />
+    <Content Include="ui\layui\admin\views\template\说明.txt" />
+    <Content Include="ui\layui\admin\views\user\administrators\adminform.html" />
+    <Content Include="ui\layui\admin\views\user\administrators\list.html" />
+    <Content Include="ui\layui\admin\views\user\administrators\role.html" />
+    <Content Include="ui\layui\admin\views\user\administrators\roleform.html" />
+    <Content Include="ui\layui\admin\views\user\forget.html" />
+    <Content Include="ui\layui\admin\views\user\login.html" />
+    <Content Include="ui\layui\admin\views\user\reg.html" />
+    <Content Include="ui\layui\admin\views\user\user\list.html" />
+    <Content Include="ui\layui\admin\views\user\user\userform.html" />
+    <Content Include="ui\layui\admin\views\user\说明.txt" />
+    <Content Include="ui\layui\admin\zhifang_logo.png" />
+    <Content Include="ui\layui\admin\复制 index.html" />
+    <Content Include="ui\layui\ux\other\tableSelect\tableSelect.js" />
+    <Content Include="ui\layui\ux\other\treeTable\treeTable.css" />
+    <Content Include="ui\layui\ux\other\treeTable\treeTable.js" />
+    <Content Include="ui\layui\views\msg\search\listByLabCode.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\forwardSYNC\admin\index.html" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\forwardSYNC\admin\index.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\forwardSYNC\hrdept\hrdept.html" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\forwardSYNC\hrdept\hrdept.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\forwardSYNC\hrdept\部门列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\forwardSYNC\hremployee\hremployee.html" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\forwardSYNC\hremployee\hremployee.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\forwardSYNC\hremployee\员工列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\admin\index.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\admin\index.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdeptEmp\hrdeptEmp.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdeptEmp\hrdeptEmp.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdeptEmp\部门员工关系列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdeptIdentity\hrdeptIdentity.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdeptIdentity\hrdeptIdentity.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdeptIdentity\部门身份.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdept\hrdept.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdept\hrdept.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrdept\部门列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrempIdentity\hrempIdentity.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrempIdentity\hrempIdentity.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrempIdentity\员工身份列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hremployee\hremployee.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hremployee\hremployee.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hremployee\员工列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrposition\hrposition.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrposition\hrposition.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\hrposition\职位列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\admin\index.html" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\admin\index.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\npuser\npuser.html" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\npuser\npuser.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\npuser\npuser列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\puser\puser.html" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\puser\puser.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\puser\puser列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\doctor\doctor.html" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\doctor\doctor.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\doctor\医生列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\dept\dept.html" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\dept\dept.js" />
+    <Content Include="ui\layui\views\RBACClone\LabStar6\dept\部门列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacempOptions\rbacempOptions.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacempOptions\rbacempOptions.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacempOptions\员工设置列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacempRoles\rbacempRoles.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacempRoles\rbacempRoles.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacempRoles\员工角色列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacmoduleOper\rbacmoduleOper.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacmoduleOper\rbacmoduleOper.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacmoduleOper\模块操作列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacmodule\rbacmodule.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacmodule\rbacmodule.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacmodule\模块列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacroleModule\rbacroleModule.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacroleModule\rbacroleModule.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacroleModule\角色模块访问权限列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacroleRight\rbacroleRight.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacroleRight\rbacroleRight.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacroleRight\角色权限列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacrole\rbacrole.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacrole\rbacrole.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacrole\角色列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacrowFilter\rbacrowFilter.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacrowFilter\rbacrowFilter.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacrowFilter\行过滤列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacuser\rbacuser.html" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacuser\rbacuser.js" />
+    <Content Include="ui\layui\views\RBACClone\QMS\rbacuser\账户列表.txt" />
+    <Content Include="ui\layui\views\RBACClone\SearchCloneLog\SearchCloneLog.html" />
+    <Content Include="ui\layui\views\RBACClone\SearchCloneLog\SearchCloneLog.js" />
+    <Content Include="ui\layui\views\RBACClone\SearchCloneLog\查询同步记录.txt" />
+    <Content Include="ui\layui\views\system\dept\checktree.html" />
+    <Content Include="ui\layui\views\system\dept\checktree.js" />
+    <Content Include="ui\layui\views\system\dept\link.html" />
+    <Content Include="ui\layui\views\system\dept\link.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalArea\hospitalArea.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalArea\hospitalArea.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalArea\医院区域字典.txt" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalDept\hospitalDeptTable\hospitalDeptTable.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalDept\hospitalTable\hospitalTable.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalDept\main.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalDept\main.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalDept\医院科室字典.txt" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalEmp\HospitalEmp.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalEmp\HospitalEmp.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalEmp\HospitalUserEmp\HospitalEmp.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalEmp\HospitalUserEmp\HospitalEmp.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalEmp\HospitalUserEmp\UnSelectHospital.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalEmp\UnSelectHospital.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalLevel\hospitalLevel.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalLevel\hospitalLevel.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalLevel\医院级别字典.txt" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalType\hospitalType.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalType\hospitalType.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_HospitalType\医院分类字典.txt" />
+    <Content Include="ui\layui\views\system\Hospital\B_Hospital\hospital.html" />
+    <Content Include="ui\layui\views\system\Hospital\B_Hospital\hospital.js" />
+    <Content Include="ui\layui\views\system\Hospital\B_Hospital\医院字典.txt" />
+    <Content Include="ui\layui\views\system\set\form.html" />
+    <Content Include="ui\layui\views\system\set\list.html" />
+    <Content Include="ui\layui\views\system\set\系统设置.txt" />
+    <Content Include="ui\layui\views\system\系统.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="ui\layui\admin\home\data.json" />
+    <Content Include="ui\layui\admin\home\复制 data.json" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\css\modules\layim\html\getmsg.json" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\font\iconfont.eot" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\font\iconfont.ttf" />
+    <Content Include="ui\layui\admin\layuiadmin\layui\font\iconfont.woff" />
+    <Content Include="ui\extjs\class\qms\basic\Grid.js.bak" />
+    <Content Include="ui\extjs\class\qms\ffile\create\CreateApp.js.bak" />
+    <Content Include="ueditor\net\config.json" />
+    <Content Include="ueditor\net\controller.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="ui\extjs\class\qms\file\help\manage\" />
+    <Folder Include="ui\extjs\class\qms\manage\" />
+    <Folder Include="ui\extjs\interface\one\" />
+    <Folder Include="ui\layui\views\system\County\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{f1096968-0d4e-4fba-b427-45173b78f476}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Common\ZhiFang.Entity.Common.csproj">
+      <Project>{9dec2e5e-9e6e-4be3-9656-61568d209545}</Project>
+      <Name>ZhiFang.Entity.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.LIIP\ZhiFang.Entity.LIIP.csproj">
+      <Project>{34a7c4df-e99d-4a8c-b614-c9e7a22fed91}</Project>
+      <Name>ZhiFang.Entity.LIIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{61f57d84-74d3-409f-aa8b-e4dcacf5438c}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{51894403-5fc4-4546-857e-dd4ba973819f}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Common\ZhiFang.IBLL.Common.csproj">
+      <Project>{eae20059-b28d-47fc-9bfc-813ae2a7d48d}</Project>
+      <Name>ZhiFang.IBLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.LIIP\ZhiFang.IBLL.LIIP.csproj">
+      <Project>{abd4d18a-3110-463e-a3df-3c0cceabb462}</Project>
+      <Name>ZhiFang.IBLL.LIIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{42c5aa48-ef31-4213-83a5-d24b19f00921}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{fb3a0086-df39-4d5a-a6e0-d8a1ff07c8ad}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Common\ZhiFang.IDAO.Common.csproj">
+      <Project>{bb8218b0-01dc-4c86-9c93-5888e4f69a41}</Project>
+      <Name>ZhiFang.IDAO.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.LIIP\ZhiFang.IDAO.LIIP.csproj">
+      <Project>{ec0cffff-ab6f-4904-a4c3-16aa49c4eac3}</Project>
+      <Name>ZhiFang.IDAO.LIIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{e1f06f19-6601-4b30-9a9f-e1e11c721441}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.LIIP.Common\ZhiFang.LIIP.Common.csproj">
+      <Project>{324bf3e1-53c0-4066-a8e4-0aecc6d2f2ce}</Project>
+      <Name>ZhiFang.LIIP.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{a4a0f6d1-1f28-49d6-ba06-378519429122}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49067</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/ZhiFang.LIIP</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

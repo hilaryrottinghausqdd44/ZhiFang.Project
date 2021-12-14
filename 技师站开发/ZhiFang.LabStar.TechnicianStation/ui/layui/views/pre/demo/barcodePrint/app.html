@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>条码打印</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <script type="text/javascript">
+        UIVersion.getCSS("../../../../css/admin.css");
+    </script>
+    <style>
+        .myStyle .layui-card .layui-form-item { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="layui-fluid myStyle">
+        <div class="layui-row layui-col-space5">
+            <div class="layui-col-sm12 layui-col-xs12">
+                <div class="layui-card">
+                    <div class="layui-card-header layuiadmin-card-header-auto" style="padding:0px;">
+                        <div class="layui-tab layui-tab-brief" lay-filter="Tab" id="Tab">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">未确认条码</li>
+                                <li>已确认条码</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show">
+                                    <div class="layui-form">
+                                        <div class="layui-inline">
+                                            <select name="CardType" lay-filter="CardType" id="CardType" lay-search="">
+                                                <option value="1">申请</option>
+                                                <option value="2" selected>病历号</option>
+                                                <option value="1">病床</option>
+                                                <option value="1">病区</option>
+                                                <option value="1">科室</option>
+                                            </select>
+                                        </div>
+                                        <div class="layui-inline" style="width:180px;">
+                                            <input type="text" name="CardNumber" id="CardNumber" class="layui-input" autocomplete="off" />
+                                        </div>
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label" style="width:60px;">就诊类型</label>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <select name="SickType" lay-filter="SickType" id="SickType" lay-search=""></select>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <button class="layui-btn layui-btn-sm" type="button" lay-submit lay-filter='NoConfirmSearch' id="NoConfirmSearch">查询</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-tab-item">
+                                    <div class="layui-form">
+                                        <div class="layui-row">
+                                            <div class="layui-col-xs3">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">开单时间</label>
+                                                    <div class="layui-input-block">
+                                                        <input name="OrderTime" id="OrderTime" type="text" class="layui-input" autocomplete="off" placeholder=" - ">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs3">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">姓名</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="text" name="CName" id="CName" class="layui-input" autocomplete="off" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs3">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">科室</label>
+                                                    <div class="layui-input-block">
+                                                        <select name="DeptID" lay-filter="DeptID" id="DeptID" lay-search=""></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs3">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">病区</label>
+                                                    <div class="layui-input-block">
+                                                        <select name="DistrictID" lay-filter="DistrictID" id="DistrictID" lay-search=""></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs3">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">床号</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="text" name="Bed" id="Bed" class="layui-input" autocomplete="off" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs3">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">病历</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="text" name="PatNo" id="PatNo" class="layui-input" autocomplete="off" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs3">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">条码号</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="text" name="OrderFormNo" id="BarCode" class="layui-input" autocomplete="off" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs2">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">打印者</label>
+                                                    <div class="layui-input-block">
+                                                        <select name="DistrictID" lay-filter="DistrictID" id="DistrictID" lay-search=""></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-col-xs1">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-inline" style="line-height:36px;margin-left:5px;">
+                                                        <button class="layui-btn layui-btn-sm" type="button" lay-submit lay-filter='confirmSearch' id="confirmSearch">查询</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-card-body" style="overflow:auto;">
+                        <div class="layui-col-sm9 layui-col-xs12">
+                            <table id="mainTable" lay-filter="mainTable"></table>
+                        </div>
+                        <div class="layui-col-sm3 layui-col-xs12">
+                            <table id="rightTable" lay-filter="rightTable"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--表格头工具 -->
+    <script type="text/html" id="Toolbar1">
+        <!--未确认条码-->
+        <div class="layui-btn-group">
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="CheckAndReceiveOfNoConfirm">核收</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="CardReadingOfNoConfirm">读卡</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="BarcodePrintOfNoConfirm">打印条码</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="SendPackerOfNoConfirm">发送打包机</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="Confirm">确认</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="OriginalOrderFormOfNoConfirm">原始医嘱</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="ReceiptVoucherOfNoConfirm">取单凭证</button>
+        </div>
+    </script>
+    <!--表格头工具 -->
+    <script type="text/html" id="Toolbar2">
+        <!--已确认条码-->
+        <div class="layui-btn-group">
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="BarcodePrintOfConfirm">打印条码</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="SendPackerOfConfirm">发送打包机</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="CardReadingOfConfirm">读卡</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="OriginalOrderFormOfConfirm">原始医嘱</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="ReceiptVoucherOfConfirm">取单凭证</button>
+        </div>
+    </script>
+    <!--表格行工具 -->
+    <script type="text/html" id="tableOperation1">
+        <!--未确认条码-->
+        <a class="layui-btn layui-bg-blue layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-bg-danger layui-btn-xs" lay-event="noConfirmToVoid">作废</a>
+        <a class="layui-btn layui-btn-xs" lay-event="supplement">补录</a>
+    </script>
+    <!--表格行工具 -->
+    <script type="text/html" id="tableOperation2">
+        <!--已确认条码-->
+        <a class="layui-btn layui-bg-blue layui-btn-xs" lay-event="cancel" id="cancel">撤销</a>
+        <a class="layui-btn layui-bg-danger layui-btn-xs" lay-event="confirmToVoid" id="confirmToVoid">作废</a>
+    </script>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('app.js');
+    </script>
+</body>
+</html>

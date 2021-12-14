@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="BImmItemCalcInfo" table="[dbo].[B_ImmItemCalcInfo]">
+    <id name="Id" column="[CalcModelID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="CalcModel" column="[CalcModel]" type="Int32" not-null="false" length="4" />
+    <property name="SubtractBlankMean" column="[SubtractBlankMean]" type="Int32" not-null="false" length="4" />
+    <property name="ResultAccuracy" column="[ResultAccuracy]" type="Int32" not-null="false" length="4" />
+    <property name="ResultAccuracyMode" column="[ResultAccuracyMode]" type="Int32" not-null="false" length="4" />    
+    <property name="DxReportResult" column="[DxReportResult]" type="Int32" not-null="false" length="4" />
+    <property name="DxDisplayResult" column="[DxDisplayResult]" type="Int32" not-null="false" length="4" />
+    <property name="DxPrintResult" column="[DxPrintResult]" type="Int32" not-null="false" length="4" />
+    <property name="DxIsHQ" column="[DxIsHQ]" type="Int32" not-null="false" length="4" />
+    <property name="DxHQLowValue" column="[DxHQLowValue]" type="Double" not-null="false" length="8" />
+    <property name="DxHQHighValue" column="[DxHQHighValue]" type="Double" not-null="false" length="8" />
+    <property name="DlDensity" column="[DlDensity]" type="String" not-null="false" length="800" />
+    <property name="DlFittingInfo" column="[DlFittingInfo]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="BImmCalcTemplate" class="BImmCalcTemplate" >
+      <column name="[CalcFormulaID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="EPEquipItem" class="EPEquipItem" >
+      <column name="[EquipItemID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>申请状态查询</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.card-text {background-color:#f8f8f8;color:#777;padding:24px;}
+	</style>
+</head>
+<body>
+  <div class="layui-fluid" style="padding:30px 30px 15px 15px;"> 
+  	
+  	<div>
+	  账号： <div class="layui-inline">
+	    <input class="layui-input"  id="Account" placeholder="账号" autocomplete="off">
+	  </div>
+	  <button class="layui-btn" id="search_button" type="search">查询</button>
+	  <button type="cancel" id="cancel" class="layui-btn layui-btn-primary" >取消</button>
+	</div>
+   <div style="padding-top: 25px;">
+		<div class="layui-row layui-col-space15" >
+		  <div id="status_msg"></div>
+		</div>	
+	</div>
+  </div> 
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('status.js');
+	</script>
+</body>
+</html>

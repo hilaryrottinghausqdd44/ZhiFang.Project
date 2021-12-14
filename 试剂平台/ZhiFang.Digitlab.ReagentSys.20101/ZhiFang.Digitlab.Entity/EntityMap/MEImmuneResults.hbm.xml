@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="MEImmuneResults" table="[dbo].[ME_ImmuneResults]">
+    <id name="Id" column="[ImmResultID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="PositionNo" column="[PositionNo]" type="Int32" not-null="true" length="4" />
+    <property name="DispPositionNo" column="[DispPositionNo]" type="String" not-null="false" length="10" />
+    <property name="SampleType" column="[SampleType]" type="Int32" not-null="false" length="4" />
+    <property name="GSampleNo" column="[GSampleNo]" type="String" not-null="false" length="20" />
+    <property name="GSampleDate" column="[GSampleDate]" type="DateTime" not-null="false" length="8" />
+    <!--<property name="GroupID" column="[GroupID]" type="Int64" not-null="false" length="8" />-->
+    <property name="OriginalOD" column="[OriginalOD]" type="String" not-null="false" length="20" />
+    <property name="OD" column="[OD]" type="Double" not-null="false" length="8" />
+    <property name="ResultValue" column="[ResultValue]" type="Double" not-null="false" length="8" />
+    <property name="ResultDesc" column="[ResultDesc]" type="String" not-null="false" length="60" />
+    <property name="ResultDisplay" column="[ResultDisplay]" type="String" not-null="false" length="60" />
+    <property name="ResultPrint" column="[ResultPrint]" type="String" not-null="false" length="60" />
+    <property name="CutOff" column="[CutOff]" type="Double" not-null="false" length="8" />
+    <property name="SCO" column="[SCO]" type="Double" not-null="false" length="8" />
+    <property name="ReportResult" column="[ReportResult]" type="String" not-null="false" length="100" />
+    <property name="ShowColor" column="[ShowColor]" type="Int32" not-null="false" length="4" />
+    <property name="BZPSampleOrder" column="[BZPSampleOrder]" type="Int32" not-null="false" length="4" />
+    <property name="SameBZPSampleOrder" column="[SameBZPSampleOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="EPEquipItem" class="EPEquipItem" >
+      <column name="[EquipItemID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="ItemAllItem" class="ItemAllItem" >
+      <column name="[ItemID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEImmunePlate" class="MEImmunePlate" >
+      <column name="[PlateID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="GMGroup" class="GMGroup" >
+      <column name="[GroupID]" not-null="false"/>
+    </many-to-one>
+    
+  </class>
+</hibernate-mapping>

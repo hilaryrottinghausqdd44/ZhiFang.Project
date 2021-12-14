@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/09/2013 14:31:19" ReportInfo.Modified="09/25/2014 10:46:49" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string sectionno;
+    
+    private void Cell54_BeforePrint(object sender, EventArgs e)
+    {
+      sectionno=((String)Report.GetColumnValue(&quot;Table.SECTIONNO&quot;));
+      switch(sectionno)
+      {       
+        case &quot;2&quot;:
+        case &quot;23&quot;:
+        case &quot;29&quot;:
+          Cell54.Text=&quot;谭爱国&quot;;
+        break;   
+        case &quot;9&quot;:
+        case &quot;11&quot;:
+        case &quot;12&quot;:
+        case &quot;17&quot;:
+        case &quot;19&quot;: 
+        case &quot;38&quot;:
+          Cell54.Text=&quot;王敬华&quot;;
+        break;
+        case &quot;21&quot;:
+        case &quot;22&quot;:
+        case &quot;25&quot;:
+        case &quot;27&quot;:
+        case &quot;31&quot;:
+          Cell54.Text=&quot;王燕&quot;; 
+        break;
+        default:
+          Cell54.Text=&quot;张丽娜&quot;;
+        break;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" PaperWidth="350" FirstPageSource="15" OtherPagesSource="15" Guides="113.4">
+    <ReportTitleBand Name="ReportTitle1" Width="1247.4" Height="28.35" Guides="28.35">
+      <TableObject Name="Table1" Width="1252.65" Height="28.35" Border.Lines="All">
+        <TableColumn Name="Column9" Width="95.06"/>
+        <TableColumn Name="Column10" Width="76.16"/>
+        <TableColumn Name="Column11" Width="38.36"/>
+        <TableColumn Name="Column12" Width="85.61"/>
+        <TableColumn Name="Column13" Width="76.16"/>
+        <TableColumn Name="Column14" Width="66.71"/>
+        <TableColumn Name="Column31"/>
+        <TableColumn Name="Column15" Width="56.7"/>
+        <TableColumn Name="Column16" Width="83.16"/>
+        <TableColumn Name="Column17" Width="76.23"/>
+        <TableColumn Name="Column36"/>
+        <TableColumn Name="Column18" Width="66.78"/>
+        <TableColumn Name="Column19" Width="66.78"/>
+        <TableColumn Name="Column20" Width="66.78"/>
+        <TableColumn Name="Column21" Width="57.33"/>
+        <TableColumn Name="Column22" Width="66.78"/>
+        <TableColumn Name="Column30" Width="75.6"/>
+        <TableColumn Name="Column33"/>
+        <TableRow Name="Row2" Height="28.35">
+          <TableCell Name="Cell29" Border.Lines="All" Text="中心编码" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="条码号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell31" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="检查日期" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell33" Border.Lines="All" Text="档案号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell34" Border.Lines="All" Text="姓名" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell51" Border.Lines="All" Text="性别" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell35" Border.Lines="All" Text="年龄" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell36" Border.Lines="All" Text="英文名称" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell37" Border.Lines="All" Text="项目缩写" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell56" Text="项目编号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell38" Border.Lines="All" Text="项目名称" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell39" Border.Lines="All" Text="结果" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell40" Border.Lines="All" Text="单位" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell41" Border.Lines="All" Text="参考值范围" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell42" Border.Lines="All" Text="提示" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell50" Border.Lines="All" Text="检验者" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell53" Border.Lines="All" Text="审核者" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="33.68" Width="1247.4" Height="28.35" Guides="28.35">
+      <TableObject Name="Table1" Width="1253.1" Height="28.35" Border.Lines="All">
+        <TableColumn Name="Column1" Width="94.88"/>
+        <TableColumn Name="Column2" Width="76.73"/>
+        <TableColumn Name="Column3" Width="38.18"/>
+        <TableColumn Name="Column4" Width="85.43"/>
+        <TableColumn Name="Column5" Width="75.98"/>
+        <TableColumn Name="Column6" Width="66.53"/>
+        <TableColumn Name="Column32"/>
+        <TableColumn Name="Column7" Width="56.7"/>
+        <TableColumn Name="Column8" Width="83.16"/>
+        <TableColumn Name="Column23" Width="76.36"/>
+        <TableColumn Name="Column35"/>
+        <TableColumn Name="Column24" Width="66.91"/>
+        <TableColumn Name="Column25" Width="66.91"/>
+        <TableColumn Name="Column26" Width="66.91"/>
+        <TableColumn Name="Column27" Width="57.46"/>
+        <TableColumn Name="Column28" Width="66.91"/>
+        <TableColumn Name="Column29" Width="75.6"/>
+        <TableColumn Name="Column34"/>
+        <TableRow Name="Row1" Height="28.35">
+          <TableCell Name="Cell1" Border.Lines="Right" Text="[Table.clientzdy3]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell2" Border.Lines="Right" Text="[Table.SERIALNO]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell3" Border.Lines="Right" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell4" Border.Lines="Right" Text="[Table.noperdate]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell5" Border.Lines="Right" Text="[Table.PATNO]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell26" Border.Lines="Right" Text="[Table.CNAME]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell52" Border.Lines="Right" Text="[Table.GENDERNAME]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell27" Border.Lines="Right" Text="[Table.AGE]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell28" Border.Lines="Right" Text="[Table.TESTITEMENAME]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell43" Border.Lines="Right" Text="[Table.HISORDERNO]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell55" Border.Lines="Right" Text="[Table.ITEMNO]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell44" Border.Lines="Right" Text="[Table.TESTITEMNAME]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell45" Border.Lines="Right" Text="[Table.REPORTVALUEALL]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell46" Border.Lines="Right" Text="[Table.UNIT]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell47" Border.Lines="Right" Text="[Table.REFRANGE]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell48" Border.Lines="Right" Text="[Table.RESULTSTATUS]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell49" Border.Lines="Right" Text="[Table.TECHNICIAN]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell54" BeforePrintEvent="Cell54_BeforePrint" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

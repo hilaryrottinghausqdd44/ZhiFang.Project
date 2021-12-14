@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{50641DCA-BFFC-4818-9FEF-D9338DBB2327}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Entity.LabStar</RootNamespace>
+    <AssemblyName>ZhiFang.Entity.LabStar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityObject\BModuleFormControlList.cs" />
+    <Compile Include="EntityObject\BModuleFormControlSet.cs" />
+    <Compile Include="EntityObject\BModuleFormList.cs" />
+    <Compile Include="EntityObject\BModuleGridControlList.cs" />
+    <Compile Include="EntityObject\BModuleGridControlSet.cs" />
+    <Compile Include="EntityObject\BModuleGridList.cs" />
+    <Compile Include="EntityObject\LB_ExpertRuleList.cs" />
+    <Compile Include="EntityObject\LB_ExpertRule.cs" />
+    <Compile Include="EntityObject\LB_ItemExp.cs" />
+    <Compile Include="EntityObject\B_PrintModel.cs" />
+    <Compile Include="EntityObject\LB_ChargeType.cs" />
+    <Compile Include="EntityObject\LB_CollectPart.cs" />
+    <Compile Include="EntityObject\LB_PhyPeriod.cs" />
+    <Compile Include="EntityObject\Lis_Queue.cs" />
+    <Compile Include="EntityObject\Lis_TestFormMsgItem.cs" />
+    <Compile Include="EntityObject\Lis_TestFormMsg.cs" />
+    <Compile Include="EntityObject\Lis_TestItemReceive.cs" />
+    <Compile Include="EntityObject\LB_TranRuleHostSection.cs" />
+    <Compile Include="EntityObject\Lis_BarCodeRefuseRecord.cs" />
+    <Compile Include="EntityObject\Lis_EquipComLog.cs" />
+    <Compile Include="EntityObject\Lis_EquipComFile.cs" />
+    <Compile Include="EntityObject\LB_ItemCharge.cs" />
+    <Compile Include="EntityObject\LB_ItemCodeLink.cs" />
+    <Compile Include="EntityObject\LB_DicCodeLink.cs" />
+    <Compile Include="EntityObject\LB_QCPMat.cs" />
+    <Compile Include="EntityObject\LB_TGetMaxNo.cs" />
+    <Compile Include="EntityObject\LB_ReportDateDesc.cs" />
+    <Compile Include="LabStarPara.cs" />
+    <Compile Include="LabStarPreEnumType\LabStarPre_Para.cs" />
+    <Compile Include="LabStarPreEnumType\LabStarPre_Base.cs" />
+    <Compile Include="LabStarPreEnumType\LabStarPre_Test.cs" />
+    <Compile Include="SysHintVar.cs" />
+    <Compile Include="SysStaticVar.cs" />
+    <Compile Include="EntityObject\LB_EquipSection.cs" />
+    <Compile Include="EntityObject\LB_OrderModel.cs" />
+    <Compile Include="EntityObject\LB_OrderModelItem.cs" />
+    <Compile Include="EntityObject\LB_QCPrintTemplate.cs" />
+    <Compile Include="EntityObject\LB_Right.cs" />
+    <Compile Include="EntityObject\LB_SectionHisComp.cs" />
+    <Compile Include="EntityObject\LB_SectionPrint.cs" />
+    <Compile Include="EntityObject\B_Host.cs" />
+    <Compile Include="EntityObject\B_HostType.cs" />
+    <Compile Include="EntityObject\B_HostTypeUser.cs" />
+    <Compile Include="EntityObject\B_ParaItem.cs" />
+    <Compile Include="EntityObject\B_Para.cs" />
+    <Compile Include="EntityObject\LB_Destination.cs" />
+    <Compile Include="EntityObject\LB_Dict.cs" />
+    <Compile Include="EntityObject\LB_EquipResultTH.cs" />
+    <Compile Include="EntityObject\LB_Folk.cs" />
+    <Compile Include="EntityObject\LB_Diag.cs" />
+    <Compile Include="EntityObject\LB_Equip.cs" />
+    <Compile Include="EntityObject\LB_EquipItem.cs" />
+    <Compile Include="EntityObject\LB_QCItemRule.cs" />
+    <Compile Include="EntityObject\LB_QCRule.cs" />
+    <Compile Include="EntityObject\LB_QCRuleBase.cs" />
+    <Compile Include="EntityObject\LB_QCRulesCon.cs" />
+    <Compile Include="EntityObject\LB_ReportDate.cs" />
+    <Compile Include="EntityObject\LB_ReportDateRule.cs" />
+    <Compile Include="EntityObject\LB_Item.cs" />
+    <Compile Include="EntityObject\LB_ItemCalc.cs" />
+    <Compile Include="EntityObject\LB_ItemCalcFormula.cs" />
+    <Compile Include="EntityObject\LB_ItemComp.cs" />
+    <Compile Include="EntityObject\LB_ItemGroup.cs" />
+    <Compile Include="EntityObject\LB_ItemRange.cs" />
+    <Compile Include="EntityObject\LB_ItemRangeExp.cs" />
+    <Compile Include="EntityObject\LB_ItemTimeW.cs" />
+    <Compile Include="EntityObject\LB_ParItemSplit.cs" />
+    <Compile Include="EntityObject\LB_Phrase.cs" />
+    <Compile Include="EntityObject\LB_PhrasesWatch.cs" />
+    <Compile Include="EntityObject\LB_PhrasesWatchClass.cs" />
+    <Compile Include="EntityObject\LB_PhrasesWatchClassItem.cs" />
+    <Compile Include="EntityObject\LB_QCItem.cs" />
+    <Compile Include="EntityObject\LB_QCItemTime.cs" />
+    <Compile Include="EntityObject\LB_QCMaterial.cs" />
+    <Compile Include="EntityObject\LB_QCMatTime.cs" />
+    <Compile Include="EntityObject\LB_ReportDateItem.cs" />
+    <Compile Include="EntityObject\LB_SampleItem.cs" />
+    <Compile Include="EntityObject\LB_SampleType.cs" />
+    <Compile Include="EntityObject\LB_SamplingChargeItem.cs" />
+    <Compile Include="EntityObject\LB_SamplingGroup.cs" />
+    <Compile Include="EntityObject\LB_SamplingItem.cs" />
+    <Compile Include="EntityObject\LB_Section.cs" />
+    <Compile Include="EntityObject\LB_SectionItem.cs" />
+    <Compile Include="EntityObject\LB_SickType.cs" />
+    <Compile Include="EntityObject\LB_Specialty.cs" />
+    <Compile Include="EntityObject\LB_Tcuvete.cs" />
+    <Compile Include="EntityObject\LB_TranRule.cs" />
+    <Compile Include="EntityObject\LB_TranRuleItem.cs" />
+    <Compile Include="EntityObject\LB_TranRuleType.cs" />
+    <Compile Include="EntityObject\Lis_BarCodeForm.cs" />
+    <Compile Include="EntityObject\Lis_BarCodeItem.cs" />
+    <Compile Include="EntityObject\Lis_EquipForm.cs" />
+    <Compile Include="EntityObject\Lis_EquipGraph.cs" />
+    <Compile Include="EntityObject\Lis_EquipItem.cs" />
+    <Compile Include="EntityObject\Lis_Operate.cs" />
+    <Compile Include="EntityObject\Lis_OperateASection.cs" />
+    <Compile Include="EntityObject\Lis_OperateAuthorize.cs" />
+    <Compile Include="EntityObject\Lis_OrderForm.cs" />
+    <Compile Include="EntityObject\Lis_OrderItem.cs" />
+    <Compile Include="EntityObject\Lis_Patient.cs" />
+    <Compile Include="EntityObject\Lis_TestForm.cs" />
+    <Compile Include="EntityObject\Lis_TestGraph.cs" />
+    <Compile Include="EntityObject\Lis_QCComments.cs" />
+    <Compile Include="EntityObject\Lis_QCData.cs" />
+    <Compile Include="EntityObject\Lis_TestItem.cs" />
+    <Compile Include="ChartLine.cs" />
+    <Compile Include="LabStarEnumType\LabStarET_Para.cs" />
+    <Compile Include="LabStarEnumType\LabStarET_Test.cs" />
+    <Compile Include="LabStarEnumType\LabStarET_QC.cs" />
+    <Compile Include="LabStarEnumType\LabStarET_Base.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysCookieValue.cs" />
+    <Compile Include="SysParamDict.cs" />
+    <Compile Include="ViewObject\EquipResult\EquipResultMsgVO.cs" />
+    <Compile Include="ViewObject\EquipResult\EquipResultVO.cs" />
+    <Compile Include="ViewObject\LBEquipItemVO.cs" />
+    <Compile Include="ViewObject\LBMergeItemVO.cs" />
+    <Compile Include="ViewObject\PanicValueMsgVO.cs" />
+    <Compile Include="ViewObject\LBPhraseVO.cs" />
+    <Compile Include="ViewObject\LBMergeItemFormVO.cs" />
+    <Compile Include="ViewObject\LBSectionItemVO.cs" />
+    <Compile Include="ViewObject\Request\BModuleFormControlSetVO.cs" />
+    <Compile Include="ViewObject\Request\BModuleGridControlSetVO.cs" />
+    <Compile Include="ViewObject\Request\LisBarCodeFormRequestVo.cs" />
+    <Compile Include="ViewObject\Request\HISGetOrderVO.cs" />
+    <Compile Include="ViewObject\Response\ModuleFormConifg.cs" />
+    <Compile Include="ViewObject\Response\ModuleGridConifg.cs" />
+    <Compile Include="ViewObject\Response\LBDicCodeLinkVO.cs" />
+    <Compile Include="ViewObject\Response\LBItemCodeLinkVO.cs" />
+    <Compile Include="ViewObject\Response\BPrintModelVO.cs" />
+    <Compile Include="ViewObject\Response\ProofLisBarCodeItemVo.cs" />
+    <Compile Include="ViewObject\Response\ProofLisBarCodeFormVo.cs" />
+    <Compile Include="ViewObject\Response\LisOrderFormItemVo.cs" />
+    <Compile Include="ViewObject\Response\LisBarCodeFormVo.cs" />
+    <Compile Include="ViewObject\Response\LisOrderFormPatientOrderIitemVO.cs" />
+    <Compile Include="ViewObject\Response\LisOrderFormVo.cs" />
+    <Compile Include="ViewObject\Response\LBSamplingItemVO.cs" />
+    <Compile Include="ViewObject\Response\LisPackNoBarCodeFormVo.cs" />
+    <Compile Include="ViewObject\Response\OrderItemsTreeParaVO.cs" />
+    <Compile Include="ViewObject\Response\LisTestItemVO.cs" />
+    <Compile Include="ViewObject\LisQCDataPO.cs" />
+    <Compile Include="ViewObject\Request\LisQCDataVO.cs" />
+    <Compile Include="ViewObject\Response\MultipleConcentrationQCMInfoFull.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureFrequencyDistribution.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureCumulativeSumGraph.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureValueMonica.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureValueRange.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureQualitative.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureNormalDistribution.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureYouden.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureZ.cs" />
+    <Compile Include="ViewObject\Response\QCMFigureLJ.cs" />
+    <Compile Include="ViewObject\Response\MultipleConcentrationQCMTree.cs" />
+    <Compile Include="ViewObject\Response\MultipleConcentrationQCM.cs" />
+    <Compile Include="ViewObject\Response\LisQCDataMonthVO.cs" />
+    <Compile Include="ViewObject\Response\LBQCItemVO.cs" />
+    <Compile Include="ViewObject\Response\QCMReportFormFilesVO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewMap\LBEquipItemVO.hbm.xml" />
+    <EmbeddedResource Include="ViewMap\LBSectionItemVO.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_Destination.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Diag.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Dict.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Equip.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_EquipItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_EquipResultTH.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Folk.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ReportDate.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ReportDateRule.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Item.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ItemCalc.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ItemCalcFormula.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ItemComp.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ItemGroup.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ItemRange.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ItemRangeExp.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ItemTimeW.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ParItemSplit.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Phrase.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_PhrasesWatch.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_PhrasesWatchClass.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_PhrasesWatchClassItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_ReportDateItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_SampleItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_SampleType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_SamplingChargeItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_SamplingGroup.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_SamplingItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Section.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\LB_SectionItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_SickType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Specialty.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_Tcuvete.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_TranRule.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_TranRuleItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_TranRuleType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_BarCodeForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_BarCodeItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_EquipForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_EquipGraph.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_EquipItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_Operate.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_OperateASection.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_OperateAuthorize.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_OrderForm.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_OrderItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_Patient.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\Lis_TestForm.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\Lis_TestGraph.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_QCItem.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_QCItemTime.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\LB_QCMaterial.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_QCMatTime.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\B_Host.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_HostType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_Para.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\B_ParaItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\B_HostTypeUser.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_QCItemRule.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_QCRule.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_QCRuleBase.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_QCRulesCon.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_QCComments.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_QCData.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_TestItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_SectionPrint.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_SectionHisComp.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewMap\LBPhraseVO.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_Right.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_OrderModel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_OrderModelItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewMap\LBMergeItemFormVO.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewMap\LBMergeItemVO.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_QCPrintTemplate.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_EquipSection.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_DicCodeLink.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_ItemCodeLink.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\B_PrintModel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_ChargeType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_ItemCharge.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_ReportDateDesc.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_TGetMaxNo.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_QCPMat.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_EquipComFile.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_EquipComLog.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_TranRuleHostSection.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_BarCodeRefuseRecord.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_TestItemReceive.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_TestFormMsg.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_TestFormMsgItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\Lis_Queue.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_CollectPart.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\LB_PhyPeriod.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_ItemExp.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\B_Module_FormControlList.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_Module_FormControlSet.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_Module_FormList.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_Module_GridControlList.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_Module_GridControlSet.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_Module_GridList.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_ExpertRuleList.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\LB_ExpertRule.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

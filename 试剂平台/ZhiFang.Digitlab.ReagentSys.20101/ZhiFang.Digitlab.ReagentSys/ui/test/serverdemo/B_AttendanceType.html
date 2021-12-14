@@ -1,0 +1,81 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBAttendanceTypeByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBAttendanceTypeById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelBAttendanceType',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddBAttendanceType',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBAttendanceTypeByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBAttendanceType',
+
+    		//考勤类型   上午上班、上午下班、下午上班、下午下班...对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'BAttendanceType_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'BAttendanceType_Id',value:'考勤类型ID'},						 
+						 		     
+				     												 
+						{ key:'BAttendanceType_Name',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'BAttendanceType_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'BAttendanceType_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'BAttendanceType_PinYinZiTou',value:'汉字拼音字头'}, 
+						 		     
+				     												 
+						{ key:'BAttendanceType_Comment',value:'备注'}, 
+						 		     
+				     												 
+						{ key:'BAttendanceType_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'BAttendanceType_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'BAttendanceType_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'考勤类型   上午上班、上午下班、下午上班、下午下班...',
+    		//主键字段
+    		key:'BAttendanceType_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

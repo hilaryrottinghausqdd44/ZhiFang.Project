@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>双向发送次序排序</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <style>
+        .textCenter {
+            text-align: center;
+        }
+    </style>
+</head> 
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                <div id="LAY-section-item-copy">
+                    <div style="position: absolute;top: 0;right: 0;width: 280px;height: 100%;">
+                        <div class="layui-card" style="height: 100%;">
+                            <div class="layui-card-body">
+                                <div class="layui-form" lay-filter="addcopy" id="addcopy">
+                                    <div class="layui-btn-container textCenter">
+                                        <button type="button" id="btntopup" class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-next" style="display: inline-block;transform: rotate(-90deg);"></i>置顶</button><br />
+                                        <button type="button" id="btnup" class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-up"></i>向上</button><br />
+                                        <button type="button" id="btndown" class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-down"></i>向下</button><br />
+                                        <button type="button" id="btnbottomdown" class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-prev" style="display: inline-block;transform: rotate(-90deg);"></i>置底</button>
+                                    </div>
+                                    <div class="layui-btn-container textCenter">
+                                        <button type="button" id="adjustment" class="layui-btn  layui-btn-sm"><i class="layui-icon layui-icon-slider"></i>手工调整</button>
+                                        <button type="button" id="adjustmentfinish" class="layui-btn  layui-btn-sm"><i class="layui-icon layui-icon-util"></i>手动调整完成</button>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="textCenter">
+                                            显示次序从
+                                            <div class="layui-inline">
+                                                <input type="number" name="DispOrder" id="DispOrder" autocomplete="off" value="1" class="layui-input" style="width: 70px;" />
+                                            </div>
+                                            <div style="display: inline-block;width: 37px;">开始</div>
+                                        </div>
+                                        <div class="textCenter">
+                                            间隔
+                                            <div class="layui-inline">
+                                                <input type="number" name="interval" id="interval" autocomplete="off" value="1" class="layui-input" style="width: 70px;" />
+                                            </div>
+                                        </div>
+                                        <div class="textCenter layui-col-xs6">
+                                            <button type="button" id="btnreorder" class="layui-btn layui-btn-sm" style=" margin-right: 5px"><i class="layui-icon layui-icon-list"></i>选中重新排序</button>
+                                        </div>
+                                        <div class="textCenter layui-col-xs6">
+                                            <button type="button" id="btnclorder" class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-fonts-clear"></i>清除选中排序</button>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-btn-container textCenter">
+                                            <button type="button" id="save" class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-ok-circle"></i>保存</button><br />
+                                            <button type="button" id="cancel" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon layui-icon-close"></i>关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-right: 280px;height: 100%;padding-right: 5px;">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <table id="sortList" lay-filter="sortList"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('app.js');
+    </script>
+</body>
+</html>

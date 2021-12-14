@@ -1,0 +1,73 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>申请单列表</title>
+    <link href="../../ui/easyui/demo/demo.css" rel="stylesheet" type="text/css" />
+    <link href="../../ui/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../../ui/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../../ui/easyui/jquery.min.js" type="text/javascript"></script>
+    <script src="../../ui/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../../ui/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src='http://localhost:8000/CLodopfuncs.js'></script>
+    <script src='http://localhost:18000/CLodopfuncs.js'></script>
+    <script src='http://127.0.0.1:8000/CLodopfuncs.js'></script>
+    <script src='http://127.0.0.1:18000/CLodopfuncs.js'></script>
+    <script src="../../ui/util/util.js?v20200810-1" type="text/javascript"></script>
+    <!-- <script src="../../ui/print/Print.js" type="text/javascript"></script> -->
+    <script src="../../ui/BarPrintClass/barcode.js" type="text/javascript"></script>
+    <script src="../../ui/util/CLODOP.js?v20201020" type="text/javascript"></script>
+    <script src="NRequestFormList_BarCodePrint.js?v20210225" type="text/javascript"></script>
+</head>
+<body class="easyui-layout" data-options="fit:true,width:'auto'">
+    <div id="mainpanel" class="easyui-layout" data-options="fit:true,border:false" style="width: 200px; height: 100%;">
+        <div data-options="region:'north',iconCls:'icon-search'" title="新增|查询" style="height: 100px">
+            <div id="btnaddnrequestformdiv" style="float: left; width: 129px; height: 100%; border-right: thin solid #0099CC">
+                <a id="btnaddnrequestform" href="#" style="margin-top: 10px; margin-bottom: 10px; margin-left: 10px;"
+                   class="easyui-linkbutton" data-options="iconCls:'icon-add',size:'large'">新增申请单</a>
+            </div>
+            <div style="float: left">
+                <div style="padding: 5px;">
+                    送检单位：<input id="txtClientNo" class="easyui-combobox" style="width: 218px" />
+                    医&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生：<input id="SelectDoctor" class="easyui-combobox"
+                                                                  style="width: 100px" />
+                    姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<input id="CName" class="easyui-textbox" style="width: 100px" />
+                    病&nbsp;&nbsp;历&nbsp;&nbsp;号：<input id="PatNo" class="easyui-textbox" style="width: 100px" />
+                    申请号：<input id="SampleSendNo" class="easyui-textbox" style="width: 100px" />
+                </div>
+                <div style="padding: 5px;">
+                    开单时间：<input id="OperateStartDateTime" class="easyui-datebox" editable='false' style="width: 100px" />
+                    --
+                    <input id="OperateEndDateTime" class="easyui-datebox" editable='false' style="width: 100px" />
+                    采样时间：<input id="txtCollectStartDate" class="easyui-datebox" editable='false' style="width: 100px" />
+                    --
+                    <input id="txtCollectEndDate" class="easyui-datebox" editable='false' style="width: 100px" />
+                    样本状态：
+                    <select id="comboboxWebLisFlag" style="width: 155px;" class="easyui-combobox">
+                        <option value="-1">全部</option>
+                        <option value="0">待外送</option>
+                        <option value="1">已打包</option>
+                        <option value="2">已外送</option>
+                        <option value="5">已签收</option>
+                        <option value="6">已拒收</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float: right; vertical-align: middle; border: 1px; border-color: Black; height: 100%">
+                <a id="btnsearch" href="#" style="margin-top: 10px; margin-bottom: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-search',size:'large'">查询</a>
+                <div style="display:none"><a id="btnlodop" href="#" style="margin-top: 10px; margin-bottom: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-search',size:'large'">检测打印控件版本</a></div>
+                <a id="btnprint" href="#" style="margin-top: 10px; margin-bottom: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-print',size:'large'">打印清单</a>
+                <a id="btnDelivery" href="#" style="margin-top: 10px; margin-bottom: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-print',size:'large'">物流收样</a>
+                <a id="btnReceive" href="#" style="margin-top: 10px; margin-bottom: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-print',size:'large'">样本签收</a>
+                <a id="btnRejection" href="#" style="margin-top: 10px; margin-bottom: 10px;" class="easyui-linkbutton" data-options="iconCls:'icon-print',size:'large'">样本拒收</a>
+            </div>
+        </div>
+        <div data-options="region:'center',title:'申请列表',iconCls:'icon-app-grid-16',tools:'#ToolsPanel'">
+            <div id="NRequestFormList" class="easyui-datagrid" data-options="border:false,singleSelect:true,fit:true,fitColumns:true">
+            </div>
+        </div>
+    </div>
+    <!-- 网页打印 -->
+    <object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+        <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="resources/install_lodop32.exe"></embed>
+    </object>
+</body>
+</html>

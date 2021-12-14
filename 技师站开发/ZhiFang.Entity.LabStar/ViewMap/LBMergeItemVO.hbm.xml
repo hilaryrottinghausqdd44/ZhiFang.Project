@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LBMergeItemVO">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="ParItemID" column="[ParItemID]" type="Int64" not-null="false" length="8" />
+    <property name="ParItemName" column="[ParItemName]" type="String" not-null="false" length="50" />
+    <property name="ChangeItemName" column="[ChangeItemName]" type="String" not-null="false" length="100" />
+    <property name="IsMerge" column="[IsMerge]" type="Int64" not-null="false" length="8" />
+    <many-to-one name="LBChangeItem" class="LBItem" lazy="false">
+      <column name="[ItemID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="LisTestItem" class="LisTestItem" lazy="false">
+      <column name="[TestItemID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

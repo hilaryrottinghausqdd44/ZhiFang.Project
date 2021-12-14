@@ -1,0 +1,10 @@
+
+if not Exists(Select * from SysColumns where [Name]='ID' and ID =(Select [ID] from SysObjects where Name = 'Blood_BagABOCheck_LisItem')) ALTER TABLE Blood_BagABOCheck_LisItem ADD ID BIGINT IDENTITY NOT NULL;
+
+IF EXISTS(SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Blood_BagABOCheck_LisItem]') AND name = N'PK_Blood_BagABOCheck_LisItem') ALTER TABLE [dbo].[Blood_BagABOCheck_LisItem] DROP CONSTRAINT [PK_Blood_BagABOCheck_LisItem]; ALTER TABLE [dbo].[Blood_BagABOCheck_LisItem] ADD CONSTRAINT [PK_Blood_BagABOCheck_LisItem] PRIMARY KEY CLUSTERED ( [ID] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY];
+
+ if not exists (select 1 from sysobjects where id = object_id('blood_BagProcessType') and type = 'U') create table blood_BagProcessType ( LabID bigint null, PTNo nvarchar(20) not null, CName nvarchar(20) null, ShortCode nvarchar(20) null, HisOrderCode nvarchar(20) null, Visible nvarchar(10) null, Bcno nvarchar(20) null, ChargeItemNo nvarchar(20) null, DispOrder int null, DataAddTime datetime null, DataTimeStamp timestamp null, constraint PK_BLOOD_BAGPROCESSTYPE primary key (PTNo));
+
+if not exists(select 1 from sysobjects where id = object_id('blood_bagProcessTypeQry') and type = 'U') create table blood_bagProcessTypeQry ( LabID bigint null,[ID] [bigint] IDENTITY(1,1) NOT NULL, PTNo nvarchar(20) null, bloodno nvarchar(20) null, CName nvarchar(20) null, DispOrder int null, DataAddTime datetime null, DataTimeStamp timestamp null, constraint PK_BLOOD_BAGPROCESSTYPEQRY primary key (ID));
+
+ if not exists(select 1 from sysobjects where id = object_id('Blood_BagProcess') and type = 'U')  create table Blood_BagProcess ( LabID bigint  null, BPID bigint not null, BPreFormID NVARCHAR (50) null, BPreItemID NVARCHAR (50) null, BBagCode NVARCHAR (20) null, PCode NVARCHAR (20) null, B3Code NVARCHAR (50) null, PTNo NVARCHAR (20) null, BPflag int null, DispOrder int null, DataAddTime datetime null, DataTimeStamp timestamp null, constraint PK_BLOOD_BAGPROCESS primary key (BPID));

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		<!--不缓存缓存页面-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<title>基因系统</title>
+		<script>
+			//加载版本号
+			document.write(
+				"<script type='text/javascript' src='config/version.js?t=" + 
+					new Date().getTime() + "'><\/script>"
+			);
+		</script>
+		<style type='text/css'>
+	        .loading-div{
+	        	position:absolute;width:200px;height:100px;top:50%;left:50%;
+	        	margin-left:-100px;margin-top:-50px;text-align:center;
+	        	font-size:24;font-weight:bold;padding:8px;
+	        }
+    	</style>
+	</head>
+	<!--禁止在IE8中使用 F5 刷新-->
+	<body onkeydown="if(event.keyCode==116){event.keyCode=0;return false;}">
+		<!-- LODOP打印控件 -->
+		<object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+        	<embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="lodop/resources/install_lodop32.exe"></embed>
+    	</object>
+    	<div id="loading-div" class="loading-div">
+    		<img src="css/images/sysbase/loading3.gif"/>
+    		<div style="padding-top:10px;">基础文件加载中</div>
+    	</div>
+    	<link rel="stylesheet" type="text/css" href="../src/extjs/resources/css/ext-all.css" />
+    	<link rel="stylesheet" type="text/css" href="../src/extjs/ux/css/CheckHeader.css" />
+	    <script type="text/javascript" src="../src/extjs/bootstrap.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/JcallShell.css" />
+	    
+	    <script type="text/javascript" src="util/JcallShell.js"></script>
+	    <script type="text/javascript" src="util/Override.js"></script>
+	    <script type="text/javascript" src="els.js"></script>
+	    <script type="text/javascript" src="app.js"></script>
+		
+	    <style type='text/css'>
+	        .x-grid-row{vertical-align:middle;}
+	        .x-grid-row-over .x-grid-cell-inner{font-weight:bold;}
+    	</style>
+    	
+	</body>
+</html>

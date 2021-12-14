@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>血制品维护</title>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="../../../../../src/layui/dist/css/layui.css" />
+		<style>
+			
+			.layui-form>.layui-form-item input{
+				width: 185px;
+				height: 33px;
+			}
+			
+			.layui-form>.layui-form-item label{
+				width: 90px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layui-fluid" style="margin-top: 5px;">
+			<div class="layui-row layui-col-space5">
+				<div class="layui-col-md9">
+					<div class="layui-form" lay-filter = "LAY-bloodstyle-editform-filter">
+						<div class="layui-form-item">
+							<div class="layui-inline layui-hide">
+								<label class="layui-form-label">血制品编号</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_Id" class="layui-input"/>
+								</div>
+								<input type="button" lay-submit id="LAY-bloodstyle-submit" lay-filter ="save" value="确认" iframeIndex = "">
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">血制品名称</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_CName" class="layui-input" autocomplete="off" lay-verify="required"/>
+								</div>
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">显示次序</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_DispOrder" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">简码</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_ShortCode" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">血站对照码</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_BisDispCode" class="layui-input" autocomplete="off"/>
+								</div>
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">溶血时间</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_HemolysisTime" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">溶血单位</label>
+								<div class="layui-input-inline">
+								    <input type="text"  name="Bloodstyle_HemolysisUnit" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">换算比率</label>
+								<div class="layui-input-inline">
+								    <input type="text"  name="Bloodstyle_BloodScale" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>
+							
+		
+							<div class="layui-inline">
+								<label class="layui-form-label">贮存时长</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_StoreDays" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">贮存时长单位</label>
+								<div class="layui-input-inline">
+								    <input type="text"  class="layui-input" name="Bloodstyle_StoreUnit" autocomplete="off"/>
+								</div>	
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">分类编号</label>
+								<div class="layui-input-inline">
+								    <select name="Bloodstyle_BloodClass_Id" class="layui-form-select" id="Bloodstyle_BloodClass_Id">
+								    </select>
+								</div>	
+							</div>	
+
+							<div class="layui-inline">
+								<label class="layui-form-label">是否配血</label>
+								<div class="layui-input-inline">
+								    <select class="layui-form-select" name="Bloodstyle_IsMakeBlood" autocomplete="off" lay-verify="required">
+								    	<option value="是">是</option>
+								    	<option value="否">否</option>
+								    </select>
+								</div>
+							</div>
+				
+							<div class="layui-inline">
+								<label class="layui-form-label">贮存温度</label>
+								<div class="layui-input-inline">
+								    <select  name="Bloodstyle_StoreCondNo" class="layui-form-select" lay-verify="required">
+								    </select>
+								</div>	
+							</div>	
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">预警时长</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_WarnDays" class="layui-input" autocomplete="off"/>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">预警单位</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_WarnUnit" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">是否启用</label>
+								<div class="layui-input-inline">
+								    <select class="layui-form-select" name="Bloodstyle_Visible" autocomplete="off">
+								    	<option value="1">是</option>
+								    	<option value="0">否</option>
+								    </select>
+								</div>	
+							</div>	
+
+							<div class="layui-inline">
+								<label class="layui-form-label">单位</label>
+								<div class="layui-input-inline">
+								    <select name="Bloodstyle_BloodUnit_Id" class="layui-form-select" id="Bloodstyle_BloodUnit_Id" lay-verify="required">
+								    </select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">简称</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_ShortCode" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">HIS对照吗</label>
+								<div class="layui-input-inline">
+								    <input type="text" name="Bloodstyle_HisDispCode" class="layui-input" autocomplete="off"/>
+								</div>	
+							</div>	
+			            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="../../../../../src/layui/dist/layui.js" ></script>
+<script type="text/javascript" src="../../../../../layui/config/system.js"></script>
+<script type="text/javascript" src="edit.js"></script>

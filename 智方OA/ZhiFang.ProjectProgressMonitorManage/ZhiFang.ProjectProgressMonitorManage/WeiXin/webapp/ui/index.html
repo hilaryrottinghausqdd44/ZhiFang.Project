@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>微信OA</title>
+    <link rel="stylesheet" href="src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+
+    <script src="src/jquery.min.js"></script>
+    <script src="src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id="appdiv" class="panel panel-default">
+        <!-- Default panel contents -->
+        <div id="titlediv" class="panel-heading text-center">控制台</div>
+        <table class="table table-bordered">
+            <tr>
+                <td colspan="4" id="newstd" class="text-left" width="100%" >
+                    <!--<table width="100%" style="font-weight:bold;">
+                        <tr >
+                            <td height="20px">1.关于启用项目管理系统相关事宜</td>
+                            <td class="text-right">2017-04-10</td>
+                        </tr>
+                        <tr>
+                            <td height="20px">1.关于启用项目管理系统相关事宜</td>
+                            <td class="text-right">2017-04-10</td>
+                        </tr>
+                        <tr>
+                            <td height="20px">1.关于启用项目管理系统相关事宜</td>
+                            <td class="text-right">2017-04-10</td>
+                        </tr>
+                        <tr>
+                            <td height="20px">1.关于启用项目管理系统相关事宜</td>
+                            <td class="text-right">2017-04-10</td>
+                        </tr>
+                        <tr>
+                            <td height="20px"></td>
+                            <td class="text-right"></td>
+                        </tr>
+                    </table>-->
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" id="pretd" class="text-center label-primary" width="25%">
+                    <div style="color:#ffffff;">上一页</div>
+                </td>
+
+                <td colspan="2" id="nexttd" class="text-center label-primary" width="25%">
+                    <div style="color:#ffffff;">下一页</div>
+                </td>
+            </tr>
+            <tr>
+                <td id="attd" data-url="AT/EmpAttendanceEventLog.html" class="text-center" width="25%">
+                    <img src="img/icon/ATEvent.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">考勤</div>
+                </td>
+
+                <td id="receicvetasktd" data-url="Task/TaskStatusShow.html?ExportType=4" class="text-center" width="25%">
+                    <img src="img/icon/iconfont-task-list.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">收到任务</div>
+                </td>
+                <td id="applytasktd" data-url="Task/TaskStatusShow.html?ExportType=0" class="text-center" width="25%">
+                    <img src="img/icon/applytask.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">申请任务</div>
+                </td>
+                <td id="oneaudittasktd" data-url="Task/TaskStatusShow.html?ExportType=1" class="text-center" width="25%">
+                    <img src="img/icon/oneaudittask.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">一审任务</div>
+                </td>
+            </tr>
+            <tr>
+                <td id="twoaudittasktd" data-url="Task/TaskStatusShow.html?ExportType=2" class="text-center" width="25%">
+                    <img src="img/icon/twoaudittask.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">二审任务</div>
+                </td>
+                <td id="publishtasktd" data-url="Task/TaskStatusShow.html?ExportType=3" class="text-center" width="25%">
+                    <img src="img/icon/publishtask.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">分配任务</div>
+                </td>
+                <td id="checktasktd" data-url="Task/TaskStatusShow.html?ExportType=5" class="text-center" width="25%">
+                    <img id="otheri" src="img/icon/checktask.png" style="width:64px;height:64px" />
+                    <div id="othert" style="color:#8a8a8a;padding: 2px">验收任务</div>
+                </td>
+                <td id="History" data-url="Task/HistoryTaskRoleShow.html" class="text-center" width="25%">
+                    <img src="img/icon/history.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">历史任务</div>
+                </td>
+            </tr>
+            <tr>
+                <td id="CustomerServiceAddtd" data-url="CustomerService/CustomerServiceAdd.html" class="text-center" width="25%">
+                    <img src="img/icon/ServiceAcceptance.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">服务受理</div>
+                </td>
+                <td id="CustomerServiceListtd" data-url="CustomerService/CustomerServiceList.html" class="text-center" width="25%">
+                    <img src="img/icon/ServiceSearch.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">服务查看</div>
+                </td>
+                <td id="epltd" data-url="Common/empphonelist/EmpPhoneList.html" class="text-center" width="25%">
+                    <img src="img/icon/UserPhoneList.png" style="width:64px;height:64px" />
+                    <div style="color:#8a8a8a;padding: 2px">通讯录</div>
+                </td>
+                <td id="othertd" data-url="News/NewsInfo.html?ffileid=5345001744725382994" class="text-center" width="25%">
+                    <img id="otheri" src="img/icon/inbox-file-other.png" style="width:64px;height:64px" />
+                    <div id="othert" style="color:#8a8a8a;padding: 2px">其它</div>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="4" class="text-center" height="30px" >
+                   
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="footer" class="container">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="navbar-inner navbar-content-center">
+                <table class="table-bordered" width="100%" height="30" border="1">
+                    <tr>
+                        <td id='applog' class="text-center" style="padding: 2px;" width="25%" data-url="index.html">
+                            <img id="appi" src="img/icon/app.png" style="width:28px;height:28px" />
+                            <div id="appt" style="color:#56abe4;font-size:12px;">控制台</div>
+                        </td>
+                        <td id='messagelog' class="text-center" width="25%">
+                            <img id="messagei" src="img/icon/unmessage.png" style="width:28px;height:28px" />
+                            <div id="messaget" style="color:#a9b7b7;font-size:12px;">消息</div>
+                        </td>
+                        <td id='workdaylog' class="text-center" width="25%" data-url="WorkLog/index.html">
+                            <img id="workdayi" src="img/icon/unworkday.png" style="width:28px;height:28px" />
+                            <div id="workdayt" style="color:#a9b7b7;font-size:12px;">日报</div>
+                        </td>
+                        <td id='myinfo' class="text-center" width="25%">
+                            <img id="myinfoi" src="img/icon/unuser.png" style="width:28px;height:28px" />
+                            <div id="myinfot" style="color:#a9b7b7;font-size:12px;">我</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

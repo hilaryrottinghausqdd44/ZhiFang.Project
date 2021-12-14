@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/19/2018 09:38:24" ReportInfo.Modified="08/18/2021 20:01:35" ReportInfo.CreatorVersion="1.3.15.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.ReagentSys.Client" ConnectionString="rijcmlqAFHGp6KQj27H4qUwAIR20hSnyrpNtgmeY+I5zyTmYE0HuZfX1hs9fAqnt4DRtzHmqi4Hqgr6pCX/W9Bnlc3X4+AAVAqal7ujm2u5GLGSlJS8z/Kbnccvo1GHvbgZTeFR69qXeixeYBqUZkDnVGhgRuYyGrGSj6GivhHmCs8Q3SXEcRpfLdVbWq6WztUdV0Gxgaj9oEs6xO1srK5UwaxFEq3ZLNteDoBbG0hD5I4onuk=">
+      <TableDataSource Name="Rea_BmsInDtl" DataType="System.Int32" Enabled="true" SelectCommand="SELECT R.InDtlNo, R.InDocNo, R.GoodsCName, R.GoodsUnit, R.GoodsQty, R.Price, R.SumTotal, R.TaxRate, R.LotNo, R.ZX1, R.ZX2, R.ZX3, R.DispOrder, R.Memo, R.Visible, R.CreaterName, R.DataAddTime, R.StorageName, R.PlaceName, R.CompanyName, R.ProdDate, R.InvalidDate, R.RegisterInvalidDate, R.BiddingNo, R.ApproveDocNo, R.LotSerial, R.RegisterNo, R.SysLotSerial, R.GoodsNo, R.ReaServerCompCode, R.BarCodeType, R.ProdGoodsNo, R.ReaGoodsNo, R.CenOrgGoodsNo, R.LotQRCode, R.ReaCompCode, R.GoodsSort&#13;&#10;FROM &quot;Rea_BmsInDtl&quot; R&#13;&#10;">
+        <Column Name="InDtlNo" DataType="System.String"/>
+        <Column Name="InDocNo" DataType="System.String"/>
+        <Column Name="GoodsCName" DataType="System.String"/>
+        <Column Name="GoodsUnit" DataType="System.String"/>
+        <Column Name="GoodsQty" DataType="System.Double"/>
+        <Column Name="Price" DataType="System.Double"/>
+        <Column Name="SumTotal" DataType="System.Double"/>
+        <Column Name="TaxRate" DataType="System.Double"/>
+        <Column Name="LotNo" DataType="System.String"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="DispOrder" DataType="System.Int32"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="Visible" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CreaterName" DataType="System.String"/>
+        <Column Name="DataAddTime" DataType="System.DateTime"/>
+        <Column Name="StorageName" DataType="System.String"/>
+        <Column Name="PlaceName" DataType="System.String"/>
+        <Column Name="CompanyName" DataType="System.String"/>
+        <Column Name="ProdDate" DataType="System.DateTime"/>
+        <Column Name="InvalidDate" DataType="System.DateTime"/>
+        <Column Name="RegisterInvalidDate" DataType="System.DateTime"/>
+        <Column Name="BiddingNo" DataType="System.String"/>
+        <Column Name="ApproveDocNo" DataType="System.String"/>
+        <Column Name="LotSerial" DataType="System.String"/>
+        <Column Name="RegisterNo" DataType="System.String"/>
+        <Column Name="SysLotSerial" DataType="System.String"/>
+        <Column Name="GoodsNo" DataType="System.String"/>
+        <Column Name="ReaServerCompCode" DataType="System.String"/>
+        <Column Name="BarCodeType" DataType="System.Int64"/>
+        <Column Name="ProdGoodsNo" DataType="System.String"/>
+        <Column Name="ReaGoodsNo" DataType="System.String"/>
+        <Column Name="CenOrgGoodsNo" DataType="System.String"/>
+        <Column Name="LotQRCode" DataType="System.String"/>
+        <Column Name="ReaCompCode" DataType="System.String"/>
+        <Column Name="GoodsSort" DataType="System.Int32"/>
+        <Column Name="UnitMemo" DataType="System.String"/>
+        <Column Name="TransportNo" DataType="System.String"/>
+        <Column Name="InvoiceNo" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Total Name="LastTotal" Expression="[Rea_BmsInDtl.SumTotal]" Evaluator="Data1" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="103.95">
+      <TextObject Name="Text11" Left="935.55" Top="13.9" Width="94.5" Height="18.9" Text="[PageN]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="368.55" Top="9.45" Width="255.15" Height="18.9" Text="试剂耗材入库汇总信息" HorzAlign="Center" Font="宋体, 14pt, style=Bold"/>
+      <TextObject Name="txtEEC_StartDate" Left="9.55" Top="56.81" Width="255.15" Height="18.9" Text="开始日期:[Rea_ExportExcelCommand.EEC_StartDate]" Format="Date" Format.Format="d" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="txtEEC_EndDate" Left="9.45" Top="84.16" Width="255.15" Height="18.9" Text="结束日期:[Rea_ExportExcelCommand.EEC_EndDate]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="txtEEC_NowDate" Left="315.63" Top="84.29" Width="245.7" Height="18.9" Text="制表日期:[Rea_ExportExcelCommand.EEC_NowDate]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="txtEEC_EmployeeName" Left="315.5" Top="56.7" Width="245.7" Height="18.9" Text="制表人:[Rea_ExportExcelCommand.EEC_EmployeeName]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="txtEEC_DeptName" Left="603" Top="56.7" Width="340.2" Height="18.9" Text="制表部门:[Rea_ExportExcelCommand.EEC_DeptName]" Font="宋体, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="107.95" Width="1047.06" Height="28.35">
+      <TextObject Name="Text2" Left="47.25" Top="3" Width="141.75" Height="18.9" Text="供应商" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="lblAbsRow" Left="4" Top="3.45" Width="37.8" Height="18.9" Text="行号" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="301.4" Top="5" Width="170.1" Height="18.9" Text="入库总单号" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text6" Left="496.85" Top="4" Width="236.25" Height="18.9" Text="发票号" Font="宋体, 10pt, style=Bold"/>
+      <LineObject Name="Line2" Left="3" Top="28.35" Width="1039.5"/>
+      <TextObject Name="Text9" Left="741.55" Top="4" Width="151.2" Height="18.9" Text="入库时间" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="899.75" Top="3" Width="132.3" Height="18.9" Text="金额" Font="宋体, 10pt, style=Bold"/>
+      <LineObject Name="Line1" Left="2" Width="1039.5"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="140.3" Width="1047.06" Height="29.8" DataSource="Rea_BmsInDtl">
+      <TextObject Name="Text1" Left="47.25" Width="245.7" Height="28.35" Text="[Rea_BmsInDtl.CompanyName]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="txtAbsRow" Left="5.45" Top="4.45" Width="37.8" Height="18.9" Text="[AbsRow#]" Font="宋体, 10pt"/>
+      <TextObject Name="Text3" Left="297.3" Width="188.62" Height="28.35" Text="[Rea_BmsInDtl.InDocNo]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text5" Left="490.85" Top="1.45" Width="245.7" Height="28.35" Text="[Rea_BmsInDtl.InvoiceNo]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text8" Left="741.55" Top="3.45" Width="151.2" Height="18.9" Text="[Rea_BmsInDtl.DataAddTime]" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text21" Left="897.75" Width="132.3" Height="18.9" Text="[Rea_BmsInDtl.SumTotal]" Format="Number" Format.UseLocale="true" VertAlign="Center" WordWrap="false" Font="宋体, 10pt" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="174.1" Width="1047.06" Height="24.57">
+      <TextObject Name="Text23" Left="897.75" Width="141.75" Height="24.57" Text="共:[LastTotal]元" HorzAlign="Justify" VertAlign="Center" Font="宋体, 10pt"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="202.67" Width="1047.06" Height="18.9">
+      <LineObject Name="Line3" Left="3" Width="1039.5"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

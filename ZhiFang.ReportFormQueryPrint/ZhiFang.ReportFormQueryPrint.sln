@@ -1,0 +1,140 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint", "ZhiFang.ReportFormQueryPrint\ZhiFang.ReportFormQueryPrint.csproj", "{FFF2C5D6-F2BA-40A9-B2D3-3AB9E1335A96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.Model", "ZhiFang.ReportFormQueryPrint.Model\ZhiFang.ReportFormQueryPrint.Model.csproj", "{3526D8D8-CF44-4C52-BCEF-A1812715E240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.IDAL", "ZhiFang.ReportFormQueryPrint.IDAL\ZhiFang.ReportFormQueryPrint.IDAL.csproj", "{0387526F-984F-460B-A4A3-18AD0EE02218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.BLL", "ZhiFang.ReportFormQueryPrint.BLL\ZhiFang.ReportFormQueryPrint.BLL.csproj", "{9E05C10B-4500-4C45-B15B-B28754466F5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.Common", "ZhiFang.ReportFormQueryPrint.Common\ZhiFang.ReportFormQueryPrint.Common.csproj", "{4C18E3BA-35EE-478B-BE4A-3AE1DA33FE2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.Tools", "ZhiFang.ReportFormQueryPrint.Tools\ZhiFang.ReportFormQueryPrint.Tools.csproj", "{C2B678B5-5B7B-41E0-9B95-182D0C3EFEFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.Factory", "ZhiFang.ReportFormQueryPrint.Factory\ZhiFang.ReportFormQueryPrint.Factory.csproj", "{4077EC0C-3B5F-4439-B3D5-039587B3ED73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{CC70BC2E-B912-4CAA-9D25-9A57F82BDE1D}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\Antlr3.Runtime.dll = Lib\Antlr3.Runtime.dll
+		Lib\Common.Logging.dll = Lib\Common.Logging.dll
+		Lib\FastReport.Bars.dll = Lib\FastReport.Bars.dll
+		Lib\FastReport.dll = Lib\FastReport.dll
+		Lib\FastReport.Editor.dll = Lib\FastReport.Editor.dll
+		Lib\FastReport.Web.dll = Lib\FastReport.Web.dll
+		Lib\itextsharp.dll = Lib\itextsharp.dll
+		Lib\iTextSharp.xml = Lib\iTextSharp.xml
+		Lib\log4net.dll = Lib\log4net.dll
+		Lib\log4netcfg.xml = Lib\log4netcfg.xml
+		Lib\Maticsoft.DBUtility.dll = Lib\Maticsoft.DBUtility.dll
+		Lib\MySql.Data.dll = Lib\MySql.Data.dll
+		Lib\Newtonsoft.Json.dll = Lib\Newtonsoft.Json.dll
+		Lib\Spring.Aop.dll = Lib\Spring.Aop.dll
+		Lib\Spring.Core.dll = Lib\Spring.Core.dll
+		Lib\Spring.Core.xml = Lib\Spring.Core.xml
+		Lib\Spring.Data.dll = Lib\Spring.Data.dll
+		Lib\Spring.Services.dll = Lib\Spring.Services.dll
+		Lib\ZhiFang.Common.Log.dll = Lib\ZhiFang.Common.Log.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.DAL.MSSQL", "ZhiFang.ReportFormQueryPrint.DAL.MSSQL\ZhiFang.ReportFormQueryPrint.DAL.MSSQL.csproj", "{CE8B6CCD-1306-4F9C-BB0E-76F9EF2E397E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.DAL.Oracle", "ZhiFang.ReportFormQueryPrint.DAL.Oracle\ZhiFang.ReportFormQueryPrint.DAL.Oracle.csproj", "{BF7D6140-0475-44A1-9880-342E5C4A0915}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.DBUtility", "ZhiFang.ReportFormQueryPrint.DBUtility\ZhiFang.ReportFormQueryPrint.DBUtility.csproj", "{D161060B-8286-476B-A72F-3C6B8E59682C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfTest", "WcfTest\WcfTest.csproj", "{B57D3782-40CB-4A43-9F2A-CE3B35B4D07E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFF2C5D6-F2BA-40A9-B2D3-3AB9E1335A96} = {FFF2C5D6-F2BA-40A9-B2D3-3AB9E1335A96}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.Interceptor", "ZhiFang.ReportFormQueryPrint.Interceptor\ZhiFang.ReportFormQueryPrint.Interceptor.csproj", "{D5A90AD4-B981-483D-B0F4-C9B010AFA205}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.ObjectFactory", "ZhiFang.ReportFormQueryPrint.ObjectFactory\ZhiFang.ReportFormQueryPrint.ObjectFactory.csproj", "{5D2E6C0B-F3B6-49EC-9C15-8C2DE9CB2226}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.UnitTest", "ZhiFang.ReportFormQueryPrint.UnitTest\ZhiFang.ReportFormQueryPrint.UnitTest.csproj", "{78FBA5FA-5532-4095-85F1-A3C22C78781A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhiFang.ReportFormQueryPrint.DBUpdate", "ZhiFang.ReportFormQueryPrint.DBUpdate\ZhiFang.ReportFormQueryPrint.DBUpdate.csproj", "{356F1348-CCB1-48B5-8310-5422C96833D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFF2C5D6-F2BA-40A9-B2D3-3AB9E1335A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF2C5D6-F2BA-40A9-B2D3-3AB9E1335A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF2C5D6-F2BA-40A9-B2D3-3AB9E1335A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF2C5D6-F2BA-40A9-B2D3-3AB9E1335A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3526D8D8-CF44-4C52-BCEF-A1812715E240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3526D8D8-CF44-4C52-BCEF-A1812715E240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3526D8D8-CF44-4C52-BCEF-A1812715E240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3526D8D8-CF44-4C52-BCEF-A1812715E240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0387526F-984F-460B-A4A3-18AD0EE02218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0387526F-984F-460B-A4A3-18AD0EE02218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0387526F-984F-460B-A4A3-18AD0EE02218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0387526F-984F-460B-A4A3-18AD0EE02218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E05C10B-4500-4C45-B15B-B28754466F5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E05C10B-4500-4C45-B15B-B28754466F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E05C10B-4500-4C45-B15B-B28754466F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E05C10B-4500-4C45-B15B-B28754466F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C18E3BA-35EE-478B-BE4A-3AE1DA33FE2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C18E3BA-35EE-478B-BE4A-3AE1DA33FE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C18E3BA-35EE-478B-BE4A-3AE1DA33FE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C18E3BA-35EE-478B-BE4A-3AE1DA33FE2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B678B5-5B7B-41E0-9B95-182D0C3EFEFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B678B5-5B7B-41E0-9B95-182D0C3EFEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B678B5-5B7B-41E0-9B95-182D0C3EFEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B678B5-5B7B-41E0-9B95-182D0C3EFEFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4077EC0C-3B5F-4439-B3D5-039587B3ED73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4077EC0C-3B5F-4439-B3D5-039587B3ED73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4077EC0C-3B5F-4439-B3D5-039587B3ED73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4077EC0C-3B5F-4439-B3D5-039587B3ED73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE8B6CCD-1306-4F9C-BB0E-76F9EF2E397E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE8B6CCD-1306-4F9C-BB0E-76F9EF2E397E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE8B6CCD-1306-4F9C-BB0E-76F9EF2E397E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE8B6CCD-1306-4F9C-BB0E-76F9EF2E397E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF7D6140-0475-44A1-9880-342E5C4A0915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF7D6140-0475-44A1-9880-342E5C4A0915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF7D6140-0475-44A1-9880-342E5C4A0915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF7D6140-0475-44A1-9880-342E5C4A0915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D161060B-8286-476B-A72F-3C6B8E59682C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D161060B-8286-476B-A72F-3C6B8E59682C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D161060B-8286-476B-A72F-3C6B8E59682C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D161060B-8286-476B-A72F-3C6B8E59682C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57D3782-40CB-4A43-9F2A-CE3B35B4D07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57D3782-40CB-4A43-9F2A-CE3B35B4D07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57D3782-40CB-4A43-9F2A-CE3B35B4D07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57D3782-40CB-4A43-9F2A-CE3B35B4D07E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A90AD4-B981-483D-B0F4-C9B010AFA205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A90AD4-B981-483D-B0F4-C9B010AFA205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A90AD4-B981-483D-B0F4-C9B010AFA205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A90AD4-B981-483D-B0F4-C9B010AFA205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D2E6C0B-F3B6-49EC-9C15-8C2DE9CB2226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D2E6C0B-F3B6-49EC-9C15-8C2DE9CB2226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D2E6C0B-F3B6-49EC-9C15-8C2DE9CB2226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D2E6C0B-F3B6-49EC-9C15-8C2DE9CB2226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78FBA5FA-5532-4095-85F1-A3C22C78781A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78FBA5FA-5532-4095-85F1-A3C22C78781A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78FBA5FA-5532-4095-85F1-A3C22C78781A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78FBA5FA-5532-4095-85F1-A3C22C78781A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356F1348-CCB1-48B5-8310-5422C96833D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356F1348-CCB1-48B5-8310-5422C96833D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356F1348-CCB1-48B5-8310-5422C96833D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356F1348-CCB1-48B5-8310-5422C96833D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D6CBE69-2FC4-4B1D-8EEB-00F9FCFAA9DF}
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

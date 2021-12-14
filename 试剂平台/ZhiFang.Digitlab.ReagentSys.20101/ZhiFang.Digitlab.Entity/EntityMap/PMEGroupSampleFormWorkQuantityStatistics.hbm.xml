@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="PMEGroupSampleFormWorkQuantityStatistics" >
+    <id name="Id" column="[GroupSampleFormID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <property name="GroupID" column="[GroupID]" type="Int64" not-null="false" length="8" />
+    <property name="SampleFormID" column="[SampleFormID]" type="Int64" not-null="false" length="8" />
+    <property name="SampleStatusID" column="[SampleStatusID]" type="Int64" not-null="false" length="8" />
+    <property name="GSampleTypeID" column="[GSampleTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="SampleTypeCName" column="[SampleTypeCName]" type="String" not-null="false" length="50"  />
+    <property name="GBarCode" column="[GBarCode]" type="String" not-null="true" length="50" />
+    <property name="MainState" column="[MainState]" type="Int32" not-null="false" length="4" />
+    <property name="PositiveFlag" column="[PositiveFlag]" type="Int32" not-null="false" length="4" />
+    <property name="GSampleInfo" column="[GSampleInfo]" type="String" not-null="false" length="500" />
+    <property name="TestComment" column="[TestComment]" type="String" not-null="false" length="500" />
+    <property name="FormMemo" column="[FormMemo]" type="String" not-null="false" length="500" />
+    <property name="ESampleNo" column="[ESampleNo]" type="String" not-null="false" length="50" />
+    <property name="GSampleNo" column="[GSampleNo]" type="String" not-null="false" length="50" />
+    <property name="OrderFormID" column="[OrderFormID]" type="Int64" not-null="true" length="8" />
+    <property name="DeptID" column="[DeptID]" type="Int64" not-null="true" length="8" />
+    <property name="SickTypeID" column="[SickTypeID]" type="Int64" not-null="true" length="8" />
+    <property name="DeptCName" column="[DeptCName]" type="String" not-null="false" length="50"  />
+    <property name="SickTypeCName" column="[SickTypeCName]" type="String" not-null="false" length="50" />
+    <property name="GroupCName" column="[GroupCName]" type="String" not-null="false" length="50" />
+    <property name="DataAddTime" column="DataAddTime" type="String" not-null="false" length="50"/>
+    <property name="ConfirmeDate" column="ConfirmeDate" type="String" not-null="false" length="50"/>
+    <property name="ExamineDate" column="ExamineDate" type="String" not-null="false" length="50"/>
+    <!---->
+	</class>
+  <sql-query name="ME_GroupSampleForm_MicroWorkQuantityStatistics">
+    <return class="ZhiFang.Digitlab.Entity.PMEGroupSampleFormWorkQuantityStatistics,ZhiFang.Digitlab.Entity">
+       <return-property name="Id" column="GroupSampleFormID"/>
+      <return-property name="GroupID" column="GroupID"/>
+      <return-property name="SampleFormID" column="SampleFormID"/>
+      <return-property name="SampleStatusID" column="SampleStatusID"/>
+      <return-property name="GSampleTypeID" column="GSampleTypeID"/>
+      <return-property name="SampleTypeCName" column="SampleTypeCName"/>
+      <return-property name="GBarCode" column="GBarCode"/>
+      <return-property name="MainState" column="MainState"/>
+      <return-property name="PositiveFlag" column="PositiveFlag"/>
+      <return-property name="GSampleInfo" column="GSampleInfo"/>
+      <return-property name="TestComment" column="TestComment"/>
+      <return-property name="FormMemo" column="FormMemo"/>
+      <return-property name="ESampleNo" column="ESampleNo"/>
+      <return-property name="GSampleNo" column="GSampleNo"/>
+      <return-property name="OrderFormID" column="OrderFormID"/>
+      <return-property name="DeptID" column="DeptID"/>
+      <return-property name="SickTypeID" column="SickTypeID"/>
+      <return-property name="DeptCName" column="DeptCName"/>
+      <return-property name="SickTypeCName" column="SickTypeCName"/>
+      <return-property name="GroupCName" column="GroupCName"/>
+      <return-property name="DataAddTime" column="DataAddTime"/>
+      <return-property name="ConfirmeDate" column="ConfirmeDate"/>
+      <return-property name="ExamineDate" column="ExamineDate"/>
+      <!---->
+    </return>
+    exec ME_GroupSampleForm_MicroWorkQuantityStatistics :DateStartDate,:DateEndDate,:GroupList,:ItemList,:DeptList,:SampleTypeList,:PositiveFlag,:WhereStr
+  </sql-query>
+  
+  <sql-query name="ME_GroupSampleForm_NormalWorkQuantityStatistics">
+    <return class="ZhiFang.Digitlab.Entity.PMEGroupSampleFormWorkQuantityStatistics,ZhiFang.Digitlab.Entity">
+      <return-property name="Id" column="GroupSampleFormID"/>
+      <return-property name="GroupID" column="GroupID"/>
+      <return-property name="SampleFormID" column="SampleFormID"/>
+      <return-property name="SampleStatusID" column="SampleStatusID"/>
+      <return-property name="GSampleTypeID" column="GSampleTypeID"/>
+      <return-property name="SampleTypeCName" column="SampleTypeCName"/>
+      <return-property name="GBarCode" column="GBarCode"/>
+      <return-property name="MainState" column="MainState"/>
+      <return-property name="PositiveFlag" column="PositiveFlag"/>
+      <return-property name="GSampleInfo" column="GSampleInfo"/>
+      <return-property name="TestComment" column="TestComment"/>
+      <return-property name="FormMemo" column="FormMemo"/>
+      <return-property name="ESampleNo" column="ESampleNo"/>
+      <return-property name="GSampleNo" column="GSampleNo"/>
+      <return-property name="OrderFormID" column="OrderFormID"/>
+      <return-property name="DeptID" column="DeptID"/>
+      <return-property name="SickTypeID" column="SickTypeID"/>
+      <return-property name="DeptCName" column="DeptCName"/>
+      <return-property name="SickTypeCName" column="SickTypeCName"/>
+      <return-property name="GroupCName" column="GroupCName"/>
+      <return-property name="DataAddTime" column="DataAddTime"/>
+      <return-property name="ConfirmeDate" column="ConfirmeDate"/>
+      <return-property name="ExamineDate" column="ExamineDate"/>
+      <!---->
+    </return>
+    exec ME_GroupSampleForm_NormalWorkQuantityStatistics :DateStartDate,:DateEndDate,:GroupList,:ItemList,:DeptList,:SampleTypeList,:MainStateList,:WhereStr
+  </sql-query>
+</hibernate-mapping>

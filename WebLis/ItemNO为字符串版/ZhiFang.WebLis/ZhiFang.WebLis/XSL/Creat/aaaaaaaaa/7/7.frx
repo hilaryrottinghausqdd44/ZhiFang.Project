@@ -1,0 +1,646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/25/2011 16:57:35" ReportInfo.Modified="05/29/2012 14:53:51" ReportInfo.CreatorVersion="1.8.25.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string receivedate=&quot;&quot;;
+    string coldate=&quot;&quot;;
+    string coltime=&quot;&quot;;
+    string checkdate=&quot;&quot;;
+    string checktime=&quot;&quot;;    
+
+    private void GroupHeader1_BeforePrint(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void Text6_BeforePrint(object sender, EventArgs e)
+    { 
+    }
+
+    private void Textectiontype_AfterData(object sender, EventArgs e)
+    {
+      if(Convert.ToInt32(Textsectiontype.Text.Trim())==2 ||Convert.ToInt32(Textsectiontype.Text.Trim())==4 )
+      {
+        TextItemtxt.Visible=false;
+        TextMicroItemtxt.Visible=true;
+        Textitemenname.Visible=false;
+        TextitemennameMicro.Visible=false;
+        TextSusQuan.Visible=true;
+        Textunit.Visible=false;
+        Text3.Visible=false;
+        Text7.Visible=false;
+        Text38.Visible=false;
+        Text39.Visible=false;
+        Text40.Visible=false;
+        Text41.Visible=false;
+        Text42.Visible=false;
+        //Data1.Height=1;
+        GroupHeader2.Height=1;
+      }
+      else
+      {
+        TextItemtxt.Visible=true;
+        TextMicroItemtxt.Visible=false;
+        Textitemenname.Visible=true;
+        TextitemennameMicro.Visible=false;
+        TextSusQuan.Visible=false;
+        Textunit.Visible=true;
+        Data1.Height=0;
+        GroupHeader2.Height=0;
+        GroupHeader3.Height=0;
+        Text3.Visible=true;
+        Text7.Visible=true;
+        Text38.Visible=true;
+        Text39.Visible=true;
+        Text40.Visible=true;
+        Text41.Visible=true;
+        Text42.Visible=true;
+      }
+    }
+
+
+    private void GroupHeader2_AfterData(object sender, EventArgs e)
+    {
+    }
+
+    private void TextSickType_AfterData(object sender, EventArgs e)
+    {
+      try
+      {      
+        if (((Int32)Report.GetColumnValue(&quot;frformall.SICKTYPENO&quot;))==1)
+        {
+          TextSickType.Text=&quot;住 院 号：&quot;;
+        }
+        else
+        {
+          if (((Int32)Report.GetColumnValue(&quot;frformall.SICKTYPENO&quot;))==2)
+          {
+            TextSickType.Text=&quot;门 诊 号：&quot;;
+          }
+          else
+          {
+            //if (TextSickTypeNo.Text.ToString().Trim()==&quot;1&quot;)
+            //{
+            TextSickType.Text=&quot;体 检 号：&quot;;
+            //}
+          }
+        }
+      }
+      catch
+      {
+          TextSickType.Text=&quot;体 检 号：&quot;;
+      }
+    }
+    
+
+    private void TextFormMemo_BeforePrint(object sender, EventArgs e)
+    { 
+      if(TextSectionNo.Text.Trim()==&quot;14&quot;)
+      {
+        TextFormMemo.Text=&quot;PCR检测&quot;;
+      }
+      else
+      {                                                                
+        TextFormMemo.Text=((string)Report.GetColumnValue(&quot;frformall.FORMMEMO&quot;));
+      }
+    }
+
+    private void TextItemResult_BeforePrint(object sender, EventArgs e)
+    { 
+      try
+      {
+        int itemno=((Int32)Report.GetColumnValue(&quot;frformall.ITEMNO&quot;));
+        double itemvalue;
+        String itemvaluestr;                                            
+        if(((String)Report.GetColumnValue(&quot;frformall.REPORTDESC&quot;))!=&quot;&quot;)
+        {
+          TextItemResult.Text= ((String)Report.GetColumnValue(&quot;frformall.REPORTDESC&quot;));
+        }
+        else
+        {
+          try                                                                        
+          {
+            itemvalue= ((double)Report.GetColumnValue(&quot;frformall.REPORTVALUE&quot;));
+          }
+          catch
+          {
+            itemvalue=0;                                                                
+          }
+          itemvaluestr=((String)Report.GetColumnValue(&quot;frformall.REPORTVALUE&quot;));
+          if (((Int32)Report.GetColumnValue(&quot;frformall.CLIENTNO&quot;))==11000030 &amp;&amp; itemvalue!=0)
+          {
+            if (itemno==10592)
+            {
+              itemvaluestr= Math.Round(Convert.ToDouble((itemvalue*18)),2).ToString();                                                                              
+            }
+            if (itemno==10450) 
+            {
+              itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.357)),2).ToString();                                                                                     
+            }
+            if (itemno==10430)
+            {
+              itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/88.402)),2).ToString();                                                                                    
+            }
+            if (itemno==10470) 
+            {
+              itemvaluestr=Math.Round(Convert.ToDouble((itemvalue*0.0168)),2).ToString();                                                                                     
+            }
+            if (itemno==10630) 
+            {
+              itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.015)),2).ToString();                                                                                     
+            }
+            if (itemno==10601) 
+            {
+              itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.0258)),2).ToString();                                                                                     
+            }
+            if (itemno==10640) 
+            {
+              itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.0258)),2).ToString();                                                                                    
+            }
+            if (itemno==10650) 
+            {
+              itemvaluestr=Math.Round(Convert.ToDouble((itemvalue/0.0258)),2).ToString();                                                                                    
+            }
+          }
+          TextItemResult.Text= itemvaluestr;
+        }
+      }
+      catch
+      {
+      }
+    }
+    
+    private void Textstatus_BeforePrint(object sender, EventArgs e)
+    { 
+      try
+      {
+        if (((String)Report.GetColumnValue(&quot;frformall.RESULTSTATUS&quot;)).Trim()==&quot;H&quot;)
+        {
+          Textstatus.Text=&quot;↑&quot;;
+        }                                                                                         
+        else
+        {
+          if (((String)Report.GetColumnValue(&quot;frformall.RESULTSTATUS&quot;)).Trim()==&quot;L&quot;)
+          {
+            Textstatus.Text=&quot;↓&quot;;
+          }
+          else
+          {
+            Textstatus.Text=((String)Report.GetColumnValue(&quot;frformall.RESULTSTATUS&quot;)).Trim();
+          }
+        }
+      }
+      catch
+      {
+         Textstatus.Text=((String)Report.GetColumnValue(&quot;frformall.RESULTSTATUS&quot;)).Trim();
+      }
+    }
+
+    private void TextRefRange_BeforePrint(object sender, EventArgs e)
+    {
+      string s;
+      //int c;                                             
+      int itemno;
+      try
+      {
+        if(((Int32)Report.GetColumnValue(&quot;frformall.SECTIONNO&quot;))==14)
+        {
+          //TextRefRange.Text=((String)Report.GetColumnValue(&quot;frformall.lowvalue&quot;)).Trim(); //*************************
+        }
+        else
+        {                                                         
+                                                                         
+          itemno=((Int32)Report.GetColumnValue(&quot;frformall.ITEMNO&quot;));
+          if(((Int32)Report.GetColumnValue(&quot;frformall.CLIENTNO&quot;))==11000030)
+          {
+            if (itemno==10592) {
+              TextRefRange.Text=&quot;70-110&quot; ;                                                                             
+            }else{ if (itemno==10450) {
+                TextRefRange.Text=&quot;8.40-21.01&quot;;
+              }else{ if (itemno==10430) {
+                  TextRefRange.Text=&quot;0.34-1.24&quot;;
+                }else{ if (itemno==10470) {
+                    TextRefRange.Text=&quot;2.39-6.99&quot;;
+                  }else{ if (itemno==10630) {
+                      TextRefRange.Text=&quot;&lt;151&quot;;
+                    }else{ if (itemno==10601) {
+                        TextRefRange.Text=&quot;&lt;202&quot;;
+                      }else{ if (itemno==10640) {
+                          TextRefRange.Text=&quot;&gt;40&quot;;
+                        }else{ if (itemno==10650) {
+                            TextRefRange.Text=&quot;&lt;131&quot;;
+                          }else{                                                
+                            s= ((String)Report.GetColumnValue(&quot;frformall.REFRANGE&quot;));
+                            s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+                            //while pos(';',s)do
+            
+                            // c:==pos(';',s);
+                            //s:==copy(s,1,c-1)+#10+copy(s,c+1,(length(s)-c-1));
+                            //***********************
+                            TextRefRange.Text=s;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          else
+          {
+            s= ((String)Report.GetColumnValue(&quot;frformall.REFRANGE&quot;));
+            s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+            TextRefRange.Text=s;TextRefRange.Height=500;
+            //s:=&lt;fritem.&quot;RefRange&quot;&gt;;
+            //while pos(';',s)do
+            //    begin
+            //  c:=pos(';',s);
+            // s:=copy(s,1,c-1)+#10+copy(s,c+1,(length(s)-c-1));
+            //  end;
+            //RefRangetext.memo.text:=s;
+          } 
+        }
+      }
+      catch
+      {
+        s= ((String)Report.GetColumnValue(&quot;frformall.REFRANGE&quot;));
+        s=s.Replace(&quot;;&quot;,&quot;\r\n&quot;);
+        TextRefRange.Text=s;TextRefRange.Height=500;
+      }
+    }
+
+    private void Textunit_BeforePrint(object sender, EventArgs e)
+    {
+      int itemno;
+      string  itemvaluestr;
+      try
+      {
+        itemno = ((Int32)Report.GetColumnValue(&quot;frformall.ITEMNO&quot;));      
+        itemvaluestr= ((String)Report.GetColumnValue(&quot;frformall.UNIT&quot;));
+        if(((Int32)Report.GetColumnValue(&quot;frformall.CLIENTNO&quot;))==11000030)
+        {
+          if(itemno==10592)
+          {
+            itemvaluestr=&quot;mg/dL&quot;; 
+          }
+          if(itemno==10450)
+          {
+            itemvaluestr=&quot;mg/dL&quot;; 
+          }
+          if(itemno==10430)
+          {
+            itemvaluestr=&quot;mg/dL&quot;; 
+          }
+          if(itemno==10470)
+          {
+            itemvaluestr=&quot;mg/dL&quot;; 
+          }
+          if(itemno==10630)
+          {
+            itemvaluestr=&quot;mg/dL&quot;; 
+          }
+          if(itemno==10601)
+          {
+            itemvaluestr=&quot;mg/dL&quot;; 
+          }
+          if(itemno==10640)
+          {
+            itemvaluestr=&quot;mg/dL&quot;; 
+          }
+          if(itemno==10650)
+          {
+            itemvaluestr=&quot;mg/dL&quot;; 
+          }
+        }
+        Textunit.Text=itemvaluestr;
+      }
+      catch
+      {
+      }
+    }
+    private void TextCollectDate_BeforePrint(object sender, EventArgs e)
+    {
+      TextCollectDate.Text=coldate;
+    }
+
+    private void TextCollectTime_BeforePrint(object sender, EventArgs e)
+    {
+      TextCollectTime.Text=coltime;//((DateTime)Report.GetColumnValue(&quot;frformall.CollectTime&quot;)).ToString(&quot;HH:mm:ss&quot;);
+    }
+
+    private void TextCheckDate_BeforePrint(object sender, EventArgs e)
+    {
+      TextCheckDate.Text=checkdate;//((DateTime)Report.GetColumnValue(&quot;frformall.CheckDate&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+    }
+    
+    private void TextReceiveDate_BeforePrint(object sender, EventArgs e)
+    {
+      TextReceiveDate.Text=receivedate;//((DateTime)Report.GetColumnValue(&quot;frformall.CheckDate&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+    }
+
+    private void TextCheckTime_BeforePrint(object sender, EventArgs e)
+    {
+      TextCheckTime.Text=checktime;//((DateTime)Report.GetColumnValue(&quot;frformall.CheckTime&quot;)).ToString(&quot;HH:mm:ss&quot;);
+    }
+    
+
+    private void PageHeader1_AfterData(object sender, EventArgs e)
+    {
+      if(receivedate.Trim().Length&lt;=0)                                                          
+      {
+        receivedate=((DateTime)Report.GetColumnValue(&quot;frformall.RECEIVEDATE&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+      }
+      if(coldate.Trim().Length&lt;=0)
+      {
+        coldate=((DateTime)Report.GetColumnValue(&quot;frformall.COLLECTDATE&quot;)).ToString(&quot;yyyy/MM/dd&quot;);                      
+      }
+      if(coltime.Trim().Length&lt;=0)                          
+      {
+        coltime=((DateTime)Report.GetColumnValue(&quot;frformall.COLLECTTIME&quot;)).ToString(&quot;HH:mm:ss&quot;);
+      }
+      if(checkdate.Trim().Length&lt;=0)                                                              
+      {
+        checkdate=((DateTime)Report.GetColumnValue(&quot;frformall.CHECKDATE&quot;)).ToString(&quot;yyyy/MM/dd&quot;);
+      }
+      if(checktime.Trim().Length&lt;=0)                                                                                     
+      {
+        checktime=((DateTime)Report.GetColumnValue(&quot;frformall.CHECKTIME&quot;)).ToString(&quot;HH:mm:ss&quot;);
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="frformall" ReferenceName="Data.frformall" DataType="System.Int32" Enabled="true" SelectCommand="select * from reportformalldatasource&#13;&#10;where reportformid in ('_761986_2_1_17_2011-07-09 00:00:00',&#13;&#10;'_762013_10_1_12_2011-07-09 00:00:00',&#13;&#10;'_762123_4_1_12_2011-07-09 00:00:00',&#13;&#10;'_762223_2_1_111_2011-07-09 00:00:00')">
+      <Column Name="ReportFormID" DataType="System.String"/>
+      <Column Name="CLIENTNO" DataType="System.String"/>
+      <Column Name="CNAME" DataType="System.String"/>
+      <Column Name="AGEUNITNAME" DataType="System.String"/>
+      <Column Name="GENDERNAME" DataType="System.String"/>
+      <Column Name="DEPTNAME" DataType="System.String"/>
+      <Column Name="DOCTORNAME" DataType="System.String"/>
+      <Column Name="DISTRICTNAME" DataType="System.String"/>
+      <Column Name="WARDNAME" DataType="System.String"/>
+      <Column Name="FOLKNAME" DataType="System.String"/>
+      <Column Name="SICKTYPENAME" DataType="System.String"/>
+      <Column Name="SAMPLETYPENAME" DataType="System.String"/>
+      <Column Name="SECTIONNAME" DataType="System.String"/>
+      <Column Name="TESTTYPENAME" DataType="System.String"/>
+      <Column Name="RECEIVEDATE" DataType="System.DateTime"/>
+      <Column Name="SECTIONNO" DataType="System.String"/>
+      <Column Name="TESTTYPENO" DataType="System.String"/>
+      <Column Name="SAMPLENO" DataType="System.String"/>
+      <Column Name="STATUSNO" DataType="System.Int32"/>
+      <Column Name="SAMPLETYPENO" DataType="System.Int32"/>
+      <Column Name="PATNO" DataType="System.String"/>
+      <Column Name="GENDERNO" DataType="System.Int32"/>
+      <Column Name="BIRTHDAY" DataType="System.DateTime"/>
+      <Column Name="AGE" DataType="System.String"/>
+      <Column Name="AGEUNITNO" DataType="System.Int32"/>
+      <Column Name="FOLKNO" DataType="System.String"/>
+      <Column Name="DISTRICTNO" DataType="System.String"/>
+      <Column Name="WARDNO" DataType="System.String"/>
+      <Column Name="BED" DataType="System.String"/>
+      <Column Name="DEPTNO" DataType="System.Int32"/>
+      <Column Name="DOCTOR" DataType="System.String"/>
+      <Column Name="CHARGENO" DataType="System.String"/>
+      <Column Name="CHARGE" DataType="System.String"/>
+      <Column Name="COLLECTER" DataType="System.String"/>
+      <Column Name="COLLECTDATE" DataType="System.DateTime"/>
+      <Column Name="COLLECTTIME" DataType="System.DateTime"/>
+      <Column Name="FORMMEMO" DataType="System.String"/>
+      <Column Name="TECHNICIAN" DataType="System.String"/>
+      <Column Name="TESTDATE" DataType="System.DateTime"/>
+      <Column Name="TESTTIME" DataType="System.DateTime"/>
+      <Column Name="OPERATOR" DataType="System.String"/>
+      <Column Name="OPERDATE" DataType="System.DateTime"/>
+      <Column Name="OPERTIME" DataType="System.DateTime"/>
+      <Column Name="CHECKER" DataType="System.String"/>
+      <Column Name="PRINTTIMES" DataType="System.Int32"/>
+      <Column Name="resultfile" DataType="System.String"/>
+      <Column Name="CHECKDATE" DataType="System.DateTime"/>
+      <Column Name="CHECKTIME" DataType="System.DateTime"/>
+      <Column Name="SERIALNO" DataType="System.String"/>
+      <Column Name="REQUESTSOURCE" DataType="System.String"/>
+      <Column Name="DIAGNO" DataType="System.String"/>
+      <Column Name="SICKTYPENO" DataType="System.String"/>
+      <Column Name="FORMCOMMENT" DataType="System.String"/>
+      <Column Name="ARTIFICERORDER" DataType="System.String"/>
+      <Column Name="SICKORDER" DataType="System.String"/>
+      <Column Name="SICKTYPE" DataType="System.String"/>
+      <Column Name="CHARGEFLAG" DataType="System.String"/>
+      <Column Name="TESTDEST" DataType="System.String"/>
+      <Column Name="SLABLE" DataType="System.String"/>
+      <Column Name="ZDY1" DataType="System.String"/>
+      <Column Name="ZDY2" DataType="System.String"/>
+      <Column Name="ZDY3" DataType="System.String"/>
+      <Column Name="ZDY4" DataType="System.String"/>
+      <Column Name="ZDY5" DataType="System.String"/>
+      <Column Name="INCEPTDATE" DataType="System.DateTime"/>
+      <Column Name="INCEPTTIME" DataType="System.DateTime"/>
+      <Column Name="INCEPTER" DataType="System.String"/>
+      <Column Name="ONLINEDATE" DataType="System.DateTime"/>
+      <Column Name="ONLINETIME" DataType="System.DateTime"/>
+      <Column Name="BMANNO" DataType="System.String"/>
+      <Column Name="FILETYPE" DataType="System.String"/>
+      <Column Name="JPGFILE" DataType="System.String"/>
+      <Column Name="PDFFILE" DataType="System.String"/>
+      <Column Name="FORMNO" DataType="System.Int32"/>
+      <Column Name="CHILDTABLENAME" DataType="System.String"/>
+      <Column Name="PRINTEXEC" DataType="System.String"/>
+      <Column Name="LABCENTER" DataType="System.String"/>
+      <Column Name="PRINTTEXEC" DataType="System.String"/>
+      <Column Name="SECTIONTYPE" DataType="System.String"/>
+      <Column Name="BARCODE" DataType="System.String"/>
+      <Column Name="SECTIONSHORTNAME" DataType="System.String"/>
+      <Column Name="SECTIONSHORTCODE" DataType="System.String"/>
+      <Column Name="DIAGNOSE" DataType="System.String"/>
+      <Column Name="CLIENTNAME" DataType="System.String"/>
+      <Column Name="TESTITEMNAME" DataType="System.String"/>
+      <Column Name="TESTITEMSNAME" DataType="System.String"/>
+      <Column Name="PARITEMNO" DataType="System.String"/>
+      <Column Name="ITEMNO" DataType="System.String"/>
+      <Column Name="ORIGINALVALUE" DataType="System.String"/>
+      <Column Name="REPORTVALUE" DataType="System.String"/>
+      <Column Name="ORIGINALDESC" DataType="System.String"/>
+      <Column Name="REPORTDESC" DataType="System.String"/>
+      <Column Name="ITEMSTATUSNO" DataType="System.String"/>
+      <Column Name="EQUIPNO" DataType="System.String"/>
+      <Column Name="MODIFIED" DataType="System.String"/>
+      <Column Name="REFRANGE" DataType="System.String"/>
+      <Column Name="ITEMDATE" DataType="System.DateTime"/>
+      <Column Name="ITEMTIME" DataType="System.DateTime"/>
+      <Column Name="ISMATCH" DataType="System.String"/>
+      <Column Name="RESULTSTATUS" DataType="System.String"/>
+      <Column Name="TESTITEMDATETIME" DataType="System.DateTime"/>
+      <Column Name="REPORTVALUEALL" DataType="System.String"/>
+      <Column Name="PARITEMNAME" DataType="System.String"/>
+      <Column Name="PARITEMSNAME" DataType="System.String"/>
+      <Column Name="DISPORDER" DataType="System.String"/>
+      <Column Name="ITEMORDER" DataType="System.String"/>
+      <Column Name="UNIT" DataType="System.String"/>
+      <Column Name="HISORDERNO" DataType="System.String"/>
+      <Column Name="MicroItemNo" DataType="System.Int32"/>
+      <Column Name="MicroItemName" DataType="System.String"/>
+      <Column Name="ResultNo" DataType="System.Int32"/>
+      <Column Name="DescNo" DataType="System.Int32"/>
+      <Column Name="DescName" DataType="System.String"/>
+      <Column Name="MicroNo" DataType="System.Int32"/>
+      <Column Name="MicroDesc" DataType="System.String"/>
+      <Column Name="MicroName" DataType="System.String"/>
+      <Column Name="microcountdesc" DataType="System.String"/>
+      <Column Name="AntiNo" DataType="System.Int32"/>
+      <Column Name="AntiName" DataType="System.String"/>
+      <Column Name="Antiename" DataType="System.String"/>
+      <Column Name="AntiSuscept" DataType="System.String"/>
+      <Column Name="AntiSusQuan" DataType="System.Double"/>
+      <Column Name="AntiRefRange" DataType="System.String"/>
+      <Column Name="AntiSusDesc" DataType="System.String"/>
+      <Column Name="AntiUnit" DataType="System.String"/>
+      <Column Name="MicroItemDate" DataType="System.DateTime"/>
+      <Column Name="MicroItemTime" DataType="System.DateTime"/>
+      <Column Name="MicroItemDesc" DataType="System.String"/>
+      <Column Name="MicroEquipNo" DataType="System.Int32"/>
+      <Column Name="MicroModified" DataType="System.Int32"/>
+      <Column Name="MicroIsMatch" DataType="System.Int32"/>
+      <Column Name="MicroCheckType" DataType="System.Int32"/>
+      <Column Name="MarrowParItemNo" DataType="System.Int32"/>
+      <Column Name="MarrowItemNo" DataType="System.Int32"/>
+      <Column Name="BloodNum" DataType="System.Int32"/>
+      <Column Name="BloodPercent" DataType="System.Double"/>
+      <Column Name="MarrowNum" DataType="System.Int32"/>
+      <Column Name="MarrowPercent" DataType="System.Double"/>
+      <Column Name="BloodDesc" DataType="System.String"/>
+      <Column Name="MarrowDesc" DataType="System.String"/>
+      <Column Name="MarrowStatusNo" DataType="System.Int32"/>
+      <Column Name="MarrowRefRange" DataType="System.String"/>
+      <Column Name="MarrowEquipNo" DataType="System.Int32"/>
+      <Column Name="IsCale" DataType="System.Int32"/>
+      <Column Name="MarrowModified" DataType="System.Int32"/>
+      <Column Name="MarrowItemDate" DataType="System.DateTime"/>
+      <Column Name="MarrowItemTime" DataType="System.DateTime"/>
+      <Column Name="MarrowIsMatch" DataType="System.Int32"/>
+      <Column Name="MarrowResultStatus" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2"/>
+    <PageHeaderBand Name="PageHeader1" Top="4" Width="718.2" Height="170.43">
+      <PictureObject Name="Picture1" Left="42.46" Top="9.45" Width="103.19" Height="40.07" Image="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"/>
+      <TextObject Name="Text5" Left="543.3" Top="32.69" Width="170.1" Height="18.9" Text="第[Page#]页共[TotalPages#]页" Font="宋体, 9pt"/>
+      <TextObject Name="TextCName" Left="140.34" Top="66.48" Width="214.33" Height="18.9" Text="[frformall.CName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text30" Left="439.71" Top="67.04" Width="79.38" Height="18.9" Text="送检单位：" Font="宋体, 10pt"/>
+      <TextObject Name="Textclient" Left="514.18" Top="68.48" Width="195.43" Height="18.9" Text="[frformall.CLIENTNAME]" Font="宋体, 10pt"/>
+      <LineObject Name="Line1" Left="9.45" Top="51.03" Width="642.6"/>
+      <TextObject Name="Text21" Left="201.32" Top="27.22" Width="340.2" Height="37.8" Text="上海兰卫临床检验中心检验报告" HorzAlign="Center" Font="仿宋_GB2312, 15.75pt"/>
+      <TextObject Name="Text22" Left="71.16" Top="85.94" Width="79.38" Height="18.9" Text="性    别：" Font="宋体, 10pt"/>
+      <TextObject Name="Text23" Left="71.16" Top="104.84" Width="79.38" Height="18.9" Text="年    龄：" Font="宋体, 10pt"/>
+      <TextObject Name="TextGender" Left="140.34" Top="83.38" Width="110.38" Height="18.9" Text="[frformall.GENDERNAME]" Font="宋体, 10pt"/>
+      <TextObject Name="TextAge" Left="140.34" Top="110.73" Width="110.38" Height="18.9" Text="[frformall.Age] [frformall.AGEUNITNAME]" Font="宋体, 10pt"/>
+      <TextObject Name="Text2" Left="262.81" Top="83.38" Width="78.62" Height="18.9" Text="报告编号：" Font="宋体, 10pt"/>
+      <TextObject Name="TextSerialNo" Left="329.85" Top="82.38" Width="108.86" Height="18.9" Text="[frformall.SerialNo]" Font="宋体, 10pt"/>
+      <TextObject Name="TextSickType" Left="262.81" Top="106.33" Width="72.95" Height="18.9" AfterDataEvent="TextSickType_AfterData" Font="宋体, 10pt"/>
+      <TextObject Name="Text29" Left="334.85" Top="106.33" Width="99.41" Height="18.9" Text="[frformall.PatNo]" Font="宋体, 10pt"/>
+      <TextObject Name="Text31" Left="439.71" Top="86.94" Width="79.38" Height="18.9" Text="送检医师：" Font="宋体, 10pt"/>
+      <TextObject Name="Text32" Left="438.71" Top="105.84" Width="79.38" Height="18.9" Text="科    别：" Font="宋体, 10pt"/>
+      <TextObject Name="TextDoctor" Left="514.18" Top="85.38" Width="110.38" Height="18.9" Text="[frformall.Doctor]" Font="宋体, 10pt"/>
+      <TextObject Name="TextDept" Left="514.18" Top="105.28" Width="110.38" Height="18.9" Text="[frformall.DEPTNAME]" Font="宋体, 10pt"/>
+      <TextObject Name="Text1" Left="71.16" Top="66.04" Width="79.38" Height="18.9" Text="姓 11   名：" Font="宋体, 10pt"/>
+      <TextObject Name="Text24" Left="71.16" Top="124.74" Width="79.38" Height="18.9" Text="病 人 ID：" Font="宋体, 10pt"/>
+      <TextObject Name="Text27" Left="140.34" Top="131.63" Width="110.38" Height="18.9" Font="宋体, 10pt"/>
+      <TextObject Name="TextSickTypeNo" Left="262.81" Top="124.18" Width="94.5" Height="18.9" Visible="false" Text="[frformall.SickTypeNo]" HorzAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text33" Left="438.71" Top="124.74" Width="79.38" Height="18.9" Text="床    号：&#13;&#10;" Font="宋体, 10pt"/>
+      <TextObject Name="TextBed" Left="514.18" Top="124.18" Width="110.38" Height="18.9" Text="[frformall.Bed]" Font="宋体, 10pt"/>
+      <ShapeObject Name="Shape1" Left="39.69" Top="151.53" Width="604.8" Height="18.9"/>
+      <LineObject Name="Line3" Left="18.9" Top="66.15" Height="47.25"/>
+      <LineObject Name="Line4" Left="18.9" Top="75.6" Width="37.8"/>
+      <LineObject Name="Line5" Left="28.35" Top="94.5" Width="28.35"/>
+      <LineObject Name="Line6" Left="-9.45" Top="66.15"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="178.43" Width="718.2" Height="18.9" CanShrink="true" Condition="[frformall.SECTIONNO]">
+      <TextObject Name="TextSectionNo" Width="94.5" Height="18.9" Visible="false" Text="[[frformall.SectionNo]]" Font="宋体, 10pt"/>
+      <TextObject Name="TextSectionname" Left="61.61" Width="595.35" Height="18.9" Fill.Color="Silver" Text="[frformall.Sectionname]" HorzAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Textsectiontype" Left="463.05" Width="189" Height="18.9" Visible="false" AfterDataEvent="Textectiontype_AfterData" Text="[frformall.sectiontype]" HorzAlign="Center" Font="宋体, 9pt"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="201.33" Width="718.2" Height="80.71" CanShrink="true" Condition="[frformall.SAMPLENO]">
+        <TextObject Name="TextItemtxt" Left="66.07" Top="33.46" Width="94.5" Height="18.9" BeforePrintEvent="Text6_BeforePrint" Text="项目名称" Font="宋体, 10pt"/>
+        <TextObject Name="TextMicroItemtxt" Left="66.07" Top="32.11" Width="113.4" Height="13.23" Text="检验项目：" Font="宋体, 10pt"/>
+        <TextObject Name="Text3" Left="37.72" Top="33.46" Width="26.46" Height="13.23" Text="No" HorzAlign="Center" Font="宋体, 10pt"/>
+        <TextObject Name="Text38" Left="217.27" Top="33.46" Width="92.61" Height="13.23" Text="简称" Font="宋体, 10pt"/>
+        <TextObject Name="Text39" Left="330.67" Top="33.46" Width="102.06" Height="13.23" Text="结果&#13;&#10;" Font="宋体, 10pt"/>
+        <TextObject Name="Text40" Left="434.62" Top="33.46" Width="35.91" Height="13.23" Text="提示&#13;&#10;" Font="宋体, 10pt"/>
+        <TextObject Name="Text41" Left="472.42" Top="33.46" Width="92.61" Height="13.23" Text="参考值" Font="宋体, 10pt"/>
+        <TextObject Name="Text42" Left="566.92" Top="33.46" Width="45.36" Height="13.23" Text="单位" Font="宋体, 10pt"/>
+        <TextObject Name="Textmicroitemcname" Left="140.02" Top="32.46" Width="151.2" Height="18.9" Text="[frformall.MicroItemName]" Font="宋体, 10pt"/>
+        <TextObject Name="Text12" Left="28.35" Width="66.15" Height="18.9" Text="标本号：" HorzAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="TextSampleTypeNo" Left="87.31" Width="110.38" Height="18.9" Text="[frformall.SampleNo]" Font="宋体, 9pt"/>
+        <TextObject Name="Text34" Left="217" Width="75.6" Height="18.9" Text="标本种类：" HorzAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="Text35" Left="287.96" Width="113.4" Height="18.9" Text="[frformall.SAMPLETYPENAME]" Font="宋体, 9pt"/>
+        <TextObject Name="Text36" Left="411.17" Width="66.15" Height="18.9" Text="备   注：" HorzAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="TextFormMemo" Left="474.77" Width="110.38" Height="18.9" BeforePrintEvent="TextFormMemo_BeforePrint" Text="[frformall.FormMemo]" Font="宋体, 9pt"/>
+        <GroupHeaderBand Name="GroupHeader3" Top="286.04" Width="718.2" Height="56.7" CanGrow="true" CanShrink="true" KeepWithData="true" Condition="[frformall.MicroItemNo]+'_'+[frformall.ITEMNO]">
+          <TextObject Name="ItemNo1" Width="37.8" Height="18.9" Visible="false" Text="[frformall.MicroItemNo]" Font="宋体, 10pt"/>
+          <TextObject Name="Textunit" Left="585.9" Width="54.81" Height="18.9" BeforePrintEvent="Textunit_BeforePrint" AutoWidth="true" Font="宋体, 10pt"/>
+          <TextObject Name="Textitemenname" Left="245.7" Width="179.55" Height="18.9" Text="[frformall.TESTITEMSNAME]" Font="宋体, 10pt"/>
+          <TextObject Name="TextItemResult" Left="349.65" Width="103.95" Height="18.9" BeforePrintEvent="TextItemResult_BeforePrint" Font="宋体, 10pt"/>
+          <TextObject Name="Textstatus" Left="463.05" Width="28.35" Height="18.9" BeforePrintEvent="Textstatus_BeforePrint" Font="宋体, 10pt"/>
+          <TextObject Name="TextRefRange" Left="482.85" Width="113.4" Height="18.9" CanGrow="true" CanShrink="true" BeforePrintEvent="TextRefRange_BeforePrint" Font="宋体, 10pt"/>
+          <TextObject Name="Textitemcname" Left="88.5" Width="217.35" Height="18.9" Text="[frformall.TESTITEMNAME]" Font="宋体, 10pt"/>
+          <TextObject Name="TextitemennameMicro" Left="245.7" Width="255.15" Height="18.9" Text="[frformall.MicroItemName]" Font="宋体, 10pt"/>
+          <TextObject Name="Text7" Left="66.8" Width="28.35" Height="18.9" Text="[Row#]" Font="宋体, 10pt"/>
+          <GroupHeaderBand Name="GroupHeader4" Top="346.74" Width="718.2" Height="37.8" CanShrink="true" Condition="[frformall.MicroNo]+'_'+[frformall.DescNo]">
+            <TextObject Name="TextMicrocname" Left="84.5" Top="9.45" Width="189" Height="18.9" Text="[frformall.MicroName]" Font="宋体, 11.25pt, style=Bold"/>
+            <TextObject Name="Textdescname" Left="85.6" Top="10.8" Width="197.9" Height="18.9" Text="[frformall.MicroName]" AutoWidth="true" Font="宋体, 11.25pt, style=Bold"/>
+            <TextObject Name="Text4" Left="311.3" Top="11" Width="234.36" Height="18.9" Text="[frformall.microcountdesc]" Font="宋体, 11pt, style=Bold"/>
+            <TextObject Name="Text18" Width="75.6" Height="18.9" Visible="false" Text="[[frformall.MicroNo]]"/>
+            <DataBand Name="Data1" Top="388.54" Width="718.2" Height="18.9" CanShrink="true" DataSource="frformall">
+              <TextObject Name="TextAnticname" Left="37.8" Width="189" Height="18.9" CanGrow="true" CanShrink="true" Text="[frformall.AntiName]" WordWrap="false" Font="宋体, 9pt"/>
+              <TextObject Name="TextAntiename" Left="226" Width="226.8" Height="18.9" Text="[frformall.Antiename]" WordWrap="false" Font="宋体, 9pt"/>
+              <TextObject Name="TextSuscept" Left="452.3" Width="66.15" Height="18.9" Text="[frformall.AntiSuscept]" HorzAlign="Center" Font="宋体, 9pt"/>
+              <TextObject Name="TextSusQuan" Left="522.15" Width="85.05" Height="18.9" Text="[frformall.AntiSusQuan]" HorzAlign="Center" Font="宋体, 9pt"/>
+            </DataBand>
+            <GroupFooterBand Name="GroupFooter4" Top="411.44" Width="718.2"/>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter3" Top="415.44" Width="718.2"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="419.44" Width="718.2" Height="18.9" CanShrink="true">
+          <TextObject Name="TextReceiveDatetxt" Left="75.6" Width="75.6" Height="18.9" Text="检验日期：" Font="宋体, 9pt"/>
+          <TextObject Name="TextReceiveDate" Left="139.75" Width="113.4" Height="18.9" Text="[frformall.ReceiveDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+          <TextObject Name="TextTechniciantxt" Left="254.05" Width="66.15" Height="18.9" Text="检验者：" Font="宋体, 9pt"/>
+          <TextObject Name="TextTechnician" Left="310.75" Width="88.83" Height="18.9" Text="[frformall.Technician]" Font="宋体, 9pt"/>
+          <TextObject Name="TextCheckertxt" Left="402.15" Width="66.15" Height="18.9" Text="审核者：" Font="宋体, 9pt"/>
+          <TextObject Name="Text11" Left="458.85" Width="79.38" Height="18.9" Text="[frformall.Checker]" Font="宋体, 9pt"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="442.34" Width="718.2"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="446.34" Width="718.2" Height="126.85">
+      <PictureObject Name="Picture2" Left="518.85" Top="32.35" Width="189" Height="94.5" Image="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"/>
+      <TextObject Name="Text6" Left="65.11" Top="13.56" Width="311.85" Height="48.38" Text="地址：上海市长宁区清池路74号&#13;&#10;电话：800-820-7952 传真：021-62385566-8200&#13;&#10;医疗机构执业许可证登记号：PDY0638623101051791102" Font="宋体, 9pt"/>
+      <TextObject Name="Text8" Left="65.11" Top="72.15" Width="368.55" Height="18.9" Text="※本检验结果仅对所检验标本负责，如有疑问请在三天内提出！   " Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text9" Left="375.7" Top="15.56" Width="75.6" Height="18.9" Text="收集时间：" Font="宋体, 9pt"/>
+      <TextObject Name="Text47" Left="375.7" Top="43.91" Width="75.6" Height="18.9" Text="报告时间：&#13;&#10;" Font="宋体, 9pt"/>
+      <TextObject Name="TextCollectDate" Left="441.85" Top="15.56" Width="85.05" Height="18.9" BeforePrintEvent="TextCollectDate_BeforePrint" Text="[frformall.CollectDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="TextCheckDate" Left="441.85" Top="43.91" Width="85.05" Height="18.9" BeforePrintEvent="TextCheckDate_BeforePrint" Text="[frformall.CheckDate]" Format="Date" Format.Format="d" Font="宋体, 9pt"/>
+      <TextObject Name="TextCollectTime" Left="512.9" Top="15.56" Width="66.15" Height="18.9" BeforePrintEvent="TextCollectTime_BeforePrint" Text="[frformall.CollectTime]" Format="Time" Format.Format="T" Font="宋体, 9pt"/>
+      <TextObject Name="TextCheckTime" Left="512.9" Top="43.91" Width="66.15" Height="18.9" BeforePrintEvent="TextCheckTime_BeforePrint" Text="[frformall.CheckTime]" Format="Time" Format.Format="T" Font="宋体, 9pt"/>
+      <LineObject Name="Line2" Left="18.9" Width="642.6"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

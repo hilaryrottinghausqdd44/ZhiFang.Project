@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.OA" assembly="ZhiFang.Entity.OA">
+	<class name="ATEmpAttendanceEventLog" table="[dbo].[AT_EmpAttendanceEventLog]">
+		<id name="Id" column="[EmpATEventLogID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="ATEventTypeName" column="[ATEventTypeName]" type="String" not-null="false" length="50" />
+    <property name="ATEventSubTypeName" column="[ATEventSubTypeName]" type="String" not-null="false" length="50" />
+		<property name="StartDateTime" column="[StartDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="EndDateTime" column="[EndDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ATEventDateCode" column="[ATEventDateCode]" type="String" not-null="false" length="50" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+		<property name="ApproveID" column="[ApproveID]" type="Int64" not-null="false" length="8" />
+		<property name="ApproveName" column="[ApproveName]" type="String" not-null="false" length="50" />
+		<property name="ApproveDateTime" column="[ApproveDateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ApproveMemo" column="[ApproveMemo]" type="String" not-null="false" length="500" />
+		<property name="ApproveStatusName" column="[ApproveStatusName]" type="String" not-null="false" length="50" />
+		<property name="ATEventLogPostion" column="[ATEventLogPostion]" type="String" not-null="false" length="50" />
+		<property name="ATEventLogPostionName" column="[ATEventLogPostionName]" type="String" not-null="false" length="5000" />
+		<property name="EvenLength" column="[EvenLength]" type="Double" not-null="false" length="8" />
+		<property name="EventStatPostion" column="[EventStatPostion]" type="String" not-null="false" length="50" />
+		<property name="EventDestinationPostion" column="[EventDestinationPostion]" type="String" not-null="false" length="50" />
+		<property name="TransportationName" column="[TransportationName]" type="String" not-null="false" length="50" />
+		<property name="ApplyID" column="[ApplyID]" type="Int64" not-null="false" length="8" />
+		<property name="ApplyName" column="[ApplyName]" type="String" not-null="false" length="50" />
+    <property name="ATEventTypeID" column="[ATEventTypeID]" type="Int64" not-null="false" length="8" />
+    <property name="ATEventSubTypeID" column="[ATEventSubTypeID]" type="Int64" not-null="false" length="8" />
+		<many-to-one name="ATApproveStatus" class="ATApproveStatus" lazy="false">
+			<column name="[ApproveStatusID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="ATTransportation" class="ATTransportation" lazy="false">
+			<column name="[TransportationID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>取单时间分类明细表单</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+   <meta name="Cache-Control" content="no-cache">
+   <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+ </head> 
+ <body> 
+    <div class="layui-card" style="margin-bottom: 0px;"> 
+     <div class="layui-card-body" style="margin-bottom: 0px;"> 
+      <div class="layui-form" id="LBReportDateDesc" lay-filter="LBReportDateDesc">
+      	<div class="layui-form-item layui-hide"> 
+        <label class="layui-form-label">分组id</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBReportDateDesc_Id" id="LBReportDateDesc_Id" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+       <div class="layui-form-item layui-form-text">
+    <textarea name="LBReportDateDesc_ReportDateDesc"  placeholder="取单描述" autocomplete="off" class="layui-textarea" /></textarea>
+  </div>
+       <div class="layui-form-item"> 
+        <div class="layui-input-block"> 
+         <button class="layui-btn layui-btn-xs" lay-submit="" lay-filter="save" id="save"><i class="iconfont"></i>&nbsp;保存</button> 
+         <button id="cancel" class="layui-btn layui-btn-primary layui-btn-xs"><i class="iconfont">&#xe674</i>&nbsp;取消</button> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+  </div>
+    <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('descform.js');
+	</script>  
+ </body>
+</html>

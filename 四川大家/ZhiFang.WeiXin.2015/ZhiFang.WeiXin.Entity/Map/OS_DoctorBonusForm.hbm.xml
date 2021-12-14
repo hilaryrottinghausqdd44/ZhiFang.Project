@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="OSDoctorBonusForm" table="[dbo].[OS_DoctorBonusForm]">
+		<id name="Id" column="[OS_DoctorBonusFormID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="DoctorCount" column="[DoctorCount]" type="Int64" not-null="false" length="8" />
+		<property name="OrderFormCount" column="[OrderFormCount]" type="Int64" not-null="false" length="8" />
+		<property name="Amount" column="[Amount]" type="Double" not-null="false" length="8" />
+		<property name="OrderFormAmount" column="[OrderFormAmount]" type="Double" not-null="false" length="8" />
+		<property name="BonusFormCode" column="[BonusFormCode]" type="String" not-null="false" length="30" />
+		<property name="BonusFormRound" column="[BonusFormRound]" type="String" not-null="false" length="30" />
+		<property name="BonusApplyManName" column="[BonusApplyManName]" type="String" not-null="false" length="50" />
+		<property name="BonusApplyManID" column="[BonusApplyManID]" type="Int64" not-null="false" length="8" />
+		<property name="BonusApplytTime" column="[BonusApplytTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BonusOneReviewManName" column="[BonusOneReviewManName]" type="String" not-null="false" length="50" />
+		<property name="BonusOneReviewManID" column="[BonusOneReviewManID]" type="Int64" not-null="false" length="8" />
+		<property name="BonusOneReviewStartTime" column="[BonusOneReviewStartTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BonusOneReviewFinishTime" column="[BonusOneReviewFinishTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BonusTwoReviewManName" column="[BonusTwoReviewManName]" type="String" not-null="false" length="50" />
+		<property name="BonusTwoReviewManID" column="[BonusTwoReviewManID]" type="Int64" not-null="false" length="8" />
+		<property name="BonusTwoReviewStartTime" column="[BonusTwoReviewStartTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BonusTwoReviewFinishTime" column="[BonusTwoReviewFinishTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BonusThreeReviewManName" column="[BonusThreeReviewManName]" type="String" not-null="false" length="50" />
+		<property name="BonusThreeReviewManID" column="[BonusThreeReviewManID]" type="Int64" not-null="false" length="8" />
+		<property name="BonusThreeReviewStartTime" column="[BonusThreeReviewStartTime]" type="DateTime" not-null="false" length="8" />
+		<property name="BonusThreeReviewFinishTime" column="[BonusThreeReviewFinishTime]" type="DateTime" not-null="false" length="8" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Status" column="[Status]" type="Int64" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript">//加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");</script>
+    <style>
+        .layui-table, .layui-table-view {
+            margin: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    
+    <table class="layui-table layui-hide" id="versionTable" lay-filter="versionTable"></table>
+    
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm" lay-event="oneClickUpgrade"><i class="layui-icon">&#xe608;</i>一键升级</button>
+            <button id ="nowVersionButton" class="layui-btn layui-btn-sm" lay-event="">当前版本号</button>
+            
+        </div>
+    </script>
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('ScriptingOptions.js');
+    </script>
+</body>
+</html>

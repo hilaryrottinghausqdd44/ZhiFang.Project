@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="ClientEleArea" table="[dbo].[ClientEleArea]">
+		<id name="Id" column="[AreaID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+       <version name="DataTimeStamp" column="[DTimeStampe]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="AreaCName" column="[AreaCName]" type="String" not-null="false" length="50" />
+		<property name="AreaShortName" column="[AreaShortName]" type="String" not-null="false" length="50" />
+		<property name="ClientNo" column="[ClientNo]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[AddTime]" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

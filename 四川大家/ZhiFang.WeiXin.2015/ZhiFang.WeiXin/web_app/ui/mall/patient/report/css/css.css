@@ -1,0 +1,110 @@
+/**报告内容-信息*/
+.report_info_div {
+	margin:5px 0;
+	border: 1px solid #e7e7e7;
+	border-radius: 5px;
+}
+.report_info_title_div {
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.2em;
+	padding:5px 2px;
+}
+.report_info_data_div {
+	font-size: 1em;
+	margin: 5px 2px;
+}
+.report_info_div_button {
+	float: right;
+	margin-top: 10px;
+}
+/**报告内容-备注*/
+.report_info_note_div{
+	margin:5px 0;
+	padding:5px;
+	border: 1px solid #e7e7e7;
+	border-radius: 5px;
+}
+/**报告内容-生化类*/
+.report_items_table {
+	width: 100%;
+	font-size: 1em;
+	margin-bottom: 10px;
+	table-layout: fixed;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0;
+	border: 1px solid #cad9ea;
+	color: #666;
+	background-color: #FFFFFF;
+}
+.report_items_table th {
+	background-repeat: repeat-x;
+	height: 30px;
+	border: 1px solid #cad9ea;
+	padding: 7px 2px;
+	text-align: center;
+	/*background-color: #cad9ea;*/
+	background-color:rgba(22,154,218,0.7);
+	color:#ffffff;
+}
+.report_items_table td {
+	height: 20px;
+	border: 1px solid #cad9ea;
+	padding: 2px;
+}
+/**报告内容-微生物*/
+.report_item_name_div{
+	margin: 10px 0 0 0;
+	padding:5px 10px;
+	font-weight:bold;
+	background-color: #169ADA;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	color:#ffffff;
+}
+.report_item_content_div{
+	margin: 0 0 10px 0;
+	border:1px solid #E0E0E0;
+	min-height: 30px;
+	/*border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;*/
+}
+.report_item_micro_info_div{
+	margin:5px;
+	padding:5px;
+	border: 1px solid #E0E0E0;
+}
+.report_item_micro_info_title_div{
+	margin:0 10px;
+	border-bottom: 1px solid #E0E0E0;
+}
+.report_item_micro_sensitivity_div{
+	margin:0 5px 5px 5px;
+}
+.report_item_micro_sensitivity_table{
+	width: 100%;
+	font-size: 1em;
+	margin-bottom: 10px;
+	table-layout: fixed;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0;
+	border: 1px solid #E0E0E0;
+	color: #666;
+	background-color: #FFFFFF;
+}
+.report_item_micro_sensitivity_table th {
+	background-repeat: repeat-x;
+	height: 20px;
+	border: 1px solid #E0E0E0;
+	padding: 2px;
+	text-align: center;
+	color:#ffffff;
+	background-color: #E0E0E0;
+}
+.report_item_micro_sensitivity_table td {
+	height: 20px;
+	border: 1px solid #E0E0E0;
+	padding: 2px;
+}

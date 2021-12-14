@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>送检目的地</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  	<meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+  	</script> 
+  <style>
+  	  	body{background-color: #FFFFFF;}
+    	 /*重置表单控件上下间距*/
+        .layui-form-item { margin-bottom: 5px; }
+		.layui-table-view{margin: 1px 0;}
+    </style> 
+ </head> 
+ <body> 
+  <div class="layui-card" style="padding:15px 15px 0 15px; margin: 0px;"> 
+   <div class="layui-row"> 
+    <div class="layui-col-xs6"> 
+     <div class="layui-form" lay-filter="search-table" id="search-table" style="padding-bottom: 0px;">
+       名称/简称： 
+      <div class="layui-inline"> 
+       <input type="text" id="search-input" placeholder="名称/简称" autocomplete="off" class="layui-input" fields="CName/SName"/> 
+      </div> 
+      <button class="layui-btn layui-btn-xs" id="search" lay-submit="" lay-filter="search"> <i class="layui-icon"></i>查询 </button> 
+     </div> 
+     <table id="destination-table" lay-filter="destination-table"></table> 
+    </div> 
+    <div class="layui-col-xs6" style="padding-left: 5px;"> 
+     <div class="layui-form" id="Destination" lay-filter="Destination" style="padding-top: 35px;"> 
+      <span class="layui-badge layui-hide" id="formType" style="position: absolute;left: 15px;">编辑</span> 
+      <div class="layui-form-item"> 
+       <input type="hidden" name="LBDestination_Id" id="LBDestination_Id" autocomplete="off" class="layui-input layui-hide" /> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">名称</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_CName" id="LBDestination_CName" autocomplete="off" lay-verify="required" placeholder="必填项" class="layui-input" /> 
+        </div> 
+       </div> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">英文名称</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_EName" id="LBDestination_EName" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-form-item"> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">简称</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_SName" id="LBDestination_SName" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">代码</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_UseCode" id="LBDestination_UseCode" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-form-item"> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">标准代码</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_StandCode" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">开发商代码</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_DeveCode" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-form-item"> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">快捷码</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_Shortcode" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">拼音字头</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_PinYinZiTou" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-form-item"> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">显示次序</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="LBDestination_DispOrder"  id="LBDestination_DispOrder" lay-verify="number" placeholder="请输入数字" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+       <div class="layui-col-xs6"> 
+        <label class="layui-form-label">是否使用</label> 
+        <div class="layui-input-block"> 
+         <input type="checkbox" checked="" name="LBDestination_IsUse" id="LBDestination_IsUse" lay-skin="switch" lay-filter="LBDestination_IsUse" lay-text="是|否" /> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-form-item layui-form-text"> 
+       <label class="layui-form-label">备注</label> 
+       <div class="layui-input-block"> 
+        <textarea placeholder="备注" name="LBDestination_Comment" class="layui-textarea"></textarea> 
+       </div> 
+      </div> 
+      <div class="layui-btn-group" style="position: fixed;bottom: 25px;height: 40px;background-color: #fff;left: 60%;"> 
+       <button class="layui-btn layui-btn-sm" type="button" id="add"><i class="iconfont"></i>&nbsp;新增</button> 
+       <button class="layui-btn layui-btn-sm" type="button" id="edit"><i class="iconfont"></i>&nbsp;编辑</button> 
+       <button class="layui-btn layui-btn-sm" lay-submit="" id="save" lay-filter="save"><i class="iconfont"></i>&nbsp;保存</button> 
+       <button class="layui-btn layui-btn-sm layui-btn-primary" type="button" id="reset" lay-filter="reset"><i class="layui-icon"></i>重置</button> 
+       <button class="layui-btn layui-bg-orange layui-btn-sm" type="button" id="del"><i class="layui-icon"></i>删除</button> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('index.js');
+	</script>  
+ </body>
+</html>

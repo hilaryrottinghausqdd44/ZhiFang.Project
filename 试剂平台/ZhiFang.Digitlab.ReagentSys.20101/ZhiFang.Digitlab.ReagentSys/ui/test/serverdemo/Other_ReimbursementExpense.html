@@ -1,0 +1,159 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherReimbursementExpenseByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherReimbursementExpenseById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherReimbursementExpense',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherReimbursementExpense',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherReimbursementExpenseByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherReimbursementExpense',
+
+    		//费用报销对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherReimbursementExpense_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherReimbursementExpense_Id',value:'费用报销ID'},						 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ReimbursementManID',value:'报销人ID'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ReimbursementMan',value:'报销人'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_Amount',value:'报销金额'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_WriteTime',value:'填报时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ReimbursementTime',value:'报销时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_AccountingID',value:'合算人ID'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_Accounting',value:'核算人'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_AccountingDepartment',value:'核算部门'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_SubjectIDA',value:'一级科目'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_SubjectIDB',value:'二级科目'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_FinancialIDA',value:'财务一级'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_FinancialIDB',value:'财务二级'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ClientID',value:''}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ClientName',value:'客户名称'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ExpenseItemName',value:'项目名称'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ReimbursementTypeID',value:'项目类别'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ReimbursementYears',value:'核算年份'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ReimbursementStateID',value:'状态'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_Comment',value:'备注'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_Checker',value:'审核人'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_CheckerID',value:'审核者ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_CheckTime',value:'审核时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_CheckOpinion',value:'审核意见'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ApproverID',value:'审批人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_Approver',value:'审批人'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ApprovalTime',value:'审批时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_ApprovalOpinion',value:'审批意见'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_FinancialCheckerID',value:'财务审核人ID'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_FinancialChecker',value:'财务审核人'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_FinancialCheckTime',value:'财务审核时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_FinancialCheckerOpinion',value:'财务意见'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'OtherReimbursementExpense_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherReimbursementExpense_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'费用报销',
+    		//主键字段
+    		key:'OtherReimbursementExpense_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

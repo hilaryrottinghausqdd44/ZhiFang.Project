@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LBEquip" table="[dbo].[LB_Equip]">
+    <id name="Id" column="[EquipID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="EquipNo" column="[EquipNo]" type="Int32" not-null="false" length="4" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="50" />
+    <property name="EName" column="[EName]" type="String" not-null="false" length="50" />
+    <property name="SName" column="[SName]" type="String" not-null="false" length="50" />
+    <property name="UseCode" column="[UseCode]" type="String" not-null="false" length="50" />
+    <property name="StandCode" column="[StandCode]" type="String" not-null="false" length="50" />
+    <property name="DeveCode" column="[DeveCode]" type="String" not-null="false" length="50" />
+    <property name="Shortcode" column="[Shortcode]" type="String" not-null="false" length="50" />
+    <property name="PinYinZiTou" column="[PinYinZiTou]" type="String" not-null="false" length="50" />
+    <property name="Comment" column="[Comment]" type="String" not-null="false" length="1073741823" />
+    <property name="Computer" column="[Computer]" type="String" not-null="false" length="50" />
+    <property name="ComProgram" column="[ComProgram]" type="String" not-null="false" length="50" />
+    <property name="DoubleFlag" column="[DoubleFlag]" type="Int32" not-null="false" length="4" />
+    <property name="EquipResultType" column="[EquipResultType]" type="String" not-null="false" length="50" />
+    <property name="CommInfo" column="[CommInfo]" type="String" not-null="false" length="1073741823" />
+    <property name="CommPara" column="[CommPara]" type="String" not-null="false" length="1073741823" />
+    <property name="CommSys" column="[CommSys]" type="String" not-null="false" length="1073741823" />
+    <property name="LicenceKey" column="[LicenceKey]" type="String" not-null="false" length="50" />
+    <property name="LicenceType" column="[LicenceType]" type="String" not-null="false" length="50" />
+    <property name="SQH" column="[SQH]" type="String" not-null="false" length="50" />
+    <property name="LicenceDate" column="[LicenceDate]" type="DateTime" not-null="false" length="8" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="SampleNoStart" column="[SampleNoStart]" type="String" not-null="false" length="50" />
+    <property name="SampleNoEnd" column="[SampleNoEnd]" type="String" not-null="false" length="50" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SpecialtyID" column="[SpecialtyID]" type="Int64" not-null="true" length="8" />
+    <many-to-one name="LBSection" class="LBSection" lazy="proxy">
+      <column name="[SectionID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB714BA5-9F07-41ED-A671-5A107C34BAA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.SA</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.SA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.SA\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log">
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAgeUnit.cs" />
+    <Compile Include="BBDict.cs" />
+    <Compile Include="BBDictTree.cs" />
+    <Compile Include="BBDictType.cs" />
+    <Compile Include="BBObjectOperate.cs" />
+    <Compile Include="BBObjectOperateType.cs" />
+    <Compile Include="BBOperateObjectType.cs" />
+    <Compile Include="BBParameter.cs" />
+    <Compile Include="BBUserUIConfig.cs" />
+    <Compile Include="BCenOrg.cs" />
+    <Compile Include="BCenOrgType.cs" />
+    <Compile Include="BDepartment.cs" />
+    <Compile Include="BDistrict.cs" />
+    <Compile Include="BDoctor.cs" />
+    <Compile Include="BEmployee.cs" />
+    <Compile Include="BEquipItem.cs" />
+    <Compile Include="BEquipment.cs" />
+    <Compile Include="BFolkType.cs" />
+    <Compile Include="BGenderType.cs" />
+    <Compile Include="BGroupItem.cs" />
+    <Compile Include="BItemRange.cs" />
+    <Compile Include="BItemType.cs" />
+    <Compile Include="BLStatTotal.cs" />
+    <Compile Include="BNRequestForm.cs" />
+    <Compile Include="BPGroup.cs" />
+    <Compile Include="BPhraseswatch.cs" />
+    <Compile Include="BPhrasesWatchClass.cs" />
+    <Compile Include="BPhrasesWatchClassItem.cs" />
+    <Compile Include="BPUser.cs" />
+    <Compile Include="BSAConfigModule.cs" />
+    <Compile Include="BSampleType.cs" />
+    <Compile Include="BSickType.cs" />
+    <Compile Include="BSuperGroup.cs" />
+    <Compile Include="BTestEquip.cs" />
+    <Compile Include="BTestEquipItem.cs" />
+    <Compile Include="BTestItem.cs" />
+    <Compile Include="BTestType.cs" />
+    <Compile Include="BWardType.cs" />
+    <Compile Include="ExcelDataCommon.cs" />
+    <Compile Include="ExportDataToExcelHelp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SADimensionStrategy\DimensionContext.cs" />
+    <Compile Include="SADimensionStrategy\DimensionStrategy.cs" />
+    <Compile Include="SADimensionStrategy\OfDeptAndCollecterGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfMonthGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfQuarterGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfYearGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfInspectorGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfDeptAndInspectorGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfDeptAndSampleTypeGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSampleTypeAndDeptGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSampleTypeAndInspectorGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSickTypeAndInspectorGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSickTypeAndDoctorGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSickTypeAndDeptGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSampleTypeAndCollecterGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfCollecterGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSickTypeAndSampleTypeGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSickTypeAndCollecterGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfDeptAndDoctorGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSampleTypeGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfDeptGroupBy.cs" />
+    <Compile Include="SADimensionStrategy\OfSickTypeGroupBy.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfASpecimenAgglutinationSADimension.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSpecimenCollectionTimingErrorRate.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfMicroSpecimenContamination.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfQIndicatorTypeOtherTypes.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSTransportationDamageDuring.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSTransportTemperatureImproperRate.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSpecimenTransportTimeIsLong.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSStorageIsErrorSADimension.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSIdentificationErrorSADimension.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSTContainerErrorSADimension.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfBloodCulturePollutionSADimension.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSampleTypeSADimension.cs" />
+    <Compile Include="SAQITypeOfStrategy\SAQITypeOfEChartContext.cs" />
+    <Compile Include="SAQITypeOfStrategy\OfSTCollectionErrorSADimension.cs" />
+    <Compile Include="SAQITypeOfStrategy\QITypeOfEChartStrategy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.BLL.Common\ZhiFang.BLL.Common.csproj">
+      <Project>{e98dec9d-20d1-4f65-a746-f2808b73f61a}</Project>
+      <Name>ZhiFang.BLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Common\ZhiFang.Entity.Common.csproj">
+      <Project>{81e083dc-bde0-4742-aec7-cf36768f6bfd}</Project>
+      <Name>ZhiFang.Entity.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.SA\ZhiFang.Entity.SA.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.SA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WeiXin\ZhiFang.Entity.WeiXin.csproj">
+      <Project>{c867875c-5404-480d-89e4-9cc67c66d963}</Project>
+      <Name>ZhiFang.Entity.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Common\ZhiFang.IBLL.Common.csproj">
+      <Project>{f55ad050-b25c-42af-9d13-9ce1b8f27701}</Project>
+      <Name>ZhiFang.IBLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{f5a15ed6-4eb8-4e39-8b19-357b799a1f10}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.SA\ZhiFang.IBLL.SA.csproj">
+      <Project>{567c1df3-46bd-4485-b06d-607384cc6b3f}</Project>
+      <Name>ZhiFang.IBLL.SA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.WeiXin\ZhiFang.IBLL.WeiXin.csproj">
+      <Project>{2421232c-e74b-44c6-add8-19ac07a1357a}</Project>
+      <Name>ZhiFang.IBLL.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Common\ZhiFang.IDAO.Common.csproj">
+      <Project>{8a0fdb29-76a4-4fe5-8652-93fcaaf50772}</Project>
+      <Name>ZhiFang.IDAO.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.NHB.SA\ZhiFang.IDAO.NHB.SA.csproj">
+      <Project>{dd7e515a-52cf-41a2-8325-8704eb187053}</Project>
+      <Name>ZhiFang.IDAO.NHB.SA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.SA.Common\ZhiFang.SA.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.SA.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550F2-BF83-4C13-9386-9ACF6E2AE591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

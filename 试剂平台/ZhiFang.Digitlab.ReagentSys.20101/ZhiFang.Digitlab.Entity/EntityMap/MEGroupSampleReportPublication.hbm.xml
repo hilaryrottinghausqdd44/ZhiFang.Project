@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="MEGroupSampleReportPublication" table="[dbo].[ME_GroupSampleReportPublication]">
+    <id name="Id" column="[ReportPublicationID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="ReportFlag" column="[ReportFlag]" type="Int32" not-null="false" length="4" />
+    <property name="ReportType" column="[ReportType]" type="Int32" not-null="false" length="4" />
+    <property name="Receivedate" column="[Receivedate]" type="DateTime" not-null="false" length="8" />
+    <property name="SectionNo" column="[SectionNo]" type="Int32" not-null="false" length="4" />
+    <property name="TestTypeNo" column="[TestTypeNo]" type="Int32" not-null="false" length="4" />
+    <property name="SampleNo" column="[SampleNo]" type="String" not-null="false" length="40" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddUser" column="[DataAddUser]" type="String" not-null="false" length="50" />
+    <property name="DataAddUserID" column="[DataAddUserID]" type="Int64" not-null="false" length="8" />
+    <property name="DataAddComputer" column="[DataAddComputer]" type="String" not-null="false" length="40" />
+    <property name="DataRevokeTime" column="[DataRevokeTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataRevokeUser" column="[DataRevokeUser]" type="String" not-null="false" length="50" />
+    <property name="DataRevokeUserID" column="[DataRevokeUserID]" type="Int64" not-null="false" length="8" />
+    <property name="DataRevokeComputer" column="[DataRevokeComputer]" type="String" not-null="false" length="40" />
+    <many-to-one name="MEGroupSampleForm" class="MEGroupSampleForm" >
+      <column name="[GroupSampleFormID]" not-null="false"/>
+    </many-to-one>
+    <bag name="MEMicroDSTResultReportPublicationList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[ReportPublicationID]" />
+      </key>
+      <one-to-many class="MEMicroDSTResultReportPublication"/>
+    </bag>
+    <bag name="MEMicroAppraisalResultReportPublicationList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[ReportPublicationID]" />
+      </key>
+      <one-to-many class="MEMicroAppraisalResultReportPublication"/>
+    </bag>
+  </class>
+</hibernate-mapping>

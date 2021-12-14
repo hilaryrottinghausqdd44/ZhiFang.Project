@@ -1,0 +1,141 @@
+﻿if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('LB_ReportDateItem') and o.name = 'FK_LB_REPOR_REFERENCE_LB_REPOR')
+alter table LB_ReportDateItem
+   drop constraint FK_LB_REPOR_REFERENCE_LB_REPOR
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('LB_ReportDateRule') and o.name = 'FK_LB_REPOR_REFERENCE_LB_REPOR')
+alter table LB_ReportDateRule
+   drop constraint FK_LB_REPOR_REFERENCE_LB_REPOR
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('LB_ReportDate')
+            and   type = 'U')
+   drop table LB_ReportDate
+go
+
+/*==============================================================*/
+/* Table: LB_ReportDate                                         */
+/*==============================================================*/
+create table LB_ReportDate (
+   ReportDateID         bigint               not null,
+   CName                nvarchar(100)        null,
+   Datememo             nvarchar(100)        null,
+   ReportDateDesc       nvarchar(max)        null,
+   IsUse                bit                  null,
+   DispOrder            int                  null,
+   LabID                bigint               not null,
+   DataAddTime          datetime             null,
+   DataUpdateTime       datetime             null,
+   DataTimeStamp        timestamp            null,
+   constraint PK_LB_REPORTDATE primary key (ReportDateID)
+)
+go
+
+if exists (select 1 from  sys.extended_properties
+           where major_id = object_id('LB_ReportDate') and minor_id = 0)
+begin 
+   declare @CurrentUser sysname 
+select @CurrentUser = user_name() 
+execute sp_dropextendedproperty 'MS_Description',  
+   'user', @CurrentUser, 'table', 'LB_ReportDate' 
+ 
+end 
+
+
+select @CurrentUser = user_name() 
+execute sp_addextendedproperty 'MS_Description',  
+   '取单时间分类', 
+   'user', @CurrentUser, 'table', 'LB_ReportDate'
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('LB_ReportDateRule')
+            and   type = 'U')
+   drop table LB_ReportDateRule
+go
+
+/*==============================================================*/
+/* Table: LB_ReportDateRule                                     */
+/*==============================================================*/
+create table LB_ReportDateRule (
+   ReportDateRuleID     bigint               not null,
+   ReportDateID         bigint               null,
+   BeginWeekDay         int                  null,
+   EndWeekDay           int                  null,
+   BeginTime            datetime             null,
+   EndTime              datetime             null,
+   GetValue             nvarchar(200)        null,
+   LabID                bigint               not null,
+   DataAddTime          datetime             null,
+   DataUpdateTime       datetime             null,
+   DataTimeStamp        timestamp            null,
+   constraint PK_LB_REPORTDATERULE primary key (ReportDateRuleID),
+   constraint FK_LB_ReportDateRule_LB_REPOR foreign key (ReportDateID)
+      references LB_ReportDate (ReportDateID)
+)
+go
+
+if exists (select 1 from  sys.extended_properties
+           where major_id = object_id('LB_ReportDateRule') and minor_id = 0)
+begin 
+   declare @CurrentUser sysname 
+select @CurrentUser = user_name() 
+execute sp_dropextendedproperty 'MS_Description',  
+   'user', @CurrentUser, 'table', 'LB_ReportDateRule' 
+ 
+end 
+
+
+select @CurrentUser = user_name() 
+execute sp_addextendedproperty 'MS_Description',  
+   '取单时间段规则', 
+   'user', @CurrentUser, 'table', 'LB_ReportDateRule'
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('LB_ReportDateItem')
+            and   type = 'U')
+   drop table LB_ReportDateItem
+go
+
+/*==============================================================*/
+/* Table: LB_ReportDateItem                                     */
+/*==============================================================*/
+create table LB_ReportDateItem (
+   ReportDateItemID     bigint               not null,
+   ReportDateID         bigint               null,
+   ItemID               bigint               null,
+   LabID                bigint               not null,
+   DataAddTime          datetime             null,
+   DataUpdateTime       datetime             null,
+   DataTimeStamp        timestamp            null,
+   constraint PK_LB_REPORTDATEITEM primary key (ReportDateItemID),
+   constraint FK_LB_REPOR_REFERENCE_LB_ITEM foreign key (ItemID)
+      references dbo.LB_Item (ItemID),
+   constraint FK_LB_ReportDateItem_LB_REPOR foreign key (ReportDateID)
+      references LB_ReportDate (ReportDateID)
+)
+go
+
+if exists (select 1 from  sys.extended_properties
+           where major_id = object_id('LB_ReportDateItem') and minor_id = 0)
+begin 
+   declare @CurrentUser sysname 
+select @CurrentUser = user_name() 
+execute sp_dropextendedproperty 'MS_Description',  
+   'user', @CurrentUser, 'table', 'LB_ReportDateItem' 
+ 
+end 
+
+
+select @CurrentUser = user_name() 
+execute sp_addextendedproperty 'MS_Description',  
+   '取单分类项目明细', 
+   'user', @CurrentUser, 'table', 'LB_ReportDateItem'
+go

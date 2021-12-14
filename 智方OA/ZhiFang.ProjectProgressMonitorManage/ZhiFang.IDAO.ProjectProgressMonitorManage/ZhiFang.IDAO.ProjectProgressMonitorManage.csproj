@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{418FC9A7-1313-47A8-B3E9-B1EB0FDC7D32}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IDAO.ProjectProgressMonitorManage</RootNamespace>
+    <AssemblyName>ZhiFang.IDAO.ProjectProgressMonitorManage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.ProjectProgressMonitorManage\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDEParameterDao.cs" />
+    <Compile Include="IDCUserDao.cs" />
+    <Compile Include="IDEAttachmentDao.cs" />
+    <Compile Include="IDEResEmpDao.cs" />
+    <Compile Include="IDEEResponsibilityDao.cs" />
+    <Compile Include="IDETempletResDao.cs" />
+    <Compile Include="IDPContractFollowDao.cs" />
+    <Compile Include="IDPContractFollowInteractionDao.cs" />
+    <Compile Include="IDPCustomerServiceAttachmentDao.cs" />
+    <Compile Include="IDPCustomerServiceOperationDao.cs" />
+    <Compile Include="IDPProjectDocumentDao.cs" />
+    <Compile Include="IDPProjectTaskDao.cs" />
+    <Compile Include="IDPProjectTaskProgressDao.cs" />
+    <Compile Include="IDPProjectDao.cs" />
+    <Compile Include="IDPSalesManClientLinkDao.cs" />
+    <Compile Include="IDPRepaymentDao.cs" />
+    <Compile Include="IDPLoanBillDao.cs" />
+    <Compile Include="IDPEmpFinanceAccountDao.cs" />
+    <Compile Include="IDPExpenseAccountDao.cs" />
+    <Compile Include="IDPCustomerServiceDao.cs" />
+    <Compile Include="IDBEquipDao.cs" />
+    <Compile Include="IDBParameterDao.cs" />
+    <Compile Include="IDEEquipDao.cs" />
+    <Compile Include="IDEMaintenanceDataDao.cs" />
+    <Compile Include="IDEReportDataDao.cs" />
+    <Compile Include="IDETempletDao.cs" />
+    <Compile Include="IDETempletEmpDao.cs" />
+    <Compile Include="IDPGMProgramDao.cs" />
+    <Compile Include="IDPInvoiceDao.cs" />
+    <Compile Include="IDPFinanceReceiveDao.cs" />
+    <Compile Include="IDPReceivePlanDao.cs" />
+    <Compile Include="IDPReceiveDao.cs" />
+    <Compile Include="IDPCustomerServiceOperationLogDao .cs" />
+    <Compile Include="IDPTaskTypeEmpLinkDao.cs" />
+    <Compile Include="IDFFileAttachmentDao.cs" />
+    <Compile Include="IDFFileCopyUserDao.cs" />
+    <Compile Include="IDFFileDao.cs" />
+    <Compile Include="IDFFileInteractionDao.cs" />
+    <Compile Include="IDFFileOperationDao.cs" />
+    <Compile Include="IDFFileReadingLogDao.cs" />
+    <Compile Include="IDFFileReadingUserDao.cs" />
+    <Compile Include="IDBDictTreeDao.cs" />
+    <Compile Include="IDPClientDao.cs" />
+    <Compile Include="IDPClientLinkerDao.cs" />
+    <Compile Include="IDPContractDao.cs" />
+    <Compile Include="IDPDictDao.cs" />
+    <Compile Include="IDPDictTypeDao.cs" />
+    <Compile Include="IDPInteractionDao.cs" />
+    <Compile Include="IDPProjectAttachmentDao.cs" />
+    <Compile Include="IDPTaskCopyForDao.cs" />
+    <Compile Include="IDPTaskDao.cs" />
+    <Compile Include="IDPWorkDayLogDao.cs" />
+    <Compile Include="IDPWorkLogCopyForDao.cs" />
+    <Compile Include="IDPWorkLogInteractionDao.cs" />
+    <Compile Include="IDPWorkLogSendForDao.cs" />
+    <Compile Include="IDPWorkMonthLogDao.cs" />
+    <Compile Include="IDSCAttachmentDao.cs" />
+    <Compile Include="IDSCInteractionDao.cs" />
+    <Compile Include="IDSCOperationDao.cs" />
+    <Compile Include="IDStoredProcedureDao.cs" />
+    <Compile Include="IDPWorkWeekLogDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IDPTaskOperLogDao.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471E84C-7A1B-4719-89F9-CCC626D111AD}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.ProjectProgressMonitorManage\ZhiFang.Entity.ProjectProgressMonitorManage.csproj">
+      <Project>{e3b08151-fbe9-4e8e-b390-11bd9f7def4a}</Project>
+      <Name>ZhiFang.Entity.ProjectProgressMonitorManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

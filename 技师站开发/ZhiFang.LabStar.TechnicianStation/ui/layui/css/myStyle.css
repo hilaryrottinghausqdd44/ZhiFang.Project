@@ -1,0 +1,36 @@
+﻿/**
+ * layui--需要添加父class：myStyle ： 页签样式修改、表格宽高调整、文字排列方式、树样式修改、layui-hide-sm-button、使得表格中下拉框与单元格刚好合适、disable样式修改
+ * 主要应用于质控页面
+ * @author zhangda
+ * @version 2020-04-28
+ */
+body { }
+/*表格宽高调整*/
+.myStyle .layui-table-cell { padding: 0 5px;text-align: center;height: 16px !important;line-height: 16px !important; }
+/**Tab页签调整**/
+.myStyle .layui-tab-title .layui-this:after { height: 33px !important; }
+.myStyle .layui-card .layui-tab-brief .layui-tab-title { height: 32px; }
+.myStyle .layui-tab-title > li { line-height: 32px !important; }
+.myStyle .layui-card .layui-tab-brief .layui-tab-content { /*重写layui-tab-content内边距*/ padding: 0; }
+/*文字排列方式*/
+.myStyle .textCenter { text-align: center; }
+.myStyle .textRight { text-align: right; }
+.myStyle .textLeft { text-align: left; }
+/*树样式修改*/
+.myStyle #tree .layui-tree-entry .layui-tree-icon { line-height: 20px;height: 20px;border: none;width: auto; }
+.myStyle #tree .layui-tree-entry i:before { /*content: "\e634" !important;*/ content: url('../../extjs/css/images/buttons/print.png') !important; }
+.myStyle #tree .layui-tree-pack i:before { content: url('../../extjs/css/images/buttons/check.png') !important; }
+.myStyle .layui-tree-txt { padding-right:5px; }
+/*layui-hide-sm-button -- 在中屏设备中*/
+@media screen and (min-width: 992px) { .myStyle .layui-hide-sm-button { display: inline !important; } }
+/*layui-hide-sm-button -- 在小屏设备中*/
+@media screen and (max-width:992px) { .myStyle .layui-hide-sm-button { display: none !important; } }
+/*使得下拉框与单元格刚好合适*/
+.myStyle td .layui-form-select { margin-top: -10px;margin-left: -15px;margin-right: -15px; }
+.myStyle td .layui-form-select dl { top: 32px; }
+/*重置表单控件上下间距*/
+.myStyle .layui-form-item { margin-bottom: 5px; }
+/*重写layui-elem-field*/
+.myStyle .layui-elem-field { min-width: 100%;margin-left: 0;margin-right: 0; }
+/*disable样式修改*/
+.myStyle .layui-disabled { color: #000 !important; }

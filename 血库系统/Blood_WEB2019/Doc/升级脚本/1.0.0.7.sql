@@ -1,0 +1,7 @@
+ IF NOT EXISTS(SELECT * FROM Blood_UseDesc WHERE [Id] = 100) INSERT INTO [dbo].[Blood_UseDesc] ([LabID] ,[Id] ,[VersionNo] ,[Contents] ,[Visible] ,[DispOrder] ,[DataAddTime]) VALUES (0 ,100 ,'1' ,'' ,1 ,1 ,'2019-07-06 10:33:48.050'); 
+
+IF NOT EXISTS(SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Blood_BReqFormResult]') AND type IN (N'U')) CREATE TABLE [dbo].[Blood_BReqFormResult]( [LabID] [bigint] NULL, [ResultID] [bigint] NOT NULL, [BReqFormID] [nvarchar](40) NOT NULL, [BTestItemNo] [nvarchar](20) NOT NULL, [BTestTime] [datetime] NULL, [Barcode] [nvarchar](20) NULL, [ItemResult] [nvarchar](500) NULL, [ItemUnit] [nvarchar](500) NULL, [DispOrder] [int] NULL, [DataAddTime] [datetime] NULL, [DataTimeStamp] [timestamp] NULL, [Visible] [bit] NULL, CONSTRAINT [PK_BReqFormResult] PRIMARY KEY CLUSTERED ( [ResultID] ASC)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY] ) ON [PRIMARY]; 
+
+ IF COL_LENGTH('Blood_BReqFormResult', 'ItemLisResult') IS NULL ALTER TABLE Blood_BReqFormResult ADD ItemLisResult varchar(500); 
+
+ IF COL_LENGTH('Blood_BReqFormResult', 'BTestItemEName') IS NULL ALTER TABLE Blood_BReqFormResult ADD BTestItemEName varchar(150); 

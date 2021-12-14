@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/28/2015 15:45:18" ReportInfo.Modified="05/05/2015 17:47:16" ReportInfo.CreatorVersion="2013.2.5.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8S8kqlWxMJtZaAfsHANJcwx0FsVUFgSIqWSUOfwfeu6XSMbGwSa4PEes4Wgsp5vmt6Lrp+Al0mhXzZH1LNoSV+8hRPZFvX0n65/Cn3CXBcynSJ6+JnhkzCHWHJGGo54UR9snuKsndCuZ1AOYUS6jOf4hEpg9GBbnFtlPwZZmlOGXaXHoxcqJkoPClF7FMgfYxw==">
+      <TableDataSource Name="ReportItemFull" DataType="System.Int32" Enabled="true" TableName="ReportItemFull" SelectCommand="  select top 10 * from reportitemfull">
+        <Column Name="ReportItemIndexID" DataType="System.Int64"/>
+        <Column Name="ReportFormIndexID" DataType="System.Int64"/>
+        <Column Name="ReportFormID" DataType="System.String"/>
+        <Column Name="ReportItemID" DataType="System.Int32"/>
+        <Column Name="TESTITEMNAME" DataType="System.String"/>
+        <Column Name="TESTITEMSNAME" DataType="System.String"/>
+        <Column Name="RECEIVEDATE" DataType="System.DateTime"/>
+        <Column Name="SECTIONNO" DataType="System.String"/>
+        <Column Name="TESTTYPENO" DataType="System.String"/>
+        <Column Name="SAMPLENO" DataType="System.String"/>
+        <Column Name="PARITEMNO" DataType="System.String"/>
+        <Column Name="ITEMNO" DataType="System.String"/>
+        <Column Name="ORIGINALVALUE" DataType="System.String"/>
+        <Column Name="REPORTVALUE" DataType="System.String"/>
+        <Column Name="ORIGINALDESC" DataType="System.String"/>
+        <Column Name="REPORTDESC" DataType="System.String"/>
+        <Column Name="STATUSNO" DataType="System.String"/>
+        <Column Name="EQUIPNO" DataType="System.String"/>
+        <Column Name="MODIFIED" DataType="System.String"/>
+        <Column Name="REFRANGE" DataType="System.String"/>
+        <Column Name="ITEMDATE" DataType="System.DateTime"/>
+        <Column Name="ITEMTIME" DataType="System.DateTime"/>
+        <Column Name="ISMATCH" DataType="System.String"/>
+        <Column Name="RESULTSTATUS" DataType="System.String"/>
+        <Column Name="TESTITEMDATETIME" DataType="System.DateTime"/>
+        <Column Name="REPORTVALUEALL" DataType="System.String"/>
+        <Column Name="PARITEMNAME" DataType="System.String"/>
+        <Column Name="PARITEMSNAME" DataType="System.String"/>
+        <Column Name="DISPORDER" DataType="System.String"/>
+        <Column Name="ITEMORDER" DataType="System.String"/>
+        <Column Name="UNIT" DataType="System.String"/>
+        <Column Name="SERIALNO" DataType="System.String"/>
+        <Column Name="ZDY1" DataType="System.String"/>
+        <Column Name="ZDY2" DataType="System.String"/>
+        <Column Name="ZDY3" DataType="System.String"/>
+        <Column Name="ZDY4" DataType="System.String"/>
+        <Column Name="ZDY5" DataType="System.String"/>
+        <Column Name="HISORDERNO" DataType="System.String"/>
+        <Column Name="FORMNO" DataType="System.String"/>
+        <Column Name="TECHNICIAN" DataType="System.String"/>
+        <Column Name="OLDSERIALNO" DataType="System.String"/>
+        <Column Name="PREC" DataType="System.String"/>
+        <Column Name="itemunit" DataType="System.String"/>
+        <Column Name="itemename" DataType="System.String"/>
+        <Column Name="secretgrade" DataType="System.Int32"/>
+        <Column Name="shortname" DataType="System.String"/>
+        <Column Name="shortcode" DataType="System.String"/>
+        <Column Name="cuegrade" DataType="System.Int32"/>
+        <Column Name="ZDY6" DataType="System.String"/>
+        <Column Name="ZDY7" DataType="System.String"/>
+        <Column Name="ZDY8" DataType="System.String"/>
+        <Column Name="ZDY9" DataType="System.String"/>
+        <Column Name="ZDY10" DataType="System.String"/>
+        <Column Name="curritemredo" DataType="System.Int32"/>
+        <Column Name="Barcode" DataType="System.String"/>
+        <Column Name="SectionName" DataType="System.String"/>
+        <Column Name="EquipName" DataType="System.String"/>
+        <Column Name="CheckType" DataType="System.Int32"/>
+        <Column Name="CheckTypeName" DataType="System.String"/>
+        <Column Name="DataTimeStamp" DataType="System.Byte[]" BindableControl="Picture"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="210.1" PaperHeight="148.1" RawPaperSize="11" FirstPageSource="15" OtherPagesSource="15">
+    <DataBand Name="Data1" Width="718.58" Height="28.35" Border.Lines="All" DataSource="ReportItemFull">
+      <TextObject Name="Text1" Left="37.8" Top="9.45" Width="264.6" Height="18.9" Text="[ReportItemFull.ReportItemIndexID]" Font="宋体, 9pt"/>
+      <TextObject Name="Text2" Left="340.2" Top="9.45" Width="179.55" Height="18.9" Text="[ReportItemFull.TESTITEMNAME]" Font="宋体, 9pt"/>
+      <TextObject Name="Text3" Left="9.45" Top="9.45" Width="94.5" Height="18.9" Text="123" Font="宋体, 9pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+	<class name="ReaPlace" table="[dbo].[Rea_Place]">
+		<id name="Id" column="[PlaceID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="CName" column="[CName]" type="String" not-null="false" length="20" />
+		<property name="ShortCode" column="[ShortCode]" type="String" not-null="false" length="20" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" />
+		<property name="ZX1" column="[ZX1]" type="String" not-null="false" length="50" />
+		<property name="ZX2" column="[ZX2]" type="String" not-null="false" length="50" />
+		<property name="ZX3" column="[ZX3]" type="String" not-null="false" length="50" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+		<property name="CreaterID" column="[CreaterID]" type="Int64" not-null="false" length="8" />
+		<property name="CreaterName" column="[CreaterName]" type="String" not-null="false" length="50" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="ReaStorage" class="ReaStorage" lazy="false">
+			<column name="[StorageID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

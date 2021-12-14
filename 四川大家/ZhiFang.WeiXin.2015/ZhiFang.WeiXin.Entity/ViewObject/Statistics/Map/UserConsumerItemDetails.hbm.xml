@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+
+  <class name="UserConsumerItemDetails"  mutable="false">
+    <id name="Id" column="[Id]" type="Int64">
+    </id>
+    <property name="GroupingKey" column="[GroupingKey]" type="String" not-null="false" length="60" />
+    <property name="DoctorName" column="[DoctorName]" type="String" not-null="false" length="60" />
+    <property name="HospitalCName" column="[HospitalCName]" type="String" not-null="false" length="60" />
+    <property name="AreaCName" column="[AreaCName]" type="String" not-null="false" length="60" />
+    <property name="ItemCName" column="[ItemCName]" type="String" not-null="false" length="60" />
+    <property name="OrderFormCount" column="[OrderFormCount]" type="Int32" not-null="false" length="8" />
+    <property name="MarketPrice" column="[MarketPrice]" type="Double" not-null="false" length="8" />
+    <property name="GreatMasterPrice" column="[GreatMasterPrice]" type="Double" not-null="false" length="8" />
+    <property name="Price" column="[Price]" type="Double" not-null="false" length="8" />
+  </class>
+  <sql-query name="SP_Report_UserConsumerItemDetails">
+    <return class="ZhiFang.WeiXin.Entity.UserConsumerItemDetails,ZhiFang.WeiXin.Entity">
+      <return-property name="Id" column="Id"/>
+      <return-property name="GroupingKey" column="GroupingKey"/>
+      <return-property name="DoctorName" column="DoctorName"/>
+      <return-property name="HospitalCName" column="HospitalCName"/>
+      <return-property name="AreaCName" column="AreaCName"/>
+      <return-property name="ItemCName" column="ItemCName" />
+      <return-property name="OrderFormCount" column="OrderFormCount"/>
+      <return-property name="MarketPrice" column="MarketPrice"/>
+      <return-property name="GreatMasterPrice" column="GreatMasterPrice"/>
+      <return-property name="Price" column="Price"/>
+    </return>
+    exec SP_Report_UserConsumerItemDetails :ConsumptionStartDate,:ConsumptionEndDate,:BillingStartDate,:BillingEndDate,:SamplingStartDate,:SamplingEndDate,:UOFCode,:OSUserConsumerFormCode,:MRefundFormCode,:BonusFormCode,:AreaID,:UserAccountID,:DoctorAccountID,:OSUserConsumerFormStatus,:IsRefund,:ItemID,:strWhere
+  </sql-query>
+</hibernate-mapping>

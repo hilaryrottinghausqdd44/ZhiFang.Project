@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tables>
+  <Table EName="VIEW_NRequestFormFull">
+    <tr>
+      <td ColumnEName="NRequestFormNo" ColumnType="Float" RelationEName="" />
+    </tr>
+  </Table>
+  <Table EName="NRequestFormFull">
+    <tr>
+      <td ColumnEName="NRequestFormNo" ColumnType="Varchar" RelationEName="" />
+      <Table EName="VIEW_NRequestItemFull">
+        <tr>
+          <td ColumnEName="NRequestItemNo" ColumnType="Varchar" RelationEName="" />
+          <td ColumnEName="NRequestFormNo" ColumnType="Varchar" RelationEName="NRequestFormNo" />
+        </tr>
+      </Table>
+      <Table EName="01">
+        <tr>
+          <td ColumnEName="Supplies_ID" ColumnType="Float" RelationEName="" />
+          <td ColumnEName="NRequestFormFull_NRequestFormNo" ColumnType="Float" RelationEName="NRequestFormNo" />
+        </tr>
+      </Table>
+    </tr>
+  </Table>
+</Tables>

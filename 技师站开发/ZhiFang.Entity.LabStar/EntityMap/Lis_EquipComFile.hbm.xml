@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisEquipComFile" table="dbo.Lis_EquipComFile">
+    <id name="Id" column="ComFileID" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="DataTimeStamp" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="LabID" type="Int64" not-null="true" length="8" />
+    <property name="ComFileName" column="ComFileName" type="String" not-null="false" length="500" />
+    <property name="ComFileComment" column="ComFileComment" type="String" not-null="false" length="1073741823" />
+    <property name="ComFileResultCount" column="ComFileResultCount" type="Int32" not-null="false" length="4" />
+    <property name="ComFileResultType" column="ComFileResultType" type="String" not-null="false" length="100" />
+    <property name="ComFileTime" column="ComFileTime" type="DateTime" not-null="false" length="8" />
+    <property name="EquipID" column="EquipID" type="Int64" not-null="false" length="8" />
+    <property name="EquipName" column="EquipName" type="String" not-null="false" length="100" />
+    <property name="SectionID" column="SectionID" type="Int64" not-null="false" length="8" />
+    <property name="SectionName" column="SectionName" type="String" not-null="false" length="100" />
+    <property name="ClientComputer" column="ClientComputer" type="String" not-null="false" length="100" />
+    <property name="ClientMac" column="ClientMac" type="String" not-null="false" length="100" />
+    <property name="ClientIP" column="ClientIP" type="String" not-null="false" length="100" />
+    <property name="DataAddTime" column="DataAddTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="DataUpdateTime" type="DateTime" not-null="false" length="8" />
+  </class>
+</hibernate-mapping>

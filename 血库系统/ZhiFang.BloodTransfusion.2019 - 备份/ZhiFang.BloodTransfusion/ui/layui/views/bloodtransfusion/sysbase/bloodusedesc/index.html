@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" type="text/css" href="../../../../../src/layui/dist/css/layui.css" />
+		<title>用血说明</title>
+		<style type="text/css">
+			.fixedBtm {
+				position: fixed;
+				bottom: 20px;
+				right: 15px;
+				left: 5px;
+				margin-left: 66%;
+				width: auto;
+				z-index: 1000;
+				text-align: center;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="layui-fluid">
+			<div class="layui-row">
+				<div class="layui-col-md12">
+					<div class="layui-card">
+						<div class="layui-card-body">
+							<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+								<legend>用血说明维护</legend>
+							</fieldset>
+							<div class="layui-form" lay-filter="LAY-app-form-BloodUseDesc">
+								<div class="lay-row">
+									<div class="layui-form-item">
+										<div class="layui-input-block">
+											<textarea id="BloodUseDesc_Contents" name="BloodUseDesc_Contents" class="layui-input" style="display: none;"></textarea>
+										</div>
+									</div>
+									<div class="layui-form-item layui-hide">
+										<input type="text" name="BloodUseDesc_Visible" hidden="hidden" readonly="readonly" class="layui-input" value="1">
+										<input type="text" name="BloodUseDesc_Id" hidden="hidden" readonly="readonly" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-row fixedBtm" style="padding: 0px;background-color:#fff;">
+									<div class="layui-col-sm12 layui-col-xs12 layui-col-md12 layui-col-lg12">
+										<div class="layui-form-item">
+											<div class="layui-input-block">
+												<button lay-submit lay-filter="LAY-app-submit-BloodUseDesc" class="layui-btn">提交</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../../../src/layui/src/layui.js"></script>
+		<script src="../../../../../../ui/layui/config/system.js"></script>
+	</body>
+
+</html>
+<script src="index.js"></script>

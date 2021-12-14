@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4FEEEE53-1839-4DB8-B7D7-79DF2FC7506D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.Entity.OA</RootNamespace>
+    <AssemblyName>ZhiFang.Entity.OA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityObject\AH_Operation.cs" />
+    <Compile Include="EntityObject\AH_ServerEquipLicence.cs" />
+    <Compile Include="EntityObject\AH_ServerLicence.cs" />
+    <Compile Include="EntityObject\AH_ServerProgramLicence.cs" />
+    <Compile Include="EntityObject\AH_SingleLicence.cs" />
+    <Compile Include="EntityObject\AT_ApproveStatus.cs" />
+    <Compile Include="EntityObject\AT_AttendanceEventType.cs" />
+    <Compile Include="EntityObject\AT_EmpAttendanceEventLog.cs" />
+    <Compile Include="EntityObject\AT_EmpAttendanceEventParaSettings.cs" />
+    <Compile Include="EntityObject\AT_HolidaySetting.cs" />
+    <Compile Include="EntityObject\AT_Transportation.cs" />
+    <Compile Include="EntityObject\B_AccountType.cs" />
+    <Compile Include="EntityObject\B_Icons.cs" />
+    <Compile Include="EntityObject\B_WeiXinAccount.cs" />
+    <Compile Include="EntityObject\B_WeiXinUserGroup.cs" />
+    <Compile Include="EntityObject\B_WeiXin_Emp_Link.cs" />
+    <Compile Include="EntityObject\B_WeiXin_PushMessageTemplate.cs" />
+    <Compile Include="EntityObject\S_ServiceClient.cs" />
+    <Compile Include="EntityObject\S_ServiceClientlevel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewObject\Request\AHServerEquipLicenceBase.cs" />
+    <Compile Include="ViewObject\Request\AHLicence.cs" />
+    <Compile Include="ViewObject\Response\ApplyProgramInfo.cs" />
+    <Compile Include="ViewObject\Response\LicenceProgramType.cs" />
+    <Compile Include="ViewObject\Response\ATEmpApplyAllLog.cs" />
+    <Compile Include="ViewObject\Response\ATEmpListWeekLog.cs" />
+    <Compile Include="ViewObject\Response\ATEmpMonthLogCount.cs" />
+    <Compile Include="ViewObject\Response\ATEmpMonthLog.cs" />
+    <Compile Include="ViewObject\Response\SignInfo.cs" />
+    <Compile Include="ViewObject\Response\SignLog.cs" />
+    <Compile Include="ViewObject\Response\ApplyAHServerLicence.cs" />
+    <Compile Include="ViewObject\Response\SignInfoExport.cs" />
+    <Compile Include="ViewObject\Response\SignLogEmpList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\S_ServiceClient.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityMap\S_ServiceClientlevel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\AT_ApproveStatus.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\AT_AttendanceEventType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\AT_EmpAttendanceEventLog.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\AT_Transportation.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_AccountType.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_Icons.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_WeiXinAccount.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_WeiXinUserGroup.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\B_WeiXin_Emp_Link.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\B_WeiXin_PushMessageTemplate.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\AT_EmpAttendanceEventParaSettings.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\AT_HolidaySetting.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\AH_SingleLicence.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\AH_Operation.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMap\AH_ServerEquipLicence.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\AH_ServerLicence.hbm.xml" />
+    <EmbeddedResource Include="EntityMap\AH_ServerProgramLicence.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

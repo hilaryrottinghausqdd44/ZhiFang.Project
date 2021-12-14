@@ -1,0 +1,273 @@
+@charset "utf-8";
+/* CSS Document 更多精品模板请访问：http://www.bootstrapmb.com*/
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box}
+*,body{padding:0px;	margin:0px;color: #fffff;font-family: "微软雅黑";}
+body{color:#666;font-size: 16px;}
+li{ list-style-type:none;}
+table{}
+i{ margin:0px; padding:0px; text-indent:0px;}
+img{ border:none; max-width: 100%;}
+a{ text-decoration:none; color:#399bff;}
+a.active,a:focus{ outline:none!important; text-decoration:none;}
+ol,ul,p,h1,h2,h3,h4,h5,h6{ padding:0; margin:0}
+a:hover{ color:#06c; text-decoration: none!important}
+
+
+.clearfix:after, .clearfix:before {
+	display: table;
+	content: " "
+}
+ .clearfix:after {
+	clear: both
+}
+.pulll_left{float:left;}
+.pulll_right{float:right;}
+
+
+.loading{position:fixed; left:0; top:0; font-size:16px; z-index:100000000;width:100%; height:100%; background:#1a1a1c; text-align:center;}
+.loadbox{position:absolute; width:160px;height:150px; color: rgba(255,255,255,.6); left:50%; top:50%; margin-top:-100px; margin-left:-75px;}
+.loadbox img{ margin:10px auto; display:block; width:40px;}
+ 
+.head{ height:70px; background: url(../images/head_bg.png) no-repeat center center; position: relative}
+.head h1{ color:#fff; text-align: center; font-size:42px; line-height:90px;;}
+.head h1 img{ width:1.5rem; display: inline-block; vertical-align: middle; margin-right: .2rem}
+.weather{ position:absolute; left:30px; top:0; line-height: 70px;}
+.weather span{color:rgba(255,255,255,.9)!important; font-size: 24px; }
+.weather1{ position:absolute; right:30px; top:0; line-height: 70px;}
+.weather1 intput{color:rgba(255,255,255,.9)!important; font-size: 24px; }
+
+.mainbox{ padding:10px 20px 0 20px;}
+.mainbox>ul{ margin-left:-.4rem; margin-right:-.4rem;}
+.mainbox>ul>li{ float: left; padding: 0 .4rem}
+.mainbox>ul>li{ width: 24%}
+.mainbox>ul>li:nth-child(2){ width: 52%}
+
+.boxall{ padding:15px;  background: rgba(0,0,0,.2); position: relative; margin-bottom:15px;; z-index: 10;}
+.alltitle{ font-size:18px; color:#fff; position: relative; padding-left: 12px;margin-bottom: 10px;}
+.alltitle:before{ width: 5px; height: 20px; top:2px; position: absolute; content: ""; background: #49bcf7; border-radius:20px; left: 0; }
+
+.navboxall{height: calc(100% - 30px);}
+.num,.zhibiao{height: 100%; width: 50%;}
+.zb1,.zb2,.zb3{float: left; width: 33.3333%; height: 100%;}
+#zb1,#zb2,#zb3{height: calc(100% - 30px); }
+.zhibiao span{ padding-top: 20px; display: block; text-align: center; color: #fff; font-size: 16px;}
+.num{padding-right: 20px;}
+.numbt{ font-size: 24px; color: #fff; padding-top:14px;}
+.numbt span{font-size: 18px; padding-left: 10px;color: #fff; }
+.numtxt{ color: #fef000; font-size: 80px; font-family: arial; border-top: 1px solid rgba(255,255,255,.1);border-bottom: 1px solid rgba(255,255,255,.1); padding: 10px 0; margin: 18px 0; font-weight: bold; letter-spacing: 2px;}
+
+.table1 th{border-bottom: 1px solid rgba(255,255,255,.2); font-size: 16px; color:rgba(255,255,255,.6); font-weight: normal; padding:0 0 10px 0;}
+.table1 td{ font-size: 16px; color:rgba(255,255,255,.4); padding: 15px 0 0 0; }
+.table1 span{ width: 24px; height: 24px; border-radius: 3px; display: block; background: #878787; color: #fff; line-height: 24px; text-align: center;}
+
+.table1 tr:nth-child(2) span{ background: #ed405d}
+.table1 tr:nth-child(3) span{ background: #f78c44}
+.table1 tr:nth-child(4) span{ background: #49bcf7}
+.iconchart li{height: 30px;}
+.iconchart label{ color: #fff; line-height: 30px; height: 30px; display: inline-block; opacity: .8;}
+.iconchart label img{ display: inline-block; vertical-align: middle; opacity: .4;}
+.iconchart .bar{ display: inline-block; background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);width: 78%;height:20px; padding: 2px; position: relative;top: 5px;}
+.iconchart .bar span{ background: linear-gradient(to right, #588fab , #5ea99c); display: block; width: 60%; height: 100%;animation: myfirst2 1s  ease;}
+.iconchart .bar i{position: absolute; opacity: .5; right:-36px; color: #fff; line-height: 20px; top: 0;}
+/*Plugin CSS*/
+.wrap{ height:82%; overflow: hidden;}
+.wrap li{  line-height:40px; height:40px; }
+.wrap li p,.wraptit{ font-size: 0; }
+.wrap li span,.wraptit span{ display: inline-block; font-size: 12px;color: rgba(255,255,255,.6);}
+.wraptit { border-bottom: 1px solid rgba(255,255,255,.2); padding:0 0 10px 0; margin-bottom: 10px;}
+.wrap li span:nth-child(1),.wraptit span:nth-child(1){ width: 50%}
+.wrap li span:nth-child(2),.wraptit span:nth-child(2){ width: 20%}
+.wrap li span:nth-child(3),.wraptit span:nth-child(3){ width: 30%}
+
+.str_wrap {
+	overflow:hidden;
+	width:100%;
+	position:relative;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;  
+	white-space:nowrap;
+}
+
+
+.str_move { 
+	white-space:nowrap;
+	position:absolute; 
+	top:0; 
+	left:0;
+	cursor:move;
+}
+.str_move_clone {
+	display:inline-block;
+	vertical-align:top;
+	position:absolute; 
+	left:100%;
+	top:0;
+}
+.str_vertical .str_move_clone {
+	left:0;
+	top:100%;
+}
+.str_down .str_move_clone {
+	left:0;
+	bottom:100%;
+}
+.str_vertical .str_move,
+.str_down .str_move {
+	white-space:normal;
+	width:100%;
+}
+.str_static .str_move,
+.no_drag .str_move,
+.noStop .str_move{
+	cursor:inherit;
+}
+.str_wrap img {
+	max-width:none !important;	
+}
+
+@keyframes myfirst2
+{
+from {width: 0}
+to {}
+}
+.no {
+  background: rgba(101, 132, 226, 0.1);
+  padding: 0.1875rem;
+}
+.no .no-hd {
+  position: relative;
+  border: 1px solid rgba(25, 186, 139, 0.17);
+}
+.no .no-hd::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 30px;
+  height: 10px;
+  border-left: 2px solid #02a6b5;
+  border-top: 2px solid #02a6b5;
+}
+.no .no-hd::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "";
+  width: 30px;
+  height: 10px;
+  border-right: 2px solid #02a6b5;
+  border-bottom: 2px solid #02a6b5;
+}
+.no .no-hd ul {
+  display: flex;
+}
+.no .no-hd ul li {
+  position: relative;
+  flex: 1;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #ffeb7b;
+  font-family: "electronicFont";
+}
+.no .no-hd ul li::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  right: 0;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.no .no-bd ul {
+  display: flex;
+}
+.no .no-bd ul li {
+  flex: 1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.225rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  padding-top: 0.125rem;
+}
+.xmgl_heard{ width:100%; display:block; overflow:hidden}
+.xmgl_heard li{ float:left; list-style:none; font-size:17px; height:24px; line-height:24px; text-align:center;background:#0068b7; width:50%; cursor:pointer; border-top:1px #032d60 solid;border-bottom:1px #032d60 solid}
+.xmgl_heard li.hove{ background:#000c3b}
+/*项目概览 */
+.xm_cszs{ font-size:12px; padding:10px 10px 0 10px; }
+.xm_cszs li { line-height:22px;overflow:hidden}
+.xm_cszs li span{ color:#00ff00; padding:0 5px 0 10px}
+.xm_cszs li p{ float:left;width:50%;color:#ffffff;font-size:16px;}
+.xm_cszs li p span{ color:#00ffff; padding:0}
+.xm_cszs li p cite{ color:#00ffff;}
+ div .main_title{
+    width: 220px;
+    height: 35px;
+    line-height: 33px;
+    background-color: #2C58A6;
+    border-radius: 18px;
+    position: absolute;
+    top: -17px;
+    left:50%;
+    margin-left: -110px;
+    color:#fff;
+    font-size: 18px;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding-left: 45px;
+}
+ div .main_title img{
+    position: absolute;
+    top: 8px;
+    left: 20px;
+}
+
+ div .main_table tr{
+    height: 42px;
+}
+ div .main_table{
+    width: 100%;
+    margin-top: 25px;
+}
+ div .main_table table{
+    width: 100%;
+}
+ div .main_table thead tr{
+    height: 42px;
+}
+ div .main_table th{
+    font-size: 15px;
+    font-weight: 600;
+    color:#61d2f7;
+    text-align: center;
+	background-color:  #072951;
+}
+ div .main_table th:nth-child(1){
+
+}
+ div .main_table th:nth-child(2){
+
+}
+ div .main_table td{
+    color:#fff;
+    font-size: 14px;
+    text-align: center;
+}
+div .main_table tbody tr:nth-child(2),
+ div .main_table tbody tr:nth-child(4){
+    background-color: #123e51;
+    box-shadow:-10px 0px 15px #2C58A6 inset,   /*左边阴影*/
+    10px 0px 15px #2C58A6 inset;  /*右边阴影*/
+}
+.t_btn8,.t_btn2,.t_btn3{
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+}
+
+

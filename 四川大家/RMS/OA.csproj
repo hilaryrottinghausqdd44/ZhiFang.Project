@@ -1,0 +1,2601 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06C1EFBC-5332-4397-B83F-17EA3E540ACB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>WebSiteOA</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OA</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <WebReference_EnableProperties>true</WebReference_EnableProperties>
+    <WebReference_EnableSQLTypes>false</WebReference_EnableSQLTypes>
+    <WebReference_EnableLegacyEventingModel>true</WebReference_EnableLegacyEventingModel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SignAssembly>false</SignAssembly>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxPro, Version=5.11.4.2, Culture=neutral, PublicKeyToken=eabb1b8f6347d5af" />
+    <Reference Include="ContainerManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL2009\DLL\ContainerManager.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.1.271, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL2009\DLL\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.UI.WebControls, Version=1.0.2.226, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL2009\DLL\Microsoft.Web.UI.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management">
+      <Name>System.Management</Name>
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+      <Name>System.ServiceProcess</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\DesktopConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Unrar.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBQuery\CodeXMLEditor.aspx.cs">
+      <DependentUpon>CodeXMLEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DBQuery\CodeXMLEditor.aspx.designer.cs">
+      <DependentUpon>CodeXMLEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\defaultFPat.aspx.cs">
+      <DependentUpon>defaultFPat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\defaultFPat.aspx.designer.cs">
+      <DependentUpon>defaultFPat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DefaultMSG.aspx.cs">
+      <DependentUpon>DefaultMSG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\DefaultMSG.aspx.designer.cs">
+      <DependentUpon>DefaultMSG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DefaultSample.aspx.cs">
+      <DependentUpon>DefaultSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\DefaultSample.aspx.designer.cs">
+      <DependentUpon>DefaultSample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\IndexTopF.aspx.cs">
+      <DependentUpon>IndexTopF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\IndexTopF.aspx.designer.cs">
+      <DependentUpon>IndexTopF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\defaultF.aspx.cs">
+      <DependentUpon>defaultF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\defaultF.aspx.designer.cs">
+      <DependentUpon>defaultF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchEmpls.aspx.cs">
+      <DependentUpon>searchEmpls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchEmpls.aspx.designer.cs">
+      <DependentUpon>searchEmpls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchEmpls_list.aspx.cs">
+      <DependentUpon>searchEmpls_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchEmpls_list.aspx.designer.cs">
+      <DependentUpon>searchEmpls_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchEmplRoles.aspx.cs">
+      <DependentUpon>searchEmplRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchEmplRoles.aspx.designer.cs">
+      <DependentUpon>searchEmplRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchEmplRoles_list.aspx.cs">
+      <DependentUpon>searchEmplRoles_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchEmplRoles_list.aspx.designer.cs">
+      <DependentUpon>searchEmplRoles_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ModuleRoles.aspx.cs">
+      <DependentUpon>ModuleRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ModuleRoles.aspx.designer.cs">
+      <DependentUpon>ModuleRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\EmplRoles.aspx.cs">
+      <DependentUpon>EmplRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\EmplRoles.aspx.designer.cs">
+      <DependentUpon>EmplRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\RoleEmpls_.aspx.cs">
+      <DependentUpon>RoleEmpls_.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\RoleEmpls_.aspx.designer.cs">
+      <DependentUpon>RoleEmpls_.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\RoleModules.aspx.cs">
+      <DependentUpon>RoleModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\RoleModules.aspx.designer.cs">
+      <DependentUpon>RoleModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\RoleEmpls.aspx.cs">
+      <DependentUpon>RoleEmpls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\RoleEmpls.aspx.designer.cs">
+      <DependentUpon>RoleEmpls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\Images\ModuleRole.aspx.cs">
+      <DependentUpon>ModuleRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\Images\ModuleRole.aspx.designer.cs">
+      <DependentUpon>ModuleRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\testt.aspx.cs">
+      <DependentUpon>testt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\chooseRoles.aspx.cs">
+      <DependentUpon>chooseRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\chooseRoles.aspx.designer.cs">
+      <DependentUpon>chooseRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\import_E.aspx.cs">
+      <DependentUpon>import_E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\import_E.aspx.designer.cs">
+      <DependentUpon>import_E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\RoleConfig\RoleGroupConfig.aspx.cs">
+      <DependentUpon>RoleGroupConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\RoleConfig\RoleGroupConfig.aspx.designer.cs">
+      <DependentUpon>RoleGroupConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\functions.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\NewsFunction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\OABusiness.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\RBAC.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\RBACFunctions.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\SMTP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\SqlDBHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\SqlServerDB.asmx.cs">
+      <DependentUpon>SqlServerDB.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encryption\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption\DigitSign.aspx.cs">
+      <DependentUpon>DigitSign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encryption\DigitSign.aspx.designer.cs">
+      <DependentUpon>DigitSign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption\popupSelectFile.aspx.cs">
+      <DependentUpon>popupSelectFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encryption\popupSelectFile.aspx.designer.cs">
+      <DependentUpon>popupSelectFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption\sayeahapi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Encryption\selectModuleImage.aspx.cs">
+      <DependentUpon>selectModuleImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encryption\selectModuleImage.aspx.designer.cs">
+      <DependentUpon>selectModuleImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption\UploadImg.aspx.cs">
+      <DependentUpon>UploadImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encryption\UploadImg.aspx.designer.cs">
+      <DependentUpon>UploadImg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption\VerifySign.aspx.cs">
+      <DependentUpon>VerifySign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encryption\VerifySign.aspx.designer.cs">
+      <DependentUpon>VerifySign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Help\NewsModuleHelp.aspx.cs">
+      <DependentUpon>NewsModuleHelp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\NewsModuleHelp.aspx.designer.cs">
+      <DependentUpon>NewsModuleHelp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\ChangeUserPwd.aspx.cs">
+      <DependentUpon>ChangeUserPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\ChangeUserPwd.aspx.designer.cs">
+      <DependentUpon>ChangeUserPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\calendar.aspx.cs">
+      <DependentUpon>calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\company_announce.aspx.cs">
+      <DependentUpon>company_announce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\company_announce.aspx.designer.cs">
+      <DependentUpon>company_announce.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\company_files.aspx.cs">
+      <DependentUpon>company_files.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\company_files.aspx.designer.cs">
+      <DependentUpon>company_files.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\company_news.aspx.cs">
+      <DependentUpon>company_news.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\company_news.aspx.designer.cs">
+      <DependentUpon>company_news.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\dept_news.aspx.cs">
+      <DependentUpon>dept_news.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\dept_news.aspx.designer.cs">
+      <DependentUpon>dept_news.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\email.aspx.cs">
+      <DependentUpon>email.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\email.aspx.designer.cs">
+      <DependentUpon>email.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\forum_board.aspx.cs">
+      <DependentUpon>forum_board.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\forum_board.aspx.designer.cs">
+      <DependentUpon>forum_board.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\invitations.aspx.cs">
+      <DependentUpon>invitations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\invitations.aspx.designer.cs">
+      <DependentUpon>invitations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\personal_memo.aspx.cs">
+      <DependentUpon>personal_memo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\personal_memo.aspx.designer.cs">
+      <DependentUpon>personal_memo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\ProjectFolder.aspx.cs">
+      <DependentUpon>ProjectFolder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\ProjectFolder.aspx.designer.cs">
+      <DependentUpon>ProjectFolder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\today_events.aspx.cs">
+      <DependentUpon>today_events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\today_events.aspx.designer.cs">
+      <DependentUpon>today_events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\toolbox.aspx.cs">
+      <DependentUpon>toolbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\toolbox.aspx.designer.cs">
+      <DependentUpon>toolbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\top_news.aspx.cs">
+      <DependentUpon>top_news.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\top_news.aspx.designer.cs">
+      <DependentUpon>top_news.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\vdisk_folder.aspx.cs">
+      <DependentUpon>vdisk_folder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\vdisk_folder.aspx.designer.cs">
+      <DependentUpon>vdisk_folder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\desktop\WorkflowFolder.aspx.cs">
+      <DependentUpon>WorkflowFolder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\desktop\WorkflowFolder.aspx.designer.cs">
+      <DependentUpon>WorkflowFolder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\ContentPane.aspx.cs">
+      <DependentUpon>ContentPane.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\ContentPane.aspx.designer.cs">
+      <DependentUpon>ContentPane.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\edit.aspx.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\edit.aspx.designer.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\FTP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\selectFile.aspx.cs">
+      <DependentUpon>selectFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\selectFile.aspx.designer.cs">
+      <DependentUpon>selectFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\upload.aspx.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="library\XPathAnalyzer\upload.aspx.designer.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\defaultLogin.aspx.cs">
+      <DependentUpon>defaultLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\defaultLogin.aspx.designer.cs">
+      <DependentUpon>defaultLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\defaultSingle.aspx.cs">
+      <DependentUpon>defaultSingle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\defaultSingle.aspx.designer.cs">
+      <DependentUpon>defaultSingle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DefaultUserD.aspx.cs">
+      <DependentUpon>DefaultUserD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\DefaultUserD.aspx.designer.cs">
+      <DependentUpon>DefaultUserD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DesktopMain.aspx.cs">
+      <DependentUpon>DesktopMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\DesktopMain.aspx.designer.cs">
+      <DependentUpon>DesktopMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\AddDesktopItem.aspx.cs">
+      <DependentUpon>AddDesktopItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\AddDesktopItem.aspx.designer.cs">
+      <DependentUpon>AddDesktopItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\AllDesktopItems.aspx.cs">
+      <DependentUpon>AllDesktopItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\AllDesktopItems.aspx.designer.cs">
+      <DependentUpon>AllDesktopItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\Desktop.aspx.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\Desktop.aspx.designer.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\DesktopConfig.aspx.cs">
+      <DependentUpon>DesktopConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\DesktopConfig.aspx.designer.cs">
+      <DependentUpon>DesktopConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\DesktopItem.aspx.cs">
+      <DependentUpon>DesktopItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\DesktopItem.aspx.designer.cs">
+      <DependentUpon>DesktopItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\Desktop_config.aspx.cs">
+      <DependentUpon>Desktop_config.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\Desktop_config.aspx.designer.cs">
+      <DependentUpon>Desktop_config.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\Desktop_new.aspx.cs">
+      <DependentUpon>Desktop_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\Desktop_new.aspx.designer.cs">
+      <DependentUpon>Desktop_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\Destop_sj.aspx.cs">
+      <DependentUpon>Destop_sj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\Destop_sj.aspx.designer.cs">
+      <DependentUpon>Destop_sj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\FilesTree.aspx.cs">
+      <DependentUpon>FilesTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\FilesTree.aspx.designer.cs">
+      <DependentUpon>FilesTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\LocalTools.aspx.cs">
+      <DependentUpon>LocalTools.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\LocalTools.aspx.designer.cs">
+      <DependentUpon>LocalTools.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\RemoteTools.aspx.cs">
+      <DependentUpon>RemoteTools.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\RemoteTools.aspx.designer.cs">
+      <DependentUpon>RemoteTools.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\selectTarget.aspx.cs">
+      <DependentUpon>selectTarget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\selectTarget.aspx.designer.cs">
+      <DependentUpon>selectTarget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Desktop\UpdateDesktop.aspx.cs">
+      <DependentUpon>UpdateDesktop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Desktop\UpdateDesktop.aspx.designer.cs">
+      <DependentUpon>UpdateDesktop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\exit.aspx.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\exit.aspx.designer.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\iFrames\IndexLeft.aspx.cs">
+      <DependentUpon>IndexLeft.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\iFrames\IndexLeft.aspx.designer.cs">
+      <DependentUpon>IndexLeft.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\IndexTop.aspx.cs">
+      <DependentUpon>IndexTop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\IndexTop.aspx.designer.cs">
+      <DependentUpon>IndexTop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\left.aspx.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\left.aspx.designer.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\MainForm.aspx.cs">
+      <DependentUpon>MainForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\MainForm.aspx.designer.cs">
+      <DependentUpon>MainForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\showuser.aspx.cs">
+      <DependentUpon>showuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\showuser.aspx.designer.cs">
+      <DependentUpon>showuser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\TopMenu.aspx.cs">
+      <DependentUpon>TopMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\TopMenu.aspx.designer.cs">
+      <DependentUpon>TopMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\TopMenuSoph.aspx.cs">
+      <DependentUpon>TopMenuSoph.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\TopMenuSoph.aspx.designer.cs">
+      <DependentUpon>TopMenuSoph.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupSelectDialog.aspx.cs">
+      <DependentUpon>PopupSelectDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupSelectDialog.aspx.designer.cs">
+      <DependentUpon>PopupSelectDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Config\ColumnsCategory.aspx.cs">
+      <DependentUpon>ColumnsCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Config\ConfigEmail.aspx.cs">
+      <DependentUpon>ConfigEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Config\DataSet1.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="RBAC\Config\errCode.aspx.cs">
+      <DependentUpon>errCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Config\errCode.aspx.designer.cs">
+      <DependentUpon>errCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Config\SendEmail.aspx.cs">
+      <DependentUpon>SendEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Config\SendEmail.aspx.designer.cs">
+      <DependentUpon>SendEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Config\SystemConfig.aspx.cs">
+      <DependentUpon>SystemConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Config\SystemConfig.aspx.designer.cs">
+      <DependentUpon>SystemConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Config\SystemConfigLeft.aspx.cs">
+      <DependentUpon>SystemConfigLeft.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Config\SystemConfigLeft.aspx.designer.cs">
+      <DependentUpon>SystemConfigLeft.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Config\testtest.aspx.cs">
+      <DependentUpon>testtest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Config\testtest.aspx.designer.cs">
+      <DependentUpon>testtest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\DeptDesktopInfo.aspx.cs">
+      <DependentUpon>DeptDesktopInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\DeptDesktopInfo.aspx.designer.cs">
+      <DependentUpon>DeptDesktopInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\Deptlisthr.aspx.cs">
+      <DependentUpon>Deptlisthr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\Deptlisthr.aspx.designer.cs">
+      <DependentUpon>Deptlisthr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\personaddhr.aspx.cs">
+      <DependentUpon>personaddhr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\personaddhr.aspx.designer.cs">
+      <DependentUpon>personaddhr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\AccessModules.aspx.cs">
+      <DependentUpon>AccessModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\AccessModules.aspx.designer.cs">
+      <DependentUpon>AccessModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\Module.aspx.cs">
+      <DependentUpon>Module.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\Module.aspx.designer.cs">
+      <DependentUpon>Module.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleArrange.aspx.cs">
+      <DependentUpon>ModuleArrange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleArrange.aspx.designer.cs">
+      <DependentUpon>ModuleArrange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleButtons.aspx.cs">
+      <DependentUpon>ModuleButtons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleButtons.aspx.designer.cs">
+      <DependentUpon>ModuleButtons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleList.aspx.cs">
+      <DependentUpon>ModuleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleList.aspx.designer.cs">
+      <DependentUpon>ModuleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModulePublish.aspx.cs">
+      <DependentUpon>ModulePublish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModulePublish.aspx.designer.cs">
+      <DependentUpon>ModulePublish.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleRoleNew.aspx.cs">
+      <DependentUpon>ModuleRoleNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleRoleNew.aspx.designer.cs">
+      <DependentUpon>ModuleRoleNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleRoleList.aspx.cs">
+      <DependentUpon>ModuleRoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleRoleList.aspx.designer.cs">
+      <DependentUpon>ModuleRoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleRoles.aspx.cs">
+      <DependentUpon>ModuleRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleRoles.aspx.designer.cs">
+      <DependentUpon>ModuleRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleRun.aspx.cs">
+      <DependentUpon>ModuleRun.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleRun.aspx.designer.cs">
+      <DependentUpon>ModuleRun.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\Modules.aspx.cs">
+      <DependentUpon>Modules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\Modules.aspx.designer.cs">
+      <DependentUpon>Modules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleTest.aspx.cs">
+      <DependentUpon>ModuleTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\ModuleTest.aspx.designer.cs">
+      <DependentUpon>ModuleTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\PublishImage.aspx.cs">
+      <DependentUpon>PublishImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\PublishImage.aspx.designer.cs">
+      <DependentUpon>PublishImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\Saveall.aspx.cs">
+      <DependentUpon>Saveall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\Saveall.aspx.designer.cs">
+      <DependentUpon>Saveall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\SelectModule.aspx.cs">
+      <DependentUpon>SelectModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\SelectModule.aspx.designer.cs">
+      <DependentUpon>SelectModule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\SelectModuleDialog.aspx.cs">
+      <DependentUpon>SelectModuleDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\SelectModuleDialog.aspx.designer.cs">
+      <DependentUpon>SelectModuleDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\selectModuleImage.aspx.cs">
+      <DependentUpon>selectModuleImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\selectModuleImage.aspx.designer.cs">
+      <DependentUpon>selectModuleImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Modules\UploadImg.aspx.cs">
+      <DependentUpon>UploadImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Modules\UploadImg.aspx.designer.cs">
+      <DependentUpon>UploadImg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\chooseDept.aspx.cs">
+      <DependentUpon>chooseDept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\chooseDept.aspx.designer.cs">
+      <DependentUpon>chooseDept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\chooseDeptandpos.aspx.cs">
+      <DependentUpon>chooseDeptandpos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\chooseDeptandpos.aspx.designer.cs">
+      <DependentUpon>chooseDeptandpos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\Deptadd.aspx.cs">
+      <DependentUpon>Deptadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\Deptadd.aspx.designer.cs">
+      <DependentUpon>Deptadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\Deptinfo.aspx.cs">
+      <DependentUpon>Deptinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\Deptinfo.aspx.designer.cs">
+      <DependentUpon>Deptinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\Deptlist.aspx.cs">
+      <DependentUpon>Deptlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\Deptlist.aspx.designer.cs">
+      <DependentUpon>Deptlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\DeptTree.aspx.cs">
+      <DependentUpon>DeptTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\DeptTree.aspx.designer.cs">
+      <DependentUpon>DeptTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\EmployeeRole.aspx.cs">
+      <DependentUpon>EmployeeRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\EmployeeRole.aspx.designer.cs">
+      <DependentUpon>EmployeeRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\modifyuser.aspx.cs">
+      <DependentUpon>modifyuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\modifyuser.aspx.designer.cs">
+      <DependentUpon>modifyuser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\ModifyUserPassword.aspx.cs">
+      <DependentUpon>ModifyUserPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\ModifyUserPassword.aspx.designer.cs">
+      <DependentUpon>ModifyUserPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\operatesadd.aspx.cs">
+      <DependentUpon>operatesadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\operatesadd.aspx.designer.cs">
+      <DependentUpon>operatesadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\personadd.aspx.cs">
+      <DependentUpon>personadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\personadd.aspx.designer.cs">
+      <DependentUpon>personadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\PersonPower.aspx.cs">
+      <DependentUpon>PersonPower.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\PersonPower.aspx.designer.cs">
+      <DependentUpon>PersonPower.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\positionadd.aspx.cs">
+      <DependentUpon>positionadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\positionadd.aspx.designer.cs">
+      <DependentUpon>positionadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\positionlist.aspx.cs">
+      <DependentUpon>positionlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\positionlist.aspx.designer.cs">
+      <DependentUpon>positionlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\postsadd.aspx.cs">
+      <DependentUpon>postsadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\postsadd.aspx.designer.cs">
+      <DependentUpon>postsadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\postslist.aspx.cs">
+      <DependentUpon>postslist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\postslist.aspx.designer.cs">
+      <DependentUpon>postslist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchperson.aspx.cs">
+      <DependentUpon>searchperson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchperson.aspx.designer.cs">
+      <DependentUpon>searchperson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchperson_list.aspx.cs">
+      <DependentUpon>searchperson_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\searchperson_list.aspx.designer.cs">
+      <DependentUpon>searchperson_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\SelectPersons.aspx.cs">
+      <DependentUpon>SelectPersons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\SelectPersons.aspx.designer.cs">
+      <DependentUpon>SelectPersons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\setDesktop.aspx.cs">
+      <DependentUpon>setDesktop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\setDesktop.aspx.designer.cs">
+      <DependentUpon>setDesktop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\unengage.aspx.cs">
+      <DependentUpon>unengage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\unengage.aspx.designer.cs">
+      <DependentUpon>unengage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\useradd.aspx.cs">
+      <DependentUpon>useradd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\useradd.aspx.designer.cs">
+      <DependentUpon>useradd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\userlist.aspx.cs">
+      <DependentUpon>userlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\userlist.aspx.designer.cs">
+      <DependentUpon>userlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\OrgTree.aspx.cs">
+      <DependentUpon>OrgTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\OrgTree.aspx.designer.cs">
+      <DependentUpon>OrgTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\OrgTreeStaff.aspx.cs">
+      <DependentUpon>OrgTreeStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\OrgTreeStaff.aspx.designer.cs">
+      <DependentUpon>OrgTreeStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Organizations\SelectPersonsName.aspx.cs">
+      <DependentUpon>SelectPersonsName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Organizations\SelectPersonsName.aspx.designer.cs">
+      <DependentUpon>SelectPersonsName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\AccessConfig.aspx.cs">
+      <DependentUpon>AccessConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\AccessConfig.aspx.designer.cs">
+      <DependentUpon>AccessConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\AccessModules.aspx.cs">
+      <DependentUpon>AccessModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\AccessModules.aspx.designer.cs">
+      <DependentUpon>AccessModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\AdvancedSaveAccess.aspx.cs">
+      <DependentUpon>AdvancedSaveAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\AdvancedSaveAccess.aspx.designer.cs">
+      <DependentUpon>AdvancedSaveAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\AllModules.aspx.cs">
+      <DependentUpon>AllModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\AllModules.aspx.designer.cs">
+      <DependentUpon>AllModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChooseButtonTheme.aspx.cs">
+      <DependentUpon>ChooseButtonTheme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChooseButtonTheme.aspx.designer.cs">
+      <DependentUpon>ChooseButtonTheme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChooseDepartment.aspx.cs">
+      <DependentUpon>ChooseDepartment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChooseDepartment.aspx.designer.cs">
+      <DependentUpon>ChooseDepartment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChooseModules.aspx.cs">
+      <DependentUpon>ChooseModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChooseModules.aspx.designer.cs">
+      <DependentUpon>ChooseModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChoosePosition.aspx.cs">
+      <DependentUpon>ChoosePosition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChoosePosition.aspx.designer.cs">
+      <DependentUpon>ChoosePosition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChoosePost.aspx.cs">
+      <DependentUpon>ChoosePost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ChoosePost.aspx.designer.cs">
+      <DependentUpon>ChoosePost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ModuelValidity.aspx.cs">
+      <DependentUpon>ModuelValidity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ModuelValidity.aspx.designer.cs">
+      <DependentUpon>ModuelValidity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ModulesAccess.aspx.cs">
+      <DependentUpon>ModulesAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ModulesAccess.aspx.designer.cs">
+      <DependentUpon>ModulesAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ModulesOperate.aspx.cs">
+      <DependentUpon>ModulesOperate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ModulesOperate.aspx.designer.cs">
+      <DependentUpon>ModulesOperate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\OperateButtons.aspx.cs">
+      <DependentUpon>OperateButtons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\OperateButtons.aspx.designer.cs">
+      <DependentUpon>OperateButtons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\OperateModules.aspx.cs">
+      <DependentUpon>OperateModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\OperateModules.aspx.designer.cs">
+      <DependentUpon>OperateModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\PostModules.aspx.cs">
+      <DependentUpon>PostModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\PostModules.aspx.designer.cs">
+      <DependentUpon>PostModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\RapidAccess.aspx.cs">
+      <DependentUpon>RapidAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\RapidAccess.aspx.designer.cs">
+      <DependentUpon>RapidAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\RapidAccessModules.aspx.cs">
+      <DependentUpon>RapidAccessModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\RapidAccessModules.aspx.designer.cs">
+      <DependentUpon>RapidAccessModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\SaveAccess.aspx.cs">
+      <DependentUpon>SaveAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\SaveAccess.aspx.designer.cs">
+      <DependentUpon>SaveAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\SaveAllModules.aspx.cs">
+      <DependentUpon>SaveAllModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\SaveAllModules.aspx.designer.cs">
+      <DependentUpon>SaveAllModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\SaveOperateButtons.aspx.cs">
+      <DependentUpon>SaveOperateButtons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\SaveOperateButtons.aspx.designer.cs">
+      <DependentUpon>SaveOperateButtons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\SaveValidity.aspx.cs">
+      <DependentUpon>SaveValidity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\SaveValidity.aspx.designer.cs">
+      <DependentUpon>SaveValidity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ValidityModules.aspx.cs">
+      <DependentUpon>ValidityModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ValidityModules.aspx.designer.cs">
+      <DependentUpon>ValidityModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Roles\ValidityTime.aspx.cs">
+      <DependentUpon>ValidityTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Roles\ValidityTime.aspx.designer.cs">
+      <DependentUpon>ValidityTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Themes\ButtonTheme.aspx.cs">
+      <DependentUpon>ButtonTheme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Themes\ButtonTheme.aspx.designer.cs">
+      <DependentUpon>ButtonTheme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Themes\ChooseButtContainer.aspx.cs">
+      <DependentUpon>ChooseButtContainer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Themes\ChooseButtContainer.aspx.designer.cs">
+      <DependentUpon>ChooseButtContainer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Themes\ChooseButton.aspx.cs">
+      <DependentUpon>ChooseButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Themes\ChooseButton.aspx.designer.cs">
+      <DependentUpon>ChooseButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Themes\Mode.aspx.cs">
+      <DependentUpon>Mode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Themes\Mode.aspx.designer.cs">
+      <DependentUpon>Mode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Themes\ModeColor.aspx.cs">
+      <DependentUpon>ModeColor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Themes\ModeColor.aspx.designer.cs">
+      <DependentUpon>ModeColor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Themes\OperateMode.aspx.cs">
+      <DependentUpon>OperateMode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Themes\OperateMode.aspx.designer.cs">
+      <DependentUpon>OperateMode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Themes\SystemMode.aspx.cs">
+      <DependentUpon>SystemMode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Themes\SystemMode.aspx.designer.cs">
+      <DependentUpon>SystemMode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Themes\Theme.aspx.cs">
+      <DependentUpon>Theme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Themes\Theme.aspx.designer.cs">
+      <DependentUpon>Theme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Tools\BeginEndTime.aspx.cs">
+      <DependentUpon>BeginEndTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Tools\BeginEndTime.aspx.designer.cs">
+      <DependentUpon>BeginEndTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RBAC\Tools\RecycleTime.aspx.cs">
+      <DependentUpon>RecycleTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBAC\Tools\RecycleTime.aspx.designer.cs">
+      <DependentUpon>RecycleTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Updates\NewsWebService.asmx.cs">
+      <DependentUpon>NewsWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Util\ShowMessage.cs" />
+    <Compile Include="WebService\TestWBS.aspx.cs">
+      <DependentUpon>TestWBS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebService\TestWBS.aspx.designer.cs">
+      <DependentUpon>TestWBS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService\WSRbac.asmx.cs">
+      <DependentUpon>WSRbac.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Content Include="DBQuery\CodeXMLEditor.aspx" />
+    <Content Include="default.htm" />
+    <Content Include="Main\c.htm" />
+    <Content Include="Main\defaultFPat.aspx" />
+    <Content Include="Main\DefaultMSG.aspx" />
+    <Content Include="Main\DefaultSample.aspx" />
+    <Content Include="Main\IndexTopF.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\defaultF.aspx" />
+    <Content Include="Main\DefaultF.htm" />
+    <Content Include="Main\Images\admin.gif" />
+    <Content Include="Main\Images\banner.jpg" />
+    <Content Include="Main\Images\banner1111.jpg" />
+    <Content Include="Main\Images\banner3.jpg" />
+    <Content Include="Main\Images\banner4.jpg" />
+    <Content Include="Main\Images\banner5.jpg" />
+    <Content Include="Main\Images\banner6.jpg" />
+    <Content Include="Main\Images\banner7.jpg" />
+    <Content Include="Main\Images\banner_bottom.JPG" />
+    <Content Include="Main\Images\banner_top.JPG" />
+    <Content Include="Main\Images\banner最终.jpg" />
+    <Content Include="Main\Images\beige_rounded_bc.gif" />
+    <Content Include="Main\Images\bg-0003.jpg" />
+    <Content Include="Main\Images\bg-title.gif" />
+    <Content Include="Main\Images\bg.jpg" />
+    <Content Include="Main\Images\dl.gif" />
+    <Content Include="Main\Images\foot-bg.gif" />
+    <Content Include="Main\Images\hidden-off.gif" />
+    <Content Include="Main\Images\hidden-on.gif" />
+    <Content Include="Main\Images\iButton_Close_Normal.gif" />
+    <Content Include="Main\Images\icon.gif" />
+    <Content Include="Main\Images\icon\icon_add.gif" />
+    <Content Include="Main\Images\icon\icon_bag.gif" />
+    <Content Include="Main\Images\icon\icon_boh.gif" />
+    <Content Include="Main\Images\icon\icon_confirm.gif" />
+    <Content Include="Main\Images\icon\icon_cuwu.gif" />
+    <Content Include="Main\Images\icon\icon_delete.gif" />
+    <Content Include="Main\Images\icon\icon_doc.gif" />
+    <Content Include="Main\Images\icon\icon_exit.gif" />
+    <Content Include="Main\Images\icon\icon_Find.gif" />
+    <Content Include="Main\Images\icon\icon_first.gif" />
+    <Content Include="Main\Images\icon\icon_group.gif" />
+    <Content Include="Main\Images\icon\icon_key.gif" />
+    <Content Include="Main\Images\icon\icon_last.gif" />
+    <Content Include="Main\Images\icon\icon_login.gif" />
+    <Content Include="Main\Images\icon\icon_logout.gif" />
+    <Content Include="Main\Images\icon\icon_man.gif" />
+    <Content Include="Main\Images\icon\icon_menu_06.gif" />
+    <Content Include="Main\Images\icon\icon_menu_r.gif" />
+    <Content Include="Main\Images\icon\icon_modify.gif" />
+    <Content Include="Main\Images\icon\icon_next.gif" />
+    <Content Include="Main\Images\icon\icon_note.gif" />
+    <Content Include="Main\Images\icon\icon_pass.gif" />
+    <Content Include="Main\Images\icon\icon_piz.gif" />
+    <Content Include="Main\Images\icon\icon_previous.gif" />
+    <Content Include="Main\Images\icon\icon_print.gif" />
+    <Content Include="Main\Images\icon\icon_Query.gif" />
+    <Content Include="Main\Images\icon\icon_refresh.gif" />
+    <Content Include="Main\Images\icon\icon_return.gif" />
+    <Content Include="Main\Images\icon\icon_save.gif" />
+    <Content Include="Main\Images\icon\icon_user.gif" />
+    <Content Include="Main\Images\icon\icon_woman.gif" />
+    <Content Include="Main\Images\icon\icon_zl.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_add.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_bag.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_boh.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_confirm.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_cuwu.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_delete.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_doc.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_exit.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_Find.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_first.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_group.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_key.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_last.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_login.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_logout.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_man.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_menu_06.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_menu_r.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_modify.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_next.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_note.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_pass.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_piz.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_previous.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_print.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_Query.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_refresh.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_return.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_save.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_user.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_woman.gif" />
+    <Content Include="Main\Images\icon\_vti_cnf\icon_zl.gif" />
+    <Content Include="Main\Images\nav-bg-guodu.gif" />
+    <Content Include="Main\Images\navigation\1.jpg" />
+    <Content Include="Main\Images\navigation\2.jpg" />
+    <Content Include="Main\Images\news\background.jpg" />
+    <Content Include="Main\Images\news\more.jpg" />
+    <Content Include="Main\Images\news\point.gif" />
+    <Content Include="Main\Images\share\1.jpg" />
+    <Content Include="Main\Images\share\2.jpg" />
+    <Content Include="Main\Images\share\3.jpg" />
+    <Content Include="Main\Images\share\jiazi.jpg" />
+    <Content Include="Main\Images\share\margin .jpg" />
+    <Content Include="Main\Images\share\middle.jpg" />
+    <Content Include="Main\Images\share\point.jpg" />
+    <Content Include="Main\Images\tiao\arrow.jpg" />
+    <Content Include="Main\Images\tiao\expand.jpg" />
+    <Content Include="Main\Images\tiao\right.jpg" />
+    <Content Include="Main\Images\tiao\short.jpg" />
+    <Content Include="Main\Images\tiao\short1.JPG" />
+    <Content Include="Main\Images\tongzhi-line.gif" />
+    <Content Include="Main\Images\top\1.jpg" />
+    <Content Include="Main\Images\top\2.jpg" />
+    <Content Include="Main\Images\top\3.jpg" />
+    <Content Include="Main\Images\top\4.jpg" />
+    <Content Include="Main\Images\top\5.jpg" />
+    <Content Include="Main\Images\top\cor1.jpg" />
+    <Content Include="Main\Images\top\cor2.jpg" />
+    <Content Include="Main\Images\top\corner1.jpg" />
+    <Content Include="Main\Images\top\corner2.jpg" />
+    <Content Include="Main\Images\top\corner3.jpg" />
+    <Content Include="Main\Images\top\main_r2_c1.jpg" />
+    <Content Include="Main\Images\top\main_r2_c5.jpg" />
+    <Content Include="Main\Images\top\t1.jpg" />
+    <Content Include="Main\Images\top\t2.jpg" />
+    <Content Include="Main\Images\top\t3.jpg" />
+    <Content Include="Main\Images\top\t4.jpg" />
+    <Content Include="Main\Images\top\t5.jpg" />
+    <Content Include="Main\Images\top\t6.jpg" />
+    <Content Include="Main\Images\top\tiao.jpg" />
+    <Content Include="Main\Images\top\tiao1.jpg" />
+    <Content Include="Main\Images\top\tiao2.jpg" />
+    <Content Include="Main\Images\top\zhifang.jpg" />
+    <Content Include="Main\Readme.txt" />
+    <Content Include="RBAC\Organizations\searchEmpls.aspx" />
+    <Content Include="RBAC\Organizations\searchEmpls_list.aspx" />
+    <Content Include="RBAC\Organizations\searchEmplRoles.aspx" />
+    <Content Include="RBAC\Organizations\searchEmplRoles_list.aspx" />
+    <Content Include="RBAC\Roles\ModuleRoles.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\EmplRoles.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\RoleEmpls_.aspx" />
+    <Content Include="RBAC\Roles\RoleModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\RoleEmpls.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\Images\ModuleRole.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\testt.aspx" />
+    <Content Include="RBAC\Organizations\chooseRoles.aspx" />
+    <Content Include="RBAC\Organizations\import_E.aspx" />
+    <Content Include="RBAC\RoleConfig\RoleGroupConfig.aspx" />
+    <Content Include="RBAC\Roles\Readme.txt" />
+    <Content Include="Common\SqlServerDB.asmx" />
+    <Content Include="Default.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Encryption\Default.aspx" />
+    <Content Include="Encryption\DigitSign.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Encryption\Images\btnOK.gif" />
+    <Content Include="Encryption\Images\btnOK_over.gif" />
+    <Content Include="Encryption\Images\passed.gif" />
+    <Content Include="Encryption\Images\unpassed.gif" />
+    <Content Include="Encryption\Images\zhifang.gif" />
+    <Content Include="Encryption\popupSelectFile.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Encryption\selectModuleImage.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Encryption\test.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Encryption\UploadImg.aspx" />
+    <Content Include="Encryption\VerifySign.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Global.asax">
+      <SubType>Component</SubType>
+    </Content>
+    <Content Include="Help\NewsModuleHelp.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Images\arrow.jpg" />
+    <Content Include="Images\back.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\next.gif" />
+    <Content Include="Images\Test.htm" />
+    <Content Include="library\ChangeUserPwd.aspx" />
+    <Content Include="library\desktop\calendar.aspx" />
+    <Content Include="library\desktop\company_announce.aspx" />
+    <Content Include="library\desktop\company_files.aspx" />
+    <Content Include="library\desktop\company_news.aspx" />
+    <Content Include="library\desktop\dept_news.aspx" />
+    <Content Include="library\desktop\email.aspx" />
+    <Content Include="library\desktop\forum_board.aspx" />
+    <Content Include="library\desktop\invitations.aspx" />
+    <Content Include="library\desktop\personal_memo.aspx" />
+    <Content Include="library\desktop\ProjectFolder.aspx" />
+    <Content Include="library\desktop\today_events.aspx" />
+    <Content Include="library\desktop\toolbox.aspx" />
+    <Content Include="library\desktop\top_news.aspx" />
+    <Content Include="library\desktop\vdisk_folder.aspx" />
+    <Content Include="library\desktop\WorkflowFolder.aspx" />
+    <Content Include="library\XPathAnalyzer\ContentPane.aspx" />
+    <Content Include="library\XPathAnalyzer\edit.aspx" />
+    <Content Include="library\XPathAnalyzer\pics\icons\back.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\Copy of edit.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\current.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\delete.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\desktop.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\edit.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\editAnyway.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\find.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\folder.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\folderOpen.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\gif.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\go.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\home.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\music.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\newFile.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\newFolder.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\refresh.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\rename.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\textFile.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\thumbs.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\unknown.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\up.gif" />
+    <Content Include="library\XPathAnalyzer\pics\icons\upload.GIF" />
+    <Content Include="library\XPathAnalyzer\quiz.xml" />
+    <Content Include="library\XPathAnalyzer\quiz.xsd" />
+    <Content Include="library\XPathAnalyzer\selectFile.aspx" />
+    <Content Include="library\XPathAnalyzer\styles.css" />
+    <Content Include="library\XPathAnalyzer\upload.aspx" />
+    <Content Include="library\XPathAnalyzer\Web.config" />
+    <Content Include="library\XPathAnalyzer\xpathanalyzer.aspx" />
+    <Content Include="Main\defaultLogin.aspx" />
+    <Content Include="Main\css.css" />
+    <Content Include="Main\default.aspx" />
+    <Content Include="Main\defaultSingle.aspx" />
+    <Content Include="Main\DefaultUserD.aspx" />
+    <Content Include="Main\DesktopMain.aspx" />
+    <Content Include="Main\Desktop\AddDesktopItem.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\AllDesktopItems.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\calendar.js" />
+    <Content Include="Main\Desktop\Desktop.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\desktop.xsl" />
+    <Content Include="Main\Desktop\DesktopConfig.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\DesktopItem.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\Desktop_config.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\Desktop_new.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\Destop_sj.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\FilesTree.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\Images\news\background.jpg" />
+    <Content Include="Main\Desktop\Images\news\more.jpg" />
+    <Content Include="Main\Desktop\Images\news\point.gif" />
+    <Content Include="Main\Desktop\LocalTools.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\RemoteTools.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\Desktop\selectTarget.aspx" />
+    <Content Include="Main\Desktop\sitemap.xml" />
+    <Content Include="Main\Desktop\test.aspx" />
+    <Content Include="Main\Desktop\TopMenu.xsl" />
+    <Content Include="Main\Desktop\UpdateDesktop.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\exit.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\iFrames\IncreaseSpeed.htm" />
+    <Content Include="Main\iFrames\IndexLeft.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\include\bnbg.gif" />
+    <Content Include="Main\include\bncl.gif" />
+    <Content Include="Main\include\bnop.gif" />
+    <Content Include="Main\include\cbg1.gif" />
+    <Content Include="Main\include\close_move.gif" />
+    <Content Include="Main\include\desktop.js" />
+    <Content Include="Main\include\navbg.gif" />
+    <Content Include="Main\include\style.css" />
+    <Content Include="Main\include\titbg.gif" />
+    <Content Include="Main\Index.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\IndexTop.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\IndexTop.xslt" />
+    <Content Include="Main\IndexTopNew.xslt" />
+    <Content Include="Main\left.aspx" />
+    <Content Include="Main\MainForm.aspx" />
+    <Content Include="Main\showuser.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\style.css" />
+    <Content Include="Main\TopMenu.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Main\TopMenuSoph.aspx" />
+    <Content Include="PopupSelectDialog.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\CloseWindow.htm">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Config\ColumnsCategory.aspx" />
+    <Content Include="RBAC\Config\ConfigEmail.aspx" />
+    <Content Include="RBAC\Config\DataSet1.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="RBAC\Config\errCode.aspx" />
+    <Content Include="RBAC\Config\images\commend.gif" />
+    <Content Include="RBAC\Config\images\new_pa1.gif" />
+    <Content Include="RBAC\Config\images\new_pa2.gif" />
+    <Content Include="RBAC\Config\images\new_pa3.gif" />
+    <Content Include="RBAC\Config\images\sendMail.gif" />
+    <Content Include="RBAC\Config\images\table_bottom_bg.gif" />
+    <Content Include="RBAC\Config\images\table_bottom_left.gif" />
+    <Content Include="RBAC\Config\images\table_bottom_right.gif" />
+    <Content Include="RBAC\Config\images\table_right_bg.gif" />
+    <Content Include="RBAC\Config\images\table_top_bg.gif" />
+    <Content Include="RBAC\Config\images\table_top_left.gif" />
+    <Content Include="RBAC\Config\images\table_top_right.gif" />
+    <Content Include="RBAC\Config\images\xx.gif" />
+    <Content Include="RBAC\Config\new_page_1.htm" />
+    <Content Include="RBAC\Config\SendEmail.aspx" />
+    <Content Include="RBAC\Config\SystemConfig.aspx" />
+    <Content Include="RBAC\Config\SystemConfigLeft.aspx" />
+    <Content Include="RBAC\Config\testtest.aspx" />
+    <Content Include="RBAC\Default.htm" />
+    <Content Include="RBAC\Organizations\DeptDesktopInfo.aspx" />
+    <Content Include="RBAC\Organizations\Deptlisthr.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\personaddhr.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\AccessModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\Images\btnOK.gif" />
+    <Content Include="RBAC\Modules\Images\btnOK_over.gif" />
+    <Content Include="RBAC\Modules\Module.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModuleArrange.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModuleButtons.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModuleList.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModulePublish.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModuleRoleNew.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModuleRoleList.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModuleRoles.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModuleRun.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\Modules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\ModuleTest.aspx" />
+    <Content Include="RBAC\Modules\PublishImage.aspx" />
+    <Content Include="RBAC\Modules\Saveall.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\SelectModule.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\SelectModuleDialog.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\selectModuleImage.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Modules\UploadImg.aspx" />
+    <Content Include="RBAC\Organizations\chooseDept.aspx" />
+    <Content Include="RBAC\Organizations\chooseDeptandpos.aspx" />
+    <Content Include="RBAC\Organizations\Deptadd.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\Deptinfo.aspx" />
+    <Content Include="RBAC\Organizations\Deptlist.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\DeptTree.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\EmployeeRole.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\modifyuser.aspx" />
+    <Content Include="RBAC\Organizations\ModifyUserPassword.aspx" />
+    <Content Include="RBAC\Organizations\operatesadd.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\personadd.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\PersonPower.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\positionadd.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\positionlist.aspx" />
+    <Content Include="RBAC\Organizations\postsadd.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\postslist.aspx" />
+    <Content Include="RBAC\Organizations\searchperson.aspx" />
+    <Content Include="RBAC\Organizations\searchperson_list.aspx" />
+    <Content Include="RBAC\Organizations\SelectPersons.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\setDesktop.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\test.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\unengage.aspx" />
+    <Content Include="RBAC\Organizations\useradd.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\userlist.aspx" />
+    <Content Include="RBAC\Organizations\OrgTree.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\xml\organization.xsl" />
+    <Content Include="RBAC\Organizations\OrgTreeStaff.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Organizations\SelectPersonsName.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\ReLogin.htm" />
+    <Content Include="RBAC\Roles\AccessConfig.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\AccessModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\AdvancedSaveAccess.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\AllModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ChooseButtonTheme.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ChooseDepartment.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ChooseModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ChoosePosition.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ChoosePost.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ModuelValidity.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ModulesAccess.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ModulesOperate.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\OperateButtons.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\OperateModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\PostModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\RapidAccess.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\RapidAccessModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\SaveAccess.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\SaveAllModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\SaveOperateButtons.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\SaveValidity.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ValidityModules.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Roles\ValidityTime.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Themes\ButtonTheme.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Themes\ChooseButtContainer.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Themes\ChooseButton.aspx" />
+    <Content Include="RBAC\Themes\Mode.aspx" />
+    <Content Include="RBAC\Themes\ModeColor.aspx" />
+    <Content Include="RBAC\Themes\OperateMode.aspx" />
+    <Content Include="RBAC\Themes\SystemMode.aspx" />
+    <Content Include="RBAC\Themes\Theme.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Tools\BeginEndTime.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="RBAC\Tools\RecycleTime.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Updates\NewsWebService.asmx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Util\Calendar.js" />
+    <Content Include="Util\CommonJS.js" />
+    <None Include="Main\Images\icon\Thumbs.db" />
+    <None Include="Main\Images\Thumbs.db" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Common\SqlServerDB.asmx.resx">
+      <DependentUpon>SqlServerDB.asmx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBQuery\CodeXMLEditor.aspx.resx">
+      <DependentUpon>CodeXMLEditor.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Default.aspx.resx">
+      <DependentUpon>Default.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encryption\Default.aspx.resx">
+      <DependentUpon>Default.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encryption\DigitSign.aspx.resx">
+      <DependentUpon>DigitSign.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encryption\popupSelectFile.aspx.resx">
+      <DependentUpon>popupSelectFile.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encryption\selectModuleImage.aspx.resx">
+      <DependentUpon>selectModuleImage.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encryption\UploadImg.aspx.resx">
+      <DependentUpon>UploadImg.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encryption\VerifySign.aspx.resx">
+      <DependentUpon>VerifySign.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\NewsModuleHelp.aspx.resx">
+      <DependentUpon>NewsModuleHelp.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\ChangeUserPwd.aspx.resx">
+      <DependentUpon>ChangeUserPwd.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\calendar.aspx.resx">
+      <DependentUpon>calendar.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\company_announce.aspx.resx">
+      <DependentUpon>company_announce.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\company_news.aspx.resx">
+      <DependentUpon>company_news.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\dept_news.aspx.resx">
+      <DependentUpon>dept_news.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\email.aspx.resx">
+      <DependentUpon>email.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\forum_board.aspx.resx">
+      <DependentUpon>forum_board.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\invitations.aspx.resx">
+      <DependentUpon>invitations.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\personal_memo.aspx.resx">
+      <DependentUpon>personal_memo.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\ProjectFolder.aspx.resx">
+      <DependentUpon>ProjectFolder.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\today_events.aspx.resx">
+      <DependentUpon>today_events.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\toolbox.aspx.resx">
+      <DependentUpon>toolbox.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\top_news.aspx.resx">
+      <DependentUpon>top_news.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\vdisk_folder.aspx.resx">
+      <DependentUpon>vdisk_folder.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\desktop\WorkflowFolder.aspx.resx">
+      <DependentUpon>WorkflowFolder.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\XPathAnalyzer\ContentPane.aspx.resx">
+      <DependentUpon>ContentPane.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\XPathAnalyzer\edit.aspx.resx">
+      <DependentUpon>edit.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\XPathAnalyzer\selectFile.aspx.resx">
+      <DependentUpon>selectFile.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="library\XPathAnalyzer\upload.aspx.resx">
+      <DependentUpon>upload.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\defaultFPat.aspx.resx">
+      <DependentUpon>defaultFPat.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\IndexTopF.aspx.resx">
+      <DependentUpon>IndexTopF.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\defaultF.aspx.resx">
+      <DependentUpon>defaultF.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\defaultLogin.aspx.resx">
+      <DependentUpon>defaultLogin.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\default.aspx.resx">
+      <DependentUpon>default.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\defaultSingle.aspx.resx">
+      <DependentUpon>defaultSingle.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\AddDesktopItem.aspx.resx">
+      <DependentUpon>AddDesktopItem.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\AllDesktopItems.aspx.resx">
+      <DependentUpon>AllDesktopItems.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\Desktop.aspx.resx">
+      <DependentUpon>Desktop.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\DesktopConfig.aspx.resx">
+      <DependentUpon>DesktopConfig.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\DesktopItem.aspx.resx">
+      <DependentUpon>DesktopItem.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\Desktop_config.aspx.resx">
+      <DependentUpon>Desktop_config.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\Desktop_new.aspx.resx">
+      <DependentUpon>Desktop_new.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\Destop_sj.aspx.resx">
+      <DependentUpon>Destop_sj.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\FilesTree.aspx.resx">
+      <DependentUpon>FilesTree.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\LocalTools.aspx.resx">
+      <DependentUpon>LocalTools.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\RemoteTools.aspx.resx">
+      <DependentUpon>RemoteTools.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\selectTarget.aspx.resx">
+      <DependentUpon>selectTarget.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Desktop\UpdateDesktop.aspx.resx">
+      <DependentUpon>UpdateDesktop.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\exit.aspx.resx">
+      <DependentUpon>exit.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\iFrames\IndexLeft.aspx.resx">
+      <DependentUpon>IndexLeft.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Index.aspx.resx">
+      <DependentUpon>Index.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\IndexTop.aspx.resx">
+      <DependentUpon>IndexTop.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\left.aspx.resx">
+      <DependentUpon>left.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\showuser.aspx.resx">
+      <DependentUpon>showuser.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\TopMenu.aspx.resx">
+      <DependentUpon>TopMenu.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopupSelectDialog.aspx.resx">
+      <DependentUpon>PopupSelectDialog.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\searchEmpls.aspx.resx">
+      <DependentUpon>searchEmpls.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\searchEmpls_list.aspx.resx">
+      <DependentUpon>searchEmpls_list.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\searchEmplRoles.aspx.resx">
+      <DependentUpon>searchEmplRoles.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\searchEmplRoles_list.aspx.resx">
+      <DependentUpon>searchEmplRoles_list.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ModuleRoles.aspx.resx">
+      <DependentUpon>ModuleRoles.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\EmplRoles.aspx.resx">
+      <DependentUpon>EmplRoles.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\RoleModules.aspx.resx">
+      <DependentUpon>RoleModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\RoleEmpls.aspx.resx">
+      <DependentUpon>RoleEmpls.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Config\ColumnsCategory.aspx.resx">
+      <DependentUpon>ColumnsCategory.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Config\ConfigEmail.aspx.resx">
+      <DependentUpon>ConfigEmail.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Config\errCode.aspx.resx">
+      <DependentUpon>errCode.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Config\SendEmail.aspx.resx">
+      <DependentUpon>SendEmail.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Config\SystemConfig.aspx.resx">
+      <DependentUpon>SystemConfig.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Config\SystemConfigLeft.aspx.resx">
+      <DependentUpon>SystemConfigLeft.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Config\testtest.aspx.resx">
+      <DependentUpon>testtest.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\Images\ModuleRole.aspx.resx">
+      <DependentUpon>ModuleRole.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\testt.aspx.resx">
+      <DependentUpon>testt.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\Deptlisthr.aspx.resx">
+      <DependentUpon>Deptlisthr.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\personaddhr.aspx.resx">
+      <DependentUpon>personaddhr.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\AccessModules.aspx.resx">
+      <DependentUpon>AccessModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\Module.aspx.resx">
+      <DependentUpon>Module.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\ModuleArrange.aspx.resx">
+      <DependentUpon>ModuleArrange.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\ModuleButtons.aspx.resx">
+      <DependentUpon>ModuleButtons.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\ModuleList.aspx.resx">
+      <DependentUpon>ModuleList.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\ModulePublish.aspx.resx">
+      <DependentUpon>ModulePublish.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\ModuleRoleNew.aspx.resx">
+      <DependentUpon>ModuleRoleNew.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\ModuleRoleList.aspx.resx">
+      <DependentUpon>ModuleRoleList.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\ModuleRoles.aspx.resx">
+      <DependentUpon>ModuleRoles.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\ModuleRun.aspx.resx">
+      <DependentUpon>ModuleRun.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\Modules.aspx.resx">
+      <DependentUpon>Modules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\PublishImage.aspx.resx">
+      <DependentUpon>PublishImage.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\Saveall.aspx.resx">
+      <DependentUpon>Saveall.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\SelectModule.aspx.resx">
+      <DependentUpon>SelectModule.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\SelectModuleDialog.aspx.resx">
+      <DependentUpon>SelectModuleDialog.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\selectModuleImage.aspx.resx">
+      <DependentUpon>selectModuleImage.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Modules\UploadImg.aspx.resx">
+      <DependentUpon>UploadImg.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\chooseDept.aspx.resx">
+      <DependentUpon>chooseDept.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\chooseDeptandpos.aspx.resx">
+      <DependentUpon>chooseDeptandpos.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\Deptadd.aspx.resx">
+      <DependentUpon>Deptadd.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\Deptinfo.aspx.resx">
+      <DependentUpon>Deptinfo.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\Deptlist.aspx.resx">
+      <DependentUpon>Deptlist.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\DeptTree.aspx.resx">
+      <DependentUpon>DeptTree.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\EmployeeRole.aspx.resx">
+      <DependentUpon>EmployeeRole.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\modifyuser.aspx.resx">
+      <DependentUpon>modifyuser.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\ModifyUserPassword.aspx.resx">
+      <DependentUpon>ModifyUserPassword.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\operatesadd.aspx.resx">
+      <DependentUpon>operatesadd.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\personadd.aspx.resx">
+      <DependentUpon>personadd.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\PersonPower.aspx.resx">
+      <DependentUpon>PersonPower.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\positionadd.aspx.resx">
+      <DependentUpon>positionadd.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\positionlist.aspx.resx">
+      <DependentUpon>positionlist.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\postsadd.aspx.resx">
+      <DependentUpon>postsadd.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\postslist.aspx.resx">
+      <DependentUpon>postslist.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\searchperson.aspx.resx">
+      <DependentUpon>searchperson.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\searchperson_list.aspx.resx">
+      <DependentUpon>searchperson_list.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\SelectPersons.aspx.resx">
+      <DependentUpon>SelectPersons.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\setDesktop.aspx.resx">
+      <DependentUpon>setDesktop.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\test.aspx.resx">
+      <DependentUpon>test.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\unengage.aspx.resx">
+      <DependentUpon>unengage.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\useradd.aspx.resx">
+      <DependentUpon>useradd.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\userlist.aspx.resx">
+      <DependentUpon>userlist.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\OrgTree.aspx.resx">
+      <DependentUpon>OrgTree.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\OrgTreeStaff.aspx.resx">
+      <DependentUpon>OrgTreeStaff.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Organizations\SelectPersonsName.aspx.resx">
+      <DependentUpon>SelectPersonsName.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\AccessConfig.aspx.resx">
+      <DependentUpon>AccessConfig.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\AccessModules.aspx.resx">
+      <DependentUpon>AccessModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\AdvancedSaveAccess.aspx.resx">
+      <DependentUpon>AdvancedSaveAccess.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\AllModules.aspx.resx">
+      <DependentUpon>AllModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ChooseButtonTheme.aspx.resx">
+      <DependentUpon>ChooseButtonTheme.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ChooseDepartment.aspx.resx">
+      <DependentUpon>ChooseDepartment.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ChooseModules.aspx.resx">
+      <DependentUpon>ChooseModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ChoosePosition.aspx.resx">
+      <DependentUpon>ChoosePosition.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ChoosePost.aspx.resx">
+      <DependentUpon>ChoosePost.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ModuelValidity.aspx.resx">
+      <DependentUpon>ModuelValidity.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ModulesAccess.aspx.resx">
+      <DependentUpon>ModulesAccess.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ModulesOperate.aspx.resx">
+      <DependentUpon>ModulesOperate.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\OperateButtons.aspx.resx">
+      <DependentUpon>OperateButtons.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\OperateModules.aspx.resx">
+      <DependentUpon>OperateModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\PostModules.aspx.resx">
+      <DependentUpon>PostModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\RapidAccess.aspx.resx">
+      <DependentUpon>RapidAccess.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\RapidAccessModules.aspx.resx">
+      <DependentUpon>RapidAccessModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\SaveAccess.aspx.resx">
+      <DependentUpon>SaveAccess.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\SaveAllModules.aspx.resx">
+      <DependentUpon>SaveAllModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\SaveOperateButtons.aspx.resx">
+      <DependentUpon>SaveOperateButtons.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\SaveValidity.aspx.resx">
+      <DependentUpon>SaveValidity.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ValidityModules.aspx.resx">
+      <DependentUpon>ValidityModules.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Roles\ValidityTime.aspx.resx">
+      <DependentUpon>ValidityTime.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Themes\ButtonTheme.aspx.resx">
+      <DependentUpon>ButtonTheme.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Themes\ChooseButtContainer.aspx.resx">
+      <DependentUpon>ChooseButtContainer.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Themes\ChooseButton.aspx.resx">
+      <DependentUpon>ChooseButton.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Themes\Mode.aspx.resx">
+      <DependentUpon>Mode.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Themes\ModeColor.aspx.resx">
+      <DependentUpon>ModeColor.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Themes\OperateMode.aspx.resx">
+      <DependentUpon>OperateMode.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Themes\SystemMode.aspx.resx">
+      <DependentUpon>SystemMode.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Themes\Theme.aspx.resx">
+      <DependentUpon>Theme.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Tools\BeginEndTime.aspx.resx">
+      <DependentUpon>BeginEndTime.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RBAC\Tools\RecycleTime.aspx.resx">
+      <DependentUpon>RecycleTime.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Updates\NewsWebService.asmx.resx">
+      <DependentUpon>NewsWebService.asmx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Encryption\WebVega注册信息表格.dot" />
+    <None Include="library\XPathAnalyzer\quiz.xsx">
+      <DependentUpon>quiz.xsd</DependentUpon>
+    </None>
+    <Content Include="WebService\TestWBS.aspx" />
+    <Content Include="WebService\WSRbac.asmx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Main\BackupMain\" />
+    <Folder Include="Main\Backup\" />
+    <Folder Include="Main\Desktop\sysXml\" />
+    <Folder Include="Main\Desktop\xml\" />
+    <Folder Include="RBAC\Functions\" />
+    <Folder Include="RBAC\Images\" />
+    <Folder Include="RBAC\Modules\xml\" />
+    <Folder Include="RBAC\Users\" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>801</DevelopmentServerPort>
+          <DevelopmentServerVPath>/OA2010</DevelopmentServerVPath>
+          <IISUrl>http://localhost/OA2010</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties tArchitectProject="False" tArchitectGeneration="Disabled" tArchitectTAProfile="False" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+</Project>

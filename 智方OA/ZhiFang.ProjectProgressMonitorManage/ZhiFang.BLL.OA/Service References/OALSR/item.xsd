@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetCharLicenceByMAC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pLicenceType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pSQH" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pBeginDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pENDDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCharLicenceByMACResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCharLicenceByMACResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumLicence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pLicenceType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serverNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Mac" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pSQH" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pSNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pENDDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumLicenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumLicenceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumLicenceByMAC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pLicenceType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pSQH" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pBeginDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pENDDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumLicenceByMACResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumLicenceByMACResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

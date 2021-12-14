@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="application/javascript">
+
+        //加载版本号
+        document.write(
+            "<script type='text/javascript' src='../../../config/version.js?t=" +
+                new Date().getTime() + "'><\/script>"
+        );
+    </script>
+
+    <script type="application/javascript">
+        //加载公众号Title
+        document.write(
+            "<title>"+JcallShell.System.SysHtmlTitle +"</title>"
+        );
+    </script>  
+</head>
+<body>
+	<!--用户协议-->
+	<div class="home-div-default" id="Agreement">
+        <iframe id="agreement-iframe" src="" style="height:100%;width:100%;
+			overflow:hidden;overflow-x:hidden;overflow-y:hidden;position:absolute;
+			top:0px;left:0px;right:0px;bottom:0px"></iframe>
+		<ul id="agreement-bottom" class="navbar-fixed-bottom navbar-bottom">
+			<label style="margin:15px">
+				<input id="IsConfirm" type="checkbox" value="">同意用户协议
+			</label>
+			<button type="button" id="IsReadAgreement" class="btn btn-primary" 
+				style="float:right;margin:10px 20px;disabled:disabled;" disabled="disabled">同意</button>
+		</ul>
+   </div>
+	<!-- 模态框-确定用户协议 -->
+	<div class="modal fade" id="IsReadAgreementModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title">确定信息</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-warning" role="alert" style="text-align:center;">
+						请确认您已经阅读并同意用户协议，如果同意点"确认"，如果不同意点"取消"。
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="IsReadAgreementModal-button">确定</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<script type="application/javascript"> 
+    	var css = [
+    		"../../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css",
+    		"../../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap-switch.min.css",
+    		"../../../css/style.css",
+    		"../../../css/home.css"
+    	];
+    	var js = [
+    		"../../../../../web_src/jquery.min.js",
+    		"../../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js",
+    		"../../../util/JcallShell.js",
+    		"index.js"
+    	];
+    	var files = [];
+    	for(var i in css){
+    		files.push('<link rel="stylesheet" href="' + 
+    			css[i] + '?v=' + JcallShell.System.CSS_VERSION + '"/>');
+    	}
+    	for(var i in js){
+    		files.push('<script type="text/javascript" charset="utf-8" src="' + 
+    			js[i] + '?v=' + JcallShell.System.JS_VERSION + '"><\/script>');
+    	}
+		//加载版本号
+		document.write(files.join(""));
+	</script>
+</body>
+</html>

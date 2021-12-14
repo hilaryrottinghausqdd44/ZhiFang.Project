@@ -1,0 +1,815 @@
+/**
+ * QMS文档信息列表
+ * @author longfc
+ * @version 2016-06-22
+ */
+Ext.define('Shell.class.qms.basic.Grid', {
+	extend: 'Shell.ux.grid.Panel',
+	requires: [
+		'Shell.ux.form.field.SimpleComboBox',
+		'Shell.ux.form.field.CheckTrigger'
+	],
+
+	title: '文档信息列表',
+	width: 1200,
+	height: 800,
+	/**获取数据服务路径*/
+	selectUrl: '/ProjectProgressMonitorManageService.svc/QMS_UDTO_SearchFFileByHQL?isPlanish=true',
+
+	/**查询某一类型树的直属文档列表(包含某一类型树的所有子类型树)*/
+	selectByTreeIdUrl: '/ProjectProgressMonitorManageService.svc/QMS_UDTO_SearchFFileByBDickTreeId?isPlanish=true',
+	/**修改服务地址*/
+	editUrl: '/ProjectProgressMonitorManageService.svc/QMS_UDTO_UpdateFFileAndFFileCopyUserOrFFileReadingUserByField',
+
+	/**删除文档信息(更新IsUse为false,文档状态为作废)*/
+	delUrl: '/ProjectProgressMonitorManageService.svc/QMS_UDTO_DeleleFFileByIds',
+	/**默认排序字段*/
+	defaultOrderBy: [{
+		property: 'FFile_Status',
+		direction: 'ASC'
+	}, {
+		property: 'FFile_DataAddTime',
+		direction: 'ASC'
+	}, {
+		property: 'FFile_Title',
+		direction: 'ASC'
+	}],
+	hasDel: true,
+	hideDelColumn: false,
+	/**删除标志字段*/
+	DelField: 'delState',
+	multiSelect: true,
+	defaultWhere: '',
+	/**默认加载数据*/
+	defaultLoad: false,
+	/**默认选中数据*/
+	autoSelect: true,
+	/**查询栏包含创建者选项*/
+	hasCreator: true,
+	hasShow: true,
+	/**文件的操作记录类型*/
+	fFileOperationType: 1,
+
+	/**对外公开:允许外部调用应用时传入树节点值(如IDS=123,232)*/
+	IDS: "",
+	/**抄送人,阅读人的按人员选择时的角色姓名传入*/
+	ROLEHREMPLOYEECNAME: "",
+	/**编辑文档类型(如新闻/通知/文档/修订文档)*/
+	FTYPE: '',
+
+	hasInteraction: true,
+	hasReadinglog: true,
+	hasOperation: true,
+	/**列表的树类型Id*/
+	BDickTreeId: "",
+	FTypeTreeCName: '',
+	checkOne: true,
+	fFileStatus: '1',
+	/**基本应用的文档确认(通过/同意)操作按钮是否显示*/
+	HiddenAgreeButton: true,
+	/**基本应用的文档确认(通过/同意)操作按钮显示名称*/
+	AgreeButtonText: "",
+	/**基本应用的文档确认(通过/同意)操作按钮的功能类型*/
+	AgreeOperationType: -1,
+	/**基本应用的文档确认(不通过/不同意)操作按钮是否显示*/
+	HiddenDisagreeButton: true,
+	/**基本应用的文档确认(不通过/不同意)操作按钮显示名称*/
+	DisagreeButtonText: "",
+	/**基本应用的文档确认(不通过/不同意)操作按钮的功能类型*/
+	DisagreeOperationType: -1,
+	/**查询条件是否带上登录帐号id*/
+	isSearchUSERID: false,
+	/**撤消提交/审核等按钮的显示值*/
+	DisagreeOfGridText: "",
+	/**提交/审核等按钮的显示值*/
+	AgreeOfGridText: "",
+	HiddenAgreeOfGrid: true,
+	HiddenDisagreeOfGrid: true,
+	/**功能按钮是否隐藏:组件是否隐藏,只起草,自动审核,自动批准,自动发布*/
+	hiddenRadiogroupChoose: [false, false, false, false, false],
+	/**应用操作分类*/
+	AppOperationType: "",
+	/**是否隐藏工具栏查询条件*/
+	hiddenSearch: false,
+	/**是否隐藏工具栏查询条件*/
+	hiddenbuttonsToolbar: false,
+	hasCheckFTypeTree: false,
+	/**文档状态选择项的默认值*/
+	defaultStatusValue: "1",
+	/**是否隐藏文档状态选择项*/
+	hiddenFFileStatus: false,
+	hasRefresh: true,
+	/**打开交流应用时是否显示文档表单*/
+	isShowffileForm: false,
+	/**文档的交流类型:对查询应用(show)的交流应用获取交流记录做默认时间(交流的addtime大于等于发布时间)过滤，起草等(edit)不需要 未完成*/
+	interactionType: "edit",
+	afterRender: function() {
+		var me = this;
+		me.callParent(arguments);
+		//初始化检索监听
+		me.initFilterListeners();
+		var buttonsToolbar = me.getComponent('buttonsToolbar');
+		if(me.hiddenbuttonsToolbar) {
+			buttonsToolbar.setVisible(false);
+		}
+	},
+	initComponent: function() {
+		var me = this;
+		me.hiddenRadiogroupChoose = me.hiddenRadiogroupChoose || [false, false, false, false, false];
+		me.FTYPE = me.FTYPE || "";
+		me.IDS = me.IDS || "";
+		me.ROLEHREMPLOYEECNAME = me.ROLEHREMPLOYEECNAME || "";
+		if(me.IDS && me.IDS.toString().length > 0) {
+			me.treeShortcodeWhere = "idListStr=" + me.IDS;
+		} else {
+			me.treeShortcodeWhere = me.treeShortcodeWhere || "";
+		}
+		if(!me.checkOne) {
+			me.multiSelect = true;
+			me.selType = 'checkboxmodel';
+		}
+		//创建数据列
+		me.columns = me.createGridColumns();
+		//初始化功能按钮栏内容
+		me.initButtonToolbarItems();
+		//初始化默认条件
+		me.initDefaultWhere();
+		me.addEvents('onAddClick', me);
+		me.addEvents('onEditClick', me);
+		me.addEvents('onDisagreeSaveClick', me);
+		me.addEvents('onPublisherSaveClick', me);
+		me.callParent(arguments);
+	},
+	/**对外公开,由外面传入列信息*/
+	createNewColumns: function() {
+		var me = this;
+		//创建数据列
+		var tempColumns = [];
+		return tempColumns;
+	},
+	createGridColumns: function() {
+		var me = this;
+		//创建数据列
+		var columns = [];
+		columns = me.createNewColumns().length > 0 ? me.createNewColumns() : me.createDefaultColumns();
+		//是否有交流列
+		if(me.hasInteraction) {
+			columns.push({
+				xtype: 'actioncolumn',
+				text: '交流',
+				align: 'center',
+				width: 40,
+				style: 'font-weight:bold;color:white;background:orange;',
+				hideable: false,
+				items: [{
+					iconCls: 'button-show hand',
+					handler: function(grid, rowIndex, colIndex) {
+						var rec = grid.getStore().getAt(rowIndex);
+						var id = rec.get('FFile_Id');
+						var publisherDateTime = rec.get("FFile_PublisherDateTime");
+
+						var isInteraction = true;
+						//如果是查看应用,交流记录列表需要处理默认条件
+						switch(me.interactionType) {
+							case "show":
+								var IsDiscuss = rec.get("FFile_IsDiscuss");
+								if(IsDiscuss.toLowerCase() == "false") {
+									isInteraction = false;
+								}
+								break;
+							default:
+								break;
+						}
+						if(isInteraction) {
+							me.showInteractionById(id, null, publisherDateTime, isInteraction);
+						} else {
+							JShell.Msg.error('当前文档不允许交流');
+						}
+					}
+				}]
+			});
+		}
+		//是否有操作记录查看列
+		if(me.hasOperation) {
+			columns.push({
+				xtype: 'actioncolumn',
+				text: '操作记录',
+				align: 'center',
+				width: 55,
+				hidden: false,
+				hideable: false,
+				items: [{
+					iconCls: 'button-show hand',
+					handler: function(grid, rowIndex, colIndex) {
+						var rec = grid.getStore().getAt(rowIndex);
+						var id = rec.get(me.PKField);
+						me.openFFileGrid(id, 'Shell.class.qms.ffile.operation.Grid', '');
+					}
+				}]
+			});
+		}
+		//阅读记录列
+		if(me.hasReadinglog) {
+			columns.push({
+				xtype: 'actioncolumn',
+				text: '阅读记录',
+				align: 'center',
+				width: 55,
+				hideable: false,
+				items: [{
+					iconCls: 'button-show hand',
+					handler: function(grid, rowIndex, colIndex) {
+						var rec = grid.getStore().getAt(rowIndex);
+						var id = rec.get(me.PKField);
+						me.openFFileGrid(id, 'Shell.class.qms.ffile.readinglog.Grid', '');
+					}
+				}]
+			});
+		}
+		return columns;
+	},
+	/**初始化功能按钮栏内容*/
+	initButtonToolbarItems: function() {
+		var me = this;
+		me.buttonToolbarItems = [];
+		//查询框信息
+		me.searchInfo = {
+			width: 120,
+			emptyText: '标题/编号/关键字',
+			isLike: true,
+			itemId: 'search',
+			style: {
+				marginRight: '10px'
+			},
+			fields: ['ffile.Title', 'ffile.No', 'ffile.Keyword']
+		};
+
+		if(me.hasRefresh) {
+			me.buttonToolbarItems.push('refresh');
+		}
+		if(me.hasAdd) {
+			me.buttonToolbarItems.push('add')
+		}
+		if(me.hasEdit) {
+			me.buttonToolbarItems.push('edit');
+		}
+		if(me.hasShow) {
+			me.buttonToolbarItems.push('show');
+		}
+		//		if(me.hasDel) {
+		//			me.buttonToolbarItems.push('del');
+		//		}
+
+		me.buttonToolbarItems.push({
+			xtype: 'button',
+			itemId: 'btnDisagree',
+			iconCls: 'button-back',
+			hidden: me.HiddenDisagreeOfGrid,
+			text: me.DisagreeOfGridText,
+			tooltip: me.DisagreeOfGridText,
+			handler: function() {
+				me.fireEvent('onDisagreeSaveClick', me);
+			}
+		});
+
+		//是否带内容类型
+		if(me.hasCheckBDickTree) {
+			me.buttonToolbarItems.push("-", {
+				boxLabel: '本节点',
+				itemId: 'checkBDickTreeId',
+				checked: false,
+				value: false,
+				inputValue: false,
+				xtype: 'checkbox',
+				style: {
+					marginRight: '15px'
+				},
+				listeners: {
+					change: function(com, newValue, oldValue, eOpts) {
+						var buttonsToolbar = me.getComponent('buttonsToolbar');
+						var ParentId = buttonsToolbar.getComponent('ParentId');
+						var ParentName = buttonsToolbar.getComponent('ParentName');
+						if(newValue == true) {
+							if(ParentId && ParentName) {
+								ParentId.setValue("");
+								ParentName.setValue("");
+							}
+						}
+						me.onSearch();
+					}
+				}
+			});
+		}
+		me.buttonToolbarItems.push('->', {
+			xtype: 'uxSimpleComboBox',
+			hasStyle: true,
+			data: JcallShell.QMS.Enum.getList('FFileStatus', true, false, true, true, false),
+			value: me.defaultStatusValue,
+			width: 140,
+			labelWidth: 60,
+			hidden: me.hiddenFFileStatus,
+			fieldLabel: '文档状态',
+			tooltip: '文档状态选择',
+			itemId: 'selectStatus',
+			listeners: {
+				change: function(com, newValue, oldValue, eOpts) {
+					me.onSearch();
+				}
+			}
+		}, {
+			width: 155,
+			labelWidth: 60,
+			labelAlign: 'right',
+			fieldLabel: '创建时间',
+			itemId: 'BeginDate',
+			xtype: 'datefield',
+			format: 'Y-m-d'
+		}, {
+			width: 100,
+			labelWidth: 5,
+			fieldLabel: '-',
+			labelSeparator: '',
+			itemId: 'EndDate',
+			xtype: 'datefield',
+			format: 'Y-m-d'
+		}, {
+			type: 'search',
+			info: me.searchInfo
+		});
+	},
+
+	/**选择内容类型*/
+	onParentModuleAccept: function(record) {
+		if(record.get('tid') == 0) {
+			JShell.Msg.error('不能选择根节点');
+			return;
+		}
+		var me = this,
+			buttonsToolbar = me.getComponent('buttonsToolbar'),
+			ParentId = buttonsToolbar.getComponent('ParentId'),
+			ParentName = buttonsToolbar.getComponent('ParentName');
+
+		var tid = record.get('tid');
+		var buttonsToolbar = me.getComponent('buttonsToolbar');
+		//		var checkBDickTreeId = buttonsToolbar.getComponent('checkBDickTreeId');
+		//				var checked = true;
+		//				if(tid != "") {
+		//					checked = false;
+		//				}
+		//				if(checkBDickTreeId) {
+		//					checkBDickTree.setValue(checked);
+		//				}
+		ParentId.setValue(tid);
+		ParentName.setValue(record.get('text') || '');
+		me.onSearch();
+	},
+	/**左树节点选择改变后联动清除查询工具栏里的树信息*/
+	revertSearchData: function() {
+		var me = this;
+		var buttonsToolbar = me.getComponent('buttonsToolbar');
+		var ParentId = buttonsToolbar.getComponent('ParentId');
+		var ParentName = buttonsToolbar.getComponent('ParentName');
+
+		if(ParentName && ParentId) {
+			ParentId.setValue("");
+			ParentName.setValue("");
+		}
+	},
+	/**创建数据列*/
+	createDefaultColumns: function() {
+		var me = this;
+		var columns = [{
+			text: '文档标题',
+			dataIndex: 'FFile_Title',
+			width: 130,
+			sortable: false,
+			menuDisabled: true,
+			defaultRenderer: true
+		}, {
+			text: '文档状态',
+			dataIndex: 'FFile_Status',
+			width: 70,
+			sortable: false,
+			menuDisabled: true,
+			renderer: function(value, meta) {
+				var v = JcallShell.QMS.Enum.FFileStatus[value];
+				meta.style = 'font-weight:bold;color:' + JShell.QMS.Enum.FFileOperationTypeColor[value];
+				return v;
+			}
+		}, {
+			text: '类型',
+			dataIndex: 'FFile_BDickTree_CName',
+			hidden: false,
+			width: 120,
+			hideable: false
+		}, {
+			text: '创建时间',
+			dataIndex: 'FFile_DataAddTime',
+			width: 130,
+			hidden: true,
+			isDate: true,
+			hasTime: true
+		}, {
+			text: '创建人',
+			dataIndex: 'FFile_CreatorName',
+			width: 120,
+			hidden: true,
+			sortable: false,
+			menuDisabled: true,
+			defaultRenderer: true
+		}, {
+			text: '起草人',
+			dataIndex: 'FFile_DrafterCName',
+			width: 120,
+			sortable: false,
+			menuDisabled: true
+
+		}, {
+			text: '起草时间',
+			dataIndex: 'FFile_DrafterDateTime',
+			width: 130,
+			isDate: true,
+			hasTime: true
+		}, {
+			text: '主键ID',
+			dataIndex: 'FFile_Id',
+			isKey: true,
+			hidden: true,
+			hideable: false
+		}, {
+			text: '发布时间',
+			dataIndex: 'FFile_PublisherDateTime',
+			width: 130,
+			hidden: true,
+			isDate: true,
+			hasTime: true
+		}, {
+			text: '树类型ID',
+			dataIndex: 'FFile_BDickTree_Id',
+			hidden: true,
+			hideable: false
+		}, {
+			text: '是否允许评论',
+			dataIndex: 'FFile_IsDiscuss',
+			hidden: true,
+			hideable: false
+		}, {
+			text: '原始文档GUID',
+			dataIndex: 'FFile_OriginalFileID',
+			hidden: true,
+			hideable: false
+		}];
+		return columns;
+	},
+	/**获取带查询参数的URL*/
+	getLoadUrl: function() {
+		var me = this,
+			buttonsToolbar = me.getComponent('buttonsToolbar'),
+			selectStatus = buttonsToolbar.getComponent('selectStatus').getValue(),
+			BeginDate = buttonsToolbar.getComponent('BeginDate').getValue(),
+			EndDate = buttonsToolbar.getComponent('EndDate').getValue(),
+			search = buttonsToolbar.getComponent('search').getValue();
+		var checkBDickTreeId = buttonsToolbar.getComponent('checkBDickTreeId');
+		var ParentId = buttonsToolbar.getComponent('ParentId'),
+			params = [];
+		if(selectStatus) {
+			params.push("ffile.Status=" + selectStatus + "");
+		}
+		if(BeginDate) {
+			params.push("ffile.DataAddTime>='" + JShell.Date.toString(BeginDate, true) + "'");
+		}
+		if(EndDate) {
+			params.push("ffile.DataAddTime<'" + JShell.Date.toString(JShell.Date.getNextDate(EndDate), true) + "'");
+		}
+
+		var where = "",
+			arr = [],
+			url = JShell.System.Path.ROOT + me.selectUrl;
+		if(checkBDickTreeId && checkBDickTreeId.getValue()) {
+			if(me.BDickTreeId && me.BDickTreeId.toString().length > 0) {
+				url = JShell.System.Path.ROOT + me.selectUrl;
+				params.push("ffile.BDickTree.Id in(" + me.BDickTreeId + ")");
+			}
+		} else {
+			//查询某一类型树的直属文档列表(包含某一类型树的所有子类型树)
+			if(me.BDickTreeId && me.BDickTreeId.toString().length > 0) {
+				where = 'id=' + me.BDickTreeId + '^';
+				url = JShell.System.Path.ROOT + me.selectByTreeIdUrl;
+			} else if(me.IDS && me.IDS.toString().length > 0) {
+				where = 'id=' + me.IDS + '^';
+				url = JShell.System.Path.ROOT + me.selectByTreeIdUrl;
+			}
+		}
+
+		if(params.length > 0) {
+			me.internalWhere = params.join(' and ');
+		} else {
+			me.internalWhere = '';
+		}
+
+		if(search) {
+			if(me.internalWhere) {
+				me.internalWhere += ' and (' + me.getSearchWhere(search) + ')';
+			} else {
+				me.internalWhere = me.getSearchWhere(search);
+			}
+		}
+		//默认条件
+		if(me.defaultWhere && me.defaultWhere != '') {
+			arr.push(me.defaultWhere);
+		}
+		//内部条件
+		if(me.internalWhere && me.internalWhere != '') {
+			arr.push(me.internalWhere);
+		}
+		//外部条件
+		if(me.externalWhere && me.externalWhere != '') {
+			arr.push(me.externalWhere);
+		}
+		if(arr.length > 0) {
+			where += '(' + arr.join(" and ") + ')';
+		}
+		url += (url.indexOf('?') == -1 ? '?' : '&') + 'where=' + JcallShell.String.encode(where) + '&fields=' + me.getStoreFields(true).join(',');;
+		return url; //me.callParent(arguments);
+	},
+	/**初始化检索监听*/
+	initFilterListeners: function() {
+		var me = this;
+	},
+
+	/**初始化默认条件*/
+	initDefaultWhere: function() {
+		var me = this;
+		me.defaultWhere = me.defaultWhere || '';
+		if(me.defaultWhere) {
+			me.defaultWhere = '(' + me.defaultWhere + ') ';
+		}
+
+		if(me.isSearchUSERID) {
+			var userId = JShell.System.Cookie.get(JShell.System.Cookie.map.USERID);
+			var userName = JShell.System.Cookie.get(JShell.System.Cookie.map.USERNAME);
+			if(userId && userId != null && userId != "" && userName != "admin") {
+				if(me.defaultWhere && me.defaultWhere.length > 0) {
+					me.defaultWhere += " and (ffile.Creator.Id=" + userId + ")";
+				} else {
+					me.defaultWhere = "(ffile.Creator.Id=" + userId + ")";
+				}
+			}
+		}
+	},
+	onAddClick: function() {
+		var me = this;
+		me.fireEvent('onAddClick', me);
+	},
+	onEditClick: function() {
+		var me = this;
+		me.fireEvent('onEditClick', me);
+	},
+	onShowClick: function() {
+		var me = this;
+		me.fireEvent('onShowClick', me);
+	},
+	onDelClick: function() {
+		var me = this;
+		me.fireEvent('onDelClick', me);
+	},
+
+	/**
+	 * 文档撤消文档状态操作
+	 * @param {Object} statusValue 判断文档状态是否符合更新条件值
+	 * @param {Object} updateValue 文档状态更新值
+	 * @param {Object} fFileOperationType 文档操作类型值
+	 */
+	CancelFFileStatus: function(statusValue, updateValue, fFileOperationType, updateText) {
+		var me = this;
+		var records = me.getSelectionModel().getSelection();
+		if(records && records.length < 1) {
+			JShell.Msg.error(JShell.All.CHECK_ONE_RECORD);
+			return;
+		}
+		var strId = "",
+			status = "";
+		var tempArr = [];
+		for(var i = 0; i < records.length; i++) {
+			status = records[i].get("FFile_Status");
+			if(status && status.toString() == statusValue && status.toString() != updateValue.toString()) {
+				tempArr.push(records[i]);
+			}
+		}
+		if(tempArr && tempArr.length < 1) {
+			JShell.Msg.alert("请选择符合【" + me.DisagreeOfGridText + "】条件的文档操作!");
+			return;
+		}
+		me.updateErrorCount = 0;
+		me.updateCount = 0;
+		me.updateLength = tempArr.length;
+		me.delText = updateText;
+		for(var i = 0; i < tempArr.length; i++) {
+			me.updateStatus(tempArr[i], tempArr[i].get("FFile_Id"), updateValue, fFileOperationType, i);
+		}
+	},
+	updateStatus: function(record, id, updateValue, fFileOperationType, index) {
+		var me = this;
+		var url = (me.editUrl.slice(0, 4) == 'http' ? '' : JShell.System.Path.ROOT) + me.editUrl;
+		var entity = {
+			"Id": id,
+			"Status": updateValue
+		};
+		var params = {
+			fields: "Id,Status",
+			entity: entity,
+			fFileOperationType: fFileOperationType,
+			ffileCopyUserType: -1,
+			ffileReadingUserType: -1,
+			ffileOperationMemo: '',
+			fFileCopyUserList: [],
+			fFileReadingUserList: []
+		};
+		params = Ext.JSON.encode(params);
+		setTimeout(function() {
+			JShell.Server.post(url, params, function(data) {
+				me.hideMask(); //隐藏遮罩层
+				if(data.success) {
+					if(record) {
+						record.set("FFile_Status", updateValue);
+						record.set(me.DelField, true);
+						record.set('ErrorInfo', "撤消提交成功");
+						record.commit();
+					}
+					me.updateCount++;
+				} else {
+					me.updateErrorCount++;
+					record.set(me.DelField, false);
+					record.set('ErrorInfo', data.msg);
+					record.commit();
+				}
+				if(me.updateCount + me.updateErrorCount == me.updateLength) {
+					me.hideMask(); //隐藏遮罩层
+					if(me.updateErrorCount == 0) {
+						//JShell.Msg.alert(me.delText+'成功');
+					} else {
+						JShell.Msg.error('存在操作失败信息，具体错误内容请查看数据行的失败提示！');
+					}
+				}
+			});
+		}, 100 * index);
+	},
+	/**打开新增或编辑文档表单*/
+	openFFileForm: function(id, fFileOperationType, fFileStatus, tempFormtype, OriginalFileID, form) {
+		var me = this;
+		var formtype = tempFormtype || 'add';
+		var maxWidth = document.body.clientWidth * 0.78;
+		var height = document.body.clientHeight - 10;
+
+		var config = {
+			showSuccessInfo: false,
+			height: height,
+			width: maxWidth,
+			resizable: false,
+			hasReset: me.hasReset,
+			title: me.title || "编辑文档",
+			formtype: tempFormtype || 'add',
+			BDickTreeId: me.BDickTreeId,
+			FTypeTreeCName: me.FTypeTreeCName,
+			fFileOperationType: fFileOperationType,
+			fFileStatus: fFileStatus,
+			HiddenAgreeButton: me.HiddenAgreeButton,
+			AgreeButtonText: me.AgreeButtonText,
+			AgreeOperationType: me.AgreeOperationType,
+			HiddenDisagreeButton: me.HiddenDisagreeButton,
+			DisagreeButtonText: me.DisagreeButtonText,
+			DisagreeOperationType: me.DisagreeOperationType,
+			FTYPE: me.FTYPE,
+			AppOperationType: me.AppOperationType,
+			hiddenRadiogroupChoose: me.hiddenRadiogroupChoose,
+			isAddFFileReadingLog: 0,
+			isAddFFileOperation: 1,
+			listeners: {
+				save: function(win) {
+					me.onSearch();
+					win.close();
+				}
+			}
+		};
+		if(!form) {
+			form = 'Shell.class.qms.ffile.create.AddFFileApp';
+		}
+		if(id && id != null) {
+			//新增修订文档
+			if(me.AppOperationType == JcallShell.QMS.Enum.AppOperationType.新增修订文档) {
+
+			} else {
+				config.formtype = tempFormtype || 'edit';
+			}
+			switch(me.AppOperationType) {
+				case JcallShell.QMS.Enum.AppOperationType.新增修订文档:
+					config.formtype = 'add';
+					form = 'Shell.class.qms.ffile.revise.AddFFileApp';
+					break;
+				case JcallShell.QMS.Enum.AppOperationType.编辑修订文档:
+					config.formtype = 'edit';
+					form = 'Shell.class.qms.ffile.revise.AddFFileApp';
+					break;
+				default:
+					config.formtype = tempFormtype || 'edit';
+					break;
+			}
+			config.PK = id;
+			config.FFileId = id;
+			title: me.title || "编辑文档";
+			config.fFileOperationType = fFileOperationType;
+			config.OriginalFileID = id;
+		}
+		JShell.Win.open(form, config).show();
+	},
+
+	/**打开文档查看表单*/
+	openFFileShowForm: function(id) {
+		var me = this;
+		var maxWidth = document.body.clientWidth * 0.98;
+		var height = document.body.clientHeight - 10;
+
+		var config = {
+			showSuccessInfo: false,
+			height: height,
+			width: maxWidth,
+			resizable: false,
+			hasReset: false,
+			title: me.title || "文档详情",
+			formtype: 'show',
+			FFileId: id,
+			FTYPE: me.FTYPE,
+			PK: id,
+			fFileOperationType: 6,
+			isAddFFileReadingLog: 1,
+			isAddFFileOperation: 0
+		};
+		JShell.Win.open("Shell.class.qms.ffile.search.showForm", config).show();
+
+	},
+	/**打开文档操作记录列表*/
+	openFFileGrid: function(id, grid, OriginalFileID) {
+		var me = this;
+		var config = {
+			showSuccessInfo: false,
+			resizable: false,
+			hasButtontoolbar: false,
+			PK: id,
+			OriginalFileID: OriginalFileID
+		};
+		var win = JShell.Win.open(grid, config).show();
+	},
+
+	/**根据ID查看文档交流*/
+	showInteractionById: function(id, App, publisherDateTime, IsDiscuss) {
+		var me = this;
+		var maxWidth = document.body.clientWidth - 380;
+		var height = document.body.clientHeight - 60;
+		var defaultWhere = "";
+		//如果是查看应用,交流记录列表需要处理默认条件
+		switch(me.interactionType) {
+			case "show":
+				//				if(publisherDateTime && publisherDateTime != "") {
+				//					publisherDateTime = Ext.Date.format(new Date(publisherDateTime), 'Y-m-d h:m:s');
+				//				}
+				if(publisherDateTime && publisherDateTime != "") {
+					defaultWhere = "ffileinteraction.DataAddTime>='" + publisherDateTime + "'";
+				}
+				break;
+			default:
+				break;
+		}
+		JShell.Win.open((App != null ? App : 'Shell.class.qms.ffile.interaction.App'), {
+			FFileId: id,
+			FileId: id,
+			PK: id,
+			height: height,
+			width: maxWidth,
+			FTYPE: me.FTYPE,
+			/**交流记录列表的默认条件*/
+			defaultWhere: defaultWhere,
+			IsDiscuss: (IsDiscuss != null ? IsDiscuss : false),
+			fFileOperationType: me.fFileOperationType
+		}).show();
+	},
+	/**为应用操作分类赋值*/
+	setAppOperationType: function() {
+		var me = this;
+		switch(me.FTYPE) {
+			case JcallShell.QMS.Enum.FType.文档应用:
+				me.AppOperationType = (me.formtype == "add") ? JcallShell.QMS.Enum.AppOperationType.新增文档 : JcallShell.QMS.Enum.AppOperationType.编辑文档;
+				break;
+			case JcallShell.QMS.Enum.FType.新闻应用:
+				me.AppOperationType = (me.formtype == "add") ? JcallShell.QMS.Enum.AppOperationType.新增新闻 : JcallShell.QMS.Enum.AppOperationType.编辑新闻;
+				break;
+			case JcallShell.QMS.Enum.FType.通知应用:
+				me.AppOperationType = (me.formtype == "add") ? JcallShell.QMS.Enum.AppOperationType.新增通知 : JcallShell.QMS.Enum.AppOperationType.编辑通知;
+				break;
+			case JcallShell.QMS.Enum.FType.修订文档应用:
+				me.AppOperationType = (me.formtype == "add") ? JcallShell.QMS.Enum.AppOperationType.新增修订文档 : JcallShell.QMS.Enum.AppOperationType.编辑修订文档;
+				break;
+			default:
+				break;
+		}
+	}
+});

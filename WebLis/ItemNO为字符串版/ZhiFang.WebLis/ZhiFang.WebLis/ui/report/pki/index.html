@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>报告查询打印</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body class="easyui-layout">
+    <!-- 网页打印 -->
+    <object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0"
+        height="0">
+        <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="/ui/util/print/resources/install_lodop32.exe"></embed>
+    </object>
+    <!-- PDF控件 -->
+    <!-- pdf弹出窗口 -->
+    <div id="pdfWin">
+    </div>
+    <!-- 查询栏 -->
+    <div id="toolbar_search" data-options="region:'north'" style="height: 58px; background: #efefef;
+        padding: 2px; magrin: 0">
+        <div style="position: absolute; top: 3px; float: left;">
+            <div id="search-text-COLLECTDATE" style="float: left;">
+                <select id="SearchDateType" class="easyui-combobox" name="dept" style="width: 100px;" data-options="panelWidth:100,panelHeight:65">
+                    <option value="collectdate" selected=selected>采样时间</option>
+                    <option value="noperdate">录入时间</option>
+                    <option value="reportdate">报告时间</option>
+                </select>
+                <input id="search-text-COLLECTDATE-S" type="text" data-options="width:95" />
+                -
+                <input id="search-text-COLLECTDATE-E" type="text" data-options="width:95" />
+            </div>
+        </div>
+        <div style="position: absolute; top: 32px; float: left;">
+            <a>送检单位:</a><select id="search-text-ClientNo"></select>
+            <a>姓名:</a><input id="search-text-CNAME" />
+            <a>样本预制条码:</a><input id="search-text-serialno" />
+            <a>送检项目:</a><input id="search-text-ShortName" />
+            <a>状态:</a><input id="search-text-statues" />
+            <a>纸张类型:</a><input id="search-text-zdy10" />
+            <a>报告结果异常:</a><input id="search-text-abnormalresult" />
+        </div>
+    </div>
+    <!-- 报告列表 -->
+    <div id="report_grid_toolbar">
+        <div id="printConfig" style="border-bottom: 1px solid #cad9ea; padding: 2px;">
+            <a id="report_grid_toolbar-print" title="直接打印" class="easyui-linkbutton" data-options="plain:true,iconCls:'button-print'">
+                直接打印</a> <a>纸张:</a>
+            <select id="paperType" class="easyui-combobox" data-options="editable:false,panelMaxHeight:50"
+                style="width: 55px;">
+                <option value="A4" selected="selected">A4</option>
+                <option value="B5">B5</option>
+            </select>
+            <a>方向:</a>
+            <select id="orientationType" class="easyui-combobox" data-options="editable:false,panelMaxHeight:50"
+                style="width: 55px;">
+                <option value="1" selected="selected">纵打</option>
+                <option value="2">横打</option>
+            </select>
+        </div>
+        <div>
+            <a id="report_grid_toolbar-refresh" title="查询数据" class="easyui-linkbutton" data-options="plain:true,iconCls:'button-refresh'">
+                查询</a> <a id="report_grid_toolbar-preview" title="预览打印" class="easyui-linkbutton"
+                    data-options="plain:true,iconCls:'button-print'">预览打印</a> <a id="report_grid_toolbar-downLoadMost"
+                        title="批量下载" class="easyui-linkbutton" data-options="plain:true,iconCls:'button-down'">
+                        批量下载</a> <a id="Report_grid_toolbar-downloadExcel" title="导出Excel" class="easyui-linkbutton"
+                            data-options="plain:true,iconCls:'button-down'">导出Excel</a>
+        </div>
+        <a id="downLoadReportForm"><span id="clickContent"></span></a>
+    </div>
+    <div data-options="region:'center'">
+        <table id="report_grid">
+        </table>
+    </div>
+    <!-- 下面语句没有意义，但不能删除，除非把js中某些方法删掉-->
+    <div id="content" hidden="hidden">
+    </div>
+</body>
+</html>

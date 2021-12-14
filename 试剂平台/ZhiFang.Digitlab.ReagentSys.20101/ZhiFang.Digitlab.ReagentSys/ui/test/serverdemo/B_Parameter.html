@@ -1,0 +1,93 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBParameterByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBParameterById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelBParameter',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddBParameter',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBParameterByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBParameter',
+
+    		//参数表   和检验之星共用参数表对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'BParameter_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'BParameter_Id',value:'参数ID'},						 
+						 		     
+				     												 
+						{ key:'BParameter_NodeID',value:'站点ID'}, 
+						 		     
+				     												 
+						{ key:'BParameter_Name',value:'名称'}, 
+						 		     
+				     												 
+						{ key:'BParameter_SName',value:'简称'}, 
+						 		     
+				     												 
+						{ key:'BParameter_ParaType',value:'参数类型   用于查询方便可根据用户习惯对参数分类。'}, 
+						 		     
+				     												 
+						{ key:'BParameter_ParaValue',value:'参数值'}, 
+						 		     
+				     												 
+						{ key:'BParameter_ParaDesc',value:'参数说明'}, 
+						 		     
+				     												 
+						{ key:'BParameter_Shortcode',value:'快捷码'}, 
+						 		     
+				     												 
+						{ key:'BParameter_PinYinZiTou',value:'汉字拼音字头'}, 
+						 		     
+				     												 
+						{ key:'BParameter_IsUse',value:'是否使用'}, 
+						 		     
+				     												 
+						{ key:'BParameter_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'BParameter_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'BParameter_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'参数表   和检验之星共用参数表',
+    		//主键字段
+    		key:'BParameter_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>PDF加载</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+    	//获取页面传递的参数
+		function getRequestParams(){
+			var url = location.search;//获取url中"?"符后的字串
+	   			
+	   		if(url.indexOf("?") == -1) return {};
+	   		
+			var str = url.substr(1),
+				strs = str.split("&"),
+				len = strs.length,
+				params = {};
+				
+			for(var i=0;i<len;i++){
+				var arr = strs[i].split("=");
+				params[arr[0]] = decodeURI(arr[1]);
+	  		}
+	  		
+	   		return params;
+		}
+    	
+		//js获取项目根路径,如:http://localhost:8080/A
+		function getRootPath(){
+			//获取当前网址,如:http://localhost:8080/Web/ui/test.html
+			var href = window.document.location.href;
+			//获取主机地址之后的目录,如:Web/ui/test.html
+			var pathname = window.document.location.pathname;
+			var pos = href.indexOf(pathname);
+			//获取主机地址,如:http://localhost:8080
+			var localhostPaht=href.substring(0,pos);
+			//获取带"/"的项目名,如:/Web
+			var projectName = pathname.substring(0,pathname.substr(1).indexOf('/')+1);
+			return(localhostPaht + projectName);
+		}
+		function printPdf111(){
+			pdfId.LoadFile('D:\\Users\\ex-huangming003\\Desktop\\bcxy2.pdf');
+			pdfId.setPageMode("none");
+			pdfId.setLayoutMode("DontCare");
+			pdfId.printAllFit(false);
+		}
+		//加载pdf文件
+		function loadPdf(){
+			alert(0);
+			var pdf = document.getElementById("pdf"),
+				url = decodeURIComponent(getRequestParams().url);
+			alert(url);
+			url = url.slice(0,-1);
+			alert(url);
+			pdf.LoadFile(url);
+		}
+		//直接打印pdf
+       	function PrintPdf(){
+           	var p = document.getElementById('pdf');
+           	p.printAll();
+       	}
+      	//判断文件是否存在
+        function hasPdf(){
+            var p = document.getElementById('pdf');
+            return (p ? true : false);
+        }
+    </script>
+</head>
+
+<body onload="loadPdf();">
+<object id="pdf" classid="clsid:CA8A9780-280D-11CF-A24D-444553540000" style="height:100%;width:100%;border:0"></object>
+</body>
+</html>

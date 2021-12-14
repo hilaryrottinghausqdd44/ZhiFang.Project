@@ -1,0 +1,1 @@
+alter table LB_Item Add IsUrgentItem bit  --是否急查项目

@@ -1,0 +1,21 @@
+layer.js 554行处添加
+//iframe打开方式，移动样式自定义
+  if(config.type == '2' && config.move && config.move != doms[1]){
+  	setTimeout(function(){
+  		moveElem = $(layero.find('iframe')[0].contentDocument).find(config.move)
+	  	if(config.move){
+	      moveElem.css('cursor', 'move');
+	   	}
+	    moveElem.on('mousedown', function(e){
+	      //e.preventDefault();
+	      if(config.move){
+	        dict.moveStart = true;
+	        dict.offset = [
+	          e.clientX
+	          ,e.clientY
+	        ];
+	        ready.moveElem.css('cursor', 'move').show();
+	      }
+	    });
+  	},1000);
+  }

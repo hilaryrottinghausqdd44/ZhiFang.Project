@@ -1,0 +1,102 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBSampleOperateByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchBSampleOperateById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelBSampleOperate',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddBSampleOperate',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBSampleOperateByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateBSampleOperate',
+
+    		//样本操作对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'BSampleOperate_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'BSampleOperate_Id',value:'样本操作ID'},						 
+						 		     
+				     												 
+						{ key:'BSampleOperate_OperateObjectTypeID',value:'操作对象类型ID'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_OperateObjectID',value:'操作对象ID   所对应业务类型的表ID'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_OperateTypeID',value:'操作类型ID'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_OperaterID',value:'操作人ID'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_Operater',value:'操作人'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_OperateTime',value:'操作时间'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_OperateHost',value:'操作计算机'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_OperateMemo',value:'操作说明'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_ZDY1',value:'备注1'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_ZDY2',value:'备注2'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_ZDY3',value:'备注3'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_ZDY4',value:'备注4'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_ZDY5',value:'备注5'}, 
+						 		     
+				     												 
+						{ key:'BSampleOperate_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'BSampleOperate_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'样本操作',
+    		//主键字段
+    		key:'BSampleOperate_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

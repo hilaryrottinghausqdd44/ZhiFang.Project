@@ -1,0 +1,8 @@
+2020-10-26 10:35:31,831 [11] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-10-26 10:35:31,976 [11] DEBUG : objectID:1483204384
+2020-10-26 10:35:31,977 [11] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-10-26 10:35:32,076 [11] INFO  :  IF COL_LENGTH('Blood_BReqForm', 'ConfirmType') IS NULL ALTER TABLE Blood_BReqForm ADD ConfirmType varchar(50); 
+2020-10-26 10:35:32,238 [11] INFO  :  update B_Parameter set ParaValue='1.0.0.48' where ParaType='SYS' and ParaNo='SYS_DBVersion'
+2020-10-26 10:35:41,261 [11] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-10-26 10:35:41,262 [11] DEBUG : objectID:1483204384
+2020-10-26 10:35:41,262 [11] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'

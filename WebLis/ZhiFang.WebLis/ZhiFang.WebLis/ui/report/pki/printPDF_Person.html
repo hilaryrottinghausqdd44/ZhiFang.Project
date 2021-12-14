@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>PDF打印</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../../easyui/demo/demo.css" rel="stylesheet" type="text/css" />
+    <link href="../../easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../../easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/buttons.css" rel="stylesheet" type="text/css" />
+    <script src="../../easyui/jquery-1.11.0-vsdoc.js" type="text/javascript"></script>
+    <script src="../../easyui/jquery.min.js" type="text/javascript"></script>
+    <script src="../../easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../../easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../../PersonSearch_PKI.js" type="text/javascript"></script>
+    <script src="../../util/jquery.cookie.js" type="text/javascript"></script>
+    <script type='text/javascript' src='../../util/util_Person.js'></script>
+    <script type='text/javascript' src='../../util/util_easyui.js'></script>
+    <script type="text/javascript" src="printPDF_Person.js"></script>
+</head>
+
+<body class="easyui-layout">
+	<div data-options="region:'west',split:true,collapsed:true" style="width:300px;">
+		<table id="pdfWin_grid"></table>
+		<div id="messager"></div>
+	</div>
+	<div id="pdfWin_div" data-options="region:'center'" style="background:gray;">
+		<iframe id="pdfWin_iframe" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px"></iframe>
+	</div>
+</body>
+</html>

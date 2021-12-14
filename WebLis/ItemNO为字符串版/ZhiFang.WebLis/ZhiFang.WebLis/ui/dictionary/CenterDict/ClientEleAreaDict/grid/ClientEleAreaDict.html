@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../../../easyui/jquery.min.js"></script>
+    <script src="../../../../easyui/jquery.easyui.min.js"></script>
+    <link href="../../../../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../../../../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../../../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../../../util/util.js"></script>
+    <script src="../../../../util/util_easyui.js"></script>
+    <script src="ClientEleAreaDict.js"></script>
+    <style type="text/css">
+        #fm { margin: 0; padding: 10px 30px; }
+        .fTitle { font-size: 14px; font-weight: bold; padding: 5px 0; margin-bottom: 10px; border-bottom: 1px solid #cccccc;}
+        .fItem { margin-bottom: 15px; }
+        .fItem label {  display: inline-block;   width: 100px; }
+    </style>
+</head>
+<body>
+        <table id="dg" title="中心区域字典表"></table>
+        <div id="toolbar" style="height:28px;width: 100%;background: #eeeeee ">
+            <div style="float: left; width:auto">
+               
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="update()" plain="true" data-options="iconCls:'icon-reload'">刷新</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()" plain="true" data-options="iconCls:'icon-add'">新增</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()" plain="true" data-options="iconCls:'icon-remove'">删除</a>
+                           </div>
+            <div style="float: right; margin-right: 10px; margin-top: 3px;">
+                <input id="txtSearchKey" name="itemkey" class="easyui-searchbox" data-options="prompt:'请输入编码/名称/简称',searcher:doSearch" style="width:200px;" />
+            </div>
+        </div>
+        <div id="dlg" class="easyui-dialog" style="width:390px;height:300px;margin: auto;" closed="true" buttons="#dlgButtons">
+            <form id="fm">
+                <div class="fItem" style="margin-top:30px">
+                    <label>区域ID:</label>
+                    <input id="txtAreaID" type="text" name="AreaID" class="easyui-numberbox" style="width: 200px;" data-options="required:true" />
+                </div>
+                <div class="fItem">
+                    <label>区域名称:</label>
+                    <input id="txtAreaCName" type="text" name="AreaCName" required="required" class="easyui-textbox" style="width: 200px;" />
+                </div>
+                <div class="fItem">
+                    <label>区域简称:</label>
+                    <input id="txtAreaShortName" type="text" name="AreaShortName" required="required" class="easyui-textbox" style="width: 200px;" />
+                </div>
+                <div class="fItem">
+                    <label>区域总医院:</label>
+                    <select id="ddlClientNo" name="ClientNo" class="easyui-combobox" panelheight=100 style="width: 200px;" editable="true"></select>
+                </div>
+                
+            </form>
+        </div>
+        <div id="dlgButtons">
+            <div align="center">
+                <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" data-options="iconCls:'icon-save'">保存</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript: $('#dlg').dialog('close')" data-options="iconCls:'icon-cancel'">关闭</a>
+            </div>
+        </div>
+   
+</body>
+</html>

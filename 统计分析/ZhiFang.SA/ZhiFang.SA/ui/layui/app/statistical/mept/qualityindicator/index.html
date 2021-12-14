@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>质量指标类型统计</title>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="../../../../../src/layui/dist/css/layui.css" />
+	<link rel="stylesheet" type="text/css" href="../../../../../layui/admin/layuiadmin/style/admin.css" media="all" />
+	<style type="text/css">
+		a p cite {
+			/* color: white; */
+			color: white
+		}
+
+		.echarts-dataview {
+			width: "100%";
+			height: "100%";
+			/* !important 200px;*/
+		}
+
+		.echarts-background {
+			background-image: url(../../../../../../Images/icons/48/bar.png);
+			background-repeat: no-repeat;
+			/* background-attachment: fixed; center right*/
+			background-position: bottom right;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space5">
+			<!--第一行左侧区域:简洁信息-->
+			<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-header" id="LAY-echarts-row1-col1-title">不合格标签统计</div>
+					<div class="layui-card-body  layuiadmin-card-list">
+						<div class="layui-row">
+							<div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+								<div class="layui-carousel layadmin-carousel layadmin-backlog  echarts-dataview"
+									id="LAY-echarts-row1-col1">
+									<div carousel-item>
+										<ul class="layui-row layui-col-space10" style="padding-top:3%;">
+											<li class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+												<a href="javascript:;"
+													class="layadmin-backlog-body layui-bg-green echarts-background">
+													<h3>上月统计</h3>
+													<p>
+														<cite style="color: white;">
+															<span
+																id="LAY-echarts-row1-col1-lastMonth-failedTotal">E:&nbsp;</span>
+														</cite>
+													</p>
+													<p>
+														<cite style="color: white;font-size: 16px">
+															<span
+																id="LAY-echarts-row1-col1-lastMonth-specimenTotal">T:&nbsp;</span>
+														</cite>
+													</p>
+												</a>
+												<div class="layui-row">
+													<div
+														class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-bg-green">
+														&nbsp;&nbsp;
+														<span class="layuiadmin-span-color ">更多
+															<i class="layui-inline layui-icon layui-icon-more"></i>
+														</span>
+													</div>
+												</div>
+											</li>
+											<li class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+												<a href="javascript:;"
+													class="layadmin-backlog-body layui-bg-green echarts-background">
+													<h3>本年统计</h3>
+													<p>
+														<cite style="color: white;"
+															id="LAY-echarts-row1-col1-curYear-failedTotal">E:&nbsp;</cite>
+													</p>
+													<p>
+														<cite style="color: white;font-size: 16px"
+															id="LAY-echarts-row1-col1-curYear-specimenTotal">T:&nbsp;</cite>
+													</p>
+												</a>
+												<div class="layui-row">
+													<div
+														class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-bg-green">
+														&nbsp;&nbsp;
+														<span class="layuiadmin-span-color ">更多<i
+																class="layui-inline layui-icon layui-icon-more"></i>
+														</span>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--第一行右侧区域:维度级别为第一级别的图表-->
+			<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						按月份
+						<div class="layui-btn-group layuiadmin-btn-group">
+							<a href="javascript:;" class="layui-btn layui-btn-normal layui-btn-xs">月份</a>
+							<a href="javascript:;" class="layui-btn layui-btn-blue layui-btn-xs">季度</a>
+							<a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-xs">年度</a>
+						</div>
+					</div>
+					<div class="layui-card-body">
+						<div class="layui-row">
+							<div class="layui-col-sm12">
+								<div class="layui-carousel layadmin-carousel echarts-dataview" data-anim="fade">
+									<div carousel-item id="LAY-echarts-row1-col2">
+										<div><i class="layui-icon layui-icon-loading1 layadmin-loading"></i></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第二行左侧区域:最想看到的统计纬度之一的统计图表-->
+			<div class="layui-row layui-col-space5">
+				<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+					<div class="layui-card">
+						<div class="layui-card-header">
+							按上月就诊类型
+						</div>
+						<div class="layui-card-body">
+							<div class="layui-row">
+								<div class="layui-col-xs12 layui-col-sm12 layui-col-sm12">
+									<div class="layui-carousel layadmin-carousel echarts-dataview" data-anim="fade">
+										<div carousel-item id="LAY-echarts-row2-col1">
+											<div>
+												<i class="layui-icon layui-icon-loading1 layadmin-loading"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--第二行右侧区域:维度级别为第二级别的图表-->
+				<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+					<div class="layui-card">
+						<div class="layui-card-header">
+							按1月份就诊类型及科室
+						</div>
+						<div class="layui-card-body">
+							<div class="layui-row">
+								<div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+									<div class="layui-carousel layadmin-carousel echarts-dataview" data-anim="fade">
+										<div carousel-item id="LAY-echarts-row2-col2">
+											<div>
+												<i class="layui-icon layui-icon-loading1 layadmin-loading"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--第三行左侧区域:最想看到的统计纬度之二的统计图表-->
+			<div class="layui-row layui-col-space5">
+				<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+					<div class="layui-card">
+						<div class="layui-card-header">
+							按本年各科室
+						</div>
+						<div class="layui-card-body">
+							<div class="layui-row">
+								<div class="layui-col-xs12 layui-col-sm12 layui-col-sm12">
+									<div class="layui-carousel layadmin-carousel echarts-dataview" data-anim="fade">
+										<div carousel-item id="LAY-echarts-row3-col1">
+											<div>
+												<i class="layui-icon layui-icon-loading1 layadmin-loading"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--第三行右侧区域:维度级别为第二级别的图表-->
+				<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+					<div class="layui-card">
+						<div class="layui-card-header">
+							按1月份就诊类型及科室
+						</div>
+						<div class="layui-card-body">
+							<div class="layui-row">
+								<div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+									<div class="layui-carousel layadmin-carousel echarts-dataview" data-anim="fade">
+										<div carousel-item id="LAY-echarts-row3-col2">
+											<div>
+												<i class="layui-icon layui-icon-loading1 layadmin-loading"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+
+<script src="../../../../../src/layui/src/layui.js"></script>
+<script src="../../../../../../ui/layui/config/system.js"></script>
+<script src="index.js"></script>

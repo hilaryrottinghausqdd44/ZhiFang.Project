@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登入 - 集成平台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<link rel="stylesheet" type="text/css" href="../../../src/layui/dist/css/layui.css" />
+	<link rel="stylesheet" href="../layuiadmin/style/admin.css" media="all">
+	<link rel="stylesheet" href="../layuiadmin/style/login.css" media="all">
+	<link rel="shortcut icon" href="../../../../logo-16.png">
+	<style type="text/css">
+		body{
+			margin:0;background-size:100% 100%;
+			background:url(images/背景.png) no-repeat;
+		}
+		.layui-form-select{position:unset;}
+		.system-content{
+			position:absolute;
+			top:50%;left:50%;width:1050px;height:787px;
+			margin-left:-525px;margin-top:-383px;
+			background:url(images/登陆框.png) no-repeat;
+		}
+		/*logo图*/
+		.system-logo{height:190px;padding-bottom:22px;}
+		/*adobeHeitiStd-Regular*/
+		/*系统中文名称*/
+		.system-cname{text-align:center;font-size:56px;color:rgb(88,88,88);font-weight:400;font-family:"Microsoft YaHei";}
+		/*系统英文名称*/
+		.system-ename{text-align:center;font-size:18px;color:rgb(88,88,88);font-weight:400;font-family:"Microsoft YaHei";}
+		/*用户名*/
+		.system-account{
+			margin-left:541px;margin-top:135px;
+			width:391px;font-size:18px;
+			border-bottom:1px solid rgb(181,181,181);
+			background:url(images/账户.png) no-repeat 10px;
+			background-size:19px 19px;
+		}
+		.system-account input{
+			border:none;outline:none;border-left:1px solid rgb(181,181,181);
+			margin:9px 9px 9px 39px;padding-left:11px;width:332px;
+		}
+		/*密码*/
+		.system-password{
+			margin-left:541px;margin-top:62px;
+			width:391px;font-size:18px;
+			border-bottom:1px solid rgb(181,181,181);
+			background:url(images/密码.png) no-repeat 10px;
+			background-size:19px 19px;
+		}
+		.system-password input{
+			border:none;outline:none;border-left:1px solid rgb(181,181,181);
+			margin:9px 9px 9px 39px;padding-left:11px;width:332px;
+		}
+		/*登录按钮*/
+		.system-login{
+			margin-left:614px;margin-top:22px;
+			width:245px;height:77px;
+			background:url(images/按钮.png) no-repeat;cursor:pointer;
+		}
+		/*客服信息*/
+		.system-info{
+			margin-left:541px;margin-top:12px;
+			width:391px;height:30px;
+			font-size:18px;text-align:center;
+		}
+		.system-info-name{color:rgb(102,102,102);}
+		.system-info-value{color:rgb(62,124,245);}
+	</style>
+</head>
+<body>
+	<div class="system-content">
+		<!--logo图-->
+		<img class="system-logo" src=""/>
+		<!--系统中文名称-->
+		<div class="system-cname">智方信息集成平台</div>
+		<!--系统英文名称-->
+		<div class="system-ename">ZHIFANG LAB INFORMATION INTEGRATE PLATFORM</div>
+		
+		<!--用户名-->
+		<div class="system-account">
+			<input id="account" type="text" placeholder="请输入用户名"></input>
+		</div>
+		<!--密码-->
+		<div class="system-password">
+			<input id="password" type="password" placeholder="请输入密码"></input>
+		</div>
+		
+		<!--登录按钮-->
+		<div id="Button_Login" class="system-login"></div>
+		<!--客服信息-->
+		<div class="system-info">
+			<span class="system-info-name">客服电话:</span>
+			<span class="system-info-value">028-817307777</span>
+		</div>
+	</div>
+	
+	<script src="../../../src/layui/dist/layui.js"></script>
+	<script type="text/javascript">
+		UIVersion.getJS('../../config/system.js');
+		UIVersion.getJS('login.js');
+	</script>
+</body>
+</html>

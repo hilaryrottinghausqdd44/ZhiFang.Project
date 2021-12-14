@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LIIP_实验室信息集成平台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../src/layui/src/css/layui.css" media="all">
+	<link rel="shortcut icon" href="../../../logo-16.png">
+</head>
+<body class="layui-layout-body">
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md8">    
+				<div class="layui-card">
+					<div class="layui-card-header">
+						UTIL参数
+					</div>
+					<div class="layui-card-body">
+						<div class="layui-row layui-col-space10">
+							<div id="content" class="layui-col-xs12 layui-col-sm4">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../src/layui/src/layui.js"></script>
+	<script>
+		layui.config({
+			base: '../ux/'//静态资源所在路径
+		}).extend({
+			uxutil: 'util'//主入口模块
+		}).use(['uxutil','layer'],function(){
+			var $=layui.$,
+				
+				uxutil = layui.uxutil;
+				
+			var html = 
+				'<div>uxutil.path.LOCAL=' + uxutil.path.LOCAL + '</div>' + 
+				'<div>uxutil.path.ROOT=' + uxutil.path.ROOT + '</div>' + 
+				'<div>uxutil.path.UI=' + uxutil.path.UI + '</div>' + 
+				'<div>uxutil.cookie.map=' + uxutil.cookie.map + '</div>' + 
+				'<div>uxutil.params=' + JSON.stringify(uxutil.params.get()) + '</div>';
+			$("#content").html(html);
+			
+			uxutil.server.ajax({
+				url:uxutil.path.RBACROOT + '/ServerWCF/ServerWCF/RBACService.svc/RBAC_UDTO_SearchModuleTreeBySessionHREmpID'
+			},function(data){
+				if(data.success){
+					
+				}else{
+					layer.msg(data.msg);
+				}
+			},true);
+		});
+	</script>
+</body>
+</html>

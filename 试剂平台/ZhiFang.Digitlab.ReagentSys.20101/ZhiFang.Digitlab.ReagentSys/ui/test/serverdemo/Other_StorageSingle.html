@@ -1,0 +1,102 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherStorageSingleByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchOtherStorageSingleById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelOtherStorageSingle',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddOtherStorageSingle',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherStorageSingleByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateOtherStorageSingle',
+
+    		//入库单对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'OtherStorageSingle_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'OtherStorageSingle_Id',value:'入库单ID'},						 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_SupplierID',value:'供应商ID'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_StorehouseID',value:'仓库ID'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_StorageTypeID',value:'入库类型ID'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_CheckStatusID',value:'审核状态ID'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_OperatorID',value:'操作人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_HandlingManID',value:'经手人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_CheckerID',value:'审核人ID   员工ID主键'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_StorageTime',value:'入库日期'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_Comment',value:'备注'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_Operator',value:'操作人'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_HandlingMan',value:'经手人'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_Checker',value:'审核人'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_DataAddTime',value:'数据加入时间'}, 
+						 		     
+				     												 
+						{ key:'OtherStorageSingle_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'OtherStorageSingle_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'入库单',
+    		//主键字段
+    		key:'OtherStorageSingle_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

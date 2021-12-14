@@ -1,0 +1,48 @@
+/**
+	@name：layui紧凑版
+	@author：zhangda
+	@version 2021-04-26
+ */
+body { font-size:12px!important; }
+/*card*/
+.layui-card-body{padding:1px 2px!important;}
+/*表单*/
+.layui-form-item{ margin-bottom:0px!important; }
+.layui-form-label{ padding: 0!important;font-size:12px; }
+.layui-input-block{ min-height: 26px!important; }
+.layui-form-checkbox { padding-left:22px!important; }
+table .layui-form-checkbox { padding-left:0px!important; }/*处理表格中因样式错乱的checkbox*/
+.layui-form-checkbox span { padding-right: 5px !important;font-size:12px!important; }
+.layui-form-checkbox>i.layui-icon { width:14px!important;height:14px!important;line-height:14px!important; }
+.layui-input, .layui-select, .layui-textarea { height: 22px !important;line-height:22px!important;font-size:12px; }
+.layui-form-select dl{ top: 24px!important;font-size:12px; }
+.layui-form-selectup dl { top: auto!important;bottom: 24px!important; }
+.layui-form-select dl dd{ line-height:26px!important; }
+.layui-form-radio{ margin-top:0!important; }
+.layui-form-radio>i{ font-size:16px!important; }
+.layui-form-radio *{ font-size:12px!important; }
+.layui-form-item .layui-form-checkbox[lay-skin=primary] { margin-top:4px!important; }
+/*列表*/
+.layui-table, .layui-table-view { margin: 1px 0 !important;color: #000 !important; }
+.layui-table-main input.layui-table-edit { height:20px!important;line-height:20px!important; }
+.layui-table-view .layui-table td, .layui-table-view .layui-table th{ padding:2px 0!important; }
+.layui-table-page{ height:26px!important;padding:2px 7px 0!important; }
+.layui-table-page .layui-laypage a, .layui-table-page .layui-laypage span { margin-bottom:0px!important;height:20px!important;line-height:20px!important; }
+.layui-table-page .layui-laypage button, .layui-table-page .layui-laypage input{ height:20px!important;line-height:20px!important; }
+.layui-laypage select{ height:14px!important;line-height:14px!important; }
+.layui-table-cell{ padding:0 3px!important; }
+.laytable-cell-checkbox, .laytable-cell-radio, .laytable-cell-space{ height:16px!important;line-height:16px!important; }
+.layui-table-view .layui-form-checkbox i{ width:16px!important;height:16px!important;line-height:16px!important; }
+.layui-table-sort{ margin-left:0!important; }
+.layui-table-view .layui-table[lay-size=sm] .layui-table-cell{ height:16px!important;line-height:17px!important; }
+/*tab页样式*/
+.layui-tab-title { height: 22px!important;line-height:22px; }
+.layui-tab-title>li{ line-height:22px!important;font-size:12px!important;padding:0 8px!important; }
+.layui-tab-title>li i{ font-size:12px; }
+.layui-tab-title .layui-this:after{ height:24px!important; }
+.layui-tab-title .layui-tab-bar { width: 24px;height: 20px;line-height: 20px; }
+.layui-tab-content{ padding:1px 0 0 0!important; }
+/*引用区块*/
+.layui-elem-field{ margin-bottom:0!important;}
+.layui-elem-field legend { font-size: 14px!important; color: #009688; }
+.layui-field-box { padding: 1px 3px!important; }

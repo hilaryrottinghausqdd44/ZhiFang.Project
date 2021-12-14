@@ -1,0 +1,26 @@
+//高级表单查询--全部与查询条件配置:数据对象的测试数据(只取EName和CName)
+{
+	success:true,
+	list:[
+		{EName:'SectionNo',CName:'检验小组',Type:'TextField',X:5,Y:5,Width:180,LabelWidth:55,Height:22,DataUrl:''},
+		{EName:'TestTypeNo',CName:'检验类型',Type:'NumberField',X:200,Y:5,Width:180,LabelWidth:55,Height:22,DataUrl:''}, 
+		{EName:'SampleTypeNo',CName:'样本类型',Type:'ComboBox',X:400,Y:5,Width:180,LabelWidth:55,Height:22,DataUrl:'data/GetSex.json'},
+		{EName:'Sex',CName:'性别',Type:'TextField',X:5,Y:30,Width:180,LabelWidth:55,Height:22,DataUrl:''}, 
+		{EName:'Address',CName:'住址',Type:'TextField',X:200,Y:30,Width:180,LabelWidth:55,Height:22,DataUrl:''},
+		{EName:'FolkNo',CName:'民族',Type:'TextField',X:5,Y:55,Width:650,LabelWidth:55,Height:100,DataUrl:''},
+        
+        {EName:'Dept',CName:'科室',Type:'TextField',X:5,Y:5,Width:160,LabelWidth:55,Height:22,DataUrl:''},
+        {EName:'PatNo',CName:'病历号',Type:'NumberField',X:200,Y:5,Width:160,LabelWidth:55,Height:22,DataUrl:''}, 
+        {EName:'Name',CName:'姓名',Type:'ComboBox',X:400,Y:5,Width:160,LabelWidth:55,Height:22,DataUrl:'data/GetSex.json'},
+        {EName:'ReceiveDate',CName:'核收日期',Type:'TextField',X:5,Y:30,Width:160,LabelWidth:55,Height:22,DataUrl:''}, 
+        {EName:'Checker',CName:'审核者',Type:'TextField',X:200,Y:30,Width:160,LabelWidth:55,Height:22,DataUrl:''},
+        {EName:'Doctor',CName:'医生',Type:'TextField',X:5,Y:55,Width:650,LabelWidth:55,Height:100,DataUrl:''},
+       
+        {EName:'Name3',CName:'姓名3',Type:'TextField',X:5,Y:5,Width:160,LabelWidth:55,Height:22,DataUrl:''},
+        {EName:'Dept3',CName:'科室',Type:'ComboBox',X:200,Y:5,Width:160,LabelWidth:55,Height:22,DataUrl:''}, 
+        {EName:'Sex3',CName:'性别3',Type:'ComboBox',X:400,Y:5,Width:160,LabelWidth:55,Height:22,DataUrl:'data/GetDeptLists.json'},
+        {EName:'NativePlace3',CName:'籍贯3',Type:'TextField',X:5,Y:30,Width:160,LabelWidth:55,Height:22,DataUrl:''}, 
+        {EName:'Address3',CName:'住址3',Type:'TextField',X:200,Y:30,Width:160,LabelWidth:55,Height:22,DataUrl:''},
+        {EName:'IdCard3',CName:'身份证3',Type:'TextField',X:5,Y:55,Width:650,LabelWidth:55,Height:100,DataUrl:''}
+	]
+}

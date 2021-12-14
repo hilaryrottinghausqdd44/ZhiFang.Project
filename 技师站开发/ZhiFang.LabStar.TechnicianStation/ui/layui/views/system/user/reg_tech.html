@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>检验技师注册</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../../../src/layui/dist/css/layui.css" media="all">
+	<link rel="stylesheet" href="../../../css/login.css" media="all">
+	<link rel="shortcut icon" href="../../../../../logo-16.png">
+	<style type="text/css">
+		.layui-form-select{position:unset;}
+	</style>
+</head>
+<body>
+<div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login">
+	<div class="layadmin-user-login-main">
+		<div style="margin-bottom:20px;text-align:center;font-size:24px;color:#009688;">
+			<div>检验技师注册</div>
+		</div>
+		<div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+			<!--所在部门-->
+			<div class="layui-form-item">
+				<select name="dept" id="dept" lay-filter="dept" lay-verify="required" lay-search>
+					<option value="">主职部门</option>
+				</select>
+			</div>
+			<div class="layui-form-item">
+				<label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+				<select name="dept2" id="dept2" lay-filter="dept2" multiple="multiple">
+					<option value="">挂靠部门</option>
+				</select>
+			</div>
+			<!--LIS账号-->
+			<div class="layui-form-item">
+				<label class="layadmin-user-login-icon layui-icon layui-icon-username" for="lisAccount"></label>
+				<input type="text" name="lisAccount" id="lisAccount" lay-verify="required" placeholder="LIS账号" class="layui-input">
+			</div>
+			<!--LIS密码-->
+			<div class="layui-form-item">
+				<label class="layadmin-user-login-icon layui-icon layui-icon-password" for="lisPassword"></label>
+				<input type="password" name="lisPassword" id="lisPassword" lay-verify="required" placeholder="LIS密码" class="layui-input">
+			</div>
+			<!--手机号-->
+			<div class="layui-form-item">
+				<label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="cellphone"></label>
+				<input type="text" name="cellphone" id="cellphone" placeholder="手机" class="layui-input">
+			</div>
+			<!--注册-->
+			<div class="layui-form-item">
+				<button id="Button_Reg" class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit">注 册</button>
+			</div>
+		</div>
+		
+	</div>
+	<!--底部版权信息-->
+	<div class="layui-trans layadmin-user-login-footer">
+		<p>© 2019 <a href="http://demo.zhifang.com.cn/" target="_blank">demo.zhifang.com.cn</a></p>
+	</div>
+</div>
+
+<script src="../../../../src/layui/src/layui.js"></script>
+<script src="../../../config/system.js"></script>
+<script>
+	layui.extend({
+		uxutil:'/ux/util',
+		multiSelect:'ux/other/multiSelect'
+	}).use(['form','uxutil','multiSelect'],function(){
+		var $ = layui.$,
+			form = layui.form,
+			uxutil = layui.uxutil,
+			multiSelect = layui.multiSelect;
+		
+		//根据账号密码获取用户信息
+		var GET_USER_INFO_URL = uxutil.path.ROOT + "/ServerWCF/MsgManageService.svc/Msg_GetUserInfoByPWD";
+		//获取LIS信息列表服务地址
+		var GET_LIS_DICT_LIST_URL = uxutil.path.ROOT + "/ServerWCF/MsgManageService.svc/Msg_GetLisDictInfo";
+		//注册服务地址
+		var ON_REG_URL = uxutil.path.LIIP_ROOT + "/ServerWCF/RBACService.svc/CV_AddTech";
+		//隐藏的挂靠部门
+		var DISPLAY_DD = null;
+		
+		form.on("select(dept)", function(data){
+			var dd = $("#dept2").next().find("dd[lay-value='" + data.value + "']");
+			if(DISPLAY_DD){
+				DISPLAY_DD.removeClass("display");
+			}
+			DISPLAY_DD = dd;
+			DISPLAY_DD.addClass("display");
+			dd.find('input').prop('checked', false);
+			dd.find("div").removeClass("layui-form-checked");
+			multiSelect.selected(0,$("#dept2"),dd);
+		});
+		form.on("submit(LAY-user-login-submit)",function(obj){
+			onRegClick(obj.field);
+		});
+		//注册按钮
+		function onRegClick(field){
+			var lisAccount = field.lisAccount,
+				lisPassword = field.lisPassword;
+			
+			//获取LIS账户信息
+			GetLisUserInfo(lisAccount,lisPassword,function(info){
+				onReg({
+					"Account":lisAccount,
+					"PWD":lisPassword,
+					"Name":info.CName,
+					"Sex":info.Gender == '1' ? '男' : '女',
+					"Phone":field.cellphone
+				});
+			});
+		};
+		//注册
+		function onReg(info){
+			var deptOption = $('#dept option:selected'),
+				deptValue = deptOption.val(),
+				deptName = deptOption.text(),
+				dept2Option = $('#dept2 option:selected'),
+				dept2Values = [],
+				dept2Names = [];
+				
+			$('#dept2 option:selected').each(function() {
+				dept2Values.push($(this).val());
+				dept2Names.push($(this).text());
+			});
+			for(var i in dept2Values){
+				if(deptValue == dept2Values[i]){
+					dept2Values.splice(i,1);
+					dept2Names.splice(i,1);
+				}
+			}
+			dept2Values.unshift(deptValue);
+			dept2Names.unshift(deptName);
+				
+			//Account=账户名&PWD=密码&Name=姓名&Sex=性别&DeptName=科室名称&DeptHISCode=科室HIS编码&Phone=电话
+			var params = {};
+			params.entity = info;
+			params.entity.DeptName = dept2Names.join(",");
+			params.entity.DeptLISCode = dept2Values.join(",");
+			
+			layer.load();
+			//请求注册接口
+			uxutil.server.ajax({
+				url:ON_REG_URL,
+				type:'post',
+				data:JSON.stringify(params)
+			},function(data){
+				layer.closeAll('loading');
+				if(data.success){
+					layer.msg('注册成功',{
+						icon:1,
+						time:500
+					},function(){
+						window.history.back(-1);
+					});
+				}else{
+					layer.msg(data.msg);
+				}
+			});
+		};
+		
+		//获取LIS账户信息
+		function GetLisUserInfo(account,pwd,callback){
+			var url = GET_USER_INFO_URL + '?userName=' + account + '&userPWD=' + pwd;
+			layer.load();
+			uxutil.server.ajax({
+				url:url
+			},function(data){
+				layer.closeAll('loading');
+				if(data.success){
+					var list = (data.value || {}).list || [];
+					if(list.length == 0){
+						layer.msg('LIS账户或密码错误',{icon:5});
+					}else if(list.length > 1){
+						layer.msg('存在多个LIS账户数据，请确认账户唯一！',{icon:5});
+					}else{
+						callback(list[0]);
+					}
+				}
+			});
+		};
+		//获取Lis字典表信息
+		function GetLisDictInfo(dictName,where,callback){
+			var url = GET_LIS_DICT_LIST_URL + "?dictName=" + dictName +"&strWhere=" + (where || "");
+			//{"Id":"1","CName":"住院","LisCode":"1","HisCode":"","DispOrder":"1"}
+			layer.load();
+			uxutil.server.ajax({
+				url:url
+			},function(data){
+				layer.closeAll('loading');
+				if(data.success){
+					callback((data.value || {}).list || []);
+				}
+			});
+		};
+		//初始化select组件
+		function initSelect(domId,defaultName,list,idField,textField){
+			var len = list.length,
+				htmls = ['<option value="">' + defaultName + '</option>'];
+				
+			for(var i=0;i<len;i++){
+				if(!list[i][idField]) continue;
+				htmls.push('<option value="' + list[i][idField] + '">' + list[i][textField] + '</option>');
+			}
+			$("#" + domId).html(htmls.join(""));
+		};
+		//初始化
+		function init(){
+			//科室dept
+			GetLisDictInfo("PGroup","",function(list){
+				initSelect("dept","主职小组",list,"Id","CName");
+				initSelect("dept2","挂靠小组",list,"Id","CName");
+				multiSelect.render('select');
+			});
+		};
+		init();
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		<!--不缓存缓存页面-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<title>BLFT系统</title>
+		<script>
+			//加载版本号
+			document.write(
+				"<script type='text/javascript' src='../../config/version.js?t=" + 
+					new Date().getTime() + "'><\/script>"
+			);
+		</script>
+		<style type='text/css'>
+			.loading-div {
+				position: absolute;
+				width: 200px;
+				height: 100px;
+				top: 50%;
+				left: 50%;
+				margin-left: -100px;
+				margin-top: -50px;
+
+				text-align: center;
+				font-size: 24;
+				font-weight: bold;
+
+				padding: 8px;
+			}
+		</style>
+	</head>
+	<!--禁止在IE8中使用 F5 刷新-->
+	<body onkeydown="if(event.keyCode==116){event.keyCode=0;return false;}">
+		<!--LODOP打印控件-->
+		<script src="http://localhost:8000/CLodopfuncs.js"></script>
+		<script src="http://localhost:18000/CLodopfuncs.js"></script>
+		<!--extjs css-->
+		<link rel="stylesheet" type="text/css" href="../../../src/extjs/resources/css/ext-all.css?v=20200226" />
+		 <!-- <link rel="stylesheet" type="text/css" href="../../../src/extjs/resources/ext-theme-neptune/ext-theme-neptune-all.css?v=20200226" /> -->
+		 <link rel="stylesheet" type="text/css" href="../../../src/extjs/ux/css/CheckHeader.css?v=20200226" />
+		<!--自定义css-->
+		<link rel="stylesheet" type="text/css" href="../../css/icon.css?v=20200226" />
+		<link rel="stylesheet" type="text/css" href="../../css/buttons.css?v=20200226" />
+		<link rel="stylesheet" type="text/css" href="../../css/files.css?v=20200226" />
+		<link rel="stylesheet" type="text/css" href="../../css/sysbase.css?v=20200226" />
+		
+		<script type="text/javascript" src="../../../src/extjs/bootstrap.js"></script>
+		<script type="text/javascript" src="../../util/JcallShell.js?v=2020091001"></script>
+		<script type="text/javascript" src="../../util/override-all.js?v=2020091001"></script>
+		<script type="text/javascript" src="../../els.js?v=2020091001"></script>
+		<script type="text/javascript" src="app.js?v=2020091001"></script>
+
+		<style type="text/css">
+			.x-grid-row {
+				vertical-align: middle;
+			}
+			.x-grid-row-over .x-grid-cell-inner {
+				font-weight: bold;
+			}
+		</style>
+	</body>
+</html>

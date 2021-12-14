@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.WeiXin.Entity" assembly="ZhiFang.WeiXin.Entity">
+	<class name="OSManagerRefundForm" table="[dbo].[OS_ManagerRefundForm]">
+		<id name="Id" column="[MRefundFormID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="MRefundFormCode" column="[MRefundFormCode]" type="String" not-null="false" length="30" />
+		<property name="UOFID" column="[UOFID]" type="Int64" not-null="true" length="8" />
+		<property name="UOFCode" column="[UOFCode]" type="String" not-null="false" length="30" />
+		<property name="DOFID" column="[DOFID]" type="Int64" not-null="false" length="8" />
+		<property name="DoctorAccountID" column="[DoctorAccountID]" type="Int64" not-null="false" length="8" />
+		<property name="OSUserConsumerFormID" column="[OS_UserConsumerFormID]" type="Int64" not-null="false" length="8" />
+		<property name="OSUserConsumerFormCode" column="[OS_UserConsumerFormCode]" type="String" not-null="false" length="30" />
+		<property name="WeiXinUserID" column="[WeiXinUserID]" type="Int64" not-null="false" length="8" />
+		<property name="DoctorOpenID" column="[DoctorOpenID]" type="String" not-null="false" length="50" />
+		<property name="DoctorName" column="[DoctorName]" type="String" not-null="false" length="20" />
+		<property name="UserAccountID" column="[UserAccountID]" type="Int64" not-null="false" length="8" />
+		<property name="UserWeiXinUserID" column="[UserWeiXinUserID]" type="Int64" not-null="false" length="8" />
+		<property name="UserName" column="[UserName]" type="String" not-null="false" length="20" />
+		<property name="UserOpenID" column="[UserOpenID]" type="String" not-null="false" length="50" />
+		<property name="Status" column="[Status]" type="Int64" not-null="false" length="8" />
+		<property name="PayCode" column="[PayCode]" type="String" not-null="false" length="50" />
+		<property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+		<property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+		<property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DiscountPrice" column="[DiscountPrice]" type="Double" not-null="false" length="8" />
+		<property name="Discount" column="[Discount]" type="Double" not-null="false" length="8" />
+		<property name="Price" column="[Price]" type="Double" not-null="false" length="8" />
+		<property name="RefundPrice" column="[RefundPrice]" type="Double" not-null="false" length="8" />
+		<property name="PayTime" column="[PayTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefundApplyManName" column="[RefundApplyManName]" type="String" not-null="false" length="50" />
+		<property name="RefundApplyManID" column="[RefundApplyManID]" type="Int64" not-null="false" length="8" />
+		<property name="RefundApplyTime" column="[RefundApplyTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefundOneReviewManName" column="[RefundOneReviewManName]" type="String" not-null="false" length="50" />
+		<property name="RefundOneReviewManID" column="[RefundOneReviewManID]" type="Int64" not-null="false" length="8" />
+		<property name="RefundOneReviewStartTime" column="[RefundOneReviewStartTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefundOneReviewFinishTime" column="[RefundOneReviewFinishTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefundTwoReviewManName" column="[RefundTwoReviewManName]" type="String" not-null="false" length="50" />
+		<property name="RefundTwoReviewManID" column="[RefundTwoReviewManID]" type="Int64" not-null="false" length="8" />
+		<property name="RefundTwoReviewStartTime" column="[RefundTwoReviewStartTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefundTwoReviewFinishTime" column="[RefundTwoReviewFinishTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefundThreeReviewManName" column="[RefundThreeReviewManName]" type="String" not-null="false" length="50" />
+		<property name="RefundThreeReviewManID" column="[RefundThreeReviewManID]" type="Int64" not-null="false" length="8" />
+		<property name="RefundThreeReviewStartTime" column="[RefundThreeReviewStartTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefundThreeReviewFinishTime" column="[RefundThreeReviewFinishTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RefundReason" column="[RefundReason]" type="String" not-null="false" length="900" />
+		<property name="RefundOneReviewReason" column="[RefundOneReviewReason]" type="String" not-null="false" length="900" />
+		<property name="RefundTwoReviewReason" column="[RefundTwoReviewReason]" type="String" not-null="false" length="900" />
+		<property name="RefundThreeReviewReason" column="[RefundThreeReviewReason]" type="String" not-null="false" length="900" />
+		<property name="TransactionId" column="[TransactionId]" type="String" not-null="false" length="50" />
+		<property name="RefundId" column="[RefundId]" type="String" not-null="false" length="50" />
+		<property name="RefundType" column="[RefundType]" type="Int64" not-null="false" length="8" />
+		<property name="BankID" column="[BankID]" type="Int64" not-null="false" length="8" />
+		<property name="BankAccount" column="[BankAccount]" type="String" not-null="false" length="50" />
+		<property name="BankTransFormCode" column="[BankTransFormCode]" type="String" not-null="false" length="50" />
+    <property name="CollectionFlag" column="[CollectionFlag]" type="Boolean" not-null="false" length="1" />
+    <property name="CollectionPrice" column="[CollectionPrice]" type="Double" not-null="false" length="8" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>打印测试</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edgechrome=1">
+		<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+		<script src="../../src/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../src/zhifang/print/Print.js?v=2" type="text/javascript" charset="utf-8"></script>
+		<script src="../../src/zhifang/print/Model.js?v=1" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<span style="padding:5px;">直接使用</span>
+		<div style="padding:5px;">
+			<button id="model">模板打印</button>
+			<button id="model_setup">模板维护</button>
+			<button id="model_design">模板设计</button>
+			<button id="print">PDF直接打印</button>
+			<button id="preview">PDF浏览打印</button>
+			<button id="getPublic">获取公开方法</button>
+		</div>
+		<span style="padding:5px;">框架封装使用</span>
+		<div style="padding:5px;">
+			<button id="layui">Layui版本打印测试页面</button>
+			<button id="extjs">Extjs版本打印测试页面</button>
+		</div>
+		<span style="padding:5px;">模板获取结果：</span>
+		<div style="margin:10px 5px;">
+			<textarea id="result" style="width:100%;height:200px;"></textarea>
+		</div>
+		<span style="padding:5px;">底层提供的方法：</span>
+		<div style="margin:10px 5px;">
+			<textarea id="api" style="width:100%;height:200px;"></textarea>
+		</div>
+		<span style="padding:5px;">Layui方式打印使用方法：</span>
+		<div style="margin:10px 5px;">
+			<textarea style="width:100%;height:360px;">
+layui.extend({
+	uxutil:'ux/util',
+	print:'ux/print'
+}).use(['jquery','uxutil','print','layer'],function(){
+	var $ = layui.jquery,
+		uxutil = layui.uxutil,
+		print = layui.print;
+		
+	//测试PDF文件地址
+	var url = uxutil.path.LAYUI + "/test/print/test.pdf";
+	
+	//直接打印
+	$("#print").on("click",function(){
+		for(var i=0;i<3;i++){
+			print.instance.pdf.print(url,'PDF打印任务' + (i+1));
+		}
+	});
+	//预览打印
+	$("#preview").on("click",function(){
+		print.instance.pdf.preview([url,url,url,url]);
+	});
+});
+			</textarea>
+		</div>
+		<span style="padding:5px;">Extjs方式打印使用方法：</span>
+		<div style="margin:10px 5px;">
+			<textarea style="width:100%;height:660px;">
+/**
+ * 打印测试
+ * @author Jcall
+ * @version 2020-11-23
+ */
+Ext.define('Shell.test.Print',{
+	extend:'Ext.panel.Panel',
+	title:'打印测试',
+	bodyPadding:1,
+	
+	afterRender:function(){
+		var me = this;
+		me.callParent(arguments);
+	},
+	initComponent:function(){
+		var me = this;
+		
+		Ext.create('Shell.ux.print.Print').init(function(print){
+			me.Print = print;
+		});
+		
+		me.items = [{
+			xtype:'button',text:'直接打印',handler:function(){me.onPrint();}
+		},{
+			xtype:'button',text:'浏览打印',handler:function(){me.onPreview();}
+		}];
+		
+		me.callParent(arguments);
+	},
+	//直接打印
+	onPrint:function(){
+		var me = this;
+		var url = JShell.System.Path.UI + '/test/test.pdf';
+		me.Print.pdf.print(url);
+		me.Print.pdf.print(url);
+	},
+	//浏览打印
+	onPreview:function(){
+		var me = this;
+		var url = JShell.System.Path.UI + '/test/test.pdf';
+		me.Print.pdf.preview([url,url]);
+	}
+});
+			</textarea>
+		</div>
+		
+		<script type="text/javascript">
+			var url = 'http://localhost/ZhiFang.LabInformationIntegratePlatform/ui/test/print/small.pdf';
+			//地址中有中文，必须转义clodop才能获取到pdf
+			url = encodeURI(url);
+			
+			//初始化打印组件
+			ZFPrint.init();
+			
+			//最直接打印
+			$("#print").on("click",function(){
+				var Count = 3;
+				for(var i=0;i<Count;i++){
+					ZFPrint.pdf.print([url],"打印"+(i+1));
+				}
+			});
+			//预览打印
+			$("#preview").on("click",function(){
+				ZFPrint.pdf.preview([url]);
+			});
+			//模板 打印
+			$("#model").on("click",function(){
+				ZFPrintModel.getLodopContentByModelFile('./model/model1.txt',{
+					TITLE:'测试标题',
+					GoodsName:'测试试剂'
+				},function(content){
+					console.log(content);
+					$("#result").val(content || "");
+					ZFPrint.model.preview(content,'test');
+				});
+			});
+			//模板 维护
+			$("#model_setup").on("click",function(){
+				ZFPrintModel.getLodopContentByModelFile('./model/model1.txt',{
+					TITLE:'测试标题',
+					GoodsName:'测试试剂'
+				},function(content){
+					console.log(content);
+					$("#result").val(content || "");
+					ZFPrint.model.setup(content,'test');
+				});
+			});
+			//模板 设计
+			$("#model_design").on("click",function(){
+				ZFPrintModel.getLodopContentByModelFile('./model/model1.txt',{
+					TITLE:'测试标题',
+					GoodsName:'测试试剂'
+				},function(content){
+					console.log(content);
+					$("#result").val(content || "");
+					ZFPrint.model.design(content,'test');
+				});
+			});
+			
+			
+			//获取底层公开方法
+			$("#getPublic").on("click",function(){
+				var data = ZFPrint.getPublic() || {};
+				var content = [];
+				for(var i in data){
+					content.push(i + ":" + data[i]);
+				}
+				$("#api").val(content.join('\r'));
+			});
+			$("#getPublic").click();
+		
+			$("#layui").on("click",function(){
+				window.open('../../layui/test/print/index.html');
+			});
+			$("#extjs").on("click",function(){
+				window.open('../../extjs/test.html?className=Shell.test.Print');
+			});
+		</script>
+	</body>
+</html>

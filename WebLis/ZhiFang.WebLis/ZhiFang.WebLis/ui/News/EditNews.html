@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- HTTP 1.0 -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Prevent caching at the proxy server -->
+    <meta http-equiv="expires" content="0">
+    <title>修改新闻</title>
+    <script src="../easyui/jquery.min.js"></script>
+    <script src="../easyui/jquery.easyui.min.js"></script>
+    <link href="../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../util/util.js"></script>
+    <script src="../util/util_easyui.js"></script>
+    <script src="EditNews.js?v=2"></script>
+
+    <style type="text/css">
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+        }
+
+        .fTitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .fItem {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+            .fItem label {
+                display: inline-block;
+                width: 100px;
+            }
+
+            .fItem input {
+                width: 130px;
+            }
+
+            .fItem select {
+                width: 130px;
+            }
+    </style>
+
+</head>
+
+<body class="easyui-layout">
+    <!--<div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div>-->
+
+    <form id="fm">
+        <div data-options="region:'north'," style="height:230px;">
+            <div id="formToolBar" toolbar="#toolbar" fit="true">
+                <div id="toolbar" class="datagrid-toolbar">
+                    <a href="javascript:void(0)" id="save" class="easyui-linkbutton" onclick="save()" plain="true" data-options="iconCls:'icon-save'">保存</a>
+                    <a href="javascript:void(0)" id="cancel" class="easyui-linkbutton" onclick="cancel()" plain="true" data-options="iconCls:'icon-cancel'">取消</a>
+                </div>
+            </div>
+            <!--<div id="dlg" class="easyui-dialog" style="width:590px;height:350px;margin: auto;" buttons="#dlgButtons">-->
+            <input id='txtFileID' name="FileID" type="hidden" value="0" />
+            <table border="0" cellpadding="5" width="100%">
+                <tr>
+                    <td style="padding-left:20px;width:100px">
+                        <label>新闻标题:</label>
+                    </td>
+                    <td colspan="5">
+                        <input id='txtTitle' name="Title" class="easyui-textbox" required="true" style="width:500px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left:20px">
+                        <label>新闻关键字:</label>
+                    </td>
+                    <td colspan="5">
+                        <input id="txtKeyword" name="Keyword" class="easyui-textbox" style="width:500px;margin-left:200px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left:20px">
+                        <label>新闻编号:</label>
+                    </td>
+                    <td width="200px">
+                        <input id="txtNo" name="No" class="easyui-textbox" required="true" style="width:200px;">
+                    </td>
+                    <td width="100px">
+                        <label>新闻类型:</label>
+                    </td>
+                    <td width="200px">
+                        <input id='txtType' name="Type" class="easyui-combobox" required="true">
+                    </td>
+                    <td width="100px">
+                        <label>审批人:</label>
+                    </td>
+                    <td>
+                        <input id='txtApprovalId' name="ApprovalId" class="easyui-combobox" required="true">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left:20px">
+                        <label>生效日期:</label>
+                    </td>
+                    <td colspan="5">
+                        <input id="StartDate" name="StartDate" class="easyui-datebox" style="width:200px;">&nbsp;--&nbsp;<input id="EndDate" name="EndDate" class="easyui-datebox" style="width:200px;"><span style="color:red;font-weight:bold">&nbsp;&nbsp;不输入即为永久有效</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left:20px">
+                        <label>新闻摘要:</label>
+                    </td>
+                    <td colspan="5">
+                        <input id="txtSummary" name="Summary" class="easyui-textbox" style="height:60px;width:600px;" data-options="multiline:true">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div data-options="region:'center',title:'新闻内容'" style="padding:5px;background:#eee;">
+            <table>
+                <tr>
+                    <td id="UEDiv">
+                        <script id="container" name="content" style="width:100%;height:500px;" type="text/plain">
+                        </script>
+
+                        <script type="text/javascript" src="../../ueditor/ueditor.config.js?v=2"></script>
+                        <script type="text/javascript" src="../../ueditor/ueditor.all.js?v=1"></script>
+                        <script type="text/javascript">
+                            //实例化编辑器
+                            var ue = UE.getEditor('container', { //初始化编辑器
+                                theme: "default", //皮肤
+                                lang: 'zh-cn', //语言
+                                allowDivTransToP: false
+                            });
+                        </script>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </form>
+    <!--</div>-->
+
+</body>
+</html>

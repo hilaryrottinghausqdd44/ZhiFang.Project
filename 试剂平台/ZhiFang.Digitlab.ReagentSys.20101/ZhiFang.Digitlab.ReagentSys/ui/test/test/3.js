@@ -1,0 +1,20 @@
+Ext.define('myTabpanel',{
+	extend:'Ext.tab.Panel',
+	width:400,
+	height:300,
+	activeTab:'BBBB',
+	items:[{
+		xtype:'panel',
+		title:'AAAA',
+		itemId:'AAAA'
+	},{
+		xtype:'panel',
+		title:'BBBB',
+		itemId:'BBBB'
+	}],
+	listeners:{
+		tabchange:function(tabPanel,newCard,oldCard){
+			alert(newCard.title + ";" + oldCard.title);
+		}
+	}
+});

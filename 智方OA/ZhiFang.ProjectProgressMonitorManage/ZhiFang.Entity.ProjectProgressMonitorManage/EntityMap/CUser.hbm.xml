@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ProjectProgressMonitorManage" assembly="ZhiFang.Entity.ProjectProgressMonitorManage">
+	<class name="CUser" table="[dbo].[CUser]">
+		<id name="Id" column="[UserNo]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="UserName" column="[UserName]" type="String" not-null="false" length="100" />
+		<property name="UserAddress" column="[UserAddress]" type="String" not-null="false" length="250" />
+		<property name="UserPostcode" column="[UserPostcode]" type="String" not-null="false" length="10" />
+		<property name="UserTelephone" column="[UserTelephone]" type="String" not-null="false" length="20" />
+		<property name="UserFax" column="[UserFax]" type="String" not-null="false" length="20" />
+		<property name="UserLinkman" column="[UserLinkman]" type="String" not-null="false" length="50" />
+		<property name="UserArea" column="[UserArea]" type="String" not-null="false" length="50" />
+		<property name="UserCName" column="[UserCName]" type="String" not-null="false" length="50" />
+		<property name="UserFWNo" column="[UserFWNo]" type="String" not-null="false" length="6" />
+		<property name="PTechSQH" column="[PTechSQH]" type="String" not-null="false" length="4" />
+		<property name="LRNo1" column="[LRNo1]" type="String" not-null="false" length="20" />
+		<property name="LRNo2" column="[LRNo2]" type="String" not-null="false" length="20" />
+		<property name="LicenceInfo" column="[LicenceInfo]" type="String" not-null="false" length="255" />
+		<property name="LicenceText" column="[LicenceText]" type="String" not-null="false" />
+		<property name="BHint" column="[bHint]" type="Boolean" not-null="true" length="1" />
+		<property name="LHint" column="[LHint]" type="String" not-null="false" length="255" />
+		<property name="IsMapping" column="[IsMapping]" type="Boolean" not-null="false" length="1" />
+		<property name="ContrastId" column="[ContrastId]" type="Int64" not-null="false" length="8" />
+		<property name="ContrastCName" column="[ContrastCName]" type="String" not-null="false" length="60" />
+		<property name="CheckId" column="[CheckId]" type="Int64" not-null="false" length="8" />
+		<property name="CheckCName" column="[CheckCName]" type="String" not-null="false" length="60" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+2020-12-30 15:12:35,287 [16] ERROR : 传入的HIS科室编码为:,在LIS获取到科室编码为:94!
+2020-12-30 15:12:35,367 [16] DEBUG : 登录员工信息:PUser.Id:1,PUser.CName:系统
+2020-12-30 15:12:35,368 [16] DEBUG : 登录所属科室信息:Department.Id:94,Department.CName:感染管理科
+2020-12-30 15:12:35,787 [16] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-12-30 15:12:35,791 [16] DEBUG : objectID:2007730255
+2020-12-30 15:12:35,792 [16] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-12-30 15:12:39,351 [16] ERROR :    在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt64(String value, NumberStyles options, NumberFormatInfo numfmt)
+   在 ZhiFang.WebAssist.ServerWCF.WebAssistManageService.WA_UDTO_GetGKWarningAlertInfo() 位置 G:\智方开发\智方Web\ZhiFang.Web.Assist\ZhiFang.WebAssist\ServerWCF\WebAssistManageService.svc.cs:行号 4575
+2020-12-30 15:13:02,504 [16] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-12-30 15:13:02,506 [16] DEBUG : objectID:2007730255
+2020-12-30 15:13:02,507 [16] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'
+2020-12-30 15:13:25,245 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.Start
+2020-12-30 15:13:25,992 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.End
+2020-12-30 15:13:26,051 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.GroupByDeptList.foreach.End
+2020-12-30 15:13:26,208 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.Start
+2020-12-30 15:13:26,669 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.End
+2020-12-30 15:13:26,683 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.GroupByDeptList.foreach.End
+2020-12-30 15:13:40,834 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.Start
+2020-12-30 15:13:41,655 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.End
+2020-12-30 15:13:41,670 [8] DEBUG : SearchGKListByHQLInfectionOfDept.SearchGKSampleRequestFormAndDtlByHQL.GroupByDeptList.foreach.End
+2020-12-30 15:19:24,711 [32] ERROR : 传入的HIS科室编码为:,在LIS获取到科室编码为:94!
+2020-12-30 15:19:24,764 [32] DEBUG : 登录员工信息:PUser.Id:1,PUser.CName:系统
+2020-12-30 15:19:24,765 [32] DEBUG : 登录所属科室信息:Department.Id:94,Department.CName:感染管理科
+2020-12-30 15:19:25,096 [32] INFO  : select object_id('B_Parameter', 'U') as ObjectID
+2020-12-30 15:19:25,098 [32] DEBUG : objectID:2007730255
+2020-12-30 15:19:25,099 [32] INFO  :  select ParaValue from B_Parameter where ParaType ='SYS' and ParaNo='SYS_DBVersion'

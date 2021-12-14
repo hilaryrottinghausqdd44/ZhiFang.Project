@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>项目合并(糖耐量)</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+	<meta name="Cache-Control" content="no-cache">
+  <script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script> 
+  <style>
+		/*input前存在icon 则加到input里面*/
+        .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+	
+         /*页面*/
+        .box{display:flex;margin:1px;}
+		.left{width:320px;height:100%;margin:1px;}
+		.center{flex:1;height:100%;margin:1px;}
+		
+		/*表单*/
+        .formbox{display:flex;margin:1px;}
+		.formright{width:25px;height:100%;margin:1px;}
+		.formcenter{flex:1;height:100%;margin:1px;}
+		
+		/*表单*/
+        .box2{display:flex;margin:0px;padding: 0px;}
+		.right2{width:300px;height:100%;margin:1px;}
+		.center2{flex:1;height:100%;margin:1px;}
+		
+        /*列表下拉框高度调整*/
+        table .layui-input, .layui-textarea, .layui-select{height: 30px; line-height: 1; line-height: 25px; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px;}
+        /* 使得下拉框与单元格刚好合适      */
+		td .layui-form-select{margin-top: -10px;margin-left: -15px;margin-right: -15px;}  
+
+       /*小表单下拉框处理*/
+       .layui-form-select dl{ top:28px; }
+       .layui-form-selectup dl { top: auto; bottom: 28px; }
+        
+    </style> 
+ </head> 
+ <body> 
+  <div class="layui-card" id="itemmerge" style="margin-bottom:0;padding:5px 0px ;"> 
+   <div class="box"> 
+    <div class="left"> 
+     <div class="layui-form" lay-filter="form" id="form" style="padding-top: 10px;"> 
+      <div class="layui-form-item"> 
+       <label class="layui-form-label" style="width: 100px;">合并项目名称:</label> 
+       <div class="layui-input-block" style="margin-left: 120px;"> 
+         <input type="text" name='LBItem_CName' id="LBItem_CName" readonly autocomplete="off" class="layui-input" />
+        <i class="layui-icon layui-icon-triangle-d"></i>   
+         <input type="text" name='ItemID' id="ItemID" readonly autocomplete="off" class="layui-input layui-hide" />
+
+       </div> 
+      </div> 
+      <div class="layui-form-item"> 
+       <div class="formbox"> 
+        <div class="formcenter"> 
+         <label class="layui-form-label">检验日期:</label> 
+         <div class="layui-input-block"> 
+          <input type="text" id="GTestDate" name="GTestDate" class="layui-input myDate" placeholder="检验日期" /> 
+          <i class="layui-icon layui-icon-date"></i> 
+         </div> 
+        </div> 
+        <div class="formright"> 
+         <button class="layui-btn layui-btn-xs" lay-submit="" lay-filter="search"> <i class="layui-icon layui-icon-search"></i></button> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <table class="layui-hide" id="patient_table" lay-filter="patient_table"></table> 
+     <button class="layui-btn layui-btn-xs" id="save"><i class="iconfont"></i>&nbsp;合并</button> 
+     <button class="layui-btn layui-btn-xs layui-btn-primary" style="margin-left: 2px;" id="close"><i class="iconfont">&#xe674;</i>&nbsp;关闭</button> 
+    </div> 
+    <div class="center"> 
+     <table class="layui-hide" id="item_table" lay-filter="item_table" style="margin: 0px;padding: 0px;"> 
+      <script type="text/html" id="ismergeTpl">    
+		    <select name='ismerge'  lay-filter='ismerge' >
+		    	<option value="0">否</option>
+		    	<option value="1">是</option>
+            </select>
+		</script> 
+      <script type="text/html" id="itemTpl">    
+		    <select name='item' id="item" lay-filter='item'></select>
+		</script> 
+     </table> 
+     <div class="layui-row" style="margin-top: -8px;"> 
+      <div class="layui-col-xs8"> 
+       <div id="line" style="border: 1px solid #e8e1e1;"></div> 
+       <div class="layui-form" lay-filter="saveform"> 
+        <input type="checkbox" id="cbRefRange" lay-filter="cbRefRange" title="参考范围" lay-skin="primary" checked="" /> 
+        <input type="checkbox" id="cbAbnormalRange" lay-filter="cbAbnormalRange" title="异常范围" lay-skin="primary" checked="" /> 
+        <input type="checkbox" id="cbTip" lay-filter="cbTip" title="结果值提示" lay-skin="primary" checked="" /> 
+       </div> 
+      </div> 
+      <div class="layui-col-xs4" style="margin-top: -10px;padding-left: 3px;"> 
+       <table class="layui-hide" id="item_result_table" lay-filter="item_result_table"></table> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getCSS('../../../../css/layui.form.sm.all.css');
+		UIVersion.getJS('../../../../../src/echarts/4.8.0/echarts.min.js');
+		UIVersion.getJS('index.js');
+	</script>  
+ </body>
+</html>

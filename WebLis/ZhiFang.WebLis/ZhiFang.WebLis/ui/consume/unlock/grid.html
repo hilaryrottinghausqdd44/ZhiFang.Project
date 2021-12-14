@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+		<!--不缓存缓存页面-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<title>消费码解锁</title>
+		<script src="../../util/common.js"></script>
+		<script src="grid.js?v=2018010503"></script>
+	</head>
+
+	<body class="easyui-layout" data-options="fit:true,width:'auto'">
+		<div id="mainpanel" class="easyui-layout" dada-options="fit:true,border:false" style="200px;height:100%;">
+			<div id="toolbar">
+				<a style="margin-left:10px;">消费码：</a><input id="payCode" class="easyui-textbox" style="width: 120px" />
+				<a id="search" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true">查询</a>
+			</div>
+			
+			<div data-options="region:'center',border:false,iconCls:'icon-app-grid-16',tools:'#ToolsPanel'">
+				<div id="list" class="easyui-datagrid" data-options="border:false,singleSelect:true,fit:true,fitColumns:true">
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

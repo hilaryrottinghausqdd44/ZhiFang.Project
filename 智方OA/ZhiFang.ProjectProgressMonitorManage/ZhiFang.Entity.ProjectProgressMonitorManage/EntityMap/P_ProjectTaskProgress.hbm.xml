@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ProjectProgressMonitorManage" assembly="ZhiFang.Entity.ProjectProgressMonitorManage">
+  <class name="PProjectTaskProgress" table="[dbo].[P_ProjectTaskProgress]">
+    <id name="Id" column="[TaskProgressID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="Workload" column="[Workload]" type="Double" not-null="false" length="8" />
+    <property name="RegisterTime" column="[RegisterTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ExecuteTime" column="[ExecuteTime]" type="DateTime" not-null="false" length="8" />
+    <property name="TaskWorkInfo" column="[TaskWorkInfo]" type="String" not-null="false" />
+    <property name="TaskRisk" column="[TaskRisk]" type="String" not-null="false" />
+    <property name="TaskTypeDict" column="[TaskTypeDict]" type="String" not-null="false" length="500" />
+    <property name="IsUse" column="[IsUse]" type="Boolean" not-null="false" length="1" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="Register" class="ZhiFang.Entity.RBAC.HREmployee" lazy="false">
+      <column name="[RegisterEmpID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="PProject" class="PProject" lazy="false">
+      <column name="[ProjectID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="PProjectTask" class="PProjectTask" lazy="false">
+      <column name="[ProjectTaskID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

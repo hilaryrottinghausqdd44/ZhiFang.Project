@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>危急值消息-实施文档</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../../../src/layui/src/css/layui.css" media="all">
+	<link rel="stylesheet" href="../../../../src/layui/src/css/modules/code.css" media="all">
+	<link rel="stylesheet" href="../../style.css" media="all">
+	
+	<!--<link rel="stylesheet" href="../../../../src/image/jquery.iviewer.css" media="all">
+	<script type="text/javascript" src="../../../../src/jquery-1.11.1.min.js" ></script>
+	<script type="text/javascript" src="../../../../src/image/jquery.mousewheel.min.js" ></script>
+	<script type="text/javascript" src="../../../../src/image/jquery.iviewer.js" ></script>-->
+	
+	<link rel="shortcut icon" href="../../../../../logo-16.png">
+	<style>
+		.viewer{
+			width: 50%;
+			height: 500px;
+			border: 1px solid black;
+			position: relative;
+		}
+		.wrapper{
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid layui-fluid-help">
+		<h1 class="site-h1">危急值消息-实施文档</h1>
+		
+		<blockquote class="site-text layui-elem-quote">
+			该文档详细说明危急值消息功能实施的场景，实施的注意事项，第三方使用的说明。
+		</blockquote>
+		
+		<!--服务器环境-->
+		<div class="site-title">
+			<fieldset><legend>
+				<a name="use">服务器环境准备</a>
+				<a class="editor-anchor" name="0" anchor-name="服务器环境准备">&nbsp;</a>
+			</legend></fieldset>
+		</div>
+		<blockquote class="site-text layui-elem-quote layui-elem-quote-danger">
+			服务器环境准备
+		</blockquote>
+		<div class="site-text editor-content">
+			1、服务器操作系统要求windows server 2012及以上版本；
+			2、服务器需要.net framework4.7.2，如果没有安装请手动安装。安装文件请解压net472.rar，具体如何安装请百度；
+		</div>
+		
+		<!--软件概要介绍-->
+		<div class="site-title">
+			<fieldset><legend>
+				<a name="use">软件概要介绍</a>
+				<a class="editor-anchor" name="1" anchor-name="软件概要介绍">&nbsp;</a>
+			</legend></fieldset>
+		</div>
+		<blockquote class="site-text layui-elem-quote">
+			流程+功能模块+使用说明
+		</blockquote>
+		<div class="site-text editor-content">
+			
+		</div>
+		<ul class="layui-timeline">
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe617;</i>
+				<div class="layui-timeline-content layui-text">
+					<div class="layui-timeline-title">开始</div>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title">一、检验之星产生危急值</h3>
+					<p>
+					</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title">二、检验之星调用接口</h3>
+					<p>
+					</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title">三、接口调用消息集成平台服务</h3>
+					<p>
+					</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title">四、消息集成平台通知该科室的临床医生</h3>
+					<p>
+					</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title">五、临床医生处理本科室危急值</h3>
+					<p>
+					</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe617;</i>
+				<div class="layui-timeline-content layui-text">
+					<div class="layui-timeline-title">结束</div>
+				</div>
+			</li>
+		</ul>
+		<!--部署配置-->
+		<div class="site-title">
+			<fieldset><legend>
+				<a name="use">部署配置</a>
+				<a class="editor-anchor" name="2" anchor-name="部署配置">&nbsp;</a>
+			</legend></fieldset>
+		</div>
+		<blockquote class="site-text layui-elem-quote">
+			部署及配置说明
+		</blockquote>
+		<div class="site-text editor-content">
+			
+		</div>
+		<ul class="layui-timeline">
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe617;</i>
+				<div class="layui-timeline-content layui-text">
+					<div class="layui-timeline-title">开始</div>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title">部署集成平台项目</h3>
+					<p>
+						存放ZhiFang.LabInformationIntegratePlatform项目文件夹；
+						<br>根据ZhiFang.LIIP.bak数据备份文件创建数据库；
+						<br>在IIS中部署ZhiFang.LabInformationIntegratePlatform项目；
+						<br>更改webconfig文件的数据库配置内容，将地址指向创建好的数据库ZhiFang.LIIP；
+						<div class="layui-row">
+							<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+								<div class="layer-photos">
+									<img layer-pid="1" layer-src="images/1.png" src="images/1.png" alt="图片名">
+									<img layer-pid="2" layer-src="images/2.png" src="images/2.png" alt="图片名">
+								</div>
+							</div>
+						</div>
+						<!--<div class="layui-row">
+							<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+								<div class="layer-photos">
+									<div class="wrapper">
+										<div image-id="1" class="viewer"></div>
+									</div>
+								</div>
+							</div>
+						</div>-->
+					</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title">部署危急值项目</h3>
+					<p>
+						存放ZhiFang.LabStar.TechnicianStation项目文件夹；
+						<br>在IIS中部署ZhiFang.LabStar.TechnicianStation项；
+						<br>更改webconfig文件的数据库配置内容，将地址指向已存在的LIS数据库；
+						<div class="layui-row">
+							<div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+								<div class="layer-photos">
+									<img layer-pid="图片id，可以不写" layer-src="images/2.png" src="images/2.png" alt="图片名">
+								</div>
+							</div>
+						</div>
+					</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis">&#xe617;</i>
+				<div class="layui-timeline-content layui-text">
+					<div class="layui-timeline-title">结束</div>
+				</div>
+			</li>
+		</ul>
+		<blockquote class="site-text layui-elem-quote layui-elem-quote-danger">
+			部署注意事项
+		</blockquote>
+		<div class="site-text editor-content">
+			1、表SC_MsgType存在默认数据[1,危急值]；
+			2、表IntergrateSystemSet存在默认数据[1001,智方检验之星]；
+			3、LIS库的科室表需要维护HIS科室编码，不然上报的危急值信息无法推到HIS登录的用户；
+		</div>
+		
+		<!--HIS调用说明-->
+		<div class="site-title">
+			<fieldset><legend>
+				<a name="use">HIS调用说明</a>
+				<a class="editor-anchor" name="3" anchor-name="HIS调用说明">&nbsp;</a>
+			</legend></fieldset>
+		</div>
+		<blockquote class="site-text layui-elem-quote">
+			http://localhost/ZhiFang.LabStar.TechnicianStation/ui/layui/interface/cv/msg.html?Account=hujie&PWD=123456&Name=胡杰&Sex=男&DeptName=前处理组&DeptHISCode=1&Phone=13812345678
+			<br>
+			<span class="layui-badge layui-bg-green">其中</span>
+			http://localhost/ZhiFang.LabStar.TechnicianStation为危急值项目地址，<span class="layui-badge">需要更改为实际部署地址</span>；
+			<br>ui/layui/interface/cv/msg.html为HIS的HTML接口地址，不需要改变；
+			<br>Account=hujie&PWD=123456&Name=胡杰&Sex=男&DeptName=前处理组&DeptHISCode=1&Phone=13812345678为参数；
+			<br>
+			<span class="layui-badge layui-bg-green">其中</span>
+			<span class="layui-badge layui-bg-blue">Account=HIS账号</span>
+			<span class="layui-badge layui-bg-blue">PWD=HIS密码</span>
+			<span class="layui-badge layui-bg-blue">Name=用户名字</span>
+			<span class="layui-badge layui-bg-blue">DeptName=HIS科室</span>
+			<span class="layui-badge layui-bg-blue">DeptHISCode=HIS科室编码</span>
+			<span class="layui-badge layui-bg-blue">Phone=用户手机号</span>
+		</blockquote>
+		<div class="site-text editor-content">
+			
+		</div>
+	</div>
+	<script src="../../../../src/layui/src/layui.js"></script>
+	<script src="../../../config/system.js"></script>
+	<script src="../../common.js?v=2"></script>
+	<script>
+		layui.use(['jquery'],function(){
+			var $ = layui.$;
+			
+//			var iviewer = {};
+//			$(".viewer[image-id='1']").iviewer({
+//				src:"images/1.png",
+//				//ui_disabled:true,
+//				initCallback:function(){
+//			        iviewer = this;
+//				}
+//			});
+			
+			$(".editor-content").each(function(index,elem){
+				var html = $(this).html();
+				html = html.replace(/\n/g,'</br>');
+				
+				$(this).html(html);
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+			
+		<!--uc强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<!--UC强制全屏-->
+		<meta name="full-screen" content="yes">
+		<!--QQ强制全屏-->
+		<meta name="x5-fullscreen" content="true">
+		<!--UC应用模式-->
+		<meta name="browsermode" content="application">
+		
+		<title>试剂平台-主页</title>
+		<link rel="shortcut icon" href="../../img/logo-16.png">
+		<link rel="stylesheet" type="text/css" href="../../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../../css/css.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+	</head>
+
+	<body hidden="hidden">
+		<!--首页-->
+		<div id="home" class="row index-div" hidden="hidden"></div>
+		<!--互动-->
+		<div id="envelope" class="row index-div" hidden="hidden"></div>
+		<!--我-->
+		<div id="cog" class="row" hidden="hidden">
+			<div class="index-cog-head">
+				<img src="../../img/icon/169ada/head.png"></img>
+				<div>
+					<!--用户名称-->
+					<div></div>
+					<!--用户结构-->
+					<span></span>
+				</div>
+			</div>
+			<div id="cog-list" class="list-group" style="margin:20px 10px;padding: 5px 10px;">
+				<div class="list-group-item" data="../user/editpwd.html">
+					修改密码<span class="list-group-item-right-icon">〉</span>
+				</div>
+				<div class="list-group-item" id="change-account">
+					切换账户
+				</div>
+				<div class="list-group-item" id="close-safe">
+					安全退出
+				</div>
+			</div>
+		</div>
+		<!--帮助-->
+		<div id="qrcode" class="row index-div" hidden="hidden"></div>
+		<!--底部功能栏-->
+		<nav id="navbar-bottom" class="navbar navbar-default navbar-fixed-bottom navbar-bottom">
+	        <li data="home" index="0" style="width: 25%;">
+	    		<span class="glyphicon glyphicon-home navbar-bottom-icon" aria-hidden="true"></span>
+	    		<span class="navbar-bottom-text">首页</span>
+	        </li>
+	        <li data="envelope" index="1" style="width: 25%;">
+	    		<span class="glyphicon glyphicon-heart navbar-bottom-icon" aria-hidden="true"></span>
+	    		<span class="navbar-bottom-text">互动</span>
+	        </li>
+	        <!--<li index="2">
+	        	<img class="img-circle navbar-bottom-logo" src="../../img/win8/appbar.book.hardcover.open.png">
+	        </li>-->
+	        <li data="cog" index="3" style="width: 25%;">
+	    		<span class="glyphicon glyphicon-user navbar-bottom-icon" aria-hidden="true"></span>
+	    		<span class="navbar-bottom-text">我</span>
+	        </li>
+	        <li data="qrcode" index="4" style="width: 25%;">
+	    		<span class="glyphicon glyphicon-question-sign navbar-bottom-icon" aria-hidden="true"></span>
+	    		<span class="navbar-bottom-text">帮助</span>
+	        </li>
+		</nav>
+		<script type="text/javascript" charset="utf-8" src="../../src/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../util/util.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../config/els.js"></script>
+		<script type="text/javascript" charset="utf-8" src="index.js"></script>
+	</body>
+
+</html>

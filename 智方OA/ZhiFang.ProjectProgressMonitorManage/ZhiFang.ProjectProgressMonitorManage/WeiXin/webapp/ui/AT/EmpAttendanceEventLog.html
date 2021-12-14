@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>考勤登记</title>
+    <link rel="stylesheet" href="../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css" />
+
+    <script src="../src/jquery.min.js"></script>
+    <script src="../src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=LFFBZ-VMBWF-ZJQJN-JVNQW-JLVDE-ICFN7"></script>
+    <script src="../util/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../util/weixin.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Common/ATCommon.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/EmpAttendanceEventLog.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            padding: 6px 0;
+            font-size: 12px;
+            line-height: 1.428571429;
+            border-radius: 15px;
+        }
+        .btn-circle.btn-lg {
+                width: 50px;
+                height: 50px;
+                padding: 10px 16px;
+                font-size: 18px;
+                line-height: 1.33;
+                border-radius: 25px;
+            }
+        .btn-circle.btn-xl {
+                width: 100px;
+                height: 100px;
+                padding: 30px 16px;
+                font-size: 24px;
+                line-height: 1.33;
+                border-radius: 50px;
+                margin: 25px 20px 10px 20px;
+            }
+        .container {
+            width: 100%;
+            height: 180px;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div id="panel-head" class="panel-heading text-center"><span id="cancelspan" style="float:left">后退</span><span id="panel-head" style="float:none">考勤登记</span></div>
+        <table class="table table-bordered">
+            <tr>
+                <td class="text-center"><button id="leave_btn" type="button" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-list-alt"></i></button><div style="padding: 10px 0px 0px 0px;">请假申请</div></td>
+                <td class="text-center"><button  id="egress_btn" type="button" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-briefcase"></i></button><div style="padding: 10px 0px 0px 0px;">外出登记</div></td>
+                <td class="text-center"><button id="trip_btn" type="button" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-plane"></i></button><div style="padding: 10px 0px 0px 0px;">出差申请</div></td>
+                <td class="text-center"><button id="overtime_btn" type="button" class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-lamp"></i></button><div style="padding: 10px 0px 0px 0px;">加班登记</div></td>
+            </tr>
+            <tr>
+                <td id='myapplylog' colspan="2" class="text-left" style="padding: 15px;">查看我的申请</td>
+                <td id='otherapplylog' colspan="2" class="text-right" style="padding: 15px;">查看我的审批</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="text-left" style="padding: 10px;">
+                <h4>今天:<span id="datetimeinfo_span" class="label label-info">Info</span><span id="isworkday_span" class="label label-success" style="float:right">工作日</span></h4>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <table width="100%">
+        <tr>
+            <td align="center">
+                <button id="signin_btn" type="button" class="btn btn-primary btn-circle btn-xl">
+                    <i class="glyphicon glyphicon-check"></i>签到<br />
+                    <span id="signintime_span"></span>
+                </button>
+                <br />
+
+            </td>
+            <td align="center">
+                <button id="signout_btn" type="button" class="btn btn-primary btn-circle btn-xl">
+                    <i class="glyphicon glyphicon-share"></i>签退<br />
+                    <span id="signouttime_span"></span>
+                </button><br />
+
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <span id="late_span" class="label label-warning" style="margin:3px">迟到</span>
+                <span id="offsite_signin_span" class="label label-danger">脱岗</span>
+                <input id="aaa" type="button" value="123" style="display:none" />
+                <input id="getlocal" type="button" value="获取坐标" style="display:none" />
+            </td>
+            <td align="center">
+                <span id="leaveearly_span" class="label label-warning" style="margin:3px">早退</span>
+                <span id="offsite_signout_span" class="label label-danger">脱岗</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="2"></td>
+        </tr>
+    </table>
+    <!--签到面板-->
+    <div class="modal fade" id="sign_in_div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+                </div>	-->
+                <div class="modal-body" style="padding: 0px;"> <div class="container" id="container_in"></div> </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消签到</button>
+                    <button type="button" id="signin_memo_btn" class="btn btn-primary" style="display:none">填写说明</button>
+                    <button type="button" id="signin_action_btn" class="btn btn-success">直接提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--签退面板-->
+    <div class="modal fade" id="sign_out_div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>-->
+                <div class="modal-body" style="padding: 0px;"><div class="container" id="container_out"></div></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消签退</button>
+                    <button type="button" id="signout_memo_btn" class="btn btn-primary" style="display:none">填写说明</button>
+                    <button type="button" id="signout_action_btn" class="btn btn-success">直接提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="uploadpostion_div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>-->
+                <div class="modal-body" style="padding: 0px;"><div class="container" id="container_uploadpostion"></div></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消上报</button>
+                    <button type="button" id="uploadpostion_btn" class="btn btn-primary" style="display:none">填写说明</button>
+                    <button type="button" id="uploadpostion_action_btn" class="btn btn-success">直接上报</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="container">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="navbar-inner navbar-content-center">
+                <table class="table-bordered" width="100%" height="50">
+                    <tr>
+                        <td id='mysignlog' class="text-left" style="padding: 15px;">我的打卡记录</td>
+                        <td id='uploadpostion' class="text-left" style="padding: 15px;">上报位置</td>
+                        <td id='othersignlog' class="text-right" style="padding: 15px;">其它打卡记录</td>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

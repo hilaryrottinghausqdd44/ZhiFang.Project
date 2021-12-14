@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.ReagentSys.Client" assembly="ZhiFang.Entity.ReagentSys.Client">
+  <class name="ReaBmsCenSaleDoc" table="[dbo].[Rea_BmsCenSaleDoc]">
+    <id name="Id" column="[SaleDocID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="LabcID" column="[LabcID]" type="Int64" not-null="false" length="8" />
+    <property name="LabcName" column="[LabcName]" type="String" not-null="false" length="100" />
+    <property name="ReaServerLabcCode" column="[ReaServerLabcCode]" type="String" not-null="false" length="200" />
+    <property name="SaleDocNo" column="[SaleDocNo]" type="String" not-null="false" length="50" />
+    <property name="OrderDocID" column="[OrderDocID]" type="Int64" not-null="false" length="8" />
+    <property name="OrgID" column="[OrgID]" type="Int64" not-null="false" length="8" />
+    <property name="OrderDocNo" column="[OrderDocNo]" type="String" not-null="false" length="50" />
+    <property name="CompID" column="[CompID]" type="Int64" not-null="false" length="8" />
+    <property name="CompanyName" column="[CompanyName]" type="String" not-null="false" length="200" />
+    <property name="UrgentFlag" column="[UrgentFlag]" type="Int32" not-null="false" length="4" />
+    <property name="UrgentFlagName" column="[UrgentFlagName]" type="String" not-null="false" length="10" />
+    <property name="Status" column="[Status]" type="Int32" not-null="false" length="4" />
+    <property name="StatusName" column="[StatusName]" type="String" not-null="false" length="10" />
+    <property name="UserID" column="[UserID]" type="Int64" not-null="false" length="8" />
+    <property name="UserName" column="[UserName]" type="String" not-null="false" length="50" />
+    <property name="OperDate" column="[OperDate]" type="DateTime" not-null="false" length="8" />
+    <property name="PrintTimes" column="[PrintTimes]" type="Int32" not-null="false" length="4" />
+    <property name="IOFlag" column="[IOFlag]" type="Int32" not-null="false" length="4" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="50" />
+    <property name="Source" column="[Source]" type="Int32" not-null="false" length="4" />    
+    <property name="InvoiceNo" column="[InvoiceNo]" type="String" not-null="false" length="100" />    
+    <property name="LabAddress" column="[LabAddress]" type="String" not-null="false" length="500" />
+    <property name="LabContact" column="[LabContact]" type="String" not-null="false" length="100" />
+    <property name="LabTel" column="[LabTel]" type="String" not-null="false" length="500" />
+    <property name="LabHotTel" column="[LabHotTel]" type="String" not-null="false" length="500" />
+    <property name="LabFox" column="[LabFox]" type="String" not-null="false" length="500" />
+    <property name="LabEmail" column="[LabEmail]" type="String" not-null="false" length="100" />
+    <property name="LabWebAddress" column="[LabWebAddress]" type="String" not-null="false" length="100" />
+    <property name="CompAddress" column="[CompAddress]" type="String" not-null="false" length="500" />
+    <property name="CompContact" column="[CompContact]" type="String" not-null="false" length="100" />
+    <property name="CompTel" column="[CompTel]" type="String" not-null="false" length="500" />
+    <property name="CompHotTel" column="[CompHotTel]" type="String" not-null="false" length="500" />
+    <property name="CompFox" column="[CompFox]" type="String" not-null="false" length="500" />
+    <property name="CompEmail" column="[CompEmail]" type="String" not-null="false" length="100" />
+    <property name="CompWebAddress" column="[CompWebAddress]" type="String" not-null="false" length="100" />
+    <property name="Checker" column="[Checker]" type="String" not-null="false" length="100" />
+    <property name="CheckTime" column="[CheckTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Sender" column="[Sender]" type="String" not-null="false" length="100" />
+    <property name="Receiver" column="[Receiver]" type="String" not-null="false" length="100" />
+    <property name="InvoiceReceiver" column="[InvoiceReceiver]" type="String" not-null="false" length="100" />
+    <property name="ReceiveTime" column="[ReceiveTime]" type="DateTime" not-null="false" length="8" />
+    <property name="SendOutTime" column="[SendOutTime]" type="DateTime" not-null="false" length="8" />
+    <property name="OtherOrderDocNo" column="[OtherOrderDocNo]" type="String" not-null="false" length="50" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ReaCompID" column="[ReaCompID]" type="Int64" not-null="false" length="8" />
+    <property name="ReaCompanyName" column="[ReaCompanyName]" type="String" not-null="false" length="200" />
+    <property name="ReaServerCompCode" column="[ReaServerCompCode]" type="String" not-null="false" length="200" />
+    <property name="CenSaleDocID" column="[CenSaleDocID]" type="Int64" not-null="false" length="8" />
+    <property name="DeptName" column="[DeptName]" type="String" not-null="false" length="200" />
+    <property name="SecAccepterTime" column="[SecAccepterTime]" type="DateTime" not-null="false" length="8" />
+    <property name="IsSplit" column="[IsSplit]" type="Boolean" not-null="false" length="1" />
+    <property name="TotalPrice" column="[TotalPrice]" type="Double" not-null="false" length="8" />
+    <property name="CheckerID" column="[CheckerID]" type="Int64" not-null="false" length="8" />
+    <property name="DeleteFlag" column="[DeleteFlag]" type="Int32" not-null="false" length="4" />
+    <property name="ReaCompCode" column="[ReaCompCode]" type="String" not-null="false" length="200" />
+    <property name="ReaLabcCode" column="[ReaLabcCode]" type="String" not-null="false" length="200" />
+    <property name="LabOrderDocID" column="[LabOrderDocID]" type="Int64" not-null="false" length="8" />
+    <property name="OtherDocNo" column="[OtherDocNo]" type="String" not-null="false" length="50" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="50" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="50" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="50" />
+  </class>
+</hibernate-mapping>

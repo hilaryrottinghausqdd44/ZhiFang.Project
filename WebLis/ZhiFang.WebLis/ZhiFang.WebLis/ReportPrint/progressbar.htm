@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//Dtd HTML 4.0 Transitional//EN">
+
+ 
+
+  <link rel="stylesheet" type="text/css" href="../JS/common.css" >
+  <script language="javascript">
+		function setPgb(pgbID, pgbValue)
+		{
+			if ( pgbValue <= 100 )
+			{
+			if (lblObj = document.getElementById(pgbID+"_label"))
+			{
+			lblObj.innerHTML ="" + pgbValue + "%数据读取，请稍候...";// pgbValue + "%"; // change the label value
+			}
+
+			if ( pgbObj = document.getElementById(pgbID) )
+			{
+			var divChild = pgbObj.children[0];
+			pgbObj.children[0].style.width = pgbValue + "%";
+			}
+			window.status = "数据读取" + pgbValue + "%，请稍候...";
+			}
+
+			if ( pgbValue == 100 )
+			window.status = "数据读取已经完成"
+		}
+		function setTable1()
+		{
+			document.getElementById("Table1").style.width='0px';
+			document.getElementById("Table1").style.height='0px';
+			document.getElementById("proBar").style.width="0px";
+			document.getElementById("pgbMain_label").style.background='white';
+			document.getElementById("pgbMain").style.width='0px';
+		}
+</script>
+
+  <table width="100%" height="20px" ID="Table1" style="Z-INDEX: 999;">
+   <tr >
+    <td align="center" valign="middle" width="100%" style="Z-INDEX: 999;">
+     <DIV class="bi-loading-status" id="proBar" align=center style="Z-INDEX: 999;">
+      <DIV class="text" id="pgbMain_label" align="left" style="Z-INDEX: 999;"></DIV>
+      <DIV class="progress-bar" id="pgbMain" align="left" style="Z-INDEX: 999;">
+       <DIV STYLE="WIDTH:5%" style="Z-INDEX: 999;"></DIV>
+      </DIV>
+     </DIV>
+    </td>
+   </tr>
+  </table>

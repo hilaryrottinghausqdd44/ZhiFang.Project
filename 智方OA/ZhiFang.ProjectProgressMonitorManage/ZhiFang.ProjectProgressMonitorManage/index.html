@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<title>管理系统</title>
+	<link rel="shortcut icon" href="logo-16.png">
+	<script> 
+		function initIframe(){
+			document.getElementById('iframe').src = "ui/index.html?t=" + new Date().getTime();
+		}
+	</script>
+</head>
+<body style="margin:0;padding:0;" onload="initIframe()">
+	<iframe 
+		id="iframe" src = "" 
+		height='100%' width='100%' frameborder='0' style='overflow:hidden;
+		overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:
+		absolute;top:0px;left:0px;right:0px;bottom:0px'>
+	</iframe>
+</body>
+</html>

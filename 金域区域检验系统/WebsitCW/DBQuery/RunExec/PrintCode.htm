@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title></title>
+    <style type="text/css">
+        #Text1
+        {
+            margin-top: 0px;
+        }
+        #Text2
+        {
+            margin-top: 0px;
+        }
+        #Text3
+        {
+            margin-top: 0px;
+        }
+        #Text4
+        {
+            margin-top: 0px;
+        }
+        #Text5
+        {
+            margin-top: 0px;
+        }
+        #Text6
+        {
+            margin-top: 0px;
+        }
+        #Text7
+        {
+            margin-top: 0px;
+        }
+        #Text8
+        {
+            margin-top: 0px;
+        }
+        #Text9
+        {
+            margin-top: 0px;
+        }
+        #Text10
+        {
+            margin-top: 0px;
+        }
+        #Text9
+        {
+            margin-top: 0px;
+        }
+    </style>
+    <script src="../../Includes/JS/WindowLocationSize.js" type="text/javascript"></script>
+
+    <script language="javascript" type="text/javascript">
+// <!CDATA[
+
+        function window_onload() {
+
+        }
+        function printF() {
+            //var controlobject = document.getElementById('controlbyid');
+            print(Text1.value, "controlbyid", Text2.value,
+            Text3.value, Text4.value, Text5.value, Text10.value, Text6.value, Text7.value, Text8.value, Text9.value, 1, "");
+        }
+
+// ]]>
+    </script>
+</head>
+<body onload="return window_onload()">
+<div>
+     <object id="controlbyid" classid="clsid:{8f6c360e-6600-4519-98bf-dec47f5f4c4d}" codebase="../../Includes/setup.exe" ></object>
+     <br />
+    <p>
+        <input id="Text1" type="text" value="0020012345" /><br />
+        <input id="Text2" type="text" value="张太原" /><br />
+        <input id="Text3" type="text" value="男" /><br />
+        <input id="Text4" type="text" value="45" /><br />
+        <input id="Text5" type="text" value="岁" /><br />
+        <input id="Text6" type="text" value="2009-12-30 12:24:42" /><br />
+        <input id="Text7" type="text" value="血常规" /><br />
+        <input id="Text8" type="text" value="临汾二院" /><br />
+        <input id="Text9" type="text" value="血清" /><br />
+        <input id="Text10" type="text" value="外科" /><br />
+        <input id="Button1" type="button" value="测试打印条码" onclick="printF()" /></p>
+    <p>
+        controlobject.PrintBarCode(bar,&quot;张太原&quot;,&quot;男&quot;,&quot;45&quot;,&quot;岁&quot;,&quot;外科&quot;,&quot;09/12/30 
+        12:30&quot;,&quot;血常规1&quot;,&quot;山西人民医院&quot;,&quot;全血&quot;,2,&quot;&quot;);     </p>
+     <p>
+         (BarCodeFormNo, controlobjid, cname, Gender, Age, AgeUnit, Department, Time, 
+         Item, ClientName, SampleType,Total,ady)</p>
+     <p>
+         print(Text1.value, &quot;controlbyid&quot;, Text2.value, Text3.value, Text4.value, 
+         Text5.value, Text10.value, Text6.value, Text7.value, Text8.value, Text9.value, 
+         1, &quot;&quot;);</p>
+
+    <p>
+
+        
+        </p>
+
+</body>
+</html>

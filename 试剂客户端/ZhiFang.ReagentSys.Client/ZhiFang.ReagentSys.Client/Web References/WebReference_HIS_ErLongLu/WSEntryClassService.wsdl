@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.access.hai/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WSEntryClassService" targetNamespace="http://ws.access.hai/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="invoke">
+    <part name="service" type="xsd:string" />
+    <part name="urid" type="xsd:string" />
+    <part name="pwd" type="xsd:string" />
+    <part name="parameter" type="xsd:string" />
+  </message>
+  <message name="invokeResponse">
+    <part name="return" type="xsd:string" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <portType name="WSEntryClass">
+    <operation name="invoke" parameterOrder="service urid pwd parameter">
+      <input wsam:Action="http://ws.access.hai/WSEntryClass/invokeRequest" message="tns:invoke" />
+      <output wsam:Action="http://ws.access.hai/WSEntryClass/invokeResponse" message="tns:invokeResponse" />
+      <fault wsam:Action="http://ws.access.hai/WSEntryClass/invoke/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="WSEntryClassPortBinding" type="tns:WSEntryClass">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="invoke">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.access.hai/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.access.hai/" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="WSEntryClassService">
+    <port name="WSEntryClassPort" binding="tns:WSEntryClassPortBinding">
+      <soap:address location="http://192.168.88.61:9528/hai/WebServiceEntry" />
+    </port>
+  </service>
+</definitions>

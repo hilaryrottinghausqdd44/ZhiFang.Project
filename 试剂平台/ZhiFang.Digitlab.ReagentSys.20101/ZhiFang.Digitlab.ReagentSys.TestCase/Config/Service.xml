@@ -1,0 +1,1051 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+	<object id="BHRDept" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BHRDept,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="HRDeptDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACUser" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACUser,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACUserDao"/>
+				<property name="IBHREmployee" ref="BHREmployee"/>
+			</object>
+		</property>
+	</object>
+	<object id="BHRDeptEmp" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BHRDeptEmp,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="HRDeptEmpDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BHRDeptIdentity" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BHRDeptIdentity,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="HRDeptIdentityDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BHREmpIdentity" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BHREmpIdentity,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="HREmpIdentityDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BHREmployee" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BHREmployee,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="HREmployeeDao"/>
+				<property name="IBHRDept" ref="BHRDept"/>
+			</object>
+		</property>
+	</object>
+	<object id="BHRPosition" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BHRPosition,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="HRPositionDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACEmpRoles" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACEmpRoles,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACEmpRolesDao"/>
+				<property name="IBHREmployee" ref="BHREmployee"/>
+				<property name="IBRBACRole" ref="BRBACRole"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACModule" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACModule,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACModuleDao"/>
+				<property name="IDRBACRoleModuleDao" ref="RBACRoleModuleDao"/>
+				<property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACModuleOper" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACModuleOper,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACModuleOperDao"/>
+				<property name="IBRBACRoleRight" ref="BRBACRoleRightBRBACModuleOper"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BRBACRole" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACRole,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACRoleDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACRoleModule" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACRoleModule,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACRoleModuleDao"/>
+				<property name="IBRBACRole" ref="BRBACRole"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACRoleRight" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACRoleRight,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACRoleRightDao"/>
+				<property name="IBRBACRole" ref="BRBACRole"/>
+				<property name="IBRBACModuleOper" ref="BRBACModuleOper"/>
+				<property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACRoleRightBRBACModuleOper" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACRoleRight,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACRoleRightDao"/>
+				<property name="IBRBACRole" ref="BRBACRole"/>
+				<property name="IBRBACRowFilter" ref="BRBACRowFilter"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACEmpOptions" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACEmpOptions,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACEmpOptionsDao"/>
+				<property name="IBRBACRoleModule" ref="BRBACRoleModule"/>
+			</object>
+		</property>
+	</object>
+	<object id="BRBACRowFilter" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BRBACRowFilter,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="RBACRowFilterDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BImportFile" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BImportFile,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="IBHREmployee" ref="BHREmployee"/>
+				<property name="IBRBACUser" ref="BRBACUser"/>
+				<property name="IBHRDept" ref="BHRDept"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BSLog" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.RBAC.BSLog,ZhiFang.Digitlab.BLL.RBAC">
+				<property name="DBDao" ref="SLogDao"/>
+			</object>
+		</property>
+	</object>
+
+	<!--构建工具-->
+	<object id="BBTDAppComponents" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Construction.BBTDAppComponents,ZhiFang.Digitlab.BLL.Construction">
+				<property name="DBDao" ref="BTDAppComponentsDao"/>
+				<property name="BTDAppComponentsRefDBDao" ref="BTDAppComponentsRefDao"/>
+				<property name="BTDAppComponentsOperateDBDao" ref="BTDAppComponentsOperateDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBTDAppPicture" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Construction.BBTDAppPicture,ZhiFang.Digitlab.BLL.Construction">
+				<property name="DBDao" ref="BTDAppPictureDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBTDModuleType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Construction.BBTDModuleType,ZhiFang.Digitlab.BLL.Construction">
+				<property name="DBDao" ref="BTDModuleTypeDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBTDPictureType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Construction.BBTDPictureType,ZhiFang.Digitlab.BLL.Construction">
+				<property name="DBDao" ref="BTDPictureTypeDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBTDPictureTypeCon" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Construction.BBTDPictureTypeCon,ZhiFang.Digitlab.BLL.Construction">
+				<property name="DBDao" ref="BTDPictureTypeConDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBTDMacroCommand" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Construction.BBTDMacroCommand,ZhiFang.Digitlab.BLL.Construction">
+				<property name="DBDao" ref="BTDMacroCommandDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBTDAppComponentsRef" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Construction.BBTDAppComponentsRef,ZhiFang.Digitlab.BLL.Construction">
+				<property name="DBDao" ref="BTDAppComponentsRefDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBTDAppComponentsOperate" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Construction.BBTDAppComponentsOperate,ZhiFang.Digitlab.BLL.Construction">
+				<property name="DBDao" ref="BTDAppComponentsOperateDao"/>
+			</object>
+		</property>
+	</object>
+	<!--单表相关-->
+
+
+	<object id="BBConstellation" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBConstellation,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BConstellationDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBProvince" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBProvince,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BProvinceDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSex" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSex,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSexDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBMaritalStatus" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBMaritalStatus,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BMaritalStatusDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBNationality" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBNationality,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BNationalityDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBEducationLevel" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBEducationLevel,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BEducationLevelDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBHealthStatus" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBHealthStatus,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BHealthStatusDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBPaymentType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBPaymentType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BPaymentTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBBusinessType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBBusinessType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BBusinessTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+
+
+
+	<object id="BBProjectType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBProjectType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BProjectTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBCountry" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBCountry,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BCountryDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBPoliticsStatus" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBPoliticsStatus,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BPoliticsStatusDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBDegree" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBDegree,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BDegreeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBCity" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBCity,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BCityDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBProfessionalAbility" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBProfessionalAbility,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BProfessionalAbilityDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBDicClass" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBDicClass,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BDicClassDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBDic" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBDic,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BDicDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BBExecutionState" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBExecutionState,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BExecutionStateDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBBackSectionState" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBBackSectionState,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BBackSectionStateDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBLevel" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBLevel,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BLevelDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBReimbursementState" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBReimbursementState,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BReimbursementStateDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSubject" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSubject,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSubjectDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBFinancial" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBFinancial,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BFinancialDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBReimbursementType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBReimbursementType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BReimbursementTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BBReportCycle" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBReportCycle,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BReportCycleDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBReportStatus" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBReportStatus,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BReportStatusDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBReportType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBReportType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BReportTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBURLGroup" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBURLGroup,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BURLGroupDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBURLType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBURLType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BURLTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BBLeaveType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBLeaveType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BLeaveTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBCheckStatus" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBCheckStatus,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BCheckStatusDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBAttendanceType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBAttendanceType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BAttendanceTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBFileType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBFileType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BFileTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBFileGroup" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBFileGroup,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BFileGroupDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSupplier" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSupplier,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSupplierDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBStorehouse" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBStorehouse,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BStorehouseDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBStorageType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBStorageType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BStorageTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBProduce" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBProduce,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BProduceDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BBSickType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSickType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSickTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBTestType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBTestType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BTestTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBAgeUnit" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBAgeUnit,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BAgeUnitDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBDiag" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBDiag,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BDiagDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBStatus" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBStatus,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BStatusDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BBParameter" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBParameter,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BParameterDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+
+	<object id="BBPatientInfo" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBPatientInfo,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BPatientInfoDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSampleOperate" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSampleOperate,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSampleOperateDao"/>
+				<property name="IBBParameter" ref="BBParameter"/>
+				<property name="IBBSampleOperateType" ref="BBSampleOperateType"/>
+        <property name="IBBOperateObjectType" ref="BBOperateObjectType"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSampleOperateType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSampleOperateType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSampleOperateTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSampleStatus" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSampleStatus,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSampleStatusDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSampleStatusType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSampleStatusType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSampleStatusTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSampleType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSampleType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSampleTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBOperateObjectType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBOperateObjectType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BOperateObjectTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBNodeTable" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBNodeTable,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BNodeTableDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBSpecialty" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBSpecialty,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BSpecialtyDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBTimeUnit" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBTimeUnit,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BTimeUnitDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BEPBEquip" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BEPBEquip,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="EPBEquipDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BEPModule" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BEPModule,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="EPModuleDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BEPEquipItem" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BEPEquipItem,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="EPEquipItemDao"/>
+			</object>
+		</property>
+	</object>
+
+
+	<object id="BItemAllItem" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BItemAllItem,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="ItemAllItemDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BItemItemCon" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BItemItemCon,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="ItemItemConDao"/>
+			</object>
+		</property>
+	</object>
+
+
+	<object id="BBPhrase" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBPhrase,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BPhraseDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BBPhraseType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBPhraseType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BPhraseTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BGMGroup" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BGMGroup,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="GMGroupDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BGMGroupEquip" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BGMGroupEquip,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="GMGroupEquipDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BGMGroupItem" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BGMGroupItem,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="GMGroupItemDao"/>
+			</object>
+		</property>
+	</object>
+
+
+
+	<object id="BGMGroupType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BGMGroupType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="GMGroupTypeDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BSTypeDetail" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BSTypeDetail,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="STypeDetailDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BSType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BSType,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="STypeDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BBLaboratory" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBLaboratory,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BLaboratoryDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BBNumberBuildRule" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBNumberBuildRule,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BNumberBuildRuleDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BBNumberBuildRuleCondition" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBNumberBuildRuleCondition,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BNumberBuildRuleConditionDao"/>
+			</object>
+		</property>
+	</object>
+
+	<object id="BNumberRule" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.NumberRule,ZhiFang.Digitlab.BLL.Business">
+			</object>
+		</property>
+	</object>
+
+	<object id="BBMaxNumberToRule" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.Business.BBMaxNumberToRule,ZhiFang.Digitlab.BLL.Business">
+				<property name="DBDao" ref="BMaxNumberToRuleDao"/>
+			</object>
+		</property>
+	</object>
+
+	<!--<object id="BBSpecialtyItem" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ZhiFang.Digitlab.BLL.Business.BBSpecialtyItem,ZhiFang.Digitlab.BLL.Business">
+        <property name="DBDao" ref="BSpecialtyItemDao"/>
+      </object>
+    </property>
+  </object>-->
+	<!--试剂平台系统-->
+	<object id="BCenOrgType" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BCenOrgType,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="CenOrgTypeDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BCenOrgCondition" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BCenOrgCondition,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="CenOrgConditionDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BCenOrg" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BCenOrg,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="CenOrgDao"/>
+				<property name="IDCenOrgTypeDao" ref="CenOrgTypeDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenSaleDtl" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenSaleDtl,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenSaleDtlDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenSaleDtlBarCode" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenSaleDtlBarCode,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenSaleDtlBarCodeDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenSaleDoc" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenSaleDoc,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenSaleDocDao"/>
+				<property name="IBGoods" ref="BGoods"/>
+				<property name="IBCenOrg" ref="BCenOrg"/>
+				<property name="IBBmsCenSaleDtl" ref="BBmsCenSaleDtl"/>
+				<property name="IBBmsCenSaleDtlBarCode" ref="BBmsCenSaleDtlBarCode"/>
+				<property name="IBBmsCenOrderDoc" ref="BBmsCenOrderDocTemp"/>
+        <property name="IBBSampleOperate" ref="BBSampleOperate"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenOrderDtl" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenOrderDtl,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenOrderDtlDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenOrderDoc" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenOrderDoc,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenOrderDocDao"/>
+				<property name="IBBmsCenOrderDtl" ref="BBmsCenOrderDtl"/>
+				<property name="IBBmsCenSaleDoc" ref="BBmsCenSaleDoc"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenOrderDocTemp" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenOrderDoc,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenOrderDocDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BGoods" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BGoods,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="GoodsDao"/>
+				<property name="IBCenOrg" ref="BCenOrg"/>
+			</object>
+		</property>
+	</object>
+	<object id="BCenMsg" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BCenMsg,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="CenMsgDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BCenQtyDtl" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BCenQtyDtl,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="CenQtyDtlDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenOrderDocHistory" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenOrderDocHistory,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenOrderDocHistoryDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenOrderDtlHistory" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenOrderDtlHistory,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenOrderDtlHistoryDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenSaleDocHistory" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenSaleDocHistory,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenSaleDocHistoryDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BBmsCenSaleDtlHistory" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BBmsCenSaleDtlHistory,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="BmsCenSaleDtlHistoryDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BCenQtyDtlTemp" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BCenQtyDtlTemp,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="CenQtyDtlTempDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BCenQtyDtlTempHistory" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BCenQtyDtlTempHistory,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="DBDao" ref="CenQtyDtlTempHistoryDao"/>
+			</object>
+		</property>
+	</object>
+	<object id="BDBStoredProcedure" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ZhiFang.Digitlab.BLL.ReagentSys.BDBStoredProcedure,ZhiFang.Digitlab.BLL.ReagentSys">
+				<property name="IDDBStoredProcedureDao" ref="DBStoredProcedureDao"/>
+			</object>
+		</property>
+	</object>
+</objects>
+

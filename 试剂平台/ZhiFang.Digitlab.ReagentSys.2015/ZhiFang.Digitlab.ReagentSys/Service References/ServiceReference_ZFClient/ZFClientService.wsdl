@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RS_UDTO_AutoCheckOrderDoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderDocId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RS_UDTO_AutoCheckOrderDocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RS_UDTO_AutoCheckOrderDocResult" type="tns:BaseResultDataValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BaseResultDataValue">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ResultDataFormatType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ResultDataValue" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorInfo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RS_UDTO_AutoCheckOrderDocPush">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderDocId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RS_UDTO_AutoCheckOrderDocPushResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RS_UDTO_AutoCheckOrderDocSoapIn">
+    <wsdl:part name="parameters" element="tns:RS_UDTO_AutoCheckOrderDoc" />
+  </wsdl:message>
+  <wsdl:message name="RS_UDTO_AutoCheckOrderDocSoapOut">
+    <wsdl:part name="parameters" element="tns:RS_UDTO_AutoCheckOrderDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="RS_UDTO_AutoCheckOrderDocPushSoapIn">
+    <wsdl:part name="parameters" element="tns:RS_UDTO_AutoCheckOrderDocPush" />
+  </wsdl:message>
+  <wsdl:message name="RS_UDTO_AutoCheckOrderDocPushSoapOut">
+    <wsdl:part name="parameters" element="tns:RS_UDTO_AutoCheckOrderDocPushResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ZFClientServiceSoap">
+    <wsdl:operation name="RS_UDTO_AutoCheckOrderDoc">
+      <wsdl:input message="tns:RS_UDTO_AutoCheckOrderDocSoapIn" />
+      <wsdl:output message="tns:RS_UDTO_AutoCheckOrderDocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RS_UDTO_AutoCheckOrderDocPush">
+      <wsdl:input message="tns:RS_UDTO_AutoCheckOrderDocPushSoapIn" />
+      <wsdl:output message="tns:RS_UDTO_AutoCheckOrderDocPushSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZFClientServiceSoap" type="tns:ZFClientServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RS_UDTO_AutoCheckOrderDoc">
+      <soap:operation soapAction="http://tempuri.org/RS_UDTO_AutoCheckOrderDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RS_UDTO_AutoCheckOrderDocPush">
+      <soap:operation soapAction="http://tempuri.org/RS_UDTO_AutoCheckOrderDocPush" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ZFClientServiceSoap12" type="tns:ZFClientServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RS_UDTO_AutoCheckOrderDoc">
+      <soap12:operation soapAction="http://tempuri.org/RS_UDTO_AutoCheckOrderDoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RS_UDTO_AutoCheckOrderDocPush">
+      <soap12:operation soapAction="http://tempuri.org/RS_UDTO_AutoCheckOrderDocPush" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZFClientService">
+    <wsdl:port name="ZFClientServiceSoap" binding="tns:ZFClientServiceSoap">
+      <soap:address location="http://localhost/ZhiFang.Digitlab.ReagentSys/ZFClientService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ZFClientServiceSoap12" binding="tns:ZFClientServiceSoap12">
+      <soap12:address location="http://localhost/ZhiFang.Digitlab.ReagentSys/ZFClientService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

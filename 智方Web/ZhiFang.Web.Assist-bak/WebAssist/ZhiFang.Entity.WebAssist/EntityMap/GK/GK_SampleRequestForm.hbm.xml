@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.WebAssist" assembly="ZhiFang.Entity.WebAssist">
+  <class name="GKSampleRequestForm" table="[dbo].[GK_SampleRequestForm]">
+    <id name="Id" column="[ReqDocId]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="ReqDocNo" column="[ReqDocNo]" type="String" not-null="false" length="50" />
+    <property name="DeptId" column="[DeptId]" type="Int64" not-null="false" length="8" />
+    <property name="DeptCName" column="[DeptCName]" type="String" not-null="false" length="50" />
+    
+    <property name="MonitorType" column="[MonitorType]" type="Int64" not-null="false" length="8" />
+    <property name="SamplerId" column="[SamplerId]" type="Int64" not-null="false" length="8" />
+    <property name="Sampler" column="[Sampler]" type="String" not-null="false" length="50" />
+    <property name="SampleDate" column="[SampleDate]" type="DateTime" not-null="false" length="8" />
+    <property name="SampleTime" column="[SampleTime]" type="DateTime" not-null="false" length="8" />
+    <property name="StatusID" column="[StatusID]" type="Int64" not-null="false" length="4" />
+    <property name="CName" column="[CName]" type="String" not-null="false" length="40" />
+    <property name="BarCode" column="[BarCode]" type="String" not-null="false" length="50" />
+    <property name="SampleNo" column="[SampleNo]" type="String" not-null="false" length="20" />    
+    <property name="PrintCount" column="[PrintCount]" type="Int32" not-null="false" length="4" />
+    
+    <property name="ResultFlag" column="[ResultFlag]" type="Boolean" not-null="false" length="1" />
+    <property name="CreatorID" column="[CreatorID]" type="Int64" not-null="false" length="8" />
+    <property name="CreatorName" column="[CreatorName]" type="String" not-null="false" length="50" />
+    
+    <property name="ReceiveFlag" column="[ReceiveFlag]" type="Boolean" not-null="false" length="1" />
+    <property name="IsAutoReceive" column="[IsAutoReceive]" type="Boolean" not-null="false" length="1" />
+    <property name="ReceiveId" column="[ReceiveId]" type="Int64" not-null="false" length="8" />
+    <property name="ReceiveCName" column="[ReceiveCName]" type="String" not-null="false" length="50" />
+    <property name="ReceiveDate" column="[ReceiveDate]" type="DateTime" not-null="false" length="8" />
+    
+    <property name="TesterId" column="[TesterId]" type="Int64" not-null="false" length="8" />
+    <property name="TesterName" column="[TesterName]" type="String" not-null="false" length="50" />
+    <property name="TestTime" column="[TestTime]" type="DateTime" not-null="false" length="8" />
+    <property name="TestResult" column="[TestResult]" type="String" not-null="false" length="500" />
+    <property name="BacteriaTotal" column="[BacteriaTotal]" type="String" not-null="false" length="500" />
+
+    <property name="CheckId" column="[CheckId]" type="Int64" not-null="false" length="8" />
+    <property name="CheckCName" column="[CheckCName]" type="String" not-null="false" length="50" />
+    <property name="CheckDate" column="[CheckDate]" type="DateTime" not-null="false" length="8" />
+    
+    <property name="EvaluatorId" column="[EvaluatorId]" type="Int64" not-null="false" length="8" />
+    <property name="Evaluators" column="[Evaluators]" type="String" not-null="false" length="50" />
+    <property name="EvaluationDate" column="[EvaluationDate]" type="DateTime" not-null="false" length="8" />
+    <property name="EvaluatorFlag" column="[EvaluatorFlag]" type="Boolean" not-null="false" length="1" />
+    
+    <property name="Judgment" column="[Judgment]" type="String" not-null="false" length="50" />
+    <property name="Archived" column="[Archived]" type="Boolean" not-null="false" length="1" />
+
+    <property name="ObsoleteID" column="[ObsoleteID]" type="Int64" not-null="false" length="8" />
+    <property name="ObsoleteName" column="[ObsoleteName]" type="String" not-null="false" length="50" />
+    <property name="ObsoleteTime" column="[ObsoleteTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ObsoleteMemo" column="[ObsoleteMemo]" type="String" not-null="false" length="50" />
+    
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="2147483647" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    
+    <many-to-one name="SRFormObsolete" class="BDict" lazy="proxy">
+      <column name="[ObsoleteMemoId]" not-null="false"/>
+    </many-to-one>
+    
+    <many-to-one name="SCRecordType" class="SCRecordType" lazy="proxy">
+      <column name="[RecordTypeID]" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

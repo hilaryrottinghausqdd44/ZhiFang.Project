@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>模式1-样本签收</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+    <link rel="stylesheet" href="../../../../../src/layui/dist/css/layui.css" media="all" /> 
+  <link rel="stylesheet" href="../css.css" media="all" /> 
+  <script type="text/javascript" src="../../../../../src/jquery-1.11.1.min.js"></script> 
+  <script type="text/javascript" src="../../../../../src/layui/dist/layui.js"></script> 
+  <script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="clearData"><i class="layui-icon layui-icon-delete  layuiadmin-button-btn"></i>清空</button>
+    <button class="layui-btn layui-btn-sm" lay-event="samplesignfor"><i class="layui-icon layui-icon-release  layuiadmin-button-btn"></i>样本签收</button>
+    <button class="layui-btn layui-btn-sm" lay-event="signforprint"><i class="layui-icon layui-icon-print  layuiadmin-button-btn"></i>签收清单</button>
+  </div>
+  </script> 
+  <script type="text/html" id="toolbarFailDemo">
+  <div class="layui-btn-container">
+     <button class="layui-btn layui-btn-sm" lay-event="clearData2"><i class="layui-icon layui-icon-delete  layuiadmin-button-btn"></i>清空</button>
+    </div>
+  </script> 
+  <script id="sampleinfo" type="text/html">
+     <ul>
+     	<h3></h3>
+	  {{#  layui.each(d.data, function(index, item){}}
+	  
+	    <li>
+	     <li style="padding: 2px 0px;">床位:{{ item.床位 }}</li>
+	     <li style="padding: 2px 0px;">姓名:{{ item.姓名 }}</li>
+	     <li style="padding: 2px 0px;">病历号:{{ item.病历号 }}</li>
+	     <li style="padding: 2px 0px;">条码号:{{ item.条码号 }}</li>
+	     <li style="padding: 2px 0px;"><span>类型:{{ item.类型 }}</span></li>
+	     <li style="padding: 2px 0px;"><span>样本类型:{{ item.样本类型 }}</span></li>
+	     <li style="padding: 2px 0px;"><span>采样组:{{ item.采样组  }}</span></li>
+	     <li style="padding: 2px 0px;"> <span>原始单号:{{ item.原始单号 }}</span></li>
+	     <li style="padding: 2px 0px;"> <span>核收标志:{{ item.核收标志  }}</span></li>
+	    </li>
+	  {{#  }); }}
+	  {{#  if(d.data.length === 0){ }}
+	            暂无相关数据
+	  {{#  } }} 
+	  </ul>
+	</script> 
+ </head> 
+ <body class="layui-layout-body"> 
+  <div class="layui-fluid"> 
+   <div class="layui-row layui-col-space15"> 
+    <div class="layui-col-md12">  
+   <div class="layui-card"> 
+    <div class="layui-card-body"> 
+    <div class="layui-form layuiadmin-card-header-auto" style="padding-top: 15px;"> 
+     <div class="layui-form-item"> 
+      <div class="layui-row"> 
+       <div class="layui-inline"> 
+        <label class="layui-form-label">条码号</label> 
+        <div class="layui-input-block"> 
+         <input type="text" name="txtBarCode" id="txtBarCode" placeholder="条码号" autocomplete="off" class="layui-input" /> 
+        </div> 
+       </div> 
+       <div class="layui-inline"> 
+        <input type="checkbox" name="autoPrint" title="查询" lay-skin="primary" /> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+
+     <div class="layui-row layui-col-space1"> 
+      <div class="layui-col-md9"> 
+       <div class="layui-row"> 
+        <table id="LAY-sample-signfor" lay-filter="LAY-sample-signfor"></table> 
+       </div> 
+       <div class="layui-row"> 
+        <textarea name="txtZDY1" id="txtZDY1" placeholder="" class="layui-textarea" style="height:40px;padding: 2px; font-size: large; "></textarea> 
+       </div> 
+      </div> 
+      <div class="layui-col-md3"> 
+       <div class="layui-row"> 
+        <div class="layui-card-body" style=" padding: 0px;"> 
+         <div class="layui-collapse" lay-filter="component-panel"> 
+          <div class="layui-colla-item"> 
+           <h2 class="layui-colla-title">条码信息</h2> 
+           <div class="layui-colla-content layui-show"> 
+            <div id="LAY-sampleinfo-view"></div> 
+           </div> 
+          </div> 
+          <div class="layui-colla-item" > 
+           <div class="layui-collapse" lay-accordion="" style="border:none;"> 
+            <div class="layui-colla-item"> 
+             <h2 class="layui-colla-title">签收失败列表</h2> 
+             <div class="layui-colla-content " style="margin: 0px;padding:0px;"> 
+              <table class="layui-table" style="padding: 0px;margin: 0px; height: auto; " id="LAY-sample-signfor-fail-record" lay-filter="LAY-sample-signfor-fail-record"></table> 
+             </div> 
+            </div> 
+            <div class="layui-colla-item"> 
+             <h2 class="layui-colla-title">样本操作记录</h2> 
+             <div class="layui-colla-content layui-show" style="margin: 0px;padding: 0px;"> 
+              <table id="LAY-sample-signfor-record" lay-filter="LAY-sample-signfor-record"></table> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+   </div>
+    </div> 
+  <script type="text/javascript" src="../../../../config/system.js"></script>  
+  <script type="text/javascript" src="app1.js"></script>  
+ </body>
+</html>

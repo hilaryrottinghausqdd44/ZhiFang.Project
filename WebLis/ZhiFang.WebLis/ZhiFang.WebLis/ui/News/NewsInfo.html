@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- HTTP 1.0 -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Prevent caching at the proxy server -->
+    <meta http-equiv="expires" content="0">
+    <title>新闻详细页面</title>
+    <script src="../easyui/jquery.min.js"></script>
+    <script src="../easyui/jquery.easyui.min.js"></script>
+    <link href="../easyui/themes/icon.css" rel="stylesheet" />
+    <link href="../easyui/themes/default/easyui.css" rel="stylesheet" />
+    <script src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../util/util.js"></script>
+    <script src="../util/util_easyui.js"></script>
+    <script src="NewsInfo.js?v=1"></script>
+    <style type="text/css">
+        #fm {
+            margin: 0;
+            padding: 10px 30px;
+        }
+
+        .fTitle {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .fItem {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+            .fItem label {
+                display: inline-block;
+                width: 100px;
+            }
+
+            .fItem input {
+                width: 130px;
+            }
+
+            .fItem select {
+                width: 130px;
+            }
+    </style>
+</head>
+<body>
+    <table border="0" width="100%">
+        <tbody>
+            <tr>
+                <td id="NewsTitle" style="font-size:35px;font-weight:bold" align="center">123123123123123</td>
+            </tr>
+            <tr>
+                <td id="NewsPublishDate" style="font-size:12px;" align="center" valign="bottom">发布时间：2019-10-31</td>
+            </tr>
+        </tbody>
+        <tr>
+            <td style="padding:5px">
+                <hr style="border:1px ridge #ccc;width:80%" />
+            </td>
+        </tr>
+        <tr>
+            <td style="padding:20px" align="center">
+                <div id="NewsContent"></div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

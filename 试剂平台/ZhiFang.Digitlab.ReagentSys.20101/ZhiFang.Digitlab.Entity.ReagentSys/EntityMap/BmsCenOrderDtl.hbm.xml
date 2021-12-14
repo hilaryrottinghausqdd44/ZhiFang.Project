@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity.ReagentSys" assembly="ZhiFang.Digitlab.Entity.ReagentSys">
+	<class name="BmsCenOrderDtl" table="[dbo].[BmsCenOrderDtl]">
+		<id name="Id" column="[OrderDtlID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<property name="OrderDtlNo" column="[OrderDtlNo]" type="String" not-null="false" length="50" />
+		<property name="OrderDocNo" column="[OrderDocNo]" type="String" not-null="false" length="50" />
+		<property name="ProdGoodsNo" column="[ProdGoodsNo]" type="String" not-null="false" length="50" />
+		<property name="ProdOrgName" column="[ProdOrgName]" type="String" not-null="false" length="100" />
+		<property name="GoodsName" column="[GoodsName]" type="String" not-null="false" length="100" />
+		<property name="GoodsUnit" column="[GoodsUnit]" type="String" not-null="false" length="10" />
+		<property name="UnitMemo" column="[UnitMemo]" type="String" not-null="false" length="100" />
+		<property name="GoodsQty" column="[GoodsQty]" type="Int32" not-null="false" length="4" />
+		<property name="CurrentQty" column="[CurrentQty]" type="Double" not-null="false" length="8" /> 
+		<property name="IOFlag" column="[IOFlag]" type="Int32" not-null="false" length="4" />
+		<property name="ZX1" column="[ZX1]" type="String" not-null="false" length="100" />
+		<property name="ZX2" column="[ZX2]" type="String" not-null="false" length="100" />
+		<property name="ZX3" column="[ZX3]" type="String" not-null="false" length="100" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+    <property name="LabMemo" column="[LabMemo]" type="String" not-null="false" length="500" />
+    <property name="CompMemo" column="[CompMemo]" type="String" not-null="false" length="500" />
+		<property name="Price" column="[Price]" type="Double" not-null="false" length="8" />
+    <property name="SumTotal" column="[SumTotal]" type="Double" not-null="false" length="8" />
+    <property name="DeleteFlag" column="[DeleteFlag]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BmsCenOrderDoc" class="BmsCenOrderDoc">
+			<column name="[OrderDocID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="Prod" class="CenOrg" lazy="false">
+			<column name="[ProdID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="Goods" class="Goods" lazy="false">
+			<column name="[GoodsID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

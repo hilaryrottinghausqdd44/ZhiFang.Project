@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+	<class name="LisBarCodeForm" table="[dbo].[Lis_BarCodeForm]">
+		<id name="Id" column="[BarCodeFormID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+		<version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+		<property name="PartitionDate" column="[PartitionDate]" type="DateTime" not-null="false" length="8" />
+		<property name="BarCode" column="[BarCode]" type="String" not-null="false" length="100" />
+		<property name="OrderExecTime" column="[OrderExecTime]" type="DateTime" not-null="false" length="8" />
+		<property name="HospitalID" column="[HospitalID]" type="Int64" not-null="false" length="8" />
+		<property name="ExecDeptID" column="[ExecDeptID]" type="Int64" not-null="false" length="8" />
+		<property name="DestinationID" column="[DestinationID]" type="Int64" not-null="false" length="8" />
+		<property name="PrintTimes" column="[PrintTimes]" type="Int32" not-null="false" length="4" />
+		<property name="IsAffirm" column="[IsAffirm]" type="Int32" not-null="false" length="4" />
+		<property name="IsPrep" column="[IsPrep]" type="Int32" not-null="false" length="4" />
+		<property name="BarCodeFlag" column="[BarCodeFlag]" type="Int32" not-null="false" length="4" />
+		<property name="BarCodeStatusID" column="[BarCodeStatusID]" type="Int64" not-null="false" length="8" />
+		<property name="BarCodeCurrentStatus" column="[BarCodeCurrentStatus]" type="String" not-null="false" length="100" />
+		<property name="IsSendPreSystem" column="[IsSendPreSystem]" type="Int32" not-null="false" length="4" />
+		<property name="ReceiveFlag" column="[ReceiveFlag]" type="Int32" not-null="false" length="4" />
+		<property name="DispenseFlag" column="[DispenseFlag]" type="Int32" not-null="false" length="4" />
+		<property name="AffirmTime" column="[AffirmTime]" type="DateTime" not-null="false" length="8" />
+		<property name="PrintTime" column="[PrintTime]" type="DateTime" not-null="false" length="8" />
+		<property name="CollectTime" column="[CollectTime]" type="DateTime" not-null="false" length="8" />
+		<property name="SendTime" column="[SendTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ArriveTime" column="[ArriveTime]" type="DateTime" not-null="false" length="8" />
+		<property name="InceptTime" column="[InceptTime]" type="DateTime" not-null="false" length="8" />
+		<property name="GroupInceptTime" column="[GroupInceptTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RejectTime" column="[RejectTime]" type="DateTime" not-null="false" length="8" />
+		<property name="AllowTime" column="[AllowTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ReceiveTime" column="[ReceiveTime]" type="DateTime" not-null="false" length="8" />
+		<property name="TranTime" column="[TranTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ReportConfirmTime" column="[ReportConfirmTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ReportCheckTime" column="[ReportCheckTime]" type="DateTime" not-null="false" length="8" />
+		<property name="ReportSendTime" column="[ReportSendTime]" type="DateTime" not-null="false" length="8" />
+		<property name="RepotPrintTimeLab" column="[RepotPrintTimeLab]" type="DateTime" not-null="false" length="8" />
+		<property name="RepotPrintTimeSelf" column="[RepotPrintTimeSelf]" type="DateTime" not-null="false" length="8" />
+		<property name="RepotPrintTimeClinical" column="[RepotPrintTimeClinical]" type="DateTime" not-null="false" length="8" />
+		<property name="AbortTime" column="[AbortTime]" type="DateTime" not-null="false" length="8" />
+		<property name="SamplingGroupID" column="[SamplingGroupID]" type="Int64" not-null="false" length="8" />
+		<property name="Color" column="[Color]" type="String" not-null="false" length="100" />
+		<property name="ColorValue" column="[ColorValue]" type="String" not-null="false" length="50" />
+		<property name="SampleTypeID" column="[SampleTypeID]" type="Int64" not-null="false" length="8" />
+		<property name="IsUrgent" column="[IsUrgent]" type="Int32" not-null="false" length="4" />
+		<property name="ParItemCName" column="[ParItemCName]" type="String" not-null="false" length="2000" />
+		<property name="SampleCap" column="[SampleCap]" type="Double" not-null="false" length="8" />
+		<property name="CollectPart" column="[CollectPart]" type="String" not-null="false" length="200" />
+		<property name="CollectTimes" column="[CollectTimes]" type="Int32" not-null="false" length="4" />
+		<property name="ClientID" column="[ClientID]" type="Int64" not-null="false" length="8" />
+		<property name="CollectPackNo" column="[CollectPackNo]" type="String" not-null="false" length="100" />
+		<property name="AutoUnionSNo" column="[AutoUnionSNo]" type="String" not-null="false" length="100" />
+		<property name="IsAutoUnion" column="[IsAutoUnion]" type="Int32" not-null="false" length="4" />
+		<property name="Charge" column="[Charge]" type="Double" not-null="false" length="8" />
+		<property name="ChargeFlag" column="[ChargeFlag]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="LisOrderForm" class="LisOrderForm" lazy="false">
+			<column name="[OrderFormID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="LisPatient" class="LisPatient" lazy="false">
+			<column name="[PatID]" not-null="false"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,213 @@
+﻿/**
+ * 报告结果内容
+ * @author Jcall
+ * @version 2018-09-03
+ * 代码新包迁移
+ * @author Jing
+ * @version 2018-09-20
+ */
+Ext.define('Shell.class.siteQuery.basic.Content', {
+    extend: 'Shell.ux.panel.Panel',
+
+    title: '打印内容',
+    width: 400,
+    height: 400,
+
+    layout: 'fit',
+    bodyPadding: 10,
+
+    /**开启加载数据遮罩层*/
+    hasLoadMask: true,
+    /**加载数据提示*/
+    loadingText: '数据加载中...',
+
+    /**获取数据服务路径*/
+    getImgeSrcUrl: '/ServiceWCF/ReportFormService.svc/PreviewReport',
+    /**返回数据类型,1:报告;2:结果*/
+    resultType: 1,
+
+    /**数据条件对象*/
+    serverParams: null,
+
+    /**报告页签*/
+    hasReportPage: true,
+    /**结果页签*/
+    hasResultPage: true,
+    /**默认勾选的页签*/
+    defaultCheckedPage:1,
+    
+
+    /**页面内容*/
+    pageContent: { report: null, result: null },
+
+    afterRender: function () {
+        var me = this;
+        me.disableControl();
+        me.callParent(arguments);
+    },
+    initComponent: function () {
+        var me = this;
+        me.addEvents('typeChange');
+
+        var radioDataArr = [];
+        if (me.hasReportPage) radioDataArr.push({ text: '预览', value: 1, checked: me.defaultCheckedPage == 1 ? true : false });
+        if (me.hasResultPage) radioDataArr.push({ text: '结果', value: 2, checked: me.defaultCheckedPage == 2 ? true : false });
+
+        me.toolbars = [{
+            dock: 'top', itemId: 'toptoolbar', buttons: ['->', {
+                xtype: 'uxradiogroup', itemId: 'type', defaultSelect: 1, margin: '0 10 0 0',
+                data: radioDataArr,
+                listeners: { change: function () { me.changeContent(null, true); } }
+            }]
+        }];
+        me.callParent(arguments);
+    },
+    /**获取返回数据类型*/
+    getResultTypeValue: function () {
+        var me = this,
+			type = me.getComponent('toptoolbar').getComponent('type'),
+			value = type.getValue(true);
+        return value;
+    },
+
+    /**@public 更改内容*/
+    changeContent: function (params, isPrivate) {
+        var me = this,
+			type = me.getResultTypeValue(),
+			params = isPrivate ? me.serverParams : params;
+
+        if (!isPrivate) me.pageContent = { report: null, result: null };
+        
+        /**
+		 * 打印必须先安装adobe组件，如果没有安装，弹出安装文件下载
+		 * @JcallShell
+		 * @version 2018-07-04
+		 */
+		//报告页签开启了才判断
+		if(me.hasReportPage && type == 1){
+			var isAcrobatPluginInstall = Shell.util.Adobe.isInstall();
+			if(!isAcrobatPluginInstall){
+				me.enableControl();
+				me.pageContent.report = Shell.util.Adobe.getDownLoadHtml();
+			}
+		}
+        var innerHTML = type == 1 ? me.pageContent.report : me.pageContent.result;
+        if (innerHTML) {//已存在,不需要重新加载
+            me.update(innerHTML);
+            return;
+        }
+
+        if (!isPrivate && (!params || !params.ReportFormID || !params.SectionNo || !params.SectionType)) {
+            var errorInfo = [];
+            if (!params) {
+                me.showError("Shell.class.siteQuery.basic.Content的changeContent方法没有接收到参数对象!");
+                return;
+            }
+            errorInfo.push("Shell.class.siteQuery.basic.Content的changeContent方法接收的参数对象有错!");
+            if (!params.ReportFormID) { errorInfo.push("<b style='color:red'>ReportFormID</b>参数错误!"); }
+            if (!params.SectionNo) { errorInfo.push("<b style='color:red'>SectionNo</b>参数错误!"); }
+            if (!params.SectionType) { errorInfo.push("<b style='color:red'>SectionType</b>参数错误!"); }
+
+            me.showError(errorInfo.join("</br>"));
+            return;
+        }
+
+        me.serverParams = params;
+
+        me.getContent(me.serverParams, function (text) {
+            var result = Ext.JSON.decode(text),
+				html = "";
+
+            if (result.success) {
+                html = result.ResultDataValue;
+            } else {
+                html =
+				'<div style="margin:20px 10px;color:red;text-align:center;">' +
+					'<div><b style="font-size:16px;">错误信息</b></div>' +
+					'<div>' + result.ErrorInfo + '</div>' +
+				'</div>';
+            }
+
+            if (!html) html = '<div style="margin:20px 10px;text-align:center;"><b>没有数据</b></div>';
+
+            me.update(html);
+
+            me.pageContent[type == 1 ? "report" : "result"] = html;//储存页面信息
+
+            me.enableControl();
+            if (me.hasLoadMask) { me.body.unmask(); }//隐藏遮罩层
+        });
+    },
+    /**根据ID获取内容*/
+    getContent: function (params, callback) {
+        var me = this,
+			type = me.getResultTypeValue(),
+			ModelType = (type == 1 ? "report" : "result");
+
+        if (params.ReportFormID == null || params.SectionNo == null || params.SectionType == null) {
+            me.showError("Shell.ReportPrint.class.PrintContent的getContent方法参数params的内容错误！");
+            return;
+        }
+
+        if (ModelType == "report") {
+        	//生成报告
+		    var url = "/ServiceWCF/ReportFormService.svc/GetReportFormPDFByReportFormID";
+		    url = Shell.util.Path.rootPath + url + "?ReportFormID=" + params.ReportFormID + '&t=' + new Date().getTime();
+		    me.getToServer(url, function (v) {
+		    	var data = Ext.decode(v);
+		    	var entity = {
+	                success: true,
+	                ResultDataValue:'<div style="text-align:center;padding:20px;"><b>报告文件不存在！<b></div>'
+	            };
+		    	if(data.success){
+		    		var rfid = params.ReportFormID;
+		    		var path = Ext.decode(Ext.decode(v).ResultDataValue).PDFPath + '?t=' + new Date().getTime();
+			        entity.ResultDataValue =
+	                '<iframe src="' + Shell.util.Path.rootPath + '/' + path + 
+				        '" height="100%" width="100%" frameborder="0" ' +
+				        'style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;' +
+				        'position:absolute;top:0px;left:0px;right:0px;bottom:0px;" ' +
+				        /*'onload="if(this.contentDocument.head){' +
+				        	'this.contentDocument.write(\'<div style=\\\'margin:20px;text-align:center;\\\'><b>报告文件还未生成，请耐心等待！</b></div>\');' +
+				        '};"' +*/
+			        '></iframe>';
+		    	}
+		        
+	            callback(Ext.JSON.encode(entity));
+		    });
+            return;
+        }
+
+        me.update("");
+        if (me.hasLoadMask) { me.body.mask(me.loadingText); }//显示遮罩层
+
+        var url = Shell.util.Path.rootPath + me.getImgeSrcUrl +
+			"?ReportFormID=" + params.ReportFormID + "&SectionNo=" + params.SectionNo +
+            "&SectionType=" + params.SectionType + "&ModelType=" + ModelType + "&sortFields=" + me.sortFields;
+
+        me.disableControl();
+        me.getToServer(url, callback);
+    },
+
+    /**开启功能栏*/
+    enableControl: function () {
+        this.disableControl(true);
+    },
+    /**禁用功能栏*/
+    disableControl: function (bo) {
+        var me = this,
+			type = me.getComponent('toptoolbar').getComponent('type'),
+			items = type.items.items,
+			len = items.length;
+
+        for (var i = 0; i < len; i++) {
+            items[i][bo ? "enable" : "disable"]();
+        }
+    },
+    /**清空数据,禁用功能按钮*/
+	clearData: function() {
+		var me = this;
+		me.update();
+		me.disableControl();
+	}
+});

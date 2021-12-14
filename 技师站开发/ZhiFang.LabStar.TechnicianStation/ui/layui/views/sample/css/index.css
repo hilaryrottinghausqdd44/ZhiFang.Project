@@ -1,0 +1,37 @@
+﻿/**
+	@name：检验主界面样式表（layui）
+	@author：zhangda
+	@version 2021-04-19
+ */
+
+.layui-form-label{ width:60px!important; }
+.layui-input-block{ margin-left:70px!important; }
+/*input前存在icon 则加到input里面*/
+.layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 6px;color: #009688; }
+.layui-disabled + .layui-icon { cursor:default; }
+/*原生下拉框图标颜色*/
+.layui-form-select .layui-input + .layui-edge { border-top-color: #009688; }
+/*功能按钮*/
+.myStyle .ToolBar button { margin-left: 5px!important; }
+.myStyle .ToolBar button.drop-down { margin-left:-4px!important; }
+.myStyle .layui-btn-container .layui-btn{ margin-bottom:1px; }
+/*图标*/
+.myStyle .layui-btn-xs i,.btn_spread_menu i.iconfont{ font-size:12px!important; }
+/*按钮展开菜单*/
+.btn_spread_menu { display: none; padding: 0;position: absolute;top: 26px;background-image: linear-gradient(to bottom right, #fff, #deefed);color: #000;font-size:12px; border: 1px solid #ccc;z-index: 999; }
+.btn_spread_menu ul li { padding: 6px 12px;border-bottom: 1px solid #ccc; list-style: none; }
+.btn_spread_menu ul li:last-child { border-bottom: 0; }
+.btn_spread_menu ul li:hover { cursor: pointer;background-image: linear-gradient(to bottom right, #fff, #beefed); }
+/*禁用表单样式*/
+.myStyle .layui-disabled, .myStyle .layui-disabled:hover{ color:#999!important; }
+/**重写样本结果列表.layui-table-cell**/
+.myStyle #SampleResultTable+div .layui-table-cell{ padding:0 0 0 1px!important; }
+/**tip样式**/
+.myTip { border: 1px solid #000 !important;border-radius:0;color:#000; }
+/*右键菜单中图形名称样式*/
+#ImageName{ text-align:center; }
+#ImageName:hover { cursor: default;background-image: none; }
+/*检验结果列表报告值、备注列头样式*/
+#SampleResultTable + div tr th[data-field="LisTestItem_ReportValue"], #SampleResultTable + div tr th[data-field="LisTestItem_ResultComment"] { background-color: orange;color: #fff; }
+/* 底部信息每列宽**/
+.bottomToolbarInfo { min-width:140px;max-width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;word-break: break-all; }

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>非构建类(通用型组件或控件)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../extjs/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../extjs/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
+	 <link rel="stylesheet" type="text/css" href="../css/icon.css"/> 
+    <script type="text/javascript" src="../util/util.js"></script>
+
+
+<script type="text/javascript">
+	Ext.onReady(function(){
+		//按钮
+			//属性设置:设置标题
+		var buttonmytitle=Ext.create('Ext.Button', {
+		text: '设置标题fdsafds',
+		fieldStyle :"font-style:normal;font-size:16px;font-family:SimSun;color:#FF0000;text-decoration:line-through underline",
+		width:130,
+		border : true,//边框线显示 true,或隐藏false
+		handler: function() {
+		 //this.getComponent('east')
+		Ext.fly("testcss2").setStyle({'font-size':'47','font-style':'italic','color':'red'});
+		//Ext.fly("testcss").setStyle('font-size','47px');
+		//Ext.fly("testcss").setStyle('font-size','47px');
+		//Ext.fly("testcss2").setStyle('font',"italic bold 12px/20px arial,sans-serif;");
+		//Ext.fly("testcss2").setStyle({'color':'red'});
+    }
+});
+
+	//样式设置
+		var text1=Ext.create('Ext.form.field.TextArea', {
+		text: '样式设置',
+		//labelCls:'testlfc',
+		id:'testcss2',
+		labelStyle :'font-style:normal;font-size:22px;font-family:SimSun;color:#FF0000;text-decoration:line-through underline',//对控件显示名称生效
+		fieldStyle :"font-style:normal;font-size:22px;font-family:SimSun;color:#FF0000;text-decoration:line-through underline",//对文本框控件内容生效
+		fieldLabel:"设置标题",
+		width:330,
+		height:144,
+		border : true,//边框线显示 true,或隐藏false
+		handler: function() {
+     }
+    });
+	
+	//样式设置
+		var text1=Ext.create('Ext.form.field.TextArea', {
+		text: '样式设置',
+		//labelCls:'testlfc',
+		id:'testcss2',
+		labelStyle :'font-style:normal;font-size:22px;font-family:SimSun;color:#FF0000;text-decoration:line-through underline',//对控件显示名称生效
+		fieldStyle :"font-style:normal;font-size:22px;font-family:SimSun;color:#FF0000;text-decoration:line-through underline",//对文本框控件内容生效
+		fieldLabel:"设置标题",
+		width:330,
+		height:144,
+		border : true,//边框线显示 true,或隐藏false
+		handler: function() {
+     }
+    });
+			//属性设置:设置标题
+		var ddadioGroup=Ext.create('Ext.form.RadioGroup', {
+		 fieldLabel: 'Two Columns',
+        width :444,
+		value:'4',
+        columns: 2,
+        vertical: true,
+        items: [
+            { boxLabel: 'Item 1', name: 'rb', inputValue: '1' },
+            { boxLabel: 'Item 2', name: 'rb', inputValue: '2',},
+            { boxLabel: 'Item 3', name: 'rb', inputValue: '3' },
+            { boxLabel: 'Item 4', name: 'rb', inputValue: '4' },
+            { boxLabel: 'Item 5', name: 'rb', inputValue: '5' },
+            { boxLabel: 'Item 6', name: 'rb', inputValue: '6' }
+        ]
+});
+var values="{rb:[1]}";
+ddadioGroup.setValue({rb:[3]});
+		//视图展现
+		var viewport = Ext.create('Ext.Viewport',{
+			//layout:'fit',
+			items:[ddadioGroup]
+		});
+	});
+    </script>
+</head>
+<body>
+<p style="font-weight:bold;font-size:27px;font-family:SimHei;color:#FF0000;">该段落定义了 ;该段落中的文本是蓝色的。</p>
+</body>
+</html>

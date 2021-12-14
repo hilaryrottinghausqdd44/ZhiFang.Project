@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/17/2018 15:46:37" ReportInfo.Modified="01/25/2021 12:05:17" ReportInfo.CreatorVersion="1.3.15.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Table1_ManualBuild(object sender, EventArgs e)
+    {  
+      // get the data source by its name
+      DataSourceBase rowData = Report.GetDataSource(&quot;Rea_BmsCenOrderDtl&quot;);
+      // init the data source
+      rowData.Init();
+      
+      
+      // print the first table row - it is a header
+      Table1.PrintRow(0);
+      // each PrintRow call must be followed by either PrintColumn or PrintColumns call
+      // to print cells on the row
+      Table1.PrintColumns();
+      
+      while (rowData.HasMoreRows)
+      {
+        // print the table body  
+        Table1.PrintRow(1);
+        Table1.PrintColumns();
+        
+        // go next data source row
+        rowData.Next();
+      }
+      
+      // print the last table row - it is a footer
+      Table1.PrintRow(2);
+      Table1.PrintColumns();
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="ZhiFang.ReagentSys.Client" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFAmkwwEssvI/BSCZ7lXL6+lWiK56aPTvrPIhcFqsFJa0vx5wmt1wrLYfduaG8nqx/Mh2x4x7Y6xv5wHc+kcOmIcLJi8RwLQKR1RiSC5KyI9idWFNYRXyko1WJJ66jnW82hS2KGqY/+9Dj7VcVjDqWzOY1HzD0jTqTI0+o7sgIapo=">
+      <TableDataSource Name="Rea_BmsCenOrderDtl" DataType="System.Int32" Enabled="true" TableName="Rea_BmsCenOrderDtl">
+        <Column Name="DeptName" DataType="System.String"/>
+        <Column Name="Checker" DataType="System.String"/>
+        <Column Name="CompMemo" DataType="System.String"/>
+        <Column Name="LabMemo" DataType="System.String"/>
+        <Column Name="CompanyName" DataType="System.String"/>
+        <Column Name="LabcName" DataType="System.String"/>
+        <Column Name="LabID" DataType="System.Int64"/>
+        <Column Name="OrderDocNo" DataType="System.String"/>
+        <Column Name="ProdGoodsNo" DataType="System.String"/>
+        <Column Name="ProdOrgName" DataType="System.String"/>
+        <Column Name="GoodsUnit" DataType="System.String"/>
+        <Column Name="UnitMemo" DataType="System.String"/>
+        <Column Name="GoodsQty" DataType="System.Double"/>
+        <Column Name="CurrentQty" DataType="System.Double"/>
+        <Column Name="ZX1" DataType="System.String"/>
+        <Column Name="ZX2" DataType="System.String"/>
+        <Column Name="ZX3" DataType="System.String"/>
+        <Column Name="Price" DataType="System.Double"/>
+        <Column Name="ReaGoodsID" DataType="System.Int64"/>
+        <Column Name="ReaGoodsName" DataType="System.String"/>
+        <Column Name="GoodsNo" DataType="System.String"/>
+        <Column Name="SumTotal" DataType="System.Double"/>
+        <Column Name="Memo" DataType="System.String"/>
+        <Column Name="BarCodeType" DataType="System.Int64"/>
+        <Column Name="ProdOrgNo" DataType="System.String"/>
+        <Column Name="ReaGoodsNo" DataType="System.String"/>
+        <Column Name="CenOrgGoodsNo" DataType="System.String"/>
+        <Column Name="GoodsSort" DataType="System.Int32"/>
+        <Column Name="ReqGoodsQty" DataType="System.Double"/>
+        <Column Name="ArrivalTime" DataType="System.DateTime"/>
+        <Column Name="ExpectedStock" DataType="System.Double"/>
+        <Column Name="MonthlyUsage" DataType="System.Double"/>
+        <Column Name="LastMonthlyUsage" DataType="System.Double"/>
+        <Column Name="OrderDocID" DataType="System.Int64"/>
+      </TableDataSource>
+      <TableDataSource Name="Rea_ExportExcelCommand" DataType="System.Int32" Enabled="true" TableName="Rea_ExportExcelCommand">
+        <Column Name="EEC_NowDate" DataType="System.String"/>
+        <Column Name="EEC_StartDate" DataType="System.String"/>
+        <Column Name="EEC_EndDate" DataType="System.String"/>
+        <Column Name="EEC_EmployeeName" DataType="System.String"/>
+        <Column Name="EEC_DeptName" DataType="System.String"/>
+        <Column Name="EEC_LabName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Total Name="Total" Expression="[Rea_BmsCenOrderDtl.SumTotal]"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="157.65">
+      <TextObject Name="txtTitle" Left="2.45" Top="2.9" Width="916.65" Height="47.25" Text="[Rea_ExportExcelCommand.EEC_LabName]设备科&#13;&#10;医疗器械、卫生材料、试剂计划表" HorzAlign="Center" VertAlign="Center" Font="宋体, 14pt, style=Bold"/>
+      <TextObject Name="Text11" Left="926.1" Top="16.9" Width="94.5" Height="18.9" Text="[PageN]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text1" Left="6.45" Top="52.25" Width="321.3" Height="28.35" Text="申请科室:[Rea_ExportExcelCommand.EEC_DeptName]" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="574" Top="52.25" Width="226.8" Height="28.35" Text="时间:[Rea_ExportExcelCommand.EEC_NowDate]" Font="宋体, 10pt, style=Bold"/>
+      <TableObject Name="Table1" Left="9.45" Top="88.5" Width="1011.15" Height="66.15" Border.Lines="All" ManualBuildEvent="Table1_ManualBuild">
+        <TableColumn Name="Column1" Width="107.73"/>
+        <TableColumn Name="Column2" Width="192.78"/>
+        <TableColumn Name="Column3" Width="107.73"/>
+        <TableColumn Name="Column4" Width="60.48"/>
+        <TableColumn Name="Column5" Width="79.38"/>
+        <TableColumn Name="Column6"/>
+        <TableColumn Name="Column7"/>
+        <TableColumn Name="Column8" Width="141.75"/>
+        <TableColumn Name="Column9" Width="189"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Text="试剂代码" Font="宋体, 10pt"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="试剂名称" Font="宋体, 10pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="规格" Font="宋体, 10pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="单位" Font="宋体, 10pt"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="数量" Font="宋体, 10pt"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="单价(元)" Font="宋体, 10pt"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="金额(元)" Font="宋体, 10pt"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="生产厂家" Font="宋体, 10pt"/>
+          <TableCell Name="Cell41" Border.Lines="All" Text="供应商" Font="宋体, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="28.35">
+          <TableCell Name="Cell6" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.CenOrgGoodsNo]" Font="宋体, 10pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.ReaGoodsName]" Font="宋体, 10pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.UnitMemo]" Font="宋体, 10pt"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.GoodsUnit]" Font="宋体, 10pt"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.GoodsQty]" Font="宋体, 10pt"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.Price]" Font="宋体, 10pt"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.SumTotal]" Font="宋体, 10pt"/>
+          <TableCell Name="Cell31" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.ProdOrgName]" Font="宋体, 10pt"/>
+          <TableCell Name="Cell42" Border.Lines="All" Text="[Rea_BmsCenOrderDtl.CompanyName]" Font="宋体, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell11" Text="合计(元) ：[Rea_ExportExcelCommand.EEC_Total]" HorzAlign="Center" Font="宋体, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell12" Fill.Color="LightGray" Font="宋体, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell13" Fill.Color="LightGray" Font="宋体, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell14" Fill.Color="LightGray" Font="宋体, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell15" Fill.Color="LightGray" Font="宋体, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell32" Fill.Color="LightGray" Font="宋体, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell33" Fill.Color="LightGray" Font="宋体, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell34" Fill.Color="LightGray" Font="宋体, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell43" Fill.Color="LightGray" Font="宋体, 10pt" ColSpan="9"/>
+        </TableRow>
+      </TableObject>
+    </ReportTitleBand>
+    <PageFooterBand Name="PageFooter1" Top="161.65" Width="1047.06" Height="28.35">
+      <TextObject Name="Text20" Left="6.45" Top="4.45" Width="198.45" Height="18.9" Text="分管院领导审批:" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text21" Left="207.8" Top="4.45" Width="198.45" Height="18.9" Text="审计科审核:" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="410.25" Top="4.45" Width="198.45" Height="18.9" Text="设备科审核:" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text23" Left="617.8" Top="5.45" Width="198.45" Height="18.9" Text="仓库员:" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text24" Left="820.45" Top="4" Width="198.45" Height="18.9" Text="申请人:[Rea_ExportExcelCommand.EEC_Apply]" Font="宋体, 10pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

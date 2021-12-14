@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="UploadFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fs" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadFileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormImageFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormImageFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadReportFormImageFileResult" type="tns:ArrayOfBase64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="Images" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DownloadReportFormImageFileSingle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Imagename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormImageFileSingleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadReportFormImageFileSingleResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormImageFile_OutPara">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormImageFile_OutParaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReportFormImageFile_OutParaResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Images" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="I1" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I2" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I3" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I4" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I5" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I6" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I7" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I8" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I9" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I10" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I11" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I12" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I13" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I14" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I15" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I16" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I17" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I18" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I19" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="I20" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormImageFile_Base64String">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFormId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFormImageFile_Base64StringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadReportFormImageFile_Base64StringResult" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Images" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadPUserImage_Base64String">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="puseridlist" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadPUserImage_Base64StringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadPUserImage_Base64StringResult" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="pusernoindex" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormImageFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormImageFile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormImageFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormImageFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormImageFileSingleSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormImageFileSingle" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormImageFileSingleSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormImageFileSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormImageFile_OutParaSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormImageFile_OutPara" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormImageFile_OutParaSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormImageFile_OutParaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormImageFile_Base64StringSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormImageFile_Base64String" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFormImageFile_Base64StringSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportFormImageFile_Base64StringResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadPUserImage_Base64StringSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadPUserImage_Base64String" />
+  </wsdl:message>
+  <wsdl:message name="DownloadPUserImage_Base64StringSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadPUserImage_Base64StringResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportFormImageServiceSoap">
+    <wsdl:operation name="UploadFile">
+      <wsdl:input message="tns:UploadFileSoapIn" />
+      <wsdl:output message="tns:UploadFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">批量下载报告内结果图片</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportFormImageFileSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormImageFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFileSingle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">单个下载报告内结果图片</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportFormImageFileSingleSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormImageFileSingleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile_OutPara">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">批量下载报告内结果图片Out参数方式</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportFormImageFile_OutParaSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormImageFile_OutParaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile_Base64String">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">批量下载报告内结果图片Base64字符串方式</wsdl:documentation>
+      <wsdl:input message="tns:DownloadReportFormImageFile_Base64StringSoapIn" />
+      <wsdl:output message="tns:DownloadReportFormImageFile_Base64StringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPUserImage_Base64String">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">批量下载电子签名图片Base64字符串方式</wsdl:documentation>
+      <wsdl:input message="tns:DownloadPUserImage_Base64StringSoapIn" />
+      <wsdl:output message="tns:DownloadPUserImage_Base64StringSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportFormImageServiceSoap" type="tns:ReportFormImageServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/UploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportFormImageFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFileSingle">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportFormImageFileSingle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile_OutPara">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportFormImageFile_OutPara" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile_Base64String">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportFormImageFile_Base64String" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPUserImage_Base64String">
+      <soap:operation soapAction="http://tempuri.org/DownloadPUserImage_Base64String" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportFormImageServiceSoap12" type="tns:ReportFormImageServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFile">
+      <soap12:operation soapAction="http://tempuri.org/UploadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportFormImageFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFileSingle">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportFormImageFileSingle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile_OutPara">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportFormImageFile_OutPara" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFormImageFile_Base64String">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportFormImageFile_Base64String" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPUserImage_Base64String">
+      <soap12:operation soapAction="http://tempuri.org/DownloadPUserImage_Base64String" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportFormImageService">
+    <wsdl:port name="ReportFormImageServiceSoap" binding="tns:ReportFormImageServiceSoap">
+      <soap:address location="http://localhost/ZhiFang.ReportFormQueryPrint/ServiceWCF/ReportFormImageService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportFormImageServiceSoap12" binding="tns:ReportFormImageServiceSoap12">
+      <soap12:address location="http://localhost/ZhiFang.ReportFormQueryPrint/ServiceWCF/ReportFormImageService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

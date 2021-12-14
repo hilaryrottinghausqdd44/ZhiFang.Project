@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB714BA5-9F07-41ED-A671-5A107C34BAA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.BLL.BloodTransfusion</RootNamespace>
+    <AssemblyName>ZhiFang.BLL.BloodTransfusion</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.BloodTransfusion\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common">
+      <HintPath>..\Lib\ZhiFang.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZhiFang.Common.Log">
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BBDict.cs" />
+    <Compile Include="BBDictTree.cs" />
+    <Compile Include="BBDictType.cs" />
+    <Compile Include="BBloodABO.cs" />
+    <Compile Include="BBloodAggluItem.cs" />
+    <Compile Include="BBloodBagChargeLink.cs" />
+    <Compile Include="BBloodBagHandoverOper.cs" />
+    <Compile Include="BBloodBagProcess.cs" />
+    <Compile Include="BBloodBagProcessType.cs" />
+    <Compile Include="BBloodBagProcessTypeQry.cs" />
+    <Compile Include="BBloodBagRecordDtl.cs" />
+    <Compile Include="BBloodBagRecordItem.cs" />
+    <Compile Include="BBloodBagRecordType.cs" />
+    <Compile Include="BBloodBInForm.cs" />
+    <Compile Include="BBloodBInItem.cs" />
+    <Compile Include="BBloodBOutForm.cs" />
+    <Compile Include="BBloodBOutItem.cs" />
+    <Compile Include="BBloodBPreForm.cs" />
+    <Compile Include="BBloodBPreItem.cs" />
+    <Compile Include="BBloodBReqForm.cs" />
+    <Compile Include="BBloodBReqFormResult.cs" />
+    <Compile Include="BBloodBReqItem.cs" />
+    <Compile Include="BBloodBTestItem.cs" />
+    <Compile Include="BBloodBUnit.cs" />
+    <Compile Include="BBloodChargeGroupItem.cs" />
+    <Compile Include="BBloodChargeItem.cs" />
+    <Compile Include="BBloodChargeItemLink.cs" />
+    <Compile Include="BBloodChargeItemType.cs" />
+    <Compile Include="BBloodChargeMoney.cs" />
+    <Compile Include="BBloodClass.cs" />
+    <Compile Include="BBloodClassUnitLink.cs" />
+    <Compile Include="BBloodInChecked.cs" />
+    <Compile Include="BBloodInCheckedCurrent.cs" />
+    <Compile Include="BBloodInCheckedItem.cs" />
+    <Compile Include="BBloodInLoadfat.cs" />
+    <Compile Include="BBloodInterfaceMaping.cs" />
+    <Compile Include="BBloodInterfaceTransport.cs" />
+    <Compile Include="BBloodLargeUseItem.cs" />
+    <Compile Include="BBloodLisResult.cs" />
+    <Compile Include="BBloodPatinfo.cs" />
+    <Compile Include="BBloodQtyDtl.cs" />
+    <Compile Include="BBloodRecei.cs" />
+    <Compile Include="BBloodReceiItem.cs" />
+    <Compile Include="BBloodSelfBlood.cs" />
+    <Compile Include="BBloodSetQtyAlertColor.cs" />
+    <Compile Include="BBloodSetQtyAlertInfo.cs" />
+    <Compile Include="BBloodStyle.cs" />
+    <Compile Include="BBloodTransForm.cs" />
+    <Compile Include="BBloodTransItem.cs" />
+    <Compile Include="BBloodUnit.cs" />
+    <Compile Include="BBloodUseDesc.cs" />
+    <Compile Include="BBTemplate.cs" />
+    <Compile Include="BBParameter.cs" />
+    <Compile Include="BBUserUIConfig.cs" />
+    <Compile Include="BSCBagOperation.cs" />
+    <Compile Include="BSCOperation.cs" />
+    <Compile Include="ExcelDataCommon.cs" />
+    <Compile Include="ExportDataToExcelHelp.cs" />
+    <Compile Include="InterfaceMapingStrategy\DimensionContext.cs" />
+    <Compile Include="InterfaceMapingStrategy\DimensionStrategy.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfBloodChargeItemMaping.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfBloodABOMaping.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfBloodBagProcessTypeMaping.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfBloodBTestItemMaping.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfDepartmentMaping.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfPUserMaping.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfBloodUnitMaping.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfBloodStyleMaping.cs" />
+    <Compile Include="InterfaceMapingStrategy\OfBDictMaping.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.BLL.Base\ZhiFang.BLL.Base.csproj">
+      <Project>{78fda625-7a67-46c7-9287-4d57bcef8d0e}</Project>
+      <Name>ZhiFang.BLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.BLL.Common\ZhiFang.BLL.Common.csproj">
+      <Project>{e98dec9d-20d1-4f65-a746-f2808b73f61a}</Project>
+      <Name>ZhiFang.BLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Common\ZhiFang.Entity.Common.csproj">
+      <Project>{81e083dc-bde0-4742-aec7-cf36768f6bfd}</Project>
+      <Name>ZhiFang.Entity.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.RBAC\ZhiFang.Entity.RBAC.csproj">
+      <Project>{2993fbe5-aa1f-433c-a07f-34cc25c59852}</Project>
+      <Name>ZhiFang.Entity.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.BloodTransfusion\ZhiFang.Entity.BloodTransfusion.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.WeiXin\ZhiFang.Entity.WeiXin.csproj">
+      <Project>{c867875c-5404-480d-89e4-9cc67c66d963}</Project>
+      <Name>ZhiFang.Entity.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Common\ZhiFang.IBLL.Common.csproj">
+      <Project>{f55ad050-b25c-42af-9d13-9ce1b8f27701}</Project>
+      <Name>ZhiFang.IBLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.RBAC\ZhiFang.IBLL.RBAC.csproj">
+      <Project>{f5a15ed6-4eb8-4e39-8b19-357b799a1f10}</Project>
+      <Name>ZhiFang.IBLL.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.BloodTransfusion\ZhiFang.IBLL.BloodTransfusion.csproj">
+      <Project>{567c1df3-46bd-4485-b06d-607384cc6b3f}</Project>
+      <Name>ZhiFang.IBLL.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.WeiXin\ZhiFang.IBLL.WeiXin.csproj">
+      <Project>{2421232c-e74b-44c6-add8-19ac07a1357a}</Project>
+      <Name>ZhiFang.IBLL.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Common\ZhiFang.IDAO.Common.csproj">
+      <Project>{8a0fdb29-76a4-4fe5-8652-93fcaaf50772}</Project>
+      <Name>ZhiFang.IDAO.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.NHB.BloodTransfusion\ZhiFang.IDAO.NHB.BloodTransfusion.csproj">
+      <Project>{dd7e515a-52cf-41a2-8325-8704eb187053}</Project>
+      <Name>ZhiFang.IDAO.NHB.BloodTransfusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.BloodTransfusion.Common\ZhiFang.BloodTransfusion.Common.csproj">
+      <Project>{e57b020b-e404-4d4e-92a2-abc517ce6bdd}</Project>
+      <Name>ZhiFang.BloodTransfusion.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.RBAC\ZhiFang.IDAO.RBAC.csproj">
+      <Project>{3E769F10-C35B-4DB3-A375-578C4091E6B8}</Project>
+      <Name>ZhiFang.IDAO.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.ServiceCommon.RBAC\ZhiFang.ServiceCommon.RBAC.csproj">
+      <Project>{453550F2-BF83-4C13-9386-9ACF6E2AE591}</Project>
+      <Name>ZhiFang.ServiceCommon.RBAC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SADimensionStrategy\" />
+    <Folder Include="SAQITypeOfStrategy\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

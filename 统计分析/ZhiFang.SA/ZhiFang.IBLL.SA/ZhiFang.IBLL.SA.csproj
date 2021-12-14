@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{567C1DF3-46BD-4485-B06D-607384CC6B3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IBLL.SA</RootNamespace>
+    <AssemblyName>ZhiFang.IBLL.SA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.SA\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IBAgeUnit.cs" />
+    <Compile Include="IBBDict.cs" />
+    <Compile Include="IBBDictTree.cs" />
+    <Compile Include="IBBDictType.cs" />
+    <Compile Include="IBBObjectOperate.cs" />
+    <Compile Include="IBBObjectOperateType.cs" />
+    <Compile Include="IBBOperateObjectType.cs" />
+    <Compile Include="IBBParameter.cs" />
+    <Compile Include="IBBUserUIConfig.cs" />
+    <Compile Include="IBCenOrg.cs" />
+    <Compile Include="IBCenOrgType.cs" />
+    <Compile Include="IBDepartment.cs" />
+    <Compile Include="IBDistrict.cs" />
+    <Compile Include="IBDoctor.cs" />
+    <Compile Include="IBEmployee.cs" />
+    <Compile Include="IBEquipItem.cs" />
+    <Compile Include="IBEquipment.cs" />
+    <Compile Include="IBFolkType.cs" />
+    <Compile Include="IBGenderType.cs" />
+    <Compile Include="IBGroupItem.cs" />
+    <Compile Include="IBItemRange.cs" />
+    <Compile Include="IBItemType.cs" />
+    <Compile Include="IBLStatTotal.cs" />
+    <Compile Include="IBNRequestForm.cs" />
+    <Compile Include="IBPGroup.cs" />
+    <Compile Include="IBPhraseswatch.cs" />
+    <Compile Include="IBPhrasesWatchClass.cs" />
+    <Compile Include="IBPhrasesWatchClassItem.cs" />
+    <Compile Include="IBPUser.cs" />
+    <Compile Include="IBSAConfigModule.cs" />
+    <Compile Include="IBSampleType.cs" />
+    <Compile Include="IBSickType.cs" />
+    <Compile Include="IBSuperGroup.cs" />
+    <Compile Include="IBTestEquip.cs" />
+    <Compile Include="IBTestEquipItem.cs" />
+    <Compile Include="IBTestItem.cs" />
+    <Compile Include="IBTestType.cs" />
+    <Compile Include="IBWardType.cs" />
+    <Compile Include="IExcelDataCommon.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.SA\ZhiFang.Entity.SA.csproj">
+      <Project>{36917e28-ce6f-441f-8c2f-f9210ad56d31}</Project>
+      <Name>ZhiFang.Entity.SA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IBLL.Base\ZhiFang.IBLL.Base.csproj">
+      <Project>{8473718c-0587-4482-80bb-24ed193d9c5d}</Project>
+      <Name>ZhiFang.IBLL.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

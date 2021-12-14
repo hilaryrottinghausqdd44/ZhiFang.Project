@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/16/2019 09:33:30" ReportInfo.Modified="01/26/2021 17:48:06" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    int index = 0;
+    private void Text15_BeforePrint(object sender, EventArgs e)
+    {
+      string aa = ((String)Report.GetColumnValue(&quot;Table.InspectionTime&quot;));
+      Text15.Text = aa.Split(' ')[0];
+      
+    }
+
+    private void Text15_AfterPrint(object sender, EventArgs e)
+    {
+       
+    }
+
+    private void Text4_BeforePrint(object sender, EventArgs e)
+    {
+        Text4.Text = index.ToString();
+    }
+
+    
+
+    private void Text33_AfterData(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void Text33_BeforePrint(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void Text33_AfterPrint(object sender, EventArgs e)
+    { 
+           index=index+Text33.Text.Split('\r').Length;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Table" ReferenceName="Data.Table" DataType="System.Int32" Enabled="true" SelectCommand="EXEC	[dbo].[StatisticsRequestItemCenter]&#13;&#10;		@startDateTime = '2019-09-29',&#13;&#10;		@endDateTime = '2019-10-06 23:59',&#13;&#10;		@clientNoList = '3001,5',&#13;&#10;		@dateType = '1'">
+      <Column Name="InspectionName" DataType="System.String"/>
+      <Column Name="ReceiveName" DataType="System.String"/>
+      <Column Name="InspectionTime" DataType="System.DateTime"/>
+      <Column Name="RequestTime" DataType="System.DateTime"/>
+      <Column Name="NrequestFormNo" DataType="System.String"/>
+      <Column Name="BarCode" DataType="System.String"/>
+      <Column Name="PersonID" DataType="System.String"/>
+      <Column Name="PatNo" DataType="System.String"/>
+      <Column Name="CName" DataType="System.String"/>
+      <Column Name="Gennder" DataType="System.String"/>
+      <Column Name="Age" DataType="System.String"/>
+      <Column Name="Doctor" DataType="System.String"/>
+      <Column Name="ItemName" DataType="System.String"/>
+      <Column Name="SickTypeName" DataType="System.String"/>
+      <Column Name="OperTime" DataType="System.DateTime"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="278" OtherPagesSource="278">
+    <DataBand Name="Data1" Width="718.2" Height="103.95" Guides="0" KeepTogether="true">
+      <SubreportObject Name="Subreport1" Top="75.6" Width="718.2" Height="28.35" ReportPage="Page2"/>
+      <TextObject Name="Text_DateRange" Left="567" Top="37.8" Width="151.2" Height="18.9" Text="[Table.InspectionTime]" VertAlign="Center" Font="宋体, 8pt"/>
+      <TextObject Name="Text3" Left="510.3" Top="37.8" Width="75.6" Height="18.9" Text="日期范围：" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text5" Top="56.7" Width="37.8" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="序号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text9" Left="463.05" Top="56.7" Width="47.25" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="医生" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text25" Left="37.8" Top="56.7" Width="75.6" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="申请时间" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text26" Left="113.4" Top="56.7" Width="103.95" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="条码号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text27" Left="217.35" Top="56.7" Width="66.15" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="就诊类型" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text28" Left="283.5" Top="56.7" Width="56.7" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="病历号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text29" Left="340.2" Top="56.7" Width="47.25" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="姓名" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text30" Left="387.45" Top="56.7" Width="37.8" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="性别" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text31" Left="425.25" Top="56.7" Width="37.8" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="年龄" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text32" Left="510.3" Top="56.7" Width="207.9" Height="18.9" Border.Lines="Top, Bottom" Border.Width="2" Text="项目" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Top="39.69" Width="66.15" Height="18.9" Text="外送单位" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="56.7" Top="39.69" Width="207.9" Height="18.9" Text="[Table.ReceiveName]" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text47" Left="255.15" Top="39.69" Width="66.15" Height="18.9" Text="送检单位" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text48" Left="311.85" Top="39.69" Width="236.25" Height="18.9" Text="[Table.InspectionName]" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text1" Left="151.2" Top="9.45" Width="330.75" Height="28.35" Text="[Table.InspectionName]标本外送清单" Font="宋体, 12pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Guides="66.15">
+    <DataBand Name="Data2" Width="718.2" Height="18.9" CanGrow="true" DataSource="Table">
+      <TextObject Name="Text13" Width="37.8" Height="18.9" CanGrow="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text15" Left="37.8" Width="75.6" Height="18.9" CanGrow="true" BeforePrintEvent="Text15_BeforePrint" AfterPrintEvent="Text15_AfterPrint" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt"/>
+      <TextObject Name="Text33" Left="113.4" Width="103.95" Height="18.9" CanGrow="true" BeforePrintEvent="Text33_BeforePrint" AfterPrintEvent="Text33_AfterPrint" AfterDataEvent="Text33_AfterData" Text="[Table.BarCode]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text35" Left="217.35" Width="66.15" Height="18.9" CanGrow="true" Text="[Table.SickTypeName]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text36" Left="463.05" Width="37.8" Height="18.9" CanGrow="true" Text="[Table.Doctor]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text37" Left="283.5" Width="56.7" Height="18.9" CanGrow="true" Text="[Table.PatNo]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text38" Left="340.2" Width="47.25" Height="18.9" CanGrow="true" Text="[Table.CName]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text39" Left="387.45" Width="37.8" Height="18.9" CanGrow="true" Text="[Table.Gennder]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text40" Left="425.25" Width="37.8" Height="18.9" CanGrow="true" Text="[Table.Age]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text41" Left="500.85" Width="217.35" Height="18.9" CanGrow="true" Text="[Table.ItemName]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <LineObject Name="Line1" Top="18.9" Width="718.2" Dock="Bottom"/>
+      <LineObject Name="Line2" Width="718.2" Dock="Top"/>
+      <DataFooterBand Name="DataFooter1" Top="22.9" Width="718.2" Height="154.4" Guides="226.8">
+        <TextObject Name="Text2" Left="9.45" Top="12.65" Width="94.5" Height="18.9" Text="检验标本总数" Font="宋体, 9pt"/>
+        <TextObject Name="Text4" Left="94.5" Top="12.65" Width="94.5" Height="18.9" BeforePrintEvent="Text4_BeforePrint" Font="宋体, 9pt"/>
+        <TextObject Name="Text42" Left="9.45" Top="69.35" Width="94.5" Height="18.9" Text="客户签名" Font="宋体, 9pt"/>
+        <TextObject Name="Text43" Left="170.1" Top="69.35" Width="94.5" Height="18.9" Text="物流签名" Font="宋体, 9pt"/>
+        <TextObject Name="Text44" Left="330.75" Top="69.35" Width="94.5" Height="18.9" Text="物流接受时间" Font="宋体, 9pt"/>
+        <TextObject Name="Text45" Left="170.1" Top="107.15" Width="94.5" Height="18.9" Text="实验室签名" Font="宋体, 9pt"/>
+        <TextObject Name="Text46" Left="330.75" Top="107.15" Width="94.5" Height="18.9" Text="实验室接受时间" Font="宋体, 9pt"/>
+      </DataFooterBand>
+      <Sort>
+        <Sort Expression="[Table.OperTime]"/>
+      </Sort>
+    </DataBand>
+  </ReportPage>
+</Report>

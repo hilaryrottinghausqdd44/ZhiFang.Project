@@ -1,0 +1,201 @@
+/**
+ * 输血过程记录:左区域(发血记录主单)
+ * @description 批量新增登记及支持单个血袋修改登记
+ * @author longfc
+ * @version 2020-02-21
+ */
+Ext.define('Shell.class.blood.nursestation.transrecord.register.TransPanel', {
+	extend: 'Shell.ux.panel.AppPanel',
+
+	title: '发血记录信息',
+	bodyPadding: '0px',
+	/**带功能按钮栏*/
+	hasButtontoolbar: true,
+	/**是否启用保存按钮*/
+	hasSave: true,
+	/**是否重置按钮*/
+	hasReset: true,
+	/**自定义按钮功能栏*/
+	buttonToolbarItems: null,
+	/**功能按钮栏位置*/
+	buttonDock: 'bottom',
+	//新增还是编辑
+	formtype: "add",
+	//输血过程记录主单ID
+	PK: null,
+	//当前选中发血血袋记录集合
+	outDtlRrecords: [],
+	/**当前选择的发血主单行记录信息*/
+	outDocRecord: null,
+	
+	afterRender: function() {
+		var me = this;
+		me.callParent(arguments);
+		me.onListeners();
+	},
+	initComponent: function() {
+		var me = this;
+		me.addEvents('save', 'nodata');
+		me.items = me.createItems();
+		me.dockedItems = me.createDockedItems();
+		me.callParent(arguments);
+	},
+	createItems: function() {
+		var me = this;
+		var width1=me.width;
+		
+		var docHeight = 125;
+		//输血过程主单信息south
+		me.DocForm = Ext.create("Shell.class.blood.nursestation.transrecord.register.TransDocForm", {
+			region: 'north',
+			header: false,
+			height: docHeight,
+			border: false,
+			width: width1,
+			itemId: 'DocForm'
+		});
+		var height1=parseInt((me.height - docHeight));
+		if(height1>600){
+			height1=parseInt(height1*0.82);
+		}
+		//病人体征信息
+		me.DtlForm = Ext.create('Shell.class.blood.nursestation.transrecord.register.TransDtlForm', {
+			region: 'center',
+			header: true,
+			itemId: 'DtlForm',
+			height: height1,
+			border: false,
+			width: width1,
+			split: false,
+			collapsible: false
+		});
+		return [me.DocForm, me.DtlForm];
+	},
+	/**创建挂靠功能栏*/
+	createDockedItems: function() {
+		var me = this,
+			items = me.dockedItems || [];
+
+		if (me.hasButtontoolbar) {
+			var buttontoolbar = me.createButtontoolbar();
+			if (buttontoolbar) items.push(buttontoolbar);
+		}
+		return items;
+	},
+	/**创建功能按钮栏*/
+	createButtontoolbar: function() {
+		var me = this,
+			items = me.buttonToolbarItems || [];
+		if (items.length == 0) {
+			if (me.hasSave) items.push('save');
+			if (me.hasReset) items.push('reset');
+			if (items.length > 0) items.unshift('->');
+		}
+		if (items.length == 0) return null;
+		var hidden = me.openFormType && (me.formtype == 'show' ? true : false);
+		return Ext.create('Shell.ux.toolbar.Button', {
+			dock: me.buttonDock,
+			itemId: 'buttonsToolbar',
+			items: items,
+			hidden: hidden
+		});
+	},
+	/*程序列表的事件监听**/
+	onListeners: function() {
+		var me = this;
+		me.DocForm.on({
+			nodata: function(p) {
+
+			}
+		});
+	},
+	clearData: function() {
+		var me = this;
+		me.PK=null;
+		me.DocForm.PK=null;
+		me.DtlForm.PK=null;
+		me.DocForm.getForm().reset();
+		me.DtlForm.getForm().reset();
+		//me.fireEvent('nodata', me);
+	},
+	//发血信息赋值处理
+	setOutDocInfo:function(){
+		var me = this;
+		if (me.outDocRecord && me.outDocRecord.data) {
+			me.DocForm.getForm().setValues(me.outDocRecord.data);
+		}
+	},
+	loadData: function() {
+		var me = this;
+		if(me.formtype=="edit"){
+			me.isEdit(me.PK);
+		}else{
+			me.isAdd();
+		}
+		me.setOutDocInfo();
+	},
+	isAdd: function() {
+		var me = this;
+		me.formtype = "add";
+		me.DocForm.outDtlRrecords = me.outDtlRrecords;
+		me.DtlForm.outDtlRrecords = me.outDtlRrecords;
+		
+		me.setDocFormVal();
+		
+		me.DocForm.isAdd();
+		me.setOutDocInfo();	
+		
+		me.DtlForm.isAdd();
+	},
+	isEdit: function(id) {
+		var me = this;
+		me.formtype = "edit";
+		me.DocForm.PK=id;
+		me.DtlForm.PK=id;
+		
+		me.DocForm.outDtlRrecords = me.outDtlRrecords;
+		me.setOutDocInfo();
+		me.setDocFormVal();
+		me.DocForm.isEdit(id);
+		
+		me.DtlForm.outDtlRrecords = me.outDtlRrecords;
+		me.DtlForm.isEdit(id);
+	},
+	setDocFormVal: function() {
+		var me = this;
+		var outDtl=me.outDtlRrecords[0];
+		var defaultsVals= {
+			"BloodTransForm_BloodBReqForm_Id": outDtl.get("BloodBOutItem_BloodBReqForm_Id"),
+			"BloodTransForm_BloodBOutForm_Id": outDtl.get("BloodBOutItem_BloodBOutForm_Id"),
+			"BloodTransForm_BloodBOutItem_Id": outDtl.get("BloodBOutItem_Id"),
+			"BloodTransForm_Bloodstyle_Id": outDtl.get("BloodBOutItem_Bloodstyle_Id"),
+			"BloodTransForm_Bloodstyle_CName": outDtl.get("BloodBOutItem_Bloodstyle_CName"),
+			"BloodTransForm_BBagCode":outDtl.get("BloodBOutItem_BBagCode"),
+			"BloodTransForm_PCode": outDtl.get("BloodBOutItem_Pcode"),
+			"BloodTransForm_BloodBOutItem_BOutCount": outDtl.get("BloodBOutItem_BOutCount"),
+			"BloodTransForm_BloodBOutItem_BloodBUnit_BUnitName": outDtl.get("BloodBOutItem_BloodBUnit_BUnitName")
+		};
+		me.DocForm.defaultsVals = defaultsVals;
+	},
+	/**@overwrite 重置按钮点击处理方法*/
+	onResetClick: function() {
+		var me = this;
+		//处理意见
+		JShell.Msg.confirm({
+			title: '<div style="text-align:center;">确认重置输血过程记录登记信息?</div>',
+			msg: '重置操作',
+			closable: false,
+			multiline: false
+		}, function(but, text) {
+			if (but != "ok") return;
+			me.loadData();
+		});
+	},
+	/**保存按钮点击处理方法*/
+	onSaveClick: function() {
+		var me = this;
+		//验证通过后处理
+		
+		me.fireEvent('save', me, me.DocForm, me.DtlForm);
+	}
+});

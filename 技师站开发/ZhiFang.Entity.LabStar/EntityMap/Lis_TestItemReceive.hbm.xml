@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.LabStar" assembly="ZhiFang.Entity.LabStar">
+  <class name="LisTestItemReceive" table="dbo.Lis_TestItemReceive">
+    <id name="Id" column="TestItemReceiveID" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="DataTimeStamp" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="LabID" type="Int64" not-null="true" length="8" />
+    <property name="OrderItemID" column="OrderItemID" type="Int64" not-null="false" length="8" />
+    <property name="BarCodeItemID" column="BarCodeItemID" type="Int64" not-null="false" length="8" />
+    <property name="OrdersItemID" column="OrdersItemID" type="Int64" not-null="false" length="8" />
+    <property name="BarCodesItemID" column="BarCodesItemID" type="Int64" not-null="false" length="8" />
+    <property name="TestItemID" column="TestItemID" type="Int64" not-null="false" length="8" />
+    <property name="ItemID" column="ItemID" type="Int64" not-null="false" length="8" />
+    <property name="PItemID" column="PItemID" type="Int64" not-null="false" length="8" />
+    <property name="BarCode" column="BarCode" type="String" not-null="false" length="100" />
+    <property name="GTestDate" column="GTestDate" type="DateTime" not-null="false" length="8" />
+    <property name="IsByHand" column="IsByHand" type="Boolean" not-null="false" length="1" />
+    <property name="ReportTime" column="ReportTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataAddTime" column="DataAddTime" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="DataUpdateTime" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="LisTestForm" class="LisTestForm" lazy="proxy">
+      <column name="TestFormID" not-null="false"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

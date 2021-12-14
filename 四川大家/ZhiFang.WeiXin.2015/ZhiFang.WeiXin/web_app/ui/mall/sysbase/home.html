@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="application/javascript">
+
+        //加载版本号
+        document.write(
+            "<script type='text/javascript' src='../../config/version.js?t=" +
+                new Date().getTime() + "'><\/script>"
+        );
+    </script>
+
+    <script type="application/javascript">
+
+        //加载公众号Title
+        document.write(
+            "<title>"+JcallShell.System.SysHtmlTitle +"</title>"
+        );
+    </script>  
+
+    <link rel="stylesheet" href="../../../../web_src/bootstrap-3.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/home.css" />
+</head>
+<body>
+    <!--首页-->
+    <div class="home-div-default" id="home-div-1">
+        <!--广告图-->
+        <div id="home-div-top-carousel" class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#home-div-top-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#home-div-top-carousel" data-slide-to="1"></li>
+                <li data-target="#home-div-top-carousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="active item home-top-div"><img style="width:100%;height:100%;" src="../../images/home/top/img1.jpg"></img></div>
+                <div class="item home-top-div"><img style="width:100%;height:100%;" src="../../images/home/top/img2.jpg"></img></div>
+                <div class="item home-top-div"><img style="width:100%;height:100%;" src="../../images/home/top/img3.jpg"></img></div>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#home-div-top-carousel" data-slide="prev" style="padding:45px 0;">&lsaquo;</a>
+            <a class="carousel-control right" href="#home-div-top-carousel" data-slide="next" style="padding:45px 0;">&rsaquo;</a>
+        </div>
+        <!--内容区域-->
+        <div class="container-fluid">
+            <div class="row" id="card"></div>
+        </div>
+    </div>
+
+    <!--互动-->
+    <div class="home-div-default" id="home-div-2">
+        <div style="text-align:center;padding:20px;">互动</div>
+    </div>
+
+    <!--我-->
+    <div class="home-div-default" id="home-div-3">
+        <div class="home-user-info-div">
+            <div class="home-user-info-div-head">
+                <img src="../../images/default/head.png" alt="..." class="img-circle">
+                <span>张三</span>
+            </div>
+        </div>
+        <ul class="home-user-config-div" id="home-user-config-div">
+            <li>修改密码<span>〉</span></li>
+            <li >切换账户</li>
+            <li>安全退出</li>
+        </ul>
+    </div>
+    
+    <!--帮助-->
+    <div class="home-div-default" id="home-div-4">
+        <div style="text-align:center;padding:20px;">帮助</div>
+    </div>
+
+    <!--底部功能按钮栏-->
+    <ul id="navbar-bottom" class="navbar-fixed-bottom navbar-bottom">
+        <li index="1" style="width: 25%;">
+            <span class="glyphicon glyphicon-home navbar-bottom-icon" aria-hidden="true"></span>
+            <span class="navbar-bottom-text">首页</span>
+        </li>
+        <li index="2" style="width: 25%;">
+            <span class="glyphicon glyphicon-heart navbar-bottom-icon" aria-hidden="true"></span>
+            <span class="navbar-bottom-text">互动</span>
+        </li>
+        <li index="3" style="width: 25%;">
+            <span class="glyphicon glyphicon-user navbar-bottom-icon" aria-hidden="true"></span>
+            <span class="navbar-bottom-text">我</span>
+        </li>
+        <li index="4" style="width: 25%;">
+            <span class="glyphicon glyphicon-question-sign navbar-bottom-icon" aria-hidden="true"></span>
+            <span class="navbar-bottom-text">帮助</span>
+        </li>
+    </ul>
+
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../../../web_src/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="../../util/JcallShell.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../localStorage/User.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../localStorage/Home.js"></script>
+    <script type="text/javascript" charset="utf-8" src="home.js"></script>
+</body>
+</html>

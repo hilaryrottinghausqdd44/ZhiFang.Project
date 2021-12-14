@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+	<class name="MEMicroRetainedBacteria" table="[dbo].[ME_MicroRetainedBacteria]">
+		<id name="Id" column="[RetainedBacteriaID]" type="Int64">
+			<generator class="assigned" />
+		</id>
+        <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+		<property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+		<property name="BarCode" column="[BarCode]" type="String" not-null="false" length="30" />
+		<property name="CName" column="[CName]" type="String" not-null="false" length="40" />
+		<property name="PatNo" column="[PatNo]" type="String" not-null="false" length="20" />
+		<property name="DeptID" column="[DeptID]" type="Int64" not-null="false" length="8" />
+		<property name="DeptName" column="[DeptName]" type="String" not-null="false" length="50" />
+		<property name="GSampleNo" column="[GSampleNo]" type="String" not-null="false" length="20" />
+		<property name="SampleTypeID" column="[SampleTypeID]" type="Int64" not-null="false" length="8" />
+		<property name="SampleTypeName" column="[SampleTypeName]" type="String" not-null="false" length="40" />
+		<property name="Position" column="[Position]" type="Int32" not-null="false" length="4" />
+		<property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+		<property name="EmpName" column="[EmpName]" type="String" not-null="false" length="60" />
+		<property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+		<many-to-one name="BMicro" class="BMicro" >
+			<column name="[MicroID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="HREmployee" class="HREmployee" >
+			<column name="[EmpID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEGroupSampleForm" class="MEGroupSampleForm" >
+			<column name="[GroupSampleFormID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEMicroAppraisalValue" class="MEMicroAppraisalValue" >
+			<column name="[AppraisalValueID]" not-null="false"/>
+		</many-to-one>
+		<many-to-one name="MEMicroRetainedBacteriaBox" class="MEMicroRetainedBacteriaBox" >
+			<column name="[RBBoxID]" not-null="false"/>
+		</many-to-one>
+		<bag name="MEMicroAppraisalValueList" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key>
+                <column name="[RetainedBacteriaID]" />
+            </key>
+			<one-to-many class="MEMicroAppraisalValue"/>
+		</bag>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>对照关系字典</title>
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css">
+    <script type="text/javascript" src="../../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="relationDistionary.js"></script>
+</head>
+<body class="easyui-layout">
+<div data-options="region:'north'" style="height:30px;width: 100%;padding-top: 4px;background: #eeeeee " border="false">
+    <label style="width: 100px;margin-left: 3px">实验室—中心对照表:</label>
+    <input id='cmbLabList' name="lab" type="cmb"  style="width: 160px;">
+    <label style="width: 100px;margin-left: 10px">实验室:</label>
+    <input id='cmbLab' name="lab" type="cmb"  style="width: 160px;">
+</div>
+<div data-options="region:'center'" border="false">
+    <iframe id="controlContainer" style="width: 100%;height: 100%;" frameborder="0"></iframe>
+</div>
+
+</body>
+</html>

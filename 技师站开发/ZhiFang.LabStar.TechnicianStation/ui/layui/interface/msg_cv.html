@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>消息卡片</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=0">
+	<link rel="stylesheet" href="../../src/layui/src/css/layui.css" media="all">
+	<link rel="shortcut icon" href="../../../logo-16.png">
+</head>
+<body>
+	<script src="../../src/layui/src/layui.js"></script>
+	<script type="text/javascript" src="../config/system.js"></script>
+	<script type="text/javascript">
+		layui.extend({
+			uxutil:'ux/util'
+		}).define(['uxutil','layer'],function(exports){
+			var $ = layui.$,
+				uxutil = layui.uxutil;
+				
+			function onLogin(callback){
+				var params = uxutil.params.get(true);
+				//Account=账户名&PWD=密码&Name=姓名&Sex=性别&DeptName=科室名称&DeptHISCode=科室HIS编码&Phone=电话
+				var data = {
+					"entity":{
+						"Account":params.ACCOUNT,
+						"PWD":params.PWD,
+						"Name":params.NAME,
+						"Sex":params.SEX,
+						"DeptName":params.DEPTNAME,
+						"DeptHISCode":params.DEPTHISCODE,
+						"Phone":params.PHONE
+					}
+				};
+				uxutil.server.ajax({
+					url:uxutil.path.LIIP_ROOT + "/ServerWCF/RBACService.svc/CV_AddDoctorOrNurse",
+					type:'post',
+					data:JSON.stringify(data)
+				},function(data){
+					if(data.success && !data.msg){
+						callback();
+					}else{
+						layer.msg(data.msg || "连接失败！");
+					}
+				});
+			}
+			
+			onLogin(function(){
+				location.href = '../views/msg/card/card.html?msgTypeCodeList=ZF_LAB_START_CV&t=' + new Date().getTime();
+			});
+		});
+	</script>
+</body>
+</html>

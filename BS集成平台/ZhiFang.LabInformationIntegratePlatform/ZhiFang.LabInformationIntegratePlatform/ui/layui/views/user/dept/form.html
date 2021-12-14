@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>注册</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script type="text/javascript">
+		//加载版本号文件
+		document.write("<script type='text/javascript' src='../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+	</script>
+	<style type="text/css">
+		.footer{position:fixed;left:0;bottom:0;width:100%;height:68px;background-color:#ffffff;}
+		.footer div{position:fixed;right:0;bottom:0;padding:15px;}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid layui-form" style="padding:15px;">
+		<div class="layui-form-item">
+			<select name="user" id="user" lay-filter="user" lay-verify="required" lay-search>
+				<option value="">选择员工</option>
+			</select>
+		</div>
+		<div class="layui-form-item">
+			<select name="dept" id="dept" lay-filter="dept" lay-verify="required" lay-search>
+				<option value="">选择部门</option>
+			</select>
+		</div>
+		<div class="footer">
+			<div>
+				<button id="submit_button" class="layui-btn" lay-submit lay-filter="submit_button">保存</button>
+				<button id="cancel_button" class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel_button">取消</button>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		UIVersion.loadLayui();
+		UIVersion.getJS('form.js');
+	</script>
+</body>
+</html>

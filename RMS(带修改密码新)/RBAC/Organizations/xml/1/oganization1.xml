@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?><table border="1" width="95%" cellspacing="0" cellpadding="2" align="center" style="BORDER-COLLAPSE:collapse" xmlns:fo="http://www.w3.org/1999/XSL/Format"><tr bgcolor="#e0e0e0"><td align="center" nowrap="nowrap">员工号</td><td align="left" nowrap="nowrap">姓名</td><td align="left" nowrap="nowrap">账号名</td><td align="left" nowrap="nowrap">部门(职位)</td><td align="center" nowrap="nowrap">电子邮件</td><td align="center" nowrap="nowrap">手机</td></tr><tr id="NM1" bgcolor="white" onclick="SelectEmpl('1','311' )" ondblclick="EditPerson('311')" onmouseover="this.bgColor='LemonChiffon'" onmouseout="this.bgColor=''"><td></td><td>管理人员</td><td>sa</td><td id="tdDEPT1"><input type="hidden" id="inputDept1" value="&lt;font color=&quot;#cc0033&quot;&gt;*&lt;/font&gt;" /><script language="javascript">
+							tdDEPT1.innerHTML=inputDept1.value;
+							//alert(inputDept1.value);
+						</script></td><td></td><td></td></tr><tr id="NM2" bgcolor="white" onclick="SelectEmpl('2','398' )" ondblclick="EditPerson('398')" onmouseover="this.bgColor='LemonChiffon'" onmouseout="this.bgColor=''"><td></td><td>测试</td><td></td><td id="tdDEPT2"><input type="hidden" id="inputDept2" value="&lt;font color=&quot;#cc0033&quot;&gt;*&lt;/font&gt;" /><script language="javascript">
+							tdDEPT2.innerHTML=inputDept2.value;
+							//alert(inputDept2.value);
+						</script></td><td></td><td></td></tr></table>

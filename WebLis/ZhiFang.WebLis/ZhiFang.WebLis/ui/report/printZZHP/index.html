@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>报告查询打印</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   	<script type="text/javascript" src="../../util/common.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body class="easyui-layout">
+	<!-- 网页打印 -->
+	<object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+        <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="/ui/util/print/resources/install_lodop32.exe"></embed>
+    </object>
+    <!-- PDF控件 -->
+    <!-- pdf弹出窗口 -->
+    <div id="pdfWin"></div>
+	<!-- 查询栏 -->
+	<div id="toolbar_search" data-options="region:'north'" style="height:58px;background:#efefef;padding:2px;magrin:0">
+		<div style="position:absolute;top:3px;float:left;">
+			<div style="float:left;">
+				<a id="search-button-today" class="easyui-linkbutton" title="查询今天的数据" 
+					data-options="group:'search-button-days',toggle:true,plain:false,iconCls:'button-search',selected:true">今天</a>
+				<a id="search-button-3days" class="easyui-linkbutton" title="查询三天内的数据" 
+					data-options="group:'search-button-days',toggle:true,plain:false,iconCls:'button-search'">三天</a>
+				<a id="search-button-7days" class="easyui-linkbutton" title="查询七天内的数据" 
+					data-options="group:'search-button-days',toggle:true,plain:false,iconCls:'button-search'">一周</a>
+			</div>
+			<div class="datagrid-btn-separator" style="float:left;margin-left:5px;margin-right:5px;"></div>
+			
+			<div id="search-text-RECEIVEDATE" style="float:left;">
+				<a id="search-button-all" class="easyui-linkbutton" title="切换为核收日期区域查询" 
+					data-options="group:'search-button-days',toggle:true,plain:false">核收日期</a>
+				<input id="search-text-RECEIVEDATE-S" type="text" data-options="width:95"></input> - 
+				<input id="search-text-RECEIVEDATE-E" type="text" data-options="width:95"></input>
+			</div>
+		</div>
+		<div style="position:absolute;top:32px;float:left;">
+			<a>送检单位:</a><select id="search-text-ClientNo"></select>
+			<a>姓名:</a><input id="search-text-CNAME"></input>
+			<a>姓别:</a><input id="search-text-GenderNo"></input>
+			<a>样本号:</a><input id="search-text-SAMPLENO"></input>
+			<a>病历号:</a><input id="search-text-PATNO"></input>
+		</div>
+	</div>
+	<!-- 报告列表 -->
+	<div id="report_grid_toolbar">
+		<div id="printConfig" style="border-bottom:1px solid #cad9ea;padding:2px;">
+			<a id="report_grid_toolbar-print" title="直接打印" class="easyui-linkbutton" data-options="plain:true,iconCls:'button-print'">直接打印</a>
+			<a>纸张:</a>
+			<select id="paperType" class="easyui-combobox" data-options="editable:false,panelMaxHeight:50" style="width:55px;">   
+			    <option value="A4" selected="selected">A4</option>
+			    <option value="B5">B5</option>
+			</select>
+			<a>方向:</a>
+			<select id="orientationType" class="easyui-combobox" data-options="editable:false,panelMaxHeight:50" style="width:55px;">   
+			    <option value="1" selected="selected">纵打</option>
+			    <option value="2">横打</option>
+			</select>
+		</div>
+		<div>
+			<a id="report_grid_toolbar-refresh" title="属性数据" class="easyui-linkbutton" data-options="plain:true,iconCls:'button-refresh'">刷新</a>
+			<a id="report_grid_toolbar-preview" title="预览打印" class="easyui-linkbutton" data-options="plain:true,iconCls:'button-print'">预览打印</a>
+			<a>标题:</a>
+			<select id="titleType" class="easyui-combobox" data-options="editable:false,panelMaxHeight:140" style="width:55px;">   
+			    <option value="CENTER" selected="selected">中心</option>
+			    <option value="CLIENT" >医院</option>
+			    <option value="BATCH">套打</option>
+			    <option value="MENZHEN">门诊</option>
+			    <option value="ZHUYUAN">住院</option>
+			    <option value="TIJIAN">体检</option>
+			</select>
+		</div>
+	</div>
+	<div data-options="region:'west',split:true" style="width:350px;">
+		<table id="report_grid"></table>
+	</div>
+	<!-- 报告/结果内容 -->
+	<div data-options="region:'center'" style="padding:1px;">
+		<div class="easyui-layout" data-options="fit:true" style="padding:0;border:0">
+			<div id="content-type" data-options="region:'north'" style="height:28px;background:#efefef;padding:0;magrin:0;">
+				<div style="float:right;padding:0 10px;">
+					<!-- <input id="reportType1" type="radio" name="reportType" value="1"/>报告 -->
+					<input id="reportType2" type="radio" name="reportType" value="2" checked="checked"/>结果
+				</div>
+			</div>
+			<div id="content" data-options="region:'center'"></div>
+		</div>
+	</div>
+	<!-- 结果图窗口 -->
+	<div id="imageWin"></div>
+</body>
+</html>

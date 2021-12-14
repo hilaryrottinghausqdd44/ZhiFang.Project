@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript">
+    //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../../../web_src/layui/config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+    <style type="text/css">
+        /*input前存在icon 则加到input里面*/
+        .myStyle .layui-input + .layui-icon { cursor:pointer;position: absolute;top: 0px;right: 4px;color: #009688; }
+        .myStyle .layui-input + .layui-edge {
+            border-top-color: #009688;
+        }
+        .divRight .layui-input-block {
+            margin-left: 90px;
+        }
+        .layui-form-radio {
+            /*padding: 0px;
+            margin: 0px !important;*/
+            line-height: 20px !important;
+        }
+        .layui-form-item .layui-form-checkbox[lay-skin=primary] {
+            margin-top: 0 !important
+        }
+    </style>
+</head>
+<body>
+    <div  class="myStyle">
+        <div class="layui-card">
+            <form class="layui-form" lay-filter="conditionsForm">
+                <div class="layui-card-body">
+                    <div class="layui-row">
+                        <div class="">
+                            <div class="layui-form-item layui-col-md2 layui-col-xs2 layui-col-sm2" pane="">
+                                <!--已经审定条件不允许取消-->
+                                <input type="checkbox" name="HasAuthorized" id="HasAuthorized" lay-skin="primary" title="已审定" checked="" disabled="">
+                                <input type="checkbox" name="NotPrint" id="NotPrint" lay-skin="primary" title="未打印" checked="">
+
+                            </div>
+                            <div class="layui-col-md6 layui-col-xs4 layui-col-sm6">
+                                <div class="layui-btn-container">
+                                    <button  style="margin: 3px 8px;" type="button" class="layui-btn layui-btn-xs" id="ReportListSearch" lay-submit lay-filter="*">
+                                        <i class="layui-icon">&#xe615;</i>查询
+                                    </button>
+                                    <button style="margin: 3px 8px;" type="button" class="layui-btn layui-btn-xs" id="printButton">
+                                        <i class="layui-icon">&#xe66d;</i>打印
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="layui-form-item" pane="">
+                                <div class="">
+                                    <input type="radio" name="printsort" value="1" title="样本号顺序" checked="">
+                                </div>
+                                <div class="">
+                                    <input type="radio" name="printsort" value="2" title="样本号逆序">
+                                </div>
+                                <div class="">
+                                    <input type="radio" name="printsort" value="3" title="病区-病房">
+                                </div>
+                                <div class="">
+                                    <input type="radio" name="printsort" value="4" title="科室">
+                                </div>
+                                <div class="">
+                                    <input type="radio" name="printsort" value="5" title="就诊类型">
+                                </div>
+                                <div class="">
+                                    <input type="radio" name="printsort" value="6" title="样本类型">
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <hr style="margin-top: 0;">
+                    <div class="layui-row">
+                        <div class="divRight">
+                            
+                                <div id="DateType">
+                                    <div class="layui-col-md4 layui-col-xs4 layui-col-sm4">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">检验日期：</label>
+                                            <div class="layui-input-block" >
+                                                <input name="RECEIVEDATE" type="text" class="layui-input DateValue" id="RECEIVEDATE" placeholder="选择日期范围">
+                                                <i class="layui-icon layui-icon-date"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md4 layui-col-xs4 layui-col-sm4">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">审核日期：</label>
+                                            <div class="layui-input-block" >
+                                                <input name="CheckTime" type="text" class="layui-input DateValue" id="CheckTime" placeholder="选择日期范围" lay-filter="CheckDateSelect">
+                                                <i class="layui-icon layui-icon-date"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md4 layui-col-xs4 layui-col-sm4">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">送检科室：</label>
+                                            <div class="layui-input-block">
+                                                <select name="InspectionDepartment" id="InspectionDepartmentSelect" lay-filter="InspectionDepartmentSelect" lay-search>
+                                                    <option value="">请选择</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md4 layui-col-xs4 layui-col-sm4">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">病&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</label>
+                                            <div class="layui-input-block">
+                                                <select name="district" id="DistrictSelect" lay-filter="DistrictSelect" lay-search>
+                                                    <option value="">请选择</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md4 layui-col-xs4 layui-col-sm4">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">就诊类型：</label>
+                                            <div class="layui-input-block">
+                                                <select name="SickType" id="SickTypeSelect" lay-filter="SickTypeSelect" lay-search>
+                                                    <option value="">请选择</option>
+                                                </select>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md4 layui-col-xs4 layui-col-sm4">
+                                        <div class="layui-form-item ">
+                                            <div class="">
+                                                <label class="layui-form-label">样&nbsp;本&nbsp;&nbsp;号：</label>
+                                                <div class="layui-input-block"  id="sampleNoDiv" >
+                                                    <input type="text" name="sampleno_min" id="sampleno_min" autocomplete="off" class="layui-input">
+                                                    
+                                                </div>
+                                                <!-- <div class="layui-form-mid" style="padding: 2px 0 !important">-</div>
+                                                <div class="layui-input-inline" style="width: 88px;">
+                                                    <input type="text" name="sampleno_max" autocomplete="off" class="layui-input">
+                                                </div> -->
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <div class="layui-tab layui-tab-brief">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this"><i class="layui-icon layui-icon-list"></i>&nbsp;检验单</li>
+                        <li><i class="layui-icon layui-icon-tips"></i>&nbsp;消息</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show" >
+                            <table id="bottomTable" lay-filter="bottomTable">
+                            </table>
+                        </div>
+                        <div class="layui-tab-item">
+                            <div id="messageDiv" style="margin: 10px 0px;">
+                                暂无消息
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('printreport.js');
+        UIVersion.getCSS('../../../../../../web_src/layui/css/layui.sm.all.css');
+    </script>
+</body>
+</html>

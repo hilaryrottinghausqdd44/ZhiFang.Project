@@ -1,0 +1,882 @@
+﻿using System; 
+using System.Text;
+using System.Data.SqlClient;
+using System.Collections.Generic; 
+using System.Data;
+using ZhiFang.DBUtility;
+using ZhiFang.IDAL;
+namespace ZhiFang.DAL.Oracle.weblis
+{
+	 	//FolkType
+
+    public partial class FolkType : BaseDALLisDB, IDFolkType, IDBatchCopy, IDGetListByTimeStampe
+	{	
+        public FolkType(string dbsourceconn)
+        {
+            DbHelperSQL = DBUtility.DBFactory.CreateDB(dbsourceconn);
+        }
+		public FolkType()
+		{
+            DbHelperSQL = DBUtility.DBFactory.CreateDB(ZhiFang.Common.Dictionary.DBSource.WebLisDB());
+        }
+		D_LogInfo d_log = new D_LogInfo();
+		/// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public int Add(ZhiFang.Model.FolkType model)
+		{
+            StringBuilder strSql = new StringBuilder();
+            StringBuilder strSql1 = new StringBuilder();
+            StringBuilder strSql2 = new StringBuilder();
+            if (model.FolkNo != null)
+            {
+                strSql1.Append("FolkNo,");
+                strSql2.Append("" + model.FolkNo + ",");
+            }
+            if (model.CName != null)
+            {
+                strSql1.Append("CName,");
+                strSql2.Append("'" + model.CName + "',");
+            }
+            if (model.ShortCode != null)
+            {
+                strSql1.Append("ShortCode,");
+                strSql2.Append("'" + model.ShortCode + "',");
+            }
+            if (model.Visible != null)
+            {
+                strSql1.Append("Visible,");
+                strSql2.Append("" + model.Visible + ",");
+            }
+            if (model.DispOrder != null)
+            {
+                strSql1.Append("DispOrder,");
+                strSql2.Append("" + model.DispOrder + ",");
+            }
+            if (model.HisOrderCode != null)
+            {
+                strSql1.Append("HisOrderCode,");
+                strSql2.Append("'" + model.HisOrderCode + "',");
+            }
+            strSql.Append("insert into FolkType(");
+            strSql.Append(strSql1.ToString().Remove(strSql1.Length - 1));
+            strSql.Append(")");
+            strSql.Append(" values (");
+            strSql.Append(strSql2.ToString().Remove(strSql2.Length - 1));
+            strSql.Append(")");
+            //DbHelperSQL.ExecuteNonQuery(strSql.ToString());
+
+            //StringBuilder strSql=new StringBuilder();
+            //strSql.Append("insert into FolkType(");
+            //strSql.Append("FolkNo,CName,ShortCode,Visible,DispOrder,HisOrderCode");
+            //strSql.Append(") values (");
+            //strSql.Append("@FolkNo,@CName,@ShortCode,@Visible,@DispOrder,@HisOrderCode");            
+            //strSql.Append(") ");            
+            
+            //SqlParameter[] parameters = {
+            //            new SqlParameter("@FolkNo", SqlDbType.Int,4) ,            
+            //            new SqlParameter("@CName", SqlDbType.VarChar,20) ,            
+            //            new SqlParameter("@ShortCode", SqlDbType.VarChar,10) ,            
+            //            new SqlParameter("@Visible", SqlDbType.Int,4) ,            
+            //            new SqlParameter("@DispOrder", SqlDbType.Int,4) ,            
+            //            new SqlParameter("@HisOrderCode", SqlDbType.VarChar,20)             
+              
+            //};
+
+            //parameters[0].Value = model.FolkNo;                        
+            //parameters[1].Value = model.CName;                        
+            //parameters[2].Value = model.ShortCode;                        
+            //parameters[3].Value = model.Visible;                        
+            //parameters[4].Value = model.DispOrder;                        
+            //parameters[5].Value = model.HisOrderCode;                  		
+			if (DbHelperSQL.ExecuteNonQuery(strSql.ToString()) > 0)
+            {
+            	return d_log.OperateLog("FolkType", "", "", DateTime.Now, 1);
+            }
+            else
+                return -1;
+		}
+		
+		
+		/// <summary>
+		/// 更新一条数据
+		/// </summary>
+		public int Update(ZhiFang.Model.FolkType model)
+		{
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update FolkType set ");
+            if (model.CName != null)
+            {
+                strSql.Append("CName='" + model.CName + "',");
+            }
+            else
+            {
+                strSql.Append("CName= null ,");
+            }
+            if (model.ShortCode != null)
+            {
+                strSql.Append("ShortCode='" + model.ShortCode + "',");
+            }
+            else
+            {
+                strSql.Append("ShortCode= null ,");
+            }
+            if (model.Visible != null)
+            {
+                strSql.Append("Visible=" + model.Visible + ",");
+            }
+            else
+            {
+                strSql.Append("Visible= null ,");
+            }
+            if (model.DispOrder != null)
+            {
+                strSql.Append("DispOrder=" + model.DispOrder + ",");
+            }
+            else
+            {
+                strSql.Append("DispOrder= null ,");
+            }
+            if (model.HisOrderCode != null)
+            {
+                strSql.Append("HisOrderCode='" + model.HisOrderCode + "',");
+            }
+            else
+            {
+                strSql.Append("HisOrderCode= null ,");
+            }
+            int n = strSql.ToString().LastIndexOf(",");
+            strSql.Remove(n, 1);
+            strSql.Append(" where FolkNo=" + model.FolkNo + " ");
+
+            if (DbHelperSQL.ExecuteNonQuery(strSql.ToString()) > 0)
+            {
+                return d_log.OperateLog("FolkType", "", "", DateTime.Now, 1);
+            }
+            else
+                return -1;
+
+            //StringBuilder strSql=new StringBuilder();
+            //strSql.Append("update FolkType set ");
+			                        
+            //strSql.Append(" FolkNo = @FolkNo , ");                                    
+            //strSql.Append(" CName = @CName , ");                                    
+            //strSql.Append(" ShortCode = @ShortCode , ");                                    
+            //strSql.Append(" Visible = @Visible , ");                                    
+            //strSql.Append(" DispOrder = @DispOrder , ");                                    
+            //strSql.Append(" HisOrderCode = @HisOrderCode  ");            			
+            //strSql.Append(" where FolkNo=@FolkNo  ");
+						
+            //SqlParameter[] parameters = {
+			               
+            //new SqlParameter("@FolkNo", SqlDbType.Int,4) ,            	
+                           
+            //new SqlParameter("@CName", SqlDbType.VarChar,20) ,            	
+                           
+            //new SqlParameter("@ShortCode", SqlDbType.VarChar,10) ,            	
+                           
+            //new SqlParameter("@Visible", SqlDbType.Int,4) ,            	
+                           
+            //new SqlParameter("@DispOrder", SqlDbType.Int,4) ,            	
+                           
+            //new SqlParameter("@HisOrderCode", SqlDbType.VarChar,20)             	
+              
+            //};
+            			    
+			   
+            //if(model.FolkNo!=null)
+            //{
+            //    parameters[0].Value = model.FolkNo;            	
+            //}
+            	
+                
+			   
+            //if(model.CName!=null)
+            //{
+            //    parameters[1].Value = model.CName;            	
+            //}
+            	
+                
+			   
+            //if(model.ShortCode!=null)
+            //{
+            //    parameters[2].Value = model.ShortCode;            	
+            //}
+            	
+                
+			   
+            //if(model.Visible!=null)
+            //{
+            //    parameters[3].Value = model.Visible;            	
+            //}
+            	
+                
+			   
+            //if(model.DispOrder!=null)
+            //{
+            //    parameters[4].Value = model.DispOrder;            	
+            //}
+            	
+                
+			   
+            //if(model.HisOrderCode!=null)
+            //{
+            //    parameters[5].Value = model.HisOrderCode;            	
+            //}
+            	
+                       
+            //if (DbHelperSQL.ExecuteNonQuery(strSql.ToString(),parameters) > 0)
+            //{
+            //   return d_log.OperateLog("FolkType", "", "", DateTime.Now, 1);
+            //}
+            //else
+            //    return -1;
+		}
+		
+		
+		/// <summary>
+		/// 删除一条数据
+		/// </summary>
+		public int Delete(int FolkNo)
+		{
+			
+            //StringBuilder strSql=new StringBuilder();
+            //strSql.Append("delete from FolkType ");
+            //strSql.Append(" where FolkNo=@FolkNo ");
+            //            SqlParameter[] parameters = {
+            //        new SqlParameter("@FolkNo", SqlDbType.Int,4)};
+            //parameters[0].Value = FolkNo;
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from FolkType ");
+            strSql.Append(" where FolkNo=" + FolkNo + " ");
+
+			return DbHelperSQL.ExecuteNonQuery(strSql.ToString());
+		
+		}
+		
+		/// <summary>
+		/// 删除一条数据
+		/// </summary>
+		public int DeleteList(string IDlist )
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from FolkType ");
+			strSql.Append(" where ID in ("+IDlist + ")  ");
+			return DbHelperSQL.ExecuteNonQuery(strSql.ToString());
+			
+		}
+		
+		
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public ZhiFang.Model.FolkType GetModel(int FolkNo)
+		{
+			
+            //StringBuilder strSql=new StringBuilder();
+            //strSql.Append("select FolkNo, CName, ShortCode, Visible, DispOrder, HisOrderCode  ");			
+            //strSql.Append("  from FolkType ");
+            //strSql.Append(" where FolkNo=@FolkNo ");
+            //            SqlParameter[] parameters = {
+            //        new SqlParameter("@FolkNo", SqlDbType.Int,4)};
+            //parameters[0].Value = FolkNo;
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select ");
+            strSql.Append(" FolkNo,CName,ShortCode,Visible,DispOrder,HisOrderCode ");
+            strSql.Append(" from FolkType ");
+            strSql.Append(" where 1=1 and ROWNUM <= '1' and FolkNo=" + FolkNo + " ");
+			
+			ZhiFang.Model.FolkType model=new ZhiFang.Model.FolkType();
+			DataSet ds=DbHelperSQL.ExecuteDataSet(strSql.ToString());
+			
+			if(ds.Tables[0].Rows.Count>0)
+			{
+																if(ds.Tables[0].Rows[0]["FolkNo"].ToString()!="")
+				{
+					model.FolkNo=int.Parse(ds.Tables[0].Rows[0]["FolkNo"].ToString());
+				}
+																																								model.CName= ds.Tables[0].Rows[0]["CName"].ToString();
+																																				model.ShortCode= ds.Tables[0].Rows[0]["ShortCode"].ToString();
+																																if(ds.Tables[0].Rows[0]["Visible"].ToString()!="")
+				{
+					model.Visible=int.Parse(ds.Tables[0].Rows[0]["Visible"].ToString());
+				}
+																																				if(ds.Tables[0].Rows[0]["DispOrder"].ToString()!="")
+				{
+					model.DispOrder=int.Parse(ds.Tables[0].Rows[0]["DispOrder"].ToString());
+				}
+																																								model.HisOrderCode= ds.Tables[0].Rows[0]["HisOrderCode"].ToString();
+																										
+				return model;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		
+		/// <summary>
+		/// 获得数据列表
+		/// </summary>
+		public DataSet GetList(string strWhere)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select * ");
+			strSql.Append(" FROM FolkType ");
+			if(strWhere.Trim()!="")
+			{
+				strSql.Append(" where "+strWhere);
+			}
+			return DbHelperSQL.ExecuteDataSet(strSql.ToString());
+		}
+		
+		/// <summary>
+		/// 获得前几行数据
+		/// </summary>
+		public DataSet GetList(int Top,string strWhere,string filedOrder)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select ");
+			strSql.Append(" * ");
+			strSql.Append(" FROM FolkType ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+                strSql.Append(" and ROWNUM <= '" + Top + "'");
+            }
+            else
+            {
+                strSql.Append(" where ROWNUM <= '" + Top + "'");
+            }
+			strSql.Append(" order by " + filedOrder);
+			return DbHelperSQL.ExecuteDataSet(strSql.ToString());
+		}
+		
+		/// <summary>
+		/// 根据实体获取DataSet
+		/// </summary>
+		public DataSet GetList(ZhiFang.Model.FolkType model)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select * ");
+			strSql.Append(" FROM FolkType where 1=1 ");
+			                            
+             
+            if(model.FolkNo !=0)
+                        {
+                        strSql.Append(" and FolkNo="+model.FolkNo+" ");
+                        }
+                                                    
+                        if(model.CName !=null)
+                        {
+                        strSql.Append(" and CName='"+model.CName+"' ");
+                        }
+                                                    
+                        if(model.ShortCode !=null)
+                        {
+                        strSql.Append(" and ShortCode='"+model.ShortCode+"' ");
+                        }
+                                                                
+                        if(model.DispOrder !=null)
+                        {
+                        strSql.Append(" and DispOrder="+model.DispOrder+" ");
+                        }
+                                                    
+                        if(model.HisOrderCode !=null)
+                        {
+                        strSql.Append(" and HisOrderCode='"+model.HisOrderCode+"' ");
+                        }
+                                    return DbHelperSQL.ExecuteDataSet(strSql.ToString());
+		}
+		
+		/// <summary>
+		/// 获取总记录
+		/// </summary>
+		public int GetTotalCount()
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(*) FROM FolkType ");
+            string strCount = DbHelperSQL.ExecuteScalar(strSql.ToString());
+            if (strCount != null && strCount.Trim() != "")
+            {
+                return Convert.ToInt32(strCount.Trim());
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public int GetTotalCount(ZhiFang.Model.FolkType model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(*) FROM FolkType where 1=1 ");
+
+            string strLike = "";
+            if (model != null && model.SearchLikeKey != null)
+            {
+                strLike = " and (FolkNo like  '%" + model.SearchLikeKey + "%' or CName like '%" + model.SearchLikeKey + "%' or ShortCode like '%" + model.SearchLikeKey + "%') ";
+            }
+            strSql.Append(strLike);
+            string strCount = DbHelperSQL.ExecuteScalar(strSql.ToString());
+            if (strCount != null && strCount.Trim() != "")
+            {
+                return Convert.ToInt32(strCount.Trim());
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        
+        /// <summary>
+        /// 利用标识列分页
+        /// </summary>
+        /// <param name="model">model=null时为中心字典表分页；model!=null时为中心--实验室 对照关系分页</param>
+        /// <param name="nowPageNum">第几页</param>
+        /// <param name="nowPageSize">每页多少行</param>
+        /// <returns>DataSet</returns>
+        public DataSet GetListByPage(ZhiFang.Model.FolkType model, int nowPageNum, int nowPageSize)
+        {
+            string strLike = "";
+            
+            StringBuilder strSql = new StringBuilder();
+            if (model != null && model.LabCode != null)
+            {
+                if (model.SearchLikeKey != null)
+                {
+                    strLike = " and (FolkType.FolkNo like  '%" + model.SearchLikeKey + "%' or FolkType.CName like '%" + model.SearchLikeKey + "%' or FolkType.ShortCode like '%" + model.SearchLikeKey + "%') ";
+                }
+                string strOrderBy = "";
+                if (model.OrderField == "FolkID")
+                {
+                    strOrderBy = "FolkType.FolkNo";
+                }
+                else if (model.OrderField.ToLower().IndexOf("control") >= 0)
+                {
+                    strOrderBy = "B_FolkTypeControl." + model.OrderField;
+                }
+                else
+                {
+                    strOrderBy = "FolkType." + model.OrderField;
+                }
+                strSql.Append(" select * from FolkType left join B_FolkTypeControl on FolkType.FolkNo=B_FolkTypeControl.FolkNo ");
+                if (model.LabCode != null)
+                {
+                    strSql.Append(" and B_FolkTypeControl.ControlLabNo='" + model.LabCode + "' ");
+                }
+                strSql.Append("where  ROWNUM <= '" + nowPageSize + "' and FolkType.FolkNo not in ( ");
+                strSql.Append("select FolkType.FolkNo from  FolkType left join B_FolkTypeControl on FolkType.FolkNo=B_FolkTypeControl.FolkNo ");
+                if (model.LabCode != null)
+                {
+                    strSql.Append(" and B_FolkTypeControl.ControlLabNo='" + model.LabCode + "' ");
+                }
+                strSql.Append(" where 1=1 and ROWNUM <= '" + (nowPageSize * nowPageNum) + "' " + strLike + " ) " + strLike + " order by " + strOrderBy + " ");
+                return DbHelperSQL.ExecuteDataSet(strSql.ToString());
+            }
+            else
+            {
+                if (model.SearchLikeKey != null)
+                {
+                    strLike = " and (FolkNo like  '%" + model.SearchLikeKey + "%' or CName like '%" + model.SearchLikeKey + "%' or ShortCode like '%" + model.SearchLikeKey + "%') ";
+                }
+                strSql.Append("select  * from FolkType where  ROWNUM <= '" + nowPageSize + "' and FolkNo not in  ");
+                strSql.Append("(select FolkNo from FolkType where 1=1 and ROWNUM <= '" + (nowPageSize * nowPageNum) + "' " + strLike + " ) " + strLike + " order by " + model.OrderField + "  ");
+                return DbHelperSQL.ExecuteDataSet(strSql.ToString());
+            }
+        }
+        
+        public bool Exists(int FolkNo)
+        {
+            StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from FolkType ");
+			strSql.Append(" where FolkNo ='"+FolkNo+"'");
+			string strCount = DbHelperSQL.ExecuteScalar(strSql.ToString());
+            if (strCount != null && strCount.Trim() != "" && strCount.Trim()!="0")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+		
+		public bool CopyToLab(List<string> lst)
+		{
+			System.Collections.ArrayList arrySql = new System.Collections.ArrayList();
+			string LabTableName="FolkType";
+			LabTableName="B_Lab_"+LabTableName.Substring(LabTableName.IndexOf("_") + 1, LabTableName.Length - (LabTableName.IndexOf("_") + 1));
+            StringBuilder strSql = new StringBuilder();
+            StringBuilder strSqlControl = new StringBuilder();
+            string TableKey="FolkNo";
+            string TableKeySub=TableKey;
+            if(TableKey.ToLower().Contains("no"))
+            {
+            	TableKeySub=TableKey.Substring(0,TableKey.ToLower().IndexOf("no"));
+            }
+            try
+            {
+	            for (int i = 0; i < lst.Count; i++)
+	            {
+                    string str = GetControlItems(lst[i].Trim());
+	                	strSql.Append("insert into "+LabTableName+"( LabCode,");			
+	            		strSql.Append(" LabFolkNo , CName , ShortCode , Visible , DispOrder , HisOrderCode ");
+						strSql.Append(") select '" + lst[i].Trim() + "' as LabCode, ");
+	            		strSql.Append("FolkNo,CName,ShortCode,Visible,DispOrder,HisOrderCode");            
+	            		strSql.Append(" from FolkType ");
+                        if (str.Trim() != "")
+                            strSql.Append(" where FolkNo not in (" + str + ")");
+	            		
+	            		strSqlControl.Append("insert into B_FolkTypeControl ( ");
+	            		strSqlControl.Append(" "+TableKeySub+"ControlNo,"+TableKey+",ControlLabNo,Control"+TableKey+",UseFlag ");
+	            		strSqlControl.Append(")  select ");
+                        strSqlControl.Append("  concat(concat(concat(concat(" + lst[i].Trim() + ",'_')," + TableKey + "),'_')," + TableKey + ") as " + TableKeySub + "ControlNo," + TableKey + ",'" + lst[i].Trim() + "' as ControlLabNo," + TableKey + ",'1' ");
+	            		strSqlControl.Append(" from FolkType ");
+                        if (str.Trim() != "")
+                            strSqlControl.Append(" where FolkNo not in (" + str + ")");
+	            		
+	            		arrySql.Add(strSql.ToString());
+	            		arrySql.Add(strSqlControl.ToString());	    
+	            		
+	            		strSql = new StringBuilder();
+             			strSqlControl = new StringBuilder();
+             			
+	             }
+
+                DbHelperSQL.BatchUpdateWithTransaction(arrySql);
+                d_log.OperateLog("FolkType", "", "", DateTime.Now, 1);	  	             
+	             return true;
+            }
+            catch
+            {
+            	return false;
+            }
+           
+		}
+
+        public string GetControlItems(string strLabCode)
+        {
+            string str = "";
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select FolkNo from B_FolkTypeControl where ControlLabNo=" + strLabCode);
+            DataSet ds = DbHelperSQL.ExecuteDataSet(strSql.ToString());
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    if (str == "")
+                        str = "'" + dr["FolkNo"].ToString().Trim() + "'";
+                    else
+                        str += ",'" + dr["FolkNo"].ToString().Trim() + "'";
+                }
+            }
+            return str;
+        }
+
+		public int GetMaxId()
+        {
+            return DbHelperSQL.GetMaxID("FolkNo","FolkType");
+        }
+
+        public DataSet GetList(int Top, ZhiFang.Model.FolkType model, string filedOrder)
+        {
+            StringBuilder strSql=new StringBuilder();
+			strSql.Append("select ");
+			
+			strSql.Append(" * ");
+			strSql.Append(" FROM FolkType ");
+            strSql.Append(" where 1=1 ");
+			                  
+            if(model.FolkNo !=null)
+            {
+                        strSql.Append(" and FolkNo="+model.FolkNo+" ");
+                        }
+                                          
+            if(model.CName !=null)
+            {
+                        
+            strSql.Append(" and CName='"+model.CName+"' ");
+                        }
+                                          
+            if(model.ShortCode !=null)
+            {
+                        
+            strSql.Append(" and ShortCode='"+model.ShortCode+"' ");
+                        }
+                                          
+            if(model.Visible !=null)
+            {
+                        strSql.Append(" and Visible="+model.Visible+" ");
+                        }
+                                          
+            if(model.DispOrder !=null)
+            {
+                        strSql.Append(" and DispOrder="+model.DispOrder+" ");
+                        }
+                                          
+            if(model.HisOrderCode !=null)
+            {
+                        
+            strSql.Append(" and HisOrderCode='"+model.HisOrderCode+"' ");
+                        }
+            strSql.Append(" and ROWNUM <= '" + Top + "'");                        
+			strSql.Append(" order by " + filedOrder);
+			return DbHelperSQL.ExecuteDataSet(strSql.ToString());
+        }
+
+        public DataSet GetAllList()
+        {
+            return GetList("");
+        }
+        
+        public int AddUpdateByDataSet(DataSet ds)
+        {
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                try
+                {
+                    int count = 0;
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        DataRow dr = ds.Tables[0].Rows[i];
+			            if (this.Exists(int.Parse(ds.Tables[0].Rows[i]["FolkNo"].ToString().Trim())))
+			            {
+                            count += this.UpdateByDataRow(dr);
+                        }
+                        else
+                            count += this.AddByDataRow(dr);
+                    }
+                    if (count == ds.Tables[0].Rows.Count)
+                        return 1;
+                    else
+                        return 0;
+                }
+                catch
+                {
+                    return 0;
+                }
+            }
+            else
+                return 1;
+        }
+        public int AddByDataRow(DataRow dr)
+        {
+            try
+            {
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("insert into FolkType (");
+                strSql.Append("FolkNo,CName,ShortCode,Visible,DispOrder,HisOrderCode");
+                strSql.Append(") values (");
+                if (dr.Table.Columns["FolkNo"] != null && dr.Table.Columns["FolkNo"].ToString().Trim() != "")
+                {
+                    strSql.Append(" '" + dr["FolkNo"].ToString().Trim() + "', ");
+                }
+                else
+                {
+                    strSql.Append(" null, ");
+                }
+                if (dr.Table.Columns["CName"] != null && dr.Table.Columns["CName"].ToString().Trim() != "")
+                {
+                    strSql.Append(" '" + dr["CName"].ToString().Trim() + "', ");
+                }
+                else
+                {
+                    strSql.Append(" null, ");
+                }
+                if (dr.Table.Columns["ShortCode"] != null && dr.Table.Columns["ShortCode"].ToString().Trim() != "")
+                {
+                    strSql.Append(" '" + dr["ShortCode"].ToString().Trim() + "', ");
+                }
+                else
+                {
+                    strSql.Append(" null, ");
+                }
+                if (dr.Table.Columns["Visible"] != null && dr.Table.Columns["Visible"].ToString().Trim() != "")
+                {
+                    strSql.Append(" '" + dr["Visible"].ToString().Trim() + "', ");
+                }
+                else
+                {
+                    strSql.Append(" null, ");
+                }
+                if (dr.Table.Columns["DispOrder"] != null && dr.Table.Columns["DispOrder"].ToString().Trim() != "")
+                {
+                    strSql.Append(" '" + dr["DispOrder"].ToString().Trim() + "', ");
+                }
+                else
+                {
+                    strSql.Append(" null, ");
+                }
+                if (dr.Table.Columns["HisOrderCode"] != null && dr.Table.Columns["HisOrderCode"].ToString().Trim() != "")
+                {
+                    strSql.Append(" '" + dr["HisOrderCode"].ToString().Trim() + "' ");
+                }
+                else
+                {
+                    strSql.Append(" null ");
+                }
+                strSql.Append(") ");
+                return DbHelperSQL.ExecuteNonQuery(strSql.ToString());
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public int UpdateByDataRow(DataRow dr)
+        {
+            try
+            {
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("update FolkType set ");
+
+
+                if (dr.Table.Columns["CName"] != null && dr.Table.Columns["CName"].ToString().Trim() != "")
+                {
+                    strSql.Append(" CName = '" + dr["CName"].ToString().Trim() + "' , ");
+                }
+
+
+                if (dr.Table.Columns["ShortCode"] != null && dr.Table.Columns["ShortCode"].ToString().Trim() != "")
+                {
+                    strSql.Append(" ShortCode = '" + dr["ShortCode"].ToString().Trim() + "' , ");
+                }
+
+
+                if (dr.Table.Columns["Visible"] != null && dr.Table.Columns["Visible"].ToString().Trim() != "")
+                {
+                    strSql.Append(" Visible = '" + dr["Visible"].ToString().Trim() + "' , ");
+                }
+
+
+                if (dr.Table.Columns["DispOrder"] != null && dr.Table.Columns["DispOrder"].ToString().Trim() != "")
+                {
+                    strSql.Append(" DispOrder = '" + dr["DispOrder"].ToString().Trim() + "' , ");
+                }
+
+
+                if (dr.Table.Columns["HisOrderCode"] != null && dr.Table.Columns["HisOrderCode"].ToString().Trim() != "")
+                {
+                    strSql.Append(" HisOrderCode = '" + dr["HisOrderCode"].ToString().Trim() + "'  ");
+                }
+
+                strSql.Append(" where FolkNo='" + dr["FolkNo"].ToString().Trim() + "' ");
+
+                return DbHelperSQL.ExecuteNonQuery(strSql.ToString());
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public int DeleteByDataRow(DataRow dr)
+        {
+            try
+            {
+                StringBuilder strSql = new StringBuilder();
+                if (dr.Table.Columns["FolkNo"] != null && dr.Table.Columns["FolkNo"].ToString().Trim() != "")
+                {
+                    strSql.Append("delete from FolkType ");
+                    strSql.Append(" where FolkNo='" + dr["FolkNo"].ToString().Trim() + "' ");
+                    return DbHelperSQL.ExecuteNonQuery(strSql.ToString());
+                }
+                else
+                    return 0;
+            }
+            catch (Exception ex)
+            {
+                ZhiFang.Common.Log.Log.Error("ZhiFang.DAL.Oracle.weblis.FolkType .DeleteByDataRow同步数据时异常：", ex);
+                return 0;
+            }
+        }
+
+
+        #region IDGetListByTimeStampe 成员
+
+        public DataSet GetListByTimeStampe(string LabCode, int dTimeStampe)
+        {
+            DataSet dsAll = new DataSet();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select FolkType.*,'" + LabCode + "' as LabCode,FolkNo as LabFolkNo from FolkType where 1=1 ");
+            if (dTimeStampe != -999999)
+            {
+                strSql.Append(" and TO_CHAR(DTimeStampe,'YYYY-MM-DD:HH24:MI:SS') > '" + dTimeStampe + "' ");
+            }
+            DataTable dtServer = DbHelperSQL.ExecuteDataSet(strSql.ToString()).Tables[0];
+            dtServer.TableName = "ServerDatas";
+
+            StringBuilder strSql2 = new StringBuilder();
+            strSql2.Append("select B_Lab_FolkType.*,LabFolkNo as FolkNo from B_Lab_FolkType where 1=1 ");
+            if (LabCode.Trim() != "")
+            {
+                strSql2.Append(" and LabCode= '" + LabCode.Trim() + "' ");
+            }
+            if (dTimeStampe != -999999)
+            {
+                strSql2.Append(" and TO_CHAR(DTimeStampe,'YYYY-MM-DD:HH24:MI:SS') > '" + dTimeStampe + "' ");
+            }
+            DataTable dtLab = DbHelperSQL.ExecuteDataSet(strSql2.ToString()).Tables[0];
+            dtLab.TableName = "LabDatas";
+
+            StringBuilder strSql3 = new StringBuilder();
+            strSql3.Append("select * from B_FolkTypeControl where 1=1 ");
+            if (LabCode.Trim() != "")
+            {
+                strSql3.Append(" and ControlLabNo= '" + LabCode.Trim() + "' ");
+            }
+            if (dTimeStampe != -999999)
+            {
+                strSql3.Append(" and TO_CHAR(DTimeStampe,'YYYY-MM-DD:HH24:MI:SS') > '" + dTimeStampe + "' ");
+            }
+            DataTable dtControl = DbHelperSQL.ExecuteDataSet(strSql3.ToString()).Tables[0];
+            dtControl.TableName = "ControlDatas";
+
+            dsAll.Tables.Add(dtServer.Copy());
+            dsAll.Tables.Add(dtLab.Copy());
+            dsAll.Tables.Add(dtControl.Copy());
+            return dsAll;
+        }
+
+        #endregion
+
+
+        public bool IsExist(string labCodeNo)
+        {
+            bool result = false;
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(" select COUNT(1) from b_lab_FolkType ");
+            strSql.Append(" where LabCode='" + labCodeNo + "' ");
+
+            StringBuilder strSql2 = new StringBuilder();
+            strSql2.Append(" select COUNT(1) from B_FolkTypeControl ");
+            strSql2.Append(" where ControlLabNo='" + labCodeNo + "' ");
+
+            if (DbHelperSQL.Exists(strSql.ToString()))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public bool DeleteByLabCode(string LabCodeNo)
+        {
+            bool result = false;
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(" delete from b_lab_FolkType ");
+            strSql.Append(" where LabCode='" + LabCodeNo + "' ");
+
+            StringBuilder strSql2 = new StringBuilder();
+            strSql2.Append(" delete from B_FolkTypeControl ");
+            strSql2.Append(" where ControlLabNo='" + LabCodeNo + "' ");
+
+            int i = DbHelperSQL.ExecuteNonQuery(strSql.ToString());
+            int j = DbHelperSQL.ExecuteNonQuery(strSql2.ToString());
+            if (i > 0 || j > 0)
+                result = true;
+            return result;
+        }
+    }
+}
+

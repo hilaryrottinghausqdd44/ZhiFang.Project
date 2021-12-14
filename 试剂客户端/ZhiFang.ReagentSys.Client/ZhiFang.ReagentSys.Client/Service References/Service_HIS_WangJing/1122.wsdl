@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s0="http://tempuri.org" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org">
+      <s:element name="PHTranOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="Input" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PHTranOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="PHTranOutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInitInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="Input" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInitInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="SendInitInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SynInciInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="Input" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SynInciInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="SynInciInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PHTranOutSoapIn">
+    <wsdl:part name="parameters" element="s0:PHTranOut" />
+  </wsdl:message>
+  <wsdl:message name="PHTranOutSoapOut">
+    <wsdl:part name="parameters" element="s0:PHTranOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInitInfoSoapIn">
+    <wsdl:part name="parameters" element="s0:SendInitInfo" />
+  </wsdl:message>
+  <wsdl:message name="SendInitInfoSoapOut">
+    <wsdl:part name="parameters" element="s0:SendInitInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SynInciInfoSoapIn">
+    <wsdl:part name="parameters" element="s0:SynInciInfo" />
+  </wsdl:message>
+  <wsdl:message name="SynInciInfoSoapOut">
+    <wsdl:part name="parameters" element="s0:SynInciInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebLisServiceSoap">
+    <wsdl:operation name="PHTranOut">
+      <wsdl:input message="s0:PHTranOutSoapIn" />
+      <wsdl:output message="s0:PHTranOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInitInfo">
+      <wsdl:input message="s0:SendInitInfoSoapIn" />
+      <wsdl:output message="s0:SendInitInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SynInciInfo">
+      <wsdl:input message="s0:SynInciInfoSoapIn" />
+      <wsdl:output message="s0:SynInciInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebLisServiceSoap" type="s0:WebLisServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PHTranOut">
+      <soap:operation soapAction="http://tempuri.org/DHC.LIS.BS.WebSHIJIService.PHTranOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInitInfo">
+      <soap:operation soapAction="http://tempuri.org/DHC.LIS.BS.WebSHIJIService.SendInitInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynInciInfo">
+      <soap:operation soapAction="http://tempuri.org/DHC.LIS.BS.WebSHIJIService.SynInciInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebLisService">
+    <wsdl:port name="WebLisServiceSoap" binding="s0:WebLisServiceSoap">
+      <soap:address location="http://192.168.1.15/csp/i-lis/DHC.LIS.BS.WebSHIJIService.cls" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

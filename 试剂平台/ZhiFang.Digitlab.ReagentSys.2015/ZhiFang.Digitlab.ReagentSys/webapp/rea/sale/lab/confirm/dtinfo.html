@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+
+		<title>试剂平台-供货单验收</title>
+		<link rel="shortcut icon" href="../../../../img/logo-16.png">
+		<link rel="stylesheet" type="text/css" href="../../../../src/bootstrap-3.3.2-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../../../../css/css.css">
+		<style>
+			.navbar-top-back-data {
+				float: left;
+				padding: 13px 10px;
+				margin-top: -50px;
+			}
+		</style>
+		<script type="text/javascript">
+			var Shell = Shell || {};
+			Shell.System = Shell.System || {};
+			//不强制登录标志
+			Shell.System.noLogin = true;
+			//是否开启本地缓存机制
+			Shell.System.openLocalStorage = false;
+		</script>
+	</head>
+
+	<body style="margin-bottom: 50px;" hidden="hidden">
+		<!--标题-->
+		<nav id="navbar-top" class="navbar navbar-default navbar-fixed-top navbar-top">
+			<div class="navbar-top-title" id="div-show-title">明细信息</div>
+			<div class="navbar-top-back-data" id="dt-div-top-back">
+				<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+				<span>返回</span>
+			</div>
+		</nav>
+		<!--金额显示 padding:60px 2% 2px 2%-->
+		<div style="padding:35px 2% 2px 2%;background-color:#ffffff;" class="btn-group btn-group-justified" id="dt-show-total">
+		</div>
+
+		<!--明细内容DIV-->
+		<div class="list-group content-div" id="dt-div-content" style="margin-top:5px;"></div>
+
+		<script type="text/javascript " charset="utf-8 " src="../../../../src/jquery.min.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="../../../../util/util.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="../../../../config/els.js "></script>
+		<!--<script type="text/javascript " charset="utf-8 " src="../check/common.js?v=201712"></script>
+		<script type="text/javascript " charset="utf-8 " src="../acceptance/acceptance.js?v=201701"></script>-->
+		<script type="text/javascript " charset="utf-8 " src="dtinfo.js?v=201801"></script>
+	</body>
+</html>

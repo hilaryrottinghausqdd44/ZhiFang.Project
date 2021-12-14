@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>报告查询</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+	    <meta http-equiv="Expires" content="0" />
+	    <meta http-equiv="Pragma" content="no-cache" />
+	    <meta http-equiv="Cache-control" content="no-cache" />
+	    <meta http-equiv="Cache" content="no-cache" />
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		
+		<div class="top">
+			<div class="resultbut">
+				<input type="button" value="结果"  onclick="resultbutshow()"/>
+			</div>
+			<div class="reportbut">
+				<input type="button" value="报告" onclick="reportbutshow()"/>
+			</div>
+			
+		</div>
+		<div class="bottom"></div>
+		<div class="bottom2"></div>
+		
+		
+		
+		
+		<script type="text/javascript" src="../../../web_src/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+			function getRootPath(){
+			   //获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+				var curWwwPath=window.document.location.href;
+				//获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+				var pathName=window.document.location.pathname;
+				var pos=curWwwPath.indexOf(pathName);
+				//获取主机地址，如： http://localhost:8083    
+				var localhostPaht=curWwwPath.substring(0,pos);
+				//获取带"/"的项目名，如：/uimcardprj
+				var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+				var rootPath = localhostPaht+projectName;
+				//console.log(rootPath);
+				return rootPath;
+			}
+		
+			$(function getParam() {
+				$(".bottom2").hide();
+				$(".bottom").show();
+				var url = location.search; //获取url中"?"符后的字串
+				if (url.indexOf("?") != -1) {
+					var str = url.substr(1);
+					strs = str.split("&");
+					serialno = decodeURIComponent(strs[0].replace("serialno=",""));
+					//console.log(serialno);
+					var data = {Where:"SERIALNO='"+serialno+"'",fields:"SectionType,SECTIONNO,ReportFormID",page:1,limit:50,SerialNo:null};
+					$.ajax({
+						type:"get",
+						url:getRootPath()+"/ServiceWCF/ReportFormService.svc/SelectReport",
+						async:true,
+						data:data,
+						contentType:"json/application",
+					    dataType:"json",
+					    success: function(data){
+					        //console.log(data);
+					        if(data.success){
+					        	 console.log(JSON.parse(data.ResultDataValue).rows[0]);
+					        	 PreviewReport(JSON.parse(data.ResultDataValue).rows[0]);
+					        	 GetReportFormPDFByReportFormID(JSON.parse(data.ResultDataValue).rows[0]);
+					        }else{
+					        	alert("查询错误请检查传入参数");
+					        }
+					    },
+					    error:function(data){
+					    	alert("查询错误请检查传入参数");
+					    }
+					});
+				}
+			});
+			
+			function PreviewReport(data){
+				//console.log(data);
+				var dataurl = {ReportFormID:data.ReportFormID,SectionNo:data.SECTIONNO,SectionType:data.SectionType,ModelType:"result"}; 
+				$.ajax({
+					type:"get",
+					url:getRootPath()+"/ServiceWCF/ReportFormService.svc/PreviewReport",
+					async:true,
+					data:dataurl,
+					contentType:"json/application",
+				    dataType:"json",
+				    success: function(udata){
+				        if(udata.success){
+				        	//console.log(udata.ResultDataValue);
+				        	$(".bottom").html(udata.ResultDataValue);
+				        }else{
+				        	alert("查询错误请检查传入参数");
+				        }
+				    },
+				    error:function(data){
+				    	alert("查询错误请检查传入参数");
+				    }
+				});
+			};
+			
+			function GetReportFormPDFByReportFormID(data){
+					var dataurl = {ReportFormID:data.ReportFormID}; 
+					$.ajax({
+						type:"get",
+						url:getRootPath()+"/ServiceWCF/ReportFormService.svc/GetReportFormPDFByReportFormID",
+						async:true,
+						data:dataurl,
+						contentType:"json/application",
+					    dataType:"json",
+					    success: function(udata){
+					        if(udata.success){
+					        	//console.log(JSON.parse(udata.ResultDataValue).PDFPath);
+					        	path = JSON.parse(udata.ResultDataValue).PDFPath;
+					        	$(".bottom2").html('<iframe src="' + getRootPath() + '/' + path + 
+							        '" height="100%" width="100%"  ' +
+							        'style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:800px;width:100%;' +
+							        'onload="if(this.contentDocument.head){' +
+							        	'this.contentDocument.write(\'<div style=\\\'margin:20px;text-align:center;\\\'><b>报告文件还未生成，请耐心等待！</b></div>\');' +
+							        '};"' +
+						        '></iframe>');
+					        }else{
+					        	alert("查询错误请检查传入参数");
+					        }
+					    },
+					    error:function(data){
+					    	alert("查询错误请检查传入参数");
+					    }
+					});
+			};
+			
+			function resultbutshow(){
+				$(".bottom2").hide();
+				$(".bottom").show();
+			}
+			function reportbutshow(){
+				$(".bottom").hide();
+				$(".bottom2").show();
+			}
+		</script>
+	</body>
+</html>

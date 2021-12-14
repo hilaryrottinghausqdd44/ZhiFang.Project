@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Businesses>
+  <Business name="检验报告">
+    <Table TableEName="ReportFormFull">
+      <DFD>
+        <Condition comment="sa打印全部">
+          <Match role="employee" const="311" comp="equal" />
+          <Match field="PRINTEXEC" const="" comp="ne" />
+        </Condition>
+      </DFD>
+    </Table>
+    <Table TableEName="VIEW_ReportFormFull">
+      <DFD>
+        <Condition comment="医疗机构打印各自报告单">
+          <Match field="CLIENTNAME" macro="DepartmentName()" comp="equal" />
+        </Condition>
+        <Condition comment="上海兰卫管理员可以打印全部">
+          <Match role="employee" const="311" comp="equal" />
+          <Match field="ReportFormID" const="0" comp="ne" />
+        </Condition>
+        <Condition comment="test测试用户看全部">
+          <Match role="employee" const="397" comp="equal" />
+          <Match field="ReportFormID" const="1" comp="ne" />
+        </Condition>
+      </DFD>
+    </Table>
+  </Business>
+</Businesses>

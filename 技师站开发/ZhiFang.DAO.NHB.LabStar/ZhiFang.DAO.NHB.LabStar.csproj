@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0FC4A7E3-1466-48CB-A058-7ECA3CDDFF50}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.DAO.NHB.LabStar</RootNamespace>
+    <AssemblyName>ZhiFang.DAO.NHB.LabStar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZhiFang.LabStar.TechnicianStation\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30">
+      <HintPath>..\Lib\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZhiFang.Common.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ZhiFang.Common.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BModuleFormControlListDao.cs" />
+    <Compile Include="BModuleFormControlSetDao.cs" />
+    <Compile Include="BModuleFormListDao.cs" />
+    <Compile Include="BModuleGridControlListDao.cs" />
+    <Compile Include="BModuleGridControlSetDao.cs" />
+    <Compile Include="BModuleGridListDao.cs" />
+    <Compile Include="BPrintModelDao.cs" />
+    <Compile Include="LBCollectPartDao.cs" />
+    <Compile Include="LBExpertRuleListDao.cs" />
+    <Compile Include="LBExpertRuleDao.cs" />
+    <Compile Include="LBItemExpDao.cs" />
+    <Compile Include="LBPhyPeriodDao.cs" />
+    <Compile Include="LisBarCodeRefuseRecordDao.cs" />
+    <Compile Include="LBTranRuleHostSectionDao.cs" />
+    <Compile Include="LisEquipComLogDao.cs" />
+    <Compile Include="LisEquipComFileDao.cs" />
+    <Compile Include="LBItemChargeDao.cs" />
+    <Compile Include="LBChargeTypeDao.cs" />
+    <Compile Include="LBItemCodeLinkDao.cs" />
+    <Compile Include="LBDicCodeLinkDao.cs" />
+    <Compile Include="LBEquipSectionDao.cs" />
+    <Compile Include="LBOrderModelDao.cs" />
+    <Compile Include="LBOrderModelItemDao.cs" />
+    <Compile Include="LBTGetMaxNoDao.cs" />
+    <Compile Include="LBReportDateDescDao.cs" />
+    <Compile Include="LBRightDao.cs" />
+    <Compile Include="LBSectionHisCompDao.cs" />
+    <Compile Include="LBSectionPrintDao.cs" />
+    <Compile Include="BHostDao.cs" />
+    <Compile Include="BHostTypeUserDao.cs" />
+    <Compile Include="BHostTypeDao.cs" />
+    <Compile Include="BParaItemDao.cs" />
+    <Compile Include="BParaDao.cs" />
+    <Compile Include="LBQCItemRuleDao.cs" />
+    <Compile Include="LBQCRuleBaseDao.cs" />
+    <Compile Include="LBQCRuleDao.cs" />
+    <Compile Include="LBQCRulesConDao.cs" />
+    <Compile Include="LBQCPrintTemplateDao.cs" />
+    <Compile Include="LisOperateASectionDao.cs" />
+    <Compile Include="LisOperateDao.cs" />
+    <Compile Include="LisOperateAuthorizeDao.cs" />
+    <Compile Include="LBQCItemDao.cs" />
+    <Compile Include="LBQCItemTimeDao.cs" />
+    <Compile Include="LBQCMaterialDao.cs" />
+    <Compile Include="LBQCMatTimeDao.cs" />
+    <Compile Include="LisQueueDao.cs" />
+    <Compile Include="LisQCDataDao.cs" />
+    <Compile Include="LisQCCommentstDao.cs" />
+    <Compile Include="LisTestFormMsgDao.cs" />
+    <Compile Include="LisTestFormMsgItemDao.cs" />
+    <Compile Include="LisTestItemReceiveDao.cs" />
+    <Compile Include="LisTestGraphDao.cs" />
+    <Compile Include="LisEquipGraphDao.cs" />
+    <Compile Include="LBDictDao.cs" />
+    <Compile Include="LBEquipResultTHDao.cs" />
+    <Compile Include="LBReportDateDao.cs" />
+    <Compile Include="LBReportDateRuleDao.cs" />
+    <Compile Include="LBParItemSplitDao.cs" />
+    <Compile Include="LBPhrasesWatchClassDao.cs" />
+    <Compile Include="LBPhrasesWatchClassItemDao.cs" />
+    <Compile Include="LBPhrasesWatchDao.cs" />
+    <Compile Include="LBReportDateItemDao.cs" />
+    <Compile Include="LBSampleItemDao.cs" />
+    <Compile Include="LBSamplingChargeItemDao.cs" />
+    <Compile Include="LBSamplingGroupDao.cs" />
+    <Compile Include="LBSamplingItemDao.cs" />
+    <Compile Include="LBTcuveteDao.cs" />
+    <Compile Include="LBTranRuleDao.cs" />
+    <Compile Include="LBTranRuleItemDao.cs" />
+    <Compile Include="LBTranRuleTypeDao.cs" />
+    <Compile Include="LisCommonDao.cs" />
+    <Compile Include="LBDestinationDao.cs" />
+    <Compile Include="LBFolkDao.cs" />
+    <Compile Include="LBDiagDao.cs" />
+    <Compile Include="LBEquipDao.cs" />
+    <Compile Include="LBEquipItemDao.cs" />
+    <Compile Include="LBItemCalcDao.cs" />
+    <Compile Include="LBItemCalcFormulaDao.cs" />
+    <Compile Include="LBItemCompDao.cs" />
+    <Compile Include="LBItemDao.cs" />
+    <Compile Include="LBItemGroupDao.cs" />
+    <Compile Include="LBItemRangeDao.cs" />
+    <Compile Include="LBItemRangeExpDao.cs" />
+    <Compile Include="LBItemTimeWDao.cs" />
+    <Compile Include="LBPhraseDao.cs" />
+    <Compile Include="LBSampleTypeDao.cs" />
+    <Compile Include="LBSectionDao.cs" />
+    <Compile Include="LBSectionItemDao.cs" />
+    <Compile Include="LBSickTypeDao.cs" />
+    <Compile Include="LBSpecialtyDao.cs" />
+    <Compile Include="LisBarCodeFormDao.cs" />
+    <Compile Include="LisBarCodeItemDao.cs" />
+    <Compile Include="LisEquipFormDao.cs" />
+    <Compile Include="LisEquipItemDao.cs" />
+    <Compile Include="LisOrderFormDao.cs" />
+    <Compile Include="LisOrderItemDao.cs" />
+    <Compile Include="LisPatientDao.cs" />
+    <Compile Include="LisTestFormDao.cs" />
+    <Compile Include="LisTestItemDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.DAO.NHB.Base\ZhiFang.DAO.NHB.Base.csproj">
+      <Project>{1cfa6885-ebbe-489e-9373-b672e8dad7e7}</Project>
+      <Name>ZhiFang.DAO.NHB.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.Base\ZhiFang.Entity.Base.csproj">
+      <Project>{4471e84c-7a1b-4719-89f9-ccc626d111ad}</Project>
+      <Name>ZhiFang.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.Entity.LabStar\ZhiFang.Entity.LabStar.csproj">
+      <Project>{50641dca-bffc-4818-9fef-d9338dbb2327}</Project>
+      <Name>ZhiFang.Entity.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.Base\ZhiFang.IDAO.Base.csproj">
+      <Project>{016266f9-369d-4c32-8b9b-35ba9b94447f}</Project>
+      <Name>ZhiFang.IDAO.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.IDAO.LabStar\ZhiFang.IDAO.LabStar.csproj">
+      <Project>{286b724d-312b-4657-8e2b-2772b31ffa97}</Project>
+      <Name>ZhiFang.IDAO.LabStar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhiFang.LabStar.Common\ZhiFang.LabStar.Common.csproj">
+      <Project>{d187edc5-9421-4097-85ec-ab82a76a82d5}</Project>
+      <Name>ZhiFang.LabStar.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

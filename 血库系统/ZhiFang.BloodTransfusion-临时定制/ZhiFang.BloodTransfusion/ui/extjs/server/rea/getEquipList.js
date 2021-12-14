@@ -1,0 +1,27 @@
+{
+	success:true,
+	ResultDataValue:{
+		count:10,
+		list:[{
+			TestEquip_Dept_CName:'测试部门1',
+			TestEquip_CName:'测试仪器1',
+			TestEquip_EName:'EQ001',
+			TestEquip_ShortCode:'E_10001',
+			TestEquip_Memo:'备注1',
+			TestEquip_Visible:'1',
+			TestEquip_DispOrder:'1',
+			TestEquip_LisCode:'10001',
+			TestEquip_Id:'1'
+		},{
+			TestEquip_Dept_CName:'测试部门1',
+			TestEquip_CName:'测试仪器2',
+			TestEquip_EName:'EQ002',
+			TestEquip_ShortCode:'E_10002',
+			TestEquip_Memo:'备注2',
+			TestEquip_Visible:'1',
+			TestEquip_DispOrder:'2',
+			TestEquip_LisCode:'10002',
+			TestEquip_Id:'2'
+		}]
+	}
+}

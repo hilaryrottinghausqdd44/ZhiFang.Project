@@ -1,0 +1,68 @@
+
+常规检验
+
+各文件包及JS文件说明
+	主入口(样本检验TAB):Tab.js--Shell.class.lts.sample.Tab;
+	主入口默认显示(全部样本检验):App.js--Shell.class.lts.sample.App;
+		检验小组样本列表:Grid.js--Shell.class.lts.sample.Grid;
+		样本信息表单:Info.js--Shell.class.lts.sample.Info;
+		检验结果相关Tab:Tab.js--Shell.class.lts.sample.result.Tab;
+			检验结果:sample/App.js--Shell.class.lts.sample.result.sample.App;
+			历史对比:history/App.js--Shell.class.lts.sample.result.history.App;
+			相关医嘱报告:report/others/App.js--Shell.class.lts.sample.result.report.others.App;
+			相关医嘱报告:equip/App.js--Shell.class.lts.sample.result.equip.App;
+			重新提取仪器结果:equip/extract/App.js--Shell.class.lts.sample.result.equip.extract.App;
+
+更新迭代记录
+
+问题
+一.常规检验UI部分
+1.主入口默认显示的全部样本检验页面的列表数据是怎样获取的?
+	是否需要添加默认条件过滤?如只显示常规小组的数据或分配给当前操作人权限的常规检验小组的数据？
+2.样本检验列表:Grid.js--Shell.class.lts.sample.Grid
+		删除处理?
+			LS_UDTO_DelLisTestForm是否为物理删除?
+			物理删除时只删除LisTestForm信息?明细及其他相关操作记录不处理?
+3.相关医嘱报告?
+	相关医嘱报告的获取处理
+	result/report/others/App.js--Shell.class.lts.sample.result.report.others.App;	
+		var reporturl = JcallShell.System.Path.LOCAL+ "/ZhiFang.ReportFormQueryPrint/ui_new/class/labStar/index.html?PATNO="+patno;
+		me.body.update("<iframe src='"+reporturl+"' style='border: medium none;height:100%;width:100%;'></iframe>");
+
+二.集成平台部分
+集成平台的认识介绍?
+	1.功能模块的功能权限是什么?怎样使用?
+	2.组织机构的身份是什么？怎样使用?
+	3.员工的身份是什么？怎样使用?
+	4.机构身份设置?
+	5.员工身份设置?
+	6.员工LIS数据权限
+	7.demo上部分功能模块打开后直接报错
+	
+		系统基础设置
+			机构身份设置
+			员工身份设置
+			角色操作权限
+			
+		医院管理
+			医院区域功能模块打开报错?
+			消息运行参数设置打开报错?
+		技师站
+		基础
+			年龄单位维护
+			临床诊断维护
+			样本类型维护
+			检验小组维护
+			仪器维护
+			就诊类型维护
+			专业维护
+			项目维护
+		质控部分
+			质控物
+			质控规则
+		系统参数
+			参数设置
+		
+		
+		
+	

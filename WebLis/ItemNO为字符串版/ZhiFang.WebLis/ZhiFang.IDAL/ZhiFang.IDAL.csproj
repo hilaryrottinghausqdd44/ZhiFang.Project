@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CCE404D-AA91-4DE0-8510-8BDECED79723}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZhiFang.IDAL</RootNamespace>
+    <AssemblyName>ZhiFang.IDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDbarCodeSeq.cs" />
+    <Compile Include="IDBaseDALLisDB.cs" />
+    <Compile Include="IDBClientPara.cs" />
+    <Compile Include="IDClientEleArea.cs" />
+    <Compile Include="IDClientProfile.cs" />
+    <Compile Include="IDDepartmentControl.cs" />
+    <Compile Include="IDDictionaryGetPubDict.cs" />
+    <Compile Include="IDDownloadDictHelp.cs" />
+    <Compile Include="IDItemColorAndSampleTypeDetail.cs" />
+    <Compile Include="IDBPhysicalExamType.cs" />
+    <Compile Include="IDItemColorDict.cs" />
+    <Compile Include="IDItemMergeRule.cs" />
+    <Compile Include="IDLab_Department.cs" />
+    <Compile Include="IDLab_SickType.cs" />
+    <Compile Include="IDLocationbarCodePrintPamater.cs" />
+    <Compile Include="IDOSConsumerUserOrderForm.cs" />
+    <Compile Include="IDResultTestItemControl.cs" />
+    <Compile Include="IDSamplingGroup.cs" />
+    <Compile Include="IDSendOrder.cs" />
+    <Compile Include="IDSickTypeControl.cs" />
+    <Compile Include="IDAgeUnit.cs" />
+    <Compile Include="IDataPage.cs" />
+    <Compile Include="IDBarCodeForm.cs" />
+    <Compile Include="IDBusinessLogicClientControl.cs" />
+    <Compile Include="IDBUSINESSMAN.cs" />
+    <Compile Include="IDBUSINESSMANControl.cs" />
+    <Compile Include="IDCLIENTELEControl.cs" />
+    <Compile Include="IDDiagnosis.cs" />
+    <Compile Include="IDDiagnosisControl.cs" />
+    <Compile Include="IDDistrictControl.cs" />
+    <Compile Include="IDDoctorControl.cs" />
+    <Compile Include="IDEquipment.cs" />
+    <Compile Include="IDEquipmentControl.cs" />
+    <Compile Include="IDFolkType.cs" />
+    <Compile Include="IDFolkTypeControl.cs" />
+    <Compile Include="IDGenderType.cs" />
+    <Compile Include="IDGetListByTimeStampe.cs" />
+    <Compile Include="IDLab_BUSINESSMAN.cs" />
+    <Compile Include="IDLab_CLIENTELE.cs" />
+    <Compile Include="IDLab_Diagnosis.cs" />
+    <Compile Include="IDLab_District.cs" />
+    <Compile Include="IDLab_Doctor.cs" />
+    <Compile Include="IDLab_Equipment.cs" />
+    <Compile Include="IDLab_FolkType.cs" />
+    <Compile Include="IDLab_GroupItem.cs" />
+    <Compile Include="IDGroupItem.cs" />
+    <Compile Include="IDLab_PGroup.cs" />
+    <Compile Include="IDLab_SampleType.cs" />
+    <Compile Include="IDLab_StatusType.cs" />
+    <Compile Include="IDLab_SuperGroup.cs" />
+    <Compile Include="IDLab_TestItem.cs" />
+    <Compile Include="IDMicroOperationStepFlow.cs" />
+    <Compile Include="IDMicroOperationStepLib.cs" />
+    <Compile Include="IDModules.cs" />
+    <Compile Include="IDNRequestItem.cs" />
+    <Compile Include="IDPGroupControl.cs" />
+    <Compile Include="IDSampleTypeControl.cs" />
+    <Compile Include="IDStatusType.cs" />
+    <Compile Include="IDStatusTypeControl.cs" />
+    <Compile Include="IDSuperGroup.cs" />
+    <Compile Include="IDSuperGroupControl.cs" />
+    <Compile Include="IDTB_CheckClientAccount.cs" />
+    <Compile Include="IDTestItem.cs" />
+    <Compile Include="IDTestItemControl.cs" />
+    <Compile Include="IDALLReportForm.cs" />
+    <Compile Include="IDataBase.cs" />
+    <Compile Include="IDBatchCopy.cs" />
+    <Compile Include="IDCLIENTELE.cs" />
+    <Compile Include="IDDepartment.cs" />
+    <Compile Include="IDDistrict.cs" />
+    <Compile Include="IDDoctor.cs" />
+    <Compile Include="IDNRequestForm.cs" />
+    <Compile Include="IDPGroup.cs" />
+    <Compile Include="IDPGroupPrint.cs" />
+    <Compile Include="IDPrintFormat.cs" />
+    <Compile Include="IDPUser.cs" />
+    <Compile Include="IDReportForm.cs" />
+    <Compile Include="IDReportFormFull.cs" />
+    <Compile Include="IDReportFormMerge.cs" />
+    <Compile Include="IDReportItem.cs" />
+    <Compile Include="IDReportItemFull.cs" />
+    <Compile Include="IDReportMarrowFull.cs" />
+    <Compile Include="IDReportMicro.cs" />
+    <Compile Include="IDReportMicroFull.cs" />
+    <Compile Include="IDRFGraphData.cs" />
+    <Compile Include="IDSampleType.cs" />
+    <Compile Include="IDSickType.cs" />
+    <Compile Include="IDStation_PrinterList.cs" />
+    <Compile Include="IDTest.cs" />
+    <Compile Include="IDLabDownLoadInfo.cs" />
+    <Compile Include="IDLogInfo.cs" />
+    <Compile Include="IDTestItemTest.cs" />
+    <Compile Include="IDTestType.cs" />
+    <Compile Include="IDWardType.cs" />
+    <Compile Include="IDView_ReportItemFull.cs" />
+    <Compile Include="IReportFileControl.cs" />
+    <Compile Include="IDSearchReCheckLog.cs" />
+    <Compile Include="Lab_Department.cs" />
+    <Compile Include="Other\IDApplyBase.cs" />
+    <Compile Include="Other\IDB_Lab_Base.cs" />
+    <Compile Include="Other\IDPatNo_Passwords.cs" />
+    <Compile Include="Other\IDView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IDGenderTypeControl.cs" />
+    <Compile Include="IDLab_GenderType.cs" />
+    <Compile Include="WhoNet_AntiData.cs" />
+    <Compile Include="WhoNet_FormData.cs" />
+    <Compile Include="WhoNet_MicroData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhiFang.Model\ZhiFang.Model.csproj">
+      <Project>{9828C326-B724-457E-A649-70850D5EA018}</Project>
+      <Name>ZhiFang.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

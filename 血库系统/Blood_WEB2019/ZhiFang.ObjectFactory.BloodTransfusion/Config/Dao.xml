@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--权限系统-->
+  <object id="BCityDao" type="ZhiFang.DAO.NHB.RBAC.BCityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BCountryDao" type="ZhiFang.DAO.NHB.RBAC.BCountryDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BProvinceDao" type="ZhiFang.DAO.NHB.RBAC.BProvinceDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BSexDao" type="ZhiFang.DAO.NHB.RBAC.BSexDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BProfessionalAbilityDao" type="ZhiFang.DAO.NHB.RBAC.BProfessionalAbilityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRDeptDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACUserDao" type="ZhiFang.DAO.NHB.RBAC.RBACUserDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRDeptEmpDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptEmpDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRDeptIdentityDao" type="ZhiFang.DAO.NHB.RBAC.HRDeptIdentityDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HREmpIdentityDao" type="ZhiFang.DAO.NHB.RBAC.HREmpIdentityDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HREmployeeDao" type="ZhiFang.DAO.NHB.RBAC.HREmployeeDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="HRPositionDao" type="ZhiFang.DAO.NHB.RBAC.HRPositionDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACEmpRolesDao" type="ZhiFang.DAO.NHB.RBAC.RBACEmpRolesDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACModuleDao" type="ZhiFang.DAO.NHB.RBAC.RBACModuleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACModuleOperDao" type="ZhiFang.DAO.NHB.RBAC.RBACModuleOperDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleModuleDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleModuleDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRoleRightDao" type="ZhiFang.DAO.NHB.RBAC.RBACRoleRightDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACRowFilterDao" type="ZhiFang.DAO.NHB.RBAC.RBACRowFilterDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="RBACEmpOptionsDao" type="ZhiFang.DAO.NHB.RBAC.RBACEmpOptionsDao,ZhiFang.DAO.NHB.RBAC" >
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="DataRowRoleHQL" type="ZhiFang.Entity.RBAC.DataRowRoleHQL,ZhiFang.Entity.RBAC" singleton="false">
+  </object>
+  <object id="SLogDao" type="ZhiFang.DAO.NHB.RBAC.SLogDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="STypeDao" type="ZhiFang.DAO.NHB.RBAC.STypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="STypeDetailDao" type="ZhiFang.DAO.NHB.RBAC.STypeDetailDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BMaritalStatusDao" type="ZhiFang.DAO.NHB.RBAC.BMaritalStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BNationalityDao" type="ZhiFang.DAO.NHB.RBAC.BNationalityDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BEducationLevelDao" type="ZhiFang.DAO.NHB.RBAC.BEducationLevelDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BHealthStatusDao" type="ZhiFang.DAO.NHB.RBAC.BHealthStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDegreeDao" type="ZhiFang.DAO.NHB.RBAC.BDegreeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BPoliticsStatusDao" type="ZhiFang.DAO.NHB.RBAC.BPoliticsStatusDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SServiceClientDao" type="ZhiFang.DAO.NHB.RBAC.SServiceClientDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SServiceClientlevelDao" type="ZhiFang.DAO.NHB.RBAC.SServiceClientlevelDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--权限系统-->
+
+  <!--构建工具相关-->
+  <object id="BTDAppComponentsDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDModuleTypeDao" type="ZhiFang.DAO.NHB.RBAC.BTDModuleTypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDAppPictureDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppPictureDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDAppComponentsOperateDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsOperateDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDPictureTypeConDao" type="ZhiFang.DAO.NHB.RBAC.BTDPictureTypeConDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDPictureTypeDao" type="ZhiFang.DAO.NHB.RBAC.BTDPictureTypeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDMacroCommandDao" type="ZhiFang.DAO.NHB.RBAC.BTDMacroCommandDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BTDAppComponentsRefDao" type="ZhiFang.DAO.NHB.RBAC.BTDAppComponentsRefDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--构建工具相关-->
+  <!--系统公用-->
+
+  <object id="FFileDao" type="ZhiFang.DAO.NHB.Common.FFileDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+    <property name="IDHRDeptDao" ref="HRDeptDao" />
+    <property name="IDRBACRoleDao" ref="RBACRoleDao" />
+    <property name="IDHREmployeeDao" ref="HREmployeeDao" />
+  </object>
+  <object id="FFileAttachmentDao" type="ZhiFang.DAO.NHB.Common.FFileAttachmentDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileCopyUserDao" type="ZhiFang.DAO.NHB.Common.FFileCopyUserDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileInteractionDao" type="ZhiFang.DAO.NHB.Common.FFileInteractionDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileOperationDao" type="ZhiFang.DAO.NHB.Common.FFileOperationDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileReadingLogDao" type="ZhiFang.DAO.NHB.Common.FFileReadingLogDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FFileReadingUserDao" type="ZhiFang.DAO.NHB.Common.FFileReadingUserDao,ZhiFang.DAO.NHB.Common">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--系统公用-->
+  <!--微信-->
+  <object id="BAccountTypeDao" type="ZhiFang.DAO.NHB.WeiXin.BAccountTypeDao,ZhiFang.DAO.NHB.WeiXin">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BWeiXinAccountDao" type="ZhiFang.DAO.NHB.WeiXin.BWeiXinAccountDao,ZhiFang.DAO.NHB.WeiXin">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BWeiXinEmpLinkDao" type="ZhiFang.DAO.NHB.WeiXin.BWeiXinEmpLinkDao,ZhiFang.DAO.NHB.WeiXin">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BWeiXinPushMessageTemplateDao" type="ZhiFang.DAO.NHB.WeiXin.BWeiXinPushMessageTemplateDao,ZhiFang.DAO.NHB.WeiXin">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BWeiXinUserGroupDao" type="ZhiFang.DAO.NHB.WeiXin.BWeiXinUserGroupDao,ZhiFang.DAO.NHB.WeiXin">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <!--微信-->
+
+  <object id="BParameterDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BParameterDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDictTreeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BDictTreeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDictTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BDictTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BDictDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BDictDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="CenOrgDao" type="ZhiFang.DAO.NHB.BloodTransfusion.CenOrgDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="CenOrgTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.CenOrgTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BUserUIConfigDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BUserUIConfigDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BObjectOperateDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BObjectOperateDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BObjectOperateTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BObjectOperateTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BOperateObjectTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BOperateObjectTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <!--LIS统计分析-->
+  <object id="AgeUnitDao" type="ZhiFang.DAO.NHB.BloodTransfusion.AgeUnitDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="DistrictDao" type="ZhiFang.DAO.NHB.BloodTransfusion.DistrictDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="EmployeeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.EmployeeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="EquipItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.EquipItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="EquipmentDao" type="ZhiFang.DAO.NHB.BloodTransfusion.EquipmentDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="FolkTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.FolkTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="GenderTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.GenderTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="GroupItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.GroupItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ItemRangeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.ItemRangeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ItemTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.ItemTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PGroupDao" type="ZhiFang.DAO.NHB.BloodTransfusion.PGroupDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="SampleTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.SampleTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SickTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.SickTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SuperGroupDao" type="ZhiFang.DAO.NHB.BloodTransfusion.SuperGroupDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="TestEquipDao" type="ZhiFang.DAO.NHB.BloodTransfusion.TestEquipDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="TestEquipItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.TestEquipItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="TestItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.TestItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="TestTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.TestTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="WardTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.WardTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="SAConfigModuleDao" type="ZhiFang.DAO.NHB.BloodTransfusion.SAConfigModuleDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="NRequestFormDao" type="ZhiFang.DAO.NHB.BloodTransfusion.NRequestFormDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PhraseswatchDao" type="ZhiFang.DAO.NHB.BloodTransfusion.PhraseswatchDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PhrasesWatchClassDao" type="ZhiFang.DAO.NHB.BloodTransfusion.PhrasesWatchClassDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PhrasesWatchClassItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.PhrasesWatchClassItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="LStatTotalDao" type="ZhiFang.DAO.NHB.BloodTransfusion.LStatTotalDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <!--血库系统-->
+  <object id="DepartmentUserDao" type="ZhiFang.DAO.NHB.RBAC.DepartmentUserDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="DepartmentDao" type="ZhiFang.DAO.NHB.RBAC.DepartmentDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="DoctorDao" type="ZhiFang.DAO.NHB.RBAC.DoctorDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="PUserDao" type="ZhiFang.DAO.NHB.RBAC.PUserDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BlooddocGradeDao" type="ZhiFang.DAO.NHB.RBAC.BlooddocGradeDao,ZhiFang.DAO.NHB.RBAC">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
+  <object id="SCOperationDao" type="ZhiFang.DAO.NHB.BloodTransfusion.SCOperationDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodUseTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodUseTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodUnitDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodUnitDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodstyleDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodstyleDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodLargeUseItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodLargeUseItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodLargeUseFormDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodLargeUseFormDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodClassDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodClassDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBTestItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBTestItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBReqTypeItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBReqTypeItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBReqTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBReqTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBReqItemResultDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBReqItemResultDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBReqItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBReqItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBReqFormDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBReqFormDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+    <property name="IDBloodBPreItemDao" ref="BloodBPreItemDao"/>
+  </object>
+  <object id="BloodBReqEditItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBReqEditItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="BloodUseDescDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodUseDescDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="VBloodLisResultDao" type="ZhiFang.DAO.NHB.BloodTransfusion.VBloodLisResultDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="BloodBReqFormResultDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBReqFormResultDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBUnitDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBUnitDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="BloodABODao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodABODao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBagOperationDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBagOperationDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBagOperationDtlDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBagOperationDtlDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBOutFormDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBOutFormDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBOutItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBOutItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBPreFormDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBPreFormDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBPreItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBPreItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodTransFormDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodTransFormDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodTransItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodTransItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodTransRecordTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodTransRecordTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodTransRecordTypeItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodTransRecordTypeItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodUsePlaceDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodUsePlaceDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="BloodBagABOCheckDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBagABOCheckDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBagABOCheckLisItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBagABOCheckLisItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBagProcessDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBagProcessDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBagProcessTypeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBagProcessTypeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodbagProcessTypeQryDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodbagProcessTypeQryDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBInFormDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBInFormDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBInItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBInItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodBInItemStateDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodBInItemStateDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodReasonDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodReasonDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodReceiDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodReceiDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodReceiItemDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodReceiItemDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodrefuseDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodrefuseDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodrefuseDisposeDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodrefuseDisposeDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="BloodTransOperationDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BloodTransOperationDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="NPUserDao" type="ZhiFang.DAO.NHB.BloodTransfusion.NPUserDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="BTemplateDao" type="ZhiFang.DAO.NHB.BloodTransfusion.BTemplateDao,ZhiFang.DAO.NHB.BloodTransfusion">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+</objects>
+

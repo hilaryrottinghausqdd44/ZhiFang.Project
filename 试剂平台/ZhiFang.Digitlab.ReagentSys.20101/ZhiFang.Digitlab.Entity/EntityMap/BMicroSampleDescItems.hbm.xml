@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="BMicroSampleDescItems" table="[dbo].[B_MicroSampleDescItems]">
+    <id name="Id" column="[MicroSDISID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="IsDefault" column="[IsDefault]" type="Boolean" not-null="false" length="1" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="BMicroTestItemInfo" class="BMicroTestItemInfo" >
+      <column name="[MicroTestItemInfoID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BSampleType" class="BSampleType" >
+      <column name="[SampleTypeID]" not-null="false"/>
+    </many-to-one>
+    <bag name="MEMicroSampleDescItemsResultsList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[MicroSDISID]" />
+      </key>
+      <one-to-many class="MEMicroSampleDescItemsResults"/>
+    </bag>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>报告查询程序</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/buttons.css"/>
+    <script type="text/javascript" src="echarts/esl.js"></script>
+    <script type="text/javascript" src="util/util.js"></script>
+    
+    <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="base.css"/>
+    <script type="text/javascript" src="ReportPrint/app.js"></script>
+</head>
+
+<body>
+	<!-- logo -->
+	<div style="position:absolute;width:100%;height:80px;margin:0;">
+		<img src="logo.jpg" height="100%" width="100%"/>
+	</div>
+	<!-- 列表 -->
+	<div id="grid-div" class="div" style="left:0;top:80px;overflow:hidden;">
+		<!-- 功能栏 -->
+		<div id="grid-div-toolbar" style="height:28px;width:100%;border:0;background-color:#F4F4F4;">
+			<input id="grid-div-toolbar-refresh" type="button" value="刷新" class="button" title="刷新数据" 
+				style="margin-top:2px;margin-left:4px;width:60px;height:24px;background-image:url(css/images/buttons/refresh.png);"></input>
+			
+			<span style="vertical-align:center;">核收日期:</span>
+			<input id="grid-div-toolbar-date-s" style="margin-top:2px;width:100px;height:18px;" class="Wdate" type="text" onclick="WdatePicker()"></input>
+			<span style="vertical-align:center;"> - </span>
+			<input id="grid-div-toolbar-date-e" style="margin-top:2px;width:100px;height:18px;" class="Wdate" type="text" onclick="WdatePicker()"></input>
+			
+			<input id="grid-div-toolbar-search" type="button" class="button" title="查询" 
+				style="margin-top:2px;width:24px;height:22px;background-image:url(css/images/buttons/search.png);"></input>
+		</div>
+		
+		<div id="grid-div-form" class="div" style="top:28px;width:100%;overflow:auto;float:left;">
+			<!-- 抬头行 -->
+			<div id="grid-div-head" style="top:0;height:24px;border-bottom:1px solid #cad9ea;background-color:#F4F4F4;border:0;"></div>
+			<!-- 列表内容 -->
+			<div id="grid-div-body-div" style="background-color:white;top:24px;overflow-y:scroll;">
+				<div id="grid-div-body" style="background-color:white;"></div>
+			</div>
+		</div>
+		<!-- 分页栏 -->
+		<div id="grid-div-pagingtoolbar" class="div" style="border-bottom:0;height:28px;width:100%;background-color:#F4F4F4;">
+			<input id="grid-div-pagingtoolbar-first" type="button" class="button" title="第一页" 
+				style="margin-top:2px;width:24px;height:22px;background-image:url(css/images/grid/page-first-disabled.gif);"></input>
+			<input id="grid-div-pagingtoolbar-prev" type="button" class="button" title="上一页" 
+				style="margin-top:2px;width:24px;height:22px;background-image:url(css/images/grid/page-prev-disabled.gif);"></input>
+			<input id="grid-div-pagingtoolbar-next" type="button" class="button" title="下一页" 
+				style="margin-top:2px;width:24px;height:22px;background-image:url(css/images/grid/page-next-disabled.gif);"></input>
+			<input id="grid-div-pagingtoolbar-last" type="button" class="button" title="最后页" 
+				style="margin-top:2px;width:24px;height:22px;background-image:url(css/images/grid/page-last-disabled.gif);"></input>
+			<span id="grid-div-pagingtoolbar-page" style="vertical-align:center;margin-top:5px;margin-left:15px;"> 第 <b>1</b> / <b>1</b>页 </span>
+			<span id="grid-div-pagingtoolbar-info" style="vertical-align:center;margin-top:5px;margin-left:15px;"> 共 <b>0</b> 条 </span>
+		</div>
+	</div>
+	<div id="content-chart-div" class="div" style="top:80px;overflow-y:scroll;">
+		<!-- 结果 -->
+		<div id="content-div" style="margin:2px;border:1px solid #cad9ea;"></div>
+		<!-- 图表 -->
+		<div id="chart-div" style="margin-top:22px;">
+			<!-- 功能栏 -->
+			<div id="chart-div-toolbar" style="margin:0 4px 0 4px;top:0;height:28px;width:96%;border:1px solid #cad9ea;background-color:#F4F4F4;">
+				<b style="font-size:16px;margin-left:4px;color:red">历史对比数据</b>
+				<input id="chart-div-toolbar-refresh" type="button" value="刷新" class="button" title="刷新数据" 
+					style="margin-top:2px;margin-left:4px;width:60px;height:24px;background-image:url(css/images/buttons/refresh.png);"></input>
+				
+				<span style="vertical-align:center;">核收日期:</span>
+				<input id="chart-div-toolbar-date-s" style="margin-top:2px;width:100px;height:18px;" class="Wdate" type="text" onclick="WdatePicker()"></input>
+				<span style="vertical-align:center;"> - </span>
+				<input id="chart-div-toolbar-date-e" style="margin-top:2px;width:100px;height:18px;" class="Wdate" type="text" onclick="WdatePicker()"></input>
+				
+				<input id="chart-div-toolbar-search" type="button" class="button" title="查询" 
+					style="margin-top:2px;width:24px;height:22px;background-image:url(css/images/buttons/search.png);"></input>
+			</div>
+			<!-- 图表内容 -->
+			<div id="chart-div-body" style="margin:2px 4px 10px 4px;top:26px;width:96%;height:300px;border:1px solid #cad9ea;"></div>
+		</div>
+	</div>
+</body>
+</html>

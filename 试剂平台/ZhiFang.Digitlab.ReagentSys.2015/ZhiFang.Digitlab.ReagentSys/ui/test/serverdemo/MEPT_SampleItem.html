@@ -1,0 +1,105 @@
+﻿ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>应用测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css"/>    
+    <script type="text/javascript" src="../../extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="../../extjs/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../util/util.js"></script>
+    <script type="text/javascript" src="ModelDemo.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function(){
+    	Ext.QuickTips.init();//初始化后就会激活提示功能
+    	Ext.Loader.setConfig({enabled: true});//允许动态加载
+    	
+    	var panel = Ext.create('Ext.demo.ModelDemo',{
+    		//功能名称
+    		//获取数据列表的服务地址
+    		getListUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTSampleItemByHQL',
+    		//根据ID获取一条数据信息的服务地址
+    		getInfoByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_SearchMEPTSampleItemById',
+    		//根据ID删除一条信息的服务地址
+    		deleteByIdUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_DelMEPTSampleItem',
+    		//新增一条数据的服务地址
+    		addUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_AddMEPTSampleItem',
+    		//更新一条数据的服务地址[按字段保存]
+    		updateByFieldsUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTSampleItemByField',
+    		//更新一条数据的服务地址[实体保存]
+    		updateUrl:getRootPath()+'/SingleTableService.svc/ST_UDTO_UpdateMEPTSampleItem',
+
+    		//样本单项目对象所有的字段
+    		fields:[
+    		         												 
+						{ key:'MEPTSampleItem_LabID',value:'实验室ID'}, 
+						 		     
+				     												{ key:'MEPTSampleItem_Id',value:'样本单项目ID'},						 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_SampleFromID',value:'样本单ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_ItemID',value:'项目ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_OrderItemID',value:'医嘱单项目ID'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_ReceiveFlag',value:'核收状态   默认为0，1为核收'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_ZDY1',value:'自定义1'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_ZDY2',value:'自定义2'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_ZDY3',value:'自定义3'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_ZDY4',value:'自定义4'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_ZDY5',value:'自定义5'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_DispOrder',value:'显示次序'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_DeleteFlag',value:'删除标志   默认为0，1为删除'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_TransitFlag',value:'迁移标志'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_ErrorFlag',value:'错误标志'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_DataAddTime',value:'创建时间'}, 
+						 		     
+				     												 
+						{ key:'MEPTSampleItem_DataUpdateTime',value:'数据更新时间'}, 
+						 		     
+				     												 
+						 
+						{ key:'MEPTSampleItem_DataTimeStamp',value:'时间戳'} 		     
+				     ],
+    		//对象名称
+    		objectName:'样本单项目',
+    		//主键字段
+    		key:'MEPTSampleItem_Id'
+    	});
+    	//总体布局
+    	Ext.create('Ext.container.Viewport',{
+    		padding:2,
+    		layout:'fit',
+    		items:[panel]
+    	});
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>

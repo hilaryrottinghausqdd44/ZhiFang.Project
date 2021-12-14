@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>安智-报告单查询</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="renderer" content="webkit" />
+    <!--不缓存缓存页面-->
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Cache" content="no-cache" />
+    <link href="ui/easyui/demo/demo.css" rel="stylesheet" type="text/css" />
+    <link href="ui/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="ui/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="ui/easyui/jquery-1.11.0-vsdoc.js" type="text/javascript"></script>
+    <script src="ui/easyui/jquery.min.js" type="text/javascript"></script>
+    <script src="ui/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="ui/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="ui/util/jquery.cookie.js" type="text/javascript"></script>
+    <script src="ui/util/util_Person.js" type="text/javascript"></script>
+    <script src="ui/ReportFormSelfPrint.js?11" type="text/javascript"></script>
+</head>
+<body style=" padding:0px; margin:0px; background-color:#ffffff;">
+    <table border="0" align="center" style="" cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="background-image: url(images/PersonSearch_PKI_Background_01.png); background-repeat: no-repeat;
+                background-position: top; width: 1024px; height: 329px" colspan="3"></td>
+        </tr>
+        <tr>
+            <td style="background-image: url(images/PersonSearch_PKI_Background_02.png); background-repeat: no-repeat;
+                background-position: top; width: 264px; height: 439px" rowspan="2"></td>
+            <td style="background-image: url(images/PersonSearch_PKI_Background_LoginBox.png); background-repeat: no-repeat;
+                background-position: top; width: 476px; height: 249px">
+                <table border="0" align="center" style="margin-top: 0px" height="100%" width="100%">
+                    <tr height="10">
+                        <td rowspan="4" width="7"></td>
+                        <td colspan="2"></td>
+                        <td rowspan="4" width="7"></td>
+                    </tr>
+                    <tr height="50">
+                        <td>
+                            &nbsp;&nbsp;&nbsp; <input type="text" id="BarcodeTxt" value="" style="width: 280px; height: 37px; border:0px;margin-top:100px" /><input type="hidden" id="ClienNo" value="20280676" />
+                        </td>
+                        <td>
+                            <input type="button" id="Searchbtn" value="查   询" style="background-image: url(images/PersonSearch_PKI_Background_LoginButton.png); background-repeat: no-repeat;
+                background-position: top; width: 96px; height: 37px; border:0px; font-size :large; color:#ffffff" />
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2" align="left">
+                            <div id="ReportRormPrintResult" style="top:10px"></div>
+                        </td>
+                    </tr>
+                    <tr height="10">
+                        <td colspan="2"></td>
+                    </tr>
+                </table>
+            </td>
+            <td style="background-image: url(images/PersonSearch_PKI_Background_03.png); background-repeat: no-repeat;
+                background-position: top; width: 284px; height: 439px" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td style="background-image: url(images/PersonSearch_PKI_Background_04.png); background-repeat: no-repeat;
+                background-position: top; width: 476px; height: 190px"></td>
+        </tr>
+    </table>
+    <div id="iframe-div"></div>
+</body>
+</html>

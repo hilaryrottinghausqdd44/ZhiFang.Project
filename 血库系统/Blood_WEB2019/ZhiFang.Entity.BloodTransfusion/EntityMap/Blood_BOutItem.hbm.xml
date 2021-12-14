@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Entity.BloodTransfusion" assembly="ZhiFang.Entity.BloodTransfusion">
+  <class name="BloodBOutItem" table="[dbo].[Blood_BOutItem]">
+    <id name="Id" column="[BOutItemID]" type="String">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+
+    <property name="BBagCode" column="[BBagCode]" type="String" not-null="false" length="50" />
+    <property name="Pcode" column="[Pcode]" type="String" not-null="false" length="50" />
+    <property name="BBagExCode" column="[BBagExCode]" type="String" not-null="false" length="20" />
+    <property name="InvalidDate" column="[InvalidDate]" type="DateTime" not-null="false" length="8" />
+    <property name="CollectDate" column="[CollectDate]" type="DateTime" not-null="false" length="8" />
+    <property name="BOutCount" column="[BOutCount]" type="Double" not-null="false" length="8" />
+    <property name="CheckFlag" column="[CheckFlag]" type="Int32" not-null="false" length="4" />
+    <property name="BINo" column="[BI_No]" type="String" not-null="false" length="20" />
+    <property name="Memo" column="[Memo]" type="String" not-null="false" length="500" />
+    <property name="ZX1" column="[ZX1]" type="String" not-null="false" length="50" />
+    <property name="ZX2" column="[ZX2]" type="String" not-null="false" length="50" />
+    <property name="ZX3" column="[ZX3]" type="String" not-null="false" length="50" />
+    <property name="BODate" column="[BODate]" type="DateTime" not-null="false" length="8" />
+    <property name="OutFlag" column="[OutFlag]" type="Int32" not-null="false" length="4" />
+    <property name="Price" column="[Price]" type="Decimal" not-null="false" length="9" />
+    <property name="IsCharge" column="[isCharge]" type="Int32" not-null="false" length="4" />
+    <property name="BPreFormID" column="[BPreFormID]" type="String" not-null="false" length="50" />
+
+    <property name="BinItemID" column="[BinItemID]" type="String" not-null="false" length="50" />
+    <property name="BCNo" column="[BCNo]" type="String" not-null="false" length="20" />
+    <!--<property name="GetBloodId" column="[GetBloodId]" type="String" not-null="false" length="20" />
+    <property name="IsBloodAdverse" column="[IsBloodAdverse]" type="Int32" not-null="false" length="4" />
+    <property name="BloodInfusionStartTime" column="[BloodInfusionStartTime]" type="DateTime" not-null="false" length="8" />
+    <property name="BloodInfusionEndTime" column="[BloodInfusionEndTime]" type="DateTime" not-null="false" length="8" />
+    <property name="BloodAdverseInputNo" column="[BloodAdverseInputNo]" type="String" not-null="false" length="20" />
+    <property name="BloodAdverseInputName" column="[BloodAdverseInputName]" type="String" not-null="false" length="20" />
+    <property name="BloodAdverseInputTime" column="[BloodAdverseInputTime]" type="DateTime" not-null="false" length="8" />
+    <property name="ToHisFlag" column="[toHisFlag]" type="Int32" not-null="false" length="4" />
+    <property name="BloodoC" column="[bloodoC]" type="String" not-null="false" length="20" />
+    <property name="OKNo" column="[OKNo]" type="String" not-null="false" length="20" />
+    <property name="BPreItemId" column="[BPreItemId]" type="String" not-null="false" length="20" />
+    <property name="UsePlaceId" column="[UsePlaceId]" type="String" not-null="false" length="20" />
+    <property name="Zlxmbm" column="[zlxmbm]" type="String" not-null="false" length="50" />
+    <property name="OrderFlag" column="[OrderFlag]" type="String" not-null="false" length="20" />
+    <property name="BloodAdverseCheckNo" column="[BloodAdverseCheckNo]" type="String" not-null="false" length="20" />
+    <property name="BloodAdverseCheckName" column="[BloodAdverseCheckName]" type="String" not-null="false" length="20" />
+    <property name="BloodAdverseCheckTime" column="[BloodAdverseCheckTime]" type="String" not-null="false" length="20" />
+    <property name="Outputno" column="[Output_no]" type="String" not-null="false" length="100" />
+    <property name="BloodAdverseDemo" column="[BloodAdverseDemo]" type="String" not-null="false" length="500" />
+    <property name="BnrNo" column="[BnrNo]" type="String" not-null="false" length="20" />
+    <property name="ScanID" column="[ScanID]" type="String" not-null="false" length="20" />
+    <property name="ScanTime" column="[ScanTime]" type="String" not-null="false" length="20" />-->
+    <property name="LabID" column="[LabID]" type="Int64" not-null="false" length="8" />
+    <property name="DispOrder" column="[DispOrder]" type="Int32" not-null="false" length="4" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <property name="Visible" column="[Visible]" type="Boolean" not-null="false" length="1" />
+    <property name="ConfirmCompletion" column="[ConfirmCompletion]" type="Int32" not-null="false" length="4" />
+    <property name="HandoverCompletion" column="[HandoverCompletion]" type="Int32" not-null="false" length="4" />
+    <property name="CourseCompletion" column="[CourseCompletion]" type="Int32" not-null="false" length="4" />
+    <property name="RecoverCompletion" column="[RecoverCompletion]" type="Int32" not-null="false" length="4" />
+    <property name="B3Code" column="[B3Code]" type="String" not-null="false" length="50" />
+    <!--<property name="BagChargeFlag1" column="[BagChargeFlag1]" type="String" not-null="false" length="10" />
+    <property name="BagChargeFlag2" column="[BagChargeFlag2]" type="String" not-null="false" length="10" />
+    <property name="BagChargeFlag3" column="[BagChargeFlag3]" type="String" not-null="false" length="10" />
+    <property name="BagChargeFlag4" column="[BagChargeFlag4]" type="String" not-null="false" length="10" />
+    <property name="BagChargeFlag5" column="[BagChargeFlag5]" type="String" not-null="false" length="10" />
+    <property name="IFlag1" column="[IFlag1]" type="String" not-null="false" length="5" />
+    <property name="IFlag2" column="[IFlag2]" type="String" not-null="false" length="5" />
+    <property name="IFlag3" column="[IFlag3]" type="String" not-null="false" length="5" />
+    <property name="IFlag4" column="[IFlag4]" type="String" not-null="false" length="5" />
+    <property name="IFlag5" column="[IFlag5]" type="String" not-null="false" length="5" />
+    <property name="IFlag6" column="[IFlag6]" type="String" not-null="false" length="5" />
+    <property name="IFlag7" column="[IFlag7]" type="String" not-null="false" length="5" />
+    <property name="IFlag8" column="[IFlag8]" type="String" not-null="false" length="5" />
+    <property name="IFlag9" column="[IFlag9]" type="String" not-null="false" length="5" />
+    <property name="IFlag10" column="[IFlag10]" type="String" not-null="false" length="5" />-->
+
+    <!--<property name="BloodUnitNo" column="[BloodUnitNo]" type="String" not-null="false" length="20" />
+    <property name="BReqItemID" column="[BReqItemID]" type="String" not-null="false" length="20" />-->
+    
+    <many-to-one name="BloodBReqItem" class="BloodBReqItem" lazy="proxy" >
+      <column name="[BReqItemID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodBUnit" class="BloodBUnit" lazy="proxy" >
+      <column name="[BloodUnitNo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodBOutForm" class="BloodBOutForm" lazy="proxy" >
+      <column name="[BOutFormID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodUsePlace" class="BloodUsePlace" lazy="proxy" >
+      <column name="[BloodinPlaceID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="Bloodstyle" class="Bloodstyle" lazy="proxy" >
+      <column name="[BloodNo]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="BloodABO" class="BloodABO" lazy="proxy" >
+      <column name="[BloodABONo]" not-null="false"/>
+    </many-to-one>
+
+  </class>
+</hibernate-mapping>

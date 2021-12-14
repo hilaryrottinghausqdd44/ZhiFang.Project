@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../util/common.js"></script>
+    <script type="text/javascript" src="order.js"></script>
+</head>
+<body class="easyui-layout" >
+<!-- 网页打印 -->
+<object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+    <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="/ui/util/print/resources/install_lodop32.exe"></embed>
+</object>
+
+<!--查询和工具栏-->
+<div data-options="region:'north'" style="height: 60px;padding-top: 4px;background: #eeeeee" border="false">
+    <div style="padding-left: 2px">
+        创单时间:
+        <input id="startDate" type="text" class="easyui-datebox" style="width: 94px">
+        -
+        <input id="endDate" type="text" class="easyui-datebox" style="width: 94px">
+        单据状态:
+        <select id="orderStatue" type="text" class="easyui-combobox" name="orderStatue" style="width: 70px"
+                data-options="panelHeight:70">
+            <option value="0">全部</option>
+            <option value="1">未打印</option>
+            <option value="2">已打印</option>
+        </select>
+        订单号:
+        <input id="orderNO" type="text" class="easyui-textbox" style="width: 100px">
+        创单人:
+        <input id="orderMan" type="text" class="easyui-textbox" style="width: 100px">
+    </div>
+
+    <div style="margin-top: 5px;padding-left: 2px">
+        <a id="ltnSearch" href="javascript:void(0)" class="easyui-linkbutton" onclick="searchOrder()" iconCls="icon-search" plain="true">查询</a>
+        <a id="ltnAdd" href="javascript:void(0)" class="easyui-linkbutton" onclick="addOrder()" iconCls="icon-add" plain="true">新增</a>
+        <a id='ltnRemark' href="javascript:void(0)" class="easyui-linkbutton" onclick="editRemarks()" iconCls="icon-edit" plain="true" data-options="toggle:true">修改备注</a>
+        <a id="ltnPrint" href="javascript:void(0)" class="easyui-linkbutton" onclick="printOrder()" iconCls="icon-print" plain="true">打印</a>
+        <a id="lbnDel" href="javascript:void(0)" class="easyui-linkbutton" onclick="delOrder()" iconCls="icon-remove" plain="true">删除订单</a>
+        <a id="lbnConfirm" href="javascript:void(0)" class="easyui-linkbutton" onclick="confirm()" iconCls="icon-accept" plain="true">确认</a>
+    </div>
+</div>
+
+<!--订单列表-->
+<div data-options="region:'west',split:true,border:false" style="width: 500px" >
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'center'" border="true">
+            <table id="tbOrder"></table>
+        </div>
+
+        <!--备注-->
+        <div data-options="region:'south',split:false,title:'备注',collapsible:true" style="height: 170px">
+            <div id="divText">
+                <textarea id="txtRemarks" readonly="readonly" style="width:99.1%;height:134.99px;
+            background-color: #E8E8E8;border-style: none;resize: none;"></textarea>
+            </div>
+            <div id="divBtn" style="text-align: right;padding-top: 3px;border: 1px solid lightblue;
+            padding-right: 5px;background: #eeeeee;display: none">
+                <a id="ltnSave" style="height: 28px;" href="javascript:void(0)" class="easyui-linkbutton" onclick="saveOrder()" iconCls="icon-save">保存</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--条码列表和项目列表-->
+<div data-options="region:'center',border:false">
+    <div class="easyui-layout" data-options="fit:true" >
+        <!--条码列表-->
+        <div data-options="region:'center'" border="true">
+            <table id="tbBarcode"></table>
+        </div>
+
+        <!--项目列表-->
+        <div data-options="region:'south',split:true,title:'项目列表',collapsible:true" style="height: 250px;">
+            <table id="tbItems"></table>
+        </div>
+    </div>
+</div>
+
+<!--新增窗口-->
+<div id="winAdd" class="easyui-dialog" data-options="modal:true,collapsible:true,minimizable:true,maximizable:true" closed="true" >
+    <iframe id="ifmAdd" style="width: 100%;height: 100%;" frameborder="0"></iframe>
+</div>
+</body>
+</html>

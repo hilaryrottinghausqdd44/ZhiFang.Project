@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="Cache-Control" content="no-cache">
+    <script type="text/javascript">
+        //加载版本号文件
+        document.write("<script type='text/javascript' src='../../../../config/version.js?t=" + new Date().getTime() + "'><\/script>");
+    </script>
+	<script type="text/javascript">
+	    UIVersion.getCSS("../../css/layui.sm.all.css");
+	</script>
+    <style>
+       .myStyle{font-size: 12px!important;}
+	   .layui-form-item .layui-inline{margin-bottom: 0px!important;}
+    </style>
+</head>
+<body class="myStyle">
+	<div class="layui-col-xs12">
+		<div class="layui-row">
+			<div class="layui-col-xs12">
+				<div class="layui-collapse">
+					<div class="layui-colla-item">
+						<h2 class="layui-colla-title" style="height:36px;line-height:36px;">智能审核前提条件</h2>
+						<div class="layui-colla-content" style="padding: 10px 5px;">
+							<div class="layui-row">
+								<div class="layui-col-xs6">
+									<fieldset class="layui-elem-field">
+										<legend style="color:#000;"><i class='layui-icon layui-icon-ok-circle' style='font-size:14px;color:blue;'></i>检验单基本信息存在</legend>
+										<div class="layui-field-box">
+											<div>病人基本信息存在：姓名，性别</div>
+											<div>样本基本信息存在：样本类型</div>
+										</div>
+									</fieldset>
+								</div>
+								<div class="layui-col-xs6">
+									<fieldset class="layui-elem-field">
+										<legend style="color:#000;"><i class='layui-icon layui-icon-vercode' style='font-size: 14px; color: green;'></i>项目检测完成</legend>
+										<div class="layui-field-box">
+											<div>存在检验项目</div>
+											<div>项目检验完成：项目都有报告值</div>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-xs12">
+				<div class="layui-tab layui-tab-brief my-tab-brief" lay-filter="judge_Tab" id="judge_Tab">
+					<ul class="layui-tab-title" id="judge_tab_title"></ul>
+					<div class="layui-tab-content" id="judge_tab_content" style="margin-left: 14px;height: 218px;overflow-y:auto;"></div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-btn-group" style="text-align:right;margin-right: 10px;display: block;">
+			<button type="button" id="initializebut" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe64a;</i>&nbsp;采用出厂设置</button>
+			<button type="button" id="judgesavebut" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe713;</i>&nbsp;保存为默认设置</button>
+			<button type="button" id="judgesavesectionbut" class="layui-btn layui-btn-xs"><i class="iconfont">&#xe713;</i>&nbsp;保存为小组设置</button>
+			<button type="button" id="judgedelsectionbut" class="layui-btn layui-btn-xs layui-btn-warm layui-hide"><i class="layui-icon">&#xe640;</i>&nbsp;清除小组设置</button>
+		</div>
+	</div>    
+    <script type="text/javascript">
+        UIVersion.loadLayui();
+        UIVersion.getJS('judge.js');
+    </script>
+</body>
+</html>

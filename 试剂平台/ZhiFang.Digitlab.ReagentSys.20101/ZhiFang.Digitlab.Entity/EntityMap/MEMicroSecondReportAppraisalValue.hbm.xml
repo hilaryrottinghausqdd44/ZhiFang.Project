@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ZhiFang.Digitlab.Entity" assembly="ZhiFang.Digitlab.Entity">
+  <class name="MEMicroSecondReportAppraisalValue" table="[dbo].[ME_MicroSecondReportAppraisalValue]">
+    <id name="Id" column="[AppraisalValueID]" type="Int64">
+      <generator class="assigned" />
+    </id>
+    <version name="DataTimeStamp" column="[DataTimeStamp]" type="BinaryBlob" generated="always" unsaved-value="null" />
+    <property name="LabID" column="[LabID]" type="Int64" not-null="true" length="8" />
+    <property name="EmpName" column="[EmpName]" type="String" not-null="false" length="60" />
+    <property name="AppraisalResult" column="[AppraisalResult]" type="Int64" not-null="false" length="8" />
+    <property name="IsReport" column="[isReport]" type="Boolean" not-null="false" length="1" />
+    <property name="ResultComment" column="[ResultComment]" type="String" not-null="false" length="16" />
+    <property name="DataAddTime" column="[DataAddTime]" type="DateTime" not-null="false" length="8" />
+    <property name="DataUpdateTime" column="[DataUpdateTime]" type="DateTime" not-null="false" length="8" />
+    <many-to-one name="BMicro" class="BMicro" >
+      <column name="[MicroID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="HREmployee" class="HREmployee" >
+      <column name="[EmpID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEGroupSampleForm" class="MEGroupSampleForm" >
+      <column name="[GroupSampleFormID]" not-null="false"/>
+    </many-to-one>
+    <many-to-one name="MEMicroThreeReport" class="MEMicroThreeReport" >
+      <column name="[ThreeReportID]" not-null="false"/>
+    </many-to-one>
+    <bag name="MEMicroSecondReportDSTValueList" inverse="true" cascade="all-delete-orphan" lazy="true">
+      <key>
+        <column name="[AppraisalValueID]" />
+      </key>
+      <one-to-many class="MEMicroSecondReportDSTValue"/>
+    </bag>
+  </class>
+</hibernate-mapping>

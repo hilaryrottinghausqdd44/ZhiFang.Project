@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!--数据分类查询:条件定义-->
+<Tables>
+  <Table EName="检验项目结果">
+    <Query WhereClause="" SQL="((datepart(year,[VIEW_ReportItemFull].[CHECKDATE])=datepart(year,getdate()))and (datepart(month,[VIEW_ReportItemFull].[CHECKDATE])=datepart(month,getdate()))and (datepart(week,[VIEW_ReportItemFull].[CHECKDATE])=datepart(week,getdate())))" Descr="">本周结果</Query>
+    <Query WhereClause="" SQL="(DATEPART(year,[VIEW_ReportItemFull].[CHECKDATE]) = DATEPART(year,getdate()) and DATEPART(month,[VIEW_ReportItemFull].[CHECKDATE]) = DATEPART(month,getdate()) and DATEPART(DAY,[VIEW_ReportItemFull].[CHECKDATE]) = DATEPART(DAY,getdate())-1)" Descr="">昨天结果</Query>
+    <Query WhereClause="" SQL="(DATEPART(year,[VIEW_ReportItemFull].[CHECKDATE]) = DATEPART(year,getdate()) and DATEPART(month,[VIEW_ReportItemFull].[CHECKDATE]) = DATEPART(month,getdate()) and DATEPART(DAY,[VIEW_ReportItemFull].[CHECKDATE]) = DATEPART(DAY,getdate()))" Descr="">今日结果</Query>
+  </Table>
+</Tables>
